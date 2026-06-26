@@ -118,3 +118,87 @@ export const TIER_COLORS = {
   '稳': { bg: '#FFF2CC', text: '#B45309' },
   '保': { bg: '#E2EFDA', text: '#2F5233' },
 };
+
+// 专业类别定义
+export interface MajorCategory {
+  id: string;
+  name: string;
+  icon: string;
+  color: string;
+  keywords: string[];
+}
+
+export const MAJOR_CATEGORIES: MajorCategory[] = [
+  {
+    id: 'cs',
+    name: '计算机类',
+    icon: '💻',
+    color: 'from-blue-500 to-cyan-500',
+    keywords: ['计算机', '软件', '人工智能', '大数据', '数据科学', '网络工程', '信息安全', '物联网', '智能',
+               '理工', '工业', '科技', '电子', '信息', '邮电', '通信', '航空航天', '航天', '工程'],
+  },
+  {
+    id: 'ee',
+    name: '电子信息类',
+    icon: '📡',
+    color: 'from-purple-500 to-pink-500',
+    keywords: ['电子', '通信', '信息工程', '微电子', '集成电路', '光电', '自动化', '电信',
+               '邮电', '理工', '工业', '科技', '航空航天', '航天', '工程'],
+  },
+  {
+    id: 'edu',
+    name: '师范类',
+    icon: '📚',
+    color: 'from-green-500 to-emerald-500',
+    keywords: ['师范', '教育', '教学'],
+  },
+  {
+    id: 'elec',
+    name: '电气类',
+    icon: '⚡',
+    color: 'from-yellow-500 to-orange-500',
+    keywords: ['电气', '电力', '电工', '能源与动力', '新能源', '发电', '电网',
+               '理工', '工业', '科技', '工程', '交通'],
+  },
+  {
+    id: 'med',
+    name: '医学类',
+    icon: '🏥',
+    color: 'from-red-500 to-rose-500',
+    keywords: ['医学', '临床', '口腔', '药学', '护理', '中医', '公共卫生', '预防医学', '医科', '中医药', '医'],
+  },
+  {
+    id: 'fin',
+    name: '经管类',
+    icon: '📊',
+    color: 'from-indigo-500 to-violet-500',
+    keywords: ['经济', '金融', '会计', '管理', '工商', '市场营销', '国际贸易', '财政', '税务',
+               '财经', '商业', '经贸'],
+  },
+  {
+    id: 'law',
+    name: '法学类',
+    icon: '⚖️',
+    color: 'from-amber-500 to-yellow-500',
+    keywords: ['法学', '法律', '政治', '社会学', '公安', '侦查', '政法'],
+  },
+  {
+    id: 'art',
+    name: '文科综合',
+    icon: '🎭',
+    color: 'from-pink-500 to-rose-500',
+    keywords: ['文学', '新闻', '传播', '历史', '哲学', '外语', '翻译', '汉语言',
+               '师范', '语言', '财经', '政法', '文科', '综合'],
+  },
+];
+
+// 根据院校专业组名称匹配专业类别
+export function matchMajorCategories(schoolName: string): string[] {
+  const matched: string[] = [];
+  for (const category of MAJOR_CATEGORIES) {
+    if (category.keywords.some(kw => schoolName.includes(kw))) {
+      matched.push(category.id);
+    }
+  }
+  return matched;
+}

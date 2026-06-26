@@ -1,5 +1,5 @@
 import * as XLSX from 'xlsx';
-import { getRefScore, getTier, getRecommendationReason } from './dataUtils';
+import { getRefScore, getTier, getRecommendationReason, matchMajorCategories } from './dataUtils';
 import type { SchoolScore, MajorRecommendation } from './dataUtils';
 import { generateMajorRecommendations, formatMajorSuggestion } from './majorRecommender';
 
@@ -95,7 +95,8 @@ export function filterSchools(
   subject: number,
   totalVolunteers: number = 30,
   selectedLevels: string[] = [],
-  selectedProvinces: string[] = []
+  selectedProvinces: string[] = [],
+  selectedMajorCategories: string[] = []
 ): VolunteerResult[] {
   // 按科目筛选
   let filtered = schools.filter(s => s.subject === subject);
@@ -108,6 +109,14 @@ export function filterSchools(
   // 按省份筛选
   if (selectedProvinces.length > 0) {
     filtered = filtered.filter(s => selectedProvinces.includes(s.province));
+  }
+  
+  // 按专业类别筛选
+  if (selectedMajorCategories.length > 0) {
+    filtered = filtered.filter(s => {
+      const categories = matchMajorCategories(s.name);
+      return selectedMajorCategories.some(cat => categories.includes(cat));
+    });
   }
   
   // 按分数范围筛选（任一年份在范围内即可）

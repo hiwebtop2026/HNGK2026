@@ -3,12 +3,13 @@ import type { SchoolScore, VolunteerResult } from '../utils/volunteerUtils';
 
 interface AppState {
   // 输入参数
-  baseScore: number;
+  baseScore: number | null;
   scoreRange: number;
   subject: number;
   totalVolunteers: number;
   selectedLevels: string[];
   selectedProvinces: string[];
+  selectedMajorCategories: string[];
   
   // 数据状态
   schoolData: SchoolScore[];
@@ -19,12 +20,13 @@ interface AppState {
   results: VolunteerResult[];
   
   // 操作方法
-  setBaseScore: (score: number) => void;
+  setBaseScore: (score: number | null) => void;
   setScoreRange: (range: number) => void;
   setSubject: (subject: number) => void;
   setTotalVolunteers: (count: number) => void;
   toggleLevel: (level: string) => void;
   toggleProvince: (province: string) => void;
+  toggleMajorCategory: (categoryId: string) => void;
   clearAllProvinces: () => void;
   selectAllProvinces: () => void;
   toggleRegion: (provinces: string[]) => void;
@@ -37,12 +39,13 @@ interface AppState {
 
 export const useAppStore = create<AppState>((set, get) => ({
   // 默认值
-  baseScore: 603,
+  baseScore: null,
   scoreRange: 15,
   subject: 54,
   totalVolunteers: 30,
   selectedLevels: ['985', '211', '双一流', '普通本科'],
   selectedProvinces: [],
+  selectedMajorCategories: [],
   
   // 数据状态
   schoolData: [],
@@ -73,6 +76,14 @@ export const useAppStore = create<AppState>((set, get) => ({
       set({ selectedProvinces: [...current, province] });
     }
   },
+  toggleMajorCategory: (categoryId) => {
+    const current = get().selectedMajorCategories;
+    if (current.includes(categoryId)) {
+      set({ selectedMajorCategories: current.filter(c => c !== categoryId) });
+    } else {
+      set({ selectedMajorCategories: [...current, categoryId] });
+    }
+  },
   clearAllProvinces: () => set({ selectedProvinces: [] }),
   selectAllProvinces: () => {
     const { schoolData } = get();
@@ -94,12 +105,13 @@ export const useAppStore = create<AppState>((set, get) => ({
   setError: (error) => set({ error: error }),
   setResults: (results) => set({ results: results }),
   reset: () => set({
-    baseScore: 603,
+    baseScore: null,
     scoreRange: 15,
     subject: 54,
     totalVolunteers: 30,
     selectedLevels: ['985', '211', '双一流', '普通本科'],
     selectedProvinces: [],
+    selectedMajorCategories: [],
     results: [],
     error: null,
   }),
