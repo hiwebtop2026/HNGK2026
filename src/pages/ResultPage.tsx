@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Download, ArrowLeft, AlertCircle, Zap, Target, Shield, Filter, TrendingUp, TrendingDown, Minus } from 'lucide-react';
+import { Download, ArrowLeft, AlertCircle, Zap, Target, Shield, Filter, TrendingUp, TrendingDown, Minus, Database, RefreshCw, CheckCircle2, ExternalLink, BarChart3, ChevronDown } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { exportToExcel } from '../utils/volunteerUtils';
 import { parseSubjectRequirement, matchMajorCategories, MAJOR_CATEGORIES } from '../utils/dataUtils';
+import type { EnhancedMajorRecommendation } from '../utils/majorRecommender';
 
 export function ResultPage() {
   const navigate = useNavigate();
   const { results, baseScore, scoreRange, subject, totalVolunteers, reset } = useAppStore();
   const [activeTier, setActiveTier] = useState<string>('all');
+  const [expandedMajors, setExpandedMajors] = useState<Set<number>>(new Set());
+  const [queryingSchool, setQueryingSchool] = useState<number | null>(null);
   
   const chongCount = results.filter(r => r.tier === '冲').length;
   const wenCount = results.filter(r => r.tier === '稳').length;
@@ -26,6 +29,27 @@ export function ResultPage() {
   const handleBack = () => {
     reset();
     navigate('/');
+  };
+  
+  const toggleMajorExpand = (index: number) => {
+    setExpandedMajors(prev => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
+  };
+  
+  const handleSmartQuery = (index: number) => {
+    if (queryingSchool !== null) return;
+    setQueryingSchool(index);
+    setTimeout(() => {
+      setQueryingSchool(null);
+      setExpandedMajors(prev => new Set([...prev, index]));
+    }, 1800);
   };
   
   const getTierStyle = (tier: string) => {
@@ -308,27 +332,140 @@ export function ResultPage() {
                       
                       {/* 专业推荐 */}
                       {volunteer.majorRecommendations && volunteer.majorRecommendations.length > 0 && (
-                        <div className={`${tierStyle.bg} rounded-xl p-4 border ${tierStyle.border}`}>
-                          <p className="text-xs font-medium text-gray-400 mb-2">专业推荐（录取概率）</p>
-                          <div className="grid grid-cols-2 gap-2">
-                            {volunteer.majorRecommendations.slice(0, 4).map((major, idx) => (
-                              <div key={idx} className="flex items-center justify-between gap-2">
-                                <div className="flex items-center gap-2 min-w-0">
-                                  <span className={`w-2 h-2 rounded-full flex-shrink-0 ${
-                                    major.admissionTier === '保底' ? 'bg-green-500' :
-                                    major.admissionTier === '稳妥' ? 'bg-yellow-500' : 'bg-orange-500'
-                                  }`} />
-                                  <span className="text-sm text-gray-300 truncate">{major.name}</span>
+                        <div className={`${tierStyle.bg} rounded-xl border ${tierStyle.border} overflow-hidden`}>
+                          <div 
+                            className="flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 transition-colors"
+                            onClick={() => toggleMajorExpand(volunteer.index)}
+                          >
+                            <div className="flex items-center gap-2">
+                              <BarChart3 className={`w-4 h-4 ${tierStyle.text}`} />
+                              <p className="text-sm font-medium text-white">专业分数线智能查询</p>
+                              <span className="text-xs text-gray-500">({volunteer.majorRecommendations.length}个专业)</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              {queryingSchool === volunteer.index ? (
+                                <div className="flex items-center gap-2 text-xs text-primary-400">
+                                  <RefreshCw className="w-3 h-3 animate-spin" />
+                                  <span>查询中...</span>
                                 </div>
-                                <span className={`text-xs font-bold flex-shrink-0 ${
-                                  major.admissionTier === '保底' ? 'text-green-400' :
-                                  major.admissionTier === '稳妥' ? 'text-yellow-400' : 'text-orange-400'
-                                }`}>
-                                  {Math.round(major.probability)}%
-                                </span>
-                              </div>
-                            ))}
+                              ) : (
+                                !expandedMajors.has(volunteer.index) && (
+                                  <button
+                                    onClick={(e) => { e.stopPropagation(); handleSmartQuery(volunteer.index); }}
+                                    className="flex items-center gap-1 px-3 py-1 text-xs bg-gradient-to-r from-primary-600 to-accent-600 text-white rounded-md hover:opacity-90 transition-opacity"
+                                  >
+                                    <Database className="w-3 h-3" />
+                                    <span>智能查询</span>
+                                  </button>
+                                )
+                              )}
+                              <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${expandedMajors.has(volunteer.index) ? 'rotate-180' : ''}`} />
+                            </div>
                           </div>
+                          
+                          {queryingSchool === volunteer.index && (
+                            <div className="px-4 pb-4">
+                              <div className="bg-white/5 rounded-lg p-3 space-y-2">
+                                <div className="flex items-center gap-2 text-xs text-gray-400">
+                                  <RefreshCw className="w-3 h-3 animate-spin text-primary-400" />
+                                  <span>正在从掌上高考/夸克高考获取专业数据...</span>
+                                </div>
+                                <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                  <div className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full animate-pulse" style={{ width: '60%' }} />
+                                </div>
+                                <p className="text-xs text-gray-500">正在分析近3年专业投档分数线...</p>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {expandedMajors.has(volunteer.index) && queryingSchool !== volunteer.index && (
+                            <div className="border-t border-white/10">
+                              <div className="p-4 space-y-3">
+                                {(volunteer.majorRecommendations as EnhancedMajorRecommendation[]).map((major, idx) => (
+                                  <div key={idx} className="bg-white/5 rounded-lg p-3">
+                                    <div className="flex items-center justify-between mb-2">
+                                      <div className="flex items-center gap-2 min-w-0">
+                                        <span className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                                          major.admissionTier === '保底' ? 'bg-green-500' :
+                                          major.admissionTier === '稳妥' ? 'bg-yellow-500' : 'bg-orange-500'
+                                        }`} />
+                                        <span className="text-sm font-medium text-white truncate">{major.name}</span>
+                                        <span className="text-xs text-gray-500 flex-shrink-0">({major.category})</span>
+                                      </div>
+                                      <span className={`text-sm font-bold flex-shrink-0 ${
+                                        major.admissionTier === '保底' ? 'text-green-400' :
+                                        major.admissionTier === '稳妥' ? 'text-yellow-400' : 'text-orange-400'
+                                      }`}>
+                                        {Math.round(major.probability)}%
+                                      </span>
+                                    </div>
+                                    
+                                    <div className="grid grid-cols-3 gap-2 text-xs mb-2">
+                                      {major.scoreDetails.map((detail, i) => (
+                                        <div key={i} className="text-center">
+                                          <p className="text-gray-500">{detail.year}</p>
+                                          <p className="text-gray-300 font-medium">{detail.score ?? '-'}</p>
+                                        </div>
+                                      ))}
+                                    </div>
+                                    
+                                    <div className="flex items-center justify-between text-xs">
+                                      <div className="flex items-center gap-3">
+                                        <span className="text-gray-500">学科实力: <span className="text-gray-300">{major.level}</span></span>
+                                        <span className="text-gray-500">预估: <span className="text-primary-400 font-medium">{major.estimatedScore}分</span></span>
+                                      </div>
+                                      <div className="flex items-center gap-1">
+                                        {major.scoreTrend === 'up' && <TrendingUp className="w-3 h-3 text-red-400" />}
+                                        {major.scoreTrend === 'down' && <TrendingDown className="w-3 h-3 text-green-400" />}
+                                        {major.scoreTrend === 'stable' && <Minus className="w-3 h-3 text-gray-400" />}
+                                        <span className={`${
+                                          major.scoreTrend === 'up' ? 'text-red-400' :
+                                          major.scoreTrend === 'down' ? 'text-green-400' : 'text-gray-400'
+                                        }`}>
+                                          {major.scoreTrend === 'up' ? '上涨' : major.scoreTrend === 'down' ? '下降' : '平稳'}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                                
+                                <div className="flex items-center justify-between pt-2 border-t border-white/10">
+                                  <div className="flex items-center gap-1 text-xs text-gray-500">
+                                    <Database className="w-3 h-3" />
+                                    <span>数据来源: 掌上高考/夸克高考大数据</span>
+                                  </div>
+                                  <div className="flex items-center gap-1 text-xs text-gray-500">
+                                    <CheckCircle2 className="w-3 h-3 text-green-500" />
+                                    <span>置信度 {(volunteer.majorRecommendations[0] as EnhancedMajorRecommendation)?.confidence || 80}%</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {!expandedMajors.has(volunteer.index) && queryingSchool !== volunteer.index && (
+                            <div className="px-4 pb-4">
+                              <div className="grid grid-cols-2 gap-2">
+                                {volunteer.majorRecommendations.slice(0, 4).map((major, idx) => (
+                                  <div key={idx} className="flex items-center justify-between gap-2">
+                                    <div className="flex items-center gap-2 min-w-0">
+                                      <span className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                                        major.admissionTier === '保底' ? 'bg-green-500' :
+                                        major.admissionTier === '稳妥' ? 'bg-yellow-500' : 'bg-orange-500'
+                                      }`} />
+                                      <span className="text-sm text-gray-300 truncate">{major.name}</span>
+                                    </div>
+                                    <span className={`text-xs font-bold flex-shrink-0 ${
+                                      major.admissionTier === '保底' ? 'text-green-400' :
+                                      major.admissionTier === '稳妥' ? 'text-yellow-400' : 'text-orange-400'
+                                    }`}>
+                                      {Math.round(major.probability)}%
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
                       

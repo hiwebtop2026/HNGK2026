@@ -155,7 +155,7 @@ export function filterSchools(
   let index = 1;
   
   for (const s of chong.slice(0, chongCount)) {
-    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore);
+    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
     result.push({
       index,
       tier: s.tier,
@@ -176,7 +176,7 @@ export function filterSchools(
   }
   
   for (const s of wen.slice(0, wenCount)) {
-    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore);
+    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
     result.push({
       index,
       tier: s.tier,
@@ -197,7 +197,7 @@ export function filterSchools(
   }
   
   for (const s of bao.slice(0, baoCount)) {
-    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore);
+    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
     result.push({
       index,
       tier: s.tier,
