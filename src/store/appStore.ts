@@ -21,6 +21,7 @@ interface AppState {
     score: number | null;
     rank: number | null;
     percentile: number | null;
+    totalCandidates: number | null;
     year2025: number | null;
     year2024: number | null;
     year2023: number | null;
@@ -66,14 +67,15 @@ export const useAppStore = create<AppState>((set, get) => ({
   
   // 一分一段数据
   rankInfo: {
-    score: null,
-    rank: null,
-    percentile: null,
-    year2025: null,
-    year2024: null,
-    year2023: null,
-    isQuerying: false,
-  },
+      score: null,
+      rank: null,
+      percentile: null,
+      totalCandidates: null,
+      year2025: null,
+      year2024: null,
+      year2023: null,
+      isQuerying: false,
+    },
   
   // 结果
   results: [],
