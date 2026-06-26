@@ -1,8 +1,9 @@
 import * as XLSX from 'xlsx';
-import { getRefScore, getTier, getMajorSuggestion, getRecommendationReason } from './dataUtils';
-import type { SchoolScore } from './dataUtils';
+import { getRefScore, getTier, getRecommendationReason } from './dataUtils';
+import type { SchoolScore, MajorRecommendation } from './dataUtils';
+import { generateMajorRecommendations, formatMajorSuggestion } from './majorRecommender';
 
-export type { SchoolScore };
+export type { SchoolScore, MajorRecommendation };
 
 export interface VolunteerResult {
   index: number;
@@ -17,6 +18,7 @@ export interface VolunteerResult {
   score2023: number | null;
   refScore: number;
   majorSuggestion: string;
+  majorRecommendations: MajorRecommendation[];
   reason: string;
 }
 
@@ -144,6 +146,7 @@ export function filterSchools(
   let index = 1;
   
   for (const s of chong.slice(0, chongCount)) {
+    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore);
     result.push({
       index,
       tier: s.tier,
@@ -156,13 +159,15 @@ export function filterSchools(
       score2024: s.score2024,
       score2023: s.score2023,
       refScore: s.refScore,
-      majorSuggestion: getMajorSuggestion(s.name),
+      majorSuggestion: formatMajorSuggestion(majorRecs),
+      majorRecommendations: majorRecs,
       reason: getRecommendationReason(s.refScore, baseScore),
     });
     index++;
   }
   
   for (const s of wen.slice(0, wenCount)) {
+    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore);
     result.push({
       index,
       tier: s.tier,
@@ -175,13 +180,15 @@ export function filterSchools(
       score2024: s.score2024,
       score2023: s.score2023,
       refScore: s.refScore,
-      majorSuggestion: getMajorSuggestion(s.name),
+      majorSuggestion: formatMajorSuggestion(majorRecs),
+      majorRecommendations: majorRecs,
       reason: getRecommendationReason(s.refScore, baseScore),
     });
     index++;
   }
   
   for (const s of bao.slice(0, baoCount)) {
+    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore);
     result.push({
       index,
       tier: s.tier,
@@ -194,7 +201,8 @@ export function filterSchools(
       score2024: s.score2024,
       score2023: s.score2023,
       refScore: s.refScore,
-      majorSuggestion: getMajorSuggestion(s.name),
+      majorSuggestion: formatMajorSuggestion(majorRecs),
+      majorRecommendations: majorRecs,
       reason: getRecommendationReason(s.refScore, baseScore),
     });
     index++;
@@ -210,10 +218,17 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
   // 构建数据
   const data = [
     ['志愿序号', '志愿档次', '院校层次', '省份', '院校专业组代码', '院校专业组名称', '科目要求', 
-     '2025投档线', '2024投档线', '2023投档线', '推荐专业', '推荐理由'],
+     '2025投档线', '2024投档线', '2023投档线', 
+     '保底专业', '稳妥专业', '冲刺专业',
+     '推荐理由'],
   ];
   
   for (const v of volunteers) {
+    const majors = v.majorRecommendations || [];
+    const baoMajors = majors.filter(m => m.admissionTier === '保底').map(m => `${m.name}(${Math.round(m.probability)}%)`).join('、');
+    const wenMajors = majors.filter(m => m.admissionTier === '稳妥').map(m => `${m.name}(${Math.round(m.probability)}%)`).join('、');
+    const chongMajors = majors.filter(m => m.admissionTier === '冲刺').map(m => `${m.name}(${Math.round(m.probability)}%)`).join('、');
+    
     data.push([
       String(v.index),
       v.tier,
@@ -225,7 +240,9 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
       v.score2025 !== null ? String(v.score2025) : '',
       v.score2024 !== null ? String(v.score2024) : '',
       v.score2023 !== null ? String(v.score2023) : '',
-      v.majorSuggestion,
+      baoMajors,
+      wenMajors,
+      chongMajors,
       v.reason,
     ]);
   }
@@ -244,7 +261,9 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
     { wch: 10 },  // 2025投档线
     { wch: 10 },  // 2024投档线
     { wch: 10 },  // 2023投档线
-    { wch: 45 },  // 推荐专业
+    { wch: 30 },  // 保底专业
+    { wch: 30 },  // 稳妥专业
+    { wch: 30 },  // 冲刺专业
     { wch: 55 },  // 推荐理由
   ];
   

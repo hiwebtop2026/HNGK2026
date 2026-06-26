@@ -127,7 +127,7 @@ export function ResultPage() {
                   <th className="px-3 py-3 text-center text-sm font-medium">2025</th>
                   <th className="px-3 py-3 text-center text-sm font-medium">2024</th>
                   <th className="px-3 py-3 text-center text-sm font-medium">2023</th>
-                  <th className="px-3 py-3 text-left text-sm font-medium">推荐专业</th>
+                  <th className="px-3 py-3 text-left text-sm font-medium">专业推荐（录取概率）</th>
                   <th className="px-3 py-3 text-left text-sm font-medium">推荐理由</th>
                 </tr>
               </thead>
@@ -182,8 +182,26 @@ export function ResultPage() {
                     <td className="px-3 py-4 text-center font-medium text-gray-700">
                       {volunteer.score2023 ?? '-'}
                     </td>
-                    <td className="px-3 py-4 text-sm text-gray-600">
-                      {volunteer.majorSuggestion}
+                    <td className="px-3 py-4">
+                      <div className="space-y-1.5">
+                        {volunteer.majorRecommendations?.slice(0, 4).map((major, idx) => (
+                          <div key={idx} className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-1.5 min-w-0">
+                              <span className={`inline-block w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                                major.admissionTier === '保底' ? 'bg-green-500' :
+                                major.admissionTier === '稳妥' ? 'bg-yellow-500' : 'bg-red-400'
+                              }`} />
+                              <span className="text-sm text-gray-700 truncate">{major.name}</span>
+                            </div>
+                            <span className={`text-xs font-medium flex-shrink-0 ${
+                              major.admissionTier === '保底' ? 'text-green-600' :
+                              major.admissionTier === '稳妥' ? 'text-yellow-600' : 'text-red-500'
+                            }`}>
+                              {Math.round(major.probability)}%
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </td>
                     <td className="px-3 py-4 text-sm text-gray-600">
                       {volunteer.reason}
