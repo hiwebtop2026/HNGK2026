@@ -5311,4 +5311,40 @@ export const PROVINCES = [
   '黑龙江',
 ];
 
+export interface RegionGroup {
+  name: string;
+  provinces: string[];
+}
+
+export const REGION_GROUPS: RegionGroup[] = [
+  {
+    name: '华东',
+    provinces: ['上海', '江苏', '浙江', '安徽', '福建', '江西', '山东'],
+  },
+  {
+    name: '华北',
+    provinces: ['北京', '天津', '河北', '山西', '内蒙古'],
+  },
+  {
+    name: '华南',
+    provinces: ['广东', '广西', '海南'],
+  },
+  {
+    name: '华中',
+    provinces: ['河南', '湖北', '湖南'],
+  },
+  {
+    name: '西南',
+    provinces: ['重庆', '四川', '贵州', '云南'],
+  },
+  {
+    name: '西北',
+    provinces: ['陕西', '甘肃', '青海', '宁夏', '新疆'],
+  },
+  {
+    name: '东北',
+    provinces: ['辽宁', '吉林', '黑龙江'],
+  },
+];
+
 export const SCHOOL_LEVELS = ['985', '211', '双一流', '普通本科'];

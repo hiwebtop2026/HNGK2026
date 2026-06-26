@@ -27,6 +27,7 @@ interface AppState {
   toggleProvince: (province: string) => void;
   clearAllProvinces: () => void;
   selectAllProvinces: () => void;
+  toggleRegion: (provinces: string[]) => void;
   setSchoolData: (data: SchoolScore[]) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
@@ -77,6 +78,16 @@ export const useAppStore = create<AppState>((set, get) => ({
     const { schoolData } = get();
     const allProvinces = [...new Set(schoolData.map(s => s.province))];
     set({ selectedProvinces: allProvinces });
+  },
+  toggleRegion: (provinces) => {
+    const current = get().selectedProvinces;
+    const allSelected = provinces.every(p => current.includes(p));
+    if (allSelected) {
+      set({ selectedProvinces: current.filter(p => !provinces.includes(p)) });
+    } else {
+      const merged = [...new Set([...current, ...provinces])];
+      set({ selectedProvinces: merged });
+    }
   },
   setSchoolData: (data) => set({ schoolData: data }),
   setLoading: (loading) => set({ isLoading: loading }),

@@ -4,7 +4,7 @@ import { Upload, Settings, GraduationCap, ChevronRight, CheckCircle, MapPin, Awa
 import { useAppStore } from '../store/appStore';
 import { filterSchools, loadSchoolDataFromExcel } from '../utils/volunteerUtils';
 import { SUBJECT_REQUIREMENTS } from '../utils/dataUtils';
-import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS } from '../data/schoolData';
+import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, REGION_GROUPS } from '../data/schoolData';
 
 export function HomePage() {
   const navigate = useNavigate();
@@ -23,6 +23,7 @@ export function HomePage() {
     toggleProvince,
     clearAllProvinces,
     selectAllProvinces,
+    toggleRegion,
     setSchoolData,
     setLoading,
     setError,
@@ -328,23 +329,57 @@ export function HomePage() {
                 </button>
               </div>
             </div>
-            <div className="flex flex-wrap gap-2 max-h-40 overflow-y-auto p-2 bg-gray-50 rounded-lg">
-              {PROVINCES.map((province) => {
-                const isSelected = selectedProvinces.includes(province);
-                return (
-                  <button
-                    key={province}
-                    onClick={() => toggleProvince(province)}
-                    className={`px-3 py-1.5 rounded-md border transition-all text-sm ${
-                      isSelected
-                        ? 'bg-green-50 text-green-700 border-green-300'
-                        : 'bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-green-600'
-                    }`}
-                  >
-                    {province}
-                  </button>
-                );
-              })}
+            
+            {/* 按区域快速选择 */}
+            <div className="mb-3">
+              <p className="text-xs text-gray-500 mb-2">按区域快速选择：</p>
+              <div className="flex flex-wrap gap-2">
+                {REGION_GROUPS.map((region) => {
+                  const allSelected = region.provinces.every(p => selectedProvinces.includes(p));
+                  const someSelected = region.provinces.some(p => selectedProvinces.includes(p));
+                  return (
+                    <button
+                      key={region.name}
+                      onClick={() => toggleRegion(region.provinces)}
+                      className={`px-3 py-1.5 rounded-md border transition-all text-sm font-medium ${
+                        allSelected
+                          ? 'bg-green-50 text-green-700 border-green-300'
+                          : someSelected
+                          ? 'bg-green-50/50 text-green-600 border-green-200'
+                          : 'bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-green-600'
+                      }`}
+                    >
+                      {region.name}
+                      <span className="ml-1 text-xs opacity-70">
+                        ({region.provinces.length}省)
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+            
+            {/* 具体省份选择 */}
+            <div className="mt-3">
+              <p className="text-xs text-gray-500 mb-2">具体省份：</p>
+              <div className="flex flex-wrap gap-2 max-h-40 overflow-y-auto p-2 bg-gray-50 rounded-lg">
+                {PROVINCES.map((province) => {
+                  const isSelected = selectedProvinces.includes(province);
+                  return (
+                    <button
+                      key={province}
+                      onClick={() => toggleProvince(province)}
+                      className={`px-3 py-1.5 rounded-md border transition-all text-sm ${
+                        isSelected
+                          ? 'bg-green-50 text-green-700 border-green-300'
+                          : 'bg-white text-gray-600 border-gray-200 hover:border-green-300 hover:text-green-600'
+                      }`}
+                    >
+                      {province}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
             <p className="mt-2 text-xs text-gray-500">
               已选 {selectedProvinces.length} 个地区 {selectedProvinces.length === 0 && '（默认全部）'}
