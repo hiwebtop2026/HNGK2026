@@ -22,7 +22,45 @@ export interface MajorRecommendation {
   probability: number;    // 录取概率 0-100
 }
 
-// 科目要求说明
+// 科目名称映射
+const SUBJECT_NAMES: Record<string, string> = {
+  '4': '物理',
+  '5': '化学',
+  '6': '生物',
+  '7': '思想政治',
+  '8': '历史',
+  '9': '地理',
+};
+
+// 解析科目要求代码
+// 规则：
+// - 0: 不限
+// - 单位数: 单科
+// - 多位数: 数字从小到大=选考其中一门即可，数字从大到小=均须选考
+export function parseSubjectRequirement(code: number): string {
+  if (code === 0) return '不限';
+  
+  const digits = String(code).split('');
+  
+  if (digits.length === 1) {
+    return SUBJECT_NAMES[digits[0]] || `科目${code}`;
+  }
+  
+  const isAscending = digits.every((d, i) => i === 0 || parseInt(digits[i - 1]) < parseInt(d));
+  const isDescending = digits.every((d, i) => i === 0 || parseInt(digits[i - 1]) > parseInt(d));
+  
+  const names = digits.map(d => SUBJECT_NAMES[d] || d).join('+');
+  
+  if (isDescending) {
+    return `${names}(均须选考)`;
+  } else if (isAscending) {
+    return `${names}(选一门即可)`;
+  } else {
+    return `${names}`;
+  }
+}
+
+// 科目要求说明（保留向后兼容，使用函数生成）
 export const SUBJECT_REQUIREMENTS: Record<number, string> = {
   0: '不限',
   4: '物理',
@@ -32,14 +70,13 @@ export const SUBJECT_REQUIREMENTS: Record<number, string> = {
   8: '历史',
   9: '地理',
   54: '物理+化学(均须选考)',
-  45: '物理或化学',
-  56: '化学+生物',
-  59: '化学+地理',
-  654: '化学+生物+物理',
-  456: '物理+化学+生物(选一门)',
-  457: '物理+化学+生物+历史',
-  467: '物理+化学+历史+生物',
-  87: '历史+政治',
+  45: '物理或化学(选一门即可)',
+  56: '化学+生物(均须选考)',
+  65: '化学+生物(选一门即可)',
+  456: '物理+化学+生物(选一门即可)',
+  654: '物理+化学+生物(均须选考)',
+  87: '历史+思想政治(均须选考)',
+  78: '历史+思想政治(选一门即可)',
 };
 
 // 计算参考分（优先2025年）

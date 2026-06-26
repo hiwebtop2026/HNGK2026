@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { Download, ArrowLeft, CheckCircle, AlertCircle, ShieldCheck } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { exportToExcel } from '../utils/volunteerUtils';
-import { TIER_COLORS } from '../utils/dataUtils';
+import { TIER_COLORS, parseSubjectRequirement } from '../utils/dataUtils';
 
 export function ResultPage() {
   const navigate = useNavigate();
-  const { results, baseScore, scoreRange, totalVolunteers, reset } = useAppStore();
+  const { results, baseScore, scoreRange, subject, totalVolunteers, reset } = useAppStore();
   
   // 统计各档次数量
   const chongCount = results.filter(r => r.tier === '冲').length;
@@ -109,7 +109,7 @@ export function ResultPage() {
           <div className="flex items-center gap-4 text-sm text-blue-700">
             <span>基准分数：<strong>{baseScore}</strong></span>
             <span>分数范围：<strong>±{scoreRange}</strong> ({baseScore - scoreRange}-{baseScore + scoreRange})</span>
-            <span>科目要求：<strong>物理+化学(54)</strong></span>
+            <span>科目要求：<strong>{parseSubjectRequirement(subject)}({subject})</strong></span>
           </div>
         </div>
         

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Upload, Settings, GraduationCap, ChevronRight, CheckCircle, MapPin, Award } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { filterSchools, loadSchoolDataFromExcel } from '../utils/volunteerUtils';
-import { SUBJECT_REQUIREMENTS } from '../utils/dataUtils';
+import { SUBJECT_REQUIREMENTS, parseSubjectRequirement } from '../utils/dataUtils';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, REGION_GROUPS } from '../data/schoolData';
 
 export function HomePage() {
@@ -15,6 +15,7 @@ export function HomePage() {
     totalVolunteers,
     selectedLevels,
     selectedProvinces,
+    schoolData,
     setBaseScore,
     setScoreRange,
     setSubject,
@@ -40,14 +41,15 @@ export function HomePage() {
   
   // 计算筛选后可选项数量
   const availableCount = useMemo(() => {
-    return SCHOOL_DATA.filter(s => {
+    const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
+    return data.filter(s => {
       if (subject !== undefined && s.subject !== subject) return false;
       if (selectedLevels.length > 0 && !selectedLevels.includes(s.level)) return false;
       if (selectedProvinces.length > 0 && !selectedProvinces.includes(s.province)) return false;
       const refScore = s.score2025 ?? s.score2024 ?? s.score2023 ?? 0;
       return refScore >= baseScore - scoreRange && refScore <= baseScore + scoreRange;
     }).length;
-  }, [baseScore, scoreRange, subject, selectedLevels, selectedProvinces]);
+  }, [baseScore, scoreRange, subject, selectedLevels, selectedProvinces, schoolData]);
   
   // 分数范围选项
   const scoreRangeOptions = [10, 15, 20, 25, 30];
@@ -55,8 +57,16 @@ export function HomePage() {
   // 志愿数选项
   const volunteerOptions = [15, 20, 30, 45];
   
-  // 常用科目选项
-  const subjectOptions = [54, 45, 0, 4, 56, 87];
+  // 常用科目选项（根据数据动态生成）
+  const subjectOptions = useMemo(() => {
+    const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
+    const subjects = [...new Set(data.map(s => s.subject))];
+    return subjects.sort((a, b) => {
+      if (a === 0) return -1;
+      if (b === 0) return 1;
+      return String(a).length - String(b).length || a - b;
+    });
+  }, [schoolData]);
   
   // 层次颜色
   const levelColors: Record<string, { bg: string; text: string; border: string }> = {
@@ -105,7 +115,8 @@ export function HomePage() {
   
   // 生成志愿方案
   const handleGenerate = () => {
-    const schoolData = useAppStore.getState().schoolData;
+    const state = useAppStore.getState();
+    const { schoolData, baseScore, scoreRange, subject, totalVolunteers, selectedLevels, selectedProvinces } = state;
     
     if (schoolData.length === 0) {
       setError('请先上传投档分数线数据文件');
@@ -249,7 +260,7 @@ export function HomePage() {
               >
                 {subjectOptions.map((s) => (
                   <option key={s} value={s}>
-                    {SUBJECT_REQUIREMENTS[s] || `科目${s}`}
+                    {parseSubjectRequirement(s)}（{s}）
                   </option>
                 ))}
               </select>
