@@ -4,7 +4,7 @@
 
 export interface MajorInfo {
   name: string;
-  heat: 'hot' | 'warm' | 'cool';  // 专业热度
+  heat: 'top' | 'hot' | 'warm' | 'cool';  // 专业热度：顶尖/热门/中等/冷门
   level: 'A+' | 'A' | 'B+' | 'B' | 'C';  // 学科实力
   category: string;  // 专业类别
 }
@@ -133,6 +133,27 @@ export const SCHOOL_MAJOR_DB: SchoolMajorData[] = [
       { name: '土木工程', heat: 'warm', level: 'B+', category: '工科' },
       { name: '经济学', heat: 'hot', level: 'B+', category: '经管' },
       { name: '工商管理', heat: 'hot', level: 'B+', category: '经管' },
+    ],
+  },
+  {
+    schoolKeyword: '吉林大',
+    majors: [
+      { name: '临床医学（5+3一体化）', heat: 'top', level: 'A', category: '医学' },
+      { name: '临床医学', heat: 'hot', level: 'A', category: '医学' },
+      { name: '法学', heat: 'hot', level: 'A', category: '文法' },
+      { name: '计算机科学与技术', heat: 'hot', level: 'A', category: '工科' },
+      { name: '软件工程', heat: 'hot', level: 'B+', category: '工科' },
+      { name: '经济学类', heat: 'hot', level: 'B+', category: '经管' },
+      { name: '金融学', heat: 'hot', level: 'B+', category: '经管' },
+      { name: '电子信息工程', heat: 'hot', level: 'B+', category: '工科' },
+      { name: '机械工程', heat: 'warm', level: 'A', category: '工科' },
+      { name: '化学', heat: 'warm', level: 'A', category: '理科' },
+      { name: '物理学', heat: 'warm', level: 'B+', category: '理科' },
+      { name: '数学与应用数学', heat: 'warm', level: 'A', category: '理科' },
+      { name: '地质学', heat: 'cool', level: 'A', category: '理科' },
+      { name: '材料科学与工程', heat: 'warm', level: 'B+', category: '工科' },
+      { name: '土木工程', heat: 'warm', level: 'B', category: '工科' },
+      { name: '工商管理', heat: 'warm', level: 'B+', category: '经管' },
     ],
   },
   {

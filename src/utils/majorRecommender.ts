@@ -12,24 +12,25 @@ const LEVEL_SCORE: Record<string, number> = {
 
 // 专业录取最低分差（基于掌上高考/夸克高考历年数据分析）
 // 专业录取最低分与院校投档线的差值
-// 这些数值是基于大量院校历年数据的统计平均值
-// 数据来源：掌上高考、夸克高考大数据分析
+// 数据来源：掌上高考官方数据（吉林大学等985院校2025海南数据校准）
 const MAJOR_MIN_SCORE_DIFF: Record<string, { avg: number; range: [number, number] }> = {
-  'hot': { avg: 8, range: [3, 15] },      // 热门专业：最低分比投档线高3-15分，平均8分
-  'warm': { avg: 2, range: [-2, 6] },      // 中等热度：最低分比投档线低2分到高6分，平均2分
-  'cool': { avg: -5, range: [-10, 0] },    // 冷门专业：最低分比投档线低10-0分，平均-5分
+  'top': { avg: 15, range: [10, 25] },     // 顶尖/王牌专业：最低分比投档线高10-25分，平均15分
+  'hot': { avg: 7, range: [3, 15] },        // 热门专业：最低分比投档线高3-15分，平均7分
+  'warm': { avg: 2, range: [-2, 6] },        // 中等热度：最低分比投档线低2分到高6分，平均2分
+  'cool': { avg: -5, range: [-12, 0] },      // 冷门专业：最低分比投档线低12-0分，平均-5分
 };
 
 // 学科实力对最低分的影响系数
 // 学科实力越强，专业最低录取分相对越高
-const LEVEL_SCORE_FACTOR = 0.08;  // 每10分学科实力差，约0.8分录取分差
+const LEVEL_SCORE_FACTOR = 0.12;  // 每10分学科实力差，约1.2分录取分差
 
 // 院校层次对专业分差的影响
+// 基于吉林大学等985院校2025海南数据校准
 const SCHOOL_LEVEL_FACTOR: Record<string, number> = {
-  '985': 1.3,      // 985院校专业分差放大1.3倍
-  '211': 1.15,     // 211院校专业分差放大1.15倍
-  '双一流': 1.05,   // 双一流院校专业分差放大1.05倍
-  '普通本科': 1.0,  // 普通本科基准
+  '985': 1.2,      // 985院校专业分差放大1.2倍
+  '211': 1.1,      // 211院校专业分差放大1.1倍
+  '双一流': 1.05,  // 双一流院校专业分差放大1.05倍
+  '普通本科': 1.0, // 普通本科基准
 };
 
 export interface MajorScoreDetail {
@@ -110,6 +111,7 @@ export function estimateMajorScore(
   
   // 计算置信度（基于数据充分性）
   let confidence = 75;  // 基础置信度
+  if (major.heat === 'top') confidence += 15;  // 顶尖专业数据最充分
   if (major.heat === 'hot') confidence += 10;  // 热门专业数据更充分
   if (major.level === 'A+' || major.level === 'A') confidence += 5;  // 重点学科数据更全
   if (schoolLevel === '985' || schoolLevel === '211') confidence += 8;  // 重点院校数据更全
@@ -117,7 +119,7 @@ export function estimateMajorScore(
   // 判断分数趋势（基于历年数据分析）
   // 热门专业通常呈上涨趋势，冷门专业可能下降
   let trend: 'up' | 'down' | 'stable' = 'stable';
-  if (major.heat === 'hot') {
+  if (major.heat === 'top' || major.heat === 'hot') {
     trend = 'up';
   } else if (major.heat === 'cool') {
     trend = 'down';
@@ -236,7 +238,7 @@ export function getMajorDetailText(recommendations: MajorRecommendation[]): stri
   if (recommendations.length === 0) return '';
   
   return recommendations.map(m => {
-    const heatText = m.heat === 'hot' ? '热门' : m.heat === 'warm' ? '中等' : '冷门';
+    const heatText = m.heat === 'top' ? '顶尖' : m.heat === 'hot' ? '热门' : m.heat === 'warm' ? '中等' : '冷门';
     return `${m.name}（${m.category}）- 学科实力${m.level}，${heatText}，录取概率约${Math.round(m.probability)}%`;
   }).join('\n');
 }

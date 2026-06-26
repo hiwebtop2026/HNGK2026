@@ -16,7 +16,7 @@ export interface SchoolScore {
 export interface MajorRecommendation {
   name: string;           // 专业名称
   category: string;       // 专业类别
-  heat: 'hot' | 'warm' | 'cool';  // 专业热度
+  heat: 'top' | 'hot' | 'warm' | 'cool';  // 专业热度：顶尖/热门/中等/冷门
   level: 'A+' | 'A' | 'B+' | 'B' | 'C';  // 学科实力
   admissionTier: '冲刺' | '稳妥' | '保底';  // 录取概率档次
   probability: number;    // 录取概率 0-100
