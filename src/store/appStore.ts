@@ -16,6 +16,17 @@ interface AppState {
   isLoading: boolean;
   error: string | null;
   
+  // 一分一段数据
+  rankInfo: {
+    score: number | null;
+    rank: number | null;
+    percentile: number | null;
+    year2025: number | null;
+    year2024: number | null;
+    year2023: number | null;
+    isQuerying: boolean;
+  };
+  
   // 生成结果
   results: VolunteerResult[];
   
@@ -34,6 +45,7 @@ interface AppState {
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
   setResults: (results: VolunteerResult[]) => void;
+  setRankInfo: (info: Partial<AppState['rankInfo']>) => void;
   reset: () => void;
 }
 
@@ -51,6 +63,17 @@ export const useAppStore = create<AppState>((set, get) => ({
   schoolData: [],
   isLoading: false,
   error: null,
+  
+  // 一分一段数据
+  rankInfo: {
+    score: null,
+    rank: null,
+    percentile: null,
+    year2025: null,
+    year2024: null,
+    year2023: null,
+    isQuerying: false,
+  },
   
   // 结果
   results: [],
@@ -104,6 +127,9 @@ export const useAppStore = create<AppState>((set, get) => ({
   setLoading: (loading) => set({ isLoading: loading }),
   setError: (error) => set({ error: error }),
   setResults: (results) => set({ results: results }),
+  setRankInfo: (info) => set(state => ({
+    rankInfo: { ...state.rankInfo, ...info }
+  })),
   reset: () => set({
     baseScore: null,
     scoreRange: 15,

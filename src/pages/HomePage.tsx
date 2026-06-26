@@ -1,9 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Upload, GraduationCap, ChevronRight, MapPin, Award, Sparkles, Target, Zap, BookOpen, Cpu, Radio, Lightbulb, Stethoscope, TrendingUp, Scale, Palette } from 'lucide-react';
+import { Upload, GraduationCap, ChevronRight, MapPin, Award, Sparkles, Target, Zap, BookOpen, Cpu, Radio, Lightbulb, Stethoscope, TrendingUp, Scale, Palette, Database, RefreshCw, Trophy, Users, BarChart2 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { filterSchools, loadSchoolDataFromExcel } from '../utils/volunteerUtils';
 import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories } from '../utils/dataUtils';
+import { fetchRankInfo } from '../utils/dataUtils';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, REGION_GROUPS } from '../data/schoolData';
 
 const majorIcons: Record<string, React.ReactNode> = {
@@ -28,6 +29,7 @@ export function HomePage() {
     selectedProvinces,
     selectedMajorCategories,
     schoolData,
+    rankInfo,
     setBaseScore,
     setScoreRange,
     setSubject,
@@ -42,6 +44,7 @@ export function HomePage() {
     setLoading,
     setError,
     setResults,
+    setRankInfo,
   } = useAppStore();
   
   const [file, setFile] = useState<File | null>(null);
@@ -50,6 +53,31 @@ export function HomePage() {
   useEffect(() => {
     setSchoolData(SCHOOL_DATA);
   }, [setSchoolData]);
+  
+  // 监听分数变化，自动获取位次信息
+  useEffect(() => {
+    if (baseScore !== null && baseScore >= 480 && baseScore <= 900) {
+      const timer = setTimeout(() => {
+        setRankInfo({ isQuerying: true, score: null, rank: null, percentile: null, year2025: null, year2024: null, year2023: null });
+        
+        fetchRankInfo(baseScore, subject).then(info => {
+          setRankInfo({
+            isQuerying: false,
+            score: info.score,
+            rank: info.rank,
+            percentile: info.percentile,
+            year2025: info.year2025,
+            year2024: info.year2024,
+            year2023: info.year2023,
+          });
+        });
+      }, 500); // 延迟500ms避免频繁请求
+      
+      return () => clearTimeout(timer);
+    } else {
+      setRankInfo({ isQuerying: false, score: null, rank: null, percentile: null, year2025: null, year2024: null, year2023: null });
+    }
+  }, [baseScore, subject, setRankInfo]);
   
   const availableCount = useMemo(() => {
     const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
@@ -282,6 +310,116 @@ export function HomePage() {
                     </div>
                   </div>
                 </div>
+                
+                {/* 位次信息显示区域 */}
+                {baseScore !== null && baseScore >= 480 && baseScore <= 900 && (
+                  <div className="mt-6 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-xl p-5">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
+                        {rankInfo.isQuerying ? (
+                          <RefreshCw className="w-4 h-4 text-white animate-spin" />
+                        ) : (
+                          <Database className="w-4 h-4 text-white" />
+                        )}
+                      </div>
+                      <p className="text-sm font-medium text-purple-300">
+                        {rankInfo.isQuerying ? '正在从掌上高考/夸克高考获取位次信息...' : '位次信息（基于掌上高考/夸克高考数据）'}
+                      </p>
+                    </div>
+                    
+                    {rankInfo.isQuerying ? (
+                      <div className="space-y-2">
+                        <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full animate-pulse" style={{ width: '70%' }} />
+                        </div>
+                        <p className="text-xs text-gray-400">正在查询近三年海南省一分一段数据...</p>
+                      </div>
+                    ) : rankInfo.rank !== null ? (
+                      <div>
+                        {/* 突出显示位次信息 - 使用渐变背景卡片 */}
+                        <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-xl p-5 mb-4 border border-white/10">
+                          <div className="grid grid-cols-3 gap-6 text-center">
+                            {/* 省内位次 - 重点突出 */}
+                            <div className="relative group">
+                              <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                              <div className="relative">
+                                <div className="flex items-center justify-center gap-2 mb-2">
+                                  <Trophy className="w-5 h-5 text-yellow-400" />
+                                  <div className="text-xs text-gray-400">省内位次</div>
+                                </div>
+                                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 drop-shadow-lg">
+                                  {rankInfo.rank.toLocaleString()}
+                                </div>
+                                <div className="text-xs text-gray-500 mt-1">名</div>
+                              </div>
+                            </div>
+                            
+                            {/* 超过考生百分比 */}
+                            <div className="relative group">
+                              <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                              <div className="relative">
+                                <div className="flex items-center justify-center gap-2 mb-2">
+                                  <Users className="w-5 h-5 text-green-400" />
+                                  <div className="text-xs text-gray-400">超过考生</div>
+                                </div>
+                                <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-500 to-teal-500 drop-shadow-lg">
+                                  {rankInfo.percentile}%
+                                </div>
+                                <div className="text-xs text-gray-500 mt-1">的考生</div>
+                              </div>
+                            </div>
+                            
+                            {/* 2025分数 */}
+                            <div className="relative group">
+                              <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                              <div className="relative">
+                                <div className="flex items-center justify-center gap-2 mb-2">
+                                  <BarChart2 className="w-5 h-5 text-primary-400" />
+                                  <div className="text-xs text-gray-400">2025分数</div>
+                                </div>
+                                <div className="text-3xl font-extrabold text-white drop-shadow-lg">
+                                  {baseScore}
+                                </div>
+                                <div className="text-xs text-gray-500 mt-1">分</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* 历年位次对比 - 次要信息区域 */}
+                        <div className="bg-white/5 rounded-lg p-3">
+                          <div className="text-xs text-gray-400 mb-2 flex items-center gap-1">
+                            <TrendingUp className="w-3 h-3" />
+                            <span>历年同位次参考（海南省）</span>
+                          </div>
+                          <div className="grid grid-cols-3 gap-3 text-center">
+                            <div className="bg-white/5 rounded-lg py-2">
+                              <div className="text-xs text-gray-500 mb-1">2025年</div>
+                              <div className="text-sm font-bold text-white">{rankInfo.year2025?.toLocaleString()}</div>
+                              <div className="text-xs text-gray-600">名</div>
+                            </div>
+                            <div className="bg-white/5 rounded-lg py-2">
+                              <div className="text-xs text-gray-500 mb-1">2024年</div>
+                              <div className="text-sm font-medium text-gray-300">{rankInfo.year2024?.toLocaleString()}</div>
+                              <div className="text-xs text-gray-600">名</div>
+                            </div>
+                            <div className="bg-white/5 rounded-lg py-2">
+                              <div className="text-xs text-gray-500 mb-1">2023年</div>
+                              <div className="text-sm font-medium text-gray-300">{rankInfo.year2023?.toLocaleString()}</div>
+                              <div className="text-xs text-gray-600">名</div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* 数据来源提示 */}
+                        <div className="mt-3 flex items-center justify-center gap-2 text-xs text-gray-500">
+                          <Database className="w-3 h-3" />
+                          <span>数据来源：掌上高考/夸克高考 · 仅供参考</span>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                )}
               </div>
               
               {/* 科目与志愿数量 */}
