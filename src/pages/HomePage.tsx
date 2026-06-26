@@ -56,17 +56,21 @@ export function HomePage() {
   
   // 监听分数变化，自动获取位次信息
   useEffect(() => {
-    if (baseScore !== null && baseScore >= 480 && baseScore <= 900) {
+    if (baseScore !== null && baseScore >= 300 && baseScore <= 900) {
       const timer = setTimeout(() => {
         setRankInfo({ 
           isQuerying: true, 
           score: null, 
-          rank: null, 
+          rank: null,
+          categoryRank: null,
+          category: null,
           percentile: null, 
           totalCandidates: null,
           year2025: null, 
           year2024: null, 
-          year2023: null 
+          year2023: null,
+          dataSource: null,
+          note: null,
         });
         
         fetchRankInfo(baseScore, subject).then(info => {
@@ -74,11 +78,15 @@ export function HomePage() {
             isQuerying: false,
             score: info.score,
             rank: info.rank,
+            categoryRank: info.categoryRank ?? null,
+            category: info.category ?? null,
             percentile: info.percentile,
             totalCandidates: info.totalCandidates,
             year2025: info.year2025,
             year2024: info.year2024,
             year2023: info.year2023,
+            dataSource: info.dataSource,
+            note: info.note,
           });
         });
       }, 500); // 延迟500ms避免频繁请求
@@ -88,12 +96,16 @@ export function HomePage() {
       setRankInfo({ 
         isQuerying: false, 
         score: null, 
-        rank: null, 
+        rank: null,
+        categoryRank: null,
+        category: null,
         percentile: null, 
         totalCandidates: null,
         year2025: null, 
         year2024: null, 
-        year2023: null 
+        year2023: null,
+        dataSource: null,
+        note: null,
       });
     }
   }, [baseScore, subject, setRankInfo]);
@@ -369,9 +381,26 @@ export function HomePage() {
                                 <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 drop-shadow-lg">
                                   {rankInfo.rank.toLocaleString()}
                                 </div>
-                                <div className="text-xs text-gray-500 mt-1">名（共{rankInfo.totalCandidates?.toLocaleString()}人）</div>
+                                <div className="text-xs text-gray-500 mt-1">名（全体考生）</div>
                               </div>
                             </div>
+                            
+                            {/* 分科位次 */}
+                            {rankInfo.categoryRank && (
+                              <div className="relative group">
+                                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="relative">
+                                  <div className="flex items-center justify-center gap-2 mb-2">
+                                    <Target className="w-5 h-5 text-blue-400" />
+                                    <div className="text-xs text-gray-400">{rankInfo.category}位次</div>
+                                  </div>
+                                  <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-500 drop-shadow-lg">
+                                    {rankInfo.categoryRank.toLocaleString()}
+                                  </div>
+                                  <div className="text-xs text-gray-500 mt-1">名（选科类）</div>
+                                </div>
+                              </div>
+                            )}
                             
                             {/* 超过考生百分比 */}
                             <div className="relative group">
@@ -385,21 +414,6 @@ export function HomePage() {
                                   {rankInfo.percentile}%
                                 </div>
                                 <div className="text-xs text-gray-500 mt-1">的考生</div>
-                              </div>
-                            </div>
-                            
-                            {/* 考生分数 */}
-                            <div className="relative group">
-                              <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                              <div className="relative">
-                                <div className="flex items-center justify-center gap-2 mb-2">
-                                  <BarChart2 className="w-5 h-5 text-primary-400" />
-                                  <div className="text-xs text-gray-400">2026分数</div>
-                                </div>
-                                <div className="text-3xl font-extrabold text-white drop-shadow-lg">
-                                  {baseScore}
-                                </div>
-                                <div className="text-xs text-gray-500 mt-1">分</div>
                               </div>
                             </div>
                           </div>
@@ -434,10 +448,10 @@ export function HomePage() {
                         <div className="mt-3 space-y-1">
                           <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
                             <Database className="w-3 h-3" />
-                            <span>数据来源：海南省考试局历年数据 · 掌上高考/夸克高考</span>
+                            <span>数据来源：{rankInfo.dataSource}</span>
                           </div>
-                          <div className="text-xs text-amber-400 text-center">
-                            ⚠️ 重要提示：2026年高考数据尚未公布，以上为基于历年数据的模拟推算，仅供参考
+                          <div className="text-xs text-gray-500 text-center">
+                            {rankInfo.note}
                           </div>
                         </div>
                       </div>
