@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
+import { useUsageStore } from '../store/usageStore';
 import { filterSchools, loadSchoolDataFromExcel } from '../utils/volunteerUtils';
 import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories } from '../utils/dataUtils';
 import { fetchRankInfo } from '../utils/dataUtils';
@@ -52,6 +53,7 @@ export function HomePage() {
     logout,
     checkAuth,
   } = useAuthStore();
+  const { logGeneratePlan, logAction } = useUsageStore();
   const {
     baseScore,
     scoreRange,
@@ -199,6 +201,15 @@ export function HomePage() {
     try {
       const data = await loadSchoolDataFromExcel(uploadedFile);
       setSchoolData(data);
+      
+      // 记录文件上传行为
+      if (isAuthenticated) {
+        logAction('upload_data', {
+          file_name: uploadedFile.name,
+          file_size: uploadedFile.size,
+          records_count: data.length,
+        });
+      }
     } catch {
       setError('文件解析失败，请确保文件格式正确');
     } finally {
@@ -272,6 +283,20 @@ export function HomePage() {
     }
 
     setResults(results);
+    
+    // 记录志愿生成行为
+    if (isAuthenticated) {
+      logGeneratePlan(baseScore, subject, totalVolunteers, results.length, {
+        score_range: scoreRange,
+        chong_count: useCustomTierCounts ? chongCount : Math.ceil(totalVolunteers * 0.3),
+        wen_count: useCustomTierCounts ? wenCount : Math.ceil(totalVolunteers * 0.4),
+        bao_count: useCustomTierCounts ? baoCount : Math.max(0, totalVolunteers - Math.ceil(totalVolunteers * 0.3) - Math.ceil(totalVolunteers * 0.4)),
+        selected_levels_count: selectedLevels.length,
+        selected_provinces_count: selectedProvinces.length,
+        selected_categories_count: selectedMajorCategories.length,
+      });
+    }
+    
     navigate('/result');
   };
   

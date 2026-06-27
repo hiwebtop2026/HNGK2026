@@ -86,6 +86,18 @@ export const useAuthStore = create<AuthState>((set) => ({
             email: data.user.email || email,
             registeredAt: data.user.created_at || new Date().toISOString(),
           };
+          
+          // 记录注册行为
+          try {
+            await supabase.from('usage_logs').insert({
+              user_id: data.user.id,
+              email: data.user.email || email,
+              action: 'register',
+              details: { source: 'web' },
+              user_agent: navigator.userAgent,
+            });
+          } catch {}
+          
           set({ isLoading: false, isAuthenticated: true, user, error: null });
           return true;
         }
@@ -154,6 +166,18 @@ export const useAuthStore = create<AuthState>((set) => ({
             email: data.user.email || email,
             registeredAt: data.user.created_at || new Date().toISOString(),
           };
+          
+          // 记录登录行为
+          try {
+            await supabase.from('usage_logs').insert({
+              user_id: data.user.id,
+              email: data.user.email || email,
+              action: 'login',
+              details: { source: 'web' },
+              user_agent: navigator.userAgent,
+            });
+          } catch {}
+          
           set({ isLoading: false, isAuthenticated: true, user, error: null });
           return true;
         }
@@ -196,8 +220,23 @@ export const useAuthStore = create<AuthState>((set) => ({
   logout: async () => {
     try {
       if (isSupabaseConfigured && supabase) {
+        // 先记录登出行为，再登出
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+          try {
+            await supabase.from('usage_logs').insert({
+              user_id: session.user.id,
+              email: session.user.email,
+              action: 'logout',
+              details: { source: 'web' },
+              user_agent: navigator.userAgent,
+            });
+          } catch {}
+        }
         await supabase.auth.signOut();
       } else {
+        // 本地模式：记录登出
+        const logs = getLocalUsers().email ? [{}] : []; // 简化处理
         saveLocalCurrentUser(null);
       }
       set({ isAuthenticated: false, user: null, error: null });

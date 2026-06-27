@@ -5,6 +5,8 @@ import {
   TrendingDown, Minus, Percent, BarChart3
 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
+import { useAuthStore } from '../store/authStore';
+import { useUsageStore } from '../store/usageStore';
 import { exportToExcel } from '../utils/volunteerUtils';
 import { parseSubjectRequirement, matchMajorCategories, MAJOR_CATEGORIES } from '../utils/dataUtils';
 
@@ -37,6 +39,8 @@ function ThemeToggle() {
 export function ResultPage() {
   const navigate = useNavigate();
   const { results, baseScore, scoreRange, subject, totalVolunteers, reset, isDark } = useAppStore();
+  const { isAuthenticated } = useAuthStore();
+  const { logAction } = useUsageStore();
   const [activeTier, setActiveTier] = useState<string>('all');
   
   const chongCount = results.filter(r => r.tier === '冲').length;
@@ -50,6 +54,18 @@ export function ResultPage() {
   const handleExport = () => {
     const filename = `2026志愿方案_${baseScore}分_${results.length}志愿.xlsx`;
     exportToExcel(results, filename);
+    
+    // 记录导出行为
+    if (isAuthenticated) {
+      logAction('export_plan', {
+        base_score: baseScore,
+        results_count: results.length,
+        chong_count: chongCount,
+        wen_count: wenCount,
+        bao_count: baoCount,
+        filename,
+      });
+    }
   };
   
   const handleBack = () => {
