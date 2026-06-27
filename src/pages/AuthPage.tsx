@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Mail, Lock, Loader2, AlertCircle, CheckCircle2, School, Sparkles,
-  User, LogOut, ArrowRight, Database
+  User, LogOut, ArrowRight
 } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 import { useAppStore } from '../store/appStore';
-import { isSupabaseConfigured } from '../lib/supabase';
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useAppStore();
@@ -128,15 +127,6 @@ export function AuthPage() {
               <CheckCircle2 className="w-5 h-5 text-green-500" />
               <p className={`text-sm ${isDark ? 'text-green-400' : 'text-green-600'}`}>
                 您已成功登录，可以使用全部功能
-              </p>
-            </div>
-          </div>
-          
-          <div className={`p-4 rounded-xl mb-6 ${isDark ? 'bg-blue-500/10 border border-blue-500/20' : 'bg-blue-50 border border-blue-200'}`}>
-            <div className="flex items-center gap-3">
-              <Database className="w-5 h-5 text-blue-500" />
-              <p className={`text-sm ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                当前模式：{isSupabaseConfigured ? '云端模式（Supabase）' : '本地模式'}
               </p>
             </div>
           </div>
@@ -308,23 +298,8 @@ export function AuthPage() {
             </button>
           </div>
           
-          {/* 模式说明 */}
-          <div className={`mt-6 p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
-            <div className="flex items-center gap-2 mb-2">
-              <Database className={`w-4 h-4 ${isSupabaseConfigured ? 'text-green-500' : 'text-yellow-500'}`} />
-              <span className={`text-sm font-medium ${textPrimary}`}>
-                {isSupabaseConfigured ? '云端模式' : '本地模式'}
-              </span>
-            </div>
-            <p className={`text-xs ${textMuted} leading-relaxed`}>
-              {isSupabaseConfigured
-                ? '数据已连接 Supabase 云端，支持多设备同步和用户管理。'
-                : '当前为本地模式，数据存储在浏览器中。配置 Supabase 后可启用云端功能。'}
-            </p>
-          </div>
-          
           {/* 底部提示 */}
-          <div className={`mt-4 p-4 rounded-xl ${isDark ? 'bg-blue-500/10 border border-blue-500/20' : 'bg-blue-50 border border-blue-200'}`}>
+          <div className={`mt-6 p-4 rounded-xl ${isDark ? 'bg-blue-500/10 border border-blue-500/20' : 'bg-blue-50 border border-blue-200'}`}>
             <p className={`text-xs ${isDark ? 'text-blue-400' : 'text-blue-600'} text-center leading-relaxed`}>
               注册即表示您同意使用本系统进行高考志愿填报辅助，数据仅供参考，请结合实际情况谨慎填报。
             </p>
