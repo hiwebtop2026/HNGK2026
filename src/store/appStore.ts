@@ -13,6 +13,11 @@ interface AppState {
   scoreRange: number;
   subject: number;
   totalVolunteers: number;
+  // 冲稳保数量自定义
+  chongCount: number;
+  wenCount: number;
+  baoCount: number;
+  useCustomTierCounts: boolean;
   selectedLevels: string[];
   selectedProvinces: string[];
   selectedMajorCategories: string[];
@@ -48,6 +53,10 @@ interface AppState {
   setScoreRange: (range: number) => void;
   setSubject: (subject: number) => void;
   setTotalVolunteers: (count: number) => void;
+  setChongCount: (count: number) => void;
+  setWenCount: (count: number) => void;
+  setBaoCount: (count: number) => void;
+  setUseCustomTierCounts: (use: boolean) => void;
   toggleLevel: (level: string) => void;
   toggleProvince: (province: string) => void;
   toggleMajorCategory: (categoryId: string) => void;
@@ -89,6 +98,11 @@ export const useAppStore = create<AppState>((set, get) => {
     scoreRange: 15,
     subject: 54,
     totalVolunteers: 30,
+    // 冲稳保默认值（默认30%冲、40%稳、30%保）
+    chongCount: 9,
+    wenCount: 12,
+    baoCount: 9,
+    useCustomTierCounts: false,
     selectedLevels: ['985', '211', '双一流', '普通本科'],
     selectedProvinces: [],
     selectedMajorCategories: [],
@@ -138,7 +152,22 @@ export const useAppStore = create<AppState>((set, get) => {
     setBaseScore: (score) => set({ baseScore: score }),
     setScoreRange: (range) => set({ scoreRange: range }),
     setSubject: (subject) => set({ subject: subject }),
-    setTotalVolunteers: (count) => set({ totalVolunteers: count }),
+    setTotalVolunteers: (count) => {
+      // 自动计算冲稳保默认比例
+      const chong = Math.ceil(count * 0.3);
+      const wen = Math.ceil(count * 0.4);
+      const bao = count - chong - wen;
+      set({ 
+        totalVolunteers: count, 
+        chongCount: chong, 
+        wenCount: wen, 
+        baoCount: bao 
+      });
+    },
+    setChongCount: (count) => set({ chongCount: count }),
+    setWenCount: (count) => set({ wenCount: count }),
+    setBaoCount: (count) => set({ baoCount: count }),
+    setUseCustomTierCounts: (use) => set({ useCustomTierCounts: use }),
     toggleLevel: (level) => {
       const current = get().selectedLevels;
       if (current.includes(level)) {
@@ -191,6 +220,10 @@ export const useAppStore = create<AppState>((set, get) => {
       scoreRange: 15,
       subject: 54,
       totalVolunteers: 30,
+      chongCount: 9,
+      wenCount: 12,
+      baoCount: 9,
+      useCustomTierCounts: false,
       selectedLevels: ['985', '211', '双一流', '普通本科'],
       selectedProvinces: [],
       selectedMajorCategories: [],

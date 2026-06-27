@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import {
   Upload, GraduationCap, ChevronRight, MapPin, Award, Sparkles, Target, Zap, BookOpen,
   Cpu, Radio, Lightbulb, Stethoscope, TrendingUp, Scale, Palette, Database, RefreshCw,
-  Trophy, Users, Sun, Moon, School, Info
+  Trophy, Users, Sun, Moon, School, Info, LogOut, User, AlertCircle
 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
+import { useAuthStore } from '../store/authStore';
 import { filterSchools, loadSchoolDataFromExcel } from '../utils/volunteerUtils';
 import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories } from '../utils/dataUtils';
 import { fetchRankInfo } from '../utils/dataUtils';
@@ -46,10 +47,20 @@ function ThemeToggle() {
 export function HomePage() {
   const navigate = useNavigate();
   const {
+    isAuthenticated,
+    user,
+    logout,
+    checkAuth,
+  } = useAuthStore();
+  const {
     baseScore,
     scoreRange,
     subject,
     totalVolunteers,
+    chongCount,
+    wenCount,
+    baoCount,
+    useCustomTierCounts,
     selectedLevels,
     selectedProvinces,
     selectedMajorCategories,
@@ -61,6 +72,10 @@ export function HomePage() {
     setScoreRange,
     setSubject,
     setTotalVolunteers,
+    setChongCount,
+    setWenCount,
+    setBaoCount,
+    setUseCustomTierCounts,
     toggleLevel,
     toggleProvince,
     toggleMajorCategory,
@@ -76,10 +91,19 @@ export function HomePage() {
   
   const [file, setFile] = useState<File | null>(null);
   const [dragActive, setDragActive] = useState(false);
-  
+
+  // 检查认证状态
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
   useEffect(() => {
     setSchoolData(SCHOOL_DATA);
   }, [setSchoolData]);
+
+  // 计算冲稳保总数
+  const tierTotalCount = chongCount + wenCount + baoCount;
+  const isTierCountValid = tierTotalCount <= totalVolunteers;
   
   useEffect(() => {
     if (baseScore !== null && baseScore >= 300 && baseScore <= 900) {
@@ -203,26 +227,50 @@ export function HomePage() {
   };
   
   const handleGenerate = () => {
+    // 检查认证状态
+    if (!isAuthenticated) {
+      setError('请先注册账号以使用志愿生成功能');
+      return;
+    }
+
     const state = useAppStore.getState();
-    const { schoolData, baseScore, scoreRange, subject, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories } = state;
-    
+    const { schoolData, baseScore, scoreRange, subject, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories, chongCount, wenCount, baoCount, useCustomTierCounts } = state;
+
     if (schoolData.length === 0) {
       setError('请先上传投档分数线数据文件');
       return;
     }
-    
+
     if (baseScore === null || baseScore < 480 || baseScore > 900) {
       setError('请输入合理的分数范围（480-900分）');
       return;
     }
-    
-    const results = filterSchools(schoolData, baseScore, scoreRange, subject, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories);
-    
+
+    // 如果使用自定义冲稳保数量，检查总数是否有效
+    if (useCustomTierCounts && (chongCount + wenCount + baoCount) > totalVolunteers) {
+      setError('冲稳保总数超出志愿数量限制，请调整分配');
+      return;
+    }
+
+    const results = filterSchools(
+      schoolData,
+      baseScore,
+      scoreRange,
+      subject,
+      totalVolunteers,
+      selectedLevels,
+      selectedProvinces,
+      selectedMajorCategories,
+      useCustomTierCounts ? chongCount : undefined,
+      useCustomTierCounts ? wenCount : undefined,
+      useCustomTierCounts ? baoCount : undefined
+    );
+
     if (results.length === 0) {
       setError('未找到符合条件的院校，请调整分数范围或科目要求');
       return;
     }
-    
+
     setResults(results);
     navigate('/result');
   };
@@ -254,7 +302,49 @@ export function HomePage() {
                 </div>
                 <span className={`font-bold text-lg ${textPrimary}`}>高考志愿助手</span>
               </div>
-              <ThemeToggle />
+              <div className="flex items-center gap-4">
+                {/* 用户信息显示 */}
+                {isAuthenticated && user ? (
+                  <div className="flex items-center gap-3">
+                    <div className={`flex items-center gap-2 px-3 py-2 rounded-xl ${
+                      isDark ? 'bg-white/5' : 'bg-gray-100'
+                    }`}>
+                      <User className={`w-4 h-4 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
+                      <span className={`text-sm ${textSecondary}`}>
+                        {user.email}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        logout();
+                        navigate('/auth');
+                      }}
+                      className={`flex items-center gap-1 px-3 py-2 rounded-xl transition-all ${
+                        isDark
+                        ? 'bg-white/5 hover:bg-red-500/10 text-gray-400 hover:text-red-400'
+                        : 'bg-gray-100 hover:bg-red-50 text-gray-500 hover:text-red-600'
+                      }`}
+                      title="退出登录"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      <span className="text-sm">退出</span>
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => navigate('/auth')}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all ${
+                      isDark
+                      ? 'bg-primary-500/20 hover:bg-primary-500/30 text-primary-400'
+                      : 'bg-primary-50 hover:bg-primary-100 text-primary-600'
+                    }`}
+                  >
+                    <User className="w-4 h-4" />
+                    <span className="text-sm font-medium">登录/注册</span>
+                  </button>
+                )}
+                <ThemeToggle />
+              </div>
             </div>
             
             <div className="text-center">
@@ -276,6 +366,37 @@ export function HomePage() {
         
         {/* 主内容区 */}
         <main className="max-w-6xl mx-auto px-6 pb-16">
+          {/* 未认证提示卡片 */}
+          {!isAuthenticated && (
+            <div className={`glass rounded-2xl p-6 mb-6 animate-fade-in ${
+              isDark
+              ? 'bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20'
+              : 'bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 shadow-md'
+            }`}>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-md">
+                    <AlertCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className={`text-lg font-semibold ${textPrimary} mb-1`}>请先注册账号</h3>
+                    <p className={`text-sm ${textSecondary}`}>
+                      注册账号后即可使用志愿生成、导出等功能，更好地规划你的高考志愿
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => navigate('/auth')}
+                  className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-medium shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] transition-all flex items-center gap-2"
+                >
+                  <User className="w-4 h-4" />
+                  <span>立即注册</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* 数据上传卡片 */}
           <div className={`glass rounded-2xl p-6 mb-6 animate-fade-in card-hover ${isDark ? '' : 'shadow-md'}`}>
             <div className="flex items-center gap-3 mb-4">
@@ -573,6 +694,155 @@ export function HomePage() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* 冲稳保志愿分配 */}
+              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.25s' }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-md">
+                    <Target className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h2 className={`text-lg font-semibold ${textPrimary}`}>冲稳保志愿分配</h2>
+                    <p className={`text-sm ${textSecondary}`}>自定义各档次志愿数量</p>
+                  </div>
+                </div>
+
+                {/* 开关：是否自定义分配 */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>自定义分配数量</span>
+                    <span className={`text-xs ${textMuted}`}>（关闭则自动按比例分配）</span>
+                  </div>
+                  <button
+                    onClick={() => setUseCustomTierCounts(!useCustomTierCounts)}
+                    className={`relative w-12 h-6 rounded-full transition-all ${
+                      useCustomTierCounts
+                        ? 'bg-gradient-to-r from-amber-500 to-orange-500'
+                        : isDark
+                        ? 'bg-white/10'
+                        : 'bg-gray-200'
+                    }`}
+                  >
+                    <div className={`absolute w-5 h-5 rounded-full bg-white shadow-md top-0.5 transition-all ${
+                      useCustomTierCounts ? 'left-6.5' : 'left-0.5'
+                    }`} />
+                  </button>
+                </div>
+
+                {/* 自定义数量输入框 */}
+                {useCustomTierCounts && (
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-3 gap-4">
+                      {/* 冲数量 */}
+                      <div>
+                        <label className={`block text-sm font-medium mb-2 ${
+                          isDark ? 'text-red-400' : 'text-red-600'
+                        }`}>冲刺志愿</label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            min={0}
+                            max={totalVolunteers}
+                            value={chongCount}
+                            onChange={(e) => setChongCount(Math.max(0, parseInt(e.target.value) || 0))}
+                            className={`w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all text-center font-bold`}
+                          />
+                          <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${textMuted}`}>个</span>
+                        </div>
+                      </div>
+
+                      {/* 稳数量 */}
+                      <div>
+                        <label className={`block text-sm font-medium mb-2 ${
+                          isDark ? 'text-amber-400' : 'text-amber-600'
+                        }`}>稳妥志愿</label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            min={0}
+                            max={totalVolunteers}
+                            value={wenCount}
+                            onChange={(e) => setWenCount(Math.max(0, parseInt(e.target.value) || 0))}
+                            className={`w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all text-center font-bold`}
+                          />
+                          <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${textMuted}`}>个</span>
+                        </div>
+                      </div>
+
+                      {/* 保数量 */}
+                      <div>
+                        <label className={`block text-sm font-medium mb-2 ${
+                          isDark ? 'text-green-400' : 'text-green-600'
+                        }`}>保底志愿</label>
+                        <div className="relative">
+                          <input
+                            type="number"
+                            min={0}
+                            max={totalVolunteers}
+                            value={baoCount}
+                            onChange={(e) => setBaoCount(Math.max(0, parseInt(e.target.value) || 0))}
+                            className={`w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all text-center font-bold`}
+                          />
+                          <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${textMuted}`}>个</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 总数显示 */}
+                    <div className={`flex items-center justify-between p-3 rounded-xl ${
+                      isTierCountValid
+                        ? isDark
+                        ? 'bg-white/5'
+                        : 'bg-gray-50'
+                        : isDark
+                        ? 'bg-red-500/10 border border-red-500/20'
+                        : 'bg-red-50 border border-red-200'
+                    }`}>
+                      <span className={`text-sm ${textSecondary}`}>
+                        当前总数：<span className={`font-bold ${isTierCountValid ? textPrimary : (isDark ? 'text-red-400' : 'text-red-600')}`}>{tierTotalCount}</span> 个
+                      </span>
+                      <span className={`text-sm ${textMuted}`}>
+                        限制：<span className={`font-medium ${textSecondary}`}>{totalVolunteers}</span> 个
+                      </span>
+                    </div>
+
+                    {/* 错误提示 */}
+                    {!isTierCountValid && (
+                      <div className={`flex items-center gap-2 p-3 rounded-xl ${
+                        isDark
+                        ? 'bg-red-500/10 border border-red-500/20 text-red-400'
+                        : 'bg-red-50 border border-red-200 text-red-600'
+                      }`}>
+                        <AlertCircle className="w-4 h-4" />
+                        <span className="text-sm font-medium">总数超出限制，请调整分配数量</span>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* 未开启自定义时显示提示 */}
+                {!useCustomTierCounts && (
+                  <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                    <p className={`text-sm ${textSecondary} mb-2`}>
+                      默认分配比例：
+                    </p>
+                    <div className="flex justify-center gap-6">
+                      <div className="text-center">
+                        <span className={`text-sm font-bold ${isDark ? 'text-red-400' : 'text-red-600'}`}>冲 {chongCount}个</span>
+                        <span className={`text-xs ${textMuted}`}>（30%）</span>
+                      </div>
+                      <div className="text-center">
+                        <span className={`text-sm font-bold ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>稳 {wenCount}个</span>
+                        <span className={`text-xs ${textMuted}`}>（40%）</span>
+                      </div>
+                      <div className="text-center">
+                        <span className={`text-sm font-bold ${isDark ? 'text-green-400' : 'text-green-600'}`}>保 {baoCount}个</span>
+                        <span className={`text-xs ${textMuted}`}>（30%）</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
               
               {/* 专业类别筛选 */}

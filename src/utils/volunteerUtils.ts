@@ -140,7 +140,11 @@ export function filterSchools(
   totalVolunteers: number = 30,
   selectedLevels: string[] = [],
   selectedProvinces: string[] = [],
-  selectedMajorCategories: string[] = []
+  selectedMajorCategories: string[] = [],
+  // 新增：自定义冲稳保数量
+  customChongCount?: number,
+  customWenCount?: number,
+  customBaoCount?: number
 ): VolunteerResult[] {
   // 按科目筛选
   let filtered = schools.filter(s => s.subject === subject);
@@ -189,10 +193,22 @@ export function filterSchools(
   const wen = withTier.filter(s => s.tier === '稳');
   const bao = withTier.filter(s => s.tier === '保');
   
-  // 计算各档次数量（比例：冲30%，稳40%，保30%）
-  const chongCount = Math.min(Math.ceil(totalVolunteers * 0.3), chong.length);
-  const wenCount = Math.min(Math.ceil(totalVolunteers * 0.4), wen.length);
-  const baoCount = Math.min(totalVolunteers - chongCount - wenCount, bao.length);
+  // 计算各档次数量
+  let chongCount: number;
+  let wenCount: number;
+  let baoCount: number;
+  
+  if (customChongCount !== undefined && customWenCount !== undefined && customBaoCount !== undefined) {
+    // 使用自定义数量
+    chongCount = Math.min(customChongCount, chong.length);
+    wenCount = Math.min(customWenCount, wen.length);
+    baoCount = Math.min(customBaoCount, bao.length);
+  } else {
+    // 默认比例：冲30%，稳40%，保30%
+    chongCount = Math.min(Math.ceil(totalVolunteers * 0.3), chong.length);
+    wenCount = Math.min(Math.ceil(totalVolunteers * 0.4), wen.length);
+    baoCount = Math.min(totalVolunteers - chongCount - wenCount, bao.length);
+  }
   
   // 组合结果
   const result: VolunteerResult[] = [];
