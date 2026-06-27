@@ -780,7 +780,7 @@ export function HomePage() {
                 </div>
                 <div className={`w-px h-16 ${isDark ? 'bg-white/10' : 'bg-gray-200'}`} />
                 <div className={`text-sm ${textSecondary} space-y-1`}>
-                  <p>分数范围：<span className={`${textPrimary} font-medium`}>{baseScore !== null ? `${baseScore - scoreRange} - {baseScore + scoreRange} 分` : '待输入'}</span></p>
+                  <p>分数范围：<span className={`${textPrimary} font-medium`}>{baseScore !== null ? `${baseScore - scoreRange} - ${baseScore + scoreRange} 分` : '待输入'}</span></p>
                   <p>科目要求：<span className={`${textPrimary} font-medium`}>{parseSubjectRequirement(subject)}</span></p>
                 </div>
               </div>
