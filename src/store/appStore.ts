@@ -1,7 +1,13 @@
 import { create } from 'zustand';
 import type { SchoolScore, VolunteerResult } from '../utils/volunteerUtils';
 
+type Theme = 'light' | 'dark';
+
 interface AppState {
+  // 主题
+  theme: Theme;
+  isDark: boolean;
+  
   // 输入参数
   baseScore: number | null;
   scoreRange: number;
@@ -36,6 +42,8 @@ interface AppState {
   results: VolunteerResult[];
   
   // 操作方法
+  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
   setBaseScore: (score: number | null) => void;
   setScoreRange: (range: number) => void;
   setSubject: (subject: number) => void;
@@ -54,93 +62,29 @@ interface AppState {
   reset: () => void;
 }
 
-export const useAppStore = create<AppState>((set, get) => ({
-  // 默认值
-  baseScore: null,
-  scoreRange: 15,
-  subject: 54,
-  totalVolunteers: 30,
-  selectedLevels: ['985', '211', '双一流', '普通本科'],
-  selectedProvinces: [],
-  selectedMajorCategories: [],
+const getInitialTheme = (): Theme => {
+  if (typeof window === 'undefined') return 'dark';
+  const savedTheme = localStorage.getItem('theme') as Theme | null;
+  if (savedTheme === 'light' || savedTheme === 'dark') {
+    return savedTheme;
+  }
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
+export const useAppStore = create<AppState>((set, get) => {
+  const initialTheme = getInitialTheme();
   
-  // 数据状态
-  schoolData: [],
-  isLoading: false,
-  error: null,
+  if (typeof document !== 'undefined') {
+    document.documentElement.classList.remove('light', 'dark');
+    document.documentElement.classList.add(initialTheme);
+  }
   
-  // 一分一段数据
-  rankInfo: {
-      score: null,
-      rank: null,
-      categoryRank: null,
-      category: null,
-      percentile: null,
-      totalCandidates: null,
-      year2025: null,
-      year2024: null,
-      year2023: null,
-      dataSource: null,
-      note: null,
-      isQuerying: false,
-    },
-  
-  // 结果
-  results: [],
-  
-  // 方法
-  setBaseScore: (score) => set({ baseScore: score }),
-  setScoreRange: (range) => set({ scoreRange: range }),
-  setSubject: (subject) => set({ subject: subject }),
-  setTotalVolunteers: (count) => set({ totalVolunteers: count }),
-  toggleLevel: (level) => {
-    const current = get().selectedLevels;
-    if (current.includes(level)) {
-      set({ selectedLevels: current.filter(l => l !== level) });
-    } else {
-      set({ selectedLevels: [...current, level] });
-    }
-  },
-  toggleProvince: (province) => {
-    const current = get().selectedProvinces;
-    if (current.includes(province)) {
-      set({ selectedProvinces: current.filter(p => p !== province) });
-    } else {
-      set({ selectedProvinces: [...current, province] });
-    }
-  },
-  toggleMajorCategory: (categoryId) => {
-    const current = get().selectedMajorCategories;
-    if (current.includes(categoryId)) {
-      set({ selectedMajorCategories: current.filter(c => c !== categoryId) });
-    } else {
-      set({ selectedMajorCategories: [...current, categoryId] });
-    }
-  },
-  clearAllProvinces: () => set({ selectedProvinces: [] }),
-  selectAllProvinces: () => {
-    const { schoolData } = get();
-    const allProvinces = [...new Set(schoolData.map(s => s.province))];
-    set({ selectedProvinces: allProvinces });
-  },
-  toggleRegion: (provinces) => {
-    const current = get().selectedProvinces;
-    const allSelected = provinces.every(p => current.includes(p));
-    if (allSelected) {
-      set({ selectedProvinces: current.filter(p => !provinces.includes(p)) });
-    } else {
-      const merged = [...new Set([...current, ...provinces])];
-      set({ selectedProvinces: merged });
-    }
-  },
-  setSchoolData: (data) => set({ schoolData: data }),
-  setLoading: (loading) => set({ isLoading: loading }),
-  setError: (error) => set({ error: error }),
-  setResults: (results) => set({ results: results }),
-  setRankInfo: (info) => set(state => ({
-    rankInfo: { ...state.rankInfo, ...info }
-  })),
-  reset: () => set({
+  return {
+    // 主题
+    theme: initialTheme,
+    isDark: initialTheme === 'dark',
+    
+    // 默认值
     baseScore: null,
     scoreRange: 15,
     subject: 54,
@@ -148,7 +92,110 @@ export const useAppStore = create<AppState>((set, get) => ({
     selectedLevels: ['985', '211', '双一流', '普通本科'],
     selectedProvinces: [],
     selectedMajorCategories: [],
-    results: [],
+    
+    // 数据状态
+    schoolData: [],
+    isLoading: false,
     error: null,
-  }),
-}));
+    
+    // 一分一段数据
+    rankInfo: {
+        score: null,
+        rank: null,
+        categoryRank: null,
+        category: null,
+        percentile: null,
+        totalCandidates: null,
+        year2025: null,
+        year2024: null,
+        year2023: null,
+        dataSource: null,
+        note: null,
+        isQuerying: false,
+      },
+    
+    // 结果
+    results: [],
+    
+    // 主题方法
+    toggleTheme: () => {
+      const currentTheme = get().theme;
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      set({ theme: newTheme, isDark: newTheme === 'dark' });
+      localStorage.setItem('theme', newTheme);
+      document.documentElement.classList.remove('light', 'dark');
+      document.documentElement.classList.add(newTheme);
+    },
+    
+    setTheme: (theme) => {
+      set({ theme, isDark: theme === 'dark' });
+      localStorage.setItem('theme', theme);
+      document.documentElement.classList.remove('light', 'dark');
+      document.documentElement.classList.add(theme);
+    },
+    
+    // 方法
+    setBaseScore: (score) => set({ baseScore: score }),
+    setScoreRange: (range) => set({ scoreRange: range }),
+    setSubject: (subject) => set({ subject: subject }),
+    setTotalVolunteers: (count) => set({ totalVolunteers: count }),
+    toggleLevel: (level) => {
+      const current = get().selectedLevels;
+      if (current.includes(level)) {
+        set({ selectedLevels: current.filter(l => l !== level) });
+      } else {
+        set({ selectedLevels: [...current, level] });
+      }
+    },
+    toggleProvince: (province) => {
+      const current = get().selectedProvinces;
+      if (current.includes(province)) {
+        set({ selectedProvinces: current.filter(p => p !== province) });
+      } else {
+        set({ selectedProvinces: [...current, province] });
+      }
+    },
+    toggleMajorCategory: (categoryId) => {
+      const current = get().selectedMajorCategories;
+      if (current.includes(categoryId)) {
+        set({ selectedMajorCategories: current.filter(c => c !== categoryId) });
+      } else {
+        set({ selectedMajorCategories: [...current, categoryId] });
+      }
+    },
+    clearAllProvinces: () => set({ selectedProvinces: [] }),
+    selectAllProvinces: () => {
+      const { schoolData } = get();
+      const allProvinces = [...new Set(schoolData.map(s => s.province))];
+      set({ selectedProvinces: allProvinces });
+    },
+    toggleRegion: (provinces) => {
+      const current = get().selectedProvinces;
+      const allSelected = provinces.every(p => current.includes(p));
+      if (allSelected) {
+        set({ selectedProvinces: current.filter(p => !provinces.includes(p)) });
+      } else {
+        const merged = [...new Set([...current, ...provinces])];
+        set({ selectedProvinces: merged });
+      }
+    },
+    setSchoolData: (data) => set({ schoolData: data }),
+    setLoading: (loading) => set({ isLoading: loading }),
+    setError: (error) => set({ error: error }),
+    setResults: (results) => set({ results: results }),
+    setRankInfo: (info) => set(state => ({
+      rankInfo: { ...state.rankInfo, ...info }
+    })),
+    reset: () => set({
+      baseScore: null,
+      scoreRange: 15,
+      subject: 54,
+      totalVolunteers: 30,
+      selectedLevels: ['985', '211', '双一流', '普通本科'],
+      selectedProvinces: [],
+      selectedMajorCategories: [],
+      results: [],
+      error: null,
+    }),
+  };
+});

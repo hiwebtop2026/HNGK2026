@@ -411,7 +411,6 @@ export async function fetchRankInfo(score: number, subject: number): Promise<Ran
   const diff2024 = batch2026 - batch2024;
   const diff2023 = batch2026 - batch2023;
   
-  const year2026 = score;
   const year2025 = Math.round(score - diff2025);
   const year2024 = Math.round(score - diff2024);
   const year2023 = Math.round(score - diff2023);
