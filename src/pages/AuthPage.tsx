@@ -41,11 +41,13 @@ export function AuthPage() {
     user,
     isLoading,
     error,
+    successMessage,
     register,
     login,
     logout,
     checkAuth,
     setError,
+    setSuccessMessage,
   } = useAuthStore();
   
   const [mode, setMode] = useState<'login' | 'register'>('register');
@@ -175,7 +177,7 @@ export function AuthPage() {
           {/* 模式切换 */}
           <div className={`flex rounded-xl p-1 mb-6 ${isDark ? 'bg-white/5' : 'bg-gray-100'}`}>
             <button
-              onClick={() => { setMode('login'); setError(null); }}
+              onClick={() => { setMode('login'); setError(null); setSuccessMessage(null); }}
               className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 mode === 'login'
                   ? 'bg-white text-gray-800 shadow-sm'
@@ -185,7 +187,7 @@ export function AuthPage() {
               登录
             </button>
             <button
-              onClick={() => { setMode('register'); setError(null); }}
+              onClick={() => { setMode('register'); setError(null); setSuccessMessage(null); }}
               className={`flex-1 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 mode === 'register'
                   ? 'bg-white text-gray-800 shadow-sm'
@@ -279,6 +281,13 @@ export function AuthPage() {
               <div className={`p-3 rounded-xl flex items-center gap-2 ${isDark ? 'bg-red-500/10 border border-red-500/20 text-red-400' : 'bg-red-50 border border-red-200 text-red-600'}`}>
                 <AlertCircle className="w-4 h-4" />
                 <span className="text-sm">{error}</span>
+              </div>
+            )}
+            
+            {successMessage && (
+              <div className={`p-3 rounded-xl flex items-center gap-2 ${isDark ? 'bg-green-500/10 border border-green-500/20 text-green-400' : 'bg-green-50 border border-green-200 text-green-600'}`}>
+                <CheckCircle2 className="w-4 h-4" />
+                <span className="text-sm">{successMessage}</span>
               </div>
             )}
             

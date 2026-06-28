@@ -12,6 +12,7 @@ interface AuthState {
   user: User | null;
   isLoading: boolean;
   error: string | null;
+  successMessage: string | null;
   
   // 操作方法
   register: (email: string, password: string) => Promise<boolean>;
@@ -19,6 +20,7 @@ interface AuthState {
   logout: () => Promise<boolean>;
   checkAuth: () => Promise<void>;
   setError: (error: string | null) => void;
+  setSuccessMessage: (message: string | null) => void;
 }
 
 // localStorage 后备方案（未配置 Supabase 时使用）
@@ -138,7 +140,7 @@ async function loginLocal(
   };
   saveLocalCurrentUser(user);
   
-  set({ isLoading: false, isAuthenticated: true, user, error: null });
+  set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: null });
   return true;
 }
 
@@ -147,9 +149,10 @@ export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   isLoading: false,
   error: null,
+  successMessage: null,
   
   register: async (email: string, password: string) => {
-    set({ isLoading: true, error: null });
+    set({ isLoading: true, error: null, successMessage: null });
     
     // 本地验证（无论哪种模式都先验证）
     if (!email || !email.includes('@')) {
@@ -209,14 +212,22 @@ export const useAuthStore = create<AuthState>((set) => ({
           } catch {}
           
           // 处理邮箱验证情况：用户已创建但需要验证邮件
+          // 由于已将用户信息保存到本地，可以直接自动登录
           if (!data.session) {
+            // 保存到本地作为备份
+            localUsers[email] = { email, password: hashPassword(password), registeredAt: user.registeredAt };
+            saveLocalUsers(localUsers);
+            saveLocalCurrentUser(user);
+            
+            // 自动登录
             set({ 
               isLoading: false, 
-              isAuthenticated: false, 
-              user: null, 
-              error: '注册成功！请查收邮箱验证邮件后登录' 
+              isAuthenticated: true, 
+              user, 
+              error: null,
+              successMessage: '注册成功！已自动登录。' 
             });
-            return false;
+            return true;
           }
           
           // 同时保存到本地作为备份
@@ -242,7 +253,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
   
   login: async (email: string, password: string) => {
-    set({ isLoading: true, error: null });
+    set({ isLoading: true, error: null, successMessage: null });
     
     // 本地验证
     if (!email || !email.includes('@')) {
@@ -381,4 +392,5 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
   
   setError: (error) => set({ error }),
+  setSuccessMessage: (message) => set({ successMessage: message }),
 }));
