@@ -58,6 +58,90 @@ function hashPassword(password: string): string {
   return hash.toString(36);
 }
 
+// Supabase 错误消息中文翻译
+function translateSupabaseError(errorMessage: string): string {
+  if (errorMessage.includes('email rate limit exceeded')) {
+    return '注册请求过于频繁，请稍后再试';
+  }
+  if (errorMessage.includes('User already registered')) {
+    return '该邮箱已注册，请直接登录';
+  }
+  if (errorMessage.includes('Invalid login credentials')) {
+    return '邮箱或密码错误';
+  }
+  if (errorMessage.includes('Email not confirmed')) {
+    return '邮箱尚未验证，请查收验证邮件并完成验证';
+  }
+  if (errorMessage.includes('Password should be at least 6 characters')) {
+    return '密码长度至少6位';
+  }
+  if (errorMessage.includes('Invalid email')) {
+    return '请输入正确的邮箱地址';
+  }
+  return errorMessage;
+}
+
+// 本地注册辅助函数
+async function registerLocal(
+  email: string, 
+  password: string, 
+  set: (partial: Partial<AuthState>) => void
+): Promise<boolean> {
+  await new Promise(resolve => setTimeout(resolve, 300));
+  
+  const users = getLocalUsers();
+  
+  if (users[email]) {
+    set({ isLoading: false, error: '该邮箱已注册，请直接登录' });
+    return false;
+  }
+  
+  const user: User = {
+    id: 'local_' + Date.now(),
+    email,
+    registeredAt: new Date().toISOString(),
+  };
+  
+  users[email] = { email, password: hashPassword(password), registeredAt: user.registeredAt };
+  saveLocalUsers(users);
+  saveLocalCurrentUser(user);
+  
+  set({ isLoading: false, isAuthenticated: true, user, error: null });
+  return true;
+}
+
+// 本地登录辅助函数
+async function loginLocal(
+  email: string, 
+  password: string, 
+  set: (partial: Partial<AuthState>) => void
+): Promise<boolean> {
+  await new Promise(resolve => setTimeout(resolve, 300));
+  
+  const users = getLocalUsers();
+  const stored = users[email];
+  
+  if (!stored) {
+    set({ isLoading: false, error: '该邮箱未注册，请先注册' });
+    return false;
+  }
+  
+  if (stored.password !== hashPassword(password)) {
+    set({ isLoading: false, error: '密码错误' });
+    return false;
+  }
+  
+  const user: User = {
+    id: 'local_' + Date.now(),
+    email,
+    registeredAt: stored.registeredAt,
+  };
+  saveLocalCurrentUser(user);
+  
+  set({ isLoading: false, isAuthenticated: true, user, error: null });
+  return true;
+}
+
 export const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: false,
   user: null,
@@ -66,6 +150,24 @@ export const useAuthStore = create<AuthState>((set) => ({
   
   register: async (email: string, password: string) => {
     set({ isLoading: true, error: null });
+    
+    // 本地验证（无论哪种模式都先验证）
+    if (!email || !email.includes('@')) {
+      set({ isLoading: false, error: '请输入正确的邮箱地址' });
+      return false;
+    }
+    
+    if (!password || password.length < 6) {
+      set({ isLoading: false, error: '密码长度至少6位' });
+      return false;
+    }
+    
+    // 检查本地是否已注册（避免重复注册）
+    const localUsers = getLocalUsers();
+    if (localUsers[email]) {
+      set({ isLoading: false, error: '该邮箱已注册，请直接登录' });
+      return false;
+    }
     
     try {
       if (isSupabaseConfigured && supabase) {
@@ -76,7 +178,15 @@ export const useAuthStore = create<AuthState>((set) => ({
         });
         
         if (error) {
-          set({ isLoading: false, error: error.message });
+          // 翻译错误消息
+          const translatedError = translateSupabaseError(error.message);
+          
+          // 如果是频率限制错误，自动降级到本地模式
+          if (error.message.includes('email rate limit exceeded')) {
+            return registerLocal(email, password, set);
+          }
+          
+          set({ isLoading: false, error: translatedError });
           return false;
         }
         
@@ -98,54 +208,52 @@ export const useAuthStore = create<AuthState>((set) => ({
             });
           } catch {}
           
+          // 处理邮箱验证情况：用户已创建但需要验证邮件
+          if (!data.session) {
+            set({ 
+              isLoading: false, 
+              isAuthenticated: false, 
+              user: null, 
+              error: '注册成功！请查收邮箱验证邮件后登录' 
+            });
+            return false;
+          }
+          
+          // 同时保存到本地作为备份
+          localUsers[email] = { email, password: hashPassword(password), registeredAt: user.registeredAt };
+          saveLocalUsers(localUsers);
+          saveLocalCurrentUser(user);
+          
           set({ isLoading: false, isAuthenticated: true, user, error: null });
           return true;
         }
         
-        set({ isLoading: false, error: '注册失败，请重试' });
-        return false;
+        // Supabase 返回空数据，降级到本地模式
+        return registerLocal(email, password, set);
       } else {
         // 本地模式（localStorage）
-        await new Promise(resolve => setTimeout(resolve, 300));
-        
-        if (!email || !email.includes('@')) {
-          set({ isLoading: false, error: '请输入正确的邮箱地址' });
-          return false;
-        }
-        
-        if (!password || password.length < 6) {
-          set({ isLoading: false, error: '密码长度至少6位' });
-          return false;
-        }
-        
-        const users = getLocalUsers();
-        
-        if (users[email]) {
-          set({ isLoading: false, error: '该邮箱已注册，请直接登录' });
-          return false;
-        }
-        
-        const user: User = {
-          id: 'local_' + Date.now(),
-          email,
-          registeredAt: new Date().toISOString(),
-        };
-        
-        users[email] = { email, password: hashPassword(password), registeredAt: user.registeredAt };
-        saveLocalUsers(users);
-        saveLocalCurrentUser(user);
-        
-        set({ isLoading: false, isAuthenticated: true, user, error: null });
-        return true;
+        return registerLocal(email, password, set);
       }
     } catch (err: any) {
-      set({ isLoading: false, error: err.message || '注册失败' });
-      return false;
+      // Supabase 网络错误或其他异常，降级到本地模式
+      console.warn('Supabase registration failed, falling back to local mode:', err);
+      return registerLocal(email, password, set);
     }
   },
   
   login: async (email: string, password: string) => {
     set({ isLoading: true, error: null });
+    
+    // 本地验证
+    if (!email || !email.includes('@')) {
+      set({ isLoading: false, error: '请输入正确的邮箱地址' });
+      return false;
+    }
+    
+    if (!password || password.length < 6) {
+      set({ isLoading: false, error: '密码长度至少6位' });
+      return false;
+    }
     
     try {
       if (isSupabaseConfigured && supabase) {
@@ -156,7 +264,16 @@ export const useAuthStore = create<AuthState>((set) => ({
         });
         
         if (error) {
-          set({ isLoading: false, error: error.message });
+          // 翻译错误消息
+          const translatedError = translateSupabaseError(error.message);
+          
+          // 如果是邮箱未验证或凭证错误，尝试本地登录
+          if (error.message.includes('Email not confirmed') || 
+              error.message.includes('Invalid login credentials')) {
+            return loginLocal(email, password, set);
+          }
+          
+          set({ isLoading: false, error: translatedError });
           return false;
         }
         
@@ -178,42 +295,28 @@ export const useAuthStore = create<AuthState>((set) => ({
             });
           } catch {}
           
+          // 同时保存到本地作为备份
+          const users = getLocalUsers();
+          if (!users[email]) {
+            users[email] = { email, password: hashPassword(password), registeredAt: user.registeredAt };
+            saveLocalUsers(users);
+          }
+          saveLocalCurrentUser(user);
+          
           set({ isLoading: false, isAuthenticated: true, user, error: null });
           return true;
         }
         
-        set({ isLoading: false, error: '登录失败，请重试' });
-        return false;
+        // Supabase 返回空数据，尝试本地登录
+        return loginLocal(email, password, set);
       } else {
         // 本地模式
-        await new Promise(resolve => setTimeout(resolve, 300));
-        
-        const users = getLocalUsers();
-        const stored = users[email];
-        
-        if (!stored) {
-          set({ isLoading: false, error: '该邮箱未注册，请先注册' });
-          return false;
-        }
-        
-        if (stored.password !== hashPassword(password)) {
-          set({ isLoading: false, error: '密码错误' });
-          return false;
-        }
-        
-        const user: User = {
-          id: 'local_' + Date.now(),
-          email,
-          registeredAt: stored.registeredAt,
-        };
-        saveLocalCurrentUser(user);
-        
-        set({ isLoading: false, isAuthenticated: true, user, error: null });
-        return true;
+        return loginLocal(email, password, set);
       }
     } catch (err: any) {
-      set({ isLoading: false, error: err.message || '登录失败' });
-      return false;
+      // Supabase 网络错误或其他异常，尝试本地登录
+      console.warn('Supabase login failed, falling back to local mode:', err);
+      return loginLocal(email, password, set);
     }
   },
   
