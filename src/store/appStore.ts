@@ -115,7 +115,7 @@ export const useAppStore = create<AppState>((set, get) => {
     baoCount: 9,
     useCustomTierCounts: false,
     // 冲稳保分数差默认值（冲+5分，稳上下3分，保-10分）
-    chongScoreDiff: 5,
+    chongScoreDiff: 10,
     wenScoreDiff: 3,
     baoScoreDiff: 10,
     useCustomTierScoreDiffs: false,
@@ -253,7 +253,7 @@ export const useAppStore = create<AppState>((set, get) => {
       wenCount: 12,
       baoCount: 9,
       useCustomTierCounts: false,
-      chongScoreDiff: 5,
+      chongScoreDiff: 10,
       wenScoreDiff: 3,
       baoScoreDiff: 10,
       useCustomTierScoreDiffs: false,

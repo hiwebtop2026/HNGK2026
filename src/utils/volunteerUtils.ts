@@ -194,7 +194,7 @@ export function filterSchools(
   // 分配档次（支持自定义分数差）
   const customDiffs = customChongScoreDiff !== undefined || customWenScoreDiff !== undefined || customBaoScoreDiff !== undefined
     ? { 
-        chong: customChongScoreDiff ?? 5, 
+        chong: customChongScoreDiff ?? 10, 
         wen: customWenScoreDiff ?? 5, 
         bao: customBaoScoreDiff ?? 5 
       }

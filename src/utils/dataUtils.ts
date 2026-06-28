@@ -93,7 +93,7 @@ export function getTier(
   baseScore: number, 
   customDiffs?: { chong: number, wen: number, bao: number }
 ): '冲' | '稳' | '保' {
-  const { chong = 5, wen = 5, bao = 5 } = customDiffs || {};
+  const { chong = 10, wen = 5, bao = 5 } = customDiffs || {};
   const diff = refScore - baseScore;
   if (diff > chong) return '冲';
   if (diff >= -wen && diff <= chong) return '稳';

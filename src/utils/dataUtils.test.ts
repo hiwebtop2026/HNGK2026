@@ -53,14 +53,14 @@ describe('getRefScore', () => {
 });
 
 describe('getTier', () => {
-  it('should return "冲" when refScore is more than 5 points above baseScore', () => {
-    expect(getTier(610, 600)).toBe('冲');
-    expect(getTier(606, 600)).toBe('冲');
+  it('should return "冲" when refScore is more than 10 points above baseScore', () => {
+    expect(getTier(615, 600)).toBe('冲');
+    expect(getTier(611, 600)).toBe('冲');
   });
 
-  it('should return "稳" when refScore is within ±5 points of baseScore', () => {
+  it('should return "稳" when refScore is within ±10 points of baseScore', () => {
     expect(getTier(600, 600)).toBe('稳');
-    expect(getTier(605, 600)).toBe('稳');
+    expect(getTier(610, 600)).toBe('稳');
     expect(getTier(595, 600)).toBe('稳');
   });
 
