@@ -56,7 +56,8 @@ export const admissionScoreService = {
       .from(TABLES.ADMISSION_SCORES)
       .select('*')
       .eq('year', year)
-      .order('score', { ascending: false });
+      .order('score', { ascending: false })
+      .limit(10000);  // 设置更大的limit获取全部数据
     
     if (error) {
       console.error('获取投档分数线失败:', error);
@@ -91,7 +92,8 @@ export const admissionScoreService = {
       .from(TABLES.ADMISSION_SCORES)
       .select('*')
       .gte('score', minScore)
-      .lte('score', maxScore);
+      .lte('score', maxScore)
+      .limit(10000);  // 设置更大的limit
     
     if (year) {
       query = query.eq('year', year);
