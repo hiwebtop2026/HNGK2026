@@ -13,6 +13,7 @@ export interface VolunteerResult {
   subject: number;
   province: string;
   level: string;
+  nature: '公办' | '民办';
   score2025: number | null;
   score2024: number | null;
   score2023: number | null;
@@ -241,6 +242,7 @@ export function filterSchools(
       subject: s.subject,
       province: s.province,
       level: s.level,
+      nature: s.nature,
       score2025: s.score2025,
       score2024: s.score2024,
       score2023: s.score2023,
@@ -264,6 +266,7 @@ export function filterSchools(
       subject: s.subject,
       province: s.province,
       level: s.level,
+      nature: s.nature,
       score2025: s.score2025,
       score2024: s.score2024,
       score2023: s.score2023,
@@ -287,6 +290,7 @@ export function filterSchools(
       subject: s.subject,
       province: s.province,
       level: s.level,
+      nature: s.nature,
       score2025: s.score2025,
       score2024: s.score2024,
       score2023: s.score2023,

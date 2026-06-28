@@ -346,30 +346,41 @@ export function ResultPage() {
                         </div>
                       </div>
                       
-                      <div className="flex flex-wrap items-center gap-3 mb-4">
-                        <span className={`px-2.5 py-1 rounded-lg text-xs font-medium ${
+                      <div className="flex flex-wrap items-center gap-2.5 mb-4">
+                        <span className={`px-3 py-1.5 rounded-lg text-xs font-bold ${
                           volunteer.level === '985'
-                            ? isDark ? 'bg-red-500/20 text-red-400 border border-red-500/30' : 'bg-red-50 text-red-600 border border-red-200'
+                            ? 'bg-gradient-to-r from-red-500 to-rose-500 text-white shadow-md shadow-red-500/25'
                             : volunteer.level === '211'
-                            ? isDark ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30' : 'bg-orange-50 text-orange-600 border border-orange-200'
+                            ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md shadow-orange-500/25'
                             : volunteer.level === '双一流'
-                            ? isDark ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30' : 'bg-blue-50 text-blue-600 border border-blue-200'
-                            : isDark ? 'bg-gray-500/20 text-gray-400 border border-gray-500/30' : 'bg-gray-50 text-gray-600 border border-gray-200'
+                            ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-md shadow-blue-500/25'
+                            : isDark ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'
                         }`}>
                           {volunteer.level}
                         </span>
-                        <span className={`text-sm ${textSecondary} flex items-center gap-1`}>
+                        <span className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
+                          volunteer.nature === '公办'
+                            ? isDark
+                            ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
+                            : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                            : isDark
+                            ? 'bg-purple-500/15 text-purple-400 border border-purple-500/30'
+                            : 'bg-purple-50 text-purple-700 border border-purple-200'
+                        }`}>
+                          {volunteer.nature}
+                        </span>
+                        <span className={`text-sm ${textSecondary} flex items-center gap-1.5 ml-1`}>
                           <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-gray-500' : 'bg-gray-400'}`} />
                           {volunteer.province}
                         </span>
                         
                         {/* 分数趋势 */}
-                        <span className={`flex items-center gap-1 text-xs px-2 py-1 rounded-lg ${
+                        <span className={`flex items-center gap-1 text-xs font-medium px-3 py-1.5 rounded-lg ${
                           volunteer.scoreTrend === 'up'
-                            ? isDark ? 'bg-red-500/10 text-red-400' : 'bg-red-50 text-red-600'
+                            ? isDark ? 'bg-red-500/15 text-red-400 border border-red-500/30' : 'bg-red-50 text-red-600 border border-red-200'
                             : volunteer.scoreTrend === 'down'
-                            ? isDark ? 'bg-green-500/10 text-green-400' : 'bg-green-50 text-green-600'
-                            : isDark ? 'bg-gray-500/10 text-gray-400' : 'bg-gray-100 text-gray-600'
+                            ? isDark ? 'bg-green-500/15 text-green-400 border border-green-500/30' : 'bg-green-50 text-green-600 border border-green-200'
+                            : isDark ? 'bg-gray-500/15 text-gray-400 border border-gray-500/30' : 'bg-gray-50 text-gray-600 border border-gray-200'
                         }`}>
                           {volunteer.scoreTrend === 'up' && <TrendingUp className="w-3 h-3" />}
                           {volunteer.scoreTrend === 'down' && <TrendingDown className="w-3 h-3" />}
@@ -381,9 +392,9 @@ export function ResultPage() {
                           const cat = MAJOR_CATEGORIES.find(c => c.id === catId);
                           if (!cat) return null;
                           return (
-                            <span key={catId} className={`px-2 py-0.5 rounded-md text-xs ${
+                            <span key={catId} className={`px-3 py-1.5 rounded-lg text-xs font-medium ${
                               isDark
-                                ? 'bg-primary-500/20 text-primary-400 border border-primary-500/30'
+                                ? 'bg-primary-500/15 text-primary-400 border border-primary-500/30'
                                 : 'bg-primary-50 text-primary-600 border border-primary-200'
                             }`}>
                               {cat.name}
