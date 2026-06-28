@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import type { SchoolScore, VolunteerResult } from '../utils/volunteerUtils';
+import { loadSchoolDataFromSupabase } from '../utils/supabaseDataLoader';
 
 type Theme = 'light' | 'dark';
 
@@ -80,6 +81,7 @@ interface AppState {
   setResults: (results: VolunteerResult[]) => void;
   setRankInfo: (info: Partial<AppState['rankInfo']>) => void;
   reset: () => void;
+  loadFromSupabase: () => Promise<void>;
 }
 
 const getInitialTheme = (): Theme => {
@@ -244,6 +246,15 @@ export const useAppStore = create<AppState>((set, get) => {
     setRankInfo: (info) => set(state => ({
       rankInfo: { ...state.rankInfo, ...info }
     })),
+    loadFromSupabase: async () => {
+      set({ isLoading: true, error: null });
+      try {
+        const data = await loadSchoolDataFromSupabase();
+        set({ schoolData: data, isLoading: false });
+      } catch (err) {
+        set({ error: '从云端加载数据失败', isLoading: false });
+      }
+    },
     reset: () => set({
       baseScore: null,
       scoreRange: 15,

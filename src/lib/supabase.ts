@@ -24,4 +24,6 @@ export const supabase = isSupabaseConfigured
 export const TABLES = {
   USERS: 'profiles',
   VOLUNTEER_PLANS: 'volunteer_plans',
+  ADMISSION_SCORES: 'admission_scores',
+  SUBJECT_REQUIREMENTS: 'subject_requirements',
 } as const;
