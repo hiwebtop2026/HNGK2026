@@ -18,9 +18,15 @@ interface AppState {
   wenCount: number;
   baoCount: number;
   useCustomTierCounts: boolean;
+  // 冲稳保分数差自定义
+  chongScoreDiff: number;
+  wenScoreDiff: number;
+  baoScoreDiff: number;
+  useCustomTierScoreDiffs: boolean;
   selectedLevels: string[];
   selectedProvinces: string[];
   selectedMajorCategories: string[];
+  selectedNatures: string[];
   
   // 数据状态
   schoolData: SchoolScore[];
@@ -57,6 +63,11 @@ interface AppState {
   setWenCount: (count: number) => void;
   setBaoCount: (count: number) => void;
   setUseCustomTierCounts: (use: boolean) => void;
+  setChongScoreDiff: (diff: number) => void;
+  setWenScoreDiff: (diff: number) => void;
+  setBaoScoreDiff: (diff: number) => void;
+  setUseCustomTierScoreDiffs: (use: boolean) => void;
+  toggleNature: (nature: string) => void;
   toggleLevel: (level: string) => void;
   toggleProvince: (province: string) => void;
   toggleMajorCategory: (categoryId: string) => void;
@@ -103,9 +114,15 @@ export const useAppStore = create<AppState>((set, get) => {
     wenCount: 12,
     baoCount: 9,
     useCustomTierCounts: false,
+    // 冲稳保分数差默认值（冲+5分，稳上下3分，保-10分）
+    chongScoreDiff: 5,
+    wenScoreDiff: 3,
+    baoScoreDiff: 10,
+    useCustomTierScoreDiffs: false,
     selectedLevels: ['985', '211', '双一流', '普通本科'],
     selectedProvinces: [],
     selectedMajorCategories: [],
+    selectedNatures: [],
     
     // 数据状态
     schoolData: [],
@@ -168,6 +185,18 @@ export const useAppStore = create<AppState>((set, get) => {
     setWenCount: (count) => set({ wenCount: count }),
     setBaoCount: (count) => set({ baoCount: count }),
     setUseCustomTierCounts: (use) => set({ useCustomTierCounts: use }),
+    setChongScoreDiff: (diff) => set({ chongScoreDiff: diff }),
+    setWenScoreDiff: (diff) => set({ wenScoreDiff: diff }),
+    setBaoScoreDiff: (diff) => set({ baoScoreDiff: diff }),
+    setUseCustomTierScoreDiffs: (use) => set({ useCustomTierScoreDiffs: use }),
+    toggleNature: (nature) => {
+      const current = get().selectedNatures;
+      if (current.includes(nature)) {
+        set({ selectedNatures: current.filter(n => n !== nature) });
+      } else {
+        set({ selectedNatures: [...current, nature] });
+      }
+    },
     toggleLevel: (level) => {
       const current = get().selectedLevels;
       if (current.includes(level)) {
@@ -224,9 +253,14 @@ export const useAppStore = create<AppState>((set, get) => {
       wenCount: 12,
       baoCount: 9,
       useCustomTierCounts: false,
+      chongScoreDiff: 5,
+      wenScoreDiff: 3,
+      baoScoreDiff: 10,
+      useCustomTierScoreDiffs: false,
       selectedLevels: ['985', '211', '双一流', '普通本科'],
       selectedProvinces: [],
       selectedMajorCategories: [],
+      selectedNatures: [],
       results: [],
       error: null,
     }),

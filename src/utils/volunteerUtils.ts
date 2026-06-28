@@ -78,6 +78,7 @@ export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]
           subject,
           province: '其他',
           level: '普通本科',
+          nature: '公办',
           score2025: year === 2025 ? score : null,
           score2024: year === 2024 ? score : null,
           score2023: year === 2023 ? score : null,
@@ -141,10 +142,13 @@ export function filterSchools(
   selectedLevels: string[] = [],
   selectedProvinces: string[] = [],
   selectedMajorCategories: string[] = [],
-  // 新增：自定义冲稳保数量
+  selectedNatures: string[] = [],
   customChongCount?: number,
   customWenCount?: number,
-  customBaoCount?: number
+  customBaoCount?: number,
+  customChongScoreDiff?: number,
+  customWenScoreDiff?: number,
+  customBaoScoreDiff?: number
 ): VolunteerResult[] {
   // 按科目筛选
   let filtered = schools.filter(s => s.subject === subject);
@@ -152,6 +156,11 @@ export function filterSchools(
   // 按院校层次筛选
   if (selectedLevels.length > 0) {
     filtered = filtered.filter(s => selectedLevels.includes(s.level));
+  }
+  
+  // 按院校性质筛选
+  if (selectedNatures.length > 0) {
+    filtered = filtered.filter(s => selectedNatures.includes(s.nature));
   }
   
   // 按省份筛选
@@ -182,10 +191,18 @@ export function filterSchools(
   // 按参考分从高到低排序
   const sorted = withRefScore.sort((a, b) => b.refScore - a.refScore);
   
-  // 分配档次
+  // 分配档次（支持自定义分数差）
+  const customDiffs = customChongScoreDiff !== undefined || customWenScoreDiff !== undefined || customBaoScoreDiff !== undefined
+    ? { 
+        chong: customChongScoreDiff ?? 5, 
+        wen: customWenScoreDiff ?? 5, 
+        bao: customBaoScoreDiff ?? 5 
+      }
+    : undefined;
+  
   const withTier = sorted.map(s => ({
     ...s,
-    tier: getTier(s.refScore, baseScore),
+    tier: getTier(s.refScore, baseScore, customDiffs),
   }));
   
   // 按档次分组

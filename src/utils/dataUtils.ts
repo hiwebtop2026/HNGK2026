@@ -7,6 +7,7 @@ export interface SchoolScore {
   subject: number;        // 科目要求 (54=物理+化学)
   province: string;       // 省份
   level: string;          // 院校层次 (985/211/双一流/普通本科)
+  nature: '公办' | '民办'; // 院校性质
   score2025: number | null;
   score2024: number | null;
   score2023: number | null;
@@ -87,11 +88,17 @@ export function getRefScore(score2025: number | null, score2024: number | null, 
 }
 
 // 判断志愿档次
-export function getTier(refScore: number, baseScore: number): '冲' | '稳' | '保' {
+export function getTier(
+  refScore: number, 
+  baseScore: number, 
+  customDiffs?: { chong: number, wen: number, bao: number }
+): '冲' | '稳' | '保' {
+  const { chong = 5, wen = 5, bao = 5 } = customDiffs || {};
   const diff = refScore - baseScore;
-  if (diff > 5) return '冲';
-  if (diff >= -5) return '稳';
-  return '保';
+  if (diff > chong) return '冲';
+  if (diff >= -wen && diff <= chong) return '稳';
+  if (diff < -bao) return '保';
+  return '稳';
 }
 
 // 生成推荐理由

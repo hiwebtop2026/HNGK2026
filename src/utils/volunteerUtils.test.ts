@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import type { SchoolScore } from './dataUtils';
 import {
   calculateAdmissionProbability,
   calculateScoreTrend,
@@ -57,13 +58,14 @@ describe('calculateScoreTrend', () => {
 });
 
 describe('filterSchools', () => {
-  const mockSchools = [
+  const mockSchools: SchoolScore[] = [
     {
       code: '10001',
       name: '大学A(理科)',
       subject: 54,
       province: '北京',
       level: '985',
+      nature: '公办',
       score2025: 605,
       score2024: 600,
       score2023: 595,
@@ -74,6 +76,7 @@ describe('filterSchools', () => {
       subject: 54,
       province: '北京',
       level: '985',
+      nature: '公办',
       score2025: 598,
       score2024: 595,
       score2023: 592,
@@ -84,6 +87,7 @@ describe('filterSchools', () => {
       subject: 87,
       province: '上海',
       level: '985',
+      nature: '公办',
       score2025: 590,
       score2024: 588,
       score2023: 585,
@@ -94,6 +98,7 @@ describe('filterSchools', () => {
       subject: 54,
       province: '海南',
       level: '普通本科',
+      nature: '公办',
       score2025: 580,
       score2024: 578,
       score2023: 575,
