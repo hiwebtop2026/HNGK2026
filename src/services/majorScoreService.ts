@@ -21,6 +21,8 @@ export interface MajorScore {
   source: string | null;
   created_at: string;
   updated_at: string;
+  admission_probability?: number;
+  tier?: '冲' | '稳' | '保';
 }
 
 export interface SchoolMajorStats {
