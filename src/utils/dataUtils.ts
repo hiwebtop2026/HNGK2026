@@ -43,7 +43,7 @@ export const SUBJECT_LIST = [
   { code: '9', name: '地理', icon: '🌍', color: 'from-teal-500 to-green-500' },
 ];
 
-// 解析科目要求代码
+// 解析科目要求代码（数字代码 -> 文字描述）
 // 规则：
 // - 0: 不限
 // - 单位数: 单科
@@ -76,38 +76,110 @@ export function parseSubjectRequirement(code: number): string {
 // requirement: 专业选科要求，支持多种格式：
 //   - 数字代码：54, 45, 0, 5等
 //   - 文字描述："选科要求：物理+化学", "不限", "物理或化学"等
+// 科目名称到代码的映射
+const SUBJECT_NAME_TO_CODE: Record<string, string> = {
+  '物理': '4',
+  '化学': '5',
+  '生物': '6',
+  '政治': '7',
+  '思想政治': '7',
+  '历史': '8',
+  '地理': '9',
+  '物': '4',
+  '化': '5',
+  '生': '6',
+  '史': '8',
+  '地': '9',
+};
+
+// 从文字描述的选科要求中解析出科目代码和类型
+function parseSubjectRequirementFromString(requirement: string): { codes: string[]; type: 'all' | 'any' } {
+  const reqStr = String(requirement).trim();
+  
+  if (!reqStr || reqStr === '0' || reqStr.includes('不限')) {
+    return { codes: [], type: 'any' };
+  }
+  
+  if (reqStr.match(/^\d+$/)) {
+    const digits = reqStr.match(/[4-9]/g) || [];
+    const isAscending = digits.length > 1 && digits.every((d, i) => i === 0 || parseInt(digits[i - 1]) < parseInt(d));
+    return { codes: digits, type: isAscending ? 'any' : 'all' };
+  }
+  
+  let codes: string[] = [];
+  let type: 'all' | 'any' = 'all';
+  
+  if (reqStr.includes('必选')) {
+    type = 'all';
+    for (const [name, code] of Object.entries(SUBJECT_NAME_TO_CODE)) {
+      if (reqStr.includes(name) && !codes.includes(code)) {
+        codes.push(code);
+      }
+    }
+  } else if (reqStr.includes('+') || reqStr.includes('均须') || reqStr.includes('均需') || reqStr.includes('2科必选') || reqStr.includes('3科必选')) {
+    type = 'all';
+    const parts = reqStr.split(/[+\/、，,]/);
+    for (const part of parts) {
+      for (const [name, code] of Object.entries(SUBJECT_NAME_TO_CODE)) {
+        if (part.trim().startsWith(name) && !codes.includes(code)) {
+          codes.push(code);
+          break;
+        }
+      }
+    }
+  } else if (reqStr.includes('/') || reqStr.includes('选') || reqStr.includes('或')) {
+    type = 'any';
+    const parts = reqStr.split(/[\/、，,]/);
+    for (const part of parts) {
+      for (const [name, code] of Object.entries(SUBJECT_NAME_TO_CODE)) {
+        if (part.trim().startsWith(name) && !codes.includes(code)) {
+          codes.push(code);
+          break;
+        }
+      }
+    }
+  } else {
+    const reqDigits = reqStr.match(/[4-9]/g) || [];
+    if (reqDigits.length > 0) {
+      codes = reqDigits;
+      const isAscending = codes.length > 1 && codes.every((d, i) => i === 0 || parseInt(codes[i - 1]) < parseInt(d));
+      type = isAscending ? 'any' : 'all';
+    }
+  }
+  
+  codes = [...new Set(codes)];
+  
+  return { codes, type };
+}
+
 export function isSubjectMatch(selectedSubjects: string[], requirement: string | number): boolean {
   if (!selectedSubjects || selectedSubjects.length === 0) {
     return true;
   }
   
-  let reqStr = String(requirement).trim();
+  const reqStr = String(requirement).trim();
   
   if (!reqStr || reqStr === '0' || reqStr.includes('不限')) {
     return true;
   }
   
-  reqStr = reqStr.replace(/选科要求[：:]/g, '').trim();
+  const { codes, type } = parseSubjectRequirementFromString(reqStr);
   
-  const reqDigits = reqStr.match(/[4-9]/g) || [];
-  
-  if (reqDigits.length === 0) {
+  if (codes.length === 0) {
     return true;
   }
   
-  const isAscending = reqDigits.length > 1 && reqDigits.every((d, i) => i === 0 || parseInt(reqDigits[i - 1]) < parseInt(d));
-  
-  if (isAscending) {
-    return reqDigits.some(d => selectedSubjects.includes(d));
+  if (type === 'any') {
+    return codes.some(d => selectedSubjects.includes(d));
   } else {
-    return reqDigits.every(d => selectedSubjects.includes(d));
+    return codes.every(d => selectedSubjects.includes(d));
   }
 }
 
 // 从选科要求文字描述中提取科目代码
 export function extractSubjectCodes(requirement: string): string[] {
-  const match = String(requirement).match(/[4-9]/g);
-  return match || [];
+  const { codes } = parseSubjectRequirementFromString(String(requirement));
+  return codes;
 }
 
 // 科目要求说明（保留向后兼容，使用函数生成）

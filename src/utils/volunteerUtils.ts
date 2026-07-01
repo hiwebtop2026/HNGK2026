@@ -465,19 +465,10 @@ export async function filterSchoolsAsync(
       const schoolName = extractSchoolName(result.name);
       const allMajors = await majorScoreService.getBySchool(schoolName);
       
-      const scoreRangeForTier = getMajorScoreRangeForTier(
-        result.tier,
-        baseScore,
-        customChongScoreDiff,
-        customWenScoreDiff,
-        customBaoScoreDiff
-      );
+      const schoolRefScore = getRefScore(result.score2025, result.score2024, result.score2023);
       
-      const matched = allMajors.filter(major => {
+      const filteredMajors = allMajors.filter(major => {
         if (!major.min_score) return false;
-        
-        const inRange = major.min_score >= scoreRangeForTier.min && major.min_score <= scoreRangeForTier.max;
-        if (!inRange) return false;
         
         if (selectedSubjects.length > 0 && major.subject_requirement) {
           if (!isSubjectMatch(selectedSubjects, major.subject_requirement)) {
@@ -486,6 +477,14 @@ export async function filterSchoolsAsync(
         }
         
         return true;
+      });
+      
+      const scoreDiff = Math.abs(schoolRefScore - baseScore);
+      const expandRange = Math.max(30, scoreDiff + 40);
+      
+      const matched = filteredMajors.filter(major => {
+        const score = major.min_score || 0;
+        return score >= baseScore - expandRange && score <= baseScore + expandRange;
       });
       
       matched.forEach(major => {
@@ -501,7 +500,7 @@ export async function filterSchoolsAsync(
         return diffA - diffB;
       });
       
-      result.matchedMajors = matched.slice(0, 10);
+      result.matchedMajors = matched.slice(0, 15);
       
       if (matched.length > 0) {
         result.majorSuggestion = matched.slice(0, 3).map(m => m.major_name).join('、') || result.majorSuggestion;

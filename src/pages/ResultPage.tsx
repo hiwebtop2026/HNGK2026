@@ -434,12 +434,30 @@ export function ResultPage() {
                         
                         {/* 专业推荐 */}
                         <div className={`mb-4 rounded-xl ${isDark ? 'bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20' : 'bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200'} overflow-hidden`}>
-                          <div className="flex items-center gap-2 px-4 py-3 border-b border-blue-200/30">
-                            <GraduationCap className={`w-4 h-4 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
-                            <span className={`text-sm font-medium ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>匹配专业推荐（近三年数据）</span>
-                            <span className={`text-xs px-2 py-0.5 rounded-full ${isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-600'}`}>
-                              {(volunteer.matchedMajors?.length || 0)}个专业
-                            </span>
+                          <div className="flex items-center justify-between px-4 py-3 border-b border-blue-200/30">
+                            <div className="flex items-center gap-2">
+                              <GraduationCap className={`w-4 h-4 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
+                              <span className={`text-sm font-medium ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>可报考专业推荐</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              {volunteer.matchedMajors && volunteer.matchedMajors.length > 0 && (
+                                <>
+                                  {['保', '稳', '冲'].map(tier => {
+                                    const count = volunteer.matchedMajors.filter(m => m.tier === tier).length;
+                                    if (count === 0) return null;
+                                    const color = tier === '保' ? 'bg-green-500' : tier === '稳' ? 'bg-yellow-500' : 'bg-orange-500';
+                                    return (
+                                      <span key={tier} className={`text-xs text-white px-1.5 py-0.5 rounded ${color}`}>
+                                        {tier}{count}
+                                      </span>
+                                    );
+                                  })}
+                                </>
+                              )}
+                              <span className={`text-xs px-2 py-0.5 rounded-full ${isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-600'}`}>
+                                共{(volunteer.matchedMajors?.length || 0)}个
+                              </span>
+                            </div>
                           </div>
                           <div className="p-4">
                             {volunteer.matchedMajors && volunteer.matchedMajors.length > 0 ? (
@@ -449,10 +467,10 @@ export function ResultPage() {
                                   if (majorsForTier.length === 0) return null;
                                   
                                   const tierColor = tier === '保' 
-                                    ? { bg: isDark ? 'bg-green-500/10' : 'bg-green-50', border: isDark ? 'border-green-500/20' : 'border-green-200', text: isDark ? 'text-green-400' : 'text-green-600', badge: 'bg-gradient-to-r from-green-500 to-emerald-500', probability: isDark ? 'text-green-400' : 'text-green-600' }
+                                    ? { bg: isDark ? 'bg-green-500/5' : 'bg-green-50', border: isDark ? 'border-green-500/20' : 'border-green-200', text: isDark ? 'text-green-400' : 'text-green-600', badge: 'bg-gradient-to-r from-green-500 to-emerald-500', probability: isDark ? 'text-green-400' : 'text-green-600', tag: isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700' }
                                     : tier === '稳'
-                                    ? { bg: isDark ? 'bg-yellow-500/10' : 'bg-yellow-50', border: isDark ? 'border-yellow-500/20' : 'border-yellow-200', text: isDark ? 'text-yellow-400' : 'text-yellow-600', badge: 'bg-gradient-to-r from-yellow-500 to-amber-500', probability: isDark ? 'text-yellow-400' : 'text-yellow-600' }
-                                    : { bg: isDark ? 'bg-orange-500/10' : 'bg-orange-50', border: isDark ? 'border-orange-500/20' : 'border-orange-200', text: isDark ? 'text-orange-400' : 'text-orange-600', badge: 'bg-gradient-to-r from-orange-500 to-red-500', probability: isDark ? 'text-orange-400' : 'text-orange-600' };
+                                    ? { bg: isDark ? 'bg-yellow-500/5' : 'bg-yellow-50', border: isDark ? 'border-yellow-500/20' : 'border-yellow-200', text: isDark ? 'text-yellow-400' : 'text-yellow-600', badge: 'bg-gradient-to-r from-yellow-500 to-amber-500', probability: isDark ? 'text-yellow-400' : 'text-yellow-600', tag: isDark ? 'bg-yellow-500/20 text-yellow-400' : 'bg-yellow-100 text-yellow-700' }
+                                    : { bg: isDark ? 'bg-orange-500/5' : 'bg-orange-50', border: isDark ? 'border-orange-500/20' : 'border-orange-200', text: isDark ? 'text-orange-400' : 'text-orange-600', badge: 'bg-gradient-to-r from-orange-500 to-red-500', probability: isDark ? 'text-orange-400' : 'text-orange-600', tag: isDark ? 'bg-orange-500/20 text-orange-400' : 'bg-orange-100 text-orange-700' };
                                   
                                   return (
                                     <div key={tier}>
@@ -461,38 +479,49 @@ export function ResultPage() {
                                           {tier}
                                         </span>
                                         <span className={`text-xs ${textSecondary}`}>
-                                          可录取专业 {majorsForTier.length}个
+                                          {tier === '保' ? '稳妥录取' : tier === '稳' ? '有较大把握' : '冲刺尝试'} · {majorsForTier.length}个专业
                                         </span>
                                       </div>
-                                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                      <div className="grid grid-cols-1 gap-2">
                                         {majorsForTier.map((major, idx) => (
-                                          <div key={idx} className={`p-3 rounded-lg ${tierColor.bg} border ${tierColor.border} hover:shadow-md transition-all`}>
-                                            <div className="flex items-start justify-between mb-2">
-                                              <span className={`font-medium text-sm ${textPrimary}`}>{major.major_name}</span>
-                                              <div className="flex flex-col items-end gap-1">
-                                                <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${tierColor.text} bg-opacity-10`}>
+                                          <div key={idx} className={`p-3 rounded-lg ${tierColor.bg} border ${tierColor.border} hover:shadow-sm transition-all`}>
+                                            <div className="flex items-start justify-between gap-3 mb-2">
+                                              <div className="flex-1">
+                                                <span className={`font-medium text-sm ${textPrimary} block`}>{major.major_name}</span>
+                                                {major.major_group && (
+                                                  <span className={`text-xs ${textMuted} mt-0.5 block`}>专业组: {major.major_group}</span>
+                                                )}
+                                              </div>
+                                              <div className="flex flex-col items-end gap-1 flex-shrink-0">
+                                                <span className={`text-sm font-bold ${tierColor.text}`}>
                                                   {major.min_score}分
                                                 </span>
-                                                {major.avg_score && major.avg_score !== major.min_score && (
-                                                  <span className={`text-xs ${textMuted}`}>平均{major.avg_score}分</span>
+                                                {major.min_rank && (
+                                                  <span className={`text-xs ${textMuted}`}>位次 {major.min_rank}</span>
                                                 )}
                                               </div>
                                             </div>
-                                            <div className="flex items-center justify-between text-xs">
-                                              <div className="flex items-center gap-2">
-                                                {major.year && <span className={textMuted}>📅 {major.year}年</span>}
-                                                {major.batch && <span className={textMuted}>📦 {major.batch}</span>}
-                                                {major.min_rank && <span className={textMuted}>🏆 位次{major.min_rank}</span>}
-                                              </div>
+                                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
+                                              {major.year && (
+                                                <span className={textMuted}>📅 {major.year}年</span>
+                                              )}
+                                              {major.batch && (
+                                                <span className={textMuted}>📦 {major.batch}</span>
+                                              )}
+                                              {major.person_count && (
+                                                <span className={textMuted}>👥 {major.person_count}人</span>
+                                              )}
                                               {major.admission_probability !== undefined && (
-                                                <span className={`font-medium ${tierColor.probability}`}>
-                                                  录取率 {major.admission_probability}%
+                                                <span className={`font-medium ${tierColor.probability} ml-auto`}>
+                                                  录取概率 {major.admission_probability}%
                                                 </span>
                                               )}
                                             </div>
                                             {major.subject_requirement && (
-                                              <div className="mt-2 pt-2 border-t border-gray-200/30">
-                                                <span className={`text-xs ${textMuted}`}>📝 选科要求: {major.subject_requirement}</span>
+                                              <div className="mt-2 pt-2 border-t border-gray-200/30 flex items-center gap-2">
+                                                <span className={`text-xs px-2 py-0.5 rounded ${tierColor.tag}`}>
+                                                  选科: {major.subject_requirement}
+                                                </span>
                                               </div>
                                             )}
                                           </div>
@@ -503,10 +532,11 @@ export function ResultPage() {
                                 })}
                               </div>
                             ) : (
-                              <div className={`text-center py-6 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
-                                <GraduationCap className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                                <p className="text-sm">暂无匹配的专业数据</p>
+                              <div className={`text-center py-8 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
+                                <GraduationCap className="w-14 h-14 mx-auto mb-3 opacity-40" />
+                                <p className="text-sm font-medium">暂无匹配的专业数据</p>
                                 <p className="text-xs mt-1">该院校在数据库中暂无专业录取分数线记录</p>
+                                <p className="text-xs mt-2">建议参考院校投档线进行志愿填报</p>
                               </div>
                             )}
                           </div>
