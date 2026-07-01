@@ -24,7 +24,7 @@ export interface MajorRecommendation {
 }
 
 // 科目名称映射
-const SUBJECT_NAMES: Record<string, string> = {
+export const SUBJECT_NAMES: Record<string, string> = {
   '4': '物理',
   '5': '化学',
   '6': '生物',
@@ -32,6 +32,16 @@ const SUBJECT_NAMES: Record<string, string> = {
   '8': '历史',
   '9': '地理',
 };
+
+// 六科列表
+export const SUBJECT_LIST = [
+  { code: '4', name: '物理', icon: '⚛️', color: 'from-blue-500 to-cyan-500' },
+  { code: '5', name: '化学', icon: '🧪', color: 'from-green-500 to-emerald-500' },
+  { code: '6', name: '生物', icon: '🧬', color: 'from-rose-500 to-pink-500' },
+  { code: '7', name: '思想政治', icon: '📚', color: 'from-amber-500 to-orange-500' },
+  { code: '8', name: '历史', icon: '🏛️', color: 'from-purple-500 to-indigo-500' },
+  { code: '9', name: '地理', icon: '🌍', color: 'from-teal-500 to-green-500' },
+];
 
 // 解析科目要求代码
 // 规则：
@@ -59,6 +69,45 @@ export function parseSubjectRequirement(code: number): string {
   } else {
     return `${names}`;
   }
+}
+
+// 判断考生选科是否满足专业选科要求
+// selectedSubjects: 考生选择的科目代码数组，如 ['4', '5', '6']
+// requirement: 专业选科要求，支持多种格式：
+//   - 数字代码：54, 45, 0, 5等
+//   - 文字描述："选科要求：物理+化学", "不限", "物理或化学"等
+export function isSubjectMatch(selectedSubjects: string[], requirement: string | number): boolean {
+  if (!selectedSubjects || selectedSubjects.length === 0) {
+    return true;
+  }
+  
+  let reqStr = String(requirement).trim();
+  
+  if (!reqStr || reqStr === '0' || reqStr.includes('不限')) {
+    return true;
+  }
+  
+  reqStr = reqStr.replace(/选科要求[：:]/g, '').trim();
+  
+  const reqDigits = reqStr.match(/[4-9]/g) || [];
+  
+  if (reqDigits.length === 0) {
+    return true;
+  }
+  
+  const isAscending = reqDigits.length > 1 && reqDigits.every((d, i) => i === 0 || parseInt(reqDigits[i - 1]) < parseInt(d));
+  
+  if (isAscending) {
+    return reqDigits.some(d => selectedSubjects.includes(d));
+  } else {
+    return reqDigits.every(d => selectedSubjects.includes(d));
+  }
+}
+
+// 从选科要求文字描述中提取科目代码
+export function extractSubjectCodes(requirement: string): string[] {
+  const match = String(requirement).match(/[4-9]/g);
+  return match || [];
 }
 
 // 科目要求说明（保留向后兼容，使用函数生成）

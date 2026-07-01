@@ -8,8 +8,8 @@ import {
 import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
 import { useUsageStore } from '../store/usageStore';
-import { filterSchools, loadSchoolDataFromExcel } from '../utils/volunteerUtils';
-import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories } from '../utils/dataUtils';
+import { filterSchools, filterSchoolsAsync, loadSchoolDataFromExcel } from '../utils/volunteerUtils';
+import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST } from '../utils/dataUtils';
 import { fetchRankInfo } from '../utils/dataUtils';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, SCHOOL_NATURES, REGION_GROUPS } from '../data/schoolData';
 
@@ -58,6 +58,7 @@ export function HomePage() {
     baseScore,
     scoreRange,
     subject,
+    selectedSubjects,
     totalVolunteers,
     chongCount,
     wenCount,
@@ -78,6 +79,7 @@ export function HomePage() {
     setBaseScore,
     setScoreRange,
     setSubject,
+    toggleSelectedSubject,
     setTotalVolunteers,
     setChongCount,
     setWenCount,
@@ -248,7 +250,7 @@ export function HomePage() {
     }
   };
   
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
     // 检查认证状态
     if (!isAuthenticated) {
       setError('请先注册账号以使用志愿生成功能');
@@ -256,7 +258,7 @@ export function HomePage() {
     }
 
     const state = useAppStore.getState();
-    const { schoolData, baseScore, scoreRange, subject, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories, selectedNatures, chongCount, wenCount, baoCount, useCustomTierCounts, chongScoreDiff, wenScoreDiff, baoScoreDiff, useCustomTierScoreDiffs } = state;
+    const { schoolData, baseScore, scoreRange, subject, selectedSubjects, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories, selectedNatures, chongCount, wenCount, baoCount, useCustomTierCounts, chongScoreDiff, wenScoreDiff, baoScoreDiff, useCustomTierScoreDiffs } = state;
 
     if (schoolData.length === 0) {
       setError('请先上传投档分数线数据文件');
@@ -274,45 +276,57 @@ export function HomePage() {
       return;
     }
 
-    const results = filterSchools(
-      schoolData,
-      baseScore,
-      scoreRange,
-      subject,
-      totalVolunteers,
-      selectedLevels,
-      selectedProvinces,
-      selectedMajorCategories,
-      selectedNatures,
-      useCustomTierCounts ? chongCount : undefined,
-      useCustomTierCounts ? wenCount : undefined,
-      useCustomTierCounts ? baoCount : undefined,
-      useCustomTierScoreDiffs ? chongScoreDiff : undefined,
-      useCustomTierScoreDiffs ? wenScoreDiff : undefined,
-      useCustomTierScoreDiffs ? baoScoreDiff : undefined
-    );
+    setLoading(true);
+    setError(null);
 
-    if (results.length === 0) {
-      setError('未找到符合条件的院校，请调整分数范围或科目要求');
-      return;
-    }
+    try {
+      const results = await filterSchoolsAsync(
+        schoolData,
+        baseScore,
+        scoreRange,
+        subject,
+        totalVolunteers,
+        selectedLevels,
+        selectedProvinces,
+        selectedMajorCategories,
+        selectedNatures,
+        useCustomTierCounts ? chongCount : undefined,
+        useCustomTierCounts ? wenCount : undefined,
+        useCustomTierCounts ? baoCount : undefined,
+        useCustomTierScoreDiffs ? chongScoreDiff : undefined,
+        useCustomTierScoreDiffs ? wenScoreDiff : undefined,
+        useCustomTierScoreDiffs ? baoScoreDiff : undefined,
+        selectedSubjects
+      );
 
-    setResults(results);
-    
-    // 记录志愿生成行为
-    if (isAuthenticated) {
-      logGeneratePlan(baseScore, subject, totalVolunteers, results.length, {
-        score_range: scoreRange,
-        chong_count: useCustomTierCounts ? chongCount : Math.ceil(totalVolunteers * 0.3),
-        wen_count: useCustomTierCounts ? wenCount : Math.ceil(totalVolunteers * 0.4),
-        bao_count: useCustomTierCounts ? baoCount : Math.max(0, totalVolunteers - Math.ceil(totalVolunteers * 0.3) - Math.ceil(totalVolunteers * 0.4)),
-        selected_levels_count: selectedLevels.length,
-        selected_provinces_count: selectedProvinces.length,
-        selected_categories_count: selectedMajorCategories.length,
-      });
+      if (results.length === 0) {
+        setError('未找到符合条件的院校，请调整分数范围或科目要求');
+        return;
+      }
+
+      setResults(results);
+      
+      // 记录志愿生成行为
+      if (isAuthenticated) {
+        logGeneratePlan(baseScore, subject, totalVolunteers, results.length, {
+          score_range: scoreRange,
+          chong_count: useCustomTierCounts ? chongCount : Math.ceil(totalVolunteers * 0.3),
+          wen_count: useCustomTierCounts ? wenCount : Math.ceil(totalVolunteers * 0.4),
+          bao_count: useCustomTierCounts ? baoCount : Math.max(0, totalVolunteers - Math.ceil(totalVolunteers * 0.3) - Math.ceil(totalVolunteers * 0.4)),
+          selected_levels_count: selectedLevels.length,
+          selected_provinces_count: selectedProvinces.length,
+          selected_categories_count: selectedMajorCategories.length,
+          selected_subjects_count: selectedSubjects.length,
+        });
+      }
+      
+      navigate('/result');
+    } catch (error) {
+      console.error('生成志愿方案失败:', error);
+      setError('生成志愿方案失败，请重试');
+    } finally {
+      setLoading(false);
     }
-    
-    navigate('/result');
   };
   
   const textPrimary = isDark ? 'text-white' : 'text-gray-800';
@@ -706,6 +720,34 @@ export function HomePage() {
                     <h2 className={`text-lg font-semibold ${textPrimary}`}>选考科目与志愿数量</h2>
                     <p className={`text-sm ${textSecondary}`}>选择你的选考科目组合</p>
                   </div>
+                </div>
+                
+                <div className="mb-6">
+                  <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>选考科目（可多选）</label>
+                  <div className="flex flex-wrap gap-3">
+                    {SUBJECT_LIST.map((sub) => (
+                      <button
+                        key={sub.code}
+                        onClick={() => toggleSelectedSubject(sub.code)}
+                        className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all ${
+                          selectedSubjects.includes(sub.code)
+                            ? `bg-gradient-to-r ${sub.color} text-white shadow-lg shadow-primary-500/25 scale-105`
+                            : isDark
+                            ? 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20 hover:text-gray-300'
+                            : 'bg-white text-gray-500 border border-gray-200 hover:border-primary-300 hover:text-gray-700'
+                        }`}
+                      >
+                        <span className="text-lg">{sub.icon}</span>
+                        <span>{sub.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                  <p className={`text-xs ${textMuted} mt-2`}>
+                    {selectedSubjects.length === 0 
+                      ? '未选择科目，将匹配所有专业' 
+                      : `已选择：${selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')}`
+                    }
+                  </p>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

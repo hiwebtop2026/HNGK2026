@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Download, ArrowLeft, AlertCircle, Zap, Target, Shield, Filter, TrendingUp,
-  TrendingDown, Minus, Percent, BarChart3
+  TrendingDown, Minus, Percent, BarChart3, GraduationCap
 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
@@ -404,38 +404,65 @@ export function ResultPage() {
                       </div>
                       
                       {/* 历年分数线 */}
-                      <div className={`flex items-center gap-6 mb-4 p-3 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
-                        <div className="flex items-center gap-2">
-                          <BarChart3 className={`w-4 h-4 ${textSecondary}`} />
-                          <span className={`text-sm ${textSecondary}`}>历年投档线</span>
+                        <div className={`flex items-center gap-6 mb-4 p-3 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                          <div className="flex items-center gap-2">
+                            <BarChart3 className={`w-4 h-4 ${textSecondary}`} />
+                            <span className={`text-sm ${textSecondary}`}>历年投档线</span>
+                          </div>
+                          <div className="flex gap-6 flex-1">
+                            <div className="text-center">
+                              <p className={`text-xs ${textMuted} mb-1`}>2025</p>
+                              <p className={`text-sm font-bold ${textPrimary}`}>{volunteer.score2025 ?? '-'}</p>
+                            </div>
+                            <div className="text-center">
+                              <p className={`text-xs ${textMuted} mb-1`}>2024</p>
+                              <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{volunteer.score2024 ?? '-'}</p>
+                            </div>
+                            <div className="text-center">
+                              <p className={`text-xs ${textMuted} mb-1`}>2023</p>
+                              <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{volunteer.score2023 ?? '-'}</p>
+                            </div>
+                          </div>
+                          <div className={`text-right ${scoreDiff.color}`}>
+                            <div className="flex items-center justify-end gap-1">
+                              {scoreDiff.icon}
+                              <span className="font-bold">{scoreDiff.text}分</span>
+                            </div>
+                            <p className={`text-xs ${textMuted}`}>与参考分差</p>
+                          </div>
                         </div>
-                        <div className="flex gap-6 flex-1">
-                          <div className="text-center">
-                            <p className={`text-xs ${textMuted} mb-1`}>2025</p>
-                            <p className={`text-sm font-bold ${textPrimary}`}>{volunteer.score2025 ?? '-'}</p>
+                        
+                        {/* 专业推荐 */}
+                        {volunteer.matchedMajors && volunteer.matchedMajors.length > 0 && (
+                          <div className={`mb-4 p-4 rounded-xl ${isDark ? 'bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20' : 'bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200'}`}>
+                            <div className="flex items-center gap-2 mb-3">
+                              <GraduationCap className={`w-4 h-4 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
+                              <span className={`text-sm font-medium ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>匹配专业推荐（近三年数据）</span>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                              {volunteer.matchedMajors.slice(0, 4).map((major, idx) => (
+                                <div key={idx} className={`p-3 rounded-lg ${isDark ? 'bg-white/5' : 'bg-white'} border ${isDark ? 'border-white/10' : 'border-gray-100'}`}>
+                                  <div className="flex items-center justify-between mb-1">
+                                    <span className={`font-medium text-sm ${textPrimary}`}>{major.major_name}</span>
+                                    <span className={`text-xs px-2 py-0.5 rounded-full ${isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700'}`}>
+                                      {major.min_score}分
+                                    </span>
+                                  </div>
+                                  <div className="flex items-center gap-3 text-xs text-gray-500">
+                                    {major.year && <span>📅 {major.year}年</span>}
+                                    {major.batch && <span>📦 {major.batch}</span>}
+                                    {major.subject_requirement && <span>📝 {major.subject_requirement}</span>}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                          <div className="text-center">
-                            <p className={`text-xs ${textMuted} mb-1`}>2024</p>
-                            <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{volunteer.score2024 ?? '-'}</p>
-                          </div>
-                          <div className="text-center">
-                            <p className={`text-xs ${textMuted} mb-1`}>2023</p>
-                            <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{volunteer.score2023 ?? '-'}</p>
-                          </div>
-                        </div>
-                        <div className={`text-right ${scoreDiff.color}`}>
-                          <div className="flex items-center justify-end gap-1">
-                            {scoreDiff.icon}
-                            <span className="font-bold">{scoreDiff.text}分</span>
-                          </div>
-                          <p className={`text-xs ${textMuted}`}>与参考分差</p>
-                        </div>
-                      </div>
-                      
-                      {/* 推荐理由 */}
-                      <p className={`text-sm ${textSecondary} leading-relaxed`}>
-                        💡 {volunteer.reason}
-                      </p>
+                        )}
+                        
+                        {/* 推荐理由 */}
+                        <p className={`text-sm ${textSecondary} leading-relaxed`}>
+                          💡 {volunteer.reason}
+                        </p>
                     </div>
                   </div>
                 </div>

@@ -13,6 +13,7 @@ interface AppState {
   baseScore: number | null;
   scoreRange: number;
   subject: number;
+  selectedSubjects: string[];
   totalVolunteers: number;
   // 冲稳保数量自定义
   chongCount: number;
@@ -59,6 +60,8 @@ interface AppState {
   setBaseScore: (score: number | null) => void;
   setScoreRange: (range: number) => void;
   setSubject: (subject: number) => void;
+  setSelectedSubjects: (subjects: string[]) => void;
+  toggleSelectedSubject: (subject: string) => void;
   setTotalVolunteers: (count: number) => void;
   setChongCount: (count: number) => void;
   setWenCount: (count: number) => void;
@@ -110,6 +113,7 @@ export const useAppStore = create<AppState>((set, get) => {
     baseScore: null,
     scoreRange: 15,
     subject: 54,
+    selectedSubjects: [],
     totalVolunteers: 30,
     // 冲稳保默认值（默认30%冲、40%稳、30%保）
     chongCount: 9,
@@ -171,6 +175,15 @@ export const useAppStore = create<AppState>((set, get) => {
     setBaseScore: (score) => set({ baseScore: score }),
     setScoreRange: (range) => set({ scoreRange: range }),
     setSubject: (subject) => set({ subject: subject }),
+    setSelectedSubjects: (subjects) => set({ selectedSubjects: subjects }),
+    toggleSelectedSubject: (subject) => {
+      const current = get().selectedSubjects;
+      if (current.includes(subject)) {
+        set({ selectedSubjects: current.filter(s => s !== subject) });
+      } else {
+        set({ selectedSubjects: [...current, subject] });
+      }
+    },
     setTotalVolunteers: (count) => {
       // 自动计算冲稳保默认比例
       const chong = Math.ceil(count * 0.3);
@@ -259,6 +272,7 @@ export const useAppStore = create<AppState>((set, get) => {
       baseScore: null,
       scoreRange: 15,
       subject: 54,
+      selectedSubjects: [],
       totalVolunteers: 30,
       chongCount: 9,
       wenCount: 12,

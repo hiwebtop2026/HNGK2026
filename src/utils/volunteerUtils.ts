@@ -1,7 +1,8 @@
 import * as XLSX from 'xlsx';
-import { getRefScore, getTier, getRecommendationReason, matchMajorCategories } from './dataUtils';
+import { getRefScore, getTier, getRecommendationReason, matchMajorCategories, isSubjectMatch } from './dataUtils';
 import type { SchoolScore, MajorRecommendation } from './dataUtils';
 import { generateMajorRecommendations, formatMajorSuggestion } from './majorRecommender';
+import { majorScoreService, type MajorScore } from '../services/majorScoreService';
 
 export type { SchoolScore, MajorRecommendation };
 
@@ -23,6 +24,7 @@ export interface VolunteerResult {
   reason: string;
   admissionProbability: number;
   scoreTrend: 'up' | 'down' | 'stable';
+  matchedMajors: MajorScore[];
 }
 
 // 从Excel文件读取数据（浏览器环境）
@@ -133,7 +135,7 @@ export function calculateScoreTrend(
   return 'stable';
 }
 
-// 筛选院校
+// 筛选院校（同步版本，保持向后兼容）
 export function filterSchools(
   schools: SchoolScore[],
   baseScore: number,
@@ -149,7 +151,47 @@ export function filterSchools(
   customBaoCount?: number,
   customChongScoreDiff?: number,
   customWenScoreDiff?: number,
-  customBaoScoreDiff?: number
+  customBaoScoreDiff?: number,
+  selectedSubjects: string[] = []
+): VolunteerResult[] {
+  return filterSchoolsWithMajors(
+    schools,
+    baseScore,
+    scoreRange,
+    subject,
+    totalVolunteers,
+    selectedLevels,
+    selectedProvinces,
+    selectedMajorCategories,
+    selectedNatures,
+    customChongCount,
+    customWenCount,
+    customBaoCount,
+    customChongScoreDiff,
+    customWenScoreDiff,
+    customBaoScoreDiff,
+    selectedSubjects
+  );
+}
+
+// 筛选院校（带专业数据版本）
+export function filterSchoolsWithMajors(
+  schools: SchoolScore[],
+  baseScore: number,
+  scoreRange: number,
+  subject: number,
+  totalVolunteers: number = 30,
+  selectedLevels: string[] = [],
+  selectedProvinces: string[] = [],
+  selectedMajorCategories: string[] = [],
+  selectedNatures: string[] = [],
+  customChongCount?: number,
+  customWenCount?: number,
+  customBaoCount?: number,
+  customChongScoreDiff?: number,
+  customWenScoreDiff?: number,
+  customBaoScoreDiff?: number,
+  selectedSubjects: string[] = []
 ): VolunteerResult[] {
   // 按科目筛选
   let filtered = schools.filter(s => s.subject === subject);
@@ -252,6 +294,7 @@ export function filterSchools(
       reason: getRecommendationReason(s.refScore, baseScore),
       admissionProbability: calculateAdmissionProbability(s.refScore, baseScore),
       scoreTrend: calculateScoreTrend(s.score2025, s.score2024, s.score2023),
+      matchedMajors: [],
     });
     index++;
   }
@@ -276,6 +319,7 @@ export function filterSchools(
       reason: getRecommendationReason(s.refScore, baseScore),
       admissionProbability: calculateAdmissionProbability(s.refScore, baseScore),
       scoreTrend: calculateScoreTrend(s.score2025, s.score2024, s.score2023),
+      matchedMajors: [],
     });
     index++;
   }
@@ -300,11 +344,87 @@ export function filterSchools(
       reason: getRecommendationReason(s.refScore, baseScore),
       admissionProbability: calculateAdmissionProbability(s.refScore, baseScore),
       scoreTrend: calculateScoreTrend(s.score2025, s.score2024, s.score2023),
+      matchedMajors: [],
     });
     index++;
   }
   
   return result;
+}
+
+// 筛选院校（异步版本，从Supabase获取专业数据）
+export async function filterSchoolsAsync(
+  schools: SchoolScore[],
+  baseScore: number,
+  scoreRange: number,
+  subject: number,
+  totalVolunteers: number = 30,
+  selectedLevels: string[] = [],
+  selectedProvinces: string[] = [],
+  selectedMajorCategories: string[] = [],
+  selectedNatures: string[] = [],
+  customChongCount?: number,
+  customWenCount?: number,
+  customBaoCount?: number,
+  customChongScoreDiff?: number,
+  customWenScoreDiff?: number,
+  customBaoScoreDiff?: number,
+  selectedSubjects: string[] = []
+): Promise<VolunteerResult[]> {
+  const results = filterSchoolsWithMajors(
+    schools,
+    baseScore,
+    scoreRange,
+    subject,
+    totalVolunteers,
+    selectedLevels,
+    selectedProvinces,
+    selectedMajorCategories,
+    selectedNatures,
+    customChongCount,
+    customWenCount,
+    customBaoCount,
+    customChongScoreDiff,
+    customWenScoreDiff,
+    customBaoScoreDiff,
+    selectedSubjects
+  );
+  
+  for (const result of results) {
+    try {
+      const allMajors = await majorScoreService.getBySchool(result.name);
+      
+      const matched = allMajors.filter(major => {
+        if (!major.min_score || major.min_score < baseScore - scoreRange || major.min_score > baseScore + scoreRange) {
+          return false;
+        }
+        
+        if (selectedSubjects.length > 0 && major.subject_requirement) {
+          if (!isSubjectMatch(selectedSubjects, major.subject_requirement)) {
+            return false;
+          }
+        }
+        
+        return true;
+      });
+      
+      matched.sort((a, b) => {
+        const scoreA = a.min_score || 0;
+        const scoreB = b.min_score || 0;
+        return scoreB - scoreA;
+      });
+      
+      result.matchedMajors = matched.slice(0, 6);
+      
+      if (matched.length > 0) {
+        result.majorSuggestion = matched.slice(0, 3).map(m => m.major_name).join('、') || result.majorSuggestion;
+      }
+    } catch (error) {
+      console.error(`获取${result.name}专业数据失败:`, error);
+    }
+  }
+  
+  return results;
 }
 
 // 导出为Excel
