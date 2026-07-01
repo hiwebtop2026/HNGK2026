@@ -496,6 +496,11 @@ export function ResultPage() {
                                                 <span className={`text-sm font-bold ${tierColor.text}`}>
                                                   {major.min_score}分
                                                 </span>
+                                                {major.min_score && baseScore && (
+                                                  <span className={`text-xs ${major.min_score <= baseScore ? (isDark ? 'text-green-400' : 'text-green-600') : (isDark ? 'text-red-400' : 'text-red-600')}`}>
+                                                    {major.min_score <= baseScore ? '↓' : '↑'} {Math.abs(major.min_score - baseScore)}分
+                                                  </span>
+                                                )}
                                                 {major.min_rank && (
                                                   <span className={`text-xs ${textMuted}`}>位次 {major.min_rank}</span>
                                                 )}
@@ -513,7 +518,7 @@ export function ResultPage() {
                                               )}
                                               {major.admission_probability !== undefined && (
                                                 <span className={`font-medium ${tierColor.probability} ml-auto`}>
-                                                  录取概率 {major.admission_probability}%
+                                                  录取率 {major.admission_probability}%
                                                 </span>
                                               )}
                                             </div>

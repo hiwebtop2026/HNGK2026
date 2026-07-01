@@ -359,42 +359,6 @@ function extractSchoolName(schoolName: string): string {
   return match ? match[1].trim() : schoolName.trim();
 }
 
-// 根据志愿档次和分数差计算专业匹配分数范围
-function getMajorScoreRangeForTier(
-  tier: '冲' | '稳' | '保',
-  baseScore: number,
-  customChongScoreDiff: number | undefined,
-  customWenScoreDiff: number | undefined,
-  customBaoScoreDiff: number | undefined
-): { min: number; max: number } {
-  const chongDiff = customChongScoreDiff ?? 10;
-  const wenDiff = customWenScoreDiff ?? 5;
-  const baoDiff = customBaoScoreDiff ?? 5;
-  
-  switch (tier) {
-    case '冲':
-      return {
-        min: baseScore - 10,
-        max: baseScore + chongDiff + 15,
-      };
-    case '稳':
-      return {
-        min: baseScore - wenDiff - 10,
-        max: baseScore + wenDiff + 10,
-      };
-    case '保':
-      return {
-        min: baseScore - baoDiff - 30,
-        max: baseScore + 10,
-      };
-    default:
-      return {
-        min: baseScore - 40,
-        max: baseScore + 30,
-      };
-  }
-}
-
 // 获取专业录取概率（基于分数差）
 function getMajorAdmissionProbability(majorScore: number, baseScore: number): number {
   const diff = baseScore - majorScore;
@@ -415,11 +379,27 @@ function getMajorAdmissionProbability(majorScore: number, baseScore: number): nu
   return 2;
 }
 
-// 获取专业录取档次
-function getMajorTier(probability: number): '保' | '稳' | '冲' {
-  if (probability >= 65) return '保';
-  if (probability >= 38) return '稳';
-  return '冲';
+// 根据分数差获取专业档次（与院校分类逻辑一致）
+// 冲：min_score > baseScore 且 min_score <= baseScore + chongDiff（专业分更高，冲刺）
+// 稳：baseScore - wenDiff <= min_score <= baseScore（专业分接近，稳妥）
+// 保：min_score < baseScore - wenDiff（专业分更低，保底）
+function getMajorTierByScore(
+  majorScore: number,
+  baseScore: number,
+  chongDiff: number,
+  wenDiff: number
+): '冲' | '稳' | '保' {
+  const diff = majorScore - baseScore;
+  
+  if (diff > 0 && diff <= chongDiff) {
+    return '冲';
+  } else if (diff >= -wenDiff && diff <= 0) {
+    return '稳';
+  } else if (diff < -wenDiff) {
+    return '保';
+  } else {
+    return '冲';
+  }
 }
 
 // 筛选院校（异步版本，从Supabase获取专业数据）
@@ -460,12 +440,14 @@ export async function filterSchoolsAsync(
     selectedSubjects
   );
   
+  const chongDiff = customChongScoreDiff ?? 10;
+  const wenDiff = customWenScoreDiff ?? 5;
+  const baoDiff = customBaoScoreDiff ?? 5;
+  
   for (const result of results) {
     try {
       const schoolName = extractSchoolName(result.name);
       const allMajors = await majorScoreService.getBySchool(schoolName);
-      
-      const schoolRefScore = getRefScore(result.score2025, result.score2024, result.score2023);
       
       const filteredMajors = allMajors.filter(major => {
         if (!major.min_score) return false;
@@ -479,28 +461,26 @@ export async function filterSchoolsAsync(
         return true;
       });
       
-      const scoreDiff = Math.abs(schoolRefScore - baseScore);
-      const expandRange = Math.max(30, scoreDiff + 40);
+      const maxRange = Math.max(chongDiff, wenDiff, baoDiff) + 30;
       
       const matched = filteredMajors.filter(major => {
         const score = major.min_score || 0;
-        return score >= baseScore - expandRange && score <= baseScore + expandRange;
+        return score >= baseScore - maxRange && score <= baseScore + maxRange;
       });
       
       matched.forEach(major => {
-        major.admission_probability = getMajorAdmissionProbability(major.min_score || 0, baseScore);
-        major.tier = getMajorTier(major.admission_probability);
+        const score = major.min_score || 0;
+        major.admission_probability = getMajorAdmissionProbability(score, baseScore);
+        major.tier = getMajorTierByScore(score, baseScore, chongDiff, wenDiff);
       });
       
       matched.sort((a, b) => {
         const scoreA = a.min_score || 0;
         const scoreB = b.min_score || 0;
-        const diffA = Math.abs(scoreA - baseScore);
-        const diffB = Math.abs(scoreB - baseScore);
-        return diffA - diffB;
+        return scoreB - scoreA;
       });
       
-      result.matchedMajors = matched.slice(0, 15);
+      result.matchedMajors = matched.slice(0, 20);
       
       if (matched.length > 0) {
         result.majorSuggestion = matched.slice(0, 3).map(m => m.major_name).join('、') || result.majorSuggestion;
