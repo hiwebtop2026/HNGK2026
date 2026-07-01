@@ -1,0 +1,368 @@
+import json
+import os
+import time
+import requests
+
+SUPABASE_URL = "https://jhcyqhtgtnomqvcdeeuo.supabase.co"
+SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjU1ODk1OCwiZXhwIjoyMDk4MTM0OTU4fQ.D2Rogs1Hd5wBospzq6oILP5F9KVxj6x_0COPa3BVqpE"
+
+DATA_DIR = r"C:\Users\lhp\Downloads\major_scores"
+
+HEADERS = {
+    'apikey': SERVICE_ROLE_KEY,
+    'Authorization': f'Bearer {SERVICE_ROLE_KEY}',
+    'Content-Type': 'application/json',
+}
+
+CREATE_TABLE_SQL = '''
+CREATE TABLE IF NOT EXISTS major_scores (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    school_name VARCHAR(200) NOT NULL,
+    year INTEGER NOT NULL,
+    major_name VARCHAR(200) NOT NULL,
+    major_group VARCHAR(100),
+    min_score INTEGER,
+    min_rank INTEGER,
+    person_count INTEGER,
+    batch VARCHAR(50),
+    major_description TEXT,
+    subject_requirement VARCHAR(200),
+    province VARCHAR(50) DEFAULT '海南',
+    school_code VARCHAR(20),
+    level VARCHAR(20),
+    avg_score INTEGER,
+    batch_line INTEGER,
+    batch_line_diff INTEGER,
+    source VARCHAR(50) DEFAULT '夸克高考',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_major_scores_school ON major_scores (school_name);
+CREATE INDEX IF NOT EXISTS idx_major_scores_year ON major_scores (year);
+CREATE INDEX IF NOT EXISTS idx_major_scores_school_year ON major_scores (school_name, year);
+CREATE INDEX IF NOT EXISTS idx_major_scores_major ON major_scores (major_name);
+CREATE INDEX IF NOT EXISTS idx_major_scores_province ON major_scores (province);
+
+ALTER TABLE major_scores DISABLE ROW LEVEL SECURITY;
+'''
+
+def execute_sql(sql):
+    url = f"{SUPABASE_URL}/rest/v1/rpc/pg_execute"
+    payload = {'sql': sql}
+    try:
+        response = requests.post(url, headers=HEADERS, json=payload)
+        if response.status_code in [200, 201, 204]:
+            return True, response.text
+        else:
+            return False, response.text
+    except Exception as e:
+        return False, str(e)
+
+def check_table_exists():
+    url = f"{SUPABASE_URL}/rest/v1/major_scores?select=id&limit=1"
+    try:
+        response = requests.get(url, headers=HEADERS)
+        if response.status_code == 200:
+            return True
+        elif response.status_code == 404:
+            return False
+        else:
+            if 'relation' in response.text.lower() or 'not found' in response.text.lower():
+                return False
+            return True
+    except Exception as e:
+        return False
+
+def create_table():
+    print("\n📦 创建表结构...")
+    
+    if check_table_exists():
+        print("  ✅ major_scores 表已存在")
+        return True
+    
+    print("  尝试通过 RPC 创建表...")
+    success, msg = execute_sql(CREATE_TABLE_SQL)
+    if success:
+        print("  ✅ 创建成功")
+        time.sleep(2)
+        return True
+    
+    print(f"  ⚠️ RPC创建失败: {msg[:150]}")
+    print("\n" + "="*60)
+    print("请手动在 Supabase SQL Editor 中执行以下 SQL:")
+    print("="*60)
+    print(CREATE_TABLE_SQL)
+    print("="*60)
+    print("\n登录: https://supabase.com/dashboard/project/jhcyqhtgtnomqvcdeeuo")
+    print("在 SQL Editor 中执行以上SQL，创建完成后按回车键继续...")
+    input()
+    
+    if check_table_exists():
+        print("  ✅ 表已创建")
+        return True
+    else:
+        print("  ❌ 表创建失败，请检查")
+        return False
+
+def read_all_json_files():
+    print(f"\n📂 读取数据目录: {DATA_DIR}")
+    
+    if not os.path.exists(DATA_DIR):
+        print(f"❌ 目录不存在: {DATA_DIR}")
+        return []
+    
+    all_data = []
+    files = [f for f in os.listdir(DATA_DIR) if f.endswith('.json')]
+    files.sort()
+    
+    print(f"  找到 {len(files)} 个JSON文件")
+    
+    for filename in files:
+        filepath = os.path.join(DATA_DIR, filename)
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+                if isinstance(data, list):
+                    all_data.extend(data)
+                    print(f"  ✅ {filename}: {len(data)} 条")
+                else:
+                    print(f"  ❌ {filename}: 格式错误")
+        except Exception as e:
+            print(f"  ❌ {filename}: {e}")
+    
+    print(f"\n📊 总计读取 {len(all_data)} 条数据")
+    return all_data
+
+def deduplicate_data(data):
+    print("\n🔍 去重处理...")
+    seen = set()
+    unique_data = []
+    
+    for item in data:
+        key = (
+            item.get('school_name', ''),
+            item.get('year', 0),
+            item.get('major_name', ''),
+            item.get('major_group', ''),
+            item.get('min_score', 0),
+            item.get('min_rank', 0)
+        )
+        if key not in seen:
+            seen.add(key)
+            unique_data.append(item)
+    
+    print(f"  去重前: {len(data)} 条")
+    print(f"  去重后: {len(unique_data)} 条")
+    print(f"  重复数据: {len(data) - len(unique_data)} 条")
+    
+    return unique_data
+
+def clean_data(data):
+    print("\n🧹 数据清洗...")
+    cleaned = []
+    
+    for item in data:
+        cleaned_item = {
+            'school_name': item.get('school_name', '').strip(),
+            'year': int(item.get('year', 0)),
+            'major_name': item.get('major_name', '').strip(),
+            'major_group': item.get('major_group', '').strip() or None,
+            'min_score': int(item.get('min_score', 0)) if item.get('min_score') else None,
+            'min_rank': int(item.get('min_rank', 0)) if item.get('min_rank') else None,
+            'person_count': int(item.get('person_count', 0)) if item.get('person_count') else None,
+            'batch': item.get('batch', '').strip() or None,
+            'major_description': item.get('major_description', '').strip() or None,
+            'subject_requirement': item.get('subject_requirement', '').strip() or None,
+            'province': item.get('province', '').strip() or '海南'
+        }
+        
+        if cleaned_item['school_name'] and cleaned_item['major_name'] and cleaned_item['year'] > 2000:
+            cleaned.append(cleaned_item)
+    
+    print(f"  清洗后: {len(cleaned)} 条有效数据")
+    return cleaned
+
+def truncate_table():
+    print("\n🗑️ 清空表数据...")
+    
+    success, msg = execute_sql("TRUNCATE TABLE major_scores;")
+    if success:
+        print("  ✅ 使用TRUNCATE清空表成功")
+        return True
+    
+    print(f"  ⚠️ TRUNCATE失败: {msg[:100]}")
+    print("  尝试使用REST API删除...")
+    
+    url = f"{SUPABASE_URL}/rest/v1/major_scores"
+    ids = []
+    offset = 0
+    batch_size = 1000
+    
+    while True:
+        try:
+            response = requests.get(f"{url}?select=id&offset={offset}&limit={batch_size}", headers=HEADERS)
+            if response.status_code == 200:
+                data = response.json()
+                if not data:
+                    break
+                ids.extend([item.get('id') for item in data])
+                offset += batch_size
+            else:
+                break
+        except:
+            break
+    
+    if ids:
+        deleted = 0
+        for id_val in ids:
+            try:
+                response = requests.delete(f"{url}?id=eq.{id_val}", headers=HEADERS)
+                if response.status_code in [200, 204]:
+                    deleted += 1
+            except:
+                pass
+        print(f"  ✅ 删除 {deleted} 条记录")
+    else:
+        print("  ✅ 表已为空")
+    
+    return True
+
+def import_data(data):
+    print("\n🚀 开始导入数据...")
+    
+    url = f"{SUPABASE_URL}/rest/v1/major_scores"
+    batch_size = 50
+    total_inserted = 0
+    total_errors = 0
+    total_data = len(data)
+    
+    for i in range(0, total_data, batch_size):
+        batch = data[i:i+batch_size]
+        
+        try:
+            response = requests.post(url, headers=HEADERS, json=batch)
+            
+            if response.status_code in [200, 201]:
+                inserted_data = response.json()
+                inserted = len(inserted_data) if inserted_data else 0
+                total_inserted += inserted
+                
+                progress = (i + batch_size) / total_data * 100
+                print(f"  进度: {min(i + batch_size, total_data)}/{total_data} ({progress:.1f}%) - 插入 {inserted} 条")
+            else:
+                total_errors += 1
+                print(f"  ❌ 第 {i//batch_size + 1} 批失败: {response.status_code} - {response.text[:150]}")
+                
+                for item in batch:
+                    try:
+                        r = requests.post(url, headers=HEADERS, json=item)
+                        if r.status_code in [200, 201]:
+                            total_inserted += 1
+                    except:
+                        pass
+        
+        except Exception as e:
+            total_errors += 1
+            print(f"  ❌ 第 {i//batch_size + 1} 批异常: {e}")
+            
+            for item in batch:
+                try:
+                    r = requests.post(url, headers=HEADERS, json=item)
+                    if r.status_code in [200, 201]:
+                        total_inserted += 1
+                except:
+                    pass
+        
+        time.sleep(0.1)
+    
+    print('\n' + '='*60)
+    print('✅ 导入完成！')
+    print(f'  总数据量: {total_data} 条')
+    print(f'  成功插入: {total_inserted} 条')
+    print(f'  失败批次: {total_errors}')
+    print('='*60)
+    
+    return total_inserted
+
+def verify_import():
+    print("\n🔍 验证导入结果...")
+    
+    url = f"{SUPABASE_URL}/rest/v1/major_scores"
+    
+    print("\n📊 按年份统计:")
+    year_counts = {}
+    for year in [2023, 2024, 2025]:
+        try:
+            response = requests.get(f"{url}?select=id&year=eq.{year}", headers=HEADERS)
+            if response.status_code == 200:
+                count = len(response.json()) if response.json() else 0
+                year_counts[year] = count
+                print(f"  {year}年: {count}条")
+            else:
+                print(f"  {year}年: 查询失败 - {response.status_code}")
+                year_counts[year] = 0
+        except Exception as e:
+            print(f"  {year}年: {e}")
+            year_counts[year] = 0
+    
+    print("\n📊 按学校统计(前15所):")
+    school_counts = {}
+    try:
+        offset = 0
+        batch_size = 1000
+        while True:
+            response = requests.get(f"{url}?select=school_name&offset={offset}&limit={batch_size}", headers=HEADERS)
+            if response.status_code == 200:
+                data = response.json()
+                if not data:
+                    break
+                for item in data:
+                    school = item.get('school_name', '')
+                    school_counts[school] = school_counts.get(school, 0) + 1
+                offset += batch_size
+            else:
+                break
+    except Exception as e:
+        print(f"  查询失败 - {e}")
+    
+    if school_counts:
+        sorted_schools = sorted(school_counts.items(), key=lambda x: x[1], reverse=True)[:15]
+        for school, count in sorted_schools:
+            print(f"  {school}: {count}条")
+    
+    total = sum(year_counts.values())
+    print(f"\n📊 总计: {total}条")
+    print("\n✅ 验证完成！")
+    
+    return total
+
+def main():
+    print('='*60)
+    print('📥 高考专业分数线数据导入工具')
+    print('='*60)
+    
+    print("\n🔌 连接Supabase...")
+    print("  ✅ 连接信息已配置")
+    
+    if not create_table():
+        print("\n❌ 表不存在且无法创建，程序终止")
+        return
+    
+    raw_data = read_all_json_files()
+    if not raw_data:
+        print("\n❌ 未读取到任何数据，程序终止")
+        return
+    
+    unique_data = deduplicate_data(raw_data)
+    cleaned_data = clean_data(unique_data)
+    
+    if cleaned_data:
+        truncate_table()
+        import_data(cleaned_data)
+        verify_import()
+    
+    print("\n🎉 全部完成！")
+
+if __name__ == "__main__":
+    main()
