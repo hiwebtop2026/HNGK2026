@@ -352,6 +352,13 @@ export function filterSchoolsWithMajors(
   return result;
 }
 
+// 提取院校名称主体（去除括号及专业组信息）
+// 例如："清华大学(03)" -> "清华大学"，"海南大学(80)" -> "海南大学"
+function extractSchoolName(schoolName: string): string {
+  const match = schoolName.match(/^(.+?)(?:\(\d+\))?$/);
+  return match ? match[1].trim() : schoolName.trim();
+}
+
 // 根据志愿档次和分数差计算专业匹配分数范围
 function getMajorScoreRangeForTier(
   tier: '冲' | '稳' | '保',
@@ -367,22 +374,22 @@ function getMajorScoreRangeForTier(
   switch (tier) {
     case '冲':
       return {
-        min: baseScore - 5,
-        max: baseScore + chongDiff + 10,
+        min: baseScore - 10,
+        max: baseScore + chongDiff + 15,
       };
     case '稳':
       return {
-        min: baseScore - wenDiff - 5,
-        max: baseScore + wenDiff + 5,
+        min: baseScore - wenDiff - 10,
+        max: baseScore + wenDiff + 10,
       };
     case '保':
       return {
-        min: baseScore - baoDiff - 20,
-        max: baseScore + 5,
+        min: baseScore - baoDiff - 30,
+        max: baseScore + 10,
       };
     default:
       return {
-        min: baseScore - 30,
+        min: baseScore - 40,
         max: baseScore + 30,
       };
   }
@@ -455,7 +462,8 @@ export async function filterSchoolsAsync(
   
   for (const result of results) {
     try {
-      const allMajors = await majorScoreService.getBySchool(result.name);
+      const schoolName = extractSchoolName(result.name);
+      const allMajors = await majorScoreService.getBySchool(schoolName);
       
       const scoreRangeForTier = getMajorScoreRangeForTier(
         result.tier,
@@ -493,7 +501,7 @@ export async function filterSchoolsAsync(
         return diffA - diffB;
       });
       
-      result.matchedMajors = matched.slice(0, 8);
+      result.matchedMajors = matched.slice(0, 10);
       
       if (matched.length > 0) {
         result.majorSuggestion = matched.slice(0, 3).map(m => m.major_name).join('、') || result.majorSuggestion;

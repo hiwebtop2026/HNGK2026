@@ -433,26 +433,26 @@ export function ResultPage() {
                         </div>
                         
                         {/* 专业推荐 */}
-                        {volunteer.matchedMajors && volunteer.matchedMajors.length > 0 && (
-                          <div className={`mb-4 rounded-xl ${isDark ? 'bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20' : 'bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200'} overflow-hidden`}>
-                            <div className="flex items-center gap-2 px-4 py-3 border-b border-blue-200/30">
-                              <GraduationCap className={`w-4 h-4 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
-                              <span className={`text-sm font-medium ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>匹配专业推荐（近三年数据）</span>
-                              <span className={`text-xs px-2 py-0.5 rounded-full ${isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-600'}`}>
-                                {volunteer.matchedMajors.length}个专业
-                              </span>
-                            </div>
-                            <div className="p-4">
-                              <div className="space-y-3">
+                        <div className={`mb-4 rounded-xl ${isDark ? 'bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20' : 'bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200'} overflow-hidden`}>
+                          <div className="flex items-center gap-2 px-4 py-3 border-b border-blue-200/30">
+                            <GraduationCap className={`w-4 h-4 ${isDark ? 'text-blue-400' : 'text-blue-600'}`} />
+                            <span className={`text-sm font-medium ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>匹配专业推荐（近三年数据）</span>
+                            <span className={`text-xs px-2 py-0.5 rounded-full ${isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-600'}`}>
+                              {(volunteer.matchedMajors?.length || 0)}个专业
+                            </span>
+                          </div>
+                          <div className="p-4">
+                            {volunteer.matchedMajors && volunteer.matchedMajors.length > 0 ? (
+                              <div className="space-y-4">
                                 {['保', '稳', '冲'].map(tier => {
                                   const majorsForTier = volunteer.matchedMajors.filter(m => m.tier === tier);
                                   if (majorsForTier.length === 0) return null;
                                   
                                   const tierColor = tier === '保' 
-                                    ? { bg: isDark ? 'bg-green-500/10' : 'bg-green-50', border: isDark ? 'border-green-500/20' : 'border-green-200', text: isDark ? 'text-green-400' : 'text-green-600', badge: 'bg-gradient-to-r from-green-500 to-emerald-500' }
+                                    ? { bg: isDark ? 'bg-green-500/10' : 'bg-green-50', border: isDark ? 'border-green-500/20' : 'border-green-200', text: isDark ? 'text-green-400' : 'text-green-600', badge: 'bg-gradient-to-r from-green-500 to-emerald-500', probability: isDark ? 'text-green-400' : 'text-green-600' }
                                     : tier === '稳'
-                                    ? { bg: isDark ? 'bg-yellow-500/10' : 'bg-yellow-50', border: isDark ? 'border-yellow-500/20' : 'border-yellow-200', text: isDark ? 'text-yellow-400' : 'text-yellow-600', badge: 'bg-gradient-to-r from-yellow-500 to-amber-500' }
-                                    : { bg: isDark ? 'bg-orange-500/10' : 'bg-orange-50', border: isDark ? 'border-orange-500/20' : 'border-orange-200', text: isDark ? 'text-orange-400' : 'text-orange-600', badge: 'bg-gradient-to-r from-orange-500 to-red-500' };
+                                    ? { bg: isDark ? 'bg-yellow-500/10' : 'bg-yellow-50', border: isDark ? 'border-yellow-500/20' : 'border-yellow-200', text: isDark ? 'text-yellow-400' : 'text-yellow-600', badge: 'bg-gradient-to-r from-yellow-500 to-amber-500', probability: isDark ? 'text-yellow-400' : 'text-yellow-600' }
+                                    : { bg: isDark ? 'bg-orange-500/10' : 'bg-orange-50', border: isDark ? 'border-orange-500/20' : 'border-orange-200', text: isDark ? 'text-orange-400' : 'text-orange-600', badge: 'bg-gradient-to-r from-orange-500 to-red-500', probability: isDark ? 'text-orange-400' : 'text-orange-600' };
                                   
                                   return (
                                     <div key={tier}>
@@ -461,32 +461,38 @@ export function ResultPage() {
                                           {tier}
                                         </span>
                                         <span className={`text-xs ${textSecondary}`}>
-                                          {majorsForTier.length}个专业
+                                          可录取专业 {majorsForTier.length}个
                                         </span>
                                       </div>
                                       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                                         {majorsForTier.map((major, idx) => (
-                                          <div key={idx} className={`p-3 rounded-lg ${tierColor.bg} border ${tierColor.border} hover:scale-[1.01] transition-transform`}>
-                                            <div className="flex items-center justify-between mb-1.5">
+                                          <div key={idx} className={`p-3 rounded-lg ${tierColor.bg} border ${tierColor.border} hover:shadow-md transition-all`}>
+                                            <div className="flex items-start justify-between mb-2">
                                               <span className={`font-medium text-sm ${textPrimary}`}>{major.major_name}</span>
-                                              <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${tierColor.bg} ${tierColor.text} border ${tierColor.border}`}>
-                                                {major.min_score}分
-                                              </span>
+                                              <div className="flex flex-col items-end gap-1">
+                                                <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${tierColor.text} bg-opacity-10`}>
+                                                  {major.min_score}分
+                                                </span>
+                                                {major.avg_score && major.avg_score !== major.min_score && (
+                                                  <span className={`text-xs ${textMuted}`}>平均{major.avg_score}分</span>
+                                                )}
+                                              </div>
                                             </div>
-                                            <div className="flex items-center justify-between">
-                                              <div className="flex items-center gap-2 text-xs">
+                                            <div className="flex items-center justify-between text-xs">
+                                              <div className="flex items-center gap-2">
                                                 {major.year && <span className={textMuted}>📅 {major.year}年</span>}
                                                 {major.batch && <span className={textMuted}>📦 {major.batch}</span>}
+                                                {major.min_rank && <span className={textMuted}>🏆 位次{major.min_rank}</span>}
                                               </div>
                                               {major.admission_probability !== undefined && (
-                                                <span className={`text-xs font-medium ${major.admission_probability >= 65 ? (isDark ? 'text-green-400' : 'text-green-600') : major.admission_probability >= 38 ? (isDark ? 'text-yellow-400' : 'text-yellow-600') : (isDark ? 'text-orange-400' : 'text-orange-600')}`}>
-                                                  录取概率 {major.admission_probability}%
+                                                <span className={`font-medium ${tierColor.probability}`}>
+                                                  录取率 {major.admission_probability}%
                                                 </span>
                                               )}
                                             </div>
                                             {major.subject_requirement && (
                                               <div className="mt-2 pt-2 border-t border-gray-200/30">
-                                                <span className={`text-xs ${textMuted}`}>选科要求: {major.subject_requirement}</span>
+                                                <span className={`text-xs ${textMuted}`}>📝 选科要求: {major.subject_requirement}</span>
                                               </div>
                                             )}
                                           </div>
@@ -496,9 +502,15 @@ export function ResultPage() {
                                   );
                                 })}
                               </div>
-                            </div>
+                            ) : (
+                              <div className={`text-center py-6 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
+                                <GraduationCap className="w-12 h-12 mx-auto mb-3 opacity-50" />
+                                <p className="text-sm">暂无匹配的专业数据</p>
+                                <p className="text-xs mt-1">该院校在数据库中暂无专业录取分数线记录</p>
+                              </div>
+                            )}
                           </div>
-                        )}
+                        </div>
                         
                         {/* 推荐理由 */}
                         <p className={`text-sm ${textSecondary} leading-relaxed`}>
