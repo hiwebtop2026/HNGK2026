@@ -518,25 +518,61 @@ export async function filterSchoolsAsync(
 export function exportToExcel(volunteers: VolunteerResult[], filename: string): void {
   const workbook = XLSX.utils.book_new();
   
-  // 构建数据
+  // 构建数据 - 以数据库真实专业数据为主
   const data = [
     ['志愿序号', '志愿档次', '录取概率', '分数趋势', '院校层次', '省份', '院校专业组代码', '院校专业组名称', '科目要求', 
      '2025投档线', '2024投档线', '2023投档线', 
-     '保底专业', '稳妥专业', '冲刺专业',
      '推荐专业（保）', '推荐专业（稳）', '推荐专业（冲）',
+     '保-专业详情', '稳-专业详情', '冲-专业详情',
      '推荐理由'],
   ];
   
   for (const v of volunteers) {
-    const mockMajors = v.majorRecommendations || [];
-    const baoMajors = mockMajors.filter(m => m.admissionTier === '保底').map(m => `${m.name}(${Math.round(m.probability)}%)`).join('、');
-    const wenMajors = mockMajors.filter(m => m.admissionTier === '稳妥').map(m => `${m.name}(${Math.round(m.probability)}%)`).join('、');
-    const chongMajors = mockMajors.filter(m => m.admissionTier === '冲刺').map(m => `${m.name}(${Math.round(m.probability)}%)`).join('、');
-    
     const realMajors = v.matchedMajors || [];
-    const realBaoMajors = realMajors.filter(m => m.tier === '保').map(m => `${m.major_name}(${m.min_score}分,${m.admission_probability}%)`).join('、');
-    const realWenMajors = realMajors.filter(m => m.tier === '稳').map(m => `${m.major_name}(${m.min_score}分,${m.admission_probability}%)`).join('、');
-    const realChongMajors = realMajors.filter(m => m.tier === '冲').map(m => `${m.major_name}(${m.min_score}分,${m.admission_probability}%)`).join('、');
+    
+    const baoMajors = realMajors.filter(m => m.tier === '保');
+    const wenMajors = realMajors.filter(m => m.tier === '稳');
+    const chongMajors = realMajors.filter(m => m.tier === '冲');
+    
+    const baoMajorNames = baoMajors.map(m => m.major_name).join('、');
+    const wenMajorNames = wenMajors.map(m => m.major_name).join('、');
+    const chongMajorNames = chongMajors.map(m => m.major_name).join('、');
+    
+    const baoMajorDetails = baoMajors.map(m => {
+      const details = [`${m.major_name}`];
+      if (m.min_score) details.push(`${m.min_score}分`);
+      if (m.avg_score && m.avg_score !== m.min_score) details.push(`平均${m.avg_score}分`);
+      if (m.min_rank) details.push(`位次${m.min_rank}`);
+      if (m.year) details.push(`${m.year}年`);
+      if (m.batch) details.push(m.batch);
+      if (m.subject_requirement) details.push(`选科:${m.subject_requirement}`);
+      if (m.admission_probability !== undefined) details.push(`录取率${m.admission_probability}%`);
+      return details.join(' ');
+    }).join('\n');
+    
+    const wenMajorDetails = wenMajors.map(m => {
+      const details = [`${m.major_name}`];
+      if (m.min_score) details.push(`${m.min_score}分`);
+      if (m.avg_score && m.avg_score !== m.min_score) details.push(`平均${m.avg_score}分`);
+      if (m.min_rank) details.push(`位次${m.min_rank}`);
+      if (m.year) details.push(`${m.year}年`);
+      if (m.batch) details.push(m.batch);
+      if (m.subject_requirement) details.push(`选科:${m.subject_requirement}`);
+      if (m.admission_probability !== undefined) details.push(`录取率${m.admission_probability}%`);
+      return details.join(' ');
+    }).join('\n');
+    
+    const chongMajorDetails = chongMajors.map(m => {
+      const details = [`${m.major_name}`];
+      if (m.min_score) details.push(`${m.min_score}分`);
+      if (m.avg_score && m.avg_score !== m.min_score) details.push(`平均${m.avg_score}分`);
+      if (m.min_rank) details.push(`位次${m.min_rank}`);
+      if (m.year) details.push(`${m.year}年`);
+      if (m.batch) details.push(m.batch);
+      if (m.subject_requirement) details.push(`选科:${m.subject_requirement}`);
+      if (m.admission_probability !== undefined) details.push(`录取率${m.admission_probability}%`);
+      return details.join(' ');
+    }).join('\n');
     
     const trendText = v.scoreTrend === 'up' ? '上涨' : v.scoreTrend === 'down' ? '下降' : '平稳';
     
@@ -553,12 +589,12 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
       v.score2025 !== null ? String(v.score2025) : '',
       v.score2024 !== null ? String(v.score2024) : '',
       v.score2023 !== null ? String(v.score2023) : '',
-      baoMajors,
-      wenMajors,
-      chongMajors,
-      realBaoMajors,
-      realWenMajors,
-      realChongMajors,
+      baoMajorNames,
+      wenMajorNames,
+      chongMajorNames,
+      baoMajorDetails,
+      wenMajorDetails,
+      chongMajorDetails,
       v.reason,
     ]);
   }
@@ -567,25 +603,25 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
   
   // 设置列宽
   worksheet['!cols'] = [
-    { wch: 8 },   // 志愿序号
-    { wch: 8 },   // 志愿档次
-    { wch: 10 },  // 录取概率
-    { wch: 8 },   // 分数趋势
-    { wch: 10 },  // 院校层次
-    { wch: 8 },   // 省份
-    { wch: 14 },  // 院校专业组代码
-    { wch: 22 },  // 院校专业组名称
-    { wch: 8 },   // 科目要求
-    { wch: 10 },  // 2025投档线
-    { wch: 10 },  // 2024投档线
-    { wch: 10 },  // 2023投档线
-    { wch: 35 },  // 保底专业（模拟）
-    { wch: 35 },  // 稳妥专业（模拟）
-    { wch: 35 },  // 冲刺专业（模拟）
-    { wch: 45 },  // 推荐专业（保）
-    { wch: 45 },  // 推荐专业（稳）
-    { wch: 45 },  // 推荐专业（冲）
-    { wch: 55 },  // 推荐理由
+    { wch: 8 },    // 志愿序号
+    { wch: 8 },    // 志愿档次
+    { wch: 10 },   // 录取概率
+    { wch: 8 },    // 分数趋势
+    { wch: 10 },   // 院校层次
+    { wch: 8 },    // 省份
+    { wch: 14 },   // 院校专业组代码
+    { wch: 22 },   // 院校专业组名称
+    { wch: 8 },    // 科目要求
+    { wch: 10 },   // 2025投档线
+    { wch: 10 },   // 2024投档线
+    { wch: 10 },   // 2023投档线
+    { wch: 40 },   // 推荐专业（保）
+    { wch: 40 },   // 推荐专业（稳）
+    { wch: 40 },   // 推荐专业（冲）
+    { wch: 60 },   // 保-专业详情
+    { wch: 60 },   // 稳-专业详情
+    { wch: 60 },   // 冲-专业详情
+    { wch: 55 },   // 推荐理由
   ];
   
   XLSX.utils.book_append_sheet(workbook, worksheet, '志愿方案');
