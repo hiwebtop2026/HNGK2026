@@ -32,36 +32,16 @@ CREATE INDEX IF NOT EXISTS idx_major_scores_year ON major_scores(year);
 CREATE INDEX IF NOT EXISTS idx_major_scores_province ON major_scores(province);
 CREATE INDEX IF NOT EXISTS idx_major_scores_major_name ON major_scores(major_name);
 
--- 3. 启用 RLS（行级安全）
-ALTER TABLE major_scores ENABLE ROW LEVEL SECURITY;
+-- 3. 禁用 RLS（行级安全）
+-- 与 admission_scores、subject_requirements 表保持一致，允许数据导入
+-- 注意：该表存储公开的分数线数据（非用户私有数据），禁用 RLS 安全
+ALTER TABLE major_scores DISABLE ROW LEVEL SECURITY;
 
--- 4. 创建策略：允许所有人读取
+-- 4. 清理旧策略（如果之前创建过）
 DROP POLICY IF EXISTS "Allow public read major_scores" ON major_scores;
-CREATE POLICY "Allow public read major_scores"
-  ON major_scores
-  FOR SELECT
-  USING (true);
-
--- 5. 创建策略：允许已认证用户插入
 DROP POLICY IF EXISTS "Allow authenticated insert major_scores" ON major_scores;
-CREATE POLICY "Allow authenticated insert major_scores"
-  ON major_scores
-  FOR INSERT
-  WITH CHECK (true);
-
--- 6. 创建策略：允许已认证用户更新
 DROP POLICY IF EXISTS "Allow authenticated update major_scores" ON major_scores;
-CREATE POLICY "Allow authenticated update major_scores"
-  ON major_scores
-  FOR UPDATE
-  USING (true);
-
--- 7. 创建策略：允许管理员删除
 DROP POLICY IF EXISTS "Allow admin delete major_scores" ON major_scores;
-CREATE POLICY "Allow admin delete major_scores"
-  ON major_scores
-  FOR DELETE
-  USING (true);
 
 -- 8. 创建更新触发器
 CREATE OR REPLACE FUNCTION update_updated_at_column()
