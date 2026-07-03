@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Download, ArrowLeft, AlertCircle, Zap, Target, Shield, Filter, TrendingUp,
-  TrendingDown, Minus, Percent, BarChart3, GraduationCap
+  TrendingDown, Minus, Percent, BarChart3, GraduationCap, AlertTriangle, CheckCircle, Info
 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
 import { useUsageStore } from '../store/usageStore';
 import { exportToExcel } from '../utils/volunteerUtils';
 import { parseSubjectRequirement, matchMajorCategories, MAJOR_CATEGORIES } from '../utils/dataUtils';
+import { calculateRiskAssessment } from '../utils/trendAnalyzer';
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useAppStore();
@@ -46,6 +47,7 @@ export function ResultPage() {
   const chongCount = results.filter(r => r.tier === '冲').length;
   const wenCount = results.filter(r => r.tier === '稳').length;
   const baoCount = results.filter(r => r.tier === '保').length;
+  const riskAssessment = calculateRiskAssessment(chongCount, wenCount, baoCount);
   
   const filteredResults = activeTier === 'all' 
     ? results 
@@ -175,6 +177,13 @@ export function ResultPage() {
             <div className="flex items-center gap-3">
               <ThemeToggle />
               <button
+                onClick={() => navigate('/analysis')}
+                className="flex items-center gap-2 px-5 py-2.5 glass rounded-xl font-medium hover:bg-white/10 transition-all"
+              >
+                <TrendingUp className="w-4 h-4" />
+                <span className="hidden sm:inline">数据分析</span>
+              </button>
+              <button
                 onClick={handleExport}
                 className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-primary-500/25 transition-all"
               >
@@ -269,6 +278,52 @@ export function ResultPage() {
                   className="h-full bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"
                   style={{ width: `${(baoCount / results.length) * 100}%` }}
                 />
+              </div>
+            </div>
+          </div>
+          
+          {/* 风险评估卡片 */}
+          <div className={`glass rounded-2xl p-5 mb-8 ${isDark ? '' : 'shadow-md'}`}>
+            <div className="flex items-start gap-4">
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
+                riskAssessment.riskLevel === 'high'
+                  ? 'bg-red-500/20 border border-red-500/30'
+                  : riskAssessment.riskLevel === 'medium'
+                  ? 'bg-yellow-500/20 border border-yellow-500/30'
+                  : 'bg-green-500/20 border border-green-500/30'
+              }`}>
+                {riskAssessment.riskLevel === 'high' && <AlertTriangle className="w-6 h-6 text-red-500" />}
+                {riskAssessment.riskLevel === 'medium' && <Info className="w-6 h-6 text-yellow-500" />}
+                {riskAssessment.riskLevel === 'low' && <CheckCircle className="w-6 h-6 text-green-500" />}
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className={`font-semibold ${textPrimary}`}>风险评估</span>
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                    riskAssessment.riskLevel === 'high'
+                      ? 'bg-red-500 text-white'
+                      : riskAssessment.riskLevel === 'medium'
+                      ? 'bg-yellow-500 text-white'
+                      : 'bg-green-500 text-white'
+                  }`}>
+                    {riskAssessment.riskLevel === 'high' ? '偏高' : riskAssessment.riskLevel === 'medium' ? '适中' : '偏低'}
+                  </span>
+                  <span className={`text-sm ${textSecondary}`}>风险指数: {riskAssessment.riskIndex}</span>
+                </div>
+                <p className={`text-sm ${textSecondary} mb-3`}>{riskAssessment.riskDescription}</p>
+                {riskAssessment.suggestions.length > 0 && (
+                  <div className="space-y-2">
+                    <span className={`text-xs font-medium ${textSecondary}`}>优化建议：</span>
+                    {riskAssessment.suggestions.map((suggestion, idx) => (
+                      <p key={idx} className={`text-xs ${textSecondary} flex items-start gap-2`}>
+                        <span className={`w-1.5 h-1.5 rounded-full mt-1.5 ${
+                          riskAssessment.riskLevel === 'high' ? 'bg-red-500' : 'bg-primary-500'
+                        }`} />
+                        {suggestion}
+                      </p>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -387,6 +442,22 @@ export function ResultPage() {
                           {volunteer.scoreTrend === 'stable' && <Minus className="w-3 h-3" />}
                           <span>{volunteer.scoreTrend === 'up' ? '分数上涨' : volunteer.scoreTrend === 'down' ? '分数下降' : '分数平稳'}</span>
                         </span>
+                        
+                        {volunteer.trendValue !== undefined && (
+                          <span className={`text-xs px-3 py-1.5 rounded-lg ${
+                            isDark ? 'bg-blue-500/15 text-blue-400 border border-blue-500/30' : 'bg-blue-50 text-blue-600 border border-blue-200'
+                          }`}>
+                            趋势值: {volunteer.trendValue.toFixed(2)}
+                          </span>
+                        )}
+                        
+                        {volunteer.volatility !== undefined && (
+                          <span className={`text-xs px-3 py-1.5 rounded-lg ${
+                            isDark ? 'bg-orange-500/15 text-orange-400 border border-orange-500/30' : 'bg-orange-50 text-orange-600 border border-orange-200'
+                          }`}>
+                            波动: {volunteer.volatility.toFixed(2)}
+                          </span>
+                        )}
                         
                         {majorCats.slice(0, 2).map(catId => {
                           const cat = MAJOR_CATEGORIES.find(c => c.id === catId);

@@ -1,36 +1,36 @@
 import { describe, it, expect } from 'vitest';
 import type { SchoolScore } from './dataUtils';
 import {
-  calculateAdmissionProbability,
   calculateScoreTrend,
   filterSchools,
 } from './volunteerUtils';
+import { calculateAdmissionProbability } from './trendAnalyzer';
 
 describe('calculateAdmissionProbability', () => {
   it('should return 99% when diff >= 30', () => {
-    expect(calculateAdmissionProbability(570, 600)).toBe(99);
-    expect(calculateAdmissionProbability(565, 600)).toBe(99);
+    expect(calculateAdmissionProbability(570, 600, 570, 570, 570).finalProbability).toBe(99);
+    expect(calculateAdmissionProbability(565, 600, 565, 565, 565).finalProbability).toBe(99);
   });
 
   it('should return high probability for positive diffs', () => {
-    expect(calculateAdmissionProbability(580, 600)).toBe(94);
-    expect(calculateAdmissionProbability(585, 600)).toBe(88);
-    expect(calculateAdmissionProbability(590, 600)).toBe(78);
-    expect(calculateAdmissionProbability(595, 600)).toBe(65);
-    expect(calculateAdmissionProbability(600, 600)).toBe(50);
+    expect(calculateAdmissionProbability(580, 600, 580, 580, 580).finalProbability).toBe(94);
+    expect(calculateAdmissionProbability(585, 600, 585, 585, 585).finalProbability).toBe(88);
+    expect(calculateAdmissionProbability(590, 600, 590, 590, 590).finalProbability).toBe(78);
+    expect(calculateAdmissionProbability(595, 600, 595, 595, 595).finalProbability).toBe(65);
+    expect(calculateAdmissionProbability(600, 600, 600, 600, 600).finalProbability).toBe(50);
   });
 
   it('should return medium probability for small negative diffs', () => {
-    expect(calculateAdmissionProbability(605, 600)).toBe(38);
-    expect(calculateAdmissionProbability(610, 600)).toBe(28);
-    expect(calculateAdmissionProbability(615, 600)).toBe(18);
+    expect(calculateAdmissionProbability(605, 600, 605, 605, 605).finalProbability).toBe(38);
+    expect(calculateAdmissionProbability(610, 600, 610, 610, 610).finalProbability).toBe(28);
+    expect(calculateAdmissionProbability(615, 600, 615, 615, 615).finalProbability).toBe(18);
   });
 
   it('should return low probability for large negative diffs', () => {
-    expect(calculateAdmissionProbability(620, 600)).toBe(12);
-    expect(calculateAdmissionProbability(625, 600)).toBe(8);
-    expect(calculateAdmissionProbability(630, 600)).toBe(5);
-    expect(calculateAdmissionProbability(650, 600)).toBe(2);
+    expect(calculateAdmissionProbability(620, 600, 620, 620, 620).finalProbability).toBe(12);
+    expect(calculateAdmissionProbability(625, 600, 625, 625, 625).finalProbability).toBe(8);
+    expect(calculateAdmissionProbability(630, 600, 630, 630, 630).finalProbability).toBe(5);
+    expect(calculateAdmissionProbability(650, 600, 650, 650, 650).finalProbability).toBe(2);
   });
 });
 

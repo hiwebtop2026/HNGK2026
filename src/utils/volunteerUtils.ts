@@ -3,7 +3,7 @@ import { getRefScore, getTier, getRecommendationReason, matchMajorCategories, is
 import type { SchoolScore, MajorRecommendation } from './dataUtils';
 import { generateMajorRecommendations, formatMajorSuggestion } from './majorRecommender';
 import { majorScoreService, type MajorScore } from '../services/majorScoreService';
-
+import { calculateAdmissionProbability, calculateTrendAnalysis, calculateRiskAssessment, getSmartConfig } from './trendAnalyzer';
 export type { SchoolScore, MajorRecommendation };
 
 export interface VolunteerResult {
@@ -24,6 +24,8 @@ export interface VolunteerResult {
   reason: string;
   admissionProbability: number;
   scoreTrend: 'up' | 'down' | 'stable';
+  trendValue: number;
+  volatility: number;
   matchedMajors: MajorScore[];
 }
 
@@ -91,26 +93,6 @@ export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]
   }
   
   return result;
-}
-
-// 计算专业组录取概率
-export function calculateAdmissionProbability(refScore: number, baseScore: number): number {
-  const diff = baseScore - refScore;
-  
-  if (diff >= 30) return 99;
-  if (diff >= 25) return 97;
-  if (diff >= 20) return 94;
-  if (diff >= 15) return 88;
-  if (diff >= 10) return 78;
-  if (diff >= 5) return 65;
-  if (diff >= 0) return 50;
-  if (diff >= -5) return 38;
-  if (diff >= -10) return 28;
-  if (diff >= -15) return 18;
-  if (diff >= -20) return 12;
-  if (diff >= -25) return 8;
-  if (diff >= -30) return 5;
-  return 2;
 }
 
 // 计算分数趋势
@@ -276,6 +258,8 @@ export function filterSchoolsWithMajors(
   
   for (const s of chong.slice(0, chongCount)) {
     const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
+    const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
+    const probFactors = calculateAdmissionProbability(s.refScore, baseScore, s.score2025, s.score2024, s.score2023);
     result.push({
       index,
       tier: s.tier,
@@ -292,8 +276,10 @@ export function filterSchoolsWithMajors(
       majorSuggestion: formatMajorSuggestion(majorRecs),
       majorRecommendations: majorRecs,
       reason: getRecommendationReason(s.refScore, baseScore),
-      admissionProbability: calculateAdmissionProbability(s.refScore, baseScore),
-      scoreTrend: calculateScoreTrend(s.score2025, s.score2024, s.score2023),
+      admissionProbability: probFactors.finalProbability,
+      scoreTrend: trendAnalysis.trend,
+      trendValue: trendAnalysis.trendValue,
+      volatility: trendAnalysis.volatility,
       matchedMajors: [],
     });
     index++;
@@ -301,6 +287,8 @@ export function filterSchoolsWithMajors(
   
   for (const s of wen.slice(0, wenCount)) {
     const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
+    const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
+    const probFactors = calculateAdmissionProbability(s.refScore, baseScore, s.score2025, s.score2024, s.score2023);
     result.push({
       index,
       tier: s.tier,
@@ -317,8 +305,10 @@ export function filterSchoolsWithMajors(
       majorSuggestion: formatMajorSuggestion(majorRecs),
       majorRecommendations: majorRecs,
       reason: getRecommendationReason(s.refScore, baseScore),
-      admissionProbability: calculateAdmissionProbability(s.refScore, baseScore),
-      scoreTrend: calculateScoreTrend(s.score2025, s.score2024, s.score2023),
+      admissionProbability: probFactors.finalProbability,
+      scoreTrend: trendAnalysis.trend,
+      trendValue: trendAnalysis.trendValue,
+      volatility: trendAnalysis.volatility,
       matchedMajors: [],
     });
     index++;
@@ -326,6 +316,8 @@ export function filterSchoolsWithMajors(
   
   for (const s of bao.slice(0, baoCount)) {
     const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
+    const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
+    const probFactors = calculateAdmissionProbability(s.refScore, baseScore, s.score2025, s.score2024, s.score2023);
     result.push({
       index,
       tier: s.tier,
@@ -342,8 +334,10 @@ export function filterSchoolsWithMajors(
       majorSuggestion: formatMajorSuggestion(majorRecs),
       majorRecommendations: majorRecs,
       reason: getRecommendationReason(s.refScore, baseScore),
-      admissionProbability: calculateAdmissionProbability(s.refScore, baseScore),
-      scoreTrend: calculateScoreTrend(s.score2025, s.score2024, s.score2023),
+      admissionProbability: probFactors.finalProbability,
+      scoreTrend: trendAnalysis.trend,
+      trendValue: trendAnalysis.trendValue,
+      volatility: trendAnalysis.volatility,
       matchedMajors: [],
     });
     index++;
@@ -499,7 +493,7 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
   
   // 构建数据 - 以数据库真实专业数据为主
   const data = [
-    ['志愿序号', '志愿档次', '录取概率', '分数趋势', '院校层次', '省份', '院校专业组代码', '院校专业组名称', '科目要求', 
+    ['志愿序号', '志愿档次', '录取概率', '分数趋势', '趋势值(%)', '波动系数(%)', '院校层次', '省份', '院校专业组代码', '院校专业组名称', '科目要求', 
      '2025投档线', '2024投档线', '2023投档线', 
      '推荐专业（保）', '推荐专业（稳）', '推荐专业（冲）',
      '保-专业详情', '稳-专业详情', '冲-专业详情',
@@ -560,6 +554,8 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
       v.tier,
       `${v.admissionProbability}%`,
       trendText,
+      v.trendValue !== undefined ? String(Math.round(v.trendValue * 100) / 100) : '',
+      v.volatility !== undefined ? String(Math.round(v.volatility * 100) / 100) : '',
       v.level,
       v.province,
       v.code,
@@ -586,6 +582,8 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
     { wch: 8 },    // 志愿档次
     { wch: 10 },   // 录取概率
     { wch: 8 },    // 分数趋势
+    { wch: 12 },   // 趋势值(%)
+    { wch: 14 },   // 波动系数(%)
     { wch: 10 },   // 院校层次
     { wch: 8 },    // 省份
     { wch: 14 },   // 院校专业组代码

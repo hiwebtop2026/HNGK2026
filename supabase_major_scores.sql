@@ -66,3 +66,64 @@ SELECT column_name, data_type, is_nullable
 FROM information_schema.columns
 WHERE table_name = 'major_scores'
 ORDER BY ordinal_position;
+
+-- ========================================
+-- 一分一段表（score_distribution）
+-- ========================================
+
+CREATE TABLE IF NOT EXISTS score_distribution (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  year INTEGER NOT NULL,
+  score INTEGER NOT NULL,
+  cumulative_count INTEGER NOT NULL,
+  rank INTEGER NOT NULL,
+  category TEXT DEFAULT '全体',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_score_distribution_year ON score_distribution(year);
+CREATE INDEX IF NOT EXISTS idx_score_distribution_score ON score_distribution(score);
+CREATE INDEX IF NOT EXISTS idx_score_distribution_rank ON score_distribution(rank);
+CREATE INDEX IF NOT EXISTS idx_score_distribution_category ON score_distribution(category);
+
+ALTER TABLE score_distribution DISABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public read score_distribution" ON score_distribution;
+DROP POLICY IF EXISTS "Allow authenticated insert score_distribution" ON score_distribution;
+
+-- ========================================
+-- 院校基础信息表（school_info）
+-- ========================================
+
+CREATE TABLE IF NOT EXISTS school_info (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  school_name TEXT NOT NULL,
+  school_code TEXT,
+  province TEXT,
+  level TEXT,
+  nature TEXT,
+  type TEXT,
+  founded_year INTEGER,
+  campus_count INTEGER,
+  description TEXT,
+  website TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_school_info_name ON school_info(school_name);
+CREATE INDEX IF NOT EXISTS idx_school_info_code ON school_info(school_code);
+CREATE INDEX IF NOT EXISTS idx_school_info_province ON school_info(province);
+CREATE INDEX IF NOT EXISTS idx_school_info_level ON school_info(level);
+CREATE INDEX IF NOT EXISTS idx_school_info_nature ON school_info(nature);
+
+ALTER TABLE school_info DISABLE ROW LEVEL SECURITY;
+
+DROP POLICY IF EXISTS "Allow public read school_info" ON school_info;
+DROP POLICY IF EXISTS "Allow authenticated insert school_info" ON school_info;
+
+DROP TRIGGER IF EXISTS update_school_info_updated_at ON school_info;
+CREATE TRIGGER update_school_info_updated_at
+  BEFORE UPDATE ON school_info
+  FOR EACH ROW
+  EXECUTE FUNCTION update_updated_at_column();

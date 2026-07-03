@@ -3,6 +3,7 @@ import { HomePage } from '@/pages/HomePage';
 import { ResultPage } from '@/pages/ResultPage';
 import { AuthPage } from '@/pages/AuthPage';
 import { MajorScorePage } from '@/pages/MajorScorePage';
+import AnalysisPage from '@/pages/AnalysisPage';
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/result" element={<ResultPage />} />
+        <Route path="/analysis" element={<AnalysisPage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/majorscore" element={<MajorScorePage />} />
       </Routes>
