@@ -204,6 +204,9 @@ export function HomePage() {
   
   const scoreRangeOptions = [10, 15, 20, 25, 30];
   const volunteerOptions = [15, 20, 30, 45];
+
+  // 选科组合未选择时锁定所有后续功能（含分数输入等）
+  const subjectLocked = selectedSubjects.length === 0;
   
   const subjectOptions = useMemo(() => {
     const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
@@ -712,23 +715,42 @@ export function HomePage() {
               </div>
 
               {/* 分数设置与位次信息卡片 */}
-              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.2s' }}>
+              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover relative transition-all ${isDark ? '' : 'shadow-md'} ${subjectLocked ? 'ring-2 ring-rose-400/40' : ''}`} style={{ animationDelay: '0.2s' }}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-md">
                     <Target className="w-5 h-5 text-white" />
                   </div>
-                  <div>
-                    <h2 className={`text-lg font-semibold ${textPrimary}`}>分数设置</h2>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <h2 className={`text-lg font-semibold ${textPrimary}`}>分数设置</h2>
+                      {subjectLocked && (
+                        <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-rose-500/20 text-rose-500 animate-pulse">
+                          🔒 已锁定
+                        </span>
+                      )}
+                    </div>
                     <p className={`text-sm ${textSecondary}`}>输入你的高考分数和浮动范围</p>
                   </div>
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                {subjectLocked && (
+                  <div className={`mb-4 p-3 rounded-xl flex items-center gap-2 text-sm ${
+                    isDark
+                      ? 'bg-rose-500/10 border border-rose-500/20 text-rose-300'
+                      : 'bg-rose-50 border border-rose-200 text-rose-600'
+                  }`}>
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span>请先选择选考科目组合，才能输入分数和使用其他功能</span>
+                  </div>
+                )}
+
+                <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 transition-all ${subjectLocked ? 'opacity-40 pointer-events-none' : ''}`}>
                   <div>
                     <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>高考分数</label>
                     <div className="relative">
                       <input
                         type="number"
+                        disabled={subjectLocked}
                         value={baseScore ?? ''}
                         onChange={(e) => {
                           const val = e.target.value;
@@ -739,13 +761,13 @@ export function HomePage() {
                             setBaseScore(isNaN(num) ? null : num);
                           }
                         }}
-                        className={`w-full px-5 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} text-xl font-bold ${inputFocus} outline-none transition-all`}
-                        placeholder="输入高考分数"
+                        className={`w-full px-5 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} text-xl font-bold ${inputFocus} outline-none transition-all ${subjectLocked ? 'cursor-not-allowed' : ''}`}
+                        placeholder={subjectLocked ? '请先选择选科组合' : '输入高考分数'}
                       />
                       <span className={`absolute right-4 top-1/2 -translate-y-1/2 ${textMuted} text-sm`}>分</span>
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>分数浮动范围（±分）</label>
                     <div className="flex gap-2">
@@ -753,13 +775,14 @@ export function HomePage() {
                         <button
                           key={range}
                           onClick={() => setScoreRange(range)}
+                          disabled={subjectLocked}
                           className={`flex-1 px-3 py-3 rounded-xl border font-medium transition-all ${
                             scoreRange === range
                               ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white border-transparent shadow-lg shadow-primary-500/25'
                               : isDark
                               ? 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20 hover:text-gray-300'
                               : 'bg-white text-gray-500 border-gray-200 hover:border-primary-300 hover:text-gray-700'
-                          }`}
+                          } ${subjectLocked ? 'cursor-not-allowed' : ''}`}
                         >
                           ±{range}
                         </button>
@@ -912,7 +935,9 @@ export function HomePage() {
                   </div>
                 )}
               </div>
-              
+
+              {/* 以下功能在未选择选科组合时锁定 */}
+              <div className={`space-y-6 transition-all ${subjectLocked ? 'opacity-40 pointer-events-none' : ''}`}>
               {/* 选考科目要求与志愿数量 */}
               <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.25s' }}>
                 <div className="flex items-center gap-3 mb-6">
@@ -1473,10 +1498,11 @@ export function HomePage() {
                   </div>
                 </div>
               </div>
+              </div>
             </div>
-            
+
             {/* 右侧：筛选条件 */}
-            <div className="space-y-6">
+            <div className={`space-y-6 transition-all ${subjectLocked ? 'opacity-40 pointer-events-none' : ''}`}>
               {/* 院校层次 */}
               <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.15s' }}>
                 <div className="flex items-center gap-3 mb-5">
@@ -1657,7 +1683,7 @@ export function HomePage() {
           </div>
           
           {/* 统计与生成按钮 */}
-          <div className={`mt-8 glass rounded-2xl p-6 animate-slide-up ${isDark ? '' : 'shadow-lg'}`} style={{ animationDelay: '0.4s' }}>
+          <div className={`mt-8 glass rounded-2xl p-6 animate-slide-up transition-all ${isDark ? '' : 'shadow-lg'} ${subjectLocked ? 'opacity-40 pointer-events-none' : ''}`} style={{ animationDelay: '0.4s' }}>
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-6">
                 <div className="text-center">

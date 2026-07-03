@@ -298,11 +298,13 @@ export const useAppStore = create<AppState>((set, get) => {
       rankInfo: { ...state.rankInfo, ...info }
     })),
     setCurrentRegion: async (region) => {
-      set({ 
-        currentRegion: region, 
+      set({
+        currentRegion: region,
         provinceConfig: getProvinceConfig(region) || null,
         results: [],
         baseScore: null,
+        // 切换地区时重置选科组合，强制用户重新选择
+        selectedSubjects: [],
         rankInfo: {
           score: null,
           rank: null,
@@ -318,7 +320,7 @@ export const useAppStore = create<AppState>((set, get) => {
           isQuerying: false,
         },
       });
-      
+
       await get().loadFromSupabase(region);
     },
     loadFromSupabase: async (province?: string) => {
