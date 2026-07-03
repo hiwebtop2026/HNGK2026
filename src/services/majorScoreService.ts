@@ -72,6 +72,49 @@ export const majorScoreService = {
     }, schoolName);
   },
 
+  async getBySchoolAndProvince(schoolName: string, province: string): Promise<MajorScore[]> {
+    return cacheService.get('getBySchoolAndProvince', async () => {
+      if (!supabase) return [];
+      
+      const { data, error } = await supabase
+        .from('major_scores')
+        .select('*')
+        .ilike('school_name', `%${schoolName}%`)
+        .eq('province', province)
+        .order('year', { ascending: false })
+        .order('min_score', { ascending: false })
+        .limit(1000);
+      
+      if (error) {
+        console.error(`获取${province}学校专业分数线失败:`, error);
+        return [];
+      }
+      
+      return data || [];
+    }, schoolName, province);
+  },
+
+  async getByProvince(province: string): Promise<MajorScore[]> {
+    return cacheService.get('getByProvince', async () => {
+      if (!supabase) return [];
+      
+      const { data, error } = await supabase
+        .from('major_scores')
+        .select('*')
+        .eq('province', province)
+        .order('year', { ascending: false })
+        .order('min_score', { ascending: false })
+        .limit(10000);
+      
+      if (error) {
+        console.error(`获取${province}专业分数线失败:`, error);
+        return [];
+      }
+      
+      return data || [];
+    }, province);
+  },
+
   async getBySchoolAndYear(schoolName: string, year: number): Promise<MajorScore[]> {
     return cacheService.get('getBySchoolAndYear', async () => {
       if (!supabase) return [];
