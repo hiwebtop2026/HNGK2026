@@ -402,7 +402,7 @@ export function HomePage() {
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-lg shadow-primary-500/25">
                   <School className="w-5 h-5 text-white" />
                 </div>
-                <span className={`font-bold text-lg ${textPrimary}`}>高考志愿助手</span>
+                <span className={`font-bold text-lg ${textPrimary}`}>智能高考志愿助理</span>
               </div>
               <div className="flex items-center gap-4">
                 {/* 用户信息显示 */}
