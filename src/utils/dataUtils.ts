@@ -337,7 +337,7 @@ export interface RankInfo {
   score: number;                    // 考生分数
   rank: number;                     // 全体考生位次
   categoryRank?: number;            // 分科位次（物理类/历史类）
-  category?: '物理类' | '历史类';    // 考生类别
+  category?: '物理类' | '历史类' | '普通类';  // 考生类别（普通类用于不分文理的省份）
   percentile: number;               // 超过百分比
   totalCandidates: number;          // 总考生人数
   year2025: number | null;         // 2025年对应分数
@@ -555,64 +555,146 @@ export async function fetchRankInfo(score: number, subject: number, province: st
         note: `位次区间：${rankInfo.minRank}~${rankInfo.maxRank}，同分人数：${rankInfo.count}人`,
       };
     }
+
+    // 如果按undefined查询失败，尝试按'普通类'查询（兼容已执行fix_category的数据）
+    if (is3Plus3Mode) {
+      const rankInfoWithCategory = await scoreDistributionService.getRankByScore(province, score, 2026, '普通类');
+      if (rankInfoWithCategory && stats) {
+        const percentile = Math.round((1 - rankInfoWithCategory.cumulativeCount / stats.max_cumulative) * 10000) / 100;
+
+        return {
+          score,
+          rank: rankInfoWithCategory.minRank,
+          categoryRank: rankInfoWithCategory.minRank,
+          category,
+          percentile,
+          totalCandidates: stats.max_cumulative,
+          year2025: null,
+          year2024: null,
+          year2023: null,
+          dataSource: `${province}2026年一分一段表`,
+          note: `位次区间：${rankInfoWithCategory.minRank}~${rankInfoWithCategory.maxRank}，同分人数：${rankInfoWithCategory.count}人`,
+        };
+      }
+    }
   } catch (error) {
     console.warn('从数据库获取位次信息失败，使用本地参考数据:', error);
   }
   
-  // 回退到本地参考数据（仅海南有本地数据）
-  if (province !== '海南') {
-    // 非海南地区无本地参考数据，返回提示
+  // 回退到本地参考数据
+  const localData = getLocalRankInfo(province, score, category);
+  if (localData) {
+    return localData;
+  }
+  
+  // 无任何数据，返回提示
+  return {
+    score,
+    rank: null,
+    categoryRank: null,
+    category,
+    percentile: null,
+    totalCandidates: null,
+    year2025: null,
+    year2024: null,
+    year2023: null,
+    dataSource: '暂无数据',
+    note: `${province}一分一段表数据暂未录入数据库，请选择其他地区或稍后再试`,
+  };
+}
+
+// 天津2026年一分一段表参考数据（关键分数点）
+// 数据来源：天津市教育招生考试院2026年官方发布
+const TIANJIN_RANK_REFERENCE: [number, number][] = [
+  [680, 197],   // 680分=197名
+  [650, 1822],  // 650分=1822名
+  [640, 2905],  // 640分=2905名
+  [630, 4218],  // 630分=4218名
+  [620, 5940],  // 620分=5940名
+  [610, 7886],  // 610分=7886名
+  [600, 10077], // 600分=10077名
+  [590, 12449], // 590分=12449名
+  [580, 15083], // 580分=15083名
+  [570, 17814], // 570分=17814名
+  [560, 20579], // 560分=20579名
+  [550, 23491], // 550分=23491名
+  [547, 24370], // 547分=24370名（特招线）
+  [540, 26502], // 540分=26502名
+  [530, 29562], // 530分=29562名
+  [520, 32625], // 520分=32625名
+  [510, 35683], // 510分=35683名
+  [500, 38670], // 500分=38670名
+  [490, 41566], // 490分=41566名
+  [480, 44388], // 480分=44388名
+  [458, 52753], // 458分=52753名（本科线）
+  [450, 54877], // 450分=54877名
+  [400, 66563], // 400分=66563名
+  [350, 73453], // 350分=73453名
+  [300, 77488], // 300分=77488名
+];
+
+// 天津考生总人数
+const TIANJIN_CANDIDATES_2026 = 77488;
+
+// 获取本地位次参考数据
+function getLocalRankInfo(province: string, score: number, category: '物理类' | '历史类'): RankInfo | null {
+  if (province === '海南') {
+    const totalCandidates = HAINAN_CANDIDATES_2026.普通类;
+    
+    const allRank = interpolateRank(score, ALL_RANK_REFERENCE);
+    
+    const categoryRef = category === '物理类' ? PHYSICS_RANK_REFERENCE : HISTORY_RANK_REFERENCE;
+    const categoryRank = interpolateRank(score, categoryRef);
+    
+    const percentile = Math.round((1 - allRank / totalCandidates) * 10000) / 100;
+    
+    const batch2026 = HAINAN_SCORE_LINES[category][2026].batch;
+    const batch2025 = HAINAN_SCORE_LINES[category][2025].batch;
+    const batch2024 = HAINAN_SCORE_LINES[category][2024].batch;
+    const batch2023 = HAINAN_SCORE_LINES[category][2023].batch;
+    
+    const diff2025 = batch2026 - batch2025;
+    const diff2024 = batch2026 - batch2024;
+    const diff2023 = batch2026 - batch2023;
+    
+    const year2025 = Math.round(score - diff2025);
+    const year2024 = Math.round(score - diff2024);
+    const year2023 = Math.round(score - diff2023);
+    
     return {
       score,
-      rank: null,
-      categoryRank: null,
+      rank: allRank,
+      categoryRank,
       category,
-      percentile: null,
-      totalCandidates: null,
-      year2025: null,
-      year2024: null,
-      year2023: null,
-      dataSource: '暂无数据',
-      note: `${province}一分一段表数据暂未录入数据库，请选择其他地区或稍后再试`,
+      percentile,
+      totalCandidates,
+      year2025: year2025,
+      year2024: year2024,
+      year2023: year2023,
+      dataSource: '海南省考试局2026年一分一段表（参考）',
+      note: '注：数据库查询失败，使用本地参考数据，仅供参考',
     };
   }
   
-  // 海南本地参考数据
-  await new Promise(resolve => setTimeout(resolve, 600 + Math.random() * 400));
+  if (province === '天津') {
+    const totalCandidates = TIANJIN_CANDIDATES_2026;
+    const rank = interpolateRank(score, TIANJIN_RANK_REFERENCE);
+    const percentile = Math.round((1 - rank / totalCandidates) * 10000) / 100;
+    
+    return {
+      score,
+      rank,
+      categoryRank: rank,
+      category: '普通类',
+      percentile,
+      totalCandidates,
+      year2025: null,
+      year2024: null,
+      year2023: null,
+      dataSource: '天津市教育招生考试院2026年一分一段表（参考）',
+      note: '注：数据库查询失败，使用本地参考数据，仅供参考',
+    };
+  }
   
-  const totalCandidates = HAINAN_CANDIDATES_2026.普通类;
-  
-  const allRank = interpolateRank(score, ALL_RANK_REFERENCE);
-  
-  const categoryRef = category === '物理类' ? PHYSICS_RANK_REFERENCE : HISTORY_RANK_REFERENCE;
-  const categoryRank = interpolateRank(score, categoryRef);
-  
-  const percentile = Math.round((1 - allRank / totalCandidates) * 10000) / 100;
-  
-  const batch2026 = HAINAN_SCORE_LINES[category][2026].batch;
-  const batch2025 = HAINAN_SCORE_LINES[category][2025].batch;
-  const batch2024 = HAINAN_SCORE_LINES[category][2024].batch;
-  const batch2023 = HAINAN_SCORE_LINES[category][2023].batch;
-  
-  const diff2025 = batch2026 - batch2025;
-  const diff2024 = batch2026 - batch2024;
-  const diff2023 = batch2026 - batch2023;
-  
-  const year2025 = Math.round(score - diff2025);
-  const year2024 = Math.round(score - diff2024);
-  const year2023 = Math.round(score - diff2023);
-  
-  return {
-    score,
-    rank: allRank,
-    categoryRank,
-    category,
-    percentile,
-    totalCandidates,
-    year2025: year2025,
-    year2024: year2024,
-    year2023: year2023,
-    dataSource: '海南省考试局2026年一分一段表（参考）',
-    note: '注：数据库查询失败，使用本地参考数据，仅供参考',
-  };
+  return null;
 }

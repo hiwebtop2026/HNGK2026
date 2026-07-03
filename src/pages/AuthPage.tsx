@@ -55,8 +55,9 @@ export function AuthPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   
-  // 检查认证状态
+  // 检查认证状态并设置页面标题
   useEffect(() => {
+    document.title = '智能高考志愿助理';
     checkAuth();
   }, [checkAuth]);
   

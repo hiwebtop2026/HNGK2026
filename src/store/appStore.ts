@@ -49,7 +49,7 @@ interface AppState {
     score: number | null;
     rank: number | null;
     categoryRank: number | null;
-    category: '物理类' | '历史类' | null;
+    category: '物理类' | '历史类' | '普通类' | null;
     percentile: number | null;
     totalCandidates: number | null;
     year2025: number | null;

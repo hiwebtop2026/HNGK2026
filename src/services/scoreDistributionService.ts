@@ -68,38 +68,36 @@ export const scoreDistributionService = {
   },
 
   async getRankByScore(province: string, score: number, year: number, category?: string): Promise<{minRank: number, maxRank: number, count: number, cumulativeCount: number} | null> {
-    return cacheService.get('getRankByScore', async () => {
-      if (!supabase) return null;
+    if (!supabase) return null;
 
-      let query = supabase
-        .from('score_distribution')
-        .select('min_rank, max_rank, count, cumulative_count')
-        .eq('province', province)
-        .eq('year', year)
-        .eq('score', score)
-        .limit(1);
+    let query = supabase
+      .from('score_distribution')
+      .select('min_rank, max_rank, count, cumulative_count')
+      .eq('province', province)
+      .eq('year', year)
+      .eq('score', score)
+      .limit(1);
 
-      if (category) {
-        query = query.eq('category', category);
-      }
+    if (category) {
+      query = query.eq('category', category);
+    }
 
-      const { data, error } = await query;
+    const { data, error } = await query;
 
-      if (error) {
-        console.error('根据分数查询位次失败:', error);
-        return null;
-      }
+    if (error) {
+      console.error('根据分数查询位次失败:', error);
+      return null;
+    }
 
-      if (!data || data.length === 0) return null;
+    if (!data || data.length === 0) return null;
 
-      const row = data[0];
-      return {
-        minRank: row.min_rank,
-        maxRank: row.max_rank,
-        count: row.count,
-        cumulativeCount: row.cumulative_count
-      };
-    }, province, score, year, category);
+    const row = data[0];
+    return {
+      minRank: row.min_rank,
+      maxRank: row.max_rank,
+      count: row.count,
+      cumulativeCount: row.cumulative_count
+    };
   },
 
   async getScoreByRank(province: string, rank: number, year: number, category?: string): Promise<number | null> {
@@ -150,23 +148,21 @@ export const scoreDistributionService = {
   },
 
   async getStats(province: string, year: number): Promise<any> {
-    return cacheService.get('getStats', async () => {
-      if (!supabase) return null;
+    if (!supabase) return null;
 
-      const { data, error } = await supabase
-        .from('score_distribution')
-        .select('MIN(score) as min_score, MAX(score) as max_score, SUM(count) as total_students, MAX(cumulative_count) as max_cumulative')
-        .eq('province', province)
-        .eq('year', year)
-        .limit(1);
+    const { data, error } = await supabase
+      .from('score_distribution')
+      .select('MIN(score) as min_score, MAX(score) as max_score, SUM(count) as total_students, MAX(cumulative_count) as max_cumulative')
+      .eq('province', province)
+      .eq('year', year)
+      .limit(1);
 
-      if (error) {
-        console.error('获取统计信息失败:', error);
-        return null;
-      }
+    if (error) {
+      console.error('获取统计信息失败:', error);
+      return null;
+    }
 
-      return data?.[0] || null;
-    }, province, year);
+    return data?.[0] || null;
   },
 
   async insertBatch(data: Omit<ScoreDistribution, 'id' | 'created_at'>[]): Promise<{ success: boolean; error?: string }> {
