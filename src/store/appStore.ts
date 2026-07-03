@@ -36,6 +36,8 @@ interface AppState {
   selectedProvinces: string[];
   selectedMajorCategories: string[];
   selectedNatures: string[];
+  selectedMajors: string[];
+  excludedMajors: string[];
   
   // 数据状态
   schoolData: SchoolScore[];
@@ -82,6 +84,10 @@ interface AppState {
   toggleLevel: (level: string) => void;
   toggleProvince: (province: string) => void;
   toggleMajorCategory: (categoryId: string) => void;
+  toggleMajor: (major: string) => void;
+  toggleExcludedMajor: (major: string) => void;
+  clearAllMajors: () => void;
+  clearAllExcludedMajors: () => void;
   clearAllProvinces: () => void;
   selectAllProvinces: () => void;
   toggleRegion: (provinces: string[]) => void;
@@ -141,6 +147,8 @@ export const useAppStore = create<AppState>((set, get) => {
     selectedProvinces: [],
     selectedMajorCategories: [],
     selectedNatures: [],
+    selectedMajors: [],
+    excludedMajors: [],
     
     // 数据状态
     schoolData: [],
@@ -248,6 +256,24 @@ export const useAppStore = create<AppState>((set, get) => {
         set({ selectedMajorCategories: [...current, categoryId] });
       }
     },
+    toggleMajor: (major) => {
+      const current = get().selectedMajors;
+      if (current.includes(major)) {
+        set({ selectedMajors: current.filter(m => m !== major) });
+      } else {
+        set({ selectedMajors: [...current, major] });
+      }
+    },
+    toggleExcludedMajor: (major) => {
+      const current = get().excludedMajors;
+      if (current.includes(major)) {
+        set({ excludedMajors: current.filter(m => m !== major) });
+      } else {
+        set({ excludedMajors: [...current, major] });
+      }
+    },
+    clearAllMajors: () => set({ selectedMajors: [] }),
+    clearAllExcludedMajors: () => set({ excludedMajors: [] }),
     clearAllProvinces: () => set({ selectedProvinces: [] }),
     selectAllProvinces: () => {
       const { schoolData } = get();
@@ -323,6 +349,8 @@ export const useAppStore = create<AppState>((set, get) => {
       selectedProvinces: [],
       selectedMajorCategories: [],
       selectedNatures: [],
+      selectedMajors: [],
+      excludedMajors: [],
       results: [],
       error: null,
     }),

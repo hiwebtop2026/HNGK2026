@@ -135,7 +135,9 @@ export function filterSchools(
   customChongScoreDiff?: number,
   customWenScoreDiff?: number,
   customBaoScoreDiff?: number,
-  selectedSubjects: string[] = []
+  selectedSubjects: string[] = [],
+  selectedMajors: string[] = [],
+  excludedMajors: string[] = []
 ): VolunteerResult[] {
   return filterSchoolsWithMajors(
     schools,
@@ -153,7 +155,9 @@ export function filterSchools(
     customChongScoreDiff,
     customWenScoreDiff,
     customBaoScoreDiff,
-    selectedSubjects
+    selectedSubjects,
+    selectedMajors,
+    excludedMajors
   );
 }
 
@@ -174,7 +178,9 @@ export function filterSchoolsWithMajors(
   customChongScoreDiff?: number,
   customWenScoreDiff?: number,
   customBaoScoreDiff?: number,
-  selectedSubjects: string[] = []
+  selectedSubjects: string[] = [],
+  selectedMajors: string[] = [],
+  excludedMajors: string[] = []
 ): VolunteerResult[] {
   // 按科目筛选
   let filtered = schools.filter(s => s.subject === subject);
@@ -199,6 +205,20 @@ export function filterSchoolsWithMajors(
     filtered = filtered.filter(s => {
       const categories = matchMajorCategories(s.name);
       return selectedMajorCategories.some(cat => categories.includes(cat));
+    });
+  }
+  
+  // 按想学的专业筛选（包含任意一个想学的专业）
+  if (selectedMajors.length > 0) {
+    filtered = filtered.filter(s => {
+      return selectedMajors.some(major => s.name.includes(major));
+    });
+  }
+  
+  // 按排除的专业筛选（不包含任何排除的专业）
+  if (excludedMajors.length > 0) {
+    filtered = filtered.filter(s => {
+      return !excludedMajors.some(major => s.name.includes(major));
     });
   }
   
@@ -414,7 +434,9 @@ export async function filterSchoolsAsync(
   customChongScoreDiff?: number,
   customWenScoreDiff?: number,
   customBaoScoreDiff?: number,
-  selectedSubjects: string[] = []
+  selectedSubjects: string[] = [],
+  selectedMajors: string[] = [],
+  excludedMajors: string[] = []
 ): Promise<VolunteerResult[]> {
   const results = filterSchoolsWithMajors(
     schools,
@@ -432,7 +454,9 @@ export async function filterSchoolsAsync(
     customChongScoreDiff,
     customWenScoreDiff,
     customBaoScoreDiff,
-    selectedSubjects
+    selectedSubjects,
+    selectedMajors,
+    excludedMajors
   );
   
   const chongDiff = customChongScoreDiff ?? 10;

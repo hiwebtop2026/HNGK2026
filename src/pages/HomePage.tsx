@@ -12,6 +12,7 @@ import { filterSchools, filterSchoolsAsync, loadSchoolDataFromExcel } from '../u
 import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST } from '../utils/dataUtils';
 import { fetchRankInfo } from '../utils/dataUtils';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, SCHOOL_NATURES, REGION_GROUPS } from '../data/schoolData';
+import { ALL_MAJORS, MAJOR_CATEGORIES as ALL_MAJOR_CATEGORIES, getMajorsByCategory } from '../data/majorData';
 
 const majorIcons: Record<string, React.ReactNode> = {
   cs: <Cpu className="w-5 h-5" />,
@@ -72,6 +73,8 @@ export function HomePage() {
     selectedProvinces,
     selectedMajorCategories,
     selectedNatures,
+    selectedMajors,
+    excludedMajors,
     schoolData,
     rankInfo,
     isDark,
@@ -96,6 +99,10 @@ export function HomePage() {
     toggleLevel,
     toggleProvince,
     toggleMajorCategory,
+    toggleMajor,
+    toggleExcludedMajor,
+    clearAllMajors,
+    clearAllExcludedMajors,
     clearAllProvinces,
     selectAllProvinces,
     toggleRegion,
@@ -303,7 +310,9 @@ export function HomePage() {
         useCustomTierScoreDiffs ? chongScoreDiff : undefined,
         useCustomTierScoreDiffs ? wenScoreDiff : undefined,
         useCustomTierScoreDiffs ? baoScoreDiff : undefined,
-        selectedSubjects
+        selectedSubjects,
+        selectedMajors,
+        excludedMajors
       );
 
       if (results.length === 0) {
@@ -1170,6 +1179,177 @@ export function HomePage() {
                     已选择 {selectedMajorCategories.length} 个专业方向
                   </p>
                 )}
+              </div>
+              
+              {/* 专业偏好筛选 */}
+              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.35s' }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center shadow-md">
+                    <GraduationCap className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h2 className={`text-lg font-semibold ${textPrimary}`}>专业偏好</h2>
+                    <p className={`text-sm ${textSecondary}`}>选择你想学的专业（绿色）和不想学的专业（红色）</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  {/* 想学的专业 */}
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className={`font-medium ${textPrimary}`}>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="w-3 h-3 rounded-full bg-green-500"></span>
+                          想学的专业
+                        </span>
+                      </h3>
+                      {selectedMajors.length > 0 && (
+                        <button
+                          onClick={clearAllMajors}
+                          className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                        >
+                          清空
+                        </button>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedMajors.map((major) => (
+                        <span
+                          key={major}
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-medium"
+                        >
+                          {major}
+                          <button
+                            onClick={() => toggleMajor(major)}
+                            className="hover:text-green-900 transition-colors"
+                          >
+                            ×
+                          </button>
+                        </span>
+                      ))}
+                      {selectedMajors.length === 0 && (
+                        <span className={`text-sm ${textSecondary}`}>点击下方专业添加到想学列表</span>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* 不想学的专业 */}
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className={`font-medium ${textPrimary}`}>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="w-3 h-3 rounded-full bg-red-500"></span>
+                          不想学的专业
+                        </span>
+                      </h3>
+                      {excludedMajors.length > 0 && (
+                        <button
+                          onClick={clearAllExcludedMajors}
+                          className="text-xs text-gray-500 hover:text-gray-700 transition-colors"
+                        >
+                          清空
+                        </button>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {excludedMajors.map((major) => (
+                        <span
+                          key={major}
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-red-100 text-red-700 text-sm font-medium"
+                        >
+                          {major}
+                          <button
+                            onClick={() => toggleExcludedMajor(major)}
+                            className="hover:text-red-900 transition-colors"
+                          >
+                            ×
+                          </button>
+                        </span>
+                      ))}
+                      {excludedMajors.length === 0 && (
+                        <span className={`text-sm ${textSecondary}`}>点击下方专业添加到排除列表</span>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {/* 专业选择列表 */}
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      {ALL_MAJOR_CATEGORIES.map((category) => (
+                        <button
+                          key={category}
+                          onClick={() => {
+                            const majorsInCategory = getMajorsByCategory(category);
+                            majorsInCategory.forEach((m) => {
+                              if (!selectedMajors.includes(m.name) && !excludedMajors.includes(m.name)) {
+                                toggleMajor(m.name);
+                              }
+                            });
+                          }}
+                          className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                            isDark
+                              ? 'bg-white/10 text-gray-300 hover:bg-white/20'
+                              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                          }`}
+                        >
+                          全选{category}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="max-h-60 overflow-y-auto space-y-2">
+                      {ALL_MAJORS.map((major) => {
+                        const isSelected = selectedMajors.includes(major.name);
+                        const isExcluded = excludedMajors.includes(major.name);
+                        return (
+                          <button
+                            key={major.name}
+                            onClick={() => {
+                              if (isSelected) {
+                                toggleMajor(major.name);
+                              } else if (isExcluded) {
+                                toggleExcludedMajor(major.name);
+                              } else {
+                                toggleMajor(major.name);
+                              }
+                            }}
+                            className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl transition-all ${
+                              isSelected
+                                ? 'bg-green-100 border border-green-300'
+                                : isExcluded
+                                ? 'bg-red-100 border border-red-300'
+                                : isDark
+                                ? 'bg-white/5 border border-white/10 hover:bg-white/10'
+                                : 'bg-white border border-gray-200 hover:bg-gray-50'
+                            }`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <span
+                                className={`w-2 h-2 rounded-full ${
+                                  isSelected ? 'bg-green-500' : isExcluded ? 'bg-red-500' : 'bg-gray-400'
+                                }`}
+                              ></span>
+                              <span className={`font-medium text-sm ${
+                                isSelected ? 'text-green-700' : isExcluded ? 'text-red-700' : textPrimary
+                              }`}>
+                                {major.name}
+                              </span>
+                              <span className={`text-xs px-2 py-0.5 rounded-full ${
+                                isDark ? 'bg-white/10 text-gray-400' : 'bg-gray-100 text-gray-500'
+                              }`}>
+                                {major.category}
+                              </span>
+                            </div>
+                            <span className={`text-xs ${
+                              major.heat === 'hot' ? 'text-orange-500' : major.heat === 'warm' ? 'text-blue-500' : 'text-gray-400'
+                            }`}>
+                              {major.heat === 'hot' ? '热门' : major.heat === 'warm' ? '适中' : '冷门'}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
