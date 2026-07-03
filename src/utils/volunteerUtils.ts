@@ -118,6 +118,27 @@ export function calculateScoreTrend(
   return 'stable';
 }
 
+function deduplicateMajors(majors: MajorScore[]): MajorScore[] {
+  const map = new Map<string, MajorScore>();
+  
+  for (const major of majors) {
+    const key = major.major_name;
+    const existing = map.get(key);
+    
+    if (!existing) {
+      map.set(key, major);
+    } else {
+      if (major.year && existing.year && major.year > existing.year) {
+        map.set(key, major);
+      } else if (!existing.year && major.year) {
+        map.set(key, major);
+      }
+    }
+  }
+  
+  return Array.from(map.values());
+}
+
 // 筛选院校（同步版本，保持向后兼容）
 export function filterSchools(
   schools: SchoolScore[],
@@ -499,10 +520,13 @@ export async function filterSchoolsAsync(
         return scoreB - scoreA;
       });
       
-      result.matchedMajors = matched.slice(0, 20);
+      const uniqueMajors = deduplicateMajors(matched);
+      const limitedMajors = uniqueMajors.slice(0, 6);
       
-      if (matched.length > 0) {
-        result.majorSuggestion = matched.slice(0, 3).map(m => m.major_name).join('、') || result.majorSuggestion;
+      result.matchedMajors = limitedMajors;
+      
+      if (limitedMajors.length > 0) {
+        result.majorSuggestion = limitedMajors.slice(0, 3).map(m => m.major_name).join('、') || result.majorSuggestion;
       }
     } catch (error) {
       console.error(`获取${result.name}专业数据失败:`, error);
