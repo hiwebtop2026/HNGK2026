@@ -205,9 +205,6 @@ export function HomePage() {
   const scoreRangeOptions = [10, 15, 20, 25, 30];
   const volunteerOptions = [15, 20, 30, 45];
 
-  // 选科组合未选择时锁定所有后续功能（含分数输入等）
-  const subjectLocked = selectedSubjects.length === 0;
-  
   const subjectOptions = useMemo(() => {
     const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
     const subjects = [...new Set(data.map(s => s.subject))];
@@ -463,7 +460,94 @@ export function HomePage() {
             </div>
           </div>
         </header>
-        
+
+        {/* 顶部地区与选科组合栏（页首固定区域） */}
+        <div className="max-w-6xl mx-auto px-6 mb-6">
+          <div className={`glass rounded-2xl p-4 md:p-5 animate-fade-in ${isDark ? '' : 'shadow-md'}`}>
+            <div className="flex flex-col lg:flex-row lg:items-center gap-4">
+              {/* 地区选择 */}
+              <div className="flex items-center gap-3 lg:min-w-[220px]">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center shadow-md flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-white" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className={`text-xs ${textMuted} mb-1`}>高考地区</p>
+                  <div className="relative">
+                    <select
+                      value={currentRegion}
+                      onChange={(e) => setCurrentRegion(e.target.value)}
+                      className={`appearance-none w-full px-4 py-2.5 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} text-sm font-medium ${inputFocus} outline-none cursor-pointer pr-9`}
+                    >
+                      {availableRegions.map((region) => (
+                        <option key={region} value={region} className={isDark ? 'bg-gray-900' : 'bg-white'}>
+                          {region}高考
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 rotate-90 pointer-events-none opacity-50" />
+                  </div>
+                </div>
+              </div>
+
+              {/* 分隔线 */}
+              <div className={`hidden lg:block w-px self-stretch ${isDark ? 'bg-white/10' : 'bg-gray-200'}`} />
+
+              {/* 选考科目 */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <GraduationCap className="w-4 h-4 text-purple-500" />
+                    <p className={`text-xs font-medium ${textSecondary}`}>
+                      选考科目
+                      <span className={`ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+                        selectedSubjects.length === 0
+                          ? 'bg-amber-500/20 text-amber-500'
+                          : 'bg-green-500/20 text-green-500'
+                      }`}>
+                        {selectedSubjects.length === 0 ? '未选' : `${selectedSubjects.length}科`}
+                      </span>
+                    </p>
+                  </div>
+                  {selectedSubjects.length > 0 && (
+                    <p className={`text-xs ${textMuted} hidden md:block`}>
+                      ✓ {selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')}
+                    </p>
+                  )}
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {SUBJECT_LIST.map((sub) => (
+                    <button
+                      key={sub.code}
+                      onClick={() => toggleSelectedSubject(sub.code)}
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                        selectedSubjects.includes(sub.code)
+                          ? `bg-gradient-to-r ${sub.color} text-white shadow-md`
+                          : isDark
+                          ? 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20 hover:text-gray-300'
+                          : 'bg-white text-gray-500 border border-gray-200 hover:border-primary-300 hover:text-gray-700'
+                      }`}
+                    >
+                      <span>{sub.icon}</span>
+                      <span>{sub.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 考试模式与总分提示 */}
+            {provinceConfig && (
+              <div className={`mt-3 pt-3 border-t flex flex-wrap items-center gap-x-5 gap-y-1 text-xs ${textSecondary} ${isDark ? 'border-white/10' : 'border-gray-200'}`}>
+                <span>📋 考试模式：{provinceConfig.examMode === '3+3' ? '3+3 新高考' : provinceConfig.examMode === '3+1+2' ? '3+1+2 新高考' : '3+X 传统高考'}</span>
+                <span>📊 总分：{provinceConfig.totalScore}分</span>
+                {provinceConfig && !provinceConfig.dataAvailable && (
+                  <span className={isDark ? 'text-yellow-400' : 'text-yellow-600'}>⚠️ 该省份数据暂未开放</span>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+
         {/* 主内容区 */}
         <main className="max-w-6xl mx-auto px-6 pb-16">
           {/* 未认证提示卡片 */}
@@ -491,44 +575,6 @@ export function HomePage() {
                 >
                   <User className="w-4 h-4" />
                   <span>立即注册</span>
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* 未选择选科组合提示卡片 */}
-          {isAuthenticated && selectedSubjects.length === 0 && (
-            <div className={`glass rounded-2xl p-6 mb-6 animate-fade-in ${
-              isDark
-              ? 'bg-gradient-to-r from-rose-500/10 to-pink-500/10 border border-rose-500/20'
-              : 'bg-gradient-to-r from-rose-50 to-pink-50 border border-rose-200 shadow-md'
-            }`}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center shadow-md animate-pulse">
-                    <GraduationCap className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className={`text-lg font-semibold ${textPrimary} mb-1`}>请先选择选科组合</h3>
-                    <p className={`text-sm ${textSecondary}`}>
-                      选科组合是生成志愿方案的前提，请先完成选科后再使用分数输入、志愿生成等功能
-                    </p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => {
-                    const subjectCard = document.getElementById('subject-selection-card');
-                    if (subjectCard) {
-                      subjectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                      subjectCard.classList.add('ring-4', 'ring-rose-400/50');
-                      setTimeout(() => subjectCard.classList.remove('ring-4', 'ring-rose-400/50'), 2000);
-                    }
-                  }}
-                  className="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white rounded-xl font-medium shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 hover:scale-[1.02] transition-all flex items-center gap-2 flex-shrink-0"
-                >
-                  <GraduationCap className="w-4 h-4" />
-                  <span>去选择</span>
                   <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
@@ -594,163 +640,24 @@ export function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* 左侧：主要参数 */}
             <div className="lg:col-span-2 space-y-6">
-              {/* 分数设置卡片 */}
-              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.1s' }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center shadow-md">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h2 className={`text-lg font-semibold ${textPrimary}`}>地区选择</h2>
-                    <p className={`text-sm ${textSecondary}`}>选择你的高考所在省份</p>
-                  </div>
-                </div>
-                
-                <div className="mb-8">
-                  <div className="relative">
-                    <select
-                      value={currentRegion}
-                      onChange={(e) => setCurrentRegion(e.target.value)}
-                      className={`appearance-none w-full px-5 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl font-medium cursor-pointer shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500/50 ${
-                        isDark ? '' : ''
-                      }`}
-                    >
-                      {availableRegions.map((region) => (
-                        <option key={region} value={region} className="bg-white text-gray-800">
-                          {region}高考
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronRight className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none" />
-                  </div>
-                  
-                  {provinceConfig && (
-                    <div className={`mt-4 grid grid-cols-2 gap-3 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                      <div className={`px-4 py-3 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
-                        <p className="text-xs opacity-70">考试模式</p>
-                        <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                          {provinceConfig.examMode === '3+3' ? '3+3 新高考' : provinceConfig.examMode === '3+1+2' ? '3+1+2 新高考' : '3+X 传统高考'}
-                        </p>
-                      </div>
-                      <div className={`px-4 py-3 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
-                        <p className="text-xs opacity-70">总分</p>
-                        <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                          {provinceConfig.totalScore}分
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                  
-                  {provinceConfig && !provinceConfig.dataAvailable && (
-                    <div className={`mt-4 p-4 rounded-xl ${
-                      isDark 
-                        ? 'bg-yellow-500/10 border border-yellow-500/20 text-yellow-300' 
-                        : 'bg-yellow-50 border border-yellow-200 text-yellow-700'
-                    }`}>
-                      <div className="flex items-start gap-2">
-                        <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                        <div className="text-sm">
-                          <p className="font-medium">该省份数据暂未开放</p>
-                          <p className={`mt-1 text-xs ${isDark ? 'text-yellow-400/70' : 'text-yellow-600/70'}`}>
-                            {currentRegion}省高考志愿数据正在筹备中，敬请期待！目前仅支持海南省高考数据查询。
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* 选考科目组合卡片（必选，置于地区选择之后、分数设置之前） */}
-              <div id="subject-selection-card" className={`glass rounded-2xl p-6 animate-slide-up card-hover transition-all ${isDark ? '' : 'shadow-md'} ${selectedSubjects.length === 0 ? 'ring-2 ring-rose-400/60 border-rose-400/40' : 'ring-1 ring-green-400/30'}`} style={{ animationDelay: '0.15s' }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md">
-                    <GraduationCap className="w-5 h-5 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <h2 className={`text-lg font-semibold ${textPrimary}`}>选考科目组合</h2>
-                      <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
-                        selectedSubjects.length === 0
-                          ? 'bg-rose-500/20 text-rose-500 animate-pulse'
-                          : 'bg-green-500/20 text-green-500'
-                      }`}>
-                        {selectedSubjects.length === 0 ? '● 必选' : '✓ 已选'}
-                      </span>
-                    </div>
-                    <p className={`text-sm ${textSecondary}`}>请先选择你的选考科目组合，未选择将无法使用志愿生成等功能</p>
-                  </div>
-                </div>
-
-                <div className="mb-2">
-                  <div className="flex flex-wrap gap-3">
-                    {SUBJECT_LIST.map((sub) => (
-                      <button
-                        key={sub.code}
-                        onClick={() => toggleSelectedSubject(sub.code)}
-                        className={`flex items-center gap-2 px-5 py-3.5 rounded-xl font-medium transition-all ${
-                          selectedSubjects.includes(sub.code)
-                            ? `bg-gradient-to-r ${sub.color} text-white shadow-lg shadow-primary-500/25 scale-105`
-                            : isDark
-                            ? 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20 hover:text-gray-300'
-                            : 'bg-white text-gray-500 border border-gray-200 hover:border-primary-300 hover:text-gray-700'
-                        }`}
-                      >
-                        <span className="text-lg">{sub.icon}</span>
-                        <span>{sub.name}</span>
-                      </button>
-                    ))}
-                  </div>
-                  <p className={`text-xs mt-3 font-medium ${
-                    selectedSubjects.length === 0
-                      ? (isDark ? 'text-rose-400' : 'text-rose-600')
-                      : (isDark ? 'text-green-400' : 'text-green-600')
-                  }`}>
-                    {selectedSubjects.length === 0
-                      ? '⚠️ 请至少选择1门选考科目，未选择将无法使用志愿生成、数据分析等功能'
-                      : `✓ 已选择：${selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')}（共${selectedSubjects.length}科）`
-                    }
-                  </p>
-                </div>
-              </div>
-
               {/* 分数设置与位次信息卡片 */}
-              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover relative transition-all ${isDark ? '' : 'shadow-md'} ${subjectLocked ? 'ring-2 ring-rose-400/40' : ''}`} style={{ animationDelay: '0.2s' }}>
+              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover relative transition-all ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.1s' }}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-md">
                     <Target className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <h2 className={`text-lg font-semibold ${textPrimary}`}>分数设置</h2>
-                      {subjectLocked && (
-                        <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-rose-500/20 text-rose-500 animate-pulse">
-                          🔒 已锁定
-                        </span>
-                      )}
-                    </div>
+                    <h2 className={`text-lg font-semibold ${textPrimary}`}>分数设置</h2>
                     <p className={`text-sm ${textSecondary}`}>输入你的高考分数和浮动范围</p>
                   </div>
                 </div>
 
-                {subjectLocked && (
-                  <div className={`mb-4 p-3 rounded-xl flex items-center gap-2 text-sm ${
-                    isDark
-                      ? 'bg-rose-500/10 border border-rose-500/20 text-rose-300'
-                      : 'bg-rose-50 border border-rose-200 text-rose-600'
-                  }`}>
-                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
-                    <span>请先选择选考科目组合，才能输入分数和使用其他功能</span>
-                  </div>
-                )}
-
-                <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 transition-all ${subjectLocked ? 'opacity-40 pointer-events-none' : ''}`}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>高考分数</label>
                     <div className="relative">
                       <input
                         type="number"
-                        disabled={subjectLocked}
                         value={baseScore ?? ''}
                         onChange={(e) => {
                           const val = e.target.value;
@@ -761,8 +668,8 @@ export function HomePage() {
                             setBaseScore(isNaN(num) ? null : num);
                           }
                         }}
-                        className={`w-full px-5 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} text-xl font-bold ${inputFocus} outline-none transition-all ${subjectLocked ? 'cursor-not-allowed' : ''}`}
-                        placeholder={subjectLocked ? '请先选择选科组合' : '输入高考分数'}
+                        className={`w-full px-5 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} text-xl font-bold ${inputFocus} outline-none transition-all`}
+                        placeholder="输入高考分数"
                       />
                       <span className={`absolute right-4 top-1/2 -translate-y-1/2 ${textMuted} text-sm`}>分</span>
                     </div>
@@ -775,14 +682,13 @@ export function HomePage() {
                         <button
                           key={range}
                           onClick={() => setScoreRange(range)}
-                          disabled={subjectLocked}
                           className={`flex-1 px-3 py-3 rounded-xl border font-medium transition-all ${
                             scoreRange === range
                               ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white border-transparent shadow-lg shadow-primary-500/25'
                               : isDark
                               ? 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20 hover:text-gray-300'
                               : 'bg-white text-gray-500 border-gray-200 hover:border-primary-300 hover:text-gray-700'
-                          } ${subjectLocked ? 'cursor-not-allowed' : ''}`}
+                          }`}
                         >
                           ±{range}
                         </button>
@@ -936,10 +842,8 @@ export function HomePage() {
                 )}
               </div>
 
-              {/* 以下功能在未选择选科组合时锁定 */}
-              <div className={`space-y-6 transition-all ${subjectLocked ? 'opacity-40 pointer-events-none' : ''}`}>
               {/* 选考科目要求与志愿数量 */}
-              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.25s' }}>
+              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.2s' }}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md">
                     <GraduationCap className="w-5 h-5 text-white" />
@@ -950,34 +854,19 @@ export function HomePage() {
                   </div>
                 </div>
 
-                {/* 已选科目摘要（只读展示，编辑请上方"选考科目组合"卡片） */}
-                <div className={`mb-6 p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className={`text-xs ${textMuted} mb-1`}>当前选科组合</p>
-                      <p className={`text-sm font-medium ${selectedSubjects.length === 0 ? (isDark ? 'text-rose-400' : 'text-rose-600') : textPrimary}`}>
-                        {selectedSubjects.length === 0
-                          ? '⚠️ 未选择选科组合，请先在上方完成选择'
-                          : selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')
-                        }
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => {
-                        const subjectCard = document.getElementById('subject-selection-card');
-                        if (subjectCard) {
-                          subjectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }
-                      }}
-                      className={`text-xs px-3 py-1.5 rounded-lg font-medium transition-all ${
-                        isDark
-                          ? 'bg-white/10 text-gray-300 hover:bg-white/20'
-                          : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
-                      }`}
-                    >
-                      {selectedSubjects.length === 0 ? '去选择' : '修改'}
-                    </button>
-                  </div>
+                {/* 已选科目摘要（只读展示，请在页面顶部修改） */}
+                <div className={`mb-6 p-3 rounded-xl flex items-center gap-2 text-sm ${
+                  selectedSubjects.length === 0
+                    ? (isDark ? 'bg-amber-500/10 text-amber-300' : 'bg-amber-50 text-amber-700')
+                    : (isDark ? 'bg-white/5 text-gray-300' : 'bg-gray-50 text-gray-700')
+                }`}>
+                  <GraduationCap className="w-4 h-4 flex-shrink-0" />
+                  <span>
+                    {selectedSubjects.length === 0
+                      ? '未选择选科组合，请在页面顶部完成选择'
+                      : `当前选科：${selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')}`
+                    }
+                  </span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1498,11 +1387,10 @@ export function HomePage() {
                   </div>
                 </div>
               </div>
-              </div>
             </div>
 
             {/* 右侧：筛选条件 */}
-            <div className={`space-y-6 transition-all ${subjectLocked ? 'opacity-40 pointer-events-none' : ''}`}>
+            <div className="space-y-6">
               {/* 院校层次 */}
               <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.15s' }}>
                 <div className="flex items-center gap-3 mb-5">
@@ -1683,7 +1571,7 @@ export function HomePage() {
           </div>
           
           {/* 统计与生成按钮 */}
-          <div className={`mt-8 glass rounded-2xl p-6 animate-slide-up transition-all ${isDark ? '' : 'shadow-lg'} ${subjectLocked ? 'opacity-40 pointer-events-none' : ''}`} style={{ animationDelay: '0.4s' }}>
+          <div className={`mt-8 glass rounded-2xl p-6 animate-slide-up transition-all ${isDark ? '' : 'shadow-lg'}`} style={{ animationDelay: '0.35s' }}>
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-6">
                 <div className="text-center">
