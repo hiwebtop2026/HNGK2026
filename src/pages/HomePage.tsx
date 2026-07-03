@@ -1326,7 +1326,13 @@ export function HomePage() {
                   
                   {/* 专业选择列表 */}
                   <div>
-                    <div className="flex items-center gap-2 mb-3">
+                    <div className={`mb-3 p-2.5 rounded-lg text-xs flex items-center gap-2 ${
+                      isDark ? 'bg-white/5 text-gray-400' : 'bg-gray-50 text-gray-500'
+                    }`}>
+                      <Info className="w-3.5 h-3.5 flex-shrink-0" />
+                      <span>点击专业在三种状态间切换：<span className="text-gray-400">未选</span> → <span className="text-green-500 font-medium">想学</span> → <span className="text-red-500 font-medium">不想学</span> → <span className="text-gray-400">未选</span></span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-3 flex-wrap">
                       {ALL_MAJOR_CATEGORIES.map((category) => (
                         <button
                           key={category}
@@ -1357,10 +1363,14 @@ export function HomePage() {
                             key={major.name}
                             onClick={() => {
                               if (isSelected) {
+                                // 想学 → 不想学（先取消想学，再添加到排除）
                                 toggleMajor(major.name);
+                                toggleExcludedMajor(major.name);
                               } else if (isExcluded) {
+                                // 不想学 → 未选
                                 toggleExcludedMajor(major.name);
                               } else {
+                                // 未选 → 想学
                                 toggleMajor(major.name);
                               }
                             }}
@@ -1391,11 +1401,18 @@ export function HomePage() {
                                 {major.category}
                               </span>
                             </div>
-                            <span className={`text-xs ${
-                              major.heat === 'hot' ? 'text-orange-500' : major.heat === 'warm' ? 'text-blue-500' : 'text-gray-400'
-                            }`}>
-                              {major.heat === 'hot' ? '热门' : major.heat === 'warm' ? '适中' : '冷门'}
-                            </span>
+                            <div className="flex items-center gap-2">
+                              <span className={`text-xs ${
+                                major.heat === 'hot' ? 'text-orange-500' : major.heat === 'warm' ? 'text-blue-500' : 'text-gray-400'
+                              }`}>
+                                {major.heat === 'hot' ? '热门' : major.heat === 'warm' ? '适中' : '冷门'}
+                              </span>
+                              <span className={`text-xs font-medium ${
+                                isSelected ? 'text-green-600' : isExcluded ? 'text-red-600' : 'text-gray-400'
+                              }`}>
+                                {isSelected ? '想学' : isExcluded ? '不想学' : '未选'}
+                              </span>
+                            </div>
                           </button>
                         );
                       })}
