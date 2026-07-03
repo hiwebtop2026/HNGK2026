@@ -84,7 +84,6 @@ export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]
           province: '其他',
           level: '普通本科',
           nature: '公办',
-          region: '海南',
           score2025: year === 2025 ? score : null,
           score2024: year === 2024 ? score : null,
           score2023: year === 2023 ? score : null,

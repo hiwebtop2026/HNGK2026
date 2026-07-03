@@ -8,6 +8,7 @@ export interface SchoolScore {
   province: string;       // 省份
   level: string;          // 院校层次 (985/211/双一流/普通本科)
   nature: '公办' | '民办'; // 院校性质
+  region: string;         // 地区（省份）
   score2025: number | null;
   score2024: number | null;
   score2023: number | null;

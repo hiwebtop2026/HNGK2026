@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import type { SchoolScore, VolunteerResult } from '../utils/volunteerUtils';
 import { loadSchoolDataFromSupabase } from '../utils/supabaseDataLoader';
-import { SCHOOL_DATA } from '../data/schoolData';
 
 type Theme = 'light' | 'dark';
 
@@ -9,10 +8,6 @@ interface AppState {
   // 主题
   theme: Theme;
   isDark: boolean;
-  
-  // 当前地区
-  currentRegion: string;
-  availableRegions: string[];
   
   // 输入参数
   baseScore: number | null;
@@ -88,7 +83,6 @@ interface AppState {
   setError: (error: string | null) => void;
   setResults: (results: VolunteerResult[]) => void;
   setRankInfo: (info: Partial<AppState['rankInfo']>) => void;
-  setCurrentRegion: (region: string) => void;
   reset: () => void;
   loadFromSupabase: () => Promise<void>;
 }
@@ -121,9 +115,6 @@ export const useAppStore = create<AppState>((set, get) => {
     subject: 54,
     selectedSubjects: [],
     totalVolunteers: 30,
-    // 当前地区（默认海南）
-    currentRegion: '海南',
-    availableRegions: [...new Set(SCHOOL_DATA.map(s => s.region))],
     // 冲稳保默认值（默认30%冲、40%稳、30%保）
     chongCount: 9,
     wenCount: 12,
@@ -268,27 +259,6 @@ export const useAppStore = create<AppState>((set, get) => {
     setRankInfo: (info) => set(state => ({
       rankInfo: { ...state.rankInfo, ...info }
     })),
-    setCurrentRegion: (region) => {
-      set({ 
-        currentRegion: region, 
-        results: [],
-        baseScore: null,
-        rankInfo: {
-          score: null,
-          rank: null,
-          categoryRank: null,
-          category: null,
-          percentile: null,
-          totalCandidates: null,
-          year2025: null,
-          year2024: null,
-          year2023: null,
-          dataSource: null,
-          note: null,
-          isQuerying: false,
-        },
-      });
-    },
     loadFromSupabase: async () => {
       set({ isLoading: true, error: null });
       try {
@@ -304,8 +274,6 @@ export const useAppStore = create<AppState>((set, get) => {
       subject: 54,
       selectedSubjects: [],
       totalVolunteers: 30,
-      currentRegion: '海南',
-      availableRegions: [...new Set(SCHOOL_DATA.map(s => s.region))],
       chongCount: 9,
       wenCount: 12,
       baoCount: 9,

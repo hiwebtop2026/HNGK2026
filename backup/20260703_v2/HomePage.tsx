@@ -76,8 +76,6 @@ export function HomePage() {
     rankInfo,
     isDark,
     error,
-    currentRegion,
-    availableRegions,
     setBaseScore,
     setScoreRange,
     setSubject,
@@ -103,7 +101,6 @@ export function HomePage() {
     setError,
     setResults,
     setRankInfo,
-    setCurrentRegion,
   } = useAppStore();
   
   const [file, setFile] = useState<File | null>(null);
@@ -115,9 +112,8 @@ export function HomePage() {
   }, [checkAuth]);
 
   useEffect(() => {
-    const regionData = SCHOOL_DATA.filter(s => s.region === currentRegion);
-    setSchoolData(regionData);
-  }, [setSchoolData, currentRegion]);
+    setSchoolData(SCHOOL_DATA);
+  }, [setSchoolData]);
 
   // 计算冲稳保总数
   const tierTotalCount = chongCount + wenCount + baoCount;
@@ -422,7 +418,7 @@ export function HomePage() {
                 <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>AI 智能志愿推荐系统</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-                <span className="text-gradient">{currentRegion}高考志愿</span>
+                <span className="text-gradient">海南高考志愿</span>
                 <br className="md:hidden" />
                 <span className={textPrimary}> 智能生成系统</span>
               </h1>
@@ -528,35 +524,6 @@ export function HomePage() {
               {/* 分数设置卡片 */}
               <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.1s' }}>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center shadow-md">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h2 className={`text-lg font-semibold ${textPrimary}`}>地区选择</h2>
-                    <p className={`text-sm ${textSecondary}`}>选择你的高考所在省份</p>
-                  </div>
-                </div>
-                
-                <div className="mb-8">
-                  <div className="relative">
-                    <select
-                      value={currentRegion}
-                      onChange={(e) => setCurrentRegion(e.target.value)}
-                      className={`appearance-none w-full px-5 py-4 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-xl font-medium cursor-pointer shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500/50 ${
-                        isDark ? '' : ''
-                      }`}
-                    >
-                      {availableRegions.map((region) => (
-                        <option key={region} value={region} className="bg-white text-gray-800">
-                          {region}高考
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronRight className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none" />
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-md">
                     <Target className="w-5 h-5 text-white" />
                   </div>
@@ -627,7 +594,7 @@ export function HomePage() {
                         )}
                       </div>
                       <p className={`text-sm font-medium ${isDark ? 'text-purple-300' : 'text-purple-700'}`}>
-                        {rankInfo.isQuerying ? `正在从${currentRegion}省考试局获取位次信息...` : `${currentRegion}省2026年高考位次参考`}
+                        {rankInfo.isQuerying ? '正在从海南省考试局获取位次信息...' : '海南省2026年高考位次参考'}
                       </p>
                     </div>
                     
