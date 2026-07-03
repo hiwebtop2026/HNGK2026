@@ -525,17 +525,22 @@ function interpolateRank(score: number, references: [number, number][]): number 
 // 优先从数据库获取，失败时回退到本地参考数据
 export async function fetchRankInfo(score: number, subject: number, province: string = '海南'): Promise<RankInfo> {
   const category = getSubjectCategory(subject);
-  
+
+  // 3+3模式省份（天津、海南、北京等）不分文理，一分一段表为全体考生数据
+  // 这些省份的数据库记录category为NULL或'普通类'，查询时不应按物理类/历史类过滤
+  const is3Plus3Mode = ['海南', '天津', '北京', '上海', '山东', '浙江'].includes(province);
+  const queryCategory = is3Plus3Mode ? undefined : category;
+
   // 优先从数据库获取
   try {
     const { scoreDistributionService } = await import('../services/scoreDistributionService');
-    
-    const rankInfo = await scoreDistributionService.getRankByScore(province, score, 2026, category);
+
+    const rankInfo = await scoreDistributionService.getRankByScore(province, score, 2026, queryCategory);
     const stats = await scoreDistributionService.getStats(province, 2026);
-    
+
     if (rankInfo && stats) {
       const percentile = Math.round((1 - rankInfo.cumulativeCount / stats.max_cumulative) * 10000) / 100;
-      
+
       return {
         score,
         rank: rankInfo.minRank,
