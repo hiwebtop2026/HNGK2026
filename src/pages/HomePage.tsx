@@ -146,7 +146,7 @@ export function HomePage() {
           note: null,
         });
         
-        fetchRankInfo(baseScore, subject).then(info => {
+        fetchRankInfo(baseScore, subject, currentRegion).then(info => {
           setRankInfo({
             isQuerying: false,
             score: info.score,

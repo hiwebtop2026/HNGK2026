@@ -523,24 +523,47 @@ function interpolateRank(score: number, references: [number, number][]): number 
 
 // 根据分数计算位次（基于海南省2026年官方一分一段表）
 // 数据来源：海南省考试局一分一段表（教育在线公布）
-export async function fetchRankInfo(score: number, subject: number): Promise<RankInfo> {
-  // 模拟网络延迟（模拟从掌上高考/夸克高考获取数据的时间）
+export async function fetchRankInfo(score: number, subject: number, province: string = '海南'): Promise<RankInfo> {
+  const category = getSubjectCategory(subject);
+  
+  try {
+    const { scoreDistributionService } = await import('../services/scoreDistributionService');
+    
+    const rank = await scoreDistributionService.getRankByScore(province, score, 2025, category);
+    const stats = await scoreDistributionService.getStats(province, 2025);
+    
+    if (rank && stats) {
+      const percentile = Math.round((1 - rank / stats.max_cumulative) * 10000) / 100;
+      
+      return {
+        score,
+        rank,
+        categoryRank: rank,
+        category,
+        percentile,
+        totalCandidates: stats.max_cumulative,
+        year2025: null,
+        year2024: null,
+        year2023: null,
+        dataSource: '数据库',
+        note: `${province}2025年一分一段表`,
+      };
+    }
+  } catch (error) {
+    console.warn('从数据库获取位次信息失败，使用本地参考数据:', error);
+  }
+  
   await new Promise(resolve => setTimeout(resolve, 600 + Math.random() * 400));
   
-  const category = getSubjectCategory(subject);
   const totalCandidates = HAINAN_CANDIDATES_2026.普通类;
   
-  // 计算全体考生位次（主要展示）
   const allRank = interpolateRank(score, ALL_RANK_REFERENCE);
   
-  // 计算分科位次
   const categoryRef = category === '物理类' ? PHYSICS_RANK_REFERENCE : HISTORY_RANK_REFERENCE;
   const categoryRank = interpolateRank(score, categoryRef);
   
-  // 计算超过考生百分比（基于全体考生）
   const percentile = Math.round((1 - allRank / totalCandidates) * 10000) / 100;
   
-  // 计算历年同位次对应的分数（基于历年分数线差异）
   const batch2026 = HAINAN_SCORE_LINES[category][2026].batch;
   const batch2025 = HAINAN_SCORE_LINES[category][2025].batch;
   const batch2024 = HAINAN_SCORE_LINES[category][2024].batch;
