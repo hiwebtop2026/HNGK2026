@@ -13,6 +13,7 @@ export interface AdmissionScore {
   plan_count?: number;
   admission_count?: number;
   batch_type: string;
+  province: string;
   created_at: string;
   updated_at: string;
 }
@@ -57,10 +58,48 @@ export const admissionScoreService = {
       .select('*')
       .eq('year', year)
       .order('score', { ascending: false })
-      .limit(10000);  // 设置更大的limit获取全部数据
+      .limit(10000);
     
     if (error) {
       console.error('获取投档分数线失败:', error);
+      return [];
+    }
+    
+    return data || [];
+  },
+
+  async getByProvince(province: string): Promise<AdmissionScore[]> {
+    if (!supabase) return [];
+    
+    const { data, error } = await supabase
+      .from(TABLES.ADMISSION_SCORES)
+      .select('*')
+      .eq('province', province)
+      .order('year', { ascending: false })
+      .order('score', { ascending: false })
+      .limit(10000);
+    
+    if (error) {
+      console.error(`获取${province}投档分数线失败:`, error);
+      return [];
+    }
+    
+    return data || [];
+  },
+
+  async getByProvinceAndYear(province: string, year: number): Promise<AdmissionScore[]> {
+    if (!supabase) return [];
+    
+    const { data, error } = await supabase
+      .from(TABLES.ADMISSION_SCORES)
+      .select('*')
+      .eq('province', province)
+      .eq('year', year)
+      .order('score', { ascending: false })
+      .limit(10000);
+    
+    if (error) {
+      console.error(`获取${province}${year}年投档分数线失败:`, error);
       return [];
     }
     

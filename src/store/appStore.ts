@@ -96,9 +96,9 @@ interface AppState {
   setError: (error: string | null) => void;
   setResults: (results: VolunteerResult[]) => void;
   setRankInfo: (info: Partial<AppState['rankInfo']>) => void;
-  setCurrentRegion: (region: string) => void;
+  setCurrentRegion: (region: string) => Promise<void>;
   reset: () => void;
-  loadFromSupabase: () => Promise<void>;
+  loadFromSupabase: (province?: string) => Promise<void>;
 }
 
 const getInitialTheme = (): Theme => {
@@ -297,7 +297,7 @@ export const useAppStore = create<AppState>((set, get) => {
     setRankInfo: (info) => set(state => ({
       rankInfo: { ...state.rankInfo, ...info }
     })),
-    setCurrentRegion: (region) => {
+    setCurrentRegion: async (region) => {
       set({ 
         currentRegion: region, 
         provinceConfig: getProvinceConfig(region) || null,
@@ -318,11 +318,14 @@ export const useAppStore = create<AppState>((set, get) => {
           isQuerying: false,
         },
       });
+      
+      await get().loadFromSupabase(region);
     },
-    loadFromSupabase: async () => {
+    loadFromSupabase: async (province?: string) => {
+      const targetProvince = province || get().currentRegion || '海南';
       set({ isLoading: true, error: null });
       try {
-        const data = await loadSchoolDataFromSupabase();
+        const data = await loadSchoolDataFromSupabase(targetProvince);
         set({ schoolData: data, isLoading: false });
       } catch (err) {
         set({ error: '从云端加载数据失败', isLoading: false });
