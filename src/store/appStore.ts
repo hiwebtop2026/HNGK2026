@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import type { SchoolScore, VolunteerResult } from '../utils/volunteerUtils';
 import { loadSchoolDataFromSupabase } from '../utils/supabaseDataLoader';
-import { SCHOOL_DATA } from '../data/schoolData';
+import { SCHOOL_DATA, AVAILABLE_REGIONS } from '../data/schoolData';
+import { getProvinceConfig, type ProvinceConfig } from '../data/provinceConfigs';
 
 type Theme = 'light' | 'dark';
 
@@ -13,6 +14,7 @@ interface AppState {
   // 当前地区
   currentRegion: string;
   availableRegions: string[];
+  provinceConfig: ProvinceConfig | null;
   
   // 输入参数
   baseScore: number | null;
@@ -123,7 +125,8 @@ export const useAppStore = create<AppState>((set, get) => {
     totalVolunteers: 30,
     // 当前地区（默认海南）
     currentRegion: '海南',
-    availableRegions: [...new Set(SCHOOL_DATA.map(s => s.region))],
+    availableRegions: AVAILABLE_REGIONS,
+    provinceConfig: getProvinceConfig('海南') || null,
     // 冲稳保默认值（默认30%冲、40%稳、30%保）
     chongCount: 9,
     wenCount: 12,
@@ -271,6 +274,7 @@ export const useAppStore = create<AppState>((set, get) => {
     setCurrentRegion: (region) => {
       set({ 
         currentRegion: region, 
+        provinceConfig: getProvinceConfig(region) || null,
         results: [],
         baseScore: null,
         rankInfo: {
@@ -305,7 +309,8 @@ export const useAppStore = create<AppState>((set, get) => {
       selectedSubjects: [],
       totalVolunteers: 30,
       currentRegion: '海南',
-      availableRegions: [...new Set(SCHOOL_DATA.map(s => s.region))],
+      availableRegions: AVAILABLE_REGIONS,
+      provinceConfig: getProvinceConfig('海南') || null,
       chongCount: 9,
       wenCount: 12,
       baoCount: 9,

@@ -78,6 +78,7 @@ export function HomePage() {
     error,
     currentRegion,
     availableRegions,
+    provinceConfig,
     setBaseScore,
     setScoreRange,
     setSubject,
@@ -124,7 +125,8 @@ export function HomePage() {
   const isTierCountValid = tierTotalCount <= totalVolunteers;
   
   useEffect(() => {
-    if (baseScore !== null && baseScore >= 300 && baseScore <= 900) {
+    const { minScore = 200, maxScore = 750 } = provinceConfig || {};
+    if (baseScore !== null && baseScore >= minScore && baseScore <= maxScore) {
       const timer = setTimeout(() => {
         setRankInfo({ 
           isQuerying: true, 
@@ -269,8 +271,9 @@ export function HomePage() {
       return;
     }
 
-    if (baseScore === null || baseScore < 480 || baseScore > 900) {
-      setError('请输入合理的分数范围（480-900分）');
+    const { minScore = 200, maxScore = 750 } = provinceConfig || {};
+    if (baseScore === null || baseScore < minScore || baseScore > maxScore) {
+      setError(`请输入合理的分数范围（${minScore}-${maxScore}分）`);
       return;
     }
 
@@ -554,6 +557,23 @@ export function HomePage() {
                     </select>
                     <ChevronRight className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white pointer-events-none" />
                   </div>
+                  
+                  {provinceConfig && (
+                    <div className={`mt-4 grid grid-cols-2 gap-3 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                      <div className={`px-4 py-3 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                        <p className="text-xs opacity-70">考试模式</p>
+                        <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                          {provinceConfig.examMode === '3+3' ? '3+3 新高考' : provinceConfig.examMode === '3+1+2' ? '3+1+2 新高考' : '3+X 传统高考'}
+                        </p>
+                      </div>
+                      <div className={`px-4 py-3 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                        <p className="text-xs opacity-70">总分</p>
+                        <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                          {provinceConfig.totalScore}分
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="flex items-center gap-3 mb-6">
@@ -612,7 +632,10 @@ export function HomePage() {
                 </div>
                 
                 {/* 位次信息显示区域 */}
-                {baseScore !== null && baseScore >= 480 && baseScore <= 900 && (
+                {(() => {
+                    const { minScore = 200, maxScore = 750 } = provinceConfig || {};
+                    return baseScore !== null && baseScore >= minScore && baseScore <= maxScore;
+                  })() && (
                   <div className={`mt-6 rounded-xl p-5 border ${
                     isDark 
                       ? 'bg-gradient-to-r from-purple-500/10 to-blue-500/10 border-purple-500/20' 
