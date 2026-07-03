@@ -530,8 +530,8 @@ export async function fetchRankInfo(score: number, subject: number, province: st
   try {
     const { scoreDistributionService } = await import('../services/scoreDistributionService');
     
-    const rankInfo = await scoreDistributionService.getRankByScore(province, score, 2025, category);
-    const stats = await scoreDistributionService.getStats(province, 2025);
+    const rankInfo = await scoreDistributionService.getRankByScore(province, score, 2026, category);
+    const stats = await scoreDistributionService.getStats(province, 2026);
     
     if (rankInfo && stats) {
       const percentile = Math.round((1 - rankInfo.cumulativeCount / stats.max_cumulative) * 10000) / 100;
@@ -546,7 +546,7 @@ export async function fetchRankInfo(score: number, subject: number, province: st
         year2025: null,
         year2024: null,
         year2023: null,
-        dataSource: `${province}2025年一分一段表`,
+        dataSource: `${province}2026年一分一段表`,
         note: `位次区间：${rankInfo.minRank}~${rankInfo.maxRank}，同分人数：${rankInfo.count}人`,
       };
     }

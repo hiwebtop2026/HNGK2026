@@ -819,7 +819,7 @@ export function HomePage() {
                         <div className={`w-full h-2 ${isDark ? 'bg-white/10' : 'bg-gray-200'} rounded-full overflow-hidden`}>
                           <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full animate-pulse" style={{ width: '70%' }} />
                         </div>
-                        <p className={`text-xs ${textSecondary}`}>正在查询{currentRegion}2025年一分一段表数据...</p>
+                        <p className={`text-xs ${textSecondary}`}>正在查询{currentRegion}2026年一分一段表数据...</p>
                       </div>
                     ) : rankInfo.rank !== null ? (
                       <div>
