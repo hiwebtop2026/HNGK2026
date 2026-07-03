@@ -123,6 +123,16 @@ export function HomePage() {
     checkAuth();
   }, [checkAuth]);
 
+  // 页面初始化时主动加载当前地区数据（解决schoolData为空导致无法生成志愿的问题）
+  useEffect(() => {
+    const state = useAppStore.getState();
+    if (state.schoolData.length === 0) {
+      loadFromSupabase(state.currentRegion);
+    }
+    // 仅在首次挂载时执行
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // 计算冲稳保总数
   const tierTotalCount = chongCount + wenCount + baoCount;
   const isTierCountValid = tierTotalCount <= totalVolunteers;
@@ -275,11 +285,6 @@ export function HomePage() {
     const state = useAppStore.getState();
     const { schoolData, baseScore, scoreRange, subject, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories, selectedNatures, chongCount, wenCount, baoCount, useCustomTierCounts, chongScoreDiff, wenScoreDiff, baoScoreDiff, useCustomTierScoreDiffs } = state;
 
-    if (schoolData.length === 0) {
-      setError('请先上传投档分数线数据文件');
-      return;
-    }
-
     const { minScore = 200, maxScore = 750 } = provinceConfig || {};
     if (baseScore === null || baseScore < minScore || baseScore > maxScore) {
       setError(`请输入合理的分数范围（${minScore}-${maxScore}分）`);
@@ -297,17 +302,28 @@ export function HomePage() {
 
     try {
       let currentSchoolData = schoolData;
-      
+
+      // 数据为空时主动从云端加载当前地区数据
       if (currentSchoolData.length === 0) {
-        setError(`正在加载${currentRegion}地区数据，请稍候...`);
         await loadFromSupabase(currentRegion);
         currentSchoolData = useAppStore.getState().schoolData;
-        
-        if (currentSchoolData.length === 0) {
-          setError(`${currentRegion}地区暂无数据，请选择其他地区`);
-          setLoading(false);
-          return;
-        }
+      }
+
+      // 云端加载后仍为空，尝试加载默认海南数据
+      if (currentSchoolData.length === 0 && currentRegion !== '海南') {
+        await loadFromSupabase('海南');
+        currentSchoolData = useAppStore.getState().schoolData;
+      }
+
+      // 仍然为空，使用本地内置数据兜底
+      if (currentSchoolData.length === 0) {
+        currentSchoolData = SCHOOL_DATA;
+      }
+
+      if (currentSchoolData.length === 0) {
+        setError(`${currentRegion}地区暂无数据，请稍后重试或选择其他地区`);
+        setLoading(false);
+        return;
       }
 
       const results = await filterSchoolsAsync(

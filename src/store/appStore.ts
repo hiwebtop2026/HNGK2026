@@ -328,9 +328,13 @@ export const useAppStore = create<AppState>((set, get) => {
       set({ isLoading: true, error: null });
       try {
         const data = await loadSchoolDataFromSupabase(targetProvince);
+        if (data.length === 0) {
+          console.warn(`[loadFromSupabase] ${targetProvince} 地区云端数据为空，请检查数据库是否已导入数据`);
+        }
         set({ schoolData: data, isLoading: false });
       } catch (err) {
-        set({ error: '从云端加载数据失败', isLoading: false });
+        console.error(`[loadFromSupabase] 加载 ${targetProvince} 数据失败:`, err);
+        set({ error: `从云端加载${targetProvince}数据失败：${err instanceof Error ? err.message : '未知错误'}`, isLoading: false });
       }
     },
     reset: () => set({
