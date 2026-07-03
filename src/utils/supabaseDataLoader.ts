@@ -5,7 +5,14 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
   const result: Map<string, SchoolScore> = new Map();
   
   for (const year of [2023, 2024, 2025]) {
-    const scores = await admissionScoreService.getByProvinceAndYear(province, year);
+    let scores: AdmissionScore[] = [];
+    
+    try {
+      scores = await admissionScoreService.getByProvinceAndYear(province, year);
+    } catch (error) {
+      console.warn(`按省份查询失败，尝试按年份查询:`, error);
+      scores = await admissionScoreService.getByYear(year);
+    }
     
     for (const score of scores) {
       const existing = result.get(score.group_code);
@@ -39,7 +46,19 @@ export async function loadSchoolDataFromSupabaseByScoreRange(
   maxScore: number,
   province: string = '海南'
 ): Promise<SchoolScore[]> {
-  const scores = await admissionScoreService.getByProvince(province);
+  let scores: AdmissionScore[] = [];
+  
+  try {
+    scores = await admissionScoreService.getByProvince(province);
+  } catch (error) {
+    console.warn(`按省份查询失败，尝试获取全部数据:`, error);
+    scores = [];
+    for (const year of [2023, 2024, 2025]) {
+      const yearScores = await admissionScoreService.getByYear(year);
+      scores = [...scores, ...yearScores];
+    }
+  }
+  
   const result: Map<string, SchoolScore> = new Map();
   
   for (const score of scores) {

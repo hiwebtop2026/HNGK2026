@@ -123,10 +123,6 @@ export function HomePage() {
     checkAuth();
   }, [checkAuth]);
 
-  useEffect(() => {
-    loadFromSupabase(currentRegion);
-  }, []);
-
   // 计算冲稳保总数
   const tierTotalCount = chongCount + wenCount + baoCount;
   const isTierCountValid = tierTotalCount <= totalVolunteers;
@@ -294,8 +290,22 @@ export function HomePage() {
     setError(null);
 
     try {
+      let currentSchoolData = schoolData;
+      
+      if (currentSchoolData.length === 0) {
+        setError(`正在加载${currentRegion}地区数据，请稍候...`);
+        await loadFromSupabase(currentRegion);
+        currentSchoolData = useAppStore.getState().schoolData;
+        
+        if (currentSchoolData.length === 0) {
+          setError(`${currentRegion}地区暂无数据，请选择其他地区`);
+          setLoading(false);
+          return;
+        }
+      }
+
       const results = await filterSchoolsAsync(
-        schoolData,
+        currentSchoolData,
         baseScore,
         scoreRange,
         subject,
