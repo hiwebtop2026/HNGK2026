@@ -574,6 +574,24 @@ export function HomePage() {
                       </div>
                     </div>
                   )}
+                  
+                  {provinceConfig && !provinceConfig.dataAvailable && (
+                    <div className={`mt-4 p-4 rounded-xl ${
+                      isDark 
+                        ? 'bg-yellow-500/10 border border-yellow-500/20 text-yellow-300' 
+                        : 'bg-yellow-50 border border-yellow-200 text-yellow-700'
+                    }`}>
+                      <div className="flex items-start gap-2">
+                        <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                        <div className="text-sm">
+                          <p className="font-medium">该省份数据暂未开放</p>
+                          <p className={`mt-1 text-xs ${isDark ? 'text-yellow-400/70' : 'text-yellow-600/70'}`}>
+                            {currentRegion}省高考志愿数据正在筹备中，敬请期待！目前仅支持海南省高考数据查询。
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="flex items-center gap-3 mb-6">
@@ -1354,7 +1372,7 @@ export function HomePage() {
               
               <button
                 onClick={handleGenerate}
-                disabled={useAppStore.getState().isLoading || availableCount === 0 || baseScore === null}
+                disabled={useAppStore.getState().isLoading || availableCount === 0 || baseScore === null || (provinceConfig && !provinceConfig.dataAvailable)}
                 className="w-full md:w-auto px-10 py-4 bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500 text-white rounded-xl font-semibold text-lg shadow-xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
               >
                 <span>一键生成志愿方案</span>

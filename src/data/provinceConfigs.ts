@@ -7,6 +7,7 @@ export interface ProvinceConfig {
   subjects: string[];
   mainSubjects: string[];
   electiveSubjects: string[];
+  dataAvailable: boolean;
 }
 
 export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
@@ -19,6 +20,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '化学', '生物', '历史', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '化学', '生物', '历史', '政治', '地理'],
+    dataAvailable: false,
   },
   '天津': {
     name: '天津',
@@ -29,6 +31,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '化学', '生物', '历史', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '化学', '生物', '历史', '政治', '地理'],
+    dataAvailable: false,
   },
   '上海': {
     name: '上海',
@@ -39,6 +42,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '化学', '生物', '历史', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '化学', '生物', '历史', '政治', '地理'],
+    dataAvailable: false,
   },
   '山东': {
     name: '山东',
@@ -49,6 +53,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '化学', '生物', '历史', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '化学', '生物', '历史', '政治', '地理'],
+    dataAvailable: false,
   },
   '浙江': {
     name: '浙江',
@@ -59,6 +64,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '化学', '生物', '历史', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '化学', '生物', '历史', '政治', '地理'],
+    dataAvailable: false,
   },
   '海南': {
     name: '海南',
@@ -69,6 +75,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '化学', '生物', '历史', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '化学', '生物', '历史', '政治', '地理'],
+    dataAvailable: true,
   },
   '广东': {
     name: '广东',
@@ -79,6 +86,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '江苏': {
     name: '江苏',
@@ -89,6 +97,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '河北': {
     name: '河北',
@@ -99,6 +108,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '福建': {
     name: '福建',
@@ -109,6 +119,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '湖北': {
     name: '湖北',
@@ -119,6 +130,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '湖南': {
     name: '湖南',
@@ -129,6 +141,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '辽宁': {
     name: '辽宁',
@@ -139,6 +152,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '重庆': {
     name: '重庆',
@@ -149,6 +163,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '吉林': {
     name: '吉林',
@@ -159,6 +174,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '黑龙江': {
     name: '黑龙江',
@@ -169,6 +185,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '安徽': {
     name: '安徽',
@@ -179,6 +196,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '江西': {
     name: '江西',
@@ -189,6 +207,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '广西': {
     name: '广西',
@@ -199,6 +218,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '贵州': {
     name: '贵州',
@@ -209,6 +229,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '甘肃': {
     name: '甘肃',
@@ -219,6 +240,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '河南': {
     name: '河南',
@@ -229,6 +251,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '山西': {
     name: '山西',
@@ -239,6 +262,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '陕西': {
     name: '陕西',
@@ -249,6 +273,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '内蒙古': {
     name: '内蒙古',
@@ -259,6 +284,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '宁夏': {
     name: '宁夏',
@@ -269,6 +295,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '青海': {
     name: '青海',
@@ -279,6 +306,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '四川': {
     name: '四川',
@@ -289,6 +317,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '云南': {
     name: '云南',
@@ -299,6 +328,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '历史', '化学', '生物', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '历史', '化学', '生物', '政治', '地理'],
+    dataAvailable: false,
   },
   '新疆': {
     name: '新疆',
@@ -309,6 +339,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '文科综合', '理科综合'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['文科综合', '理科综合'],
+    dataAvailable: false,
   },
   '西藏': {
     name: '西藏',
@@ -319,6 +350,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '文科综合', '理科综合'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['文科综合', '理科综合'],
+    dataAvailable: false,
   },
 };
 
