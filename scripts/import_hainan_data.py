@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 """
-将schoolData.ts中的海南高考投档分数线数据导入到Supabase数据库
+海南高考数据导入脚本
+将本地schoolData.ts中的数据导入到Supabase数据库
 """
 
 import os
 import sys
 import re
 
+# Supabase配置
 SUPABASE_URL = 'https://jhcyqhtgtnomqvcdeeuo.supabase.co'
-SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o'
+# 使用服务端密钥进行数据写入（需要用户提供正确的服务端密钥）
+SUPABASE_SERVICE_KEY = ''
 
 try:
     from supabase import create_client
@@ -16,170 +19,153 @@ except ImportError:
     os.system('pip install supabase')
     from supabase import create_client
 
-def parse_school_data(ts_file):
-    print(f'正在读取文件: {ts_file}')
+def parse_school_data(ts_file_path):
+    """解析schoolData.ts文件，逐行提取数据"""
+    print(f'解析文件: {ts_file_path}')
     
-    if not os.path.exists(ts_file):
-        print(f'❌ 文件不存在: {ts_file}')
-        return []
-    
-    with open(ts_file, 'r', encoding='utf-8') as f:
+    with open(ts_file_path, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    data_pattern = r'{[^}]*}'
-    matches = re.findall(data_pattern, content)
+    # 提取数组内容
+    start = content.find('export const SCHOOL_DATA:')
+    end = content.find('];', start)
     
-    records = []
+    if start == -1 or end == -1:
+        print('❌ 无法找到SCHOOL_DATA定义')
+        return []
     
-    for match in matches:
+    array_content = content[start:end+2]
+    
+    # 提取每个对象
+    pattern = r'\{\s*([^}]+)\s*\}'
+    objects = re.findall(pattern, array_content)
+    
+    school_data = []
+    
+    for obj_content in objects:
         try:
-            code_match = re.search(r"code:\s*['\"]([^'\"]+)['\"]", match)
-            name_match = re.search(r"name:\s*['\"]([^'\"]+)['\"]", match)
-            subject_match = re.search(r"subject:\s*(\d+)", match)
-            province_match = re.search(r"province:\s*['\"]([^'\"]+)['\"]", match)
-            level_match = re.search(r"level:\s*['\"]([^'\"]+)['\"]", match)
-            nature_match = re.search(r"nature:\s*['\"]([^'\"]+)['\"]", match)
+            data = {}
             
-            score2025_match = re.search(r"score2025:\s*([\d.]+|null)", match)
-            score2024_match = re.search(r"score2024:\s*([\d.]+|null)", match)
-            score2023_match = re.search(r"score2023:\s*([\d.]+|null)", match)
+            # 提取键值对
+            # 匹配: key: value 格式，value可以是字符串、数字或null
+            pairs = re.findall(r'(\w+)\s*:\s*(\'.*?\'|".*?"|\d+\.?\d*|null)', obj_content)
             
-            if code_match and name_match:
-                record = {
-                    'code': code_match.group(1),
-                    'name': name_match.group(1),
-                    'subject': int(subject_match.group(1)) if subject_match else 0,
-                    'province': province_match.group(1) if province_match else '其他',
-                    'level': level_match.group(1) if level_match else '普通本科',
-                    'nature': nature_match.group(1) if nature_match else '公办',
-                    'score2025': float(score2025_match.group(1)) if score2025_match and score2025_match.group(1) != 'null' else None,
-                    'score2024': float(score2024_match.group(1)) if score2024_match and score2024_match.group(1) != 'null' else None,
-                    'score2023': float(score2023_match.group(1)) if score2023_match and score2023_match.group(1) != 'null' else None,
-                }
-                records.append(record)
+            for key, value in pairs:
+                value = value.strip()
+                
+                # 处理字符串（单引号或双引号）
+                if (value.startswith("'") and value.endswith("'")) or (value.startswith('"') and value.endswith('"')):
+                    data[key] = value[1:-1]
+                # 处理null
+                elif value == 'null':
+                    data[key] = None
+                # 处理数字
+                elif value.replace('.', '').isdigit():
+                    if '.' in value:
+                        data[key] = float(value)
+                    else:
+                        data[key] = int(value)
+                else:
+                    data[key] = value
+            
+            school_data.append(data)
         except Exception as e:
-            print(f'  ⚠️ 解析失败: {e}')
+            print(f'  ⚠️ 解析对象失败: {e}')
+    
+    print(f'✅ 解析完成，共 {len(school_data)} 条数据')
+    return school_data
+
+def import_hainan_data():
+    print('='*60)
+    print('🚀 海南高考数据导入')
+    print('='*60)
+    
+    # 连接数据库
+    print('\n连接数据库...')
+    supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+    print('✅ 连接成功')
+    
+    # 解析本地数据
+    ts_file_path = os.path.join(os.path.dirname(__file__), '../src/data/schoolData.ts')
+    school_data = parse_school_data(ts_file_path)
+    
+    if not school_data:
+        print('❌ 没有数据可导入')
+        return
+    
+    # 准备导入数据
+    admission_records = []
+    
+    for school in school_data:
+        group_name = school.get('name', '')
+        group_code = str(school.get('code', ''))
+        
+        if not group_code or not group_name:
             continue
-    
-    print(f'✅ 解析到 {len(records)} 条数据')
-    
-    return records
-
-def extract_school_info(group_name):
-    school_name = group_name
-    group_number = None
-    school_code = None
-    
-    group_match = re.search(r'\((\d+)\)$', group_name)
-    if group_match:
-        group_number = group_match.group(1)
-        school_name = group_name[:group_match.start()].strip()
-    
-    return school_name, group_number, school_code
-
-def import_to_supabase(records):
-    print(f'\n连接Supabase数据库...')
-    try:
-        supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
-        print('✅ 连接成功')
-    except Exception as e:
-        print(f'❌ 连接失败: {e}')
-        return 0
-    
-    print('\n开始导入数据...')
-    
-    batch_size = 100
-    total_inserted = 0
-    total_errors = 0
-    
-    for i in range(0, len(records), batch_size):
-        batch = records[i:i+batch_size]
-        db_records = []
         
-        for record in batch:
-            school_name, group_number, school_code = extract_school_info(record['name'])
+        # 创建三年数据记录
+        for year in [2023, 2024, 2025]:
+            score_key = f'score{year}'
+            score = school.get(score_key)
             
-            years_data = []
-            if record['score2025']:
-                years_data.append({
-                    'year': 2025,
-                    'group_code': record['code'],
-                    'group_name': record['name'],
-                    'school_name': school_name,
-                    'school_code': school_code,
-                    'group_number': group_number,
-                    'subject_requirement': str(record['subject']),
-                    'score': int(record['score2025']),
-                    'batch_type': '本科普通批',
+            if score and score > 0:
+                admission_records.append({
+                    'year': year,
+                    'group_code': group_code,
+                    'group_name': group_name,
+                    'school_name': group_name.split('(')[0] if '(' in group_name else group_name,
+                    'school_code': '',
+                    'group_number': group_code.split('-')[-1] if '-' in group_code else '',
+                    'subject_requirement': str(school.get('subject', 0)),
+                    'score': int(score),
+                    'plan_count': 0,
+                    'admission_count': 0,
+                    'batch_type': '本科批',
+                    'province': '海南'
                 })
-            if record['score2024']:
-                years_data.append({
-                    'year': 2024,
-                    'group_code': record['code'],
-                    'group_name': record['name'],
-                    'school_name': school_name,
-                    'school_code': school_code,
-                    'group_number': group_number,
-                    'subject_requirement': str(record['subject']),
-                    'score': int(record['score2024']),
-                    'batch_type': '本科普通批',
-                })
-            if record['score2023']:
-                years_data.append({
-                    'year': 2023,
-                    'group_code': record['code'],
-                    'group_name': record['name'],
-                    'school_name': school_name,
-                    'school_code': school_code,
-                    'group_number': group_number,
-                    'subject_requirement': str(record['subject']),
-                    'score': int(record['score2023']),
-                    'batch_type': '本科普通批',
-                })
-            
-            db_records.extend(years_data)
+    
+    print(f'\n准备导入 {len(admission_records)} 条录取分数线记录')
+    
+    # 分批导入
+    batch_size = 100
+    total_imported = 0
+    
+    for i in range(0, len(admission_records), batch_size):
+        batch = admission_records[i:i+batch_size]
         
         try:
-            result = supabase.table('admission_scores').upsert(db_records, on_conflict=['year', 'group_code']).execute()
-            inserted = len(result.data) if result.data else 0
-            total_inserted += inserted
-            progress = min(i + batch_size, len(records)) / len(records) * 100
-            print(f'  进度: {min(i + batch_size, len(records))}/{len(records)} ({progress:.1f}%) - 本批插入 {inserted} 条')
+            response = supabase.from_('admission_scores').upsert(batch, on_conflict='group_code,year').execute()
+            
+            if response.data:
+                imported = len(response.data)
+                total_imported += imported
+                print(f'  批次 {i//batch_size + 1}: 导入 {imported} 条')
+            else:
+                print(f'  批次 {i//batch_size + 1}: 导入失败')
+                
         except Exception as e:
-            total_errors += 1
-            print(f'  ❌ 第 {i//batch_size + 1} 批插入失败: {e}')
+            print(f'  批次 {i//batch_size + 1}: 错误 - {e}')
+    
+    print(f'\n✅ 总共导入 {total_imported} 条记录')
+    
+    # 验证数据
+    print('\n验证数据...')
+    response = supabase.from_('admission_scores').select('*').eq('province', '海南').execute()
+    count = len(response.data) if response.data else 0
+    print(f'  数据库中海南数据: {count} 条')
+    
+    # 按年份统计
+    for year in [2023, 2024, 2025]:
+        response = supabase.from_('admission_scores').select('*').eq('province', '海南').eq('year', year).execute()
+        year_count = len(response.data) if response.data else 0
+        print(f'  {year}年: {year_count} 条')
     
     print('\n' + '='*60)
-    print('✅ 导入完成！')
-    print(f'  总记录数: {len(records)} 条')
-    print(f'  成功插入: {total_inserted} 条')
-    print(f'  失败批次: {total_errors}')
+    print('✅ 数据导入完成！')
     print('='*60)
-    
-    return total_inserted
 
 def main():
-    print('='*60)
-    print('📥 海南高考投档分数线数据导入工具')
-    print('='*60)
-    
-    ts_file = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'src', 'data', 'schoolData.ts')
-    
-    if not os.path.exists(ts_file):
-        print(f'❌ 文件不存在: {ts_file}')
-        return
-    
-    records = parse_school_data(ts_file)
-    
-    if not records:
-        print('❌ 未解析到数据')
-        return
-    
-    print('\n数据预览:')
-    for i, record in enumerate(records[:3]):
-        print(f'  {i+1}. {record["name"]} - 2025:{record["score2025"]} 2024:{record["score2024"]} 2023:{record["score2023"]}')
-    
-    import_to_supabase(records)
+    import_hainan_data()
 
 if __name__ == '__main__':
     main()
