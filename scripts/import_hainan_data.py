@@ -111,7 +111,6 @@ def import_to_supabase(records):
                     'subject_requirement': str(record['subject']),
                     'score': int(record['score2025']),
                     'batch_type': '本科普通批',
-                    'province': '海南',
                 })
             if record['score2024']:
                 years_data.append({
@@ -124,7 +123,6 @@ def import_to_supabase(records):
                     'subject_requirement': str(record['subject']),
                     'score': int(record['score2024']),
                     'batch_type': '本科普通批',
-                    'province': '海南',
                 })
             if record['score2023']:
                 years_data.append({
@@ -137,7 +135,6 @@ def import_to_supabase(records):
                     'subject_requirement': str(record['subject']),
                     'score': int(record['score2023']),
                     'batch_type': '本科普通批',
-                    'province': '海南',
                 })
             
             db_records.extend(years_data)

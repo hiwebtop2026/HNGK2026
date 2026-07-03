@@ -112,6 +112,7 @@ export function HomePage() {
     setResults,
     setRankInfo,
     setCurrentRegion,
+    loadFromSupabase,
   } = useAppStore();
   
   const [file, setFile] = useState<File | null>(null);
@@ -123,9 +124,8 @@ export function HomePage() {
   }, [checkAuth]);
 
   useEffect(() => {
-    const regionData = SCHOOL_DATA.filter(s => s.region === currentRegion);
-    setSchoolData(regionData);
-  }, [setSchoolData, currentRegion]);
+    loadFromSupabase(currentRegion);
+  }, []);
 
   // 计算冲稳保总数
   const tierTotalCount = chongCount + wenCount + baoCount;
