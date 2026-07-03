@@ -67,17 +67,16 @@ export const scoreDistributionService = {
     }, year, category);
   },
 
-  async getRankByScore(province: string, score: number, year: number, category?: string): Promise<number | null> {
+  async getRankByScore(province: string, score: number, year: number, category?: string): Promise<{minRank: number, maxRank: number, count: number, cumulativeCount: number} | null> {
     return cacheService.get('getRankByScore', async () => {
       if (!supabase) return null;
 
       let query = supabase
         .from('score_distribution')
-        .select('min_rank, max_rank')
+        .select('min_rank, max_rank, count, cumulative_count')
         .eq('province', province)
         .eq('year', year)
-        .gte('score', score)
-        .order('score', { ascending: false })
+        .eq('score', score)
         .limit(1);
 
       if (category) {
@@ -91,7 +90,15 @@ export const scoreDistributionService = {
         return null;
       }
 
-      return data?.[0]?.min_rank || null;
+      if (!data || data.length === 0) return null;
+
+      const row = data[0];
+      return {
+        minRank: row.min_rank,
+        maxRank: row.max_rank,
+        count: row.count,
+        cumulativeCount: row.cumulative_count
+      };
     }, province, score, year, category);
   },
 

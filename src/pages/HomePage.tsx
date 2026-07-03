@@ -696,7 +696,7 @@ export function HomePage() {
                         <div className={`w-full h-2 ${isDark ? 'bg-white/10' : 'bg-gray-200'} rounded-full overflow-hidden`}>
                           <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full animate-pulse" style={{ width: '70%' }} />
                         </div>
-                        <p className={`text-xs ${textSecondary}`}>正在查询海南省2023-2025年一分一段数据...</p>
+                        <p className={`text-xs ${textSecondary}`}>正在查询{currentRegion}2025年一分一段表数据...</p>
                       </div>
                     ) : rankInfo.rank !== null ? (
                       <div>
@@ -715,7 +715,7 @@ export function HomePage() {
                               <div className="relative">
                                 <div className="flex items-center justify-center gap-2 mb-2">
                                   <Trophy className="w-5 h-5 text-yellow-500" />
-                                  <div className={`text-xs ${textSecondary}`}>海南省位次</div>
+                                  <div className={`text-xs ${textSecondary}`}>{currentRegion}省位次</div>
                                 </div>
                                 <div className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 drop-shadow-lg">
                                   {rankInfo.rank.toLocaleString()}
@@ -798,7 +798,17 @@ export function HomePage() {
                           </div>
                         </div>
                       </div>
-                    ) : null}
+                    ) : (
+                      <div className={`rounded-xl p-6 text-center ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                        <AlertCircle className="w-8 h-8 mx-auto mb-3 text-orange-400" />
+                        <p className={`text-sm font-medium ${textPrimary} mb-1`}>
+                          {currentRegion}一分一段表数据暂未录入
+                        </p>
+                        <p className={`text-xs ${textSecondary}`}>
+                          {rankInfo.note || '请选择其他地区或稍后再试'}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>

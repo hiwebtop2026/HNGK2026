@@ -521,38 +521,58 @@ function interpolateRank(score: number, references: [number, number][]): number 
   return references[references.length - 1][1];
 }
 
-// 根据分数计算位次（基于海南省2026年官方一分一段表）
-// 数据来源：海南省考试局一分一段表（教育在线公布）
+// 根据分数计算位次（基于数据库一分一段表）
+// 优先从数据库获取，失败时回退到本地参考数据
 export async function fetchRankInfo(score: number, subject: number, province: string = '海南'): Promise<RankInfo> {
   const category = getSubjectCategory(subject);
   
+  // 优先从数据库获取
   try {
     const { scoreDistributionService } = await import('../services/scoreDistributionService');
     
-    const rank = await scoreDistributionService.getRankByScore(province, score, 2025, category);
+    const rankInfo = await scoreDistributionService.getRankByScore(province, score, 2025, category);
     const stats = await scoreDistributionService.getStats(province, 2025);
     
-    if (rank && stats) {
-      const percentile = Math.round((1 - rank / stats.max_cumulative) * 10000) / 100;
+    if (rankInfo && stats) {
+      const percentile = Math.round((1 - rankInfo.cumulativeCount / stats.max_cumulative) * 10000) / 100;
       
       return {
         score,
-        rank,
-        categoryRank: rank,
+        rank: rankInfo.minRank,
+        categoryRank: rankInfo.minRank,
         category,
         percentile,
         totalCandidates: stats.max_cumulative,
         year2025: null,
         year2024: null,
         year2023: null,
-        dataSource: '数据库',
-        note: `${province}2025年一分一段表`,
+        dataSource: `${province}2025年一分一段表`,
+        note: `位次区间：${rankInfo.minRank}~${rankInfo.maxRank}，同分人数：${rankInfo.count}人`,
       };
     }
   } catch (error) {
     console.warn('从数据库获取位次信息失败，使用本地参考数据:', error);
   }
   
+  // 回退到本地参考数据（仅海南有本地数据）
+  if (province !== '海南') {
+    // 非海南地区无本地参考数据，返回提示
+    return {
+      score,
+      rank: null,
+      categoryRank: null,
+      category,
+      percentile: null,
+      totalCandidates: null,
+      year2025: null,
+      year2024: null,
+      year2023: null,
+      dataSource: '暂无数据',
+      note: `${province}一分一段表数据暂未录入数据库，请选择其他地区或稍后再试`,
+    };
+  }
+  
+  // 海南本地参考数据
   await new Promise(resolve => setTimeout(resolve, 600 + Math.random() * 400));
   
   const totalCandidates = HAINAN_CANDIDATES_2026.普通类;
@@ -587,7 +607,7 @@ export async function fetchRankInfo(score: number, subject: number, province: st
     year2025: year2025,
     year2024: year2024,
     year2023: year2023,
-    dataSource: '海南省考试局2026年一分一段表',
-    note: '注：位次数据基于海南省2026年普通高考一分一段表（官方数据），仅供参考',
+    dataSource: '海南省考试局2026年一分一段表（参考）',
+    note: '注：数据库查询失败，使用本地参考数据，仅供参考',
   };
 }
