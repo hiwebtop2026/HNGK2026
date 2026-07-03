@@ -126,6 +126,21 @@ export function HomePage() {
 
   // 页面初始化时主动加载当前地区数据（解决schoolData为空导致无法生成志愿的问题）
   useEffect(() => {
+    // 清除旧的一分一段表缓存（修复历史遗留的空结果缓存问题）
+    try {
+      Object.keys(localStorage).forEach(key => {
+        if (key.startsWith('gaokao_cache:getRankByScore') || 
+            key.startsWith('gaokao_cache:getStats') ||
+            key.startsWith('gaokao_cache:getByProvinceAndYear') ||
+            key.startsWith('gaokao_cache:getByYear')) {
+          localStorage.removeItem(key);
+          console.debug('[Cache] 清除旧缓存:', key);
+        }
+      });
+    } catch (e) {
+      console.warn('[Cache] 清除缓存失败:', e);
+    }
+
     const state = useAppStore.getState();
     if (state.schoolData.length === 0) {
       loadFromSupabase(state.currentRegion);
@@ -192,7 +207,7 @@ export function HomePage() {
         note: null,
       });
     }
-  }, [baseScore, subject, setRankInfo]);
+  }, [baseScore, subject, currentRegion, provinceConfig, setRankInfo]);
   
   const availableCount = useMemo(() => {
     const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;

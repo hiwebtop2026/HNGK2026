@@ -68,11 +68,17 @@ export const scoreDistributionService = {
   },
 
   async getRankByScore(province: string, score: number, year: number, category?: string): Promise<{minRank: number, maxRank: number, count: number, cumulativeCount: number} | null> {
-    if (!supabase) return null;
+    if (!supabase) {
+      console.warn('[getRankByScore] Supabase 客户端未配置');
+      return null;
+    }
 
+    console.debug(`[getRankByScore] 查询: province=${province}, score=${score}, year=${year}, category=${category ?? 'undefined'}`);
+
+    // 第一次尝试：精确匹配分数
     let query = supabase
       .from('score_distribution')
-      .select('min_rank, max_rank, count, cumulative_count')
+      .select('min_rank, max_rank, count, cumulative_count, score, category')
       .eq('province', province)
       .eq('year', year)
       .eq('score', score)
@@ -85,13 +91,50 @@ export const scoreDistributionService = {
     const { data, error } = await query;
 
     if (error) {
-      console.error('根据分数查询位次失败:', error);
+      console.error('[getRankByScore] 查询失败:', error);
       return null;
     }
 
-    if (!data || data.length === 0) return null;
+    if (data && data.length > 0) {
+      const row = data[0];
+      console.debug(`[getRankByScore] 精确匹配成功: score=${row.score}, rank=${row.min_rank}-${row.max_rank}, category=${row.category}`);
+      return {
+        minRank: row.min_rank,
+        maxRank: row.max_rank,
+        count: row.count,
+        cumulativeCount: row.cumulative_count
+      };
+    }
 
-    const row = data[0];
+    // 第二次尝试：分数高于表中最高分时，取最高分的位次
+    console.debug(`[getRankByScore] 精确匹配失败，尝试查找最高分位次（score >= ${score}）`);
+    let fallbackQuery = supabase
+      .from('score_distribution')
+      .select('min_rank, max_rank, count, cumulative_count, score, category')
+      .eq('province', province)
+      .eq('year', year)
+      .gte('score', score)
+      .order('score', { ascending: true })
+      .limit(1);
+
+    if (category) {
+      fallbackQuery = fallbackQuery.eq('category', category);
+    }
+
+    const { data: fallbackData, error: fallbackError } = await fallbackQuery;
+
+    if (fallbackError) {
+      console.error('[getRankByScore] 查找最高分位次失败:', fallbackError);
+      return null;
+    }
+
+    if (!fallbackData || fallbackData.length === 0) {
+      console.debug(`[getRankByScore] 未找到 score >= ${score} 的记录，数据可能不存在`);
+      return null;
+    }
+
+    const row = fallbackData[0];
+    console.debug(`[getRankByScore] 使用最高分位次: score=${row.score}, rank=${row.min_rank}-${row.max_rank}`);
     return {
       minRank: row.min_rank,
       maxRank: row.max_rank,
@@ -148,7 +191,12 @@ export const scoreDistributionService = {
   },
 
   async getStats(province: string, year: number): Promise<any> {
-    if (!supabase) return null;
+    if (!supabase) {
+      console.warn('[getStats] Supabase 客户端未配置');
+      return null;
+    }
+
+    console.debug(`[getStats] 查询统计: province=${province}, year=${year}`);
 
     const { data, error } = await supabase
       .from('score_distribution')
@@ -158,11 +206,13 @@ export const scoreDistributionService = {
       .limit(1);
 
     if (error) {
-      console.error('获取统计信息失败:', error);
+      console.error('[getStats] 查询失败:', error);
       return null;
     }
 
-    return data?.[0] || null;
+    const stats = data?.[0] || null;
+    console.debug(`[getStats] 结果:`, stats);
+    return stats;
   },
 
   async insertBatch(data: Omit<ScoreDistribution, 'id' | 'created_at'>[]): Promise<{ success: boolean; error?: string }> {

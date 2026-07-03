@@ -525,11 +525,13 @@ function interpolateRank(score: number, references: [number, number][]): number 
 // 优先从数据库获取，失败时回退到本地参考数据
 export async function fetchRankInfo(score: number, subject: number, province: string = '海南'): Promise<RankInfo> {
   const category = getSubjectCategory(subject);
+  console.debug(`[fetchRankInfo] 开始查询: score=${score}, subject=${subject}, province=${province}, category=${category}`);
 
   // 3+3模式省份（天津、海南、北京等）不分文理，一分一段表为全体考生数据
   // 这些省份的数据库记录category为NULL或'普通类'，查询时不应按物理类/历史类过滤
   const is3Plus3Mode = ['海南', '天津', '北京', '上海', '山东', '浙江'].includes(province);
   const queryCategory = is3Plus3Mode ? undefined : category;
+  console.debug(`[fetchRankInfo] 3+3模式=${is3Plus3Mode}, queryCategory=${queryCategory ?? 'undefined'}`);
 
   // 优先从数据库获取
   try {
@@ -538,14 +540,16 @@ export async function fetchRankInfo(score: number, subject: number, province: st
     const rankInfo = await scoreDistributionService.getRankByScore(province, score, 2026, queryCategory);
     const stats = await scoreDistributionService.getStats(province, 2026);
 
-    if (rankInfo && stats) {
+    console.debug(`[fetchRankInfo] 数据库查询结果: rankInfo=`, rankInfo, `stats=`, stats);
+
+    if (rankInfo && stats && stats.max_cumulative) {
       const percentile = Math.round((1 - rankInfo.cumulativeCount / stats.max_cumulative) * 10000) / 100;
 
       return {
         score,
         rank: rankInfo.minRank,
         categoryRank: rankInfo.minRank,
-        category,
+        category: is3Plus3Mode ? '普通类' : category,
         percentile,
         totalCandidates: stats.max_cumulative,
         year2025: null,
@@ -558,15 +562,16 @@ export async function fetchRankInfo(score: number, subject: number, province: st
 
     // 如果按undefined查询失败，尝试按'普通类'查询（兼容已执行fix_category的数据）
     if (is3Plus3Mode) {
+      console.debug(`[fetchRankInfo] 尝试按'普通类'查询`);
       const rankInfoWithCategory = await scoreDistributionService.getRankByScore(province, score, 2026, '普通类');
-      if (rankInfoWithCategory && stats) {
+      if (rankInfoWithCategory && stats && stats.max_cumulative) {
         const percentile = Math.round((1 - rankInfoWithCategory.cumulativeCount / stats.max_cumulative) * 10000) / 100;
 
         return {
           score,
           rank: rankInfoWithCategory.minRank,
           categoryRank: rankInfoWithCategory.minRank,
-          category,
+          category: '普通类',
           percentile,
           totalCandidates: stats.max_cumulative,
           year2025: null,
@@ -577,17 +582,21 @@ export async function fetchRankInfo(score: number, subject: number, province: st
         };
       }
     }
+
+    console.warn(`[fetchRankInfo] 数据库查询无结果，回退到本地参考数据`);
   } catch (error) {
-    console.warn('从数据库获取位次信息失败，使用本地参考数据:', error);
+    console.warn('[fetchRankInfo] 从数据库获取位次信息失败，使用本地参考数据:', error);
   }
   
   // 回退到本地参考数据
   const localData = getLocalRankInfo(province, score, category);
   if (localData) {
+    console.debug(`[fetchRankInfo] 使用本地参考数据`);
     return localData;
   }
   
   // 无任何数据，返回提示
+  console.warn(`[fetchRankInfo] ${province} 无任何位次数据`);
   return {
     score,
     rank: null,
