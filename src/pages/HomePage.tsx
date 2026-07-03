@@ -266,8 +266,14 @@ export function HomePage() {
       return;
     }
 
+    // 检查选科组合（必填）
+    if (selectedSubjects.length === 0) {
+      setError('请先选择选考科目组合后再使用志愿生成功能');
+      return;
+    }
+
     const state = useAppStore.getState();
-    const { schoolData, baseScore, scoreRange, subject, selectedSubjects, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories, selectedNatures, chongCount, wenCount, baoCount, useCustomTierCounts, chongScoreDiff, wenScoreDiff, baoScoreDiff, useCustomTierScoreDiffs } = state;
+    const { schoolData, baseScore, scoreRange, subject, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories, selectedNatures, chongCount, wenCount, baoCount, useCustomTierCounts, chongScoreDiff, wenScoreDiff, baoScoreDiff, useCustomTierScoreDiffs } = state;
 
     if (schoolData.length === 0) {
       setError('请先上传投档分数线数据文件');
@@ -488,6 +494,44 @@ export function HomePage() {
             </div>
           )}
 
+          {/* 未选择选科组合提示卡片 */}
+          {isAuthenticated && selectedSubjects.length === 0 && (
+            <div className={`glass rounded-2xl p-6 mb-6 animate-fade-in ${
+              isDark
+              ? 'bg-gradient-to-r from-rose-500/10 to-pink-500/10 border border-rose-500/20'
+              : 'bg-gradient-to-r from-rose-50 to-pink-50 border border-rose-200 shadow-md'
+            }`}>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-pink-500 flex items-center justify-center shadow-md animate-pulse">
+                    <GraduationCap className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className={`text-lg font-semibold ${textPrimary} mb-1`}>请先选择选科组合</h3>
+                    <p className={`text-sm ${textSecondary}`}>
+                      选科组合是生成志愿方案的前提，请先完成选科后再使用分数输入、志愿生成等功能
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    const subjectCard = document.getElementById('subject-selection-card');
+                    if (subjectCard) {
+                      subjectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      subjectCard.classList.add('ring-4', 'ring-rose-400/50');
+                      setTimeout(() => subjectCard.classList.remove('ring-4', 'ring-rose-400/50'), 2000);
+                    }
+                  }}
+                  className="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white rounded-xl font-medium shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 hover:scale-[1.02] transition-all flex items-center gap-2 flex-shrink-0"
+                >
+                  <GraduationCap className="w-4 h-4" />
+                  <span>去选择</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          )}
+
           {/* 数据上传卡片 */}
           <div className={`glass rounded-2xl p-6 mb-6 animate-fade-in card-hover ${isDark ? '' : 'shadow-md'}`}>
             <div className="flex items-center gap-3 mb-4">
@@ -612,7 +656,63 @@ export function HomePage() {
                     </div>
                   )}
                 </div>
-                
+              </div>
+
+              {/* 选考科目组合卡片（必选，置于地区选择之后、分数设置之前） */}
+              <div id="subject-selection-card" className={`glass rounded-2xl p-6 animate-slide-up card-hover transition-all ${isDark ? '' : 'shadow-md'} ${selectedSubjects.length === 0 ? 'ring-2 ring-rose-400/60 border-rose-400/40' : 'ring-1 ring-green-400/30'}`} style={{ animationDelay: '0.15s' }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md">
+                    <GraduationCap className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h2 className={`text-lg font-semibold ${textPrimary}`}>选考科目组合</h2>
+                      <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                        selectedSubjects.length === 0
+                          ? 'bg-rose-500/20 text-rose-500 animate-pulse'
+                          : 'bg-green-500/20 text-green-500'
+                      }`}>
+                        {selectedSubjects.length === 0 ? '● 必选' : '✓ 已选'}
+                      </span>
+                    </div>
+                    <p className={`text-sm ${textSecondary}`}>请先选择你的选考科目组合，未选择将无法使用志愿生成等功能</p>
+                  </div>
+                </div>
+
+                <div className="mb-2">
+                  <div className="flex flex-wrap gap-3">
+                    {SUBJECT_LIST.map((sub) => (
+                      <button
+                        key={sub.code}
+                        onClick={() => toggleSelectedSubject(sub.code)}
+                        className={`flex items-center gap-2 px-5 py-3.5 rounded-xl font-medium transition-all ${
+                          selectedSubjects.includes(sub.code)
+                            ? `bg-gradient-to-r ${sub.color} text-white shadow-lg shadow-primary-500/25 scale-105`
+                            : isDark
+                            ? 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20 hover:text-gray-300'
+                            : 'bg-white text-gray-500 border border-gray-200 hover:border-primary-300 hover:text-gray-700'
+                        }`}
+                      >
+                        <span className="text-lg">{sub.icon}</span>
+                        <span>{sub.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                  <p className={`text-xs mt-3 font-medium ${
+                    selectedSubjects.length === 0
+                      ? (isDark ? 'text-rose-400' : 'text-rose-600')
+                      : (isDark ? 'text-green-400' : 'text-green-600')
+                  }`}>
+                    {selectedSubjects.length === 0
+                      ? '⚠️ 请至少选择1门选考科目，未选择将无法使用志愿生成、数据分析等功能'
+                      : `✓ 已选择：${selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')}（共${selectedSubjects.length}科）`
+                    }
+                  </p>
+                </div>
+              </div>
+
+              {/* 分数设置与位次信息卡片 */}
+              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.2s' }}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-md">
                     <Target className="w-5 h-5 text-white" />
@@ -813,46 +913,48 @@ export function HomePage() {
                 )}
               </div>
               
-              {/* 科目与志愿数量 */}
-              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.2s' }}>
+              {/* 选考科目要求与志愿数量 */}
+              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.25s' }}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md">
                     <GraduationCap className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h2 className={`text-lg font-semibold ${textPrimary}`}>选考科目与志愿数量</h2>
-                    <p className={`text-sm ${textSecondary}`}>选择你的选考科目组合</p>
+                    <h2 className={`text-lg font-semibold ${textPrimary}`}>选科要求与志愿数量</h2>
+                    <p className={`text-sm ${textSecondary}`}>设置院校选科要求筛选与志愿数量</p>
                   </div>
                 </div>
-                
-                <div className="mb-6">
-                  <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>选考科目（可多选）</label>
-                  <div className="flex flex-wrap gap-3">
-                    {SUBJECT_LIST.map((sub) => (
-                      <button
-                        key={sub.code}
-                        onClick={() => toggleSelectedSubject(sub.code)}
-                        className={`flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all ${
-                          selectedSubjects.includes(sub.code)
-                            ? `bg-gradient-to-r ${sub.color} text-white shadow-lg shadow-primary-500/25 scale-105`
-                            : isDark
-                            ? 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20 hover:text-gray-300'
-                            : 'bg-white text-gray-500 border border-gray-200 hover:border-primary-300 hover:text-gray-700'
-                        }`}
-                      >
-                        <span className="text-lg">{sub.icon}</span>
-                        <span>{sub.name}</span>
-                      </button>
-                    ))}
+
+                {/* 已选科目摘要（只读展示，编辑请上方"选考科目组合"卡片） */}
+                <div className={`mb-6 p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className={`text-xs ${textMuted} mb-1`}>当前选科组合</p>
+                      <p className={`text-sm font-medium ${selectedSubjects.length === 0 ? (isDark ? 'text-rose-400' : 'text-rose-600') : textPrimary}`}>
+                        {selectedSubjects.length === 0
+                          ? '⚠️ 未选择选科组合，请先在上方完成选择'
+                          : selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')
+                        }
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        const subjectCard = document.getElementById('subject-selection-card');
+                        if (subjectCard) {
+                          subjectCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                      }}
+                      className={`text-xs px-3 py-1.5 rounded-lg font-medium transition-all ${
+                        isDark
+                          ? 'bg-white/10 text-gray-300 hover:bg-white/20'
+                          : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                      }`}
+                    >
+                      {selectedSubjects.length === 0 ? '去选择' : '修改'}
+                    </button>
                   </div>
-                  <p className={`text-xs ${textMuted} mt-2`}>
-                    {selectedSubjects.length === 0 
-                      ? '未选择科目，将匹配所有专业' 
-                      : `已选择：${selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')}`
-                    }
-                  </p>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>选考科目要求</label>
@@ -868,7 +970,7 @@ export function HomePage() {
                       ))}
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>志愿数量</label>
                     <div className="flex gap-2">
@@ -1572,16 +1674,16 @@ export function HomePage() {
               
               <button
                 onClick={handleGenerate}
-                disabled={useAppStore.getState().isLoading || availableCount === 0 || baseScore === null || (provinceConfig && !provinceConfig.dataAvailable)}
+                disabled={useAppStore.getState().isLoading || availableCount === 0 || baseScore === null || selectedSubjects.length === 0 || (provinceConfig && !provinceConfig.dataAvailable)}
                 className="w-full md:w-auto px-10 py-4 bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500 text-white rounded-xl font-semibold text-lg shadow-xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
               >
                 <span>一键生成志愿方案</span>
                 <ChevronRight className="w-5 h-5" />
               </button>
-              
+
               <button
                 onClick={() => navigate('/analysis')}
-                disabled={baseScore === null}
+                disabled={baseScore === null || selectedSubjects.length === 0}
                 className="w-full md:w-auto px-10 py-3 glass text-lg font-medium rounded-xl hover:bg-white/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 <TrendingUp className="w-5 h-5" />
