@@ -189,6 +189,8 @@ def main():
     year_stats = {}
     for item in cleaned_data:
         year = item.get("year")
+        if year is None:
+            continue
         if year not in year_stats:
             year_stats[year] = {"count": 0, "schools": set()}
         year_stats[year]["count"] += 1
