@@ -684,8 +684,8 @@ export async function fetchRankInfo(score: number, subject: number, province: st
 
         dbResult = {
           score,
-          rank: rankInfo.minRank,
-          categoryRank: rankInfo.minRank,
+          rank: rankInfo.maxRank,
+          categoryRank: rankInfo.maxRank,
           category: is3Plus3Mode ? '普通类' : category,
           percentile,
           totalCandidates,
@@ -711,7 +711,7 @@ export async function fetchRankInfo(score: number, subject: number, province: st
       for (const subjectCat of subjectCategories) {
         const subjectRankInfo = await scoreDistributionService.getRankByScore(province, score, matchedYear, subjectCat);
         if (subjectRankInfo && subjectRankInfo.minRank && subjectRankInfo.maxRank) {
-          dbResult.subjectRank = subjectRankInfo.minRank;
+          dbResult.subjectRank = subjectRankInfo.maxRank;
           dbResult.subjectRankCategory = subjectCat;
           dbResult.note += `；${subjectCat}选考位次：${subjectRankInfo.minRank}~${subjectRankInfo.maxRank}（同分${subjectRankInfo.count}人）`;
           console.debug(`[fetchRankInfo] 选考科目位次: ${subjectCat}=${subjectRankInfo.minRank}~${subjectRankInfo.maxRank}`);
