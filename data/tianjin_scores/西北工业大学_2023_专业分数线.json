@@ -1,0 +1,74 @@
+[
+  {
+    "2023": 2023,
+    "西北工业大学": "西北工业大学",
+    "major_name": "航空航天类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 11,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2023": 2023,
+    "西北工业大学": "西北工业大学",
+    "major_name": "材料类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2023": 2023,
+    "西北工业大学": "西北工业大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2023": 2023,
+    "西北工业大学": "西北工业大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2023": 2023,
+    "西北工业大学": "西北工业大学",
+    "major_name": "材料科学与工程",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 6,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2023": 2023,
+    "西北工业大学": "西北工业大学",
+    "major_name": "高分子材料与工程",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 6,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

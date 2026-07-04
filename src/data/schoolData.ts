@@ -7,7 +7,7 @@ export interface SchoolScore {
   subject: number;
   province: string;
   level: string;
-  nature: '公办' | '民办';
+  nature: '公办' | '民办' | '中外合作办学';
   region: string;
   score2025: number | null;
   score2024: number | null;
@@ -5351,7 +5351,7 @@ export const REGION_GROUPS: RegionGroup[] = [
 
 export const SCHOOL_LEVELS = ['985', '211', '双一流', '普通本科'];
 
-export const SCHOOL_NATURES = ['公办', '民办'];
+export const SCHOOL_NATURES = ['公办', '民办', '中外合作办学'];
 
 export const AVAILABLE_REGIONS = [
   '北京', '天津', '上海', '重庆',

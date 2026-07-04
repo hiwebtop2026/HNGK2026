@@ -1,0 +1,110 @@
+[
+  {
+    "2024": 2024,
+    "北京大学医学部": "北京大学医学部",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 697,
+    "min_rank": 106,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "北京大学医学部": "北京大学医学部",
+    "major_name": "口腔医学",
+    "major_group": "",
+    "min_score": 696,
+    "min_rank": 118,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "北京大学医学部": "北京大学医学部",
+    "major_name": "基础医学",
+    "major_group": "",
+    "min_score": 695,
+    "min_rank": 137,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "北京大学医学部": "北京大学医学部",
+    "major_name": "药学",
+    "major_group": "",
+    "min_score": 693,
+    "min_rank": 167,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "北京大学医学部": "北京大学医学部",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 692,
+    "min_rank": 199,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "北京大学医学部": "北京大学医学部",
+    "major_name": "口腔医学",
+    "major_group": "",
+    "min_score": 692,
+    "min_rank": 199,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "北京大学医学部": "北京大学医学部",
+    "major_name": "预防医学",
+    "major_group": "",
+    "min_score": 691,
+    "min_rank": 228,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "北京大学医学部": "北京大学医学部",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 686,
+    "min_rank": 389,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "北京大学医学部": "北京大学医学部",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 672,
+    "min_rank": 1151,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

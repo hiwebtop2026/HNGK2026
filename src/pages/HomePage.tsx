@@ -13,6 +13,7 @@ import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories, SUBJEC
 import { fetchRankInfo } from '../utils/dataUtils';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, SCHOOL_NATURES, REGION_GROUPS } from '../data/schoolData';
 import { ALL_MAJORS, MAJOR_CATEGORIES as ALL_MAJOR_CATEGORIES, getMajorsByCategory } from '../data/majorData';
+import { STRATEGY_CONFIGS } from '../store/appStore';
 
 const majorIcons: Record<string, React.ReactNode> = {
   cs: <Cpu className="w-5 h-5" />,
@@ -61,14 +62,7 @@ export function HomePage() {
     subject,
     selectedSubjects,
     totalVolunteers,
-    chongCount,
-    wenCount,
-    baoCount,
-    useCustomTierCounts,
-    chongScoreDiff,
-    wenScoreDiff,
-    baoScoreDiff,
-    useCustomTierScoreDiffs,
+    strategy,
     selectedLevels,
     selectedProvinces,
     selectedMajorCategories,
@@ -87,14 +81,7 @@ export function HomePage() {
     setSubject,
     toggleSelectedSubject,
     setTotalVolunteers,
-    setChongCount,
-    setWenCount,
-    setBaoCount,
-    setUseCustomTierCounts,
-    setChongScoreDiff,
-    setWenScoreDiff,
-    setBaoScoreDiff,
-    setUseCustomTierScoreDiffs,
+    setStrategy,
     toggleNature,
     toggleLevel,
     toggleProvince,
@@ -149,10 +136,6 @@ export function HomePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // 计算冲稳保总数
-  const tierTotalCount = chongCount + wenCount + baoCount;
-  const isTierCountValid = tierTotalCount <= totalVolunteers;
-  
   useEffect(() => {
     const { minScore = 200, maxScore = 750 } = provinceConfig || {};
     if (baseScore !== null && baseScore >= minScore && baseScore <= maxScore) {
@@ -378,17 +361,11 @@ export function HomePage() {
     }
 
     const state = useAppStore.getState();
-    const { schoolData, baseScore, scoreRange, subject, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories, selectedNatures, chongCount, wenCount, baoCount, useCustomTierCounts, chongScoreDiff, wenScoreDiff, baoScoreDiff, useCustomTierScoreDiffs } = state;
+    const { schoolData, baseScore, scoreRange, subject, totalVolunteers, selectedLevels, selectedProvinces, selectedMajorCategories, selectedNatures, strategy } = state;
 
     const { minScore = 200, maxScore = 750 } = provinceConfig || {};
     if (baseScore === null || baseScore < minScore || baseScore > maxScore) {
       setError(`请输入合理的分数范围（${minScore}-${maxScore}分）`);
-      return;
-    }
-
-    // 如果使用自定义冲稳保数量，检查总数是否有效
-    if (useCustomTierCounts && (chongCount + wenCount + baoCount) > totalVolunteers) {
-      setError('冲稳保总数超出志愿数量限制，请调整分配');
       return;
     }
 
@@ -420,12 +397,7 @@ export function HomePage() {
         selectedProvinces,
         selectedMajorCategories,
         selectedNatures,
-        useCustomTierCounts ? chongCount : undefined,
-        useCustomTierCounts ? wenCount : undefined,
-        useCustomTierCounts ? baoCount : undefined,
-        useCustomTierScoreDiffs ? chongScoreDiff : undefined,
-        useCustomTierScoreDiffs ? wenScoreDiff : undefined,
-        useCustomTierScoreDiffs ? baoScoreDiff : undefined,
+        strategy,
         selectedSubjects,
         selectedMajors,
         excludedMajors
@@ -442,9 +414,7 @@ export function HomePage() {
       if (isAuthenticated) {
         logGeneratePlan(baseScore, subject, totalVolunteers, results.length, {
           score_range: scoreRange,
-          chong_count: useCustomTierCounts ? chongCount : Math.ceil(totalVolunteers * 0.3),
-          wen_count: useCustomTierCounts ? wenCount : Math.ceil(totalVolunteers * 0.4),
-          bao_count: useCustomTierCounts ? baoCount : Math.max(0, totalVolunteers - Math.ceil(totalVolunteers * 0.3) - Math.ceil(totalVolunteers * 0.4)),
+          strategy,
           selected_levels_count: selectedLevels.length,
           selected_provinces_count: selectedProvinces.length,
           selected_categories_count: selectedMajorCategories.length,
@@ -1045,261 +1015,90 @@ export function HomePage() {
                 </div>
               </div>
 
-              {/* 冲稳保志愿分配 */}
+              {/* 志愿策略选择 */}
               <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.25s' }}>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-md">
                     <Target className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h2 className={`text-lg font-semibold ${textPrimary}`}>冲稳保志愿分配</h2>
-                    <p className={`text-sm ${textSecondary}`}>自定义各档次志愿数量</p>
+                    <h2 className={`text-lg font-semibold ${textPrimary}`}>志愿策略</h2>
+                    <p className={`text-sm ${textSecondary}`}>选择适合你的志愿填报策略</p>
                   </div>
                 </div>
 
-                {/* 开关：是否自定义分配 */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>自定义分配数量</span>
-                    <span className={`text-xs ${textMuted}`}>（关闭则自动按比例分配）</span>
-                  </div>
-                  <button
-                    onClick={() => setUseCustomTierCounts(!useCustomTierCounts)}
-                    className={`relative w-12 h-6 rounded-full transition-all ${
-                      useCustomTierCounts
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-500'
-                        : isDark
-                        ? 'bg-white/10'
-                        : 'bg-gray-200'
-                    }`}
-                  >
-                    <div className={`absolute w-5 h-5 rounded-full bg-white shadow-md top-0.5 transition-all ${
-                      useCustomTierCounts ? 'left-6.5' : 'left-0.5'
-                    }`} />
-                  </button>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {Object.entries(STRATEGY_CONFIGS).map(([key, config]) => {
+                    const isSelected = strategy === key;
+                    const chongCount = Math.ceil(totalVolunteers * config.chongRatio);
+                    const wenCount = Math.ceil(totalVolunteers * config.wenRatio);
+                    const baoCount = Math.max(0, totalVolunteers - chongCount - wenCount);
+
+                    return (
+                      <button
+                        key={key}
+                        onClick={() => setStrategy(key as any)}
+                        className={`relative p-4 rounded-xl border transition-all text-left overflow-hidden group ${
+                          isSelected
+                            ? 'border-transparent shadow-lg scale-[1.02]'
+                            : isDark
+                            ? 'border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/5'
+                            : 'border-gray-200 hover:border-primary-300 bg-white hover:bg-gray-50'
+                        }`}
+                        style={isSelected ? {
+                          background: `linear-gradient(135deg, ${isDark ? 'rgba(99,102,241,0.2), rgba(217,70,239,0.2)' : 'rgba(99,102,241,0.1), rgba(217,70,239,0.1)'})`,
+                          boxShadow: isDark ? '0 0 20px rgba(99, 102, 241, 0.2)' : '0 0 20px rgba(99, 102, 241, 0.1)',
+                        } : {}}
+                      >
+                        {isSelected && (
+                          <div className={`absolute top-2 right-2 w-5 h-5 rounded-full bg-gradient-to-br ${config.color} flex items-center justify-center`}>
+                            <span className="text-white text-xs font-bold">✓</span>
+                          </div>
+                        )}
+                        
+                        <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${config.color} flex items-center justify-center mb-3 ${
+                          isSelected ? 'scale-110' : ''
+                        } transition-transform`}>
+                          <span className="text-white text-lg">
+                            {key === '激进' ? '🚀' : key === '稳妥' ? '🎯' : key === '保守' ? '🛡️' : '✨'}
+                          </span>
+                        </div>
+                        
+                        <p className={`font-semibold ${isSelected ? textPrimary : isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                          {config.name}策略
+                        </p>
+                        <p className={`text-xs mt-1 ${textSecondary}`}>
+                          {config.description}
+                        </p>
+                        
+                        <div className="mt-3 pt-3 border-t flex justify-between text-xs">
+                          <span className={`font-medium ${isDark ? 'text-red-400' : 'text-red-600'}`}>冲{chongCount}</span>
+                          <span className={`font-medium ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>稳{wenCount}</span>
+                          <span className={`font-medium ${isDark ? 'text-green-400' : 'text-green-600'}`}>保{baoCount}</span>
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
 
-                {/* 自定义数量输入框 */}
-                {useCustomTierCounts && (
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-3 gap-4">
-                      {/* 冲数量 */}
-                      <div>
-                        <label className={`block text-sm font-medium mb-2 ${
-                          isDark ? 'text-red-400' : 'text-red-600'
-                        }`}>冲刺志愿</label>
-                        <div className="relative">
-                          <input
-                            type="number"
-                            min={0}
-                            max={totalVolunteers}
-                            value={chongCount}
-                            onChange={(e) => setChongCount(Math.max(0, parseInt(e.target.value) || 0))}
-                            className={`w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all text-center font-bold`}
-                          />
-                          <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${textMuted}`}>个</span>
-                        </div>
-                      </div>
-
-                      {/* 稳数量 */}
-                      <div>
-                        <label className={`block text-sm font-medium mb-2 ${
-                          isDark ? 'text-amber-400' : 'text-amber-600'
-                        }`}>稳妥志愿</label>
-                        <div className="relative">
-                          <input
-                            type="number"
-                            min={0}
-                            max={totalVolunteers}
-                            value={wenCount}
-                            onChange={(e) => setWenCount(Math.max(0, parseInt(e.target.value) || 0))}
-                            className={`w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all text-center font-bold`}
-                          />
-                          <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${textMuted}`}>个</span>
-                        </div>
-                      </div>
-
-                      {/* 保数量 */}
-                      <div>
-                        <label className={`block text-sm font-medium mb-2 ${
-                          isDark ? 'text-green-400' : 'text-green-600'
-                        }`}>保底志愿</label>
-                        <div className="relative">
-                          <input
-                            type="number"
-                            min={0}
-                            max={totalVolunteers}
-                            value={baoCount}
-                            onChange={(e) => setBaoCount(Math.max(0, parseInt(e.target.value) || 0))}
-                            className={`w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all text-center font-bold`}
-                          />
-                          <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${textMuted}`}>个</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* 总数显示 */}
-                    <div className={`flex items-center justify-between p-3 rounded-xl ${
-                      isTierCountValid
-                        ? isDark
-                        ? 'bg-white/5'
-                        : 'bg-gray-50'
-                        : isDark
-                        ? 'bg-red-500/10 border border-red-500/20'
-                        : 'bg-red-50 border border-red-200'
-                    }`}>
-                      <span className={`text-sm ${textSecondary}`}>
-                        当前总数：<span className={`font-bold ${isTierCountValid ? textPrimary : (isDark ? 'text-red-400' : 'text-red-600')}`}>{tierTotalCount}</span> 个
+                <div className={`mt-4 p-3 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                  <div className="flex items-center justify-between">
+                    <span className={`text-sm ${textSecondary}`}>
+                      当前策略配置：
+                    </span>
+                    <div className="flex items-center gap-4">
+                      <span className={`text-xs px-2 py-1 rounded-full ${isDark ? 'bg-red-500/20 text-red-400' : 'bg-red-50 text-red-600'}`}>
+                        冲 +{STRATEGY_CONFIGS[strategy].chongScoreDiff}分
                       </span>
-                      <span className={`text-sm ${textMuted}`}>
-                        限制：<span className={`font-medium ${textSecondary}`}>{totalVolunteers}</span> 个
+                      <span className={`text-xs px-2 py-1 rounded-full ${isDark ? 'bg-amber-500/20 text-amber-400' : 'bg-amber-50 text-amber-600'}`}>
+                        稳 ±{STRATEGY_CONFIGS[strategy].wenScoreDiff}分
+                      </span>
+                      <span className={`text-xs px-2 py-1 rounded-full ${isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-50 text-green-600'}`}>
+                        保 -{STRATEGY_CONFIGS[strategy].baoScoreDiff}分
                       </span>
                     </div>
-
-                    {/* 错误提示 */}
-                    {!isTierCountValid && (
-                      <div className={`flex items-center gap-2 p-3 rounded-xl ${
-                        isDark
-                        ? 'bg-red-500/10 border border-red-500/20 text-red-400'
-                        : 'bg-red-50 border border-red-200 text-red-600'
-                      }`}>
-                        <AlertCircle className="w-4 h-4" />
-                        <span className="text-sm font-medium">总数超出限制，请调整分配数量</span>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {/* 未开启自定义时显示提示 */}
-                {!useCustomTierCounts && (
-                  <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
-                    <p className={`text-sm ${textSecondary} mb-2`}>
-                      默认分配比例：
-                    </p>
-                    <div className="flex justify-center gap-6">
-                      <div className="text-center">
-                        <span className={`text-sm font-bold ${isDark ? 'text-red-400' : 'text-red-600'}`}>冲 {chongCount}个</span>
-                        <span className={`text-xs ${textMuted}`}>（30%）</span>
-                      </div>
-                      <div className="text-center">
-                        <span className={`text-sm font-bold ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>稳 {wenCount}个</span>
-                        <span className={`text-xs ${textMuted}`}>（40%）</span>
-                      </div>
-                      <div className="text-center">
-                        <span className={`text-sm font-bold ${isDark ? 'text-green-400' : 'text-green-600'}`}>保 {baoCount}个</span>
-                        <span className={`text-xs ${textMuted}`}>（30%）</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* 冲稳保分数差自定义 */}
-              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.3s' }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shadow-md">
-                    <Target className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h2 className={`text-lg font-semibold ${textPrimary}`}>冲稳保分数差设置</h2>
-                    <p className={`text-sm ${textSecondary}`}>自定义各档次的分数阈值（冲超过X分，稳上下X分，保低于X分）</p>
                   </div>
                 </div>
-
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>自定义分数差</span>
-                    <span className={`text-xs ${textMuted}`}>（关闭则使用默认值）</span>
-                  </div>
-                  <button
-                    onClick={() => setUseCustomTierScoreDiffs(!useCustomTierScoreDiffs)}
-                    className={`relative w-12 h-6 rounded-full transition-all ${
-                      useCustomTierScoreDiffs
-                        ? 'bg-gradient-to-r from-cyan-500 to-blue-500'
-                        : isDark
-                        ? 'bg-white/10'
-                        : 'bg-gray-200'
-                    }`}
-                  >
-                    <div className={`absolute w-5 h-5 rounded-full bg-white shadow-md top-0.5 transition-all ${
-                      useCustomTierScoreDiffs ? 'left-6.5' : 'left-0.5'
-                    }`} />
-                  </button>
-                </div>
-
-                {useCustomTierScoreDiffs && (
-                  <div className="grid grid-cols-3 gap-4">
-                    <div>
-                      <label className={`block text-sm font-medium mb-2 ${
-                        isDark ? 'text-red-400' : 'text-red-600'
-                      }`}>冲刺分数差（+分）</label>
-                      <div className="relative">
-                        <input
-                          type="number"
-                          min={0}
-                          max={50}
-                          value={chongScoreDiff}
-                          onChange={(e) => setChongScoreDiff(Math.max(0, Math.min(50, parseInt(e.target.value) || 0)))}
-                          className={`w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all text-center font-bold`}
-                        />
-                        <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${textMuted}`}>分</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className={`block text-sm font-medium mb-2 ${
-                        isDark ? 'text-amber-400' : 'text-amber-600'
-                      }`}>稳妥分数差（±分）</label>
-                      <div className="relative">
-                        <input
-                          type="number"
-                          min={0}
-                          max={50}
-                          value={wenScoreDiff}
-                          onChange={(e) => setWenScoreDiff(Math.max(0, Math.min(50, parseInt(e.target.value) || 0)))}
-                          className={`w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all text-center font-bold`}
-                        />
-                        <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${textMuted}`}>分</span>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className={`block text-sm font-medium mb-2 ${
-                        isDark ? 'text-green-400' : 'text-green-600'
-                      }`}>保底分数差（-分）</label>
-                      <div className="relative">
-                        <input
-                          type="number"
-                          min={0}
-                          max={50}
-                          value={baoScoreDiff}
-                          onChange={(e) => setBaoScoreDiff(Math.max(0, Math.min(50, parseInt(e.target.value) || 0)))}
-                          className={`w-full px-4 py-3 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all text-center font-bold`}
-                        />
-                        <span className={`absolute right-3 top-1/2 -translate-y-1/2 text-xs ${textMuted}`}>分</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {!useCustomTierScoreDiffs && (
-                  <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
-                    <p className={`text-sm ${textSecondary} mb-2`}>
-                      默认分数差：
-                    </p>
-                    <div className="flex justify-center gap-6">
-                      <div className="text-center">
-                        <span className={`text-sm font-bold ${isDark ? 'text-red-400' : 'text-red-600'}`}>冲 +{chongScoreDiff}分</span>
-                      </div>
-                      <div className="text-center">
-                        <span className={`text-sm font-bold ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>稳 ±{wenScoreDiff}分</span>
-                      </div>
-                      <div className="text-center">
-                        <span className={`text-sm font-bold ${isDark ? 'text-green-400' : 'text-green-600'}`}>保 -{baoScoreDiff}分</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
               
               {/* 专业类别筛选 */}

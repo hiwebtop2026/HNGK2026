@@ -4,6 +4,7 @@ import type { SchoolScore, MajorRecommendation } from './dataUtils';
 import { generateMajorRecommendations, formatMajorSuggestion } from './majorRecommender';
 import { majorScoreService, type MajorScore } from '../services/majorScoreService';
 import { calculateAdmissionProbability, calculateTrendAnalysis, calculateRiskAssessment, getSmartConfig } from './trendAnalyzer';
+import { STRATEGY_CONFIGS, type StrategyType } from '../store/appStore';
 export type { SchoolScore, MajorRecommendation };
 
 export interface VolunteerResult {
@@ -14,7 +15,7 @@ export interface VolunteerResult {
   subject: number;
   province: string;
   level: string;
-  nature: '公办' | '民办';
+  nature: '公办' | '民办' | '中外合作办学';
   score2025: number | null;
   score2024: number | null;
   score2023: number | null;
@@ -150,12 +151,7 @@ export function filterSchools(
   selectedProvinces: string[] = [],
   selectedMajorCategories: string[] = [],
   selectedNatures: string[] = [],
-  customChongCount?: number,
-  customWenCount?: number,
-  customBaoCount?: number,
-  customChongScoreDiff?: number,
-  customWenScoreDiff?: number,
-  customBaoScoreDiff?: number,
+  strategy: StrategyType = '稳妥',
   selectedSubjects: string[] = [],
   selectedMajors: string[] = [],
   excludedMajors: string[] = []
@@ -170,12 +166,7 @@ export function filterSchools(
     selectedProvinces,
     selectedMajorCategories,
     selectedNatures,
-    customChongCount,
-    customWenCount,
-    customBaoCount,
-    customChongScoreDiff,
-    customWenScoreDiff,
-    customBaoScoreDiff,
+    strategy,
     selectedSubjects,
     selectedMajors,
     excludedMajors
@@ -193,16 +184,13 @@ export function filterSchoolsWithMajors(
   selectedProvinces: string[] = [],
   selectedMajorCategories: string[] = [],
   selectedNatures: string[] = [],
-  customChongCount?: number,
-  customWenCount?: number,
-  customBaoCount?: number,
-  customChongScoreDiff?: number,
-  customWenScoreDiff?: number,
-  customBaoScoreDiff?: number,
+  strategy: StrategyType = '稳妥',
   selectedSubjects: string[] = [],
   selectedMajors: string[] = [],
   excludedMajors: string[] = []
 ): VolunteerResult[] {
+  const strategyConfig = STRATEGY_CONFIGS[strategy];
+  
   // 按科目筛选
   let filtered = schools.filter(s => s.subject === subject);
   
@@ -258,14 +246,12 @@ export function filterSchoolsWithMajors(
   // 按参考分从高到低排序
   const sorted = withRefScore.sort((a, b) => b.refScore - a.refScore);
   
-  // 分配档次（支持自定义分数差）
-  const customDiffs = customChongScoreDiff !== undefined || customWenScoreDiff !== undefined || customBaoScoreDiff !== undefined
-    ? { 
-        chong: customChongScoreDiff ?? 10, 
-        wen: customWenScoreDiff ?? 5, 
-        bao: customBaoScoreDiff ?? 5 
-      }
-    : undefined;
+  // 使用策略配置的分数差进行档次分配
+  const customDiffs = { 
+    chong: strategyConfig.chongScoreDiff, 
+    wen: strategyConfig.wenScoreDiff, 
+    bao: strategyConfig.baoScoreDiff 
+  };
   
   const withTier = sorted.map(s => ({
     ...s,
@@ -277,21 +263,21 @@ export function filterSchoolsWithMajors(
   const wen = withTier.filter(s => s.tier === '稳');
   const bao = withTier.filter(s => s.tier === '保');
   
-  // 计算各档次数量
-  let chongCount: number;
-  let wenCount: number;
-  let baoCount: number;
+  // 使用策略配置的比例计算各档次数量
+  let chongCount = Math.min(Math.ceil(totalVolunteers * strategyConfig.chongRatio), chong.length);
+  let wenCount = Math.min(Math.ceil(totalVolunteers * strategyConfig.wenRatio), wen.length);
+  let baoCount = Math.max(0, totalVolunteers - chongCount - wenCount);
   
-  if (customChongCount !== undefined && customWenCount !== undefined && customBaoCount !== undefined) {
-    // 使用自定义数量
-    chongCount = Math.min(customChongCount, chong.length);
-    wenCount = Math.min(customWenCount, wen.length);
-    baoCount = Math.min(customBaoCount, bao.length);
-  } else {
-    // 默认比例：冲30%，稳40%，保30%
-    chongCount = Math.min(Math.ceil(totalVolunteers * 0.3), chong.length);
-    wenCount = Math.min(Math.ceil(totalVolunteers * 0.4), wen.length);
-    baoCount = Math.min(totalVolunteers - chongCount - wenCount, bao.length);
+  if (baoCount > bao.length) {
+    const extra = baoCount - bao.length;
+    baoCount = bao.length;
+    wenCount = Math.min(wenCount + extra, wen.length);
+  }
+  
+  if (wenCount > wen.length) {
+    const extra = wenCount - wen.length;
+    wenCount = wen.length;
+    chongCount = Math.min(chongCount + extra, chong.length);
   }
   
   // 组合结果
@@ -449,12 +435,7 @@ export async function filterSchoolsAsync(
   selectedProvinces: string[] = [],
   selectedMajorCategories: string[] = [],
   selectedNatures: string[] = [],
-  customChongCount?: number,
-  customWenCount?: number,
-  customBaoCount?: number,
-  customChongScoreDiff?: number,
-  customWenScoreDiff?: number,
-  customBaoScoreDiff?: number,
+  strategy: StrategyType = '稳妥',
   selectedSubjects: string[] = [],
   selectedMajors: string[] = [],
   excludedMajors: string[] = []
@@ -469,20 +450,16 @@ export async function filterSchoolsAsync(
     selectedProvinces,
     selectedMajorCategories,
     selectedNatures,
-    customChongCount,
-    customWenCount,
-    customBaoCount,
-    customChongScoreDiff,
-    customWenScoreDiff,
-    customBaoScoreDiff,
+    strategy,
     selectedSubjects,
     selectedMajors,
     excludedMajors
   );
   
-  const chongDiff = customChongScoreDiff ?? 10;
-  const wenDiff = customWenScoreDiff ?? 5;
-  const baoDiff = customBaoScoreDiff ?? 5;
+  const strategyConfig = STRATEGY_CONFIGS[strategy];
+  const chongDiff = strategyConfig.chongScoreDiff;
+  const wenDiff = strategyConfig.wenScoreDiff;
+  const baoDiff = strategyConfig.baoScoreDiff;
   
   for (const result of results) {
     try {

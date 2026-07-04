@@ -1,0 +1,38 @@
+[
+  {
+    "2025": 2025,
+    "上海外国语大学": "上海外国语大学",
+    "major_name": "外交学",
+    "major_group": "",
+    "min_score": 637,
+    "min_rank": 5379,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "上海外国语大学": "上海外国语大学",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 634,
+    "min_rank": 5859,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "上海外国语大学": "上海外国语大学",
+    "major_name": "翻译",
+    "major_group": "",
+    "min_score": 632,
+    "min_rank": 6207,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "school_name": "南京中医药大学",
+    "year": 2023,
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 627,
+    "min_rank": 7161,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(仙林校区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "南京中医药大学",
+    "year": 2023,
+    "major_name": "针灸推拿学",
+    "major_group": "",
+    "min_score": 624,
+    "min_rank": 7725,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(仙林校区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "南京中医药大学",
+    "year": 2023,
+    "major_name": "康复治疗学",
+    "major_group": "",
+    "min_score": 581,
+    "min_rank": 17539,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "(仙林校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "南京中医药大学",
+    "year": 2023,
+    "major_name": "中药学",
+    "major_group": "",
+    "min_score": 580,
+    "min_rank": 17773,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "(仙林校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  }
+]

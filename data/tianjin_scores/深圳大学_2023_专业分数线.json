@@ -1,0 +1,93 @@
+[
+  {
+    "school_name": "深圳大学",
+    "year": 2023,
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 646,
+    "min_rank": 3995,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(粤海校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "深圳大学",
+    "year": 2023,
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": 644,
+    "min_rank": 4287,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(粤海校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "深圳大学",
+    "year": 2023,
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 641,
+    "min_rank": 4777,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱；丽湖校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "深圳大学",
+    "year": 2023,
+    "major_name": "金融科技",
+    "major_group": "",
+    "min_score": 636,
+    "min_rank": 5535,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(粤海校区)",
+    "subject_requirement": "必选物理",
+    "province": "天津"
+  },
+  {
+    "school_name": "深圳大学",
+    "year": 2023,
+    "major_name": "工商管理",
+    "major_group": "",
+    "min_score": 630,
+    "min_rank": 6564,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(丽湖校区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "深圳大学",
+    "year": 2023,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 628,
+    "min_rank": 6950,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(丽湖校区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "深圳大学",
+    "year": 2023,
+    "major_name": "建筑学",
+    "major_group": "",
+    "min_score": 626,
+    "min_rank": 7354,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(卓越班；不招色盲；粤海校区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  }
+]

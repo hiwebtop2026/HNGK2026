@@ -104,15 +104,27 @@ if(window.__gaokao_initialized){
     var allData=[];
     var lastGroup='';
     var lastRequirement='';
+    var currentBatch=self.getCurrentBatch();
+    
+    console.log('当前选中批次:', currentBatch || '未获取到');
     
     for(var i=0;i<items.length;i++){
       var item=items[i];
+      
+      var rect=item.getBoundingClientRect();
+      if(rect.height<10 || rect.width<10)continue;
+      
+      var style=window.getComputedStyle(item);
+      if(style.display==='none' || style.visibility==='hidden')continue;
+      
       var majorEl=item.querySelector('.content-List-major');
       if(!majorEl)continue;
       var name=majorEl.innerText.trim();
       if(name.length<2 || name==='普通类')continue;
       
       var sEl=item.querySelector('.content-List-low_score');
+      if(!sEl)continue;
+      
       var rEl=item.querySelector('.content-List-low_rank');
       var cEl=item.querySelector('.content-List-luqurenshu');
       var bEl=item.querySelector('.qk-margin-top-s');
@@ -125,6 +137,26 @@ if(window.__gaokao_initialized){
       var batch=bEl?bEl.innerText.trim():'';
       var subTitle=tEl?tEl.innerText.trim():'';
       
+      if(score===null || isNaN(score))continue;
+      if(score<100 || score>900)continue;
+      
+      if(currentBatch && batch){
+        var batchMatch=false;
+        if(batch.indexOf(currentBatch)>=0 || currentBatch.indexOf(batch)>=0){
+          batchMatch=true;
+        }else{
+          var currentBatchBase=currentBatch.replace(/[A-Za-z].*$/,'');
+          var batchBase=batch.replace(/[A-Za-z].*$/,'');
+          if(currentBatchBase && batchBase && currentBatchBase===batchBase){
+            batchMatch=true;
+          }
+        }
+        if(!batchMatch){
+          console.log('跳过非当前批次数据:', name, batch, '当前批次:', currentBatch);
+          continue;
+        }
+      }
+      
       var parsed=self.parseMajorInfo(ft,subTitle);
       var mg=parsed.group||lastGroup;
       var req=parsed.requirement||lastRequirement;
@@ -134,7 +166,7 @@ if(window.__gaokao_initialized){
       
       var desc=self.extractDescription(ft);
       
-      if(score&&(score<100||score>900))continue;
+      var province=self.getCurrentProvince();
       
       allData.push({
         school_name:school,
@@ -147,7 +179,7 @@ if(window.__gaokao_initialized){
         batch:batch,
         major_description:desc,
         subject_requirement:req,
-        province:'海南',
+        province:province,
         hasRequirementFormat:parsed.hasRequirementFormat
       });
     }
@@ -183,7 +215,7 @@ if(window.__gaokao_initialized){
     var seen={};
     for(var i=0;i<filteredData.length;i++){
       var item=filteredData[i];
-      var key=item.major_name+'|'+item.min_score+'|'+item.min_rank;
+      var key=item.major_name+'|'+item.min_score+'|'+item.min_rank+'|'+item.major_group;
       if(seen[key])continue;
       seen[key]=true;
       delete item.hasRequirementFormat;
@@ -334,6 +366,163 @@ if(window.__gaokao_initialized){
   self.getSchoolName=function(){
     var school=document.querySelector('.qk-title-text');
     return school?school.innerText.trim().replace(/[（(].*?[）)]/g,''):'';
+  };
+  
+  self.getCurrentBatch=function(){
+    var batch='';
+    try{
+      var allBtns=document.querySelectorAll('[class*="qk-button"], [class*="select-tabs-tab"], [class*="select-modal-li"]');
+      for(var i=0;i<allBtns.length;i++){
+        var btnText=allBtns[i].innerText.trim();
+        if(btnText.indexOf('批次')>=0){
+          var parts=btnText.split(/\s+/);
+          for(var j=0;j<parts.length;j++){
+            if(parts[j].indexOf('批')>=0 && parts[j].length>1){
+              batch=parts[j];
+              break;
+            }
+          }
+          if(batch)break;
+        }
+      }
+    }catch(e){}
+    
+    if(!batch){
+      try{
+        var urlParams=new URLSearchParams(window.location.search);
+        var paramsStr=urlParams.get('params');
+        if(paramsStr){
+          var params=JSON.parse(paramsStr);
+          if(params.batch)batch=params.batch;
+        }
+      }catch(e){}
+    }
+    
+    return batch;
+  };
+  
+  self.getCurrentProvince=function(){
+    var provinces=['北京','天津','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海','江苏','浙江','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆','四川','贵州','云南','西藏','陕西','甘肃','青海','宁夏','新疆'];
+    
+    var province='';
+    
+    try{
+      var urlParams=new URLSearchParams(window.location.search);
+      var paramsStr=urlParams.get('params');
+      if(paramsStr){
+        var params=JSON.parse(paramsStr);
+        if(params.province && provinces.indexOf(params.province)>=0){
+          province=params.province;
+        }
+      }
+    }catch(e){}
+    
+    if(!province){
+      try{
+        var regionBtn=document.querySelector('[class*="qk-button"]:not([class*="primary"])');
+        if(!regionBtn){
+          var allBtns=document.querySelectorAll('[class*="qk-button"], [class*="select-tabs-tab"], [class*="select-modal-li"]');
+          for(var i=0;i<allBtns.length;i++){
+            var btnText=allBtns[i].innerText.trim();
+            if(btnText.indexOf('地区')>=0){
+              regionBtn=allBtns[i];
+              break;
+            }
+          }
+        }
+        if(regionBtn){
+          var regionText=regionBtn.innerText.trim();
+          for(var j=0;j<provinces.length;j++){
+            if(regionText.indexOf(provinces[j])>=0){
+              province=provinces[j];
+              break;
+            }
+          }
+        }
+      }catch(e){}
+    }
+    
+    if(!province){
+      try{
+        var allSelects=document.querySelectorAll('select');
+        for(var i=0;i<allSelects.length;i++){
+          var opt=allSelects[i].querySelector('option[selected]') || allSelects[i].options[allSelects[i].selectedIndex];
+          if(opt && provinces.indexOf(opt.innerText.trim())>=0){
+            province=opt.innerText.trim();
+            break;
+          }
+        }
+      }catch(e){}
+    }
+    
+    if(!province){
+      try{
+        var regionLabels=document.querySelectorAll('[class*="region"], [class*="province"], [class*="area"], [class*="diqu"], [class*="shengfen"]');
+        for(var i=0;i<regionLabels.length;i++){
+          var text=regionLabels[i].innerText.trim();
+          for(var j=0;j<provinces.length;j++){
+            if(text.indexOf(provinces[j])>=0){
+              province=provinces[j];
+              break;
+            }
+          }
+          if(province)break;
+        }
+      }catch(e){}
+    }
+    
+    if(!province){
+      try{
+        var breadcrumbs=document.querySelectorAll('[class*="crumb"], [class*="nav"], [class*="path"]');
+        for(var i=0;i<breadcrumbs.length;i++){
+          var text=breadcrumbs[i].innerText.trim();
+          for(var j=0;j<provinces.length;j++){
+            if(text.indexOf(provinces[j])>=0){
+              province=provinces[j];
+              break;
+            }
+          }
+          if(province)break;
+        }
+      }catch(e){}
+    }
+    
+    if(!province){
+      try{
+        var title=document.title;
+        for(var j=0;j<provinces.length;j++){
+          if(title.indexOf(provinces[j])>=0){
+            province=provinces[j];
+            break;
+          }
+        }
+      }catch(e){}
+    }
+    
+    if(!province){
+      try{
+        var pageParams=window.__INITIAL_STATE__ || window.__APP_STATE__;
+        if(pageParams && typeof pageParams==='object'){
+          var findProvince=function(obj){
+            for(var key in obj){
+              if(key.toLowerCase().indexOf('province')>=0 || key==='province' || key==='prov'){
+                if(typeof obj[key]==='string' && provinces.indexOf(obj[key])>=0){
+                  province=obj[key];
+                  return true;
+                }
+              }
+              if(typeof obj[key]==='object' && obj[key]!==null){
+                if(findProvince(obj[key]))return true;
+              }
+            }
+            return false;
+          };
+          findProvince(pageParams);
+        }
+      }catch(e){}
+    }
+    
+    return province || '海南';
   };
   
   self.switchToMajorTab=function(){

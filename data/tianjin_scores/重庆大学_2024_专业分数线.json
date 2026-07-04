@@ -1,0 +1,38 @@
+[
+  {
+    "2024": 2024,
+    "重庆大学": "重庆大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "重庆大学": "重庆大学",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2024": 2024,
+    "重庆大学": "重庆大学",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

@@ -1,0 +1,54 @@
+[
+  {
+    "school_name": "陕西师范大学",
+    "year": 2023,
+    "major_name": "中国语言文学类",
+    "major_group": "",
+    "min_score": 645,
+    "min_rank": 4135,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(汉语言文学(师范)、汉语言文学(拔尖基地班)、汉语言文学；主校区)",
+    "subject_requirement": "必选历史",
+    "province": "天津"
+  },
+  {
+    "school_name": "陕西师范大学",
+    "year": 2023,
+    "major_name": "数学类",
+    "major_group": "",
+    "min_score": 636,
+    "min_rank": 5535,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(数学与应用数学(师范)、数学与应用数学(国俊班)、信息与计算科学、统计学；主校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "陕西师范大学",
+    "year": 2023,
+    "major_name": "物理学类",
+    "major_group": "",
+    "min_score": 633,
+    "min_rank": 6023,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(物理学(师范)、物理学(恒元班)、物理学(创新实验班)、电子信息科学与技术；主校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "陕西师范大学",
+    "year": 2023,
+    "major_name": "外国语言文学类",
+    "major_group": "",
+    "min_score": 631,
+    "min_rank": 6375,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(英语；英语(师范)、英语(创新实验班)、翻译；雁塔校区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  }
+]

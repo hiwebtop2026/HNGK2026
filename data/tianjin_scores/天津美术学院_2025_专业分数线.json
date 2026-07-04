@@ -1,0 +1,54 @@
+[
+  {
+    "school_name": "天津美术学院",
+    "year": 2025,
+    "major_name": "历史建筑保护工程",
+    "major_group": "",
+    "min_score": 540,
+    "min_rank": 28631,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(天津市河北区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "天津美术学院",
+    "year": 2025,
+    "major_name": "艺术设计学",
+    "major_group": "",
+    "min_score": 533,
+    "min_rank": 30630,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(天津市河北区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "天津美术学院",
+    "year": 2025,
+    "major_name": "美术学",
+    "major_group": "",
+    "min_score": 532,
+    "min_rank": 30928,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(天津市河北区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "天津美术学院",
+    "year": 2025,
+    "major_name": "艺术管理",
+    "major_group": "",
+    "min_score": 531,
+    "min_rank": 31231,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(天津市河北区)",
+    "subject_requirement": "不限",
+    "province": "天津"
+  }
+]

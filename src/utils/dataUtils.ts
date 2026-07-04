@@ -7,7 +7,7 @@ export interface SchoolScore {
   subject: number;        // 科目要求 (54=物理+化学)
   province: string;       // 省份
   level: string;          // 院校层次 (985/211/双一流/普通本科)
-  nature: '公办' | '民办'; // 院校性质
+  nature: '公办' | '民办' | '中外合作办学'; // 院校性质
   region: string;         // 地区（省份）
   score2025: number | null;
   score2024: number | null;
@@ -318,6 +318,13 @@ export const MAJOR_CATEGORIES: MajorCategory[] = [
     color: 'from-pink-500 to-rose-500',
     keywords: ['文学', '新闻', '传播', '历史', '哲学', '外语', '翻译', '汉语言',
                '师范', '语言', '财经', '政法', '文科', '综合'],
+  },
+  {
+    id: 'international',
+    name: '中外合作办学类',
+    icon: '🌍',
+    color: 'from-cyan-500 to-blue-500',
+    keywords: ['中外合作', '国际', '中外合办', '国际学院', '国际交流', '海外', '留学', '国际教育'],
   },
 ];
 

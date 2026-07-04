@@ -1,0 +1,86 @@
+[
+  {
+    "2025": 2025,
+    "天津大学": "天津大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 14,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "天津大学": "天津大学",
+    "major_name": "数学类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 53,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "天津大学": "天津大学",
+    "major_name": "医学试验班",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 30,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "天津大学": "天津大学",
+    "major_name": "理科试验班",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 20,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "天津大学": "天津大学",
+    "major_name": "经济管理试验班",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 7,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "天津大学": "天津大学",
+    "major_name": "建筑类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 7,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "天津大学": "天津大学",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 18,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

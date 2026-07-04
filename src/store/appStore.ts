@@ -6,6 +6,67 @@ import { getProvinceConfig, type ProvinceConfig } from '../data/provinceConfigs'
 
 type Theme = 'light' | 'dark';
 
+export type StrategyType = '激进' | '稳妥' | '保守' | '个性化';
+
+export interface StrategyConfig {
+  name: string;
+  chongRatio: number;
+  wenRatio: number;
+  baoRatio: number;
+  chongScoreDiff: number;
+  wenScoreDiff: number;
+  baoScoreDiff: number;
+  description: string;
+  color: string;
+}
+
+export const STRATEGY_CONFIGS: Record<StrategyType, StrategyConfig> = {
+  '激进': {
+    name: '激进',
+    chongRatio: 0.5,
+    wenRatio: 0.35,
+    baoRatio: 0.15,
+    chongScoreDiff: 15,
+    wenScoreDiff: 5,
+    baoScoreDiff: 8,
+    description: '冲刺更多高分院校，争取更好的录取机会',
+    color: 'from-red-500 to-orange-500',
+  },
+  '稳妥': {
+    name: '稳妥',
+    chongRatio: 0.3,
+    wenRatio: 0.5,
+    baoRatio: 0.2,
+    chongScoreDiff: 10,
+    wenScoreDiff: 5,
+    baoScoreDiff: 10,
+    description: '均衡分配，兼顾冲刺与稳妥，适合大多数考生',
+    color: 'from-amber-500 to-yellow-500',
+  },
+  '保守': {
+    name: '保守',
+    chongRatio: 0.15,
+    wenRatio: 0.35,
+    baoRatio: 0.5,
+    chongScoreDiff: 8,
+    wenScoreDiff: 5,
+    baoScoreDiff: 15,
+    description: '侧重保底院校，降低落榜风险',
+    color: 'from-green-500 to-emerald-500',
+  },
+  '个性化': {
+    name: '个性化',
+    chongRatio: 0.3,
+    wenRatio: 0.4,
+    baoRatio: 0.3,
+    chongScoreDiff: 10,
+    wenScoreDiff: 5,
+    baoScoreDiff: 10,
+    description: '结合专业偏好，定制专属志愿方案',
+    color: 'from-blue-500 to-purple-500',
+  },
+};
+
 interface AppState {
   // 主题
   theme: Theme;
@@ -22,16 +83,8 @@ interface AppState {
   subject: number;
   selectedSubjects: string[];
   totalVolunteers: number;
-  // 冲稳保数量自定义
-  chongCount: number;
-  wenCount: number;
-  baoCount: number;
-  useCustomTierCounts: boolean;
-  // 冲稳保分数差自定义
-  chongScoreDiff: number;
-  wenScoreDiff: number;
-  baoScoreDiff: number;
-  useCustomTierScoreDiffs: boolean;
+  // 志愿策略
+  strategy: StrategyType;
   selectedLevels: string[];
   selectedProvinces: string[];
   selectedMajorCategories: string[];
@@ -72,14 +125,7 @@ interface AppState {
   setSelectedSubjects: (subjects: string[]) => void;
   toggleSelectedSubject: (subject: string) => void;
   setTotalVolunteers: (count: number) => void;
-  setChongCount: (count: number) => void;
-  setWenCount: (count: number) => void;
-  setBaoCount: (count: number) => void;
-  setUseCustomTierCounts: (use: boolean) => void;
-  setChongScoreDiff: (diff: number) => void;
-  setWenScoreDiff: (diff: number) => void;
-  setBaoScoreDiff: (diff: number) => void;
-  setUseCustomTierScoreDiffs: (use: boolean) => void;
+  setStrategy: (strategy: StrategyType) => void;
   toggleNature: (nature: string) => void;
   toggleLevel: (level: string) => void;
   toggleProvince: (province: string) => void;
@@ -133,16 +179,8 @@ export const useAppStore = create<AppState>((set, get) => {
     currentRegion: '海南',
     availableRegions: AVAILABLE_REGIONS,
     provinceConfig: getProvinceConfig('海南') || null,
-    // 冲稳保默认值（默认30%冲、40%稳、30%保）
-    chongCount: 9,
-    wenCount: 12,
-    baoCount: 9,
-    useCustomTierCounts: false,
-    // 冲稳保分数差默认值（冲+5分，稳上下3分，保-10分）
-    chongScoreDiff: 10,
-    wenScoreDiff: 3,
-    baoScoreDiff: 10,
-    useCustomTierScoreDiffs: false,
+    // 志愿策略（默认稳妥）
+    strategy: '稳妥',
     selectedLevels: ['985', '211', '双一流', '普通本科'],
     selectedProvinces: [],
     selectedMajorCategories: [],
@@ -204,26 +242,8 @@ export const useAppStore = create<AppState>((set, get) => {
         set({ selectedSubjects: [...current, subject] });
       }
     },
-    setTotalVolunteers: (count) => {
-      // 自动计算冲稳保默认比例
-      const chong = Math.ceil(count * 0.3);
-      const wen = Math.ceil(count * 0.4);
-      const bao = count - chong - wen;
-      set({ 
-        totalVolunteers: count, 
-        chongCount: chong, 
-        wenCount: wen, 
-        baoCount: bao 
-      });
-    },
-    setChongCount: (count) => set({ chongCount: count }),
-    setWenCount: (count) => set({ wenCount: count }),
-    setBaoCount: (count) => set({ baoCount: count }),
-    setUseCustomTierCounts: (use) => set({ useCustomTierCounts: use }),
-    setChongScoreDiff: (diff) => set({ chongScoreDiff: diff }),
-    setWenScoreDiff: (diff) => set({ wenScoreDiff: diff }),
-    setBaoScoreDiff: (diff) => set({ baoScoreDiff: diff }),
-    setUseCustomTierScoreDiffs: (use) => set({ useCustomTierScoreDiffs: use }),
+    setTotalVolunteers: (count) => set({ totalVolunteers: count }),
+    setStrategy: (strategy) => set({ strategy }),
     toggleNature: (nature) => {
       const current = get().selectedNatures;
       if (current.includes(nature)) {
@@ -346,14 +366,7 @@ export const useAppStore = create<AppState>((set, get) => {
       currentRegion: '海南',
       availableRegions: AVAILABLE_REGIONS,
       provinceConfig: getProvinceConfig('海南') || null,
-      chongCount: 9,
-      wenCount: 12,
-      baoCount: 9,
-      useCustomTierCounts: false,
-      chongScoreDiff: 10,
-      wenScoreDiff: 3,
-      baoScoreDiff: 10,
-      useCustomTierScoreDiffs: false,
+      strategy: '稳妥',
       selectedLevels: ['985', '211', '双一流', '普通本科'],
       selectedProvinces: [],
       selectedMajorCategories: [],

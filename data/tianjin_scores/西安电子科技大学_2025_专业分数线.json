@@ -1,0 +1,86 @@
+[
+  {
+    "2025": 2025,
+    "西安电子科技大学": "西安电子科技大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "西安电子科技大学": "西安电子科技大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "西安电子科技大学": "西安电子科技大学",
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "西安电子科技大学": "西安电子科技大学",
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "西安电子科技大学": "西安电子科技大学",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "西安电子科技大学": "西安电子科技大学",
+    "major_name": "中国语言文学类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "2025": 2025,
+    "西安电子科技大学": "西安电子科技大学",
+    "major_name": "外国语言文学类",
+    "major_group": "",
+    "min_score": null,
+    "min_rank": null,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

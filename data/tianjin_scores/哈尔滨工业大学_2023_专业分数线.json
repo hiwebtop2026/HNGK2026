@@ -1,0 +1,80 @@
+[
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2023,
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 689,
+    "min_rank": 283,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(尖班、港大优学班；自动化、人工智能、复合材料与工程、工程力学、材料科学与工程、机械设计制造及其自动化、机器人工程、飞行器制造工程、环境工程、精密仪器、测控技术与仪器、智能材料与结构、智能装备与系统、土木工程；尖班为院士相关研究领域专业任选，院士与学生2年双重画像互选；港大优学班含人工智能、自动化等专业，院士领衔，学校与香港大学高层次人才担任联合班主任，融合学校和香港大学人才培养优势；两班型任选其一；培养方式详见学校招生官网；哈尔滨市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2023,
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 687,
+    "min_rank": 353,
+    "person_count": 11,
+    "batch": "本科批",
+    "major_description": "(院士特色班；通信工程、电子信息工程、信息对抗技术、智能科学与技术、自动化、智能装备与系统、飞行器设计与工程、复合材料与工程、工程力学、智能材料与结构、材料科学与工程、焊接技术与工程、飞行器制造工程、机器人工程、机械设计制造及其自动化、智能制造工程、仿生科学与工程；含永坦班、善义班、自主智能系统班、小卫星班、智能机器人班、人工智能班，院士担任班主任，相关领域内专业任选；哈尔滨市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2023,
+    "major_name": "大数据管理与应用",
+    "major_group": "",
+    "min_score": 649,
+    "min_rank": 3561,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(与法国里昂商学院合作；学生入学后不得转专业，“4+0”培养，中英文授课；哈尔滨市)",
+    "subject_requirement": "必选物理",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2023,
+    "major_name": "应用物理学",
+    "major_group": "",
+    "min_score": 647,
+    "min_rank": 3863,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(与俄罗斯圣彼得堡国立大学合作；学生入学后不得转专业，“4+0”培养，中英文授课；哈尔滨市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2023,
+    "major_name": "数学与应用数学",
+    "major_group": "",
+    "min_score": 647,
+    "min_rank": 3863,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(与俄罗斯圣彼得堡国立大学合作；学生入学后不得转专业，“4+0”培养，中英文授课；哈尔滨市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2023,
+    "major_name": "智慧建筑与建造",
+    "major_group": "",
+    "min_score": 645,
+    "min_rank": 4135,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(与意大利都灵理工大学合作；学生入学后不得转专业，“4+0”培养，中英文授课；哈尔滨市)",
+    "subject_requirement": "必选物理",
+    "province": "天津"
+  }
+]
