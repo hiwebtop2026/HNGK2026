@@ -325,19 +325,8 @@ export function HomePage() {
         currentSchoolData = useAppStore.getState().schoolData;
       }
 
-      // 云端加载后仍为空，尝试加载默认海南数据
-      if (currentSchoolData.length === 0 && currentRegion !== '海南') {
-        await loadFromSupabase('海南');
-        currentSchoolData = useAppStore.getState().schoolData;
-      }
-
-      // 仍然为空，使用本地内置数据兜底
       if (currentSchoolData.length === 0) {
-        currentSchoolData = SCHOOL_DATA;
-      }
-
-      if (currentSchoolData.length === 0) {
-        setError(`${currentRegion}地区暂无数据，请稍后重试或选择其他地区`);
+        setError(`${currentRegion}地区暂无投档数据，请导入该地区数据后再使用志愿生成功能`);
         setLoading(false);
         return;
       }
@@ -655,14 +644,24 @@ export function HomePage() {
                     <p className={`text-sm ${textSecondary}`}>数据已加载完成</p>
                   </div>
                 </div>
-              ) : (
+              ) : schoolData.length > 0 ? (
                 <div className="flex items-center justify-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary-500/20 flex items-center justify-center">
-                    <Sparkles className="w-6 h-6 text-primary-500" />
+                  <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <Database className="w-6 h-6 text-green-500" />
                   </div>
                   <div className="text-left">
-                    <p className={`font-medium ${textPrimary}`}>默认数据已加载</p>
-                    <p className={`text-sm ${textSecondary}`}>2023-2025年海南投档分数线（{SCHOOL_DATA.length} 条记录）</p>
+                    <p className={`font-medium ${textPrimary}`}>{currentRegion}数据已加载</p>
+                    <p className={`text-sm ${textSecondary}`}>2023-2025年{currentRegion}投档分数线（{schoolData.length} 条记录）</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex items-center justify-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
+                    <AlertCircle className="w-6 h-6 text-amber-500" />
+                  </div>
+                  <div className="text-left">
+                    <p className={`font-medium ${textPrimary}`}>{currentRegion}暂无数据</p>
+                    <p className={`text-sm ${textSecondary}`}>请上传Excel文件导入该地区投档分数线数据</p>
                   </div>
                 </div>
               )}
