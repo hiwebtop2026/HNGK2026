@@ -106,7 +106,7 @@ def generate_sql(data: List[Dict]) -> str:
     lines.append("DELETE FROM major_scores WHERE province = '天津';")
     lines.append("")
     lines.append("-- 第二步：批量插入天津专业分数线数据")
-    lines.append("INSERT INTO major_scores (school_name, school_code, province, year, major_name,")
+    lines.append("INSERT INTO major_scores (school_name, province, year, major_name,")
     lines.append("                         major_group, min_score, min_rank, person_count,")
     lines.append("                         batch, subject_requirement, level)")
     lines.append("VALUES ")
@@ -138,7 +138,7 @@ def generate_sql(data: List[Dict]) -> str:
         elif "211" in school_name or "双一流" in school_name:
             level = "211"
         
-        row = f"""('{school_name_escaped}', '', '天津', {year}, '{major_name_escaped}', '{major_group_escaped}', 
+        row = f"""('{school_name_escaped}', '天津', {year}, '{major_name_escaped}', '{major_group_escaped}', 
                  {min_score}, {min_rank or 'NULL'}, {person_count or 'NULL'}, 
                  '{batch_escaped}', '{subject_requirement_escaped}', '{level}')"""
         rows.append(row)
