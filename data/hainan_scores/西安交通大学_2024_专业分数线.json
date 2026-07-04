@@ -1,0 +1,74 @@
+[
+  {
+    "2024": 2024,
+    "西安交通大学": "西安交通大学",
+    "major_name": "自动化",
+    "major_group": "",
+    "min_score": 788,
+    "min_rank": 158,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "西安交通大学": "西安交通大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 786,
+    "min_rank": 168,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "西安交通大学": "西安交通大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 783,
+    "min_rank": 183,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "西安交通大学": "西安交通大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 780,
+    "min_rank": 199,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "西安交通大学": "西安交通大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 767,
+    "min_rank": 298,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "西安交通大学": "西安交通大学",
+    "major_name": "建筑学",
+    "major_group": "",
+    "min_score": 669,
+    "min_rank": 3508,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

@@ -14,25 +14,27 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
   
   const admissionData = await loadFromAdmissionScores(province);
   for (const item of admissionData) {
-    const existing = result.get(item.code);
+    const key = item.name;
+    const existing = result.get(key);
     if (existing) {
       if (item.score2025 !== null && existing.score2025 === null) existing.score2025 = item.score2025;
       if (item.score2024 !== null && existing.score2024 === null) existing.score2024 = item.score2024;
       if (item.score2023 !== null && existing.score2023 === null) existing.score2023 = item.score2023;
     } else {
-      result.set(item.code, item);
+      result.set(key, item);
     }
   }
   
   const majorData = await loadFromMajorScores(province);
   for (const item of majorData) {
-    const existing = result.get(item.code);
+    const key = item.name;
+    const existing = result.get(key);
     if (existing) {
       if (item.score2025 !== null && existing.score2025 === null) existing.score2025 = item.score2025;
       if (item.score2024 !== null && existing.score2024 === null) existing.score2024 = item.score2024;
       if (item.score2023 !== null && existing.score2023 === null) existing.score2023 = item.score2023;
     } else {
-      result.set(item.code, item);
+      result.set(key, item);
     }
   }
   
@@ -53,20 +55,34 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
     }
     
     for (const score of scores) {
-      const key = score.group_code || score.school_name;
+      const key = score.school_name;
+      if (!key) continue;
+      
       const existing = result.get(key);
       
       if (existing) {
-        if (year === 2025) existing.score2025 = score.score;
-        else if (year === 2024) existing.score2024 = score.score;
-        else if (year === 2023) existing.score2023 = score.score;
+        if (year === 2025) {
+          if (existing.score2025 === null || score.score < existing.score2025) {
+            existing.score2025 = score.score;
+          }
+        } else if (year === 2024) {
+          if (existing.score2024 === null || score.score < existing.score2024) {
+            existing.score2024 = score.score;
+          }
+        } else if (year === 2023) {
+          if (existing.score2023 === null || score.score < existing.score2023) {
+            existing.score2023 = score.score;
+          }
+        }
       } else {
+        const subjectCode = parseSubjectRequirementToCode(score.subject_requirement);
+        
         result.set(key, {
-          code: score.group_code || '',
-          name: score.group_name || score.school_name,
-          subject: parseInt(score.subject_requirement) || 0,
+          code: key,
+          name: key,
+          subject: subjectCode,
           subject_requirement: score.subject_requirement ?? null,
-          province: score.school_name ? extractProvince(score.school_name) : '其他',
+          province: extractProvince(key) || '其他',
           level: '普通本科',
           nature: '公办',
           region: province,
