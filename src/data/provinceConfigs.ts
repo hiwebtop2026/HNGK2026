@@ -35,7 +35,7 @@ export const PROVINCE_CONFIGS: Record<string, ProvinceConfig> = {
     subjects: ['语文', '数学', '外语', '物理', '化学', '生物', '历史', '政治', '地理'],
     mainSubjects: ['语文', '数学', '外语'],
     electiveSubjects: ['物理', '化学', '生物', '历史', '政治', '地理'],
-    dataAvailable: false,
+    dataAvailable: true,
     requiredElectiveCount: 3,
   },
   '上海': {

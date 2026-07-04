@@ -1,0 +1,122 @@
+[
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "外交学",
+    "major_group": "",
+    "min_score": 773,
+    "min_rank": 247,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "翻译",
+    "major_group": "",
+    "min_score": 766,
+    "min_rank": 305,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "西班牙语",
+    "major_group": "",
+    "min_score": 764,
+    "min_rank": 323,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "法语",
+    "major_group": "",
+    "min_score": 726,
+    "min_rank": 925,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "日语",
+    "major_group": "",
+    "min_score": 718,
+    "min_rank": 1136,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 709,
+    "min_rank": 1420,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 701,
+    "min_rank": 1720,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 699,
+    "min_rank": 1809,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 691,
+    "min_rank": 2186,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京外国语大学": "北京外国语大学",
+    "major_name": "大数据管理与应用",
+    "major_group": "",
+    "min_score": 679,
+    "min_rank": 2839,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

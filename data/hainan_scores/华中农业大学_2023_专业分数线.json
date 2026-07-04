@@ -1,0 +1,110 @@
+[
+  {
+    "2023": 2023,
+    "华中农业大学": "华中农业大学",
+    "major_name": "植物生产类",
+    "major_group": "",
+    "min_score": 693,
+    "min_rank": 2076,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "华中农业大学": "华中农业大学",
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 670,
+    "min_rank": 3448,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "华中农业大学": "华中农业大学",
+    "major_name": "动物医学",
+    "major_group": "",
+    "min_score": 669,
+    "min_rank": 3508,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "华中农业大学": "华中农业大学",
+    "major_name": "经济学类",
+    "major_group": "",
+    "min_score": 669,
+    "min_rank": 3508,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "华中农业大学": "华中农业大学",
+    "major_name": "大数据管理与应用",
+    "major_group": "",
+    "min_score": 667,
+    "min_rank": 3660,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "华中农业大学": "华中农业大学",
+    "major_name": "管理科学与工程类",
+    "major_group": "",
+    "min_score": 667,
+    "min_rank": 3660,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "华中农业大学": "华中农业大学",
+    "major_name": "机械类",
+    "major_group": "",
+    "min_score": 658,
+    "min_rank": 4406,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "华中农业大学": "华中农业大学",
+    "major_name": "动物科学",
+    "major_group": "",
+    "min_score": 654,
+    "min_rank": 4768,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "华中农业大学": "华中农业大学",
+    "major_name": "水产类",
+    "major_group": "",
+    "min_score": 652,
+    "min_rank": 4963,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

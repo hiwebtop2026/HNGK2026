@@ -1,13 +1,27 @@
 import { admissionScoreService, type AdmissionScore } from '../services/admissionScoreService';
 import { majorScoreService, type MajorScore } from '../services/majorScoreService';
+import { cacheService } from '../services/cacheService';
+import { extractSubjectCodes } from './dataUtils';
 import type { SchoolScore } from './dataUtils';
 
 export async function loadSchoolDataFromSupabase(province: string = '海南'): Promise<SchoolScore[]> {
+  cacheService.clearByPrefix('getByProvince');
+  cacheService.clearByPrefix('getBySchool');
+  cacheService.clearByPrefix('getByProvinceAndYear');
+  cacheService.clearByPrefix('getByYear');
+  
   const result: Map<string, SchoolScore> = new Map();
   
   const admissionData = await loadFromAdmissionScores(province);
   for (const item of admissionData) {
-    result.set(item.code, item);
+    const existing = result.get(item.code);
+    if (existing) {
+      if (item.score2025 !== null && existing.score2025 === null) existing.score2025 = item.score2025;
+      if (item.score2024 !== null && existing.score2024 === null) existing.score2024 = item.score2024;
+      if (item.score2023 !== null && existing.score2023 === null) existing.score2023 = item.score2023;
+    } else {
+      result.set(item.code, item);
+    }
   }
   
   const majorData = await loadFromMajorScores(province);
@@ -75,18 +89,35 @@ async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
     for (const score of scores) {
       if (!score.school_name || score.min_score === null) continue;
       
-      const key = score.school_name + '_' + (score.major_group || '');
+      const key = score.school_name;
       const existing = result.get(key);
       
       if (existing) {
-        if (score.year === 2025) existing.score2025 = score.min_score;
-        else if (score.year === 2024) existing.score2024 = score.min_score;
-        else if (score.year === 2023) existing.score2023 = score.min_score;
+        if (score.year === 2025) {
+          if (existing.score2025 === null || score.min_score < existing.score2025) {
+            existing.score2025 = score.min_score;
+          }
+        } else if (score.year === 2024) {
+          if (existing.score2024 === null || score.min_score < existing.score2024) {
+            existing.score2024 = score.min_score;
+          }
+        } else if (score.year === 2023) {
+          if (existing.score2023 === null || score.min_score < existing.score2023) {
+            existing.score2023 = score.min_score;
+          }
+        }
+        
+        const subjectCode = parseSubjectRequirementToCode(score.subject_requirement);
+        if (subjectCode > 0 && existing.subject === 0) {
+          existing.subject = subjectCode;
+        }
       } else {
+        const subjectCode = parseSubjectRequirementToCode(score.subject_requirement);
+        
         result.set(key, {
           code: key,
           name: score.school_name,
-          subject: 0,
+          subject: subjectCode,
           province: score.province || score.school_name ? extractProvince(score.school_name) : '其他',
           level: '普通本科',
           nature: '公办',
@@ -102,6 +133,16 @@ async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
   }
   
   return Array.from(result.values());
+}
+
+function parseSubjectRequirementToCode(requirement: string | null): number {
+  if (!requirement) return 0;
+  
+  const codes = extractSubjectCodes(requirement);
+  if (codes.length === 0) return 0;
+  
+  const sortedCodes = [...codes].sort((a, b) => parseInt(b) - parseInt(a));
+  return parseInt(sortedCodes.join('')) || 0;
 }
 
 export async function loadSchoolDataFromSupabaseByScoreRange(

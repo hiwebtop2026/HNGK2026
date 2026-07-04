@@ -1,0 +1,98 @@
+[
+  {
+    "2023": 2023,
+    "北京理工大学": "北京理工大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 797,
+    "min_rank": 117,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京理工大学": "北京理工大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 792,
+    "min_rank": 138,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京理工大学": "北京理工大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 791,
+    "min_rank": 143,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京理工大学": "北京理工大学",
+    "major_name": "自动化",
+    "major_group": "",
+    "min_score": 711,
+    "min_rank": 1351,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京理工大学": "北京理工大学",
+    "major_name": "车辆工程",
+    "major_group": "",
+    "min_score": 704,
+    "min_rank": 1610,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京理工大学": "北京理工大学",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 702,
+    "min_rank": 1682,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京理工大学": "北京理工大学",
+    "major_name": "能源与动力工程",
+    "major_group": "",
+    "min_score": 695,
+    "min_rank": 1993,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "北京理工大学": "北京理工大学",
+    "major_name": "航空航天工程",
+    "major_group": "",
+    "min_score": 692,
+    "min_rank": 2130,
+    "person_count": 9,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]
