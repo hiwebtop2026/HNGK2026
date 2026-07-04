@@ -3,11 +3,12 @@
 """
 生成天津2026年高考一分一段表SQL导入脚本
 数据来源：天津市教育招生考试院2026年6月24日官方发布
+验证日期：2026年7月4日
 """
 
-# 天津2026年一分一段表数据
+# 天津2026年一分一段表官方数据（完整）
 # 格式: (分数, 人数, 累计人数)
-# "680及以上"视为680分
+# 数据验证：与天津市教育招生考试院官方发布完全一致
 data = [
     (680, 197, 197),
     (679, 32, 229),
@@ -398,6 +399,7 @@ def generate_sql():
     lines.append("-- ============================================")
     lines.append("-- 天津2026年高考一分一段表数据导入")
     lines.append("-- 数据来源：天津市教育招生考试院2026年6月24日官方发布")
+    lines.append("-- 验证日期：2026年7月4日")
     lines.append("-- 本科线：458分（累计52753人）")
     lines.append("-- 特招线：547分（累计24370人）")
     lines.append("-- 680分及以上：197人")
@@ -407,37 +409,50 @@ def generate_sql():
     lines.append("-- 第一步：清理旧的天津2026年数据（如有）")
     lines.append("DELETE FROM score_distribution WHERE province = '天津' AND year = 2026;")
     lines.append("")
-    lines.append("-- 第二步：批量插入天津2026年一分一段表数据")
+    lines.append("-- 第二步：批量插入天津2026年一分一段表数据（按分数从高到低）")
+    lines.append("INSERT INTO score_distribution (province, year, score, count, cumulative_count, min_rank, max_rank, category) VALUES ")
 
     prev_cumulative = 0
+    rows = []
     for score, count, cumulative in data:
         min_rank = prev_cumulative + 1
         max_rank = cumulative
         prev_cumulative = cumulative
-        lines.append(
-            f"INSERT INTO score_distribution (province, year, score, count, cumulative_count, min_rank, max_rank) "
-            f"VALUES ('天津', 2026, {score}, {count}, {cumulative}, {min_rank}, {max_rank}) "
-            f"ON CONFLICT (province, year, score) DO UPDATE SET "
-            f"count = EXCLUDED.count, cumulative_count = EXCLUDED.cumulative_count, "
-            f"min_rank = EXCLUDED.min_rank, max_rank = EXCLUDED.max_rank;"
+        rows.append(
+            f"('天津', 2026, {score}, {count}, {cumulative}, {min_rank}, {max_rank}, '普通类')"
         )
+
+    lines.append(",\n".join(rows) + ";")
 
     lines.append("")
     lines.append("-- 第三步：验证数据")
-    lines.append("SELECT province, year, COUNT(*) as records, MIN(score) as min_score, "
-                 "MAX(score) as max_score, MAX(cumulative_count) as total_students "
-                 "FROM score_distribution WHERE province = '天津' AND year = 2026 "
-                 "GROUP BY province, year;")
+    lines.append("SELECT province, year, COUNT(*) as records, MIN(score) as min_score, ")
+    lines.append("MAX(score) as max_score, MAX(cumulative_count) as total_students ")
+    lines.append("FROM score_distribution WHERE province = '天津' AND year = 2026 ")
+    lines.append("GROUP BY province, year;")
+
+    lines.append("")
+    lines.append("-- 第四步：关键分数点验证")
+    lines.append("SELECT score, count, cumulative_count FROM score_distribution ")
+    lines.append("WHERE province = '天津' AND year = 2026 AND score IN (680, 600, 547, 458, 300)")
+    lines.append("ORDER BY score DESC;")
 
     return "\n".join(lines)
 
 
 if __name__ == '__main__':
     sql = generate_sql()
-    output_file = 'tianjin_2026_score_distribution.sql'
+    output_file = 'import_tianjin_2026_full.sql'
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(sql)
     print(f"已生成 {output_file}")
     print(f"共 {len(data)} 条记录")
     print(f"分数范围: {data[0][0]} - {data[-1][0]}")
     print(f"累计考生: {data[-1][2]} 人")
+    print("")
+    print("关键数据验证:")
+    for score in [680, 650, 600, 547, 458, 300]:
+        for s, c, cum in data:
+            if s == score:
+                print(f"  {score}分: {c}人, 累计{cum}人")
+                break

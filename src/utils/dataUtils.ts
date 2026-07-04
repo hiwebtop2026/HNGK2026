@@ -547,8 +547,8 @@ export async function fetchRankInfo(score: number, subject: number, province: st
 
       return {
         score,
-        rank: rankInfo.minRank,
-        categoryRank: rankInfo.minRank,
+        rank: rankInfo.cumulativeCount,
+        categoryRank: rankInfo.cumulativeCount,
         category: is3Plus3Mode ? '普通类' : category,
         percentile,
         totalCandidates: stats.max_cumulative,
@@ -569,8 +569,8 @@ export async function fetchRankInfo(score: number, subject: number, province: st
 
         return {
           score,
-          rank: rankInfoWithCategory.minRank,
-          categoryRank: rankInfoWithCategory.minRank,
+          rank: rankInfoWithCategory.cumulativeCount,
+          categoryRank: rankInfoWithCategory.cumulativeCount,
           category: '普通类',
           percentile,
           totalCandidates: stats.max_cumulative,
@@ -613,7 +613,8 @@ export async function fetchRankInfo(score: number, subject: number, province: st
 }
 
 // 天津2026年一分一段表参考数据（关键分数点）
-// 数据来源：天津市教育招生考试院2026年官方发布
+// 数据来源：天津市教育招生考试院2026年6月24日官方发布
+// 验证日期：2026年7月4日
 const TIANJIN_RANK_REFERENCE: [number, number][] = [
   [680, 197],   // 680分=197名
   [650, 1822],  // 650分=1822名
@@ -630,19 +631,19 @@ const TIANJIN_RANK_REFERENCE: [number, number][] = [
   [547, 24370], // 547分=24370名（特招线）
   [540, 26502], // 540分=26502名
   [530, 29562], // 530分=29562名
-  [520, 32625], // 520分=32625名
-  [510, 35683], // 510分=35683名
-  [500, 38670], // 500分=38670名
-  [490, 41566], // 490分=41566名
-  [480, 44388], // 480分=44388名
+  [520, 32718], // 520分=32718名
+  [510, 35936], // 510分=35936名
+  [500, 39232], // 500分=39232名
+  [490, 42525], // 490分=42525名
+  [480, 45829], // 480分=45829名
   [458, 52753], // 458分=52753名（本科线）
-  [450, 54877], // 450分=54877名
-  [400, 66563], // 400分=66563名
-  [350, 73453], // 350分=73453名
+  [450, 55108], // 450分=55108名
+  [400, 67300], // 400分=67300名
+  [350, 74278], // 350分=74278名
   [300, 77488], // 300分=77488名
 ];
 
-// 天津考生总人数
+// 天津考生总人数（300分及以上）
 const TIANJIN_CANDIDATES_2026 = 77488;
 
 // 获取本地位次参考数据

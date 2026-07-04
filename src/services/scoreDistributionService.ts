@@ -199,8 +199,8 @@ export const scoreDistributionService = {
     console.debug(`[getStats] 查询统计: province=${province}, year=${year}`);
 
     const { data, error } = await supabase
-      .from('score_distribution')
-      .select('MIN(score) as min_score, MAX(score) as max_score, SUM(count) as total_students, MAX(cumulative_count) as max_cumulative')
+      .from('score_distribution_stats')
+      .select('*')
       .eq('province', province)
       .eq('year', year)
       .limit(1);
