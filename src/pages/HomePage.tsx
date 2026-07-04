@@ -738,7 +738,7 @@ export function HomePage() {
                   </div>
                   <div className="text-left">
                     <p className={`font-medium ${textPrimary}`}>{currentRegion}数据已加载</p>
-                    <p className={`text-sm ${textSecondary}`}>2023-2025年{currentRegion}投档分数线（{schoolData.length} 条记录）</p>
+                    <p className={`text-sm ${textSecondary}`}>2023-2025年{currentRegion}投档分数线（{schoolData.length} 所院校）</p>
                   </div>
                 </div>
               ) : (
