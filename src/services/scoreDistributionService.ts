@@ -72,9 +72,17 @@ export const scoreDistributionService = {
     }
 
     const is3Plus3Mode = ['海南', '天津', '北京', '上海', '山东', '浙江'].includes(province);
-    const categoriesToTry = is3Plus3Mode 
-      ? ['普通类', null, '物理类', '历史类']
-      : [category, null];
+
+    // 如果指定了具体category，优先精确匹配该category
+    // 否则按默认顺序尝试
+    let categoriesToTry: (string | null)[];
+    if (category) {
+      categoriesToTry = [category, null];
+    } else if (is3Plus3Mode) {
+      categoriesToTry = ['普通类', null, '物理类', '历史类'];
+    } else {
+      categoriesToTry = [category, null];
+    }
 
     let dbResult: {minRank: number, maxRank: number, count: number, cumulativeCount: number} | null = null;
 
@@ -180,7 +188,7 @@ export const scoreDistributionService = {
 
     if (dbResult) {
       const stats = await this.getStats(province, year);
-      const expectedTotal = province === '海南' ? 81805 : (province === '天津' ? 77488 : null);
+      const expectedTotal = province === '海南' ? 70398 : (province === '天津' ? 77488 : null);
       
       if (expectedTotal && dbResult.maxRank > expectedTotal * 1.5) {
         console.warn(`[getRankByScore] 数据库数据异常: maxRank=${dbResult.maxRank} 远大于预期总人数${expectedTotal}，忽略数据库数据`);
@@ -264,12 +272,21 @@ export const scoreDistributionService = {
     }
 
     console.debug(`[getStats] 视图无结果，直接计算统计`);
-    
-    const { data: rawData, error: rawError } = await supabase
+
+    // 3+3模式省份只统计普通类(全体考生)数据，避免多类别重复计数
+    const is3Plus3Mode = ['海南', '天津', '北京', '上海', '山东', '浙江'].includes(province);
+
+    let query = supabase
       .from('score_distribution')
-      .select('count, cumulative_count')
+      .select('count, cumulative_count, category')
       .eq('province', province)
       .eq('year', year);
+
+    if (is3Plus3Mode) {
+      query = query.eq('category', '普通类');
+    }
+
+    const { data: rawData, error: rawError } = await query;
 
     if (rawError || !rawData || rawData.length === 0) {
       console.error('[getStats] 查询失败:', rawError);
@@ -278,7 +295,7 @@ export const scoreDistributionService = {
 
     const totalStudents = rawData.reduce((sum: number, item: any) => sum + (item.count || 0), 0);
     const maxCumulative = Math.max(...rawData.map((item: any) => item.cumulative_count || 0));
-    
+
     const result = {
       province,
       year,

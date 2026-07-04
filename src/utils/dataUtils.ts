@@ -370,6 +370,8 @@ export interface RankInfo {
   score: number;                    // 考生分数
   rank: number;                     // 全体考生位次
   categoryRank?: number;            // 分科位次（物理类/历史类）
+  subjectRank?: number;             // 选考科目位次（3+3模式下选考科目的位次）
+  subjectRankCategory?: string;     // 选考科目位次对应的科目（如"物理"）
   category?: '物理类' | '历史类' | '普通类';  // 考生类别（普通类用于不分文理的省份）
   percentile: number;               // 超过百分比
   totalCandidates: number;          // 总考生人数
@@ -398,11 +400,11 @@ const HAINAN_SCORE_LINES = {
 };
 
 // 海南省2026年普通类考生总人数
-// 数据来源：海南省考试局2026年一分一段表（300分及以上共81805人）
+// 数据来源：海南省考试局2026年一分一段表PDF（254分及以上共70398人）
 const HAINAN_CANDIDATES_2026 = {
-  普通类: 81805,
-  物理类: 81805,
-  历史类: 81805,
+  普通类: 70398,
+  物理类: 39739,
+  历史类: 24686,
 };
 
 // 获取考生类别
@@ -420,123 +422,207 @@ function getSubjectCategory(subject: number): '物理类' | '历史类' {
   return '历史类';
 }
 
-// 海南省2026年普通类考生一分一段表（官方数据）
-// 数据来源：海南省考试局2026年一分一段表
+// 从选科代码中提取各选考科目名称（用于3+3模式省份查询选考科目位次）
+// 例如: 456 → ['物理', '化学', '生物']
+function getSubjectCategoryNames(subject: number): string[] {
+  const subjectStr = String(subject);
+  const subjectMap: Record<string, string> = {
+    '4': '物理',
+    '5': '化学',
+    '6': '生物',
+    '7': '思想政治',
+    '8': '历史',
+    '9': '地理',
+  };
+  const categories: string[] = [];
+  for (const digit of subjectStr) {
+    if (subjectMap[digit] && !categories.includes(subjectMap[digit])) {
+      categories.push(subjectMap[digit]);
+    }
+  }
+  return categories;
+}
+
+// 海南省2026年普通类考生一分一段表（官方PDF数据）
+// 数据来源：海南省考试局2026年一分一段表PDF（P020260625627884748040.pdf）
 // 全体考生一分一段关键数据点（官方准确数据）
 const ALL_RANK_REFERENCE: [number, number][] = [
-  [800, 2],
-  [750, 192],
-  [720, 606],
-  [700, 1095],
-  [680, 1799],
-  [650, 3309],
-  [640, 3947],
-  [630, 4656],
-  [620, 5442],
-  [610, 6307],
-  [603, 6961],
-  [600, 7254],
-  [590, 8290],
-  [580, 9425],
-  [570, 10660],
-  [567, 11050],
-  [560, 11995],
-  [550, 13430],
-  [540, 14965],
-  [530, 16600],
-  [520, 18335],
-  [510, 20170],
-  [500, 22105],
-  [490, 24140],
-  [479, 26494],
-  [470, 28510],
-  [460, 30845],
-  [450, 33280],
-  [440, 35815],
-  [430, 38450],
-  [420, 41185],
-  [410, 44020],
-  [400, 46955],
-  [350, 63130],
-  [300, 81805],
+  [800, 111],
+  [780, 209],
+  [760, 378],
+  [750, 500],
+  [740, 659],
+  [720, 1122],
+  [710, 1435],
+  [700, 1835],
+  [690, 2306],
+  [680, 2893],
+  [670, 3576],
+  [660, 4396],
+  [650, 5351],
+  [640, 6472],
+  [630, 7745],
+  [620, 9168],
+  [610, 10820],
+  [605, 11708],
+  [603, 12081],
+  [600, 12630],
+  [590, 14626],
+  [580, 16831],
+  [570, 19201],
+  [567, 19984],
+  [560, 21745],
+  [550, 24383],
+  [540, 27160],
+  [530, 30064],
+  [520, 32991],
+  [510, 35999],
+  [500, 38953],
+  [490, 41906],
+  [479, 45098],
+  [470, 47520],
+  [460, 50150],
+  [450, 52581],
+  [440, 54832],
+  [430, 56926],
+  [420, 58832],
+  [410, 60574],
+  [400, 62105],
+  [390, 63526],
+  [380, 64715],
+  [370, 65786],
+  [360, 66703],
+  [350, 67511],
+  [340, 68189],
+  [330, 68729],
+  [320, 69174],
+  [310, 69531],
+  [300, 69781],
+  [290, 70016],
+  [280, 70156],
+  [270, 70276],
+  [260, 70349],
+  [254, 70398],
 ];
 
-// 物理类一分一段关键数据点（官方数据）- 海南3+3模式不分文理，物理类和历史类共享普通类数据
+// 物理类一分一段关键数据点（官方PDF数据）- 选考物理的考生
 const PHYSICS_RANK_REFERENCE: [number, number][] = [
-  [800, 2],
-  [750, 192],
-  [720, 606],
-  [700, 1095],
-  [680, 1799],
-  [650, 3309],
-  [640, 3947],
-  [630, 4656],
-  [620, 5442],
-  [610, 6307],
-  [603, 6961],
-  [600, 7254],
-  [590, 8290],
-  [580, 9425],
-  [570, 10660],
-  [567, 11050],
-  [560, 11995],
-  [550, 13430],
-  [540, 14965],
-  [530, 16600],
-  [520, 18335],
-  [510, 20170],
-  [500, 22105],
-  [490, 24140],
-  [479, 26494],
-  [470, 28510],
-  [460, 30845],
-  [450, 33280],
-  [440, 35815],
-  [430, 38450],
-  [420, 41185],
-  [410, 44020],
-  [400, 46955],
-  [350, 63130],
-  [300, 81805],
+  [800, 95],
+  [780, 176],
+  [760, 320],
+  [750, 425],
+  [740, 548],
+  [720, 903],
+  [710, 1130],
+  [700, 1450],
+  [690, 1812],
+  [680, 2243],
+  [670, 2752],
+  [660, 3366],
+  [650, 4068],
+  [640, 4880],
+  [630, 5782],
+  [620, 6786],
+  [610, 7914],
+  [605, 8530],
+  [603, 8785],
+  [600, 9155],
+  [590, 10505],
+  [580, 11905],
+  [570, 13392],
+  [567, 13887],
+  [560, 15003],
+  [550, 16621],
+  [540, 18318],
+  [530, 20099],
+  [520, 21881],
+  [510, 23605],
+  [500, 25298],
+  [490, 26908],
+  [479, 28583],
+  [470, 29830],
+  [460, 31151],
+  [450, 32314],
+  [440, 33327],
+  [430, 34230],
+  [420, 35055],
+  [410, 35776],
+  [400, 36400],
+  [390, 36961],
+  [380, 37429],
+  [370, 37865],
+  [360, 38224],
+  [350, 38539],
+  [340, 38836],
+  [330, 39069],
+  [320, 39249],
+  [310, 39396],
+  [300, 39498],
+  [290, 39579],
+  [280, 39635],
+  [270, 39686],
+  [260, 39717],
+  [254, 39739],
 ];
 
-// 历史类一分一段关键数据点（官方数据）- 海南3+3模式不分文理，使用普通类数据
+// 历史类一分一段关键数据点（官方PDF数据）- 选考历史的考生
 const HISTORY_RANK_REFERENCE: [number, number][] = [
-  [800, 2],
-  [750, 192],
-  [720, 606],
-  [700, 1095],
-  [680, 1799],
-  [650, 3309],
-  [640, 3947],
-  [630, 4656],
-  [620, 5442],
-  [610, 6307],
-  [603, 6961],
-  [600, 7254],
-  [590, 8290],
-  [580, 9425],
-  [570, 10660],
-  [567, 11050],
-  [560, 11995],
-  [550, 13430],
-  [540, 14965],
-  [530, 16600],
-  [520, 18335],
-  [510, 20170],
-  [500, 22105],
-  [490, 24140],
-  [479, 26494],
-  [470, 28510],
-  [460, 30845],
-  [450, 33280],
-  [440, 35815],
-  [430, 38450],
-  [420, 41185],
-  [410, 44020],
-  [400, 46955],
-  [350, 63130],
-  [300, 81805],
+  [800, 18],
+  [780, 40],
+  [760, 72],
+  [750, 93],
+  [740, 130],
+  [720, 236],
+  [710, 325],
+  [700, 404],
+  [690, 510],
+  [680, 659],
+  [670, 826],
+  [660, 1034],
+  [650, 1272],
+  [640, 1560],
+  [630, 1914],
+  [620, 2290],
+  [610, 2793],
+  [605, 3039],
+  [603, 3140],
+  [600, 3303],
+  [590, 3892],
+  [580, 4600],
+  [570, 5385],
+  [567, 5636],
+  [560, 6199],
+  [550, 7042],
+  [540, 7959],
+  [530, 8887],
+  [520, 9847],
+  [510, 10898],
+  [500, 11924],
+  [490, 12992],
+  [479, 14188],
+  [470, 15103],
+  [460, 16144],
+  [450, 17111],
+  [440, 18034],
+  [430, 18932],
+  [420, 19749],
+  [410, 20520],
+  [400, 21157],
+  [390, 21748],
+  [380, 22278],
+  [370, 22744],
+  [360, 23130],
+  [350, 23476],
+  [340, 23752],
+  [330, 23959],
+  [320, 24154],
+  [310, 24305],
+  [300, 24414],
+  [290, 24521],
+  [280, 24579],
+  [270, 24633],
+  [260, 24667],
+  [254, 24686],
 ];
 
 // 使用线性插值计算位次（基于参考数据点）
@@ -567,8 +653,12 @@ export async function fetchRankInfo(score: number, subject: number, province: st
   const queryCategory = is3Plus3Mode ? '普通类' : category;
   console.debug(`[fetchRankInfo] 3+3模式=${is3Plus3Mode}, queryCategory=${queryCategory ?? 'undefined'}`);
 
+  // 获取考生的选考科目列表（用于查询选考科目位次）
+  const subjectCategories = is3Plus3Mode ? getSubjectCategoryNames(subject) : [];
+
   const yearsToTry = [2026, 2025, 2024, 2023];
   let dbResult: RankInfo | null = null;
+  let matchedYear: number | null = null;
 
   for (const year of yearsToTry) {
     try {
@@ -580,16 +670,16 @@ export async function fetchRankInfo(score: number, subject: number, province: st
       console.debug(`[fetchRankInfo] 尝试年份${year}: rankInfo=`, rankInfo, `stats=`, stats);
 
       if (rankInfo && rankInfo.minRank && rankInfo.maxRank) {
-        const expectedTotal = province === '海南' ? 81805 : (province === '天津' ? 77488 : null);
-        
+        const expectedTotal = province === '海南' ? 70398 : (province === '天津' ? 77488 : null);
+
         if (expectedTotal && rankInfo.maxRank > expectedTotal * 1.5) {
           console.warn(`[fetchRankInfo] 年份${year}数据异常: maxRank=${rankInfo.maxRank} > 预期${expectedTotal}，跳过`);
           continue;
         }
 
         const totalCandidates = stats?.max_cumulative || rankInfo.cumulativeCount || rankInfo.maxRank;
-        const percentile = totalCandidates > 0 
-          ? Math.round((1 - rankInfo.cumulativeCount / totalCandidates) * 10000) / 100 
+        const percentile = totalCandidates > 0
+          ? Math.round((1 - rankInfo.cumulativeCount / totalCandidates) * 10000) / 100
           : null;
 
         dbResult = {
@@ -605,6 +695,7 @@ export async function fetchRankInfo(score: number, subject: number, province: st
           dataSource: `${province}${year}年一分一段表`,
           note: `位次区间：${rankInfo.minRank}~${rankInfo.maxRank}，同分人数：${rankInfo.count}人`,
         };
+        matchedYear = year;
         break;
       }
     } catch (error) {
@@ -612,8 +703,28 @@ export async function fetchRankInfo(score: number, subject: number, province: st
     }
   }
 
+  // 如果成功获取了普通类位次，且是3+3模式，尝试查询选考科目位次
+  if (dbResult && is3Plus3Mode && subjectCategories.length > 0 && matchedYear) {
+    try {
+      const { scoreDistributionService } = await import('../services/scoreDistributionService');
+      // 优先查询第一个选考科目（通常是主科）
+      for (const subjectCat of subjectCategories) {
+        const subjectRankInfo = await scoreDistributionService.getRankByScore(province, score, matchedYear, subjectCat);
+        if (subjectRankInfo && subjectRankInfo.minRank && subjectRankInfo.maxRank) {
+          dbResult.subjectRank = subjectRankInfo.minRank;
+          dbResult.subjectRankCategory = subjectCat;
+          dbResult.note += `；${subjectCat}选考位次：${subjectRankInfo.minRank}~${subjectRankInfo.maxRank}（同分${subjectRankInfo.count}人）`;
+          console.debug(`[fetchRankInfo] 选考科目位次: ${subjectCat}=${subjectRankInfo.minRank}~${subjectRankInfo.maxRank}`);
+          break;
+        }
+      }
+    } catch (error) {
+      console.debug(`[fetchRankInfo] 查询选考科目位次失败:`, error);
+    }
+  }
+
   if (dbResult) {
-    console.debug(`[fetchRankInfo] 使用数据库数据: rank=${dbResult.rank}`);
+    console.debug(`[fetchRankInfo] 使用数据库数据: rank=${dbResult.rank}, subjectRank=${dbResult.subjectRank ?? 'N/A'}`);
     return dbResult;
   }
 

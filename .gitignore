@@ -19,6 +19,13 @@ dist-ssr
 
 # Scripts containing service_role keys (sensitive)
 scripts/import_score_distribution_supabase.py
+scripts/modify_constraint.py
+scripts/import_pdf_score_distribution.py
+scripts/check_constraints.py
+scripts/diagnose_constraint.py
+scripts/fix_800_score.py
+scripts/extract_reference_points.py
+scripts/reference_points.json
 
 # Editor directories and files
 .vscode/*
