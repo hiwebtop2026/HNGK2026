@@ -145,7 +145,7 @@ class QuarkCDPClient:
                     break
         threading.Thread(target=listener, daemon=True).start()
 
-    def send_command(self, method: str, params: Optional[Dict] = None) -> Optional[Any]:
+    def send_command(self, method: str, params: Optional[Dict] = None, timeout: int = 30) -> Optional[Any]:
         if not self.ws:
             return None
 
@@ -162,14 +162,14 @@ class QuarkCDPClient:
 
         try:
             self.ws.send(json.dumps(message))
-            if self.response_event.wait(timeout=15):
+            if self.response_event.wait(timeout=timeout):
                 response = self.response_cache.get(msg_id)
                 if response and "result" in response:
                     return response["result"]
                 elif response and "error" in response:
                     print(f"❌ CDP命令错误: {response['error'].get('message', '未知错误')}")
             else:
-                print(f"❌ CDP命令超时: {method}")
+                print(f"❌ CDP命令超时: {method} (超时{timeout}秒)")
         except Exception as e:
             print(f"❌ 发送命令失败: {e}")
 
@@ -205,12 +205,18 @@ class QuarkCDPClient:
         """
         return self.execute_script(script) or False
 
-    def navigate(self, url: str) -> bool:
-        result = self.send_command("Page.navigate", {"url": url})
-        if result:
-            self.send_command("Page.waitForNavigation", {"timeout": 30000})
-            time.sleep(3)
-            return True
+    def navigate(self, url: str, max_retries: int = 3) -> bool:
+        for attempt in range(max_retries):
+            print(f"      导航尝试 {attempt + 1}/{max_retries}...")
+            result = self.send_command("Page.navigate", {"url": url}, timeout=45)
+            if result:
+                time.sleep(5)
+                return True
+            else:
+                if attempt < max_retries - 1:
+                    print(f"      导航失败，等待5秒后重试...")
+                    time.sleep(5)
+        
         return False
 
     def close(self):
@@ -477,19 +483,20 @@ def process_school(browser: QuarkCDPClient, school_name: str) -> int:
     print(f"     已下载: {downloaded}")
     
     url = build_school_url(school_name)
+    print(f"     URL: {url}")
     
     if not browser.navigate(url):
         print(f"     ❌ 导航失败")
         return 0
     
-    time.sleep(5)
+    time.sleep(8)
     
-    if not browser.wait_for_element('.content-List-li', timeout=15):
+    if not browser.wait_for_element('.content-List-li', timeout=20):
         print(f"     ❌ 页面加载失败")
         return 0
     
     switch_to_major_tab(browser)
-    time.sleep(2)
+    time.sleep(3)
     
     total_count = 0
     
@@ -503,9 +510,9 @@ def process_school(browser: QuarkCDPClient, school_name: str) -> int:
                 print(f"     ❌ 切换到{year}年失败")
                 continue
             
-            time.sleep(3)
+            time.sleep(5)
             
-            if not browser.wait_for_element('.content-List-li', timeout=10):
+            if not browser.wait_for_element('.content-List-li', timeout=15):
                 print(f"     ❌ {year}年数据加载失败")
                 continue
         
