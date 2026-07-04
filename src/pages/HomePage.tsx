@@ -240,6 +240,85 @@ export function HomePage() {
       return String(a).length - String(b).length || a - b;
     });
   }, [schoolData]);
+
+  const isSubjectSelectionValid = useMemo(() => {
+    if (!provinceConfig) return false;
+    
+    const required = provinceConfig.requiredElectiveCount;
+    const current = selectedSubjects.length;
+    
+    if (provinceConfig.examMode === '3+X') {
+      return true;
+    }
+    
+    if (provinceConfig.examMode === '3+1+2') {
+      const firstChoiceSubjects = provinceConfig.firstChoiceSubjects || [];
+      const secondChoiceSubjects = provinceConfig.secondChoiceSubjects || [];
+      
+      const selectedSubjectNames = selectedSubjects.map(code => SUBJECT_LIST.find(s => s.code === code)?.name).filter(Boolean);
+      const firstChoiceCount = selectedSubjectNames.filter(name => firstChoiceSubjects.includes(name!)).length;
+      const secondChoiceCount = selectedSubjectNames.filter(name => secondChoiceSubjects.includes(name!)).length;
+      
+      return firstChoiceCount === 1 && secondChoiceCount === 2;
+    }
+    
+    return current === required;
+  }, [provinceConfig, selectedSubjects]);
+
+  const subjectValidationMessage = useMemo(() => {
+    if (!provinceConfig) return '';
+    
+    const required = provinceConfig.requiredElectiveCount;
+    const current = selectedSubjects.length;
+    
+    if (provinceConfig.examMode === '3+X') {
+      return '该地区为传统高考模式，无需选择选考科目';
+    }
+    
+    if (provinceConfig.examMode === '3+1+2') {
+      const firstChoiceSubjects = provinceConfig.firstChoiceSubjects || [];
+      const secondChoiceSubjects = provinceConfig.secondChoiceSubjects || [];
+      
+      const selectedSubjectNames = selectedSubjects.map(code => SUBJECT_LIST.find(s => s.code === code)?.name).filter(Boolean);
+      const firstChoiceCount = selectedSubjectNames.filter(name => firstChoiceSubjects.includes(name!)).length;
+      const secondChoiceCount = selectedSubjectNames.filter(name => secondChoiceSubjects.includes(name!)).length;
+      
+      if (firstChoiceCount === 0 && secondChoiceCount === 0) {
+        return `请选择选科组合：从「${firstChoiceSubjects.join('、')}」中选1门（首选），从「${secondChoiceSubjects.join('、')}」中选2门（再选）`;
+      }
+      if (firstChoiceCount === 0) {
+        return `请从「${firstChoiceSubjects.join('、')}」中选择1门作为首选科目`;
+      }
+      if (firstChoiceCount > 1) {
+        return `首选科目只能选择1门，请取消多余的选择`;
+      }
+      if (secondChoiceCount === 0) {
+        return `请从「${secondChoiceSubjects.join('、')}」中选择2门作为再选科目`;
+      }
+      if (secondChoiceCount === 1) {
+        return `再选科目还需要选择1门，请继续选择`;
+      }
+      if (secondChoiceCount > 2) {
+        return `再选科目只能选择2门，请取消多余的选择`;
+      }
+      return '选科组合已完成';
+    }
+    
+    if (provinceConfig.examMode === '3+3') {
+      if (current === 0) {
+        return `请选择${required}门选考科目`;
+      }
+      if (current < required) {
+        return `还需要选择${required - current}门科目，请继续选择`;
+      }
+      if (current > required) {
+        return `已选择${current}门科目，请取消${current - required}门（最多${required}门）`;
+      }
+      return '选科组合已完成';
+    }
+    
+    return '';
+  }, [provinceConfig, selectedSubjects]);
   
   const handleFileUpload = async (uploadedFile: File) => {
     setFile(uploadedFile);
@@ -292,9 +371,9 @@ export function HomePage() {
       return;
     }
 
-    // 检查选科组合（必填）
-    if (selectedSubjects.length === 0) {
-      setError('请先选择选考科目组合后再使用志愿生成功能');
+    // 检查选科组合（根据地区高考模式验证）
+    if (!isSubjectSelectionValid) {
+      setError(subjectValidationMessage || '请选择正确的选考科目组合');
       return;
     }
 
@@ -521,11 +600,13 @@ export function HomePage() {
                     <p className={`text-xs font-medium ${textSecondary}`}>
                       选考科目
                       <span className={`ml-1.5 px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
-                        selectedSubjects.length === 0
+                        isSubjectSelectionValid
+                          ? 'bg-green-500/20 text-green-500'
+                          : selectedSubjects.length === 0
                           ? 'bg-amber-500/20 text-amber-500'
-                          : 'bg-green-500/20 text-green-500'
+                          : 'bg-red-500/20 text-red-500'
                       }`}>
-                        {selectedSubjects.length === 0 ? '未选' : `${selectedSubjects.length}科`}
+                        {isSubjectSelectionValid ? '已完成' : selectedSubjects.length === 0 ? '未选' : `${selectedSubjects.length}科`}
                       </span>
                     </p>
                   </div>
@@ -535,23 +616,48 @@ export function HomePage() {
                     </p>
                   )}
                 </div>
+                
+                {subjectValidationMessage && (
+                  <p className={`text-xs mb-2 ${
+                    isSubjectSelectionValid 
+                      ? (isDark ? 'text-green-400' : 'text-green-600')
+                      : (isDark ? 'text-red-400' : 'text-red-600')
+                  }`}>
+                    {subjectValidationMessage}
+                  </p>
+                )}
+                
                 <div className="flex flex-wrap gap-2">
-                  {SUBJECT_LIST.map((sub) => (
-                    <button
-                      key={sub.code}
-                      onClick={() => toggleSelectedSubject(sub.code)}
-                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                        selectedSubjects.includes(sub.code)
-                          ? `bg-gradient-to-r ${sub.color} text-white shadow-md`
-                          : isDark
-                          ? 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20 hover:text-gray-300'
-                          : 'bg-white text-gray-500 border border-gray-200 hover:border-primary-300 hover:text-gray-700'
-                      }`}
-                    >
-                      <span>{sub.icon}</span>
-                      <span>{sub.name}</span>
-                    </button>
-                  ))}
+                  {SUBJECT_LIST.map((sub) => {
+                    const isFirstChoice = provinceConfig?.firstChoiceSubjects?.includes(sub.name) || false;
+                    const isSecondChoice = provinceConfig?.secondChoiceSubjects?.includes(sub.name) || false;
+                    return (
+                      <button
+                        key={sub.code}
+                        onClick={() => toggleSelectedSubject(sub.code)}
+                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all relative ${
+                          selectedSubjects.includes(sub.code)
+                            ? `bg-gradient-to-r ${sub.color} text-white shadow-md`
+                            : isDark
+                            ? 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20 hover:text-gray-300'
+                            : 'bg-white text-gray-500 border border-gray-200 hover:border-primary-300 hover:text-gray-700'
+                        }`}
+                        title={
+                          isFirstChoice ? '首选科目（必选1门）' : 
+                          isSecondChoice ? '再选科目（可选2门）' : ''
+                        }
+                      >
+                        <span>{sub.icon}</span>
+                        <span>{sub.name}</span>
+                        {isFirstChoice && !selectedSubjects.includes(sub.code) && (
+                          <span className={`absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full ${isDark ? 'bg-blue-500' : 'bg-blue-400'}`} />
+                        )}
+                        {isSecondChoice && !selectedSubjects.includes(sub.code) && (
+                          <span className={`absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full ${isDark ? 'bg-green-500' : 'bg-green-400'}`} />
+                        )}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             </div>
