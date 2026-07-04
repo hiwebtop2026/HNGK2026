@@ -1,0 +1,122 @@
+[
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 741,
+    "min_rank": 620,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 737,
+    "min_rank": 689,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "投资学",
+    "major_group": "",
+    "min_score": 734,
+    "min_rank": 746,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 728,
+    "min_rank": 873,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 726,
+    "min_rank": 925,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 723,
+    "min_rank": 994,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "数学类",
+    "major_group": "",
+    "min_score": 716,
+    "min_rank": 1192,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "工商管理",
+    "major_group": "",
+    "min_score": 706,
+    "min_rank": 1528,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 703,
+    "min_rank": 1641,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "上海财经大学": "上海财经大学",
+    "major_name": "公共管理类",
+    "major_group": "",
+    "min_score": 702,
+    "min_rank": 1682,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

@@ -444,11 +444,11 @@ def main():
         print("\n请按以下步骤操作:")
         print("1. 关闭所有夸克浏览器窗口")
         print("2. 以远程调试模式启动夸克浏览器:")
-        print('   "C:\\Program Files (x86)\\Quark\\Quark.exe" --remote-debugging-port=9222')
+        print('   "C:\\Program Files (x86)\\Quark\\Quark.exe" --remote-debugging-port=9222 --remote-allow-origins=*')
         print("3. 在夸克浏览器中登录账户")
         print("4. 打开夸克高考页面")
         print("\n或者使用Edge浏览器（夸克基于Chromium）:")
-        print('   "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" --remote-debugging-port=9222')
+        print('   "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" --remote-debugging-port=9222 --remote-allow-origins=*')
         return
     
     print(f"✅ 找到 {len(pages)} 个浏览器标签页")

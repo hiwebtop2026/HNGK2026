@@ -1,0 +1,110 @@
+[
+  {
+    "2023": 2023,
+    "中国农业大学": "中国农业大学",
+    "major_name": "理科试验班类",
+    "major_group": "",
+    "min_score": 731,
+    "min_rank": 809,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "中国农业大学": "中国农业大学",
+    "major_name": "动物医学类",
+    "major_group": "",
+    "min_score": 714,
+    "min_rank": 1253,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "中国农业大学": "中国农业大学",
+    "major_name": "生物科学类",
+    "major_group": "",
+    "min_score": 710,
+    "min_rank": 1386,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "中国农业大学": "中国农业大学",
+    "major_name": "农学",
+    "major_group": "",
+    "min_score": 704,
+    "min_rank": 1610,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "中国农业大学": "中国农业大学",
+    "major_name": "食品科学与工程类",
+    "major_group": "",
+    "min_score": 704,
+    "min_rank": 1610,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "中国农业大学": "中国农业大学",
+    "major_name": "植物保护",
+    "major_group": "",
+    "min_score": 700,
+    "min_rank": 1763,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "中国农业大学": "中国农业大学",
+    "major_name": "动物科学",
+    "major_group": "",
+    "min_score": 696,
+    "min_rank": 1935,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "中国农业大学": "中国农业大学",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 680,
+    "min_rank": 2774,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "中国农业大学": "中国农业大学",
+    "major_name": "传播学",
+    "major_group": "",
+    "min_score": 675,
+    "min_rank": 3092,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

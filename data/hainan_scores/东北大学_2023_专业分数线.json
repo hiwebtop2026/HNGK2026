@@ -1,0 +1,74 @@
+[
+  {
+    "2023": 2023,
+    "东北大学": "东北大学",
+    "major_name": "自动化类",
+    "major_group": "",
+    "min_score": 712,
+    "min_rank": 1319,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "东北大学": "东北大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 710,
+    "min_rank": 1386,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "东北大学": "东北大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 709,
+    "min_rank": 1420,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "东北大学": "东北大学",
+    "major_name": "智能制造工程",
+    "major_group": "",
+    "min_score": 708,
+    "min_rank": 1454,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "东北大学": "东北大学",
+    "major_name": "机械类",
+    "major_group": "",
+    "min_score": 708,
+    "min_rank": 1454,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "东北大学": "东北大学",
+    "major_name": "经济管理试验班",
+    "major_group": "",
+    "min_score": 685,
+    "min_rank": 2483,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

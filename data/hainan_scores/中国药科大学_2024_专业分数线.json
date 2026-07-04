@@ -1,0 +1,98 @@
+[
+  {
+    "2024": 2024,
+    "中国药科大学": "中国药科大学",
+    "major_name": "药学",
+    "major_group": "",
+    "min_score": 698,
+    "min_rank": 1853,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "中国药科大学": "中国药科大学",
+    "major_name": "药学类",
+    "major_group": "",
+    "min_score": 681,
+    "min_rank": 2713,
+    "person_count": 8,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "中国药科大学": "中国药科大学",
+    "major_name": "临床药学",
+    "major_group": "",
+    "min_score": 677,
+    "min_rank": 2962,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "中国药科大学": "中国药科大学",
+    "major_name": "化工与制药类",
+    "major_group": "",
+    "min_score": 676,
+    "min_rank": 3029,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "中国药科大学": "中国药科大学",
+    "major_name": "生物制药",
+    "major_group": "",
+    "min_score": 663,
+    "min_rank": 3984,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "中国药科大学": "中国药科大学",
+    "major_name": "生物统计学",
+    "major_group": "",
+    "min_score": 662,
+    "min_rank": 4062,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "中国药科大学": "中国药科大学",
+    "major_name": "中药学类",
+    "major_group": "",
+    "min_score": 659,
+    "min_rank": 4314,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "中国药科大学": "中国药科大学",
+    "major_name": "海洋药学",
+    "major_group": "",
+    "min_score": 659,
+    "min_rank": 4314,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

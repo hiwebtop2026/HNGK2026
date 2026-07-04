@@ -1,0 +1,98 @@
+[
+  {
+    "2024": 2024,
+    "东北师范大学": "东北师范大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 707,
+    "min_rank": 1471,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "东北师范大学": "东北师范大学",
+    "major_name": "教育学类",
+    "major_group": "",
+    "min_score": 701,
+    "min_rank": 1696,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "东北师范大学": "东北师范大学",
+    "major_name": "数学类",
+    "major_group": "",
+    "min_score": 691,
+    "min_rank": 2145,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "东北师范大学": "东北师范大学",
+    "major_name": "经济学类",
+    "major_group": "",
+    "min_score": 690,
+    "min_rank": 2193,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "东北师范大学": "东北师范大学",
+    "major_name": "物理学类",
+    "major_group": "",
+    "min_score": 687,
+    "min_rank": 2344,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "东北师范大学": "东北师范大学",
+    "major_name": "数学类",
+    "major_group": "",
+    "min_score": 696,
+    "min_rank": 1935,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "东北师范大学": "东北师范大学",
+    "major_name": "物理学类",
+    "major_group": "",
+    "min_score": 688,
+    "min_rank": 2336,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "东北师范大学": "东北师范大学",
+    "major_name": "教育学类",
+    "major_group": "",
+    "min_score": 679,
+    "min_rank": 2839,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

@@ -113,13 +113,10 @@ export function HomePage() {
 
   // 页面初始化时主动加载当前地区数据（解决schoolData为空导致无法生成志愿的问题）
   useEffect(() => {
-    // 清除旧的一分一段表缓存（修复历史遗留的空结果缓存问题）
+    // 清除旧的缓存（修复历史遗留的空结果缓存问题）
     try {
       Object.keys(localStorage).forEach(key => {
-        if (key.startsWith('gaokao_cache:getRankByScore') || 
-            key.startsWith('gaokao_cache:getStats') ||
-            key.startsWith('gaokao_cache:getByProvinceAndYear') ||
-            key.startsWith('gaokao_cache:getByYear')) {
+        if (key.startsWith('gaokao_cache:')) {
           localStorage.removeItem(key);
           console.debug('[Cache] 清除旧缓存:', key);
         }

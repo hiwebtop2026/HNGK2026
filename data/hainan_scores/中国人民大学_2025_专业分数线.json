@@ -1,0 +1,110 @@
+[
+  {
+    "2025": 2025,
+    "中国人民大学": "中国人民大学",
+    "major_name": "人工智能",
+    "major_group": "",
+    "min_score": 813,
+    "min_rank": 105,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "中国人民大学": "中国人民大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 805,
+    "min_rank": 105,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "中国人民大学": "中国人民大学",
+    "major_name": "统计学类",
+    "major_group": "",
+    "min_score": 804,
+    "min_rank": 105,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "中国人民大学": "中国人民大学",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 803,
+    "min_rank": 105,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "中国人民大学": "中国人民大学",
+    "major_name": "经济学类",
+    "major_group": "",
+    "min_score": 803,
+    "min_rank": 105,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "中国人民大学": "中国人民大学",
+    "major_name": "新闻传播学类",
+    "major_group": "",
+    "min_score": 802,
+    "min_rank": 105,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "中国人民大学": "中国人民大学",
+    "major_name": "经济学类",
+    "major_group": "",
+    "min_score": 790,
+    "min_rank": 147,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "中国人民大学": "中国人民大学",
+    "major_name": "金融学类",
+    "major_group": "",
+    "min_score": 788,
+    "min_rank": 158,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "中国人民大学": "中国人民大学",
+    "major_name": "公共管理类",
+    "major_group": "",
+    "min_score": 784,
+    "min_rank": 178,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]
