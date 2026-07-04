@@ -71,39 +71,85 @@ export const admissionScoreService = {
   async getByProvince(province: string): Promise<AdmissionScore[]> {
     if (!supabase) return [];
     
-    const { data, error } = await supabase
-      .from(TABLES.ADMISSION_SCORES)
-      .select('*')
-      .eq('province', province)
-      .order('year', { ascending: false })
-      .order('score', { ascending: false })
-      .limit(10000);
+    const allData: AdmissionScore[] = [];
+    let page = 0;
+    const pageSize = 500;
     
-    if (error) {
-      console.error(`获取${province}投档分数线失败:`, error);
-      return [];
+    while (true) {
+      const start = page * pageSize;
+      const end = (page + 1) * pageSize - 1;
+      
+      const { data, error } = await supabase
+        .from(TABLES.ADMISSION_SCORES)
+        .select('*')
+        .eq('province', province)
+        .order('id')
+        .range(start, end);
+      
+      if (error) {
+        console.error(`获取${province}投档分数线失败:`, error);
+        break;
+      }
+      
+      if (!data || data.length === 0) {
+        break;
+      }
+      
+      allData.push(...data);
+      console.log(`[DEBUG][admissionScoreService] 获取${province}数据 - 页面${page + 1}: ${data.length}条, 累计${allData.length}条`);
+      
+      if (data.length < pageSize) {
+        break;
+      }
+      
+      page++;
     }
     
-    return data || [];
+    console.log(`[DEBUG][admissionScoreService] 获取${province}投档分数线完成，总记录数: ${allData.length}`);
+    
+    return allData;
   },
 
   async getByProvinceAndYear(province: string, year: number): Promise<AdmissionScore[]> {
     if (!supabase) return [];
     
-    const { data, error } = await supabase
-      .from(TABLES.ADMISSION_SCORES)
-      .select('*')
-      .eq('province', province)
-      .eq('year', year)
-      .order('score', { ascending: false })
-      .limit(10000);
+    const allData: AdmissionScore[] = [];
+    let page = 0;
+    const pageSize = 500;
     
-    if (error) {
-      console.error(`获取${province}${year}年投档分数线失败:`, error);
-      return [];
+    while (true) {
+      const start = page * pageSize;
+      const end = (page + 1) * pageSize - 1;
+      
+      const { data, error } = await supabase
+        .from(TABLES.ADMISSION_SCORES)
+        .select('*')
+        .eq('province', province)
+        .eq('year', year)
+        .order('id')
+        .range(start, end);
+      
+      if (error) {
+        console.error(`获取${province}${year}年投档分数线失败:`, error);
+        break;
+      }
+      
+      if (!data || data.length === 0) {
+        break;
+      }
+      
+      allData.push(...data);
+      
+      if (data.length < pageSize) {
+        break;
+      }
+      
+      page++;
     }
     
-    return data || [];
+    console.log(`[DEBUG][admissionScoreService] 获取${province}${year}年投档分数线完成，总记录数: ${allData.length}`);
+    
+    return allData;
   },
 
   async getBySchool(schoolName: string): Promise<AdmissionScore[]> {

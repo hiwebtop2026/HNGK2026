@@ -62,6 +62,16 @@ function clearCache(): void {
   }
 }
 
+function clearAllLocalStorage(): void {
+  try {
+    Object.keys(localStorage).forEach(key => {
+      localStorage.removeItem(key);
+    });
+  } catch {
+    console.warn('Failed to clear all localStorage');
+  }
+}
+
 function clearCacheByPrefix(prefix: string): void {
   const keysToRemove: string[] = [];
   cache.forEach((_, key) => {
@@ -103,6 +113,8 @@ export const cacheService = {
   },
   
   clear: clearCache,
+  
+  clearAll: clearAllLocalStorage,
   
   clearByPrefix: clearCacheByPrefix,
   

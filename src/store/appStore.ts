@@ -345,13 +345,19 @@ export const useAppStore = create<AppState>((set, get) => {
     },
     loadFromSupabase: async (province?: string) => {
       const targetProvince = province || get().currentRegion || '海南';
+      console.log(`[DEBUG][appStore] 开始加载${targetProvince}数据`);
       set({ isLoading: true, error: null });
       try {
         const data = await loadSchoolDataFromSupabase(targetProvince);
+        console.log(`[DEBUG][appStore] 加载${targetProvince}数据完成，返回 ${data.length} 条记录`);
         if (data.length === 0) {
           console.warn(`[loadFromSupabase] ${targetProvince} 地区云端数据为空，请检查数据库是否已导入数据`);
         }
+        if (data.length > 0) {
+          console.log(`[DEBUG][appStore] 前5条记录: ${data.slice(0, 5).map(s => s.name).join(', ')}`);
+        }
         set({ schoolData: data, isLoading: false });
+        console.log(`[DEBUG][appStore] schoolData已更新，当前长度: ${data.length}`);
       } catch (err) {
         console.error(`[loadFromSupabase] 加载 ${targetProvince} 数据失败:`, err);
         set({ error: `从云端加载${targetProvince}数据失败：${err instanceof Error ? err.message : '未知错误'}`, isLoading: false });

@@ -252,6 +252,10 @@ export function HomePage() {
       return firstChoiceCount === 1 && secondChoiceCount === 2;
     }
     
+    if (provinceConfig.examMode === '3+3') {
+      return current === 0 || current === required;
+    }
+    
     return current === required;
   }, [provinceConfig, selectedSubjects]);
 
@@ -296,7 +300,7 @@ export function HomePage() {
     
     if (provinceConfig.examMode === '3+3') {
       if (current === 0) {
-        return `请选择${required}门选考科目`;
+        return '';
       }
       if (current < required) {
         return `还需要选择${required - current}门科目，请继续选择`;
@@ -1548,7 +1552,7 @@ export function HomePage() {
               
               <button
                 onClick={handleGenerate}
-                disabled={useAppStore.getState().isLoading || availableCount === 0 || baseScore === null || selectedSubjects.length === 0 || (provinceConfig && !provinceConfig.dataAvailable)}
+                disabled={useAppStore.getState().isLoading || availableCount === 0 || baseScore === null || (provinceConfig && !provinceConfig.dataAvailable)}
                 className="w-full md:w-auto px-10 py-4 bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500 text-white rounded-xl font-semibold text-lg shadow-xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
               >
                 <span>一键生成志愿方案</span>
@@ -1557,7 +1561,7 @@ export function HomePage() {
 
               <button
                 onClick={() => navigate('/analysis')}
-                disabled={baseScore === null || selectedSubjects.length === 0}
+                disabled={baseScore === null}
                 className="w-full md:w-auto px-10 py-3 glass text-lg font-medium rounded-xl hover:bg-white/10 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 <TrendingUp className="w-5 h-5" />

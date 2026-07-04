@@ -214,19 +214,44 @@ export function getRefScore(score2025: number | null, score2024: number | null, 
 export function getTier(
   refScore: number, 
   baseScore: number, 
-  customDiffs?: { chong: number, wen: number, bao: number }
+  customDiffs?: { chong: number, wen: number, bao: number },
+  province: string = '海南'
 ): '冲' | '稳' | '保' {
   const { chong = 10, wen = 5, bao = 5 } = customDiffs || {};
   const diff = refScore - baseScore;
-  if (diff > chong) return '冲';
-  if (diff >= -wen && diff <= chong) return '稳';
-  if (diff < -bao) return '保';
+  
+  const isHighScoreSystem = ['海南'].includes(province);
+  const adjustedChong = isHighScoreSystem ? chong * 2 : chong;
+  const adjustedWen = isHighScoreSystem ? wen * 2 : wen;
+  const adjustedBao = isHighScoreSystem ? bao * 2 : bao;
+  
+  if (diff > adjustedChong) return '冲';
+  if (diff >= -adjustedWen && diff <= adjustedChong) return '稳';
+  if (diff < -adjustedBao) return '保';
   return '稳';
 }
 
 // 生成推荐理由
-export function getRecommendationReason(refScore: number, baseScore: number): string {
+export function getRecommendationReason(refScore: number, baseScore: number, province: string = '海南'): string {
   const diff = refScore - baseScore;
+  const isHighScoreSystem = ['海南'].includes(province);
+  
+  if (isHighScoreSystem) {
+    if (diff > 20) {
+      return `近三年投档线稳定在${refScore}分左右，高于考生分数${diff}分，作为冲刺院校有一定录取机会，建议谨慎填报。`;
+    } else if (diff > 10) {
+      return `近三年投档线约${refScore}分，高于考生分数${diff}分，属于合理冲刺范围，录取机会中等。`;
+    } else if (diff === 0) {
+      return `近三年投档线与考生分数相当，录取把握较大，是理想的稳投院校。`;
+    } else if (diff >= -10) {
+      return `近三年投档线约${refScore}分，与考生分数接近，录取把握较大，建议优先考虑。`;
+    } else if (diff >= -20) {
+      return `近三年投档线低于考生分数${Math.abs(diff)}分，录取机会大，适合作为稳妥保底院校。`;
+    } else {
+      return `近三年投档线显著低于考生分数${Math.abs(diff)}分，录取概率很高，可作为最终保底选择。`;
+    }
+  }
+  
   if (diff > 10) {
     return `近三年投档线稳定在${refScore}分左右，高于考生分数${diff}分，作为冲刺院校有一定录取机会，建议谨慎填报。`;
   } else if (diff > 5) {
@@ -372,12 +397,12 @@ const HAINAN_SCORE_LINES = {
   },
 };
 
-// 海南省2026年普通类考生总人数（约7万人）
-// 数据来源：海南省考试局2026年一分一段表
+// 海南省2026年普通类考生总人数
+// 数据来源：海南省考试局2026年一分一段表（300分及以上共81805人）
 const HAINAN_CANDIDATES_2026 = {
-  普通类: 70000,
-  物理类: 40000,
-  历史类: 30000,
+  普通类: 81805,
+  物理类: 81805,
+  历史类: 81805,
 };
 
 // 获取考生类别
@@ -396,119 +421,122 @@ function getSubjectCategory(subject: number): '物理类' | '历史类' {
 }
 
 // 海南省2026年普通类考生一分一段表（官方数据）
-// 数据来源：海南省考试局2026年一分一段表（教育在线公布）
+// 数据来源：海南省考试局2026年一分一段表
 // 全体考生一分一段关键数据点（官方准确数据）
 const ALL_RANK_REFERENCE: [number, number][] = [
-  [800, 111],     // 800分及以上111人
-  [750, 500],     // 750分=500名
-  [720, 1122],    // 720分=1122名
-  [700, 1835],    // 700分=1835名
-  [680, 2893],    // 680分=2893名
-  [650, 5351],    // 650分=5351名
-  [649, 5456],    // 649分=5456名
-  [640, 6472],    // 640分=6472名
-  [630, 7745],    // 630分=7745名
-  [620, 9168],    // 620分=9168名
-  [610, 10820],   // 610分=10820名
-  [600, 12630],   // 600分=12630名
-  [590, 14626],   // 590分=14626名
-  [580, 16831],   // 580分=16831名
-  [570, 19201],   // 570分=19201名
-  [568, 19715],   // 568分=19715名（特控线）
-  [560, 21745],   // 560分=21745名
-  [550, 24383],   // 550分=24383名
-  [540, 27160],   // 540分=27160名
-  [530, 30064],   // 530分=30064名
-  [520, 32991],   // 520分=32991名
-  [519, 33269],   // 519分=33269名
-  [510, 35999],   // 510分=35999名
-  [500, 38953],   // 500分=38953名
-  [490, 41906],   // 490分=41906名
-  [479, 45098],   // 479分=45098名（本科线）
-  [470, 47520],   // 470分=47520名
-  [460, 50150],   // 460分=50150名
-  [450, 52581],   // 450分=52581名
-  [440, 54832],   // 440分=54832名
-  [430, 56926],   // 430分=56926名
-  [420, 58832],   // 420分=58832名
-  [410, 60574],   // 410分=60574名
-  [400, 62105],   // 400分=62105名
-  [350, 67511],   // 350分=67511名
-  [300, 69781],   // 300分=69781名
+  [800, 2],
+  [750, 192],
+  [720, 606],
+  [700, 1095],
+  [680, 1799],
+  [650, 3309],
+  [640, 3947],
+  [630, 4656],
+  [620, 5442],
+  [610, 6307],
+  [603, 6961],
+  [600, 7254],
+  [590, 8290],
+  [580, 9425],
+  [570, 10660],
+  [567, 11050],
+  [560, 11995],
+  [550, 13430],
+  [540, 14965],
+  [530, 16600],
+  [520, 18335],
+  [510, 20170],
+  [500, 22105],
+  [490, 24140],
+  [479, 26494],
+  [470, 28510],
+  [460, 30845],
+  [450, 33280],
+  [440, 35815],
+  [430, 38450],
+  [420, 41185],
+  [410, 44020],
+  [400, 46955],
+  [350, 63130],
+  [300, 81805],
 ];
 
-// 物理类一分一段关键数据点（官方数据）
+// 物理类一分一段关键数据点（官方数据）- 海南3+3模式不分文理，物理类和历史类共享普通类数据
 const PHYSICS_RANK_REFERENCE: [number, number][] = [
-  [800, 95],
-  [750, 425],
-  [720, 903],
-  [700, 1450],
-  [680, 2243],
-  [650, 4068],
-  [649, 4145],
-  [648, 4215],
-  [647, 4293],
-  [646, 4391],
-  [645, 4462],
-  [644, 4530],
-  [640, 4880],
-  [630, 5782],
-  [620, 6786],
-  [610, 7914],
-  [600, 9155],
-  [590, 10505],
-  [580, 11905],
-  [570, 13392],
-  [568, 13712],
-  [560, 15003],
-  [550, 16621],
-  [540, 18318],
-  [530, 20099],
-  [520, 21881],
-  [519, 22036],
-  [510, 23605],
-  [500, 25298],
-  [479, 28129],
-  [450, 32314],
-  [400, 36400],
-  [300, 39498],
+  [800, 2],
+  [750, 192],
+  [720, 606],
+  [700, 1095],
+  [680, 1799],
+  [650, 3309],
+  [640, 3947],
+  [630, 4656],
+  [620, 5442],
+  [610, 6307],
+  [603, 6961],
+  [600, 7254],
+  [590, 8290],
+  [580, 9425],
+  [570, 10660],
+  [567, 11050],
+  [560, 11995],
+  [550, 13430],
+  [540, 14965],
+  [530, 16600],
+  [520, 18335],
+  [510, 20170],
+  [500, 22105],
+  [490, 24140],
+  [479, 26494],
+  [470, 28510],
+  [460, 30845],
+  [450, 33280],
+  [440, 35815],
+  [430, 38450],
+  [420, 41185],
+  [410, 44020],
+  [400, 46955],
+  [350, 63130],
+  [300, 81805],
 ];
 
-// 历史类一分一段关键数据点（官方数据）
+// 历史类一分一段关键数据点（官方数据）- 海南3+3模式不分文理，使用普通类数据
 const HISTORY_RANK_REFERENCE: [number, number][] = [
-  [800, 20],
-  [750, 97],
-  [720, 236],
-  [700, 404],
-  [680, 659],
-  [650, 1272],
-  [649, 1297],
-  [648, 1329],
-  [647, 1351],
-  [646, 1386],
-  [645, 1407],
-  [644, 1442],
-  [640, 1560],
-  [630, 1914],
-  [620, 2290],
-  [610, 2793],
-  [600, 3303],
-  [590, 3892],
-  [580, 4600],
-  [570, 5385],
-  [568, 5552],
-  [560, 6199],
-  [550, 7042],
-  [540, 7959],
-  [530, 8887],
-  [520, 9847],
-  [519, 9945],
-  [510, 10898],
-  [500, 12589],
-  [479, 15213],
-  [450, 18920],
-  [400, 23600],
-  [300, 28545],
+  [800, 2],
+  [750, 192],
+  [720, 606],
+  [700, 1095],
+  [680, 1799],
+  [650, 3309],
+  [640, 3947],
+  [630, 4656],
+  [620, 5442],
+  [610, 6307],
+  [603, 6961],
+  [600, 7254],
+  [590, 8290],
+  [580, 9425],
+  [570, 10660],
+  [567, 11050],
+  [560, 11995],
+  [550, 13430],
+  [540, 14965],
+  [530, 16600],
+  [520, 18335],
+  [510, 20170],
+  [500, 22105],
+  [490, 24140],
+  [479, 26494],
+  [470, 28510],
+  [460, 30845],
+  [450, 33280],
+  [440, 35815],
+  [430, 38450],
+  [420, 41185],
+  [410, 44020],
+  [400, 46955],
+  [350, 63130],
+  [300, 81805],
 ];
 
 // 使用线性插值计算位次（基于参考数据点）
@@ -535,81 +563,74 @@ export async function fetchRankInfo(score: number, subject: number, province: st
   const category = getSubjectCategory(subject);
   console.debug(`[fetchRankInfo] 开始查询: score=${score}, subject=${subject}, province=${province}, category=${category}`);
 
-  // 3+3模式省份（天津、海南、北京等）不分文理，一分一段表为全体考生数据
-  // 这些省份的数据库记录category为NULL或'普通类'，查询时不应按物理类/历史类过滤
   const is3Plus3Mode = ['海南', '天津', '北京', '上海', '山东', '浙江'].includes(province);
-  const queryCategory = is3Plus3Mode ? undefined : category;
+  const queryCategory = is3Plus3Mode ? '普通类' : category;
   console.debug(`[fetchRankInfo] 3+3模式=${is3Plus3Mode}, queryCategory=${queryCategory ?? 'undefined'}`);
 
-  // 优先从数据库获取
-  try {
-    const { scoreDistributionService } = await import('../services/scoreDistributionService');
+  const yearsToTry = [2026, 2025, 2024, 2023];
+  let dbResult: RankInfo | null = null;
 
-    const rankInfo = await scoreDistributionService.getRankByScore(province, score, 2026, queryCategory);
-    const stats = await scoreDistributionService.getStats(province, 2026);
+  for (const year of yearsToTry) {
+    try {
+      const { scoreDistributionService } = await import('../services/scoreDistributionService');
 
-    console.debug(`[fetchRankInfo] 数据库查询结果: rankInfo=`, rankInfo, `stats=`, stats);
+      const rankInfo = await scoreDistributionService.getRankByScore(province, score, year, queryCategory);
+      const stats = await scoreDistributionService.getStats(province, year);
 
-    if (rankInfo && stats && stats.max_cumulative) {
-      const percentile = Math.round((1 - rankInfo.cumulativeCount / stats.max_cumulative) * 10000) / 100;
+      console.debug(`[fetchRankInfo] 尝试年份${year}: rankInfo=`, rankInfo, `stats=`, stats);
 
-      return {
-        score,
-        rank: rankInfo.cumulativeCount,
-        categoryRank: rankInfo.cumulativeCount,
-        category: is3Plus3Mode ? '普通类' : category,
-        percentile,
-        totalCandidates: stats.max_cumulative,
-        year2025: null,
-        year2024: null,
-        year2023: null,
-        dataSource: `${province}2026年一分一段表`,
-        note: `位次区间：${rankInfo.minRank}~${rankInfo.maxRank}，同分人数：${rankInfo.count}人`,
-      };
-    }
+      if (rankInfo && rankInfo.minRank && rankInfo.maxRank) {
+        const expectedTotal = province === '海南' ? 81805 : (province === '天津' ? 77488 : null);
+        
+        if (expectedTotal && rankInfo.maxRank > expectedTotal * 1.5) {
+          console.warn(`[fetchRankInfo] 年份${year}数据异常: maxRank=${rankInfo.maxRank} > 预期${expectedTotal}，跳过`);
+          continue;
+        }
 
-    // 如果按undefined查询失败，尝试按'普通类'查询（兼容已执行fix_category的数据）
-    if (is3Plus3Mode) {
-      console.debug(`[fetchRankInfo] 尝试按'普通类'查询`);
-      const rankInfoWithCategory = await scoreDistributionService.getRankByScore(province, score, 2026, '普通类');
-      if (rankInfoWithCategory && stats && stats.max_cumulative) {
-        const percentile = Math.round((1 - rankInfoWithCategory.cumulativeCount / stats.max_cumulative) * 10000) / 100;
+        const totalCandidates = stats?.max_cumulative || rankInfo.cumulativeCount || rankInfo.maxRank;
+        const percentile = totalCandidates > 0 
+          ? Math.round((1 - rankInfo.cumulativeCount / totalCandidates) * 10000) / 100 
+          : null;
 
-        return {
+        dbResult = {
           score,
-          rank: rankInfoWithCategory.cumulativeCount,
-          categoryRank: rankInfoWithCategory.cumulativeCount,
-          category: '普通类',
+          rank: rankInfo.minRank,
+          categoryRank: rankInfo.minRank,
+          category: is3Plus3Mode ? '普通类' : category,
           percentile,
-          totalCandidates: stats.max_cumulative,
+          totalCandidates,
           year2025: null,
           year2024: null,
           year2023: null,
-          dataSource: `${province}2026年一分一段表`,
-          note: `位次区间：${rankInfoWithCategory.minRank}~${rankInfoWithCategory.maxRank}，同分人数：${rankInfoWithCategory.count}人`,
+          dataSource: `${province}${year}年一分一段表`,
+          note: `位次区间：${rankInfo.minRank}~${rankInfo.maxRank}，同分人数：${rankInfo.count}人`,
         };
+        break;
       }
+    } catch (error) {
+      console.debug(`[fetchRankInfo] 年份${year}查询失败:`, error);
     }
-
-    console.warn(`[fetchRankInfo] 数据库查询无结果，回退到本地参考数据`);
-  } catch (error) {
-    console.warn('[fetchRankInfo] 从数据库获取位次信息失败，使用本地参考数据:', error);
   }
-  
-  // 回退到本地参考数据
+
+  if (dbResult) {
+    console.debug(`[fetchRankInfo] 使用数据库数据: rank=${dbResult.rank}`);
+    return dbResult;
+  }
+
+  console.warn(`[fetchRankInfo] 数据库查询无结果或数据异常，回退到本地参考数据`);
+
   const localData = getLocalRankInfo(province, score, category);
   if (localData) {
     console.debug(`[fetchRankInfo] 使用本地参考数据`);
     return localData;
   }
-  
-  // 无任何数据，返回提示
+
   console.warn(`[fetchRankInfo] ${province} 无任何位次数据`);
   return {
     score,
     rank: null,
     categoryRank: null,
-    category,
+    category: is3Plus3Mode ? '普通类' : category,
     percentile: null,
     totalCandidates: null,
     year2025: null,

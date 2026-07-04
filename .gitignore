@@ -17,6 +17,9 @@ dist-ssr
 .env.local
 .env.*.local
 
+# Scripts containing service_role keys (sensitive)
+scripts/import_score_distribution_supabase.py
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

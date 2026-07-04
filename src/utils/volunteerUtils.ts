@@ -155,7 +155,8 @@ export function filterSchools(
   strategy: StrategyType = '稳妥',
   selectedSubjects: string[] = [],
   selectedMajors: string[] = [],
-  excludedMajors: string[] = []
+  excludedMajors: string[] = [],
+  province: string = '海南'
 ): VolunteerResult[] {
   return filterSchoolsWithMajors(
     schools,
@@ -170,7 +171,8 @@ export function filterSchools(
     strategy,
     selectedSubjects,
     selectedMajors,
-    excludedMajors
+    excludedMajors,
+    province
   );
 }
 
@@ -188,7 +190,8 @@ export function filterSchoolsWithMajors(
   strategy: StrategyType = '稳妥',
   selectedSubjects: string[] = [],
   selectedMajors: string[] = [],
-  excludedMajors: string[] = []
+  excludedMajors: string[] = [],
+  province: string = '海南'
 ): VolunteerResult[] {
   const strategyConfig = STRATEGY_CONFIGS[strategy];
   
@@ -197,7 +200,10 @@ export function filterSchoolsWithMajors(
     if (selectedSubjects.length > 0) {
       return isSubjectMatch(selectedSubjects, s.subject_requirement ?? s.subject);
     }
-    return s.subject === subject;
+    if (subject === 0) {
+      return true;
+    }
+    return s.subject === subject || s.subject === 0;
   });
   
   // 按院校层次筛选
@@ -261,7 +267,7 @@ export function filterSchoolsWithMajors(
   
   const withTier = sorted.map(s => ({
     ...s,
-    tier: getTier(s.refScore, baseScore, customDiffs),
+    tier: getTier(s.refScore, baseScore, customDiffs, province),
   }));
   
   // 按档次分组
@@ -309,7 +315,7 @@ export function filterSchoolsWithMajors(
       refScore: s.refScore,
       majorSuggestion: formatMajorSuggestion(majorRecs),
       majorRecommendations: majorRecs,
-      reason: getRecommendationReason(s.refScore, baseScore),
+      reason: getRecommendationReason(s.refScore, baseScore, province),
       admissionProbability: probFactors.finalProbability,
       scoreTrend: trendAnalysis.trend,
       trendValue: trendAnalysis.trendValue,
@@ -338,7 +344,7 @@ export function filterSchoolsWithMajors(
       refScore: s.refScore,
       majorSuggestion: formatMajorSuggestion(majorRecs),
       majorRecommendations: majorRecs,
-      reason: getRecommendationReason(s.refScore, baseScore),
+      reason: getRecommendationReason(s.refScore, baseScore, province),
       admissionProbability: probFactors.finalProbability,
       scoreTrend: trendAnalysis.trend,
       trendValue: trendAnalysis.trendValue,
@@ -367,7 +373,7 @@ export function filterSchoolsWithMajors(
       refScore: s.refScore,
       majorSuggestion: formatMajorSuggestion(majorRecs),
       majorRecommendations: majorRecs,
-      reason: getRecommendationReason(s.refScore, baseScore),
+      reason: getRecommendationReason(s.refScore, baseScore, province),
       admissionProbability: probFactors.finalProbability,
       scoreTrend: trendAnalysis.trend,
       trendValue: trendAnalysis.trendValue,
@@ -388,8 +394,27 @@ function extractSchoolName(schoolName: string): string {
 }
 
 // 获取专业录取概率（基于分数差）
-function getMajorAdmissionProbability(majorScore: number, baseScore: number): number {
+// 海南900分制使用更大的分数差区间
+function getMajorAdmissionProbability(majorScore: number, baseScore: number, province: string = '海南'): number {
   const diff = baseScore - majorScore;
+  const isHighScoreSystem = ['海南'].includes(province);
+  
+  if (isHighScoreSystem) {
+    if (diff >= 80) return 99;
+    if (diff >= 60) return 97;
+    if (diff >= 45) return 94;
+    if (diff >= 30) return 88;
+    if (diff >= 15) return 78;
+    if (diff >= 5) return 65;
+    if (diff >= 0) return 50;
+    if (diff >= -5) return 38;
+    if (diff >= -15) return 28;
+    if (diff >= -30) return 18;
+    if (diff >= -45) return 12;
+    if (diff >= -60) return 8;
+    if (diff >= -80) return 5;
+    return 2;
+  }
   
   if (diff >= 30) return 99;
   if (diff >= 25) return 97;
@@ -415,15 +440,20 @@ function getMajorTierByScore(
   majorScore: number,
   baseScore: number,
   chongDiff: number,
-  wenDiff: number
+  wenDiff: number,
+  province: string = '海南'
 ): '冲' | '稳' | '保' {
   const diff = majorScore - baseScore;
+  const isHighScoreSystem = ['海南'].includes(province);
   
-  if (diff > 0 && diff <= chongDiff) {
+  const adjustedChongDiff = isHighScoreSystem ? chongDiff * 2 : chongDiff;
+  const adjustedWenDiff = isHighScoreSystem ? wenDiff * 2 : wenDiff;
+  
+  if (diff > 0 && diff <= adjustedChongDiff) {
     return '冲';
-  } else if (diff >= -wenDiff && diff <= 0) {
+  } else if (diff >= -adjustedWenDiff && diff <= 0) {
     return '稳';
-  } else if (diff < -wenDiff) {
+  } else if (diff < -adjustedWenDiff) {
     return '保';
   } else {
     return '冲';
@@ -444,7 +474,8 @@ export async function filterSchoolsAsync(
   strategy: StrategyType = '稳妥',
   selectedSubjects: string[] = [],
   selectedMajors: string[] = [],
-  excludedMajors: string[] = []
+  excludedMajors: string[] = [],
+  province: string = '海南'
 ): Promise<VolunteerResult[]> {
   const results = filterSchoolsWithMajors(
     schools,
@@ -467,6 +498,9 @@ export async function filterSchoolsAsync(
   const wenDiff = strategyConfig.wenScoreDiff;
   const baoDiff = strategyConfig.baoScoreDiff;
   
+  const isHighScoreSystem = ['海南'].includes(province);
+  const adjustedMaxRange = isHighScoreSystem ? Math.max(chongDiff, wenDiff, baoDiff) * 2 + 60 : Math.max(chongDiff, wenDiff, baoDiff) + 30;
+  
   for (const result of results) {
     try {
       const schoolName = extractSchoolName(result.name);
@@ -484,17 +518,15 @@ export async function filterSchoolsAsync(
         return true;
       });
       
-      const maxRange = Math.max(chongDiff, wenDiff, baoDiff) + 30;
-      
       const matched = filteredMajors.filter(major => {
         const score = major.min_score || 0;
-        return score >= baseScore - maxRange && score <= baseScore + maxRange;
+        return score >= baseScore - adjustedMaxRange && score <= baseScore + adjustedMaxRange;
       });
       
       matched.forEach(major => {
         const score = major.min_score || 0;
-        major.admission_probability = getMajorAdmissionProbability(score, baseScore);
-        major.tier = getMajorTierByScore(score, baseScore, chongDiff, wenDiff);
+        major.admission_probability = getMajorAdmissionProbability(score, baseScore, province);
+        major.tier = getMajorTierByScore(score, baseScore, chongDiff, wenDiff, province);
       });
       
       matched.sort((a, b) => {
