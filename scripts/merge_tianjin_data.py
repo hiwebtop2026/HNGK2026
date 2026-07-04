@@ -103,12 +103,12 @@ def generate_sql(data: List[Dict]) -> str:
     lines.append("-- ============================================")
     lines.append("")
     lines.append("-- 第一步：清理旧的天津专业分数线数据（如有）")
-    lines.append("DELETE FROM school_data WHERE province = '天津';")
+    lines.append("DELETE FROM major_scores WHERE province = '天津';")
     lines.append("")
     lines.append("-- 第二步：批量插入天津专业分数线数据")
-    lines.append("INSERT INTO school_data (school_name, school_code, province, year, major_name,")
+    lines.append("INSERT INTO major_scores (school_name, school_code, province, year, major_name,")
     lines.append("                         major_group, min_score, min_rank, person_count,")
-    lines.append("                         batch, subject_requirement, subject, level, nature, region)")
+    lines.append("                         batch, subject_requirement, level)")
     lines.append("VALUES ")
     
     rows = []
@@ -126,8 +126,6 @@ def generate_sql(data: List[Dict]) -> str:
         if min_score is None or min_score < 100:
             continue
         
-        subject = parse_subject_requirement(subject_requirement)
-        
         school_name_escaped = school_name.replace("'", "''")
         major_name_escaped = major_name.replace("'", "''")
         major_group_escaped = major_group.replace("'", "''")
@@ -142,8 +140,7 @@ def generate_sql(data: List[Dict]) -> str:
         
         row = f"""('{school_name_escaped}', '', '天津', {year}, '{major_name_escaped}', '{major_group_escaped}', 
                  {min_score}, {min_rank or 'NULL'}, {person_count or 'NULL'}, 
-                 '{batch_escaped}', '{subject_requirement_escaped}', {subject}, 
-                 '{level}', '公办', '天津')"""
+                 '{batch_escaped}', '{subject_requirement_escaped}', '{level}')"""
         rows.append(row)
     
     lines.append(",\n".join(rows) + ";")
@@ -151,7 +148,7 @@ def generate_sql(data: List[Dict]) -> str:
     lines.append("")
     lines.append("-- 第三步：验证数据")
     lines.append("SELECT province, year, COUNT(*) as records, MIN(min_score) as min_score, ")
-    lines.append("MAX(min_score) as max_score FROM school_data WHERE province = '天津' ")
+    lines.append("MAX(min_score) as max_score FROM major_scores WHERE province = '天津' ")
     lines.append("GROUP BY province, year;")
     
     return "\n".join(lines)
