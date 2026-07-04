@@ -1,0 +1,74 @@
+[
+  {
+    "2023": 2023,
+    "电子科技大学": "电子科技大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 753,
+    "min_rank": 445,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "电子科技大学": "电子科技大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 751,
+    "min_rank": 467,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "电子科技大学": "电子科技大学",
+    "major_name": "集成电路设计与集成系统",
+    "major_group": "",
+    "min_score": 750,
+    "min_rank": 482,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "电子科技大学": "电子科技大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 749,
+    "min_rank": 495,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "电子科技大学": "电子科技大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 747,
+    "min_rank": 525,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2023": 2023,
+    "电子科技大学": "电子科技大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 745,
+    "min_rank": 555,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

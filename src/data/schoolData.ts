@@ -5,6 +5,7 @@ export interface SchoolScore {
   code: string;
   name: string;
   subject: number;
+  subject_requirement?: string | null;
   province: string;
   level: string;
   nature: '公办' | '民办' | '中外合作办学';

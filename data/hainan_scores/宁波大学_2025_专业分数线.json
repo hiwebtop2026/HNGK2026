@@ -1,0 +1,98 @@
+[
+  {
+    "2025": 2025,
+    "宁波大学": "宁波大学",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 669,
+    "min_rank": 3508,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "宁波大学": "宁波大学",
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 658,
+    "min_rank": 4406,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "宁波大学": "宁波大学",
+    "major_name": "微电子科学与工程",
+    "major_group": "",
+    "min_score": 632,
+    "min_rank": 7178,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "宁波大学": "宁波大学",
+    "major_name": "水产养殖学",
+    "major_group": "",
+    "min_score": 631,
+    "min_rank": 7322,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "宁波大学": "宁波大学",
+    "major_name": "化学",
+    "major_group": "",
+    "min_score": 624,
+    "min_rank": 8280,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "宁波大学": "宁波大学",
+    "major_name": "工业设计",
+    "major_group": "",
+    "min_score": 624,
+    "min_rank": 8280,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "宁波大学": "宁波大学",
+    "major_name": "物理学",
+    "major_group": "",
+    "min_score": 620,
+    "min_rank": 8822,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2025": 2025,
+    "宁波大学": "宁波大学",
+    "major_name": "生物科学类",
+    "major_group": "",
+    "min_score": 618,
+    "min_rank": 9132,
+    "person_count": 6,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

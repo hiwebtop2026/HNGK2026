@@ -9,7 +9,7 @@ import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
 import { useUsageStore } from '../store/usageStore';
 import { filterSchools, filterSchoolsAsync, loadSchoolDataFromExcel } from '../utils/volunteerUtils';
-import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST } from '../utils/dataUtils';
+import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST, isSubjectMatch } from '../utils/dataUtils';
 import { fetchRankInfo } from '../utils/dataUtils';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, SCHOOL_NATURES, REGION_GROUPS } from '../data/schoolData';
 import { ALL_MAJORS, MAJOR_CATEGORIES as ALL_MAJOR_CATEGORIES, getMajorsByCategory } from '../data/majorData';
@@ -191,8 +191,18 @@ export function HomePage() {
   
   const availableCount = useMemo(() => {
     const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
+    
+    const is3Plus3Mode = provinceConfig?.examMode === '3+3';
+    
     return data.filter(s => {
-      if (subject !== undefined && s.subject !== subject) return false;
+      if (is3Plus3Mode) {
+        if (selectedSubjects.length > 0) {
+          if (!isSubjectMatch(selectedSubjects, s.subject_requirement ?? s.subject)) return false;
+        }
+      } else {
+        if (subject !== undefined && s.subject !== subject) return false;
+      }
+      
       if (selectedLevels.length > 0 && !selectedLevels.includes(s.level)) return false;
       if (selectedNatures.length > 0 && !selectedNatures.includes(s.nature)) return false;
       if (selectedProvinces.length > 0 && !selectedProvinces.includes(s.province)) return false;
@@ -206,7 +216,7 @@ export function HomePage() {
       }
       return true;
     }).length;
-  }, [baseScore, scoreRange, subject, selectedLevels, selectedNatures, selectedProvinces, selectedMajorCategories, schoolData]);
+  }, [baseScore, scoreRange, subject, selectedLevels, selectedNatures, selectedProvinces, selectedMajorCategories, schoolData, provinceConfig, selectedSubjects]);
   
   const scoreRangeOptions = [10, 15, 20, 25, 30];
   const volunteerOptions = [15, 20, 30, 45];

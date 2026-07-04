@@ -5,6 +5,7 @@ export interface SchoolScore {
   code: string;           // 院校专业组代码
   name: string;           // 院校专业组名称
   subject: number;        // 科目要求 (54=物理+化学)
+  subject_requirement?: string | null; // 原始选科要求文字描述（可选）
   province: string;       // 省份
   level: string;          // 院校层次 (985/211/双一流/普通本科)
   nature: '公办' | '民办' | '中外合作办学'; // 院校性质

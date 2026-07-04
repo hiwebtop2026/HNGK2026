@@ -65,6 +65,7 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
           code: score.group_code || '',
           name: score.group_name || score.school_name,
           subject: parseInt(score.subject_requirement) || 0,
+          subject_requirement: score.subject_requirement ?? null,
           province: score.school_name ? extractProvince(score.school_name) : '其他',
           level: '普通本科',
           nature: '公办',
@@ -112,21 +113,22 @@ async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
           existing.subject = subjectCode;
         }
       } else {
-        const subjectCode = parseSubjectRequirementToCode(score.subject_requirement);
-        
-        result.set(key, {
-          code: key,
-          name: score.school_name,
-          subject: subjectCode,
-          province: score.province || score.school_name ? extractProvince(score.school_name) : '其他',
-          level: '普通本科',
-          nature: '公办',
-          region: province,
-          score2025: score.year === 2025 ? score.min_score : null,
-          score2024: score.year === 2024 ? score.min_score : null,
-          score2023: score.year === 2023 ? score.min_score : null,
-        });
-      }
+          const subjectCode = parseSubjectRequirementToCode(score.subject_requirement);
+          
+          result.set(key, {
+            code: key,
+            name: score.school_name,
+            subject: subjectCode,
+            subject_requirement: score.subject_requirement,
+            province: score.province || score.school_name ? extractProvince(score.school_name) : '其他',
+            level: '普通本科',
+            nature: '公办',
+            region: province,
+            score2025: score.year === 2025 ? score.min_score : null,
+            score2024: score.year === 2024 ? score.min_score : null,
+            score2023: score.year === 2023 ? score.min_score : null,
+          });
+        }
     }
   } catch (error) {
     console.warn(`从major_scores表加载数据失败:`, error);

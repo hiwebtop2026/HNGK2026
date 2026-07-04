@@ -1,0 +1,110 @@
+[
+  {
+    "2024": 2024,
+    "广西大学": "广西大学",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 670,
+    "min_rank": 3448,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "广西大学": "广西大学",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 656,
+    "min_rank": 4584,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "广西大学": "广西大学",
+    "major_name": "电子科学与技术",
+    "major_group": "",
+    "min_score": 652,
+    "min_rank": 4963,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "广西大学": "广西大学",
+    "major_name": "信息安全",
+    "major_group": "",
+    "min_score": 644,
+    "min_rank": 5768,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "广西大学": "广西大学",
+    "major_name": "材料科学与工程",
+    "major_group": "",
+    "min_score": 617,
+    "min_rank": 9286,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "广西大学": "广西大学",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 609,
+    "min_rank": 10621,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "广西大学": "广西大学",
+    "major_name": "轻工类",
+    "major_group": "",
+    "min_score": 607,
+    "min_rank": 10923,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "广西大学": "广西大学",
+    "major_name": "化学工程与工艺",
+    "major_group": "",
+    "min_score": 605,
+    "min_rank": 11264,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "2024": 2024,
+    "广西大学": "广西大学",
+    "major_name": "海洋科学",
+    "major_group": "",
+    "min_score": 603,
+    "min_rank": 11640,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

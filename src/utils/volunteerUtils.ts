@@ -82,6 +82,7 @@ export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]
           code,
           name,
           subject,
+          subject_requirement: null,
           province: '其他',
           level: '普通本科',
           nature: '公办',
@@ -191,8 +192,13 @@ export function filterSchoolsWithMajors(
 ): VolunteerResult[] {
   const strategyConfig = STRATEGY_CONFIGS[strategy];
   
-  // 按科目筛选
-  let filtered = schools.filter(s => s.subject === subject);
+  // 按科目筛选（支持3+3省份的选科匹配）
+  let filtered = schools.filter(s => {
+    if (selectedSubjects.length > 0) {
+      return isSubjectMatch(selectedSubjects, s.subject_requirement ?? s.subject);
+    }
+    return s.subject === subject;
+  });
   
   // 按院校层次筛选
   if (selectedLevels.length > 0) {
