@@ -108,7 +108,7 @@ def generate_sql(data: List[Dict]) -> str:
     lines.append("-- 第二步：批量插入天津专业分数线数据")
     lines.append("INSERT INTO major_scores (school_name, province, year, major_name,")
     lines.append("                         major_group, min_score, min_rank, person_count,")
-    lines.append("                         batch, subject_requirement, level)")
+    lines.append("                         batch, subject_requirement)")
     lines.append("VALUES ")
     
     rows = []
@@ -132,15 +132,9 @@ def generate_sql(data: List[Dict]) -> str:
         batch_escaped = batch.replace("'", "''")
         subject_requirement_escaped = subject_requirement.replace("'", "''")
         
-        level = "普通本科"
-        if "985" in school_name or "清华" in school_name or "北大" in school_name:
-            level = "985"
-        elif "211" in school_name or "双一流" in school_name:
-            level = "211"
-        
         row = f"""('{school_name_escaped}', '天津', {year}, '{major_name_escaped}', '{major_group_escaped}', 
                  {min_score}, {min_rank or 'NULL'}, {person_count or 'NULL'}, 
-                 '{batch_escaped}', '{subject_requirement_escaped}', '{level}')"""
+                 '{batch_escaped}', '{subject_requirement_escaped}')"""
         rows.append(row)
     
     lines.append(",\n".join(rows) + ";")

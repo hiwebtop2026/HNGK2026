@@ -8,7 +8,9 @@ with open(sql_file, 'r', encoding='utf-8') as f:
 
 content = re.sub(r", '', '天津'", ", '天津'", content)
 
+content = re.sub(r", '[^']+'\)$", ")", content, flags=re.MULTILINE)
+
 with open(sql_file, 'w', encoding='utf-8') as f:
     f.write(content)
 
-print("✅ 已移除所有VALUES中的school_code空字符串")
+print("✅ 已移除所有VALUES中的school_code和level字段")
