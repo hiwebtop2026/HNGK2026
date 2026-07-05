@@ -53,38 +53,44 @@ describe('getRefScore', () => {
 });
 
 describe('getTier', () => {
-  it('should return "冲" when refScore is more than 10 points above baseScore', () => {
-    expect(getTier(615, 600)).toBe('冲');
-    expect(getTier(611, 600)).toBe('冲');
+  it('should return "冲" when refScore is more than 10 points above baseScore (non-Hainan)', () => {
+    expect(getTier(615, 600, undefined, '北京')).toBe('冲');
+    expect(getTier(611, 600, undefined, '北京')).toBe('冲');
   });
 
-  it('should return "稳" when refScore is within ±10 points of baseScore', () => {
-    expect(getTier(600, 600)).toBe('稳');
-    expect(getTier(610, 600)).toBe('稳');
-    expect(getTier(595, 600)).toBe('稳');
+  it('should return "稳" when refScore is within ±10 points of baseScore (non-Hainan)', () => {
+    expect(getTier(600, 600, undefined, '北京')).toBe('稳');
+    expect(getTier(610, 600, undefined, '北京')).toBe('稳');
+    expect(getTier(595, 600, undefined, '北京')).toBe('稳');
   });
 
-  it('should return "保" when refScore is more than 5 points below baseScore', () => {
-    expect(getTier(594, 600)).toBe('保');
-    expect(getTier(580, 600)).toBe('保');
+  it('should return "保" when refScore is more than 5 points below baseScore (non-Hainan)', () => {
+    expect(getTier(594, 600, undefined, '北京')).toBe('保');
+    expect(getTier(580, 600, undefined, '北京')).toBe('保');
+  });
+
+  it('should handle Hainan high-score system (900 scale)', () => {
+    expect(getTier(840, 800, undefined, '海南')).toBe('冲');
+    expect(getTier(800, 800, undefined, '海南')).toBe('稳');
+    expect(getTier(780, 800, undefined, '海南')).toBe('保');
   });
 });
 
 describe('getRecommendationReason', () => {
   it('should return appropriate reason for chong (冲) tier', () => {
-    const reason = getRecommendationReason(615, 600);
+    const reason = getRecommendationReason(615, 600, '北京');
     expect(reason).toContain('高于考生分数');
     expect(reason).toContain('冲刺');
   });
 
   it('should return appropriate reason for wen (稳) tier', () => {
-    const reason = getRecommendationReason(600, 600);
+    const reason = getRecommendationReason(600, 600, '北京');
     expect(reason).toContain('录取把握较大');
     expect(reason).toContain('理想的稳投');
   });
 
   it('should return appropriate reason for bao (保) tier', () => {
-    const reason = getRecommendationReason(585, 600);
+    const reason = getRecommendationReason(585, 600, '北京');
     expect(reason).toContain('低于考生分数');
     expect(reason).toContain('录取概率很高');
   });

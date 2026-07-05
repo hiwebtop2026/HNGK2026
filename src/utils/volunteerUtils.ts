@@ -5,7 +5,8 @@ import type { SchoolScore, MajorRecommendation } from './dataUtils';
 import { generateMajorRecommendations, formatMajorSuggestion } from './majorRecommender';
 import { majorScoreService, type MajorScore } from '../services/majorScoreService';
 import { calculateAdmissionProbability, calculateTrendAnalysis, calculateRiskAssessment, getSmartConfig } from './trendAnalyzer';
-import { STRATEGY_CONFIGS, type StrategyType } from '../store/appStore';
+import { STRATEGY_CONFIGS, type StrategyType } from '../config/strategyConfig';
+import { scoreDistributionService } from '../services/scoreDistributionService';
 export type { SchoolScore, MajorRecommendation };
 
 export interface VolunteerResult {
@@ -29,6 +30,219 @@ export interface VolunteerResult {
   trendValue: number;
   volatility: number;
   matchedMajors: MajorScore[];
+  rankDiff: number | null;
+  rankPercentage: number | null;
+  candidateRank: number | null;
+  schoolRank: number | null;
+}
+
+export interface RankAnalysis {
+  candidateRank: number;
+  schoolRank: number;
+  rankDiff: number;
+  rankPercentage: number;
+  totalCandidates: number;
+}
+
+const PROVINCE_TOTAL_CANDIDATES: Record<string, number> = {
+  '海南': 70398,
+  '天津': 77488,
+};
+
+const HIGH_SCORE_PROVINCES = ['海南'];
+
+function isHighScoreSystem(province: string): boolean {
+  return HIGH_SCORE_PROVINCES.includes(province);
+}
+
+function getTotalCandidates(province: string): number {
+  return PROVINCE_TOTAL_CANDIDATES[province] || 70000;
+}
+
+function getScoreToRankFactor(province: string): number {
+  return isHighScoreSystem(province) ? 2 : 1;
+}
+
+export async function analyzeRank(
+  candidateScore: number,
+  schoolScore: number,
+  province: string,
+  year: number = 2026
+): Promise<RankAnalysis | null> {
+  try {
+    const is3Plus3Mode = ['海南', '天津', '北京', '上海', '山东', '浙江'].includes(province);
+    const category = is3Plus3Mode ? '普通类' : undefined;
+
+    const candidateRankInfo = await scoreDistributionService.getRankByScore(province, candidateScore, year, category);
+    const schoolRankInfo = await scoreDistributionService.getRankByScore(province, schoolScore, year, category);
+
+    if (!candidateRankInfo || !schoolRankInfo) {
+      return estimateRank(candidateScore, schoolScore, province);
+    }
+
+    const candidateRank = candidateRankInfo.maxRank;
+    const schoolRank = schoolRankInfo.maxRank;
+    const totalCandidates = candidateRankInfo.cumulativeCount || getTotalCandidates(province);
+
+    const rankDiff = schoolRank - candidateRank;
+    const rankPercentage = totalCandidates > 0 
+      ? Math.round((1 - candidateRank / totalCandidates) * 10000) / 100 
+      : null;
+
+    return {
+      candidateRank,
+      schoolRank,
+      rankDiff,
+      rankPercentage: rankPercentage || null,
+      totalCandidates,
+    };
+  } catch (error) {
+    console.warn(`[analyzeRank] 位次分析失败，使用估算值:`, error);
+    return estimateRank(candidateScore, schoolScore, province);
+  }
+}
+
+function estimateRank(candidateScore: number, schoolScore: number, province: string): RankAnalysis | null {
+  const totalCandidates = getTotalCandidates(province);
+  const scoreRange = isHighScoreSystem(province) ? 500 : 550;
+  const minScore = isHighScoreSystem(province) ? 300 : 200;
+
+  const normalizedCandidateScore = Math.max(0, Math.min(1, (candidateScore - minScore) / scoreRange));
+  const normalizedSchoolScore = Math.max(0, Math.min(1, (schoolScore - minScore) / scoreRange));
+
+  const candidateRank = Math.round(totalCandidates * (1 - normalizedCandidateScore * normalizedCandidateScore));
+  const schoolRank = Math.round(totalCandidates * (1 - normalizedSchoolScore * normalizedSchoolScore));
+
+  const rankDiff = schoolRank - candidateRank;
+  const rankPercentage = totalCandidates > 0 
+    ? Math.round((1 - candidateRank / totalCandidates) * 10000) / 100 
+    : null;
+
+  return {
+    candidateRank: Math.max(1, candidateRank),
+    schoolRank: Math.max(1, schoolRank),
+    rankDiff,
+    rankPercentage: rankPercentage || null,
+    totalCandidates,
+  };
+}
+
+export function calculateComprehensiveAdmissionProbability(
+  candidateScore: number,
+  schoolRefScore: number,
+  schoolScore2025: number | null,
+  schoolScore2024: number | null,
+  schoolScore2023: number | null,
+  province: string,
+  rankAnalysis: RankAnalysis | null
+): { probability: number; factors: { scoreFactor: number; rankFactor: number; trendFactor: number; volatilityFactor: number } } {
+  const isHighScore = isHighScoreSystem(province);
+  const scoreDiff = candidateScore - schoolRefScore;
+  const adjustedDiff = isHighScore ? scoreDiff / 2 : scoreDiff;
+
+  let scoreFactor = 50;
+  if (adjustedDiff >= 30) scoreFactor = 99;
+  else if (adjustedDiff >= 25) scoreFactor = 97;
+  else if (adjustedDiff >= 20) scoreFactor = 94;
+  else if (adjustedDiff >= 15) scoreFactor = 88;
+  else if (adjustedDiff >= 10) scoreFactor = 78;
+  else if (adjustedDiff >= 5) scoreFactor = 65;
+  else if (adjustedDiff >= 0) scoreFactor = 50;
+  else if (adjustedDiff >= -5) scoreFactor = 38;
+  else if (adjustedDiff >= -10) scoreFactor = 28;
+  else if (adjustedDiff >= -15) scoreFactor = 18;
+  else if (adjustedDiff >= -20) scoreFactor = 12;
+  else if (adjustedDiff >= -25) scoreFactor = 8;
+  else if (adjustedDiff >= -30) scoreFactor = 5;
+  else scoreFactor = 2;
+
+  let rankFactor = scoreFactor;
+  if (rankAnalysis) {
+    const totalCandidates = rankAnalysis.totalCandidates;
+    const rankDiffPercent = totalCandidates > 0 
+      ? Math.abs(rankAnalysis.rankDiff) / totalCandidates * 100 
+      : 0;
+
+    if (rankAnalysis.rankDiff <= -5) {
+      rankFactor = Math.min(99, scoreFactor + rankDiffPercent * 0.5);
+    } else if (rankAnalysis.rankDiff <= -2) {
+      rankFactor = Math.min(95, scoreFactor + rankDiffPercent * 0.3);
+    } else if (rankAnalysis.rankDiff >= 5) {
+      rankFactor = Math.max(2, scoreFactor - rankDiffPercent * 0.5);
+    } else if (rankAnalysis.rankDiff >= 2) {
+      rankFactor = Math.max(10, scoreFactor - rankDiffPercent * 0.3);
+    }
+  }
+
+  const trendAnalysis = calculateTrendAnalysis(schoolScore2025, schoolScore2024, schoolScore2023);
+  const trendFactor = trendAnalysis.trendCoefficient;
+  const volatilityFactor = trendAnalysis.volatilityCoefficient;
+
+  const combinedScoreFactor = (scoreFactor * 0.6 + rankFactor * 0.4);
+  const finalProbability = Math.max(
+    1,
+    Math.min(99, combinedScoreFactor * trendFactor * volatilityFactor)
+  );
+
+  return {
+    probability: Math.round(finalProbability),
+    factors: {
+      scoreFactor: Math.round(scoreFactor),
+      rankFactor: Math.round(rankFactor),
+      trendFactor,
+      volatilityFactor,
+    },
+  };
+}
+
+export function getSmartTier(
+  candidateScore: number,
+  schoolRefScore: number,
+  rankAnalysis: RankAnalysis | null,
+  strategyConfig: { chongScoreDiff: number; wenScoreDiff: number; baoScoreDiff: number },
+  province: string
+): '冲' | '稳' | '保' {
+  const isHighScore = isHighScoreSystem(province);
+  const scoreDiff = candidateScore - schoolRefScore;
+  const adjustedDiff = isHighScore ? scoreDiff / 2 : scoreDiff;
+
+  const chongDiff = strategyConfig.chongScoreDiff;
+  const wenDiff = strategyConfig.wenScoreDiff;
+
+  let tier: '冲' | '稳' | '保';
+
+  if (adjustedDiff > chongDiff) {
+    tier = '保';
+  } else if (adjustedDiff >= -wenDiff && adjustedDiff <= chongDiff) {
+    tier = '稳';
+  } else {
+    tier = '冲';
+  }
+
+  if (rankAnalysis && rankAnalysis.rankDiff !== null) {
+    const totalCandidates = rankAnalysis.totalCandidates;
+    const rankDiffPercent = totalCandidates > 0 
+      ? Math.abs(rankAnalysis.rankDiff) / totalCandidates * 100 
+      : 0;
+
+    if (tier === '稳') {
+      if (rankDiffPercent > 10 && rankAnalysis.rankDiff > 0) {
+        tier = '冲';
+      } else if (rankDiffPercent > 10 && rankAnalysis.rankDiff < 0) {
+        tier = '保';
+      }
+    } else if (tier === '冲') {
+      if (rankDiffPercent <= 3 && rankAnalysis.rankDiff < 0) {
+        tier = '稳';
+      }
+    } else if (tier === '保') {
+      if (rankDiffPercent <= 3 && rankAnalysis.rankDiff > 0) {
+        tier = '稳';
+      }
+    }
+  }
+
+  return tier;
 }
 
 // 从Excel文件读取数据（浏览器环境）
@@ -143,7 +357,7 @@ function deduplicateMajors(majors: MajorScore[]): MajorScore[] {
 }
 
 // 筛选院校（同步版本，保持向后兼容）
-export function filterSchools(
+export async function filterSchools(
   schools: SchoolScore[],
   baseScore: number,
   scoreRange: number,
@@ -158,7 +372,7 @@ export function filterSchools(
   selectedMajors: string[] = [],
   excludedMajors: string[] = [],
   province: string = '海南'
-): VolunteerResult[] {
+): Promise<VolunteerResult[]> {
   return filterSchoolsWithMajors(
     schools,
     baseScore,
@@ -177,8 +391,8 @@ export function filterSchools(
   );
 }
 
-// 筛选院校（带专业数据版本）
-export function filterSchoolsWithMajors(
+// 筛选院校（带专业数据版本，支持位次分析）
+export async function filterSchoolsWithMajors(
   schools: SchoolScore[],
   baseScore: number,
   scoreRange: number,
@@ -193,7 +407,7 @@ export function filterSchoolsWithMajors(
   selectedMajors: string[] = [],
   excludedMajors: string[] = [],
   province: string = '海南'
-): VolunteerResult[] {
+): Promise<VolunteerResult[]> {
   const strategyConfig = STRATEGY_CONFIGS[strategy];
   
   // 按科目筛选（支持3+3省份的选科匹配）
@@ -259,22 +473,21 @@ export function filterSchoolsWithMajors(
   // 按参考分从高到低排序
   const sorted = withRefScore.sort((a, b) => b.refScore - a.refScore);
   
-  // 使用策略配置的分数差进行档次分配
-  const customDiffs = { 
-    chong: strategyConfig.chongScoreDiff, 
-    wen: strategyConfig.wenScoreDiff, 
-    bao: strategyConfig.baoScoreDiff 
-  };
-  
-  const withTier = sorted.map(s => ({
-    ...s,
-    tier: getTier(s.refScore, baseScore, customDiffs, province),
+  // 并行计算位次分析
+  const withRankAnalysis = await Promise.all(sorted.map(async s => {
+    const rankAnalysis = await analyzeRank(baseScore, s.refScore, province);
+    const tier = getSmartTier(baseScore, s.refScore, rankAnalysis, strategyConfig, province);
+    return {
+      ...s,
+      tier,
+      rankAnalysis,
+    };
   }));
   
   // 按档次分组
-  const chong = withTier.filter(s => s.tier === '冲');
-  const wen = withTier.filter(s => s.tier === '稳');
-  const bao = withTier.filter(s => s.tier === '保');
+  const chong = withRankAnalysis.filter(s => s.tier === '冲');
+  const wen = withRankAnalysis.filter(s => s.tier === '稳');
+  const bao = withRankAnalysis.filter(s => s.tier === '保');
   
   // 使用策略配置的比例计算各档次数量
   let chongCount = Math.min(Math.ceil(totalVolunteers * strategyConfig.chongRatio), chong.length);
@@ -300,7 +513,9 @@ export function filterSchoolsWithMajors(
   for (const s of chong.slice(0, chongCount)) {
     const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
     const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
-    const probFactors = calculateAdmissionProbability(s.refScore, baseScore, s.score2025, s.score2024, s.score2023);
+    const probResult = calculateComprehensiveAdmissionProbability(
+      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis
+    );
     result.push({
       index,
       tier: s.tier,
@@ -317,11 +532,15 @@ export function filterSchoolsWithMajors(
       majorSuggestion: formatMajorSuggestion(majorRecs),
       majorRecommendations: majorRecs,
       reason: getRecommendationReason(s.refScore, baseScore, province),
-      admissionProbability: probFactors.finalProbability,
+      admissionProbability: probResult.probability,
       scoreTrend: trendAnalysis.trend,
       trendValue: trendAnalysis.trendValue,
       volatility: trendAnalysis.volatility,
       matchedMajors: [],
+      rankDiff: s.rankAnalysis?.rankDiff ?? null,
+      rankPercentage: s.rankAnalysis?.rankPercentage ?? null,
+      candidateRank: s.rankAnalysis?.candidateRank ?? null,
+      schoolRank: s.rankAnalysis?.schoolRank ?? null,
     });
     index++;
   }
@@ -329,7 +548,9 @@ export function filterSchoolsWithMajors(
   for (const s of wen.slice(0, wenCount)) {
     const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
     const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
-    const probFactors = calculateAdmissionProbability(s.refScore, baseScore, s.score2025, s.score2024, s.score2023);
+    const probResult = calculateComprehensiveAdmissionProbability(
+      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis
+    );
     result.push({
       index,
       tier: s.tier,
@@ -346,11 +567,15 @@ export function filterSchoolsWithMajors(
       majorSuggestion: formatMajorSuggestion(majorRecs),
       majorRecommendations: majorRecs,
       reason: getRecommendationReason(s.refScore, baseScore, province),
-      admissionProbability: probFactors.finalProbability,
+      admissionProbability: probResult.probability,
       scoreTrend: trendAnalysis.trend,
       trendValue: trendAnalysis.trendValue,
       volatility: trendAnalysis.volatility,
       matchedMajors: [],
+      rankDiff: s.rankAnalysis?.rankDiff ?? null,
+      rankPercentage: s.rankAnalysis?.rankPercentage ?? null,
+      candidateRank: s.rankAnalysis?.candidateRank ?? null,
+      schoolRank: s.rankAnalysis?.schoolRank ?? null,
     });
     index++;
   }
@@ -358,7 +583,9 @@ export function filterSchoolsWithMajors(
   for (const s of bao.slice(0, baoCount)) {
     const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
     const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
-    const probFactors = calculateAdmissionProbability(s.refScore, baseScore, s.score2025, s.score2024, s.score2023);
+    const probResult = calculateComprehensiveAdmissionProbability(
+      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis
+    );
     result.push({
       index,
       tier: s.tier,
@@ -375,11 +602,15 @@ export function filterSchoolsWithMajors(
       majorSuggestion: formatMajorSuggestion(majorRecs),
       majorRecommendations: majorRecs,
       reason: getRecommendationReason(s.refScore, baseScore, province),
-      admissionProbability: probFactors.finalProbability,
+      admissionProbability: probResult.probability,
       scoreTrend: trendAnalysis.trend,
       trendValue: trendAnalysis.trendValue,
       volatility: trendAnalysis.volatility,
       matchedMajors: [],
+      rankDiff: s.rankAnalysis?.rankDiff ?? null,
+      rankPercentage: s.rankAnalysis?.rankPercentage ?? null,
+      candidateRank: s.rankAnalysis?.candidateRank ?? null,
+      schoolRank: s.rankAnalysis?.schoolRank ?? null,
     });
     index++;
   }
@@ -478,7 +709,7 @@ export async function filterSchoolsAsync(
   excludedMajors: string[] = [],
   province: string = '海南'
 ): Promise<VolunteerResult[]> {
-  const results = filterSchoolsWithMajors(
+  const results = await filterSchoolsWithMajors(
     schools,
     baseScore,
     scoreRange,
@@ -491,7 +722,8 @@ export async function filterSchoolsAsync(
     strategy,
     selectedSubjects,
     selectedMajors,
-    excludedMajors
+    excludedMajors,
+    province
   );
   
   const strategyConfig = STRATEGY_CONFIGS[strategy];
