@@ -71,7 +71,7 @@ for item in all_major_data:
     
     key = f"{school_name}_{major_group}"
     if key not in school_groups:
-        group_code = f"TJ{group_counter:04d}"
+        group_code = f"TJT{group_counter:04d}"
         group_counter += 1
         
         school_groups[key] = {
