@@ -3,85 +3,21 @@ import { majorScoreService, type MajorScore } from '../services/majorScoreServic
 import { cacheService } from '../services/cacheService';
 import { extractSubjectCodes } from './dataUtils';
 import type { SchoolScore } from './dataUtils';
+import { getUniversityLevel } from '../data/universityLevels';
 
 function extractSchoolNameKey(schoolName: string): string {
   const cleaned = schoolName.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '').trim();
   return cleaned;
 }
 
-const UNIVERSITY_985 = new Set([
-  '清华大学', '北京大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',
-  '中国科学技术大学', '武汉大学', '华中科技大学', '四川大学', '中山大学',
-  '吉林大学', '中南大学', '山东大学', '厦门大学', '南开大学', '天津大学',
-  '北京师范大学', '北京航空航天大学', '北京理工大学', '大连理工大学',
-  '东北大学', '哈尔滨工业大学', '西安交通大学', '西北工业大学',
-  '重庆大学', '电子科技大学', '华南理工大学', '湖南大学', '兰州大学',
-]);
-
-const UNIVERSITY_211 = new Set([
-  '清华大学', '北京大学', '复旦大学', '上海交通大学', '浙江大学', '南京大学',
-  '中国科学技术大学', '武汉大学', '华中科技大学', '四川大学', '中山大学',
-  '吉林大学', '中南大学', '山东大学', '厦门大学', '南开大学', '天津大学',
-  '北京师范大学', '北京航空航天大学', '北京理工大学', '大连理工大学',
-  '东北大学', '哈尔滨工业大学', '西安交通大学', '西北工业大学',
-  '重庆大学', '电子科技大学', '华南理工大学', '湖南大学', '兰州大学',
-  '中国人民大学', '北京邮电大学', '北京交通大学', '北京科技大学',
-  '北京化工大学', '北京林业大学', '北京农业大学', '北京中医药大学',
-  '北京外国语大学', '中央财经大学', '中国政法大学', '对外经济贸易大学',
-  '华北电力大学', '中国石油大学', '中国矿业大学', '中国地质大学',
-  '中国海洋大学', '同济大学', '华东师范大学', '华东理工大学',
-  '东华大学', '上海财经大学', '上海外国语大学', '东南大学',
-  '南京航空航天大学', '南京理工大学', '河海大学', '江南大学',
-  '苏州大学', '南京师范大学', '中国药科大学', '南京农业大学',
-  '浙江大学', '安徽大学', '合肥工业大学', '厦门大学',
-  '福州大学', '南昌大学', '山东大学', '中国海洋大学',
-  '中国石油大学(华东)', '郑州大学', '武汉大学', '华中科技大学',
-  '华中师范大学', '华中农业大学', '中南财经政法大学', '武汉理工大学',
-  '湖南大学', '中南大学', '湖南师范大学', '中山大学',
-  '华南理工大学', '华南师范大学', '暨南大学', '广西大学',
-  '海南大学', '重庆大学', '西南大学', '四川大学',
-  '电子科技大学', '西南财经大学', '四川农业大学', '贵州大学',
-  '云南大学', '西藏大学', '西安交通大学', '西北工业大学',
-  '西安电子科技大学', '西北农林科技大学', '陕西师范大学', '兰州大学',
-  '新疆大学', '石河子大学', '宁夏大学', '青海大学',
-  '内蒙古大学', '辽宁大学', '延边大学', '东北师范大学',
-  '哈尔滨工程大学', '东北农业大学', '东北林业大学', '河北工业大学',
-  '太原理工大学', '山西大学',
-]);
-
-const UNIVERSITY_DOUBLE_FIRST = new Set([
-  ...UNIVERSITY_985,
-  ...UNIVERSITY_211,
-  '新疆大学', '云南大学', '郑州大学', '河北工业大学',
-  '山西大学', '湘潭大学', '南京医科大学', '南京邮电大学',
-  '南京信息工程大学', '宁波大学', '河南大学', '广州医科大学',
-  '南方医科大学', '天津工业大学', '成都理工大学', '成都中医药大学',
-  '华南农业大学', '广州中医药大学', '上海海洋大学', '上海体育大学',
-  '南京林业大学', '福建农林大学', '福建师范大学', '西北大学',
-]);
-
+// 院校层次判断统一使用公共数据文件 src/data/universityLevels.ts
+// 避免在每个地区的 schoolData 中冗余存储 level 字段
 function getSchoolLevel(schoolName: string): string {
-  const baseName = extractSchoolNameKey(schoolName);
-  
-  if (UNIVERSITY_985.has(baseName)) return '985';
-  if (UNIVERSITY_211.has(baseName)) return '211';
-  if (UNIVERSITY_DOUBLE_FIRST.has(baseName)) return '双一流';
-  
-  for (const name of UNIVERSITY_985) {
-    if (baseName.startsWith(name)) return '985';
-  }
-  for (const name of UNIVERSITY_211) {
-    if (baseName.startsWith(name)) return '211';
-  }
-  for (const name of UNIVERSITY_DOUBLE_FIRST) {
-    if (baseName.startsWith(name)) return '双一流';
-  }
-  
-  return '普通本科';
+  return getUniversityLevel(schoolName);
 }
 
 function normalizeSchoolName(schoolName: string): string {
-  let name = schoolName.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '').trim();
+  const name = schoolName.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '').trim();
   const universitySuffixes = ['大学', '学院', '职业技术学院', '高等专科学校', '师范学院', '理工大学', '科技大学', '工业大学', '农业大学', '医科大学', '中医药大学', '财经大学', '政法大学', '外国语大学', '邮电大学', '交通大学', '航空航天大学', '矿业大学', '石油大学', '地质大学', '林业大学', '海洋大学', '海事大学', '体育学院', '艺术学院', '音乐学院', '美术学院', '戏剧学院', '电影学院', '传媒大学'];
   
   for (const suffix of universitySuffixes) {
@@ -337,22 +273,5 @@ export async function loadSchoolDataFromSupabaseByScoreRange(
   });
 }
 
-function extractProvince(schoolName: string): string {
-  const provinceMap: Record<string, string> = {
-    '北京': '北京', '天津': '天津', '河北': '河北', '山西': '山西', '内蒙古': '内蒙古',
-    '辽宁': '辽宁', '吉林': '吉林', '黑龙江': '黑龙江', '上海': '上海', '江苏': '江苏',
-    '浙江': '浙江', '安徽': '安徽', '福建': '福建', '江西': '江西', '山东': '山东',
-    '河南': '河南', '湖北': '湖北', '湖南': '湖南', '广东': '广东', '广西': '广西',
-    '海南': '海南', '重庆': '重庆', '四川': '四川', '贵州': '贵州', '云南': '云南',
-    '西藏': '西藏', '陕西': '陕西', '甘肃': '甘肃', '青海': '青海', '宁夏': '宁夏',
-    '新疆': '新疆', '香港': '香港', '澳门': '澳门', '台湾': '台湾',
-  };
-  
-  for (const [key, value] of Object.entries(provinceMap)) {
-    if (schoolName.includes(key)) {
-      return value;
-    }
-  }
-  
-  return '其他';
-}
+// extractProvince 函数已删除：未被任何地方调用，属于冗余代码
+// 如需根据院校名称提取省份，可从 schoolData 的 province 字段直接获取

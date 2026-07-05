@@ -192,7 +192,7 @@ def verify_school_data():
     with open(SCHOOL_DATA_PATH, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    pattern = r'\{\s*code:\s*[\'"]([^\'"]+)[\'"],\s*name:\s*[\'"]([^\'"]+)[\'"],\s*level:\s*[\'"]([^\'"]+)[\'"]'
+    pattern = r'\{\s*code:\s*[\'"]([^\'"]+)[\'"],\s*name:\s*[\'"]([^\'"]+)[\'"],\s*subject:\s*\d+,\s*province:\s*[\'"][^\'"]*[\'"],\s*level:\s*[\'"]([^\'"]+)[\'"]'
     
     matches = re.findall(pattern, content)
     

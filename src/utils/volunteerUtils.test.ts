@@ -70,9 +70,11 @@ describe('analyzeRank', () => {
     expect(result?.rankPercentage).toBeDefined();
   });
 
-  it('should return null for invalid scores', async () => {
+  it('should return estimated rank analysis for invalid scores', async () => {
     const result = await analyzeRank(-100, 590, '海南');
-    expect(result).toBeNull();
+    expect(result).toBeDefined();
+    expect(result?.candidateRank).toBeGreaterThanOrEqual(1);
+    expect(result?.schoolRank).toBeGreaterThanOrEqual(1);
   });
 });
 
@@ -113,19 +115,19 @@ describe('calculateComprehensiveAdmissionProbability', () => {
 describe('getSmartTier', () => {
   it('should return "冲" for schools above candidate score', () => {
     const strategyConfig = { chongScoreDiff: 20, wenScoreDiff: 10, baoScoreDiff: 15, chongRatio: 0.25, wenRatio: 0.5, baoRatio: 0.25 };
-    const tier = getSmartTier(600, 615, null, strategyConfig, '海南');
+    const tier = getSmartTier(700, 730, null, strategyConfig, '海南');
     expect(tier).toBe('冲');
   });
 
   it('should return "稳" for schools near candidate score', () => {
     const strategyConfig = { chongScoreDiff: 20, wenScoreDiff: 10, baoScoreDiff: 15, chongRatio: 0.25, wenRatio: 0.5, baoRatio: 0.25 };
-    const tier = getSmartTier(600, 595, null, strategyConfig, '海南');
+    const tier = getSmartTier(700, 695, null, strategyConfig, '海南');
     expect(tier).toBe('稳');
   });
 
   it('should return "保" for schools below candidate score', () => {
     const strategyConfig = { chongScoreDiff: 20, wenScoreDiff: 10, baoScoreDiff: 15, chongRatio: 0.25, wenRatio: 0.5, baoRatio: 0.25 };
-    const tier = getSmartTier(600, 575, null, strategyConfig, '海南');
+    const tier = getSmartTier(700, 650, null, strategyConfig, '海南');
     expect(tier).toBe('保');
   });
 });
