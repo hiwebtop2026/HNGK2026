@@ -2,12 +2,16 @@
 将数据导入到Supabase数据库
 请先在Supabase SQL Editor中执行 supabase_admission_scores.sql 创建表结构
 """
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 import json
 import time
 
-SUPABASE_URL = "https://jhcyqhtgtnomqvcdeeuo.supabase.co"
-SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o"
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SUPABASE_ANON_KEY = os.environ.get('SUPABASE_ANON_KEY')
 
 try:
     from supabase import create_client
@@ -22,7 +26,7 @@ def main():
     print('='*60)
     
     print("\n⚠️ 请先在Supabase中创建表结构：")
-    print("   1. 登录 https://jhcyqhtgtnomqvcdeeuo.supabase.co")
+    print("   1. 登录您的 Supabase 项目控制台")
     print("   2. 进入 SQL Editor")
     print("   3. 执行 supabase_admission_scores.sql 文件")
     print("\n按Enter继续...")

@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 # -*- coding: utf-8 -*-
 """
 天津高考数据合并与导入工具
@@ -15,8 +18,10 @@ INPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "tianjin_score
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "tianjin_major_scores_all.json")
 SQL_FILE = os.path.join(os.path.dirname(__file__), "..", "import_tianjin_major_scores.sql")
 
-SUPABASE_URL = "https://jhcyqhtgtnomqvcdeeuo.supabase.co"
-SUPABASE_SERVICE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjU1ODk1OCwiZXhwIjoyMDk4MTM0OTU4fQ.D2Rogs1Hd5wBospzq6oILP5F9KVxj6x_0COPa3BVqpE"
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SUPABASE_SERVICE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY')
+if not SUPABASE_URL or not SUPABASE_SERVICE_KEY:
+    raise EnvironmentError("缺少环境变量 SUPABASE_URL 或 SUPABASE_SERVICE_ROLE_KEY，请在 .env 中配置")
 
 MAJOR_SCORES_FIELDS = [
     "school_name", "province", "year", "major_name",

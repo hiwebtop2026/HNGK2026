@@ -51,9 +51,7 @@ export function MajorScorePage() {
   const [data, setData] = useState<MajorScore[]>([]);
   const [loading, setLoading] = useState(false);
   const [showAll, setShowAll] = useState(false);
-  const [savedCount, setSavedCount] = useState(0);
-  const [showSaveSuccess, setShowSaveSuccess] = useState(false);
-  
+
   const years = [2023, 2024, 2025];
   const batches = ['', '本科批', '本科提前批'];
   const subjects = ['', '不限', '物理必选', '物+化(2科必选)', '必选物理'];
@@ -128,54 +126,7 @@ export function MajorScorePage() {
       setLoading(false);
     }
   }
-  
-  async function saveToDatabase() {
-    if (data.length === 0) return;
-    
-    setLoading(true);
-    
-    try {
-      const batchSize = 100;
-      let saved = 0;
-      
-      for (let i = 0; i < data.length; i += batchSize) {
-        const batch = data.slice(i, i + batchSize).map(item => ({
-          school_name: item.school_name,
-          school_code: item.school_code || '',
-          province: item.province || '',
-          level: item.level || '',
-          major_name: item.major_name,
-          major_group: item.major_group || '',
-          subject_requirement: item.subject_requirement || '',
-          year: item.year,
-          min_score: item.min_score || null,
-          min_rank: item.min_rank || null,
-          avg_score: item.avg_score || null,
-          batch: item.batch || '',
-          batch_line: item.batch_line || null,
-          batch_line_diff: item.batch_line_diff || null,
-          person_count: item.person_count || null,
-          source: item.source || '夸克高考',
-        }));
-        
-        const { error } = await supabase.from('major_scores').upsert(batch, { onConflict: 'school_name' });
-        
-        if (!error) {
-          saved += batch.length;
-        }
-      }
-      
-      setSavedCount(saved);
-      setShowSaveSuccess(true);
-      setTimeout(() => setShowSaveSuccess(false), 3000);
-      
-    } catch (error) {
-      console.error('保存失败:', error);
-    } finally {
-      setLoading(false);
-    }
-  }
-  
+
   useEffect(() => {
     if (isSupabaseConfigured) {
       fetchData();
@@ -312,20 +263,9 @@ export function MajorScorePage() {
           </button>
           
           {data.length > 0 && (
-            <button
-              onClick={saveToDatabase}
-              disabled={loading}
-              className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-green-500/25 transition-all disabled:opacity-50"
-            >
+            <div className={`ml-auto text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'} flex items-center gap-2`}>
               <CheckCircle className="w-4 h-4" />
-              <span>保存到数据库</span>
-            </button>
-          )}
-          
-          {showSaveSuccess && (
-            <div className={`ml-auto text-sm ${isDark ? 'text-green-400' : 'text-green-600'} flex items-center gap-2`}>
-              <CheckCircle className="w-4 h-4" />
-              成功保存 {savedCount} 条记录
+              共 {data.length} 条记录
             </div>
           )}
         </div>

@@ -27,6 +27,11 @@ scripts/fix_800_score.py
 scripts/extract_reference_points.py
 scripts/reference_points.json
 
+# Python缓存
+__pycache__/
+*.pyc
+*.pyo
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -89,13 +89,13 @@ export const useUsageStore = create<UsageState>((set, get) => ({
         });
       
       if (error) {
-        console.error('Usage log error:', error);
+        if (import.meta.env.DEV) console.error('Usage log error:', error);
         return false;
       }
       
       return true;
     } catch (err) {
-      console.error('Usage log error:', err);
+      if (import.meta.env.DEV) console.error('Usage log error:', err);
       return false;
     }
   },
@@ -131,7 +131,7 @@ export const useUsageStore = create<UsageState>((set, get) => ({
         .eq('user_id', session.user.id);
       
       if (error) {
-        console.error('Stats error:', error);
+        if (import.meta.env.DEV) console.error('Stats error:', error);
         return null;
       }
       

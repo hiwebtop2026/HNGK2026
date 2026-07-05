@@ -1,21 +1,28 @@
 """
+⚠️ 安全告警：本脚本使用 execute_sql RPC，该 RPC 可执行任意 SQL，存在 SQL 注入风险。
+请在使用后于 Supabase Dashboard → Database → Functions 删除 execute_sql 函数。
+"""
+
+"""
 完整的数据导入解决方案
 需要service_role密钥来修改RLS策略
 """
-
+import os
 import json
 import time
 import requests
+from dotenv import load_dotenv
+load_dotenv()
 
-SUPABASE_URL = "https://jhcyqhtgtnomqvcdeeuo.supabase.co"
-
-# 尝试从环境变量读取service_role密钥
-import os
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
 SERVICE_ROLE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY')
+SUPABASE_ANON_KEY = os.environ.get('SUPABASE_ANON_KEY')
+if not SUPABASE_URL or not SERVICE_ROLE_KEY:
+    raise EnvironmentError("缺少环境变量 SUPABASE_URL 或 SUPABASE_SERVICE_ROLE_KEY，请在 .env 中配置")
 
 HEADERS_ANON = {
-    'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o',
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o',
+    'apikey': SUPABASE_ANON_KEY,
+    'Authorization': f'Bearer {SUPABASE_ANON_KEY}',
     'Content-Type': 'application/json',
 }
 
@@ -34,7 +41,7 @@ def show_manual_instructions():
 📋 手动配置RLS步骤（推荐）：
 
 1. 登录 Supabase Dashboard:
-   https://jhcyqhtgtnomqvcdeeuo.supabase.co
+   <your-supabase-project>.supabase.co
 
 2. 进入 SQL Editor（左侧菜单）
 

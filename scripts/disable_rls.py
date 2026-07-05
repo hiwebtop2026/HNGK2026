@@ -1,15 +1,20 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import psycopg2
 import os
 
-SUPABASE_URL = 'https://jhcyqhtgtnomqvcdeeuo.supabase.co'
-SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o'
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SUPABASE_KEY = os.environ.get('SUPABASE_ANON_KEY')
 
 try:
+    # 从 SUPABASE_URL 派生项目引用
+    _ref = SUPABASE_URL.replace('https://', '').replace('http://', '').split('.')[0] if SUPABASE_URL else ''
     conn = psycopg2.connect(
         host='aws-0-ap-southeast-1.pooler.supabase.com',
         port=6543,
         dbname='postgres',
-        user='postgres.jhcyqhtgtnomqvcdeeuo',
+        user=f'postgres.{_ref}',
         password=SUPABASE_KEY
     )
     

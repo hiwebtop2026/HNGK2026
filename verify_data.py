@@ -1,9 +1,13 @@
 """
 验证数据是否已导入成功
 """
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-SUPABASE_URL = "https://jhcyqhtgtnomqvcdeeuo.supabase.co"
-SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjU1ODk1OCwiZXhwIjoyMDk4MTM0OTU4fQ.D2Rogs1Hd5wBospzq6oILP5F9KVxj6x_0COPa3BVqpE"
+
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SERVICE_ROLE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY')
 
 from supabase import create_client
 
@@ -28,7 +32,7 @@ print(f"  共{len(result.data)}条科目要求数据")
 
 # 测试匿名查询
 print("\n🔍 测试匿名查询(前端使用):")
-ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o"
+ANON_KEY = os.environ.get('SUPABASE_ANON_KEY')
 supabase_anon = create_client(SUPABASE_URL, ANON_KEY)
 
 result = supabase_anon.table('admission_scores').select('id').eq('year', 2025).limit(10000).execute()

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Mail, Lock, Loader2, AlertCircle, CheckCircle2, School, Sparkles,
   User, LogOut, ArrowRight, Info
@@ -35,6 +35,9 @@ function ThemeToggle() {
 
 export function AuthPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  // 登录/注册成功后跳回来源页（由 ProtectedRoute 通过 state.from 传入），默认首页
+  const from = (location.state as { from?: string } | null)?.from || '/';
   const { isDark } = useAppStore();
   const {
     isAuthenticated,
@@ -74,12 +77,12 @@ export function AuthPage() {
     }
   }, [checkAuth, mode]);
 
-  // 已认证则跳转首页
+  // 已认证则跳回来源页（或首页）
   useEffect(() => {
     if (isAuthenticated) {
-      navigate('/');
+      navigate(from, { replace: true });
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, navigate, from]);
 
   const handleSubmit = async () => {
     if (!email) {
@@ -101,8 +104,8 @@ export function AuthPage() {
         setError('昵称长度2-20个字符');
         return;
       }
-      if (password.length < 6) {
-        setError('密码长度至少6位');
+      if (password.length < 8 || !/(?=.*[a-zA-Z])(?=.*\d)/.test(password)) {
+        setError('密码至少8位，且必须包含字母和数字');
         return;
       }
 
@@ -434,7 +437,7 @@ export function AuthPage() {
                   <div>
                     <p className={`text-sm font-medium ${isDark ? 'text-blue-400' : 'text-blue-600'} mb-1`}>邮箱验证说明</p>
                     <p className={`text-xs ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>
-                      部分邮箱可能收到验证邮件。如未收到验证邮件或验证失败，系统会自动启用本地模式登录，您可继续使用志愿填报核心功能。
+                      部分邮箱可能收到验证邮件，请按邮件提示完成验证。如未收到，请检查垃圾邮件箱或稍后重试。
                     </p>
                   </div>
                 </div>

@@ -1,13 +1,22 @@
 """
+⚠️ 安全告警：本脚本使用 execute_sql RPC，该 RPC 可执行任意 SQL，存在 SQL 注入风险。
+请在使用后于 Supabase Dashboard → Database → Functions 删除 execute_sql 函数。
+"""
+
+"""
 修复Supabase RLS权限问题并导入数据
 """
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 
 import json
 import time
 import requests
 
-SUPABASE_URL = "https://jhcyqhtgtnomqvcdeeuo.supabase.co"
-SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o"
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SUPABASE_ANON_KEY = os.environ.get('SUPABASE_ANON_KEY')
 
 HEADERS = {
     'apikey': SUPABASE_ANON_KEY,

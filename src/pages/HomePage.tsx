@@ -26,6 +26,14 @@ const majorIcons: Record<string, React.ReactNode> = {
   art: <Palette className="w-5 h-5" />,
 };
 
+// Excel 上传安全校验常量
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+const ALLOWED_MIME_TYPES = [
+  'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+  'application/vnd.ms-excel',
+];
+const ALLOWED_EXTENSIONS = ['.xlsx', '.xls'];
+
 function ThemeToggle() {
   const { theme, toggleTheme } = useAppStore();
   
@@ -315,14 +323,37 @@ export function HomePage() {
   }, [provinceConfig, selectedSubjects]);
   
   const handleFileUpload = async (uploadedFile: File) => {
+    // 安全校验：文件大小
+    if (uploadedFile.size > MAX_FILE_SIZE) {
+      setError('文件大小不能超过 5MB');
+      return;
+    }
+    // 安全校验：扩展名
+    const lowerName = uploadedFile.name.toLowerCase();
+    const ext = lowerName.slice(lowerName.lastIndexOf('.'));
+    if (!ALLOWED_EXTENSIONS.includes(ext)) {
+      setError('仅支持 .xlsx 和 .xls 格式文件');
+      return;
+    }
+    // 安全校验：文件名长度（防止异常长文件名）
+    if (uploadedFile.name.length > 200) {
+      setError('文件名过长，请重命名后再上传');
+      return;
+    }
+    // 安全校验：MIME 类型（浏览器提供时校验）
+    if (uploadedFile.type && !ALLOWED_MIME_TYPES.includes(uploadedFile.type)) {
+      setError('文件类型不正确，仅支持 Excel 文件');
+      return;
+    }
+
     setFile(uploadedFile);
     setLoading(true);
     setError(null);
-    
+
     try {
       const data = await loadSchoolDataFromExcel(uploadedFile);
       setSchoolData(data);
-      
+
       // 记录文件上传行为
       if (isAuthenticated) {
         logAction('upload_data', {
@@ -719,7 +750,7 @@ export function HomePage() {
             >
               <input
                 type="file"
-                accept=".xlsx,.xls"
+                accept=".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                 onChange={(e) => e.target.files?.[0] && handleFileUpload(e.target.files[0])}
               />

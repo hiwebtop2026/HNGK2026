@@ -1,9 +1,18 @@
 """
-修复RLS策略，允许匿名读取数据
+⚠️ 安全告警：本脚本使用 execute_sql RPC，该 RPC 可执行任意 SQL，存在 SQL 注入风险。
+请在使用后于 Supabase Dashboard → Database → Functions 删除 execute_sql 函数。
 """
 
-SUPABASE_URL = "https://jhcyqhtgtnomqvcdeeuo.supabase.co"
-SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjU1ODk1OCwiZXhwIjoyMDk4MTM0OTU4fQ.D2Rogs1Hd5wBospzq6oILP5F9KVxj6x_0COPa3BVqpE"
+"""
+修复RLS策略，允许匿名读取数据
+"""
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SERVICE_ROLE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY')
 
 import requests
 
@@ -40,7 +49,7 @@ for sql in sql_commands:
 
 # 测试匿名查询
 print("\n🔍 测试匿名查询...")
-ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o"
+ANON_KEY = os.environ.get('SUPABASE_ANON_KEY')
 
 headers_anon = {
     'apikey': ANON_KEY,

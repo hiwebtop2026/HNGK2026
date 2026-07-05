@@ -64,7 +64,7 @@ export const majorScoreService = {
         .limit(1000);
       
       if (error) {
-        console.error('获取学校专业分数线失败:', error);
+        if (import.meta.env.DEV) console.error('获取学校专业分数线失败:', error);
         return [];
       }
       
@@ -86,7 +86,7 @@ export const majorScoreService = {
         .limit(1000);
       
       if (error) {
-        console.error(`获取${province}学校专业分数线失败:`, error);
+        if (import.meta.env.DEV) console.error(`获取${province}学校专业分数线失败:`, error);
         return [];
       }
       
@@ -114,7 +114,7 @@ export const majorScoreService = {
           .range(start, end);
         
         if (error) {
-          console.error(`获取${province}专业分数线失败:`, error);
+          if (import.meta.env.DEV) console.error(`获取${province}专业分数线失败:`, error);
           break;
         }
         
@@ -123,7 +123,7 @@ export const majorScoreService = {
         }
         
         allData.push(...data);
-        console.log(`[DEBUG][majorScoreService] 获取${province}数据 - 页面${page + 1}: ${data.length}条, 累计${allData.length}条`);
+        if (import.meta.env.DEV) console.log(`[DEBUG][majorScoreService] 获取${province}数据 - 页面${page + 1}: ${data.length}条, 累计${allData.length}条`);
         
         if (data.length < pageSize) {
           break;
@@ -132,7 +132,7 @@ export const majorScoreService = {
         page++;
       }
       
-      console.log(`[DEBUG][majorScoreService] 获取${province}数据完成，总记录数: ${allData.length}`);
+      if (import.meta.env.DEV) console.log(`[DEBUG][majorScoreService] 获取${province}数据完成，总记录数: ${allData.length}`);
       
       return allData;
     }, province);
@@ -151,7 +151,7 @@ export const majorScoreService = {
         .limit(500);
       
       if (error) {
-        console.error('获取学校年度专业分数线失败:', error);
+        if (import.meta.env.DEV) console.error('获取学校年度专业分数线失败:', error);
         return [];
       }
       
@@ -177,7 +177,7 @@ export const majorScoreService = {
           .range(offset, offset + limit - 1);
         
         if (error) {
-          console.error('获取分数段专业分数线失败:', error);
+          if (import.meta.env.DEV) console.error('获取分数段专业分数线失败:', error);
           break;
         }
         
@@ -211,7 +211,7 @@ export const majorScoreService = {
           .range(offset, offset + limit - 1);
         
         if (error) {
-          console.error('获取分数段专业分数线失败:', error);
+          if (import.meta.env.DEV) console.error('获取分数段专业分数线失败:', error);
           break;
         }
         
@@ -238,7 +238,7 @@ export const majorScoreService = {
         .limit(100);
       
       if (error) {
-        console.error('搜索专业失败:', error);
+        if (import.meta.env.DEV) console.error('搜索专业失败:', error);
         return [];
       }
       
@@ -262,7 +262,7 @@ export const majorScoreService = {
       const { data, error } = await query;
       
       if (error) {
-        console.error('获取学校统计失败:', error);
+        if (import.meta.env.DEV) console.error('获取学校统计失败:', error);
         return [];
       }
       
@@ -311,7 +311,7 @@ export const majorScoreService = {
         .select('school_name');
       
       if (error) {
-        console.error('获取所有学校失败:', error);
+        if (import.meta.env.DEV) console.error('获取所有学校失败:', error);
         return [];
       }
       
@@ -330,7 +330,7 @@ export const majorScoreService = {
         .ilike('school_name', `%${schoolName}%`);
       
       if (error) {
-        console.error('获取学校专业列表失败:', error);
+        if (import.meta.env.DEV) console.error('获取学校专业列表失败:', error);
         return [];
       }
       

@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 /**
  * 从 JSON 文件批量导入专业分数线数据到 Supabase
  *
@@ -15,7 +18,7 @@ import { readFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 
 // Supabase 配置
-const SUPABASE_URL = 'https://jhcyqhtgtnomqvcdeeuo.supabase.co';
+const SUPABASE_URL = process.env.SUPABASE_URL;
 
 // ⚠️ 安全说明：不要在代码中硬编码密钥
 // 使用环境变量 SUPABASE_SERVICE_ROLE_KEY 传入 service_role / secret key
@@ -23,7 +26,7 @@ const SUPABASE_URL = 'https://jhcyqhtgtnomqvcdeeuo.supabase.co';
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 // 未配置 service_role 时使用 anon key（仅读取，受 RLS 限制）
-const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o';
+const ANON_KEY = process.env.SUPABASE_ANON_KEY;
 
 const API_KEY = SERVICE_ROLE_KEY || ANON_KEY;
 const KEY_TYPE = SERVICE_ROLE_KEY ? 'service_role' : 'anon';

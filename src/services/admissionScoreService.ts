@@ -61,7 +61,7 @@ export const admissionScoreService = {
       .limit(10000);
     
     if (error) {
-      console.error('获取投档分数线失败:', error);
+      if (import.meta.env.DEV) console.error('获取投档分数线失败:', error);
       return [];
     }
     
@@ -87,7 +87,7 @@ export const admissionScoreService = {
         .range(start, end);
       
       if (error) {
-        console.error(`获取${province}投档分数线失败:`, error);
+        if (import.meta.env.DEV) console.error(`获取${province}投档分数线失败:`, error);
         break;
       }
       
@@ -96,7 +96,7 @@ export const admissionScoreService = {
       }
       
       allData.push(...data);
-      console.log(`[DEBUG][admissionScoreService] 获取${province}数据 - 页面${page + 1}: ${data.length}条, 累计${allData.length}条`);
+      if (import.meta.env.DEV) console.log(`[DEBUG][admissionScoreService] 获取${province}数据 - 页面${page + 1}: ${data.length}条, 累计${allData.length}条`);
       
       if (data.length < pageSize) {
         break;
@@ -105,7 +105,7 @@ export const admissionScoreService = {
       page++;
     }
     
-    console.log(`[DEBUG][admissionScoreService] 获取${province}投档分数线完成，总记录数: ${allData.length}`);
+    if (import.meta.env.DEV) console.log(`[DEBUG][admissionScoreService] 获取${province}投档分数线完成，总记录数: ${allData.length}`);
     
     return allData;
   },
@@ -130,7 +130,7 @@ export const admissionScoreService = {
         .range(start, end);
       
       if (error) {
-        console.error(`获取${province}${year}年投档分数线失败:`, error);
+        if (import.meta.env.DEV) console.error(`获取${province}${year}年投档分数线失败:`, error);
         break;
       }
       
@@ -147,7 +147,7 @@ export const admissionScoreService = {
       page++;
     }
     
-    console.log(`[DEBUG][admissionScoreService] 获取${province}${year}年投档分数线完成，总记录数: ${allData.length}`);
+    if (import.meta.env.DEV) console.log(`[DEBUG][admissionScoreService] 获取${province}${year}年投档分数线完成，总记录数: ${allData.length}`);
     
     return allData;
   },
@@ -163,7 +163,7 @@ export const admissionScoreService = {
       .order('score', { ascending: false });
     
     if (error) {
-      console.error('获取学校投档分数线失败:', error);
+      if (import.meta.env.DEV) console.error('获取学校投档分数线失败:', error);
       return [];
     }
     
@@ -187,7 +187,7 @@ export const admissionScoreService = {
     const { data, error } = await query.order('score', { ascending: false });
     
     if (error) {
-      console.error('获取分数段投档线失败:', error);
+      if (import.meta.env.DEV) console.error('获取分数段投档线失败:', error);
       return [];
     }
     
@@ -208,7 +208,7 @@ export const admissionScoreService = {
     const { data, error } = await query.order('avg_score', { ascending: false });
     
     if (error) {
-      console.error('获取学校统计失败:', error);
+      if (import.meta.env.DEV) console.error('获取学校统计失败:', error);
       return [];
     }
     
@@ -229,7 +229,7 @@ export const admissionScoreService = {
     const { data, error } = await query.order('school_name', { ascending: true });
     
     if (error) {
-      console.error('获取专业组分数变化失败:', error);
+      if (import.meta.env.DEV) console.error('获取专业组分数变化失败:', error);
       return [];
     }
     
@@ -246,7 +246,7 @@ export const admissionScoreService = {
       .limit(1);
     
     if (error) {
-      console.error('获取科目要求失败:', error);
+      if (import.meta.env.DEV) console.error('获取科目要求失败:', error);
       return null;
     }
     
@@ -261,7 +261,7 @@ export const admissionScoreService = {
       .select('*');
     
     if (error) {
-      console.error('获取所有科目要求失败:', error);
+      if (import.meta.env.DEV) console.error('获取所有科目要求失败:', error);
       return [];
     }
     
@@ -283,7 +283,7 @@ export const admissionScoreService = {
     const { data, error } = await query.order('score', { ascending: false }).limit(50);
     
     if (error) {
-      console.error('搜索学校失败:', error);
+      if (import.meta.env.DEV) console.error('搜索学校失败:', error);
       return [];
     }
     
@@ -299,7 +299,7 @@ export const admissionScoreService = {
       .eq('year', year);
     
     if (error) {
-      console.error('获取年份统计失败:', error);
+      if (import.meta.env.DEV) console.error('获取年份统计失败:', error);
       return null;
     }
     

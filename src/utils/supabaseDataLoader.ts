@@ -30,15 +30,15 @@ function normalizeSchoolName(schoolName: string): string {
 }
 
 export async function loadSchoolDataFromSupabase(province: string = '海南'): Promise<SchoolScore[]> {
-  console.log(`[DEBUG] ==================== 开始加载${province}数据 ====================`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] ==================== 开始加载${province}数据 ====================`);
   
   cacheService.clearAll();
-  console.log(`[DEBUG] 缓存已清除`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] 缓存已清除`);
   
   const result: Map<string, SchoolScore> = new Map();
   
   const admissionData = await loadFromAdmissionScores(province);
-  console.log(`[DEBUG] admission_scores表加载了 ${admissionData.length} 所学校`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores表加载了 ${admissionData.length} 所学校`);
   
   for (const item of admissionData) {
     const key = extractSchoolNameKey(item.name);
@@ -59,10 +59,10 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
     }
   }
   
-  console.log(`[DEBUG] 合并admission_scores后共有 ${result.size} 所学校`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] 合并admission_scores后共有 ${result.size} 所学校`);
   
   const majorData = await loadFromMajorScores(province);
-  console.log(`[DEBUG] major_scores表加载了 ${majorData.length} 所学校`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] major_scores表加载了 ${majorData.length} 所学校`);
   
   for (const item of majorData) {
     const key = extractSchoolNameKey(item.name);
@@ -95,9 +95,9 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
     }
   }
   
-  console.log(`[DEBUG] 合并major_scores后共有 ${result.size} 所学校`);
-  console.log(`[DEBUG] 返回学校列表前5所: ${Array.from(result.values()).slice(0, 5).map(s => s.name).join(', ')}`);
-  console.log(`[DEBUG] ==================== 加载${province}数据完成 ====================`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] 合并major_scores后共有 ${result.size} 所学校`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] 返回学校列表前5所: ${Array.from(result.values()).slice(0, 5).map(s => s.name).join(', ')}`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] ==================== 加载${province}数据完成 ====================`);
   
   return Array.from(result.values());
 }
@@ -111,11 +111,11 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
     try {
       scores = await admissionScoreService.getByProvinceAndYear(province, year);
     } catch (error) {
-      console.warn(`按省份查询失败，尝试按年份查询:`, error);
+      if (import.meta.env.DEV) console.warn(`按省份查询失败，尝试按年份查询:`, error);
       scores = await admissionScoreService.getByYear(year);
     }
     
-    console.log(`[DEBUG] admission_scores ${year}年原始记录数: ${scores.length}`);
+    if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores ${year}年原始记录数: ${scores.length}`);
     
     for (const score of scores) {
       if (!score.school_name) continue;
@@ -165,7 +165,7 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
     }
   }
   
-  console.log(`[DEBUG] admission_scores聚合后学校数: ${result.size}`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores聚合后学校数: ${result.size}`);
   return Array.from(result.values());
 }
 
@@ -174,21 +174,21 @@ async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
   let skipped = 0;
   
   try {
-    console.log(`[DEBUG] 开始调用 majorScoreService.getByProvince('${province}')`);
+    if (import.meta.env.DEV) console.log(`[DEBUG] 开始调用 majorScoreService.getByProvince('${province}')`);
     const scores: MajorScore[] = await majorScoreService.getByProvince(province);
-    console.log(`[DEBUG] major_scores原始记录数: ${scores.length}`);
+    if (import.meta.env.DEV) console.log(`[DEBUG] major_scores原始记录数: ${scores.length}`);
     
     if (scores.length > 0) {
       const firstItem = scores[0];
-      console.log(`[DEBUG] 第一条记录: province=${firstItem.province}, school_name=${firstItem.school_name}, year=${firstItem.year}, min_score=${firstItem.min_score}`);
+      if (import.meta.env.DEV) console.log(`[DEBUG] 第一条记录: province=${firstItem.province}, school_name=${firstItem.school_name}, year=${firstItem.year}, min_score=${firstItem.min_score}`);
     }
     
     const provinceValues = [...new Set(scores.map(s => s.province))];
-    console.log(`[DEBUG] province字段值分布: ${provinceValues.join(', ')}`);
+    if (import.meta.env.DEV) console.log(`[DEBUG] province字段值分布: ${provinceValues.join(', ')}`);
     
     const schoolNames = [...new Set(scores.map(s => s.school_name))];
-    console.log(`[DEBUG] 原始学校数: ${schoolNames.length}`);
-    console.log(`[DEBUG] 前10所学校: ${schoolNames.slice(0, 10).join(', ')}`);
+    if (import.meta.env.DEV) console.log(`[DEBUG] 原始学校数: ${schoolNames.length}`);
+    if (import.meta.env.DEV) console.log(`[DEBUG] 前10所学校: ${schoolNames.slice(0, 10).join(', ')}`);
     
     for (const score of scores) {
       if (!score.school_name || score.min_score === null) {
@@ -240,11 +240,11 @@ async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
         }
     }
   } catch (error) {
-    console.warn(`从major_scores表加载数据失败:`, error);
+    if (import.meta.env.DEV) console.warn(`从major_scores表加载数据失败:`, error);
   }
   
-  console.log(`[DEBUG] major_scores跳过的记录数: ${skipped}`);
-  console.log(`[DEBUG] major_scores聚合后学校数: ${result.size}`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] major_scores跳过的记录数: ${skipped}`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] major_scores聚合后学校数: ${result.size}`);
   
   return Array.from(result.values());
 }

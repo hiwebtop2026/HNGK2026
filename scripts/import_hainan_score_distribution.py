@@ -1,7 +1,12 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
 import psycopg2
 import json
 
-DB_URL = "postgresql://postgres.jhcyqhtgtnomqvcdeeuo:E4D2BC51-BA59-4D27-9382-CA224A9FE9A7@aws-0-ap-northeast-1.pooler.supabase.com:6543/postgres"
+DB_URL = os.environ.get('SUPABASE_DB_URL')
+if not DB_URL:
+    raise EnvironmentError("缺少环境变量 SUPABASE_DB_URL，请在 .env 中配置（格式：postgresql://postgres.<ref>:<password>@<host>:6543/postgres）")
 
 KEY_POINTS = [
     [800, 2, 2], [750, 12, 192], [720, 21, 606], [700, 29, 1095], [680, 42, 1799],

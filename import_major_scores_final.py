@@ -1,9 +1,12 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 import json
 import os
 import time
 
-SUPABASE_URL = "https://jhcyqhtgtnomqvcdeeuo.supabase.co"
-SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjU1ODk1OCwiZXhwIjoyMDk4MTM0OTU4fQ.D2Rogs1Hd5wBospzq6oILP5F9KVxj6x_0COPa3BVqpE"
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SERVICE_ROLE_KEY = os.environ.get('SUPABASE_SERVICE_ROLE_KEY')
 
 DATA_DIR = r"C:\Users\lhp\Downloads\major_scores"
 
@@ -71,7 +74,7 @@ CREATE INDEX IF NOT EXISTS idx_major_scores_province ON major_scores (province);
 ALTER TABLE major_scores DISABLE ROW LEVEL SECURITY;
 ''')
     print("="*60)
-    print("\n请登录 https://supabase.com/dashboard/project/jhcyqhtgtnomqvcdeeuo")
+    print("\n请登录 https://supabase.com/dashboard/project/<your-project-ref>")
     print("在 SQL Editor 中执行以上SQL，创建完成后按回车键继续...")
     input()
     

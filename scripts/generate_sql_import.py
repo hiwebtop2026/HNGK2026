@@ -115,7 +115,7 @@ def main():
     print('✅ SQL文件生成完成！')
     print('='*60)
     print('\n导入步骤：')
-    print('1. 登录 https://supabase.com/dashboard/project/jhcyqhtgtnomqvcdeeuo')
+    print('1. 登录 https://supabase.com/dashboard/project/<your-project-ref>')
     print('2. 进入 SQL Editor')
     print('3. 逐个打开生成的hainan_data_batch_*.sql文件')
     print('4. 粘贴内容并点击 Run 执行')

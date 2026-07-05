@@ -7,6 +7,8 @@ import json
 import os
 import sys
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 
 try:
     import psycopg2
@@ -15,12 +17,14 @@ except ImportError:
     os.system('pip install psycopg2-binary')
     import psycopg2
 
-# Supabase 数据库配置
-SUPABASE_HOST = 'db.jhcyqhtgtnomqvcdeeuo.supabase.co'
+# Supabase 数据库配置（从环境变量派生）
+SUPABASE_URL = os.environ.get('SUPABASE_URL', '')
+_PROJECT_REF = SUPABASE_URL.replace('https://', '').replace('http://', '').split('.')[0] if SUPABASE_URL else ''
+SUPABASE_HOST = f'db.{_PROJECT_REF}.supabase.co' if _PROJECT_REF else os.environ.get('SUPABASE_DB_HOST', '')
 SUPABASE_PORT = 5432
 SUPABASE_DB = 'postgres'
 SUPABASE_USER = 'postgres'
-SUPABASE_PASSWORD = ''  # 需要填入您的数据库密码
+SUPABASE_PASSWORD = os.environ.get('SUPABASE_DB_PASSWORD', '')  # 需在 .env 中配置数据库密码
 
 def get_db_connection():
     """获取数据库连接"""

@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 # -*- coding: utf-8 -*-
 """
 海南高考数据导入脚本
@@ -9,7 +12,7 @@ import sys
 import re
 
 # Supabase配置
-SUPABASE_URL = 'https://jhcyqhtgtnomqvcdeeuo.supabase.co'
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
 # 使用服务端密钥进行数据写入（需要用户提供正确的服务端密钥）
 SUPABASE_SERVICE_KEY = ''
 

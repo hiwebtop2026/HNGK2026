@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 # -*- coding: utf-8 -*-
 """
 清理admission_scores表中的重复数据
@@ -6,8 +9,8 @@
 import os
 from collections import defaultdict
 
-SUPABASE_URL = 'https://jhcyqhtgtnomqvcdeeuo.supabase.co'
-SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MjU1ODk1OCwiZXhwIjoyMDk4MTM0OTU4fQ.D2Rogs1Hd5wBospzq6oILP5F9KVxj6x_0COPa3BVqpE'
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SUPABASE_KEY = os.environ.get('SUPABASE_ANON_KEY')
 
 try:
     from supabase import create_client

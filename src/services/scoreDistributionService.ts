@@ -33,7 +33,7 @@ export const scoreDistributionService = {
     const { data, error } = await query;
 
     if (error) {
-      console.error('获取一分一段表失败:', error);
+      if (import.meta.env.DEV) console.error('获取一分一段表失败:', error);
       return [];
     }
 
@@ -56,7 +56,7 @@ export const scoreDistributionService = {
     const { data, error } = await query;
 
     if (error) {
-      console.error('获取一分一段表失败:', error);
+      if (import.meta.env.DEV) console.error('获取一分一段表失败:', error);
       return [];
     }
 
@@ -64,10 +64,10 @@ export const scoreDistributionService = {
   },
 
   async getRankByScore(province: string, score: number, year: number, category?: string): Promise<{minRank: number, maxRank: number, count: number, cumulativeCount: number} | null> {
-    console.debug(`[getRankByScore] 查询: province=${province}, score=${score}, year=${year}, category=${category ?? 'undefined'}`);
+    if (import.meta.env.DEV) console.debug(`[getRankByScore] 查询: province=${province}, score=${score}, year=${year}, category=${category ?? 'undefined'}`);
 
     if (!supabase) {
-      console.warn('[getRankByScore] Supabase 客户端未配置');
+      if (import.meta.env.DEV) console.warn('[getRankByScore] Supabase 客户端未配置');
       return null;
     }
 
@@ -110,14 +110,14 @@ export const scoreDistributionService = {
             count: row.count || 0,
             cumulativeCount: row.cumulative_count || row.max_rank
           };
-          console.debug(`[getRankByScore] 数据库精确匹配成功: score=${row.score}, rank=${row.min_rank}-${row.max_rank}, category=${row.category}`);
+          if (import.meta.env.DEV) console.debug(`[getRankByScore] 数据库精确匹配成功: score=${row.score}, rank=${row.min_rank}-${row.max_rank}, category=${row.category}`);
           break;
         }
       }
     }
 
     if (!dbResult) {
-      console.debug(`[getRankByScore] 精确匹配失败，尝试查找分数 >= ${score} 的记录`);
+      if (import.meta.env.DEV) console.debug(`[getRankByScore] 精确匹配失败，尝试查找分数 >= ${score} 的记录`);
       
       for (const cat of categoriesToTry) {
         let fallbackQuery = supabase
@@ -144,7 +144,7 @@ export const scoreDistributionService = {
               count: row.count || 0,
               cumulativeCount: row.cumulative_count || row.max_rank
             };
-            console.debug(`[getRankByScore] 使用邻近分数位次: score=${row.score}, rank=${row.min_rank}-${row.max_rank}`);
+            if (import.meta.env.DEV) console.debug(`[getRankByScore] 使用邻近分数位次: score=${row.score}, rank=${row.min_rank}-${row.max_rank}`);
             break;
           }
         }
@@ -152,7 +152,7 @@ export const scoreDistributionService = {
     }
 
     if (!dbResult) {
-      console.debug(`[getRankByScore] 尝试查找分数 <= ${score} 的记录作为兜底`);
+      if (import.meta.env.DEV) console.debug(`[getRankByScore] 尝试查找分数 <= ${score} 的记录作为兜底`);
       
       for (const cat of categoriesToTry) {
         let lowerQuery = supabase
@@ -179,7 +179,7 @@ export const scoreDistributionService = {
               count: row.count || 0,
               cumulativeCount: row.cumulative_count || row.max_rank
             };
-            console.debug(`[getRankByScore] 使用较低分数位次: score=${row.score}, rank=${row.min_rank}-${row.max_rank}`);
+            if (import.meta.env.DEV) console.debug(`[getRankByScore] 使用较低分数位次: score=${row.score}, rank=${row.min_rank}-${row.max_rank}`);
             break;
           }
         }
@@ -191,18 +191,18 @@ export const scoreDistributionService = {
       const expectedTotal = province === '海南' ? 70398 : (province === '天津' ? 77488 : null);
       
       if (expectedTotal && dbResult.maxRank > expectedTotal * 1.5) {
-        console.warn(`[getRankByScore] 数据库数据异常: maxRank=${dbResult.maxRank} 远大于预期总人数${expectedTotal}，忽略数据库数据`);
+        if (import.meta.env.DEV) console.warn(`[getRankByScore] 数据库数据异常: maxRank=${dbResult.maxRank} 远大于预期总人数${expectedTotal}，忽略数据库数据`);
         dbResult = null;
       }
       
       if (dbResult && dbResult.minRank > dbResult.maxRank) {
-        console.warn(`[getRankByScore] 数据库数据异常: minRank=${dbResult.minRank} > maxRank=${dbResult.maxRank}，忽略数据库数据`);
+        if (import.meta.env.DEV) console.warn(`[getRankByScore] 数据库数据异常: minRank=${dbResult.minRank} > maxRank=${dbResult.maxRank}，忽略数据库数据`);
         dbResult = null;
       }
     }
 
     if (!dbResult) {
-      console.debug(`[getRankByScore] 数据库未找到匹配数据或数据异常，返回null（将使用本地参考数据）`);
+      if (import.meta.env.DEV) console.debug(`[getRankByScore] 数据库未找到匹配数据或数据异常，返回null（将使用本地参考数据）`);
     }
 
     return dbResult;
@@ -227,7 +227,7 @@ export const scoreDistributionService = {
     const { data, error } = await query;
 
     if (error) {
-      console.error('根据位次查询分数失败:', error);
+      if (import.meta.env.DEV) console.error('根据位次查询分数失败:', error);
       return null;
     }
 
@@ -244,7 +244,7 @@ export const scoreDistributionService = {
       .eq('year', year);
 
     if (error) {
-      console.error('获取类别列表失败:', error);
+      if (import.meta.env.DEV) console.error('获取类别列表失败:', error);
       return [];
     }
 
@@ -253,11 +253,11 @@ export const scoreDistributionService = {
 
   async getStats(province: string, year: number): Promise<any> {
     if (!supabase) {
-      console.warn('[getStats] Supabase 客户端未配置');
+      if (import.meta.env.DEV) console.warn('[getStats] Supabase 客户端未配置');
       return null;
     }
 
-    console.debug(`[getStats] 查询统计: province=${province}, year=${year}`);
+    if (import.meta.env.DEV) console.debug(`[getStats] 查询统计: province=${province}, year=${year}`);
 
     const { data: statsData, error: statsError } = await supabase
       .from('score_distribution_stats')
@@ -267,11 +267,11 @@ export const scoreDistributionService = {
       .limit(1);
 
     if (statsData && statsData.length > 0) {
-      console.debug(`[getStats] 从视图获取结果:`, statsData[0]);
+      if (import.meta.env.DEV) console.debug(`[getStats] 从视图获取结果:`, statsData[0]);
       return statsData[0];
     }
 
-    console.debug(`[getStats] 视图无结果，直接计算统计`);
+    if (import.meta.env.DEV) console.debug(`[getStats] 视图无结果，直接计算统计`);
 
     // 3+3模式省份只统计普通类(全体考生)数据，避免多类别重复计数
     const is3Plus3Mode = ['海南', '天津', '北京', '上海', '山东', '浙江'].includes(province);
@@ -289,7 +289,7 @@ export const scoreDistributionService = {
     const { data: rawData, error: rawError } = await query;
 
     if (rawError || !rawData || rawData.length === 0) {
-      console.error('[getStats] 查询失败:', rawError);
+      if (import.meta.env.DEV) console.error('[getStats] 查询失败:', rawError);
       return null;
     }
 
@@ -303,46 +303,10 @@ export const scoreDistributionService = {
       max_cumulative: maxCumulative
     };
     
-    console.debug(`[getStats] 计算结果:`, result);
+    if (import.meta.env.DEV) console.debug(`[getStats] 计算结果:`, result);
     return result;
   },
 
-  async insertBatch(data: Omit<ScoreDistribution, 'id' | 'created_at'>[]): Promise<{ success: boolean; error?: string }> {
-    if (!supabase) return { success: false, error: 'Supabase未配置' };
-
-    const { error } = await supabase
-      .from('score_distribution')
-      .insert(data);
-
-    if (error) {
-      console.error('批量插入一分一段表失败:', error);
-      return { success: false, error: error.message };
-    }
-
-    this.clearCache();
-
-    return { success: true };
-  },
-
-  async clearYear(province: string, year: number): Promise<{ success: boolean; error?: string }> {
-    if (!supabase) return { success: false, error: 'Supabase未配置' };
-
-    const { error } = await supabase
-      .from('score_distribution')
-      .delete()
-      .eq('province', province)
-      .eq('year', year);
-
-    if (error) {
-      console.error('清空年份数据失败:', error);
-      return { success: false, error: error.message };
-    }
-
-    this.clearCache();
-
-    return { success: true };
-  },
-  
   clearCache(): void {
     cacheService.clearByPrefix('getByProvinceAndYear');
     cacheService.clearByPrefix('getByYear');

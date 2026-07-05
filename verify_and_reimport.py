@@ -1,9 +1,13 @@
 import json
 import os
 from supabase import create_client, Client
+from dotenv import load_dotenv
+load_dotenv()
 
-url = "https://jhcyqhtgtnomqvcdeeuo.supabase.co"
-key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoY3lxaHRndG5vbXF2Y2RlZXVvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1NTg5NTgsImV4cCI6MjA5ODEzNDk1OH0.UEefdrpIZU1Ul-gCCGYCElR_JClDgvtIkd3GuK9VK_o"
+url = os.environ.get('SUPABASE_URL')
+key = os.environ.get('SUPABASE_ANON_KEY')
+if not url or not key:
+    raise EnvironmentError("缺少环境变量 SUPABASE_URL 或 SUPABASE_ANON_KEY，请在 .env 中配置")
 
 supabase: Client = create_client(url, key)
 

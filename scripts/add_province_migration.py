@@ -6,13 +6,17 @@
 
 import os
 import sys
+from dotenv import load_dotenv
+load_dotenv()
 
-# Supabase数据库配置
-SUPABASE_HOST = 'jhcyqhtgtnomqvcdeeuo.supabase.co'
+# Supabase数据库配置（从环境变量派生）
+SUPABASE_URL = os.environ.get('SUPABASE_URL', '')
+_PROJECT_REF = SUPABASE_URL.replace('https://', '').replace('http://', '').split('.')[0] if SUPABASE_URL else ''
+SUPABASE_HOST = f'{_PROJECT_REF}.supabase.co' if _PROJECT_REF else os.environ.get('SUPABASE_HOST', '')
 SUPABASE_DB = 'postgres'
 SUPABASE_USER = 'postgres'
 # 用户需要提供正确的数据库密码
-SUPABASE_PASSWORD = ''
+SUPABASE_PASSWORD = os.environ.get('SUPABASE_DB_PASSWORD', '')
 SUPABASE_PORT = 5432
 
 try:

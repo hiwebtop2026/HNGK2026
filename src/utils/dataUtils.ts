@@ -647,11 +647,11 @@ function interpolateRank(score: number, references: [number, number][]): number 
 // 优先从数据库获取，失败时回退到本地参考数据
 export async function fetchRankInfo(score: number, subject: number, province: string = '海南'): Promise<RankInfo> {
   const category = getSubjectCategory(subject);
-  console.debug(`[fetchRankInfo] 开始查询: score=${score}, subject=${subject}, province=${province}, category=${category}`);
+  if (import.meta.env.DEV) console.debug(`[fetchRankInfo] 开始查询: score=${score}, subject=${subject}, province=${province}, category=${category}`);
 
   const is3Plus3Mode = ['海南', '天津', '北京', '上海', '山东', '浙江'].includes(province);
   const queryCategory = is3Plus3Mode ? '普通类' : category;
-  console.debug(`[fetchRankInfo] 3+3模式=${is3Plus3Mode}, queryCategory=${queryCategory ?? 'undefined'}`);
+  if (import.meta.env.DEV) console.debug(`[fetchRankInfo] 3+3模式=${is3Plus3Mode}, queryCategory=${queryCategory ?? 'undefined'}`);
 
   // 获取考生的选考科目列表（用于查询选考科目位次）
   const subjectCategories = is3Plus3Mode ? getSubjectCategoryNames(subject) : [];
@@ -667,13 +667,13 @@ export async function fetchRankInfo(score: number, subject: number, province: st
       const rankInfo = await scoreDistributionService.getRankByScore(province, score, year, queryCategory);
       const stats = await scoreDistributionService.getStats(province, year);
 
-      console.debug(`[fetchRankInfo] 尝试年份${year}: rankInfo=`, rankInfo, `stats=`, stats);
+      if (import.meta.env.DEV) console.debug(`[fetchRankInfo] 尝试年份${year}: rankInfo=`, rankInfo, `stats=`, stats);
 
       if (rankInfo && rankInfo.minRank && rankInfo.maxRank) {
         const expectedTotal = province === '海南' ? 70398 : (province === '天津' ? 77488 : null);
 
         if (expectedTotal && rankInfo.maxRank > expectedTotal * 1.5) {
-          console.warn(`[fetchRankInfo] 年份${year}数据异常: maxRank=${rankInfo.maxRank} > 预期${expectedTotal}，跳过`);
+          if (import.meta.env.DEV) console.warn(`[fetchRankInfo] 年份${year}数据异常: maxRank=${rankInfo.maxRank} > 预期${expectedTotal}，跳过`);
           continue;
         }
 
@@ -699,7 +699,7 @@ export async function fetchRankInfo(score: number, subject: number, province: st
         break;
       }
     } catch (error) {
-      console.debug(`[fetchRankInfo] 年份${year}查询失败:`, error);
+      if (import.meta.env.DEV) console.debug(`[fetchRankInfo] 年份${year}查询失败:`, error);
     }
   }
 
@@ -714,29 +714,29 @@ export async function fetchRankInfo(score: number, subject: number, province: st
           dbResult.subjectRank = subjectRankInfo.maxRank;
           dbResult.subjectRankCategory = subjectCat;
           dbResult.note += `；${subjectCat}选考位次：${subjectRankInfo.minRank}~${subjectRankInfo.maxRank}（同分${subjectRankInfo.count}人）`;
-          console.debug(`[fetchRankInfo] 选考科目位次: ${subjectCat}=${subjectRankInfo.minRank}~${subjectRankInfo.maxRank}`);
+          if (import.meta.env.DEV) console.debug(`[fetchRankInfo] 选考科目位次: ${subjectCat}=${subjectRankInfo.minRank}~${subjectRankInfo.maxRank}`);
           break;
         }
       }
     } catch (error) {
-      console.debug(`[fetchRankInfo] 查询选考科目位次失败:`, error);
+      if (import.meta.env.DEV) console.debug(`[fetchRankInfo] 查询选考科目位次失败:`, error);
     }
   }
 
   if (dbResult) {
-    console.debug(`[fetchRankInfo] 使用数据库数据: rank=${dbResult.rank}, subjectRank=${dbResult.subjectRank ?? 'N/A'}`);
+    if (import.meta.env.DEV) console.debug(`[fetchRankInfo] 使用数据库数据: rank=${dbResult.rank}, subjectRank=${dbResult.subjectRank ?? 'N/A'}`);
     return dbResult;
   }
 
-  console.warn(`[fetchRankInfo] 数据库查询无结果或数据异常，回退到本地参考数据`);
+  if (import.meta.env.DEV) console.warn(`[fetchRankInfo] 数据库查询无结果或数据异常，回退到本地参考数据`);
 
   const localData = getLocalRankInfo(province, score, category);
   if (localData) {
-    console.debug(`[fetchRankInfo] 使用本地参考数据`);
+    if (import.meta.env.DEV) console.debug(`[fetchRankInfo] 使用本地参考数据`);
     return localData;
   }
 
-  console.warn(`[fetchRankInfo] ${province} 无任何位次数据`);
+  if (import.meta.env.DEV) console.warn(`[fetchRankInfo] ${province} 无任何位次数据`);
   return {
     score,
     rank: null,
