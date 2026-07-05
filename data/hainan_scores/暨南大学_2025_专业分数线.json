@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "汉语言",
     "major_group": "",
     "min_score": 704,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "会计学",
     "major_group": "",
     "min_score": 697,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 692,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 691,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "电子科学与技术",
     "major_group": "",
     "min_score": 689,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "应急管理",
     "major_group": "",
     "min_score": 688,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "中医学",
     "major_group": "",
     "min_score": 684,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "金融工程",
     "major_group": "",
     "min_score": 682,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "口腔医学",
     "major_group": "",
     "min_score": 680,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 678,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "数学与应用数学",
     "major_group": "",
     "min_score": 676,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "应用化学",
     "major_group": "",
     "min_score": 675,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "电子商务",
     "major_group": "",
     "min_score": 674,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "税收学",
     "major_group": "",
     "min_score": 674,
@@ -168,8 +168,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "行政管理",
     "major_group": "",
     "min_score": 674,
@@ -180,8 +180,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "汉语国际教育",
     "major_group": "",
     "min_score": 673,
@@ -192,8 +192,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 672,
@@ -204,8 +204,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 671,
@@ -216,8 +216,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "日语",
     "major_group": "",
     "min_score": 671,
@@ -228,8 +228,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "包装工程",
     "major_group": "",
     "min_score": 665,
@@ -240,8 +240,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 665,
@@ -252,8 +252,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "暨南大学": "暨南大学",
+    "year": 2025,
+    "school_name": "暨南大学",
     "major_name": "生物科学",
     "major_group": "",
     "min_score": 665,

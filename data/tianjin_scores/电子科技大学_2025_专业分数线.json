@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "电子科技大学": "电子科技大学",
+    "year": 2025,
+    "school_name": "电子科技大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": null,
@@ -12,8 +12,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "电子科技大学": "电子科技大学",
+    "year": 2025,
+    "school_name": "电子科技大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": null,
@@ -24,8 +24,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "电子科技大学": "电子科技大学",
+    "year": 2025,
+    "school_name": "电子科技大学",
     "major_name": "微电子科学与工程",
     "major_group": "",
     "min_score": null,
@@ -36,8 +36,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "电子科技大学": "电子科技大学",
+    "year": 2025,
+    "school_name": "电子科技大学",
     "major_name": "集成电路设计与集成系统",
     "major_group": "",
     "min_score": null,
@@ -48,8 +48,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "电子科技大学": "电子科技大学",
+    "year": 2025,
+    "school_name": "电子科技大学",
     "major_name": "经济管理试验班",
     "major_group": "",
     "min_score": null,

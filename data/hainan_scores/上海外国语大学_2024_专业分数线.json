@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "上海外国语大学": "上海外国语大学",
+    "year": 2024,
+    "school_name": "上海外国语大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 713,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "上海外国语大学": "上海外国语大学",
+    "year": 2024,
+    "school_name": "上海外国语大学",
     "major_name": "西班牙语",
     "major_group": "",
     "min_score": 707,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "上海外国语大学": "上海外国语大学",
+    "year": 2024,
+    "school_name": "上海外国语大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 700,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "上海外国语大学": "上海外国语大学",
+    "year": 2024,
+    "school_name": "上海外国语大学",
     "major_name": "德语",
     "major_group": "",
     "min_score": 699,

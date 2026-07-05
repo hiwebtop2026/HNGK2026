@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "工业设计",
     "major_group": "专业组（3）",
     "min_score": 636,
@@ -12,8 +12,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "临床医学",
     "major_group": "专业组（2）",
     "min_score": 633,
@@ -24,8 +24,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "法学",
     "major_group": "专业组（4）",
     "min_score": 633,
@@ -36,8 +36,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "自动化",
     "major_group": "专业组（3）",
     "min_score": 633,
@@ -48,8 +48,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "计算机科学与技术",
     "major_group": "专业组（3）",
     "min_score": 633,
@@ -60,8 +60,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "自动化",
     "major_group": "专业组（3）",
     "min_score": 636,
@@ -72,8 +72,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "物联网工程",
     "major_group": "专业组（3）",
     "min_score": 635,
@@ -84,8 +84,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "电气工程及其自动化",
     "major_group": "专业组（3）",
     "min_score": 635,
@@ -96,8 +96,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "光电信息科学与工程",
     "major_group": "专业组（3）",
     "min_score": 634,
@@ -108,8 +108,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "计算机科学与技术",
     "major_group": "专业组（3）",
     "min_score": 634,
@@ -120,8 +120,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "智能制造工程",
     "major_group": "专业组（3）",
     "min_score": 633,
@@ -132,8 +132,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "机器人工程",
     "major_group": "专业组（3）",
     "min_score": 633,
@@ -144,8 +144,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "信息与计算科学",
     "major_group": "专业组（3）",
     "min_score": 632,
@@ -156,8 +156,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "电子封装技术",
     "major_group": "专业组（3）",
     "min_score": 632,
@@ -168,8 +168,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "工业设计",
     "major_group": "专业组（3）",
     "min_score": 631,
@@ -180,8 +180,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "食品科学与工程",
     "major_group": "专业组（3）",
     "min_score": 631,
@@ -192,8 +192,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "食品质量与安全",
     "major_group": "专业组（3）",
     "min_score": 631,
@@ -204,8 +204,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "临床医学",
     "major_group": "专业组（3）",
     "min_score": 630,
@@ -216,8 +216,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "食品营养与健康",
     "major_group": "专业组（3）",
     "min_score": 629,
@@ -228,8 +228,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "生物工程",
     "major_group": "专业组（3）",
     "min_score": 628,
@@ -240,8 +240,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "酿酒工程",
     "major_group": "专业组（3）",
     "min_score": 628,
@@ -252,8 +252,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "英语",
     "major_group": "专业组（3）",
     "min_score": 624,
@@ -264,8 +264,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "化学工程与工艺",
     "major_group": "专业组（3）",
     "min_score": 623,
@@ -276,8 +276,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "金融学",
     "major_group": "专业组（3）",
     "min_score": 622,
@@ -288,8 +288,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "高分子材料与工程",
     "major_group": "专业组（3）",
     "min_score": 622,
@@ -300,8 +300,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "大数据管理与应用",
     "major_group": "专业组（3）",
     "min_score": 621,
@@ -312,8 +312,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "工商管理",
     "major_group": "专业组（3）",
     "min_score": 621,
@@ -324,8 +324,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "纺织工程",
     "major_group": "专业组（3）",
     "min_score": 621,
@@ -336,8 +336,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "日语",
     "major_group": "专业组（3）",
     "min_score": 619,
@@ -348,8 +348,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "教育技术学",
     "major_group": "专业组（3）",
     "min_score": 617,
@@ -360,8 +360,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "纺织工程",
     "major_group": "专业组（3）",
     "min_score": 617,
@@ -372,8 +372,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "机械工程",
     "major_group": "专业组（3）",
     "min_score": 616,
@@ -384,8 +384,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "汉语言文学",
     "major_group": "专业组（3）",
     "min_score": 615,
@@ -396,8 +396,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "法学",
     "major_group": "专业组（3）",
     "min_score": 615,
@@ -408,8 +408,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "轻化工程",
     "major_group": "专业组（3）",
     "min_score": 615,
@@ -420,8 +420,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "包装工程",
     "major_group": "专业组（3）",
     "min_score": 614,
@@ -432,8 +432,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "小学教育",
     "major_group": "专业组（3）",
     "min_score": 613,
@@ -444,8 +444,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "数字经济",
     "major_group": "专业组（3）",
     "min_score": 613,
@@ -456,8 +456,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "社会工作",
     "major_group": "专业组（3）",
     "min_score": 613,
@@ -468,8 +468,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "日语",
     "major_group": "专业组（3）",
     "min_score": 610,
@@ -480,8 +480,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "江南大学": "江南大学",
+    "year": 2025,
+    "school_name": "江南大学",
     "major_name": "英语",
     "major_group": "专业组（3）",
     "min_score": 610,

@@ -1,0 +1,98 @@
+[
+  {
+    "school_name": "福建师范大学",
+    "year": 2024,
+    "major_name": "网络空间安全",
+    "major_group": "",
+    "min_score": 578,
+    "min_rank": 18257,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "福建师范大学",
+    "year": 2024,
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 569,
+    "min_rank": 20688,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "福建师范大学",
+    "year": 2024,
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 569,
+    "min_rank": 20688,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "福建师范大学",
+    "year": 2024,
+    "major_name": "人工智能",
+    "major_group": "",
+    "min_score": 565,
+    "min_rank": 21754,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "福建师范大学",
+    "year": 2024,
+    "major_name": "数学与应用数学",
+    "major_group": "",
+    "min_score": 561,
+    "min_rank": 22809,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "福建师范大学",
+    "year": 2024,
+    "major_name": "储能科学与工程",
+    "major_group": "",
+    "min_score": 557,
+    "min_rank": 23920,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "福建师范大学",
+    "year": 2024,
+    "major_name": "日语",
+    "major_group": "",
+    "min_score": 556,
+    "min_rank": 24209,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "福建师范大学",
+    "year": 2024,
+    "major_name": "资源循环科学与工程",
+    "major_group": "",
+    "min_score": 556,
+    "min_rank": 24209,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

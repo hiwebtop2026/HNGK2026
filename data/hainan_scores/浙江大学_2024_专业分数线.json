@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "浙江大学": "浙江大学",
+    "year": 2024,
+    "school_name": "浙江大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 828,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "浙江大学": "浙江大学",
+    "year": 2024,
+    "school_name": "浙江大学",
     "major_name": "人工智能",
     "major_group": "",
     "min_score": 816,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "浙江大学": "浙江大学",
+    "year": 2024,
+    "school_name": "浙江大学",
     "major_name": "社会科学试验班",
     "major_group": "",
     "min_score": 812,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "浙江大学": "浙江大学",
+    "year": 2024,
+    "school_name": "浙江大学",
     "major_name": "社会科学试验班",
     "major_group": "",
     "min_score": 806,

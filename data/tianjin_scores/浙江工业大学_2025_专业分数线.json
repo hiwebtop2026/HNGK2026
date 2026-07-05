@@ -1,0 +1,74 @@
+[
+  {
+    "school_name": "浙江工业大学",
+    "year": 2025,
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 618,
+    "min_rank": 8963,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "浙江工业大学",
+    "year": 2025,
+    "major_name": "化工与制药类",
+    "major_group": "",
+    "min_score": 612,
+    "min_rank": 10251,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "浙江工业大学",
+    "year": 2025,
+    "major_name": "机械类",
+    "major_group": "",
+    "min_score": 610,
+    "min_rank": 10681,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "浙江工业大学",
+    "year": 2025,
+    "major_name": "物理学类",
+    "major_group": "",
+    "min_score": 603,
+    "min_rank": 12295,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "浙江工业大学",
+    "year": 2025,
+    "major_name": "生物工程类",
+    "major_group": "",
+    "min_score": 603,
+    "min_rank": 12295,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "浙江工业大学",
+    "year": 2025,
+    "major_name": "土木类",
+    "major_group": "",
+    "min_score": 600,
+    "min_rank": 12965,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

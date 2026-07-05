@@ -1,0 +1,50 @@
+[
+  {
+    "school_name": "广西大学",
+    "year": 2023,
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 625,
+    "min_rank": 7531,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "广西大学",
+    "year": 2023,
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 619,
+    "min_rank": 8745,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "广西大学",
+    "year": 2023,
+    "major_name": "电子科学与技术",
+    "major_group": "",
+    "min_score": 618,
+    "min_rank": 8963,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "广西大学",
+    "year": 2023,
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 617,
+    "min_rank": 9165,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

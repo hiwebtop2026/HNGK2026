@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "哈尔滨工业大学": "哈尔滨工业大学",
+    "year": 2024,
+    "school_name": "哈尔滨工业大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 812,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "哈尔滨工业大学": "哈尔滨工业大学",
+    "year": 2024,
+    "school_name": "哈尔滨工业大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 787,

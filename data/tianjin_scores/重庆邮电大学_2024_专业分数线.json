@@ -1,0 +1,38 @@
+[
+  {
+    "school_name": "重庆邮电大学",
+    "year": 2024,
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 614,
+    "min_rank": 9791,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "重庆邮电大学",
+    "year": 2024,
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 609,
+    "min_rank": 10891,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "重庆邮电大学",
+    "year": 2024,
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 609,
+    "min_rank": 10891,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

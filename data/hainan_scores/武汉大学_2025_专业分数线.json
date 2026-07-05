@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "文科试验班类",
     "major_group": "",
     "min_score": 775,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "理科试验班",
     "major_group": "",
     "min_score": 765,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 765,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "生物科学类",
     "major_group": "",
     "min_score": 763,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 763,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "导航工程",
     "major_group": "",
     "min_score": 762,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 757,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 752,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 752,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 750,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "遥感科学与技术",
     "major_group": "",
     "min_score": 750,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 748,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 748,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "微电子科学与工程",
     "major_group": "",
     "min_score": 748,
@@ -168,8 +168,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "社会学",
     "major_group": "",
     "min_score": 747,
@@ -180,8 +180,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "武汉大学": "武汉大学",
+    "year": 2025,
+    "school_name": "武汉大学",
     "major_name": "建筑学",
     "major_group": "",
     "min_score": 658,

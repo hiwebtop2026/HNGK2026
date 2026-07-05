@@ -1,0 +1,122 @@
+[
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 592,
+    "min_rank": 14879,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "车辆工程",
+    "major_group": "",
+    "min_score": 560,
+    "min_rank": 23083,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": 558,
+    "min_rank": 23634,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "人工智能",
+    "major_group": "",
+    "min_score": 556,
+    "min_rank": 24209,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "化学工程与工艺",
+    "major_group": "",
+    "min_score": 554,
+    "min_rank": 24750,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "材料科学与工程",
+    "major_group": "",
+    "min_score": 550,
+    "min_rank": 25874,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "朝鲜语",
+    "major_group": "",
+    "min_score": 547,
+    "min_rank": 26718,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 541,
+    "min_rank": 28355,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "统计学",
+    "major_group": "",
+    "min_score": 539,
+    "min_rank": 28865,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "烟台大学",
+    "year": 2025,
+    "major_name": "汉语国际教育",
+    "major_group": "",
+    "min_score": 534,
+    "min_rank": 30332,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

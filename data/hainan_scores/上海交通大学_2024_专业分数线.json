@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "上海交通大学": "上海交通大学",
+    "year": 2024,
+    "school_name": "上海交通大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 832,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "上海交通大学": "上海交通大学",
+    "year": 2024,
+    "school_name": "上海交通大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 826,

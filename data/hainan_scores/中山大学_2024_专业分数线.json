@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 791,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 778,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "社会学类",
     "major_group": "",
     "min_score": 773,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 771,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 765,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 763,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "生物科学类",
     "major_group": "",
     "min_score": 749,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 747,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "人工智能",
     "major_group": "",
     "min_score": 744,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 744,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 744,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 744,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "航空航天类",
     "major_group": "",
     "min_score": 743,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "机械工程",
     "major_group": "",
     "min_score": 742,
@@ -168,8 +168,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "网络空间安全",
     "major_group": "",
     "min_score": 742,
@@ -180,8 +180,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "中山大学": "中山大学",
+    "year": 2024,
+    "school_name": "中山大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 705,

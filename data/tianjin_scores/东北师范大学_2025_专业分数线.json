@@ -1,0 +1,86 @@
+[
+  {
+    "school_name": "东北师范大学",
+    "year": 2025,
+    "major_name": "数学类",
+    "major_group": "",
+    "min_score": 641,
+    "min_rank": 4777,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北师范大学",
+    "year": 2025,
+    "major_name": "物理学类",
+    "major_group": "",
+    "min_score": 634,
+    "min_rank": 5859,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北师范大学",
+    "year": 2025,
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 628,
+    "min_rank": 6950,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北师范大学",
+    "year": 2025,
+    "major_name": "马克思主义理论类",
+    "major_group": "",
+    "min_score": 628,
+    "min_rank": 6950,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北师范大学",
+    "year": 2025,
+    "major_name": "经济学类",
+    "major_group": "",
+    "min_score": 627,
+    "min_rank": 7161,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北师范大学",
+    "year": 2025,
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 622,
+    "min_rank": 8141,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北师范大学",
+    "year": 2025,
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 614,
+    "min_rank": 9791,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "北京大学": "北京大学",
+    "year": 2024,
+    "school_name": "北京大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 900,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京大学": "北京大学",
+    "year": 2024,
+    "school_name": "北京大学",
     "major_name": "文科试验班类",
     "major_group": "",
     "min_score": 878,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京大学": "北京大学",
+    "year": 2024,
+    "school_name": "北京大学",
     "major_name": "物理学类",
     "major_group": "",
     "min_score": 858,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京大学": "北京大学",
+    "year": 2024,
+    "school_name": "北京大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 839,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京大学": "北京大学",
+    "year": 2024,
+    "school_name": "北京大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 838,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京大学": "北京大学",
+    "year": 2024,
+    "school_name": "北京大学",
     "major_name": "中国语言文学类",
     "major_group": "",
     "min_score": 836,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京大学": "北京大学",
+    "year": 2024,
+    "school_name": "北京大学",
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 834,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京大学": "北京大学",
+    "year": 2024,
+    "school_name": "北京大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 827,

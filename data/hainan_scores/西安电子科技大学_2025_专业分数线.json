@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "西安电子科技大学": "西安电子科技大学",
+    "year": 2025,
+    "school_name": "西安电子科技大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 730,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西安电子科技大学": "西安电子科技大学",
+    "year": 2025,
+    "school_name": "西安电子科技大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 726,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西安电子科技大学": "西安电子科技大学",
+    "year": 2025,
+    "school_name": "西安电子科技大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 726,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西安电子科技大学": "西安电子科技大学",
+    "year": 2025,
+    "school_name": "西安电子科技大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 724,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西安电子科技大学": "西安电子科技大学",
+    "year": 2025,
+    "school_name": "西安电子科技大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 723,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西安电子科技大学": "西安电子科技大学",
+    "year": 2025,
+    "school_name": "西安电子科技大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 722,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西安电子科技大学": "西安电子科技大学",
+    "year": 2025,
+    "school_name": "西安电子科技大学",
     "major_name": "管理科学与工程类",
     "major_group": "",
     "min_score": 700,

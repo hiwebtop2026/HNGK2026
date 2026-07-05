@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "外交学",
     "major_group": "",
     "min_score": 773,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "翻译",
     "major_group": "",
     "min_score": 766,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "西班牙语",
     "major_group": "",
     "min_score": 764,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "法语",
     "major_group": "",
     "min_score": 726,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "日语",
     "major_group": "",
     "min_score": 718,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 709,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 701,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 699,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 691,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京外国语大学": "北京外国语大学",
+    "year": 2025,
+    "school_name": "北京外国语大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 679,

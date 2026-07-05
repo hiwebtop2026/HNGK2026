@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 762,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 759,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 741,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 736,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "人工智能",
     "major_group": "",
     "min_score": 735,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 733,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 732,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 699,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 696,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "物联网工程",
     "major_group": "",
     "min_score": 690,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "电信工程及管理",
     "major_group": "",
     "min_score": 684,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 646,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "数字媒体技术",
     "major_group": "",
     "min_score": 630,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "北京邮电大学": "北京邮电大学",
+    "year": 2024,
+    "school_name": "北京邮电大学",
     "major_name": "智能医学工程",
     "major_group": "",
     "min_score": 622,

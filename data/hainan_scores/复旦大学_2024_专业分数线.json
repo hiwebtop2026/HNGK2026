@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "复旦大学": "复旦大学",
+    "year": 2024,
+    "school_name": "复旦大学",
     "major_name": "理科试验班",
     "major_group": "",
     "min_score": 821,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "复旦大学": "复旦大学",
+    "year": 2024,
+    "school_name": "复旦大学",
     "major_name": "人文科学试验班",
     "major_group": "",
     "min_score": 819,

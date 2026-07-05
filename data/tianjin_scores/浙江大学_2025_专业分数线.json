@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "工科试验班",
     "major_group": "专业组（3）",
     "min_score": 694,
@@ -12,8 +12,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "机器人工程",
     "major_group": "专业组（3）",
     "min_score": 694,
@@ -24,8 +24,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "工科试验班",
     "major_group": "专业组（3）",
     "min_score": 693,
@@ -36,8 +36,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "社会科学试验班",
     "major_group": "专业组（2）",
     "min_score": 687,
@@ -48,8 +48,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "社会科学试验班",
     "major_group": "专业组（2）",
     "min_score": 686,
@@ -60,8 +60,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "工科试验班",
     "major_group": "专业组（2）",
     "min_score": 694,
@@ -72,8 +72,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "机器人工程",
     "major_group": "专业组（2）",
     "min_score": 692,
@@ -84,8 +84,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "人工智能",
     "major_group": "专业组（2）",
     "min_score": 689,
@@ -96,8 +96,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "工科试验班",
     "major_group": "专业组（2）",
     "min_score": 689,
@@ -108,8 +108,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "理科试验班类",
     "major_group": "专业组（2）",
     "min_score": 689,
@@ -120,8 +120,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "社会科学试验班",
     "major_group": "专业组（2）",
     "min_score": 683,
@@ -132,8 +132,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "浙江大学": "浙江大学",
+    "year": 2025,
+    "school_name": "浙江大学",
     "major_name": "社会科学试验班",
     "major_group": "专业组（2）",
     "min_score": 681,

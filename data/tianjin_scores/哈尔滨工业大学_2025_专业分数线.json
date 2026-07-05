@@ -1,0 +1,74 @@
+[
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2025,
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 689,
+    "min_rank": 283,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2025,
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 687,
+    "min_rank": 353,
+    "person_count": 11,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2025,
+    "major_name": "大数据管理与应用",
+    "major_group": "",
+    "min_score": 649,
+    "min_rank": 3561,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2025,
+    "major_name": "应用物理学",
+    "major_group": "",
+    "min_score": 647,
+    "min_rank": 3863,
+    "person_count": 6,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2025,
+    "major_name": "数学与应用数学",
+    "major_group": "",
+    "min_score": 647,
+    "min_rank": 3863,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "哈尔滨工业大学",
+    "year": 2025,
+    "major_name": "智慧建筑与建造",
+    "major_group": "",
+    "min_score": 645,
+    "min_rank": 4135,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

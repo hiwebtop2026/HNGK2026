@@ -1,4 +1,5 @@
 import * as XLSX from 'xlsx';
+import ExcelJS from 'exceljs';
 import { getRefScore, getTier, getRecommendationReason, matchMajorCategories, isSubjectMatch } from './dataUtils';
 import type { SchoolScore, MajorRecommendation } from './dataUtils';
 import { generateMajorRecommendations, formatMajorSuggestion } from './majorRecommender';
@@ -551,18 +552,139 @@ export async function filterSchoolsAsync(
   return results;
 }
 
-// 导出为Excel
-export function exportToExcel(volunteers: VolunteerResult[], filename: string): void {
-  const workbook = XLSX.utils.book_new();
+const COLORS = {
+  headerBg: '334155',
+  headerFont: 'FFFFFF',
+  probHighBg: 'D1FAE5',
+  probHighFont: '10B981',
+  probMediumHighBg: 'DBEAFE',
+  probMediumHighFont: '3B82F6',
+  probMediumBg: 'FEF3C7',
+  probMediumFont: 'F59E0B',
+  probLowBg: 'FEE2E2',
+  probLowFont: 'EF4444',
+  probVeryLowBg: 'FECACA',
+  probVeryLowFont: 'DC2626',
+  cardBorder: 'E2E8F0',
+  tierChongBg: 'FFF7ED',
+  tierChongBorder: 'FDBA74',
+  tierWenBg: 'FEFCE8',
+  tierWenBorder: 'FDE047',
+  tierBaoBg: 'ECFDF5',
+  tierBaoBorder: '34D399',
+  textPrimary: '1E293B',
+  textSecondary: '64748B',
+};
+
+function getProbabilityStyle(probability: number) {
+  if (probability >= 85) {
+    return { bg: COLORS.probHighBg, font: COLORS.probHighFont };
+  } else if (probability >= 70) {
+    return { bg: COLORS.probMediumHighBg, font: COLORS.probMediumHighFont };
+  } else if (probability >= 50) {
+    return { bg: COLORS.probMediumBg, font: COLORS.probMediumFont };
+  } else if (probability >= 30) {
+    return { bg: COLORS.probLowBg, font: COLORS.probLowFont };
+  } else {
+    return { bg: COLORS.probVeryLowBg, font: COLORS.probVeryLowFont };
+  }
+}
+
+function getTierStyle(tier: string) {
+  switch (tier) {
+    case '冲':
+      return { bg: COLORS.tierChongBg, border: COLORS.tierChongBorder, font: 'EA580C' };
+    case '稳':
+      return { bg: COLORS.tierWenBg, border: COLORS.tierWenBorder, font: 'CA8A04' };
+    case '保':
+      return { bg: COLORS.tierBaoBg, border: COLORS.tierBaoBorder, font: '059669' };
+    default:
+      return { bg: 'F8FAFC', border: COLORS.cardBorder, font: COLORS.textSecondary };
+  }
+}
+
+function getLevelStyle(level: string) {
+  switch (level) {
+    case '985':
+      return { font: '7C3AED', bold: true };
+    case '211':
+    case '双一流':
+      return { font: '3B82F6', bold: true };
+    default:
+      return { font: COLORS.textPrimary, bold: false };
+  }
+}
+
+async function exportToExcelModern(volunteers: VolunteerResult[], filename: string, baseScore: number): Promise<void> {
+  const workbook = new ExcelJS.Workbook();
+  workbook.creator = '智能志愿推荐系统';
+  workbook.lastModifiedBy = '智能志愿推荐系统';
+  workbook.created = new Date();
+  workbook.modified = new Date();
   
-  // 构建数据 - 以数据库真实专业数据为主
-  const data = [
-    ['志愿序号', '志愿档次', '录取概率', '分数趋势', '趋势值(%)', '波动系数(%)', '院校层次', '省份', '院校专业组代码', '院校专业组名称', '科目要求', 
-     '2025投档线', '2024投档线', '2023投档线', 
-     '推荐专业（保）', '推荐专业（稳）', '推荐专业（冲）',
-     '保-专业详情', '稳-专业详情', '冲-专业详情',
-     '推荐理由'],
+  const mainSheet = workbook.addWorksheet('志愿方案');
+  const summarySheet = workbook.addWorksheet('分析汇总');
+  
+  mainSheet.columns = [
+    { key: 'index', width: 10 },
+    { key: 'tier', width: 10 },
+    { key: 'probability', width: 12 },
+    { key: 'trend', width: 10 },
+    { key: 'trendValue', width: 12 },
+    { key: 'volatility', width: 14 },
+    { key: 'level', width: 12 },
+    { key: 'province', width: 10 },
+    { key: 'code', width: 16 },
+    { key: 'name', width: 28 },
+    { key: 'subject', width: 10 },
+    { key: 'score2025', width: 12 },
+    { key: 'score2024', width: 12 },
+    { key: 'score2023', width: 12 },
+    { key: 'majorBao', width: 45 },
+    { key: 'majorWen', width: 45 },
+    { key: 'majorChong', width: 45 },
+    { key: 'detailsBao', width: 65 },
+    { key: 'detailsWen', width: 65 },
+    { key: 'detailsChong', width: 65 },
+    { key: 'reason', width: 60 },
   ];
+  
+  const headerStyle = {
+    fill: { type: 'pattern', pattern: 'solid', fgColor: { argb: COLORS.headerBg } },
+    font: { name: '微软雅黑', size: 12, bold: true, color: { argb: COLORS.headerFont } },
+    alignment: { horizontal: 'center', vertical: 'center', wrapText: true },
+    border: {
+      top: { style: 'medium', color: { argb: 'CBD5E1' } },
+      left: { style: 'medium', color: { argb: 'CBD5E1' } },
+      bottom: { style: 'medium', color: { argb: 'CBD5E1' } },
+      right: { style: 'medium', color: { argb: 'CBD5E1' } },
+    },
+  };
+  
+  const normalStyle = {
+    font: { name: '微软雅黑', size: 11, color: { argb: COLORS.textPrimary } },
+    alignment: { vertical: 'center', wrapText: true },
+    border: {
+      top: { style: 'thin', color: { argb: COLORS.cardBorder } },
+      left: { style: 'thin', color: { argb: COLORS.cardBorder } },
+      bottom: { style: 'thin', color: { argb: COLORS.cardBorder } },
+      right: { style: 'thin', color: { argb: COLORS.cardBorder } },
+    },
+  };
+  
+  const headers = [
+    '志愿序号', '志愿档次', '录取概率', '分数趋势', '趋势值(%)', '波动系数(%)',
+    '院校层次', '省份', '院校专业组代码', '院校专业组名称', '科目要求',
+    '2025投档线', '2024投档线', '2023投档线',
+    '推荐专业（保）', '推荐专业（稳）', '推荐专业（冲）',
+    '保-专业详情', '稳-专业详情', '冲-专业详情',
+    '推荐理由',
+  ];
+  
+  const headerRow = mainSheet.addRow(headers);
+  headerRow.eachCell((cell, colNumber) => {
+    Object.assign(cell, headerStyle);
+  });
   
   for (const v of volunteers) {
     const realMajors = v.matchedMajors || [];
@@ -575,59 +697,39 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
     const wenMajorNames = wenMajors.map(m => m.major_name).join('、');
     const chongMajorNames = chongMajors.map(m => m.major_name).join('、');
     
-    const baoMajorDetails = baoMajors.map(m => {
-      const details = [`${m.major_name}`];
-      if (m.min_score) details.push(`${m.min_score}分`);
-      if (m.avg_score && m.avg_score !== m.min_score) details.push(`平均${m.avg_score}分`);
-      if (m.min_rank) details.push(`位次${m.min_rank}`);
-      if (m.year) details.push(`${m.year}年`);
-      if (m.batch) details.push(m.batch);
-      if (m.subject_requirement) details.push(`选科:${m.subject_requirement}`);
-      if (m.admission_probability !== undefined) details.push(`录取率${m.admission_probability}%`);
+    const formatMajorDetail = (major: MajorScore) => {
+      const details: string[] = [`${major.major_name}`];
+      if (major.min_score) details.push(`${major.min_score}分`);
+      if (major.avg_score && major.avg_score !== major.min_score) details.push(`平均${major.avg_score}分`);
+      if (major.min_rank) details.push(`位次${major.min_rank}`);
+      if (major.year) details.push(`${major.year}年`);
+      if (major.batch) details.push(major.batch);
+      if (major.subject_requirement) details.push(`选科:${major.subject_requirement}`);
+      if (major.admission_probability !== undefined) details.push(`录取率${major.admission_probability}%`);
       return details.join(' ');
-    }).join('\n');
+    };
     
-    const wenMajorDetails = wenMajors.map(m => {
-      const details = [`${m.major_name}`];
-      if (m.min_score) details.push(`${m.min_score}分`);
-      if (m.avg_score && m.avg_score !== m.min_score) details.push(`平均${m.avg_score}分`);
-      if (m.min_rank) details.push(`位次${m.min_rank}`);
-      if (m.year) details.push(`${m.year}年`);
-      if (m.batch) details.push(m.batch);
-      if (m.subject_requirement) details.push(`选科:${m.subject_requirement}`);
-      if (m.admission_probability !== undefined) details.push(`录取率${m.admission_probability}%`);
-      return details.join(' ');
-    }).join('\n');
-    
-    const chongMajorDetails = chongMajors.map(m => {
-      const details = [`${m.major_name}`];
-      if (m.min_score) details.push(`${m.min_score}分`);
-      if (m.avg_score && m.avg_score !== m.min_score) details.push(`平均${m.avg_score}分`);
-      if (m.min_rank) details.push(`位次${m.min_rank}`);
-      if (m.year) details.push(`${m.year}年`);
-      if (m.batch) details.push(m.batch);
-      if (m.subject_requirement) details.push(`选科:${m.subject_requirement}`);
-      if (m.admission_probability !== undefined) details.push(`录取率${m.admission_probability}%`);
-      return details.join(' ');
-    }).join('\n');
+    const baoMajorDetails = baoMajors.map(formatMajorDetail).join('\n');
+    const wenMajorDetails = wenMajors.map(formatMajorDetail).join('\n');
+    const chongMajorDetails = chongMajors.map(formatMajorDetail).join('\n');
     
     const trendText = v.scoreTrend === 'up' ? '上涨' : v.scoreTrend === 'down' ? '下降' : '平稳';
     
-    data.push([
-      String(v.index),
+    const row = mainSheet.addRow([
+      v.index,
       v.tier,
       `${v.admissionProbability}%`,
       trendText,
-      v.trendValue !== undefined ? String(Math.round(v.trendValue * 100) / 100) : '',
-      v.volatility !== undefined ? String(Math.round(v.volatility * 100) / 100) : '',
+      v.trendValue !== undefined ? (Math.round(v.trendValue * 100) / 100).toString() : '',
+      v.volatility !== undefined ? (Math.round(v.volatility * 100) / 100).toString() : '',
       v.level,
       v.province,
       v.code,
       v.name,
-      String(v.subject),
-      v.score2025 !== null ? String(v.score2025) : '',
-      v.score2024 !== null ? String(v.score2024) : '',
-      v.score2023 !== null ? String(v.score2023) : '',
+      v.subject,
+      v.score2025 ?? '',
+      v.score2024 ?? '',
+      v.score2023 ?? '',
       baoMajorNames,
       wenMajorNames,
       chongMajorNames,
@@ -636,37 +738,228 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
       chongMajorDetails,
       v.reason,
     ]);
+    
+    const probStyle = getProbabilityStyle(v.admissionProbability);
+    const tierStyle = getTierStyle(v.tier);
+    const levelStyle = getLevelStyle(v.level);
+    
+    row.eachCell((cell, colNumber) => {
+      Object.assign(cell, normalStyle);
+      
+      if (colNumber === 1) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+        cell.font = { ...cell.font, bold: true };
+      } else if (colNumber === 2) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: tierStyle.bg } };
+        cell.font = { ...cell.font, bold: true, color: { argb: tierStyle.font } };
+      } else if (colNumber === 3) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: probStyle.bg } };
+        cell.font = { ...cell.font, bold: true, color: { argb: probStyle.font } };
+      } else if (colNumber === 4) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+        const trendColor = v.scoreTrend === 'up' ? 'DC2626' : v.scoreTrend === 'down' ? '10B981' : COLORS.textSecondary;
+        cell.font = { ...cell.font, color: { argb: trendColor } };
+      } else if (colNumber === 7) {
+        cell.font = { ...cell.font, bold: levelStyle.bold, color: { argb: levelStyle.font } };
+      } else if (colNumber === 8) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+      } else if (colNumber === 9) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+      } else if (colNumber === 10) {
+        cell.font = { ...cell.font, bold: true };
+      } else if (colNumber === 11) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+      } else if (colNumber >= 12 && colNumber <= 14) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+        cell.font = { ...cell.font, size: 10 };
+      }
+    });
   }
   
-  const worksheet = XLSX.utils.aoa_to_sheet(data);
+  mainSheet.views = [{ state: 'frozen', ySplit: 1 }];
   
-  // 设置列宽
-  worksheet['!cols'] = [
-    { wch: 8 },    // 志愿序号
-    { wch: 8 },    // 志愿档次
-    { wch: 10 },   // 录取概率
-    { wch: 8 },    // 分数趋势
-    { wch: 12 },   // 趋势值(%)
-    { wch: 14 },   // 波动系数(%)
-    { wch: 10 },   // 院校层次
-    { wch: 8 },    // 省份
-    { wch: 14 },   // 院校专业组代码
-    { wch: 22 },   // 院校专业组名称
-    { wch: 8 },    // 科目要求
-    { wch: 10 },   // 2025投档线
-    { wch: 10 },   // 2024投档线
-    { wch: 10 },   // 2023投档线
-    { wch: 40 },   // 推荐专业（保）
-    { wch: 40 },   // 推荐专业（稳）
-    { wch: 40 },   // 推荐专业（冲）
-    { wch: 60 },   // 保-专业详情
-    { wch: 60 },   // 稳-专业详情
-    { wch: 60 },   // 冲-专业详情
-    { wch: 55 },   // 推荐理由
+  summarySheet.columns = [
+    { key: 'label', width: 25 },
+    { key: 'value', width: 20 },
+    { key: 'percentage', width: 15 },
+    { key: '', width: 10 },
+    { key: '', width: 10 },
+    { key: '', width: 10 },
+    { key: '', width: 10 },
   ];
   
-  XLSX.utils.book_append_sheet(workbook, worksheet, '志愿方案');
+  const chongCount = volunteers.filter(r => r.tier === '冲').length;
+  const wenCount = volunteers.filter(r => r.tier === '稳').length;
+  const baoCount = volunteers.filter(r => r.tier === '保').length;
+  const totalCount = volunteers.length;
   
-  // 导出
-  XLSX.writeFile(workbook, filename);
+  const levelCounts: Record<string, number> = {};
+  volunteers.forEach(v => {
+    levelCounts[v.level] = (levelCounts[v.level] || 0) + 1;
+  });
+  
+  const probDistribution = { '高(≥85%)': 0, '偏高(70-85%)': 0, '中(50-70%)': 0, '偏低(30-50%)': 0, '低(<30%)': 0 };
+  volunteers.forEach(v => {
+    if (v.admissionProbability >= 85) probDistribution['高(≥85%)']++;
+    else if (v.admissionProbability >= 70) probDistribution['偏高(70-85%)']++;
+    else if (v.admissionProbability >= 50) probDistribution['中(50-70%)']++;
+    else if (v.admissionProbability >= 30) probDistribution['偏低(30-50%)']++;
+    else probDistribution['低(<30%)']++;
+  });
+  
+  const summaryData = [
+    { label: '考生信息', value: '', percentage: '' },
+    { label: '基准分数', value: `${baseScore}分`, percentage: '' },
+    { label: '志愿数量', value: `${totalCount}个`, percentage: '' },
+    { label: '', value: '', percentage: '' },
+    { label: '志愿档次分布', value: '', percentage: '' },
+    { label: '冲志愿', value: `${chongCount}个`, percentage: `${((chongCount / totalCount) * 100).toFixed(1)}%` },
+    { label: '稳志愿', value: `${wenCount}个`, percentage: `${((wenCount / totalCount) * 100).toFixed(1)}%` },
+    { label: '保志愿', value: `${baoCount}个`, percentage: `${((baoCount / totalCount) * 100).toFixed(1)}%` },
+    { label: '', value: '', percentage: '' },
+    { label: '院校层次分布', value: '', percentage: '' },
+    ...Object.entries(levelCounts).map(([level, count]) => ({
+      label: level,
+      value: `${count}个`,
+      percentage: `${((count / totalCount) * 100).toFixed(1)}%`,
+    })),
+    { label: '', value: '', percentage: '' },
+    { label: '录取概率分布', value: '', percentage: '' },
+    ...Object.entries(probDistribution).map(([range, count]) => ({
+      label: range,
+      value: `${count}个`,
+      percentage: `${((count / totalCount) * 100).toFixed(1)}%`,
+    })),
+  ];
+  
+  summaryData.forEach((data, idx) => {
+    const row = summarySheet.addRow([data.label, data.value, data.percentage, '', '', '', '']);
+    
+    row.eachCell((cell) => {
+      Object.assign(cell, normalStyle);
+    });
+    
+    const isSectionTitle = ['考生信息', '志愿档次分布', '院校层次分布', '录取概率分布'].includes(data.label);
+    if (isSectionTitle) {
+      for (let i = 1; i <= 7; i++) {
+        const cell = row.getCell(i);
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: COLORS.headerBg } };
+        cell.font = { name: '微软雅黑', size: 12, bold: true, color: { argb: COLORS.headerFont } };
+        cell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+      }
+    } else if (data.label) {
+      row.getCell(1).font = { ...row.getCell(1).font, bold: true };
+      row.getCell(2).font = { ...row.getCell(2).font, bold: true };
+    }
+  });
+  
+  mainSheet.properties.tabColor = { argb: COLORS.headerBg };
+  summarySheet.properties.tabColor = { argb: COLORS.probHighBg };
+  
+  await workbook.xlsx.writeFile(filename);
+}
+
+// 导出为Excel
+export function exportToExcel(volunteers: VolunteerResult[], filename: string): void {
+  const baseScore = volunteers[0]?.refScore || 0;
+  
+  exportToExcelModern(volunteers, filename, baseScore).catch(error => {
+    console.error('Excel导出失败:', error);
+    
+    const workbook = XLSX.utils.book_new();
+    
+    const data = [
+      ['志愿序号', '志愿档次', '录取概率', '分数趋势', '趋势值(%)', '波动系数(%)', '院校层次', '省份', '院校专业组代码', '院校专业组名称', '科目要求', 
+       '2025投档线', '2024投档线', '2023投档线', 
+       '推荐专业（保）', '推荐专业（稳）', '推荐专业（冲）',
+       '保-专业详情', '稳-专业详情', '冲-专业详情',
+       '推荐理由'],
+    ];
+    
+    for (const v of volunteers) {
+      const realMajors = v.matchedMajors || [];
+      
+      const baoMajors = realMajors.filter(m => m.tier === '保');
+      const wenMajors = realMajors.filter(m => m.tier === '稳');
+      const chongMajors = realMajors.filter(m => m.tier === '冲');
+      
+      const baoMajorNames = baoMajors.map(m => m.major_name).join('、');
+      const wenMajorNames = wenMajors.map(m => m.major_name).join('、');
+      const chongMajorNames = chongMajors.map(m => m.major_name).join('、');
+      
+      const formatMajorDetail = (major: MajorScore) => {
+        const details: string[] = [`${major.major_name}`];
+        if (major.min_score) details.push(`${major.min_score}分`);
+        if (major.avg_score && major.avg_score !== major.min_score) details.push(`平均${major.avg_score}分`);
+        if (major.min_rank) details.push(`位次${major.min_rank}`);
+        if (major.year) details.push(`${major.year}年`);
+      if (major.batch) details.push(major.batch);
+        if (major.subject_requirement) details.push(`选科:${major.subject_requirement}`);
+        if (major.admission_probability !== undefined) details.push(`录取率${major.admission_probability}%`);
+        return details.join(' ');
+      };
+      
+      const baoMajorDetails = baoMajors.map(formatMajorDetail).join('\n');
+      const wenMajorDetails = wenMajors.map(formatMajorDetail).join('\n');
+      const chongMajorDetails = chongMajors.map(formatMajorDetail).join('\n');
+      
+      const trendText = v.scoreTrend === 'up' ? '上涨' : v.scoreTrend === 'down' ? '下降' : '平稳';
+      
+      data.push([
+        String(v.index),
+        v.tier,
+        `${v.admissionProbability}%`,
+        trendText,
+        v.trendValue !== undefined ? String(Math.round(v.trendValue * 100) / 100) : '',
+        v.volatility !== undefined ? String(Math.round(v.volatility * 100) / 100) : '',
+        v.level,
+        v.province,
+        v.code,
+        v.name,
+        String(v.subject),
+        v.score2025 !== null ? String(v.score2025) : '',
+        v.score2024 !== null ? String(v.score2024) : '',
+        v.score2023 !== null ? String(v.score2023) : '',
+        baoMajorNames,
+        wenMajorNames,
+        chongMajorNames,
+        baoMajorDetails,
+        wenMajorDetails,
+        chongMajorDetails,
+        v.reason,
+      ]);
+    }
+    
+    const worksheet = XLSX.utils.aoa_to_sheet(data);
+    
+    worksheet['!cols'] = [
+      { wch: 10 },
+      { wch: 10 },
+      { wch: 12 },
+      { wch: 10 },
+      { wch: 12 },
+      { wch: 14 },
+      { wch: 12 },
+      { wch: 10 },
+      { wch: 16 },
+      { wch: 28 },
+      { wch: 10 },
+      { wch: 12 },
+      { wch: 12 },
+      { wch: 12 },
+      { wch: 45 },
+      { wch: 45 },
+      { wch: 45 },
+      { wch: 65 },
+      { wch: 65 },
+      { wch: 65 },
+      { wch: 60 },
+    ];
+    
+    XLSX.utils.book_append_sheet(workbook, worksheet, '志愿方案');
+    
+    XLSX.writeFile(workbook, filename);
+  });
 }

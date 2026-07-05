@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 693,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 687,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "电子科学与技术",
     "major_group": "",
     "min_score": 684,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 683,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "集成电路设计与集成系统",
     "major_group": "",
     "min_score": 680,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 678,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "信息安全",
     "major_group": "",
     "min_score": 675,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "自动化",
     "major_group": "",
     "min_score": 675,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 674,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "微电子科学与工程",
     "major_group": "",
     "min_score": 673,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "人工智能",
     "major_group": "",
     "min_score": 672,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 671,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "网络工程",
     "major_group": "",
     "min_score": 669,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "地理信息科学",
     "major_group": "",
     "min_score": 668,
@@ -168,8 +168,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 668,
@@ -180,8 +180,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "邮政工程",
     "major_group": "",
     "min_score": 668,
@@ -192,8 +192,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "数字媒体技术",
     "major_group": "",
     "min_score": 667,
@@ -204,8 +204,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "新能源材料与器件",
     "major_group": "",
     "min_score": 667,
@@ -216,8 +216,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "物联网工程",
     "major_group": "",
     "min_score": 667,
@@ -228,8 +228,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "南京邮电大学": "南京邮电大学",
+    "year": 2025,
+    "school_name": "南京邮电大学",
     "major_name": "应用统计学",
     "major_group": "",
     "min_score": 666,

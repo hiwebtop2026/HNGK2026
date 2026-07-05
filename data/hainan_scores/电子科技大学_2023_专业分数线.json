@@ -1,7 +1,7 @@
 [
   {
-    "2023": 2023,
-    "电子科技大学": "电子科技大学",
+    "year": 2023,
+    "school_name": "电子科技大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 753,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "电子科技大学": "电子科技大学",
+    "year": 2023,
+    "school_name": "电子科技大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 751,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "电子科技大学": "电子科技大学",
+    "year": 2023,
+    "school_name": "电子科技大学",
     "major_name": "集成电路设计与集成系统",
     "major_group": "",
     "min_score": 750,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "电子科技大学": "电子科技大学",
+    "year": 2023,
+    "school_name": "电子科技大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 749,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "电子科技大学": "电子科技大学",
+    "year": 2023,
+    "school_name": "电子科技大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 747,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "电子科技大学": "电子科技大学",
+    "year": 2023,
+    "school_name": "电子科技大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 745,

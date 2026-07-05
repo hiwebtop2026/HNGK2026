@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "华南师范大学": "华南师范大学",
+    "year": 2024,
+    "school_name": "华南师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": null,
@@ -12,8 +12,8 @@
     "province": "天津"
   },
   {
-    "2024": 2024,
-    "华南师范大学": "华南师范大学",
+    "year": 2024,
+    "school_name": "华南师范大学",
     "major_name": "应用心理学",
     "major_group": "",
     "min_score": null,

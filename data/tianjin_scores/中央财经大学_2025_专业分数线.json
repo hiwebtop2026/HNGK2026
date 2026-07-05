@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "统计学类",
     "major_group": "专业组（2）",
     "min_score": 663,
@@ -12,8 +12,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "财政学",
     "major_group": "专业组（1）",
     "min_score": 662,
@@ -24,8 +24,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "金融学类",
     "major_group": "专业组（2）",
     "min_score": 658,
@@ -36,8 +36,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "工商管理类",
     "major_group": "专业组（1）",
     "min_score": 657,
@@ -48,8 +48,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "精算学",
     "major_group": "专业组（2）",
     "min_score": 657,
@@ -60,8 +60,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "金融科技",
     "major_group": "专业组（2）",
     "min_score": 662,
@@ -72,8 +72,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "工商管理类",
     "major_group": "专业组（2）",
     "min_score": 653,
@@ -84,8 +84,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "大数据管理与应用",
     "major_group": "专业组（2）",
     "min_score": 651,
@@ -96,8 +96,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "投资学",
     "major_group": "专业组（2）",
     "min_score": 650,
@@ -108,8 +108,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "金融学",
     "major_group": "专业组（2）",
     "min_score": 650,
@@ -120,8 +120,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "金融学类",
     "major_group": "专业组（2）",
     "min_score": 650,
@@ -132,8 +132,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "保险学",
     "major_group": "专业组（2）",
     "min_score": 649,
@@ -144,8 +144,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "法学",
     "major_group": "专业组（2）",
     "min_score": 648,
@@ -156,8 +156,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "精算学",
     "major_group": "专业组（2）",
     "min_score": 648,
@@ -168,8 +168,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "经济与贸易类",
     "major_group": "专业组（2）",
     "min_score": 647,
@@ -180,8 +180,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "经济学类",
     "major_group": "专业组（2）",
     "min_score": 647,
@@ -192,8 +192,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "财政学",
     "major_group": "专业组（2）",
     "min_score": 647,
@@ -204,8 +204,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "财政学类",
     "major_group": "专业组（2）",
     "min_score": 647,
@@ -216,8 +216,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "应用心理学",
     "major_group": "专业组（2）",
     "min_score": 646,
@@ -228,8 +228,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "经济学",
     "major_group": "专业组（2）",
     "min_score": 646,
@@ -240,8 +240,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中央财经大学": "中央财经大学",
+    "year": 2025,
+    "school_name": "中央财经大学",
     "major_name": "国际经济与贸易",
     "major_group": "专业组（2）",
     "min_score": 643,

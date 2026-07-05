@@ -1,0 +1,110 @@
+[
+  {
+    "school_name": "宁波大学",
+    "year": 2025,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 617,
+    "min_rank": 9165,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "宁波大学",
+    "year": 2025,
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 613,
+    "min_rank": 10009,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "宁波大学",
+    "year": 2025,
+    "major_name": "机械类",
+    "major_group": "",
+    "min_score": 611,
+    "min_rank": 10462,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "宁波大学",
+    "year": 2025,
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 608,
+    "min_rank": 11105,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "宁波大学",
+    "year": 2025,
+    "major_name": "化学工程与工艺",
+    "major_group": "",
+    "min_score": 606,
+    "min_rank": 11588,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "宁波大学",
+    "year": 2025,
+    "major_name": "数学与应用数学",
+    "major_group": "",
+    "min_score": 604,
+    "min_rank": 12046,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "宁波大学",
+    "year": 2025,
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 601,
+    "min_rank": 12738,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "宁波大学",
+    "year": 2025,
+    "major_name": "生物科学类",
+    "major_group": "",
+    "min_score": 600,
+    "min_rank": 12965,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "宁波大学",
+    "year": 2025,
+    "major_name": "食品科学与工程",
+    "major_group": "",
+    "min_score": 600,
+    "min_rank": 12965,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

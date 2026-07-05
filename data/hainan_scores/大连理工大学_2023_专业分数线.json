@@ -1,7 +1,7 @@
 [
   {
-    "2023": 2023,
-    "大连理工大学": "大连理工大学",
+    "year": 2023,
+    "school_name": "大连理工大学",
     "major_name": "人工智能",
     "major_group": "",
     "min_score": 754,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "大连理工大学": "大连理工大学",
+    "year": 2023,
+    "school_name": "大连理工大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 753,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "大连理工大学": "大连理工大学",
+    "year": 2023,
+    "school_name": "大连理工大学",
     "major_name": "人工智能",
     "major_group": "",
     "min_score": 745,

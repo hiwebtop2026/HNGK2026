@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "西南交通大学": "西南交通大学",
+    "year": 2025,
+    "school_name": "西南交通大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 709,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西南交通大学": "西南交通大学",
+    "year": 2025,
+    "school_name": "西南交通大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 707,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西南交通大学": "西南交通大学",
+    "year": 2025,
+    "school_name": "西南交通大学",
     "major_name": "交通运输类",
     "major_group": "",
     "min_score": 706,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西南交通大学": "西南交通大学",
+    "year": 2025,
+    "school_name": "西南交通大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 706,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西南交通大学": "西南交通大学",
+    "year": 2025,
+    "school_name": "西南交通大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 706,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西南交通大学": "西南交通大学",
+    "year": 2025,
+    "school_name": "西南交通大学",
     "major_name": "机械类",
     "major_group": "",
     "min_score": 705,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西南交通大学": "西南交通大学",
+    "year": 2025,
+    "school_name": "西南交通大学",
     "major_name": "物流管理与工程类",
     "major_group": "",
     "min_score": 705,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西南交通大学": "西南交通大学",
+    "year": 2025,
+    "school_name": "西南交通大学",
     "major_name": "能源动力类",
     "major_group": "",
     "min_score": 704,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "西南交通大学": "西南交通大学",
+    "year": 2025,
+    "school_name": "西南交通大学",
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": 701,

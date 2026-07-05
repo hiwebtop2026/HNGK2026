@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "机械类",
     "major_group": "",
     "min_score": 666,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 666,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 665,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "道路桥梁与渡河工程",
     "major_group": "",
     "min_score": 660,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "交通运输",
     "major_group": "",
     "min_score": 659,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 659,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 655,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "汽车服务工程",
     "major_group": "",
     "min_score": 654,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 654,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 653,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 649,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "交通工程",
     "major_group": "",
     "min_score": 648,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "测绘类",
     "major_group": "",
     "min_score": 646,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 643,
@@ -168,8 +168,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "材料类",
     "major_group": "",
     "min_score": 643,
@@ -180,8 +180,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "工程力学",
     "major_group": "",
     "min_score": 642,
@@ -192,8 +192,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 637,
@@ -204,8 +204,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "物流工程",
     "major_group": "",
     "min_score": 635,
@@ -216,8 +216,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "道路桥梁与渡河工程",
     "major_group": "",
     "min_score": 635,
@@ -228,8 +228,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "长安大学": "长安大学",
+    "year": 2025,
+    "school_name": "长安大学",
     "major_name": "土木类",
     "major_group": "",
     "min_score": 634,

@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "思想政治教育",
     "major_group": "",
     "min_score": 713,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 713,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "历史学",
     "major_group": "",
     "min_score": 705,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "地理科学",
     "major_group": "",
     "min_score": 703,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 701,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "心理学",
     "major_group": "",
     "min_score": 695,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "社会工作",
     "major_group": "",
     "min_score": 693,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "生物科学",
     "major_group": "",
     "min_score": 683,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "应用心理学",
     "major_group": "",
     "min_score": 680,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 663,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 656,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "生物工程",
     "major_group": "",
     "min_score": 656,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "华南师范大学": "华南师范大学",
+    "year": 2025,
+    "school_name": "华南师范大学",
     "major_name": "环境科学",
     "major_group": "",
     "min_score": 655,

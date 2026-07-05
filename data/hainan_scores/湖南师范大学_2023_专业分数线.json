@@ -1,7 +1,7 @@
 [
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 711,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "数学与应用数学",
     "major_group": "",
     "min_score": 697,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "物理学",
     "major_group": "",
     "min_score": 681,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 677,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "社会学",
     "major_group": "",
     "min_score": 674,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "人工智能",
     "major_group": "",
     "min_score": 666,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "外国语言文学类",
     "major_group": "",
     "min_score": 666,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "电子信息科学与技术",
     "major_group": "",
     "min_score": 666,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 665,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 664,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "特殊教育",
     "major_group": "",
     "min_score": 664,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 663,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 661,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "会展经济与管理",
     "major_group": "",
     "min_score": 660,
@@ -168,8 +168,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "文物与博物馆学",
     "major_group": "",
     "min_score": 660,
@@ -180,8 +180,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "湖南师范大学": "湖南师范大学",
+    "year": 2023,
+    "school_name": "湖南师范大学",
     "major_name": "酒店管理",
     "major_group": "",
     "min_score": 660,

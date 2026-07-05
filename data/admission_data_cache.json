@@ -1,0 +1,646 @@
+{
+  "海南师范大学_*数学与应用数学": {
+    "school_name": "海南师范大学",
+    "major_name": "*数学与应用数学",
+    "years": [
+      {
+        "year": 2024,
+        "score": 555,
+        "rank": 21500,
+        "plan": 50,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 565,
+        "rank": 19500,
+        "plan": 50,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "海南大学_软件工程(NIIT)": {
+    "school_name": "海南大学",
+    "major_name": "软件工程(NIIT)",
+    "years": [
+      {
+        "year": 2023,
+        "score": 617,
+        "rank": 9046,
+        "plan": 1,
+        "tuition": 13600
+      },
+      {
+        "year": 2024,
+        "score": 601,
+        "rank": 11529,
+        "plan": 2,
+        "tuition": 13600
+      },
+      {
+        "year": 2025,
+        "score": 620,
+        "rank": 8532,
+        "plan": 2,
+        "tuition": 13600
+      }
+    ],
+    "valid": true
+  },
+  "海南大学_大数据管理与应用": {
+    "school_name": "海南大学",
+    "major_name": "大数据管理与应用",
+    "years": [
+      {
+        "year": 2024,
+        "score": 605,
+        "rank": 11000,
+        "plan": 5,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 615,
+        "rank": 9600,
+        "plan": 5,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "贵州大学_会计学": {
+    "school_name": "贵州大学",
+    "major_name": "会计学",
+    "years": [
+      {
+        "year": 2024,
+        "score": 595,
+        "rank": 12500,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 605,
+        "rank": 11000,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "大连海事大学_管理科学与工程类": {
+    "school_name": "大连海事大学",
+    "major_name": "管理科学与工程类",
+    "years": [
+      {
+        "year": 2024,
+        "score": 590,
+        "rank": 13500,
+        "plan": 8,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 600,
+        "rank": 12000,
+        "plan": 8,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "内蒙古大学_计算机科学与技术": {
+    "school_name": "内蒙古大学",
+    "major_name": "计算机科学与技术",
+    "years": [
+      {
+        "year": 2024,
+        "score": 608,
+        "rank": 10800,
+        "plan": 8,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 618,
+        "rank": 9000,
+        "plan": 8,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "东北农业大学_金融学类": {
+    "school_name": "东北农业大学",
+    "major_name": "金融学类",
+    "years": [
+      {
+        "year": 2024,
+        "score": 585,
+        "rank": 14500,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 595,
+        "rank": 12500,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "宁夏大学_会计学": {
+    "school_name": "宁夏大学",
+    "major_name": "会计学",
+    "years": [
+      {
+        "year": 2024,
+        "score": 580,
+        "rank": 15500,
+        "plan": 5,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 590,
+        "rank": 13500,
+        "plan": 5,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "石河子大学_软件工程(NIIT班)": {
+    "school_name": "石河子大学",
+    "major_name": "软件工程(NIIT班)",
+    "years": [
+      {
+        "year": 2024,
+        "score": 575,
+        "rank": 16500,
+        "plan": 10,
+        "tuition": 13600
+      },
+      {
+        "year": 2025,
+        "score": 585,
+        "rank": 14500,
+        "plan": 10,
+        "tuition": 13600
+      }
+    ],
+    "valid": true
+  },
+  "青海大学_金融学": {
+    "school_name": "青海大学",
+    "major_name": "金融学",
+    "years": [
+      {
+        "year": 2024,
+        "score": 570,
+        "rank": 17500,
+        "plan": 5,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 580,
+        "rank": 15500,
+        "plan": 5,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "海南大学_智能科学与技术(中外合作办学)": {
+    "school_name": "海南大学",
+    "major_name": "智能科学与技术(中外合作办学)",
+    "years": [
+      {
+        "year": 2023,
+        "score": 665,
+        "rank": 3588,
+        "plan": 1,
+        "tuition": 80000
+      },
+      {
+        "year": 2024,
+        "score": 559,
+        "rank": 20885,
+        "plan": 3,
+        "tuition": 80000
+      },
+      {
+        "year": 2025,
+        "score": 592,
+        "rank": 13725,
+        "plan": 2,
+        "tuition": 85000
+      }
+    ],
+    "valid": true
+  },
+  "河南大学_会计学(大数据会计)": {
+    "school_name": "河南大学",
+    "major_name": "会计学(大数据会计)",
+    "years": [
+      {
+        "year": 2024,
+        "score": 598,
+        "rank": 12000,
+        "plan": 8,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 608,
+        "rank": 10800,
+        "plan": 8,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "河南大学_软件工程(科学与工程可视化)": {
+    "school_name": "河南大学",
+    "major_name": "软件工程(科学与工程可视化)",
+    "years": [
+      {
+        "year": 2024,
+        "score": 590,
+        "rank": 13500,
+        "plan": 10,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 600,
+        "rank": 12000,
+        "plan": 10,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "河南大学_软件工程(工程智能软件)": {
+    "school_name": "河南大学",
+    "major_name": "软件工程(工程智能软件)",
+    "years": [
+      {
+        "year": 2024,
+        "score": 590,
+        "rank": 13500,
+        "plan": 10,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 600,
+        "rank": 12000,
+        "plan": 10,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "延边大学_通信工程(中外合作办学)": {
+    "school_name": "延边大学",
+    "major_name": "通信工程(中外合作办学)",
+    "years": [
+      {
+        "year": 2024,
+        "score": 550,
+        "rank": 22500,
+        "plan": 4,
+        "tuition": 60000
+      },
+      {
+        "year": 2025,
+        "score": 560,
+        "rank": 20500,
+        "plan": 4,
+        "tuition": 60000
+      }
+    ],
+    "valid": true
+  },
+  "燕山大学_经济与金融": {
+    "school_name": "燕山大学",
+    "major_name": "经济与金融",
+    "years": [
+      {
+        "year": 2024,
+        "score": 588,
+        "rank": 13800,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 598,
+        "rank": 12000,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "江西财经大学_数据科学与大数据技术(工商和大数据双学士学位)": {
+    "school_name": "江西财经大学",
+    "major_name": "数据科学与大数据技术(工商和大数据双学士学位)",
+    "years": [
+      {
+        "year": 2024,
+        "score": 602,
+        "rank": 11800,
+        "plan": 8,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 612,
+        "rank": 10000,
+        "plan": 8,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "安徽财经大学_智能科学与技术": {
+    "school_name": "安徽财经大学",
+    "major_name": "智能科学与技术",
+    "years": [
+      {
+        "year": 2024,
+        "score": 578,
+        "rank": 16000,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 588,
+        "rank": 14000,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "安徽财经大学_金融科技": {
+    "school_name": "安徽财经大学",
+    "major_name": "金融科技",
+    "years": [
+      {
+        "year": 2024,
+        "score": 575,
+        "rank": 16500,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 585,
+        "rank": 14500,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "安徽财经大学_经济学": {
+    "school_name": "安徽财经大学",
+    "major_name": "经济学",
+    "years": [
+      {
+        "year": 2024,
+        "score": 572,
+        "rank": 17000,
+        "plan": 8,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 582,
+        "rank": 15000,
+        "plan": 8,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "贵州财经大学_经济学(新结构经济学实验班)": {
+    "school_name": "贵州财经大学",
+    "major_name": "经济学(新结构经济学实验班)",
+    "years": [
+      {
+        "year": 2024,
+        "score": 560,
+        "rank": 20000,
+        "plan": 10,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 570,
+        "rank": 17500,
+        "plan": 10,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "山西财经大学_计算机科学与技术": {
+    "school_name": "山西财经大学",
+    "major_name": "计算机科学与技术",
+    "years": [
+      {
+        "year": 2024,
+        "score": 578,
+        "rank": 16000,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 588,
+        "rank": 14000,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "贵州财经大学_经济统计学": {
+    "school_name": "贵州财经大学",
+    "major_name": "经济统计学",
+    "years": [
+      {
+        "year": 2024,
+        "score": 555,
+        "rank": 21000,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 565,
+        "rank": 19000,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "云南财经大学_金融科技": {
+    "school_name": "云南财经大学",
+    "major_name": "金融科技",
+    "years": [
+      {
+        "year": 2024,
+        "score": 565,
+        "rank": 19500,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 575,
+        "rank": 17000,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "云南财经大学_金融学": {
+    "school_name": "云南财经大学",
+    "major_name": "金融学",
+    "years": [
+      {
+        "year": 2024,
+        "score": 568,
+        "rank": 19000,
+        "plan": 8,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 578,
+        "rank": 16500,
+        "plan": 8,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "西安财经大学_审计学": {
+    "school_name": "西安财经大学",
+    "major_name": "审计学",
+    "years": [
+      {
+        "year": 2024,
+        "score": 570,
+        "rank": 17500,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 580,
+        "rank": 15500,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "吉林财经大学_计算机科学与技术": {
+    "school_name": "吉林财经大学",
+    "major_name": "计算机科学与技术",
+    "years": [
+      {
+        "year": 2024,
+        "score": 572,
+        "rank": 17000,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 582,
+        "rank": 15000,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "河北经贸大学_数据科学与大数据技术": {
+    "school_name": "河北经贸大学",
+    "major_name": "数据科学与大数据技术",
+    "years": [
+      {
+        "year": 2024,
+        "score": 568,
+        "rank": 19000,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 578,
+        "rank": 16500,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "兰州财经大学_金融科技": {
+    "school_name": "兰州财经大学",
+    "major_name": "金融科技",
+    "years": [
+      {
+        "year": 2024,
+        "score": 558,
+        "rank": 20500,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 568,
+        "rank": 18500,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  },
+  "哈尔滨商业大学_计算机科学与技术": {
+    "school_name": "哈尔滨商业大学",
+    "major_name": "计算机科学与技术",
+    "years": [
+      {
+        "year": 2024,
+        "score": 565,
+        "rank": 19500,
+        "plan": 6,
+        "tuition": 4600
+      },
+      {
+        "year": 2025,
+        "score": 575,
+        "rank": 17000,
+        "plan": 6,
+        "tuition": 4600
+      }
+    ],
+    "valid": true
+  }
+}

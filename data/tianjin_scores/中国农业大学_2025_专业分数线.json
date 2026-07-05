@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "理科试验班",
     "major_group": "专业组（2）",
     "min_score": 654,
@@ -12,8 +12,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "理科试验班类",
     "major_group": "专业组（1）",
     "min_score": 654,
@@ -24,8 +24,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "法学",
     "major_group": "专业组（4）",
     "min_score": 652,
@@ -36,8 +36,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "计算机类",
     "major_group": "专业组（2）",
     "min_score": 651,
@@ -48,8 +48,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "理科试验班类",
     "major_group": "专业组（2）",
     "min_score": 660,
@@ -60,8 +60,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "理科试验班",
     "major_group": "专业组（2）",
     "min_score": 656,
@@ -72,8 +72,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "理科试验班",
     "major_group": "专业组（2）",
     "min_score": 653,
@@ -84,8 +84,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "农业智能装备工程",
     "major_group": "专业组（2）",
     "min_score": 652,
@@ -96,8 +96,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "生物技术",
     "major_group": "专业组（2）",
     "min_score": 652,
@@ -108,8 +108,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "电子信息类",
     "major_group": "专业组（2）",
     "min_score": 650,
@@ -120,8 +120,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "计算机类",
     "major_group": "专业组（2）",
     "min_score": 650,
@@ -132,8 +132,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "农业工程类",
     "major_group": "专业组（2）",
     "min_score": 649,
@@ -144,8 +144,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "农学",
     "major_group": "专业组（2）",
     "min_score": 648,
@@ -156,8 +156,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "生物科学类",
     "major_group": "专业组（2）",
     "min_score": 648,
@@ -168,8 +168,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "动物医学类",
     "major_group": "专业组（2）",
     "min_score": 647,
@@ -180,8 +180,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "法学",
     "major_group": "专业组（2）",
     "min_score": 647,
@@ -192,8 +192,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "地理科学类",
     "major_group": "专业组（2）",
     "min_score": 646,
@@ -204,8 +204,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "数学与应用数学",
     "major_group": "专业组（2）",
     "min_score": 646,
@@ -216,8 +216,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "机械类",
     "major_group": "专业组（2）",
     "min_score": 646,
@@ -228,8 +228,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "水利类",
     "major_group": "专业组（2）",
     "min_score": 646,
@@ -240,8 +240,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "环境科学与工程类",
     "major_group": "专业组（2）",
     "min_score": 646,
@@ -252,8 +252,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "农学",
     "major_group": "专业组（2）",
     "min_score": 645,
@@ -264,8 +264,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "动物科学",
     "major_group": "专业组（2）",
     "min_score": 644,
@@ -276,8 +276,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "化学类",
     "major_group": "专业组（2）",
     "min_score": 644,
@@ -288,8 +288,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "经济学类",
     "major_group": "专业组（2）",
     "min_score": 644,
@@ -300,8 +300,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "食品科学与工程类",
     "major_group": "专业组（2）",
     "min_score": 644,
@@ -312,8 +312,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "传播学",
     "major_group": "专业组（2）",
     "min_score": 643,
@@ -324,8 +324,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "农村区域发展",
     "major_group": "专业组（2）",
     "min_score": 643,
@@ -336,8 +336,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "园艺",
     "major_group": "专业组（2）",
     "min_score": 643,
@@ -348,8 +348,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "工商管理类",
     "major_group": "专业组（2）",
     "min_score": 643,
@@ -360,8 +360,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "植物保护",
     "major_group": "专业组（2）",
     "min_score": 643,
@@ -372,8 +372,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "社会学类",
     "major_group": "专业组（2）",
     "min_score": 643,
@@ -384,8 +384,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "国际经济与贸易",
     "major_group": "专业组（2）",
     "min_score": 628,
@@ -396,8 +396,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "传播学",
     "major_group": "专业组（2）",
     "min_score": 622,
@@ -408,8 +408,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "中国农业大学": "中国农业大学",
+    "year": 2025,
+    "school_name": "中国农业大学",
     "major_name": "农林经济管理",
     "major_group": "专业组（2）",
     "min_score": 621,

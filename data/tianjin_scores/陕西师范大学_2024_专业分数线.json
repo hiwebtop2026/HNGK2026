@@ -1,0 +1,50 @@
+[
+  {
+    "school_name": "陕西师范大学",
+    "year": 2024,
+    "major_name": "中国语言文学类",
+    "major_group": "",
+    "min_score": 645,
+    "min_rank": 4135,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "陕西师范大学",
+    "year": 2024,
+    "major_name": "数学类",
+    "major_group": "",
+    "min_score": 636,
+    "min_rank": 5535,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "陕西师范大学",
+    "year": 2024,
+    "major_name": "物理学类",
+    "major_group": "",
+    "min_score": 633,
+    "min_rank": 6023,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "陕西师范大学",
+    "year": 2024,
+    "major_name": "外国语言文学类",
+    "major_group": "",
+    "min_score": 631,
+    "min_rank": 6375,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

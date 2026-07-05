@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "重庆大学": "重庆大学",
+    "year": 2025,
+    "school_name": "重庆大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 730,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "重庆大学": "重庆大学",
+    "year": 2025,
+    "school_name": "重庆大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 730,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "重庆大学": "重庆大学",
+    "year": 2025,
+    "school_name": "重庆大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 726,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "重庆大学": "重庆大学",
+    "year": 2025,
+    "school_name": "重庆大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 723,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "重庆大学": "重庆大学",
+    "year": 2025,
+    "school_name": "重庆大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 721,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "重庆大学": "重庆大学",
+    "year": 2025,
+    "school_name": "重庆大学",
     "major_name": "人文科学试验班",
     "major_group": "",
     "min_score": 713,

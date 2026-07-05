@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 686,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 682,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "能源动力类",
     "major_group": "",
     "min_score": 680,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 672,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "外国语言文学类",
     "major_group": "",
     "min_score": 671,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "网络与新媒体",
     "major_group": "",
     "min_score": 670,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 667,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 665,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "自动化",
     "major_group": "",
     "min_score": 662,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 659,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "人工智能",
     "major_group": "",
     "min_score": 657,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "机器人工程",
     "major_group": "",
     "min_score": 655,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "材料科学与工程",
     "major_group": "",
     "min_score": 655,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "化工与制药类",
     "major_group": "",
     "min_score": 652,
@@ -168,8 +168,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "测绘类",
     "major_group": "",
     "min_score": 652,
@@ -180,8 +180,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "土木类",
     "major_group": "",
     "min_score": 650,
@@ -192,8 +192,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "矿业类",
     "major_group": "",
     "min_score": 650,
@@ -204,8 +204,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "中国矿业大学": "中国矿业大学",
+    "year": 2025,
+    "school_name": "中国矿业大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 649,

@@ -1,30 +1,28 @@
 # -*- coding: utf-8 -*-
 """
-天津高考近三年专业分数线自动化采集工具
-使用Chrome DevTools Protocol (CDP) 连接夸克浏览器进行自动化采集
-
-使用步骤:
-1. 关闭所有夸克浏览器窗口
-2. 以远程调试模式启动夸克浏览器:
-   "C:\Program Files (x86)\Quark\Quark.exe" --remote-debugging-port=9222
-3. 在夸克浏览器中登录账户，打开夸克高考页面
-4. 运行本脚本: python tianjin_auto_scraper.py
-
-依赖:
-- websocket-client: pip install websocket-client
+天津高考近三年专业分数线自动化采集工具（增强版）
+功能：
+1. 自动检测夸克/Edge浏览器
+2. 支持增量下载（跳过已下载的年份）
+3. 自动重试机制
+4. 支持命令行参数控制
 """
-
 import json
 import time
 import urllib.request
 import urllib.parse
 import os
 import sys
+import subprocess
 from datetime import datetime
 from typing import Dict, List, Optional, Any
 
+opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+urllib.request.install_opener(opener)
+
 try:
     import websocket
+    websocket._default_timeout = 60
 except ImportError:
     print("❌ 缺少 websocket-client 库，请安装: pip install websocket-client")
     sys.exit(1)
@@ -32,6 +30,18 @@ except ImportError:
 QUARK_DEBUG_URL = "http://localhost:9222"
 SCHOOLS_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "tianjin_schools.json")
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "tianjin_scores")
+LOG_FILE = os.path.join(os.path.dirname(__file__), "..", "logs", "tianjin_scraper.log")
+
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+
+class Logger:
+    @staticmethod
+    def log(message: str):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_line = f"[{timestamp}] {message}\n"
+        print(log_line.strip())
+        with open(LOG_FILE, "a", encoding="utf-8") as f:
+            f.write(log_line)
 
 class QuarkCDPClient:
     def __init__(self, ws_url: str):
@@ -45,10 +55,10 @@ class QuarkCDPClient:
         try:
             self.ws = websocket.create_connection(self.ws_url, timeout=15)
             self._start_listener()
-            print(f"✅ 成功连接到夸克浏览器")
+            Logger.log("✅ 成功连接到浏览器")
             return True
         except Exception as e:
-            print(f"❌ 连接失败: {e}")
+            Logger.log(f"❌ 连接失败: {e}")
             return False
 
     def _start_listener(self):
@@ -88,11 +98,11 @@ class QuarkCDPClient:
                 if response and "result" in response:
                     return response["result"]
                 elif response and "error" in response:
-                    print(f"❌ CDP命令错误: {response['error'].get('message', '未知错误')}")
+                    Logger.log(f"❌ CDP命令错误: {response['error'].get('message', '未知错误')}")
             else:
-                print(f"❌ CDP命令超时: {method} (超时{timeout}秒)")
+                Logger.log(f"❌ CDP命令超时: {method} (超时{timeout}秒)")
         except Exception as e:
-            print(f"❌ 发送命令失败: {e}")
+            Logger.log(f"❌ 发送命令失败: {e}")
 
         return None
 
@@ -101,7 +111,7 @@ class QuarkCDPClient:
             "expression": script,
             "returnByValue": return_by_value,
             "awaitPromise": True
-        })
+        }, timeout=60)
         if result and "result" in result:
             return result["result"].get("value")
         return None
@@ -128,15 +138,15 @@ class QuarkCDPClient:
 
     def navigate(self, url: str, max_retries: int = 3) -> bool:
         for attempt in range(max_retries):
-            print(f"      导航尝试 {attempt + 1}/{max_retries}...")
-            result = self.send_command("Page.navigate", {"url": url}, timeout=45)
+            Logger.log(f"      导航尝试 {attempt + 1}/{max_retries}...")
+            result = self.send_command("Page.navigate", {"url": url}, timeout=90)
             if result:
-                time.sleep(5)
+                time.sleep(10)
                 return True
             else:
                 if attempt < max_retries - 1:
-                    print(f"      导航失败，等待5秒后重试...")
-                    time.sleep(5)
+                    Logger.log(f"      导航失败，等待10秒后重试...")
+                    time.sleep(10)
         
         return False
 
@@ -144,14 +154,36 @@ class QuarkCDPClient:
         if self.ws:
             self.ws.close()
 
+def start_browser():
+    """尝试自动启动浏览器"""
+    browsers = [
+        ('Edge', r'"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"'),
+        ('Edge', r'"C:\Program Files\Microsoft\Edge\Application\msedge.exe"'),
+        ('Quark', r'"C:\Program Files (x86)\Quark\Quark.exe"'),
+    ]
+    
+    for name, path in browsers:
+        try:
+            cmd = f'{path} --remote-debugging-port=9222 --remote-allow-origins=* --no-first-run --no-default-browser-check'
+            subprocess.Popen(cmd, shell=True)
+            Logger.log(f"✅ 正在启动{name}浏览器...")
+            time.sleep(10)
+            return True
+        except Exception as e:
+            Logger.log(f"❌ 启动{name}失败: {e}")
+    
+    return False
+
 def get_quark_pages() -> List[Dict]:
     try:
         url = f"{QUARK_DEBUG_URL}/json"
         req = urllib.request.Request(url)
+        opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+        urllib.request.install_opener(opener)
         with urllib.request.urlopen(req, timeout=5) as response:
             return json.loads(response.read().decode("utf-8"))
     except Exception as e:
-        print(f"❌ 获取页面列表失败: {e}")
+        Logger.log(f"❌ 获取页面列表失败: {e}")
         return []
 
 def find_gaokao_page(pages: List[Dict]) -> Optional[Dict]:
@@ -164,7 +196,7 @@ def find_gaokao_page(pages: List[Dict]) -> Optional[Dict]:
 
 def load_schools() -> List[str]:
     if not os.path.exists(SCHOOLS_FILE):
-        print(f"❌ 院校列表文件不存在: {SCHOOLS_FILE}")
+        Logger.log(f"❌ 院校列表文件不存在: {SCHOOLS_FILE}")
         return []
     with open(SCHOOLS_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -175,7 +207,7 @@ def save_school_data(school_name: str, year: int, data: List[Dict]):
     filepath = os.path.join(OUTPUT_DIR, filename)
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    print(f"  ✅ 已保存: {filename} ({len(data)}条)")
+    Logger.log(f"  ✅ 已保存: {filename} ({len(data)}条)")
 
 def is_school_downloaded(school_name: str, year: int) -> bool:
     filename = f"{school_name}_{year}_专业分数线.json"
@@ -215,7 +247,7 @@ def build_school_url(school_name: str) -> str:
     return f"{base_url}?{query_string}"
 
 def extract_major_scores(browser: QuarkCDPClient, school_name: str, year: int) -> List[Dict]:
-    print(f"    正在提取{year}年数据...")
+    Logger.log(f"    正在提取{year}年数据...")
     
     script = """
     (function() {
@@ -287,7 +319,7 @@ def extract_major_scores(browser: QuarkCDPClient, school_name: str, year: int) -
     return browser.execute_script(script) or []
 
 def switch_year(browser: QuarkCDPClient, year: int) -> bool:
-    print(f"    正在切换到{year}年...")
+    Logger.log(f"    正在切换到{year}年...")
     
     script = f"""
     new Promise((resolve) => {{
@@ -377,27 +409,26 @@ def switch_to_major_tab(browser: QuarkCDPClient) -> bool:
     """
     return browser.execute_script(script) or False
 
-def process_school(browser: QuarkCDPClient, school_name: str) -> int:
+def process_school(browser: QuarkCDPClient, school_name: str, skip_completed: bool = True) -> int:
     downloaded = get_downloaded_years(school_name)
     
-    if len(downloaded) == 3:
-        print(f"  ⏭️ {school_name} 三年数据已全部下载，跳过")
+    if skip_completed and len(downloaded) == 3:
+        Logger.log(f"  ⏭️ {school_name} 三年数据已全部下载，跳过")
         return 0
     
-    print(f"  📡 正在处理: {school_name}")
-    print(f"     已下载: {downloaded}")
+    Logger.log(f"  📡 正在处理: {school_name}")
+    Logger.log(f"     已下载: {downloaded}")
     
     url = build_school_url(school_name)
-    print(f"     URL: {url}")
     
     if not browser.navigate(url):
-        print(f"     ❌ 导航失败")
+        Logger.log(f"     ❌ 导航失败")
         return 0
     
     time.sleep(8)
     
     if not browser.wait_for_element('.content-List-li', timeout=20):
-        print(f"     ❌ 页面加载失败")
+        Logger.log(f"     ❌ 页面加载失败")
         return 0
     
     switch_to_major_tab(browser)
@@ -406,19 +437,27 @@ def process_school(browser: QuarkCDPClient, school_name: str) -> int:
     total_count = 0
     
     for year in [2023, 2024, 2025]:
-        if year in downloaded:
-            print(f"     ⏭️ {year}年已下载，跳过")
+        if skip_completed and year in downloaded:
+            Logger.log(f"     ⏭️ {year}年已下载，跳过")
             continue
         
         if year != 2025:
-            if not switch_year(browser, year):
-                print(f"     ❌ 切换到{year}年失败")
+            success = False
+            for retry in range(3):
+                if switch_year(browser, year):
+                    success = True
+                    break
+                Logger.log(f"     ⚠️ 切换到{year}年失败，重试 {retry+1}/3...")
+                time.sleep(3)
+            
+            if not success:
+                Logger.log(f"     ❌ 切换到{year}年失败")
                 continue
             
             time.sleep(5)
             
             if not browser.wait_for_element('.content-List-li', timeout=15):
-                print(f"     ❌ {year}年数据加载失败")
+                Logger.log(f"     ❌ {year}年数据加载失败")
                 continue
         
         data = extract_major_scores(browser, school_name, year)
@@ -427,71 +466,95 @@ def process_school(browser: QuarkCDPClient, school_name: str) -> int:
             save_school_data(school_name, year, data)
             total_count += len(data)
         else:
-            print(f"     ⚠️ {year}年无有效数据")
+            Logger.log(f"     ⚠️ {year}年无有效数据")
     
     return total_count
 
+def get_missing_schools() -> List[str]:
+    """获取缺失数据的院校列表（至少缺少一个年份）"""
+    schools = load_schools()
+    missing = []
+    for school in schools:
+        downloaded = get_downloaded_years(school)
+        if len(downloaded) < 3:
+            missing.append(school)
+    return missing
+
 def main():
-    print("=" * 70)
-    print("天津高考近三年专业分数线自动化采集工具")
-    print("=" * 70)
+    Logger.log("=" * 70)
+    Logger.log("天津高考近三年专业分数线自动化采集工具（增强版）")
+    Logger.log("=" * 70)
     
-    print("\n步骤1: 检查夸克浏览器连接...")
+    # 解析命令行参数
+    skip_completed = '--all' not in sys.argv
+    only_missing = '--missing' in sys.argv
+    
+    if only_missing:
+        missing = get_missing_schools()
+        Logger.log(f"\n📋 仅处理缺失数据的院校，共 {len(missing)} 所")
+        target_schools = missing
+    else:
+        target_schools = load_schools()
+    
+    if not target_schools:
+        Logger.log("❌ 没有需要处理的院校")
+        return
+    
+    Logger.log(f"\n步骤1: 检查浏览器连接...")
     pages = get_quark_pages()
     
     if not pages:
-        print("\n❌ 未检测到夸克浏览器远程调试端口")
-        print("\n请按以下步骤操作:")
-        print("1. 关闭所有夸克浏览器窗口")
-        print("2. 以远程调试模式启动夸克浏览器:")
-        print('   "C:\\Program Files (x86)\\Quark\\Quark.exe" --remote-debugging-port=9222 --remote-allow-origins=*')
-        print("3. 在夸克浏览器中登录账户")
-        print("4. 打开夸克高考页面")
-        print("\n或者使用Edge浏览器（夸克基于Chromium）:")
-        print('   "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" --remote-debugging-port=9222 --remote-allow-origins=*')
-        return
+        Logger.log("\n❌ 未检测到浏览器远程调试端口")
+        Logger.log("尝试自动启动浏览器...")
+        if start_browser():
+            Logger.log("请在浏览器中打开夸克高考页面并登录")
+            input("按回车键继续...")
+            pages = get_quark_pages()
+            if not pages:
+                Logger.log("❌ 仍然无法连接浏览器")
+                return
+        else:
+            Logger.log("\n请按以下步骤操作:")
+            Logger.log("1. 关闭所有浏览器窗口")
+            Logger.log("2. 以远程调试模式启动浏览器:")
+            Logger.log('   "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" --remote-debugging-port=9222 --remote-allow-origins=*')
+            Logger.log("3. 在浏览器中登录账户")
+            Logger.log("4. 打开夸克高考页面")
+            return
     
-    print(f"✅ 找到 {len(pages)} 个浏览器标签页")
+    Logger.log(f"✅ 找到 {len(pages)} 个浏览器标签页")
     
     gaokao_page = find_gaokao_page(pages)
     if not gaokao_page:
-        print("\n❌ 未找到夸克高考页面")
-        print("请先在浏览器中打开夸克高考页面")
+        Logger.log("\n❌ 未找到夸克高考页面")
+        Logger.log("请先在浏览器中打开夸克高考页面")
         return
     
-    print(f"✅ 找到夸克高考页面: {gaokao_page.get('title', '未知')}")
+    Logger.log(f"✅ 找到高考页面: {gaokao_page.get('title', '未知')}")
     
     ws_url = gaokao_page.get("webSocketDebuggerUrl")
     if not ws_url:
-        print("\n❌ 无法获取WebSocket调试地址")
+        Logger.log("\n❌ 无法获取WebSocket调试地址")
         return
     
-    print("\n步骤2: 连接到夸克浏览器...")
+    Logger.log("\n步骤2: 连接到浏览器...")
     browser = QuarkCDPClient(ws_url)
     if not browser.connect():
         return
     
-    print("\n步骤3: 加载院校列表...")
-    schools = load_schools()
-    if not schools:
-        browser.close()
-        return
-    
-    print(f"✅ 共 {len(schools)} 所院校")
-    
-    print("\n步骤4: 开始批量采集...")
-    print("=" * 70)
+    Logger.log(f"\n步骤3: 开始批量采集...")
+    Logger.log("=" * 70)
     
     success_count = 0
     fail_count = 0
     total_records = 0
     start_time = time.time()
     
-    for i, school in enumerate(schools):
-        print(f"\n[{i+1}/{len(schools)}]")
+    for i, school in enumerate(target_schools):
+        Logger.log(f"\n[{i+1}/{len(target_schools)}]")
         
         try:
-            count = process_school(browser, school)
+            count = process_school(browser, school, skip_completed=skip_completed)
             if count > 0:
                 success_count += 1
                 total_records += count
@@ -502,7 +565,7 @@ def main():
                 else:
                     fail_count += 1
         except Exception as e:
-            print(f"  ❌ {school} 处理异常: {e}")
+            Logger.log(f"  ❌ {school} 处理异常: {e}")
             fail_count += 1
         
         time.sleep(2)
@@ -510,15 +573,15 @@ def main():
     end_time = time.time()
     elapsed = end_time - start_time
     
-    print("\n" + "=" * 70)
-    print("采集完成！")
-    print(f"总院校数: {len(schools)}")
-    print(f"成功: {success_count}")
-    print(f"失败: {fail_count}")
-    print(f"总记录数: {total_records}")
-    print(f"耗时: {elapsed:.2f} 秒")
-    print(f"输出目录: {OUTPUT_DIR}")
-    print("=" * 70)
+    Logger.log("\n" + "=" * 70)
+    Logger.log("采集完成！")
+    Logger.log(f"总院校数: {len(target_schools)}")
+    Logger.log(f"成功: {success_count}")
+    Logger.log(f"失败: {fail_count}")
+    Logger.log(f"总记录数: {total_records}")
+    Logger.log(f"耗时: {elapsed:.2f} 秒")
+    Logger.log(f"输出目录: {OUTPUT_DIR}")
+    Logger.log("=" * 70)
     
     browser.close()
 

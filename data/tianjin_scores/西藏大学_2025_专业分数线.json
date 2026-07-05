@@ -1,0 +1,62 @@
+[
+  {
+    "school_name": "西藏大学",
+    "year": 2025,
+    "major_name": "税收学",
+    "major_group": "",
+    "min_score": 584,
+    "min_rank": 16781,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西藏大学",
+    "year": 2025,
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 584,
+    "min_rank": 16781,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西藏大学",
+    "year": 2025,
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 575,
+    "min_rank": 19060,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西藏大学",
+    "year": 2025,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 570,
+    "min_rank": 20413,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西藏大学",
+    "year": 2025,
+    "major_name": "生物科学",
+    "major_group": "",
+    "min_score": 568,
+    "min_rank": 20940,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

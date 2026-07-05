@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "会计学",
     "major_group": "",
     "min_score": 741,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "财务管理",
     "major_group": "",
     "min_score": 737,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "投资学",
     "major_group": "",
     "min_score": 734,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 728,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 726,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 723,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 716,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 706,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 703,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "上海财经大学": "上海财经大学",
+    "year": 2025,
+    "school_name": "上海财经大学",
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 702,

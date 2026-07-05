@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "北京师范大学": "北京师范大学",
+    "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 760,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京师范大学": "北京师范大学",
+    "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "数学与应用数学",
     "major_group": "",
     "min_score": 758,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京师范大学": "北京师范大学",
+    "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 746,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京师范大学": "北京师范大学",
+    "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 745,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京师范大学": "北京师范大学",
+    "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "物理学类",
     "major_group": "",
     "min_score": 744,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京师范大学": "北京师范大学",
+    "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "会计学",
     "major_group": "",
     "min_score": 736,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "北京师范大学": "北京师范大学",
+    "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "传播学",
     "major_group": "",
     "min_score": 730,

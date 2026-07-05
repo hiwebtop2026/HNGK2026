@@ -1,0 +1,41 @@
+[
+  {
+    "school_name": "无锡学院",
+    "year": 2025,
+    "major_name": "大气科学",
+    "major_group": "",
+    "min_score": 627,
+    "min_rank": 7840,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南"
+  },
+  {
+    "school_name": "无锡学院",
+    "year": 2025,
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 620,
+    "min_rank": 8822,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "无锡学院",
+    "year": 2025,
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": 590,
+    "min_rank": 14110,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南"
+  }
+]

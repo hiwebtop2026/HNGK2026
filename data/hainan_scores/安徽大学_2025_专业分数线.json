@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 677,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 672,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 672,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 671,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "智能制造工程",
     "major_group": "",
     "min_score": 668,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "网络工程",
     "major_group": "",
     "min_score": 667,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 665,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "互联网金融",
     "major_group": "",
     "min_score": 663,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 663,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 663,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "汉语国际教育",
     "major_group": "",
     "min_score": 656,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "哲学",
     "major_group": "",
     "min_score": 655,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "社会学类",
     "major_group": "",
     "min_score": 655,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 654,
@@ -168,8 +168,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "市场营销",
     "major_group": "",
     "min_score": 653,
@@ -180,8 +180,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "人力资源管理",
     "major_group": "",
     "min_score": 652,
@@ -192,8 +192,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "行政管理",
     "major_group": "",
     "min_score": 652,
@@ -204,8 +204,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "安徽大学": "安徽大学",
+    "year": 2025,
+    "school_name": "安徽大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 651,

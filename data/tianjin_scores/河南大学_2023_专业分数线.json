@@ -1,0 +1,86 @@
+[
+  {
+    "school_name": "河南大学",
+    "year": 2023,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 617,
+    "min_rank": 9165,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "河南大学",
+    "year": 2023,
+    "major_name": "中国语言文学类",
+    "major_group": "",
+    "min_score": 610,
+    "min_rank": 10681,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "河南大学",
+    "year": 2023,
+    "major_name": "地理科学类",
+    "major_group": "",
+    "min_score": 602,
+    "min_rank": 12510,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "河南大学",
+    "year": 2023,
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 602,
+    "min_rank": 12510,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "河南大学",
+    "year": 2023,
+    "major_name": "药学",
+    "major_group": "",
+    "min_score": 591,
+    "min_rank": 15122,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "河南大学",
+    "year": 2023,
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 585,
+    "min_rank": 16523,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "河南大学",
+    "year": 2023,
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 576,
+    "min_rank": 18798,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

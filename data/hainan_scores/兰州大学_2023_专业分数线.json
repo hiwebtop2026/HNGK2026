@@ -1,7 +1,7 @@
 [
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "政治学类",
     "major_group": "",
     "min_score": 692,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 692,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "马克思主义理论类",
     "major_group": "",
     "min_score": 688,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "辐射防护与核安全",
     "major_group": "",
     "min_score": 686,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "统计学",
     "major_group": "",
     "min_score": 684,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 682,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 682,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "应用气象学",
     "major_group": "",
     "min_score": 680,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 673,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "兰州大学": "兰州大学",
+    "year": 2023,
+    "school_name": "兰州大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 670,

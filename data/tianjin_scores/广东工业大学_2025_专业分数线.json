@@ -1,0 +1,74 @@
+[
+  {
+    "school_name": "广东工业大学",
+    "year": 2025,
+    "major_name": "能源动力类",
+    "major_group": "",
+    "min_score": 598,
+    "min_rank": 13411,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "广东工业大学",
+    "year": 2025,
+    "major_name": "材料成型及控制工程",
+    "major_group": "",
+    "min_score": 588,
+    "min_rank": 15802,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "广东工业大学",
+    "year": 2025,
+    "major_name": "环境工程",
+    "major_group": "",
+    "min_score": 583,
+    "min_rank": 17050,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "广东工业大学",
+    "year": 2025,
+    "major_name": "食品科学与工程",
+    "major_group": "",
+    "min_score": 583,
+    "min_rank": 17050,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "广东工业大学",
+    "year": 2025,
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 580,
+    "min_rank": 17773,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "广东工业大学",
+    "year": 2025,
+    "major_name": "数字经济",
+    "major_group": "",
+    "min_score": 580,
+    "min_rank": 17773,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

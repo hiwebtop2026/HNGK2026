@@ -1,7 +1,7 @@
 [
   {
-    "2023": 2023,
-    "天津大学": "天津大学",
+    "year": 2023,
+    "school_name": "天津大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 746,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "天津大学": "天津大学",
+    "year": 2023,
+    "school_name": "天津大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 744,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "天津大学": "天津大学",
+    "year": 2023,
+    "school_name": "天津大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 737,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "天津大学": "天津大学",
+    "year": 2023,
+    "school_name": "天津大学",
     "major_name": "建筑类",
     "major_group": "",
     "min_score": 700,

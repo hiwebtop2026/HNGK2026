@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "江南大学": "江南大学",
+    "year": 2024,
+    "school_name": "江南大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 680,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "江南大学": "江南大学",
+    "year": 2024,
+    "school_name": "江南大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 679,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "江南大学": "江南大学",
+    "year": 2024,
+    "school_name": "江南大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 678,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "江南大学": "江南大学",
+    "year": 2024,
+    "school_name": "江南大学",
     "major_name": "环境科学",
     "major_group": "",
     "min_score": 649,

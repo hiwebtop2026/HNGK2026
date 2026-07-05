@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "福州大学": "福州大学",
+    "year": 2024,
+    "school_name": "福州大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 665,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "福州大学": "福州大学",
+    "year": 2024,
+    "school_name": "福州大学",
     "major_name": "人文地理与城乡规划",
     "major_group": "",
     "min_score": 658,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "福州大学": "福州大学",
+    "year": 2024,
+    "school_name": "福州大学",
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": 650,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2024": 2024,
-    "福州大学": "福州大学",
+    "year": 2024,
+    "school_name": "福州大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 645,

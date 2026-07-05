@@ -1,0 +1,54 @@
+[
+  {
+    "school_name": "北师香港浸会大学",
+    "year": 2025,
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 616,
+    "min_rank": 9485,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(英文教学)",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "北师香港浸会大学",
+    "year": 2025,
+    "major_name": "经济学",
+    "major_group": "",
+    "min_score": 611,
+    "min_rank": 10262,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(培养应用经济学、商业分析方向;原则上在第一学年第二学期开始前完成专业确认;英文教学)",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "北师香港浸会大学",
+    "year": 2025,
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 606,
+    "min_rank": 11126,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(包含专业:财务管理(中外合作办学)、人力资源管理(中外合作办学)、市场营销(中外合作办学)、工商管理(中外合作办学)、文化产业管理(中外合作办学);大类招生;工商管理专业培养创业与创新管理、电子商务与资讯系统管理、数字媒体管理方向；文化产业管理专业培养文化创意与管理，旅游、酒店与会展管理方向;原则上在第一学年第二学期开始前完成专业确认;英文教学)",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "北师香港浸会大学",
+    "year": 2025,
+    "major_name": "新闻传播学类",
+    "major_group": "",
+    "min_score": 606,
+    "min_rank": 11126,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(包含专业:广告学(中外合作办学)、传播学(中外合作办学)；大类招生；广告学专业培养公共关系与广告学方向;传播学专业培养媒体与传播学、媒体艺术与设计、影视学、动画与互动媒体、中华文化与国际传播、游戏设计方向；原则上在第一学年第二学期开始前完成专业确认;英文教学)",
+    "subject_requirement": "不限",
+    "province": "海南"
+  }
+]

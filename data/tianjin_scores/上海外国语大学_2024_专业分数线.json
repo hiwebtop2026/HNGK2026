@@ -1,7 +1,7 @@
 [
   {
-    "2024": 2024,
-    "上海外国语大学": "上海外国语大学",
+    "year": 2024,
+    "school_name": "上海外国语大学",
     "major_name": "外交学",
     "major_group": "",
     "min_score": 637,
@@ -12,8 +12,8 @@
     "province": "天津"
   },
   {
-    "2024": 2024,
-    "上海外国语大学": "上海外国语大学",
+    "year": 2024,
+    "school_name": "上海外国语大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 634,
@@ -24,8 +24,8 @@
     "province": "天津"
   },
   {
-    "2024": 2024,
-    "上海外国语大学": "上海外国语大学",
+    "year": 2024,
+    "school_name": "上海外国语大学",
     "major_name": "翻译",
     "major_group": "",
     "min_score": 632,

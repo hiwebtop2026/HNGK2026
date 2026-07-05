@@ -1,0 +1,93 @@
+[
+  {
+    "school_name": "湖北经济学院",
+    "year": 2025,
+    "major_name": "审计学",
+    "major_group": "",
+    "min_score": 617,
+    "min_rank": 9286,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "湖北经济学院",
+    "year": 2025,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 616,
+    "min_rank": 9485,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "湖北经济学院",
+    "year": 2025,
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 613,
+    "min_rank": 9938,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "湖北经济学院",
+    "year": 2025,
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 601,
+    "min_rank": 12010,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "湖北经济学院",
+    "year": 2025,
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 592,
+    "min_rank": 13725,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "湖北经济学院",
+    "year": 2025,
+    "major_name": "新闻学",
+    "major_group": "",
+    "min_score": 592,
+    "min_rank": 13725,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "湖北经济学院",
+    "year": 2025,
+    "major_name": "网络与新媒体",
+    "major_group": "",
+    "min_score": 592,
+    "min_rank": 13725,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  }
+]

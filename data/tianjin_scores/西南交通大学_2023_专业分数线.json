@@ -1,7 +1,7 @@
 [
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": null,
@@ -12,8 +12,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": null,
@@ -24,8 +24,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": null,
@@ -36,8 +36,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "电子信息科学与技术",
     "major_group": "",
     "min_score": null,
@@ -48,8 +48,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": null,
@@ -60,8 +60,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": null,
@@ -72,8 +72,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "轨道交通信号与控制",
     "major_group": "",
     "min_score": null,
@@ -84,8 +84,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "信息安全",
     "major_group": "",
     "min_score": null,
@@ -96,8 +96,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "智慧交通",
     "major_group": "",
     "min_score": null,
@@ -108,8 +108,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "交通运输类",
     "major_group": "",
     "min_score": null,
@@ -120,8 +120,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": null,
@@ -132,8 +132,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "智能制造工程",
     "major_group": "",
     "min_score": null,
@@ -144,8 +144,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": null,
@@ -156,8 +156,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "工程力学",
     "major_group": "",
     "min_score": null,
@@ -168,8 +168,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "大功率半导体科学与工程",
     "major_group": "",
     "min_score": null,
@@ -180,8 +180,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "应用物理学",
     "major_group": "",
     "min_score": null,
@@ -192,8 +192,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "新能源科学与工程",
     "major_group": "",
     "min_score": null,
@@ -204,8 +204,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "智能建造",
     "major_group": "",
     "min_score": null,
@@ -216,8 +216,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "材料类",
     "major_group": "",
     "min_score": null,
@@ -228,8 +228,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": null,
@@ -240,8 +240,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "生物工程",
     "major_group": "",
     "min_score": null,
@@ -252,8 +252,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": null,
@@ -264,8 +264,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": null,
@@ -276,8 +276,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "材料科学与工程",
     "major_group": "",
     "min_score": null,
@@ -288,8 +288,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": null,
@@ -300,8 +300,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "工业设计",
     "major_group": "",
     "min_score": null,
@@ -312,8 +312,8 @@
     "province": "天津"
   },
   {
-    "2023": 2023,
-    "西南交通大学": "西南交通大学",
+    "year": 2023,
+    "school_name": "西南交通大学",
     "major_name": "高分子材料与工程",
     "major_group": "",
     "min_score": null,

@@ -1,0 +1,50 @@
+[
+  {
+    "school_name": "西安科技大学",
+    "year": 2023,
+    "major_name": "自动化",
+    "major_group": "",
+    "min_score": 578,
+    "min_rank": 18257,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安科技大学",
+    "year": 2023,
+    "major_name": "大数据管理与应用",
+    "major_group": "",
+    "min_score": 575,
+    "min_rank": 19060,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安科技大学",
+    "year": 2023,
+    "major_name": "应急技术与管理",
+    "major_group": "",
+    "min_score": 573,
+    "min_rank": 19601,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安科技大学",
+    "year": 2023,
+    "major_name": "智能建造",
+    "major_group": "",
+    "min_score": 571,
+    "min_rank": 20134,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

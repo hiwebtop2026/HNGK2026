@@ -1,0 +1,80 @@
+[
+  {
+    "school_name": "上海海洋大学",
+    "year": 2025,
+    "major_name": "工商管理",
+    "major_group": "",
+    "min_score": 635,
+    "min_rank": 6820,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "上海海洋大学",
+    "year": 2025,
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 632,
+    "min_rank": 7178,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "上海海洋大学",
+    "year": 2025,
+    "major_name": "农林经济管理",
+    "major_group": "",
+    "min_score": 625,
+    "min_rank": 8143,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南"
+  },
+  {
+    "school_name": "上海海洋大学",
+    "year": 2025,
+    "major_name": "海洋科学类",
+    "major_group": "",
+    "min_score": 624,
+    "min_rank": 8280,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(包含专业:海洋科学、海洋技术；不招色盲、色弱、单色识别不全者)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南"
+  },
+  {
+    "school_name": "上海海洋大学",
+    "year": 2025,
+    "major_name": "水产类",
+    "major_group": "",
+    "min_score": 614,
+    "min_rank": 9773,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(包含专业:水产养殖学、水族科学与技术、水生动物医学;不招色盲、色弱、单色识别不全者)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南"
+  },
+  {
+    "school_name": "上海海洋大学",
+    "year": 2025,
+    "major_name": "海洋渔业科学与技术",
+    "major_group": "",
+    "min_score": 613,
+    "min_rank": 9938,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱、单色识别不全者)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南"
+  }
+]

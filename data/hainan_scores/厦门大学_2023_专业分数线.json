@@ -1,7 +1,7 @@
 [
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 760,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "会计学",
     "major_group": "",
     "min_score": 737,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 730,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 730,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 730,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 728,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "化学类",
     "major_group": "",
     "min_score": 726,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 724,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 721,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 717,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "厦门大学": "厦门大学",
+    "year": 2023,
+    "school_name": "厦门大学",
     "major_name": "理科试验班",
     "major_group": "",
     "min_score": 715,

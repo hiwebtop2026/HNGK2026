@@ -1,0 +1,122 @@
+[
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "水利水电工程",
+    "major_group": "",
+    "min_score": 608,
+    "min_rank": 11105,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 603,
+    "min_rank": 12295,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 603,
+    "min_rank": 12295,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 602,
+    "min_rank": 12510,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "能源与动力工程",
+    "major_group": "",
+    "min_score": 601,
+    "min_rank": 12738,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "材料科学与工程",
+    "major_group": "",
+    "min_score": 600,
+    "min_rank": 12965,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "印刷工程",
+    "major_group": "",
+    "min_score": 599,
+    "min_rank": 13198,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "数字媒体技术",
+    "major_group": "",
+    "min_score": 598,
+    "min_rank": 13411,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "智能建造",
+    "major_group": "",
+    "min_score": 598,
+    "min_rank": 13411,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "西安理工大学",
+    "year": 2024,
+    "major_name": "材料物理",
+    "major_group": "",
+    "min_score": 598,
+    "min_rank": 13411,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
-    "2023": 2023,
-    "西安交通大学": "西安交通大学",
+    "year": 2023,
+    "school_name": "西安交通大学",
     "major_name": "自动化",
     "major_group": "",
     "min_score": 788,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "西安交通大学": "西安交通大学",
+    "year": 2023,
+    "school_name": "西安交通大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 786,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "西安交通大学": "西安交通大学",
+    "year": 2023,
+    "school_name": "西安交通大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 783,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "西安交通大学": "西安交通大学",
+    "year": 2023,
+    "school_name": "西安交通大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 780,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "西安交通大学": "西安交通大学",
+    "year": 2023,
+    "school_name": "西安交通大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 767,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2023": 2023,
-    "西安交通大学": "西安交通大学",
+    "year": 2023,
+    "school_name": "西安交通大学",
     "major_name": "建筑学",
     "major_group": "",
     "min_score": 669,

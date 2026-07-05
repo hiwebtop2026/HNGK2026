@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "计算机类",
     "major_group": "专业组（2）",
     "min_score": 628,
@@ -12,8 +12,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "专业组（2）",
     "min_score": 627,
@@ -24,8 +24,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "生物工程",
     "major_group": "专业组（5）",
     "min_score": 615,
@@ -36,8 +36,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "建筑学",
     "major_group": "专业组（3）",
     "min_score": 614,
@@ -48,8 +48,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "应用心理学",
     "major_group": "专业组（1）",
     "min_score": 606,
@@ -60,8 +60,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "专业组（1）",
     "min_score": 624,
@@ -72,8 +72,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "计算机科学与技术",
     "major_group": "专业组（1）",
     "min_score": 622,
@@ -84,8 +84,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "生物工程",
     "major_group": "专业组（1）",
     "min_score": 621,
@@ -96,8 +96,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "建筑学",
     "major_group": "专业组（1）",
     "min_score": 608,
@@ -108,8 +108,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "市场营销",
     "major_group": "专业组（1）",
     "min_score": 605,
@@ -120,8 +120,8 @@
     "province": "天津"
   },
   {
-    "2025": 2025,
-    "福州大学": "福州大学",
+    "year": 2025,
+    "school_name": "福州大学",
     "major_name": "应用心理学",
     "major_group": "专业组（1）",
     "min_score": 605,

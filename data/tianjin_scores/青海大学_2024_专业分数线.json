@@ -1,0 +1,98 @@
+[
+  {
+    "school_name": "青海大学",
+    "year": 2024,
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 610,
+    "min_rank": 10681,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "青海大学",
+    "year": 2024,
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 609,
+    "min_rank": 10891,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "青海大学",
+    "year": 2024,
+    "major_name": "应用化学",
+    "major_group": "",
+    "min_score": 605,
+    "min_rank": 11793,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "青海大学",
+    "year": 2024,
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 605,
+    "min_rank": 11793,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "青海大学",
+    "year": 2024,
+    "major_name": "食品科学与工程",
+    "major_group": "",
+    "min_score": 602,
+    "min_rank": 12510,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "青海大学",
+    "year": 2024,
+    "major_name": "经济学",
+    "major_group": "",
+    "min_score": 597,
+    "min_rank": 13657,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "青海大学",
+    "year": 2024,
+    "major_name": "麻醉学",
+    "major_group": "",
+    "min_score": 597,
+    "min_rank": 13657,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  },
+  {
+    "school_name": "青海大学",
+    "year": 2024,
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 596,
+    "min_rank": 13904,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "天津"
+  }
+]

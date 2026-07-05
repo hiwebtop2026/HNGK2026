@@ -1,7 +1,7 @@
 [
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "物理学类",
     "major_group": "",
     "min_score": 725,
@@ -12,8 +12,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "自动化类",
     "major_group": "",
     "min_score": 723,
@@ -24,8 +24,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 721,
@@ -36,8 +36,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "中国语言文学类",
     "major_group": "",
     "min_score": 720,
@@ -48,8 +48,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 719,
@@ -60,8 +60,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 715,
@@ -72,8 +72,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "历史学类",
     "major_group": "",
     "min_score": 715,
@@ -84,8 +84,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 715,
@@ -96,8 +96,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "网络空间安全",
     "major_group": "",
     "min_score": 712,
@@ -108,8 +108,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "智能医学工程",
     "major_group": "",
     "min_score": 711,
@@ -120,8 +120,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "生物科学类",
     "major_group": "",
     "min_score": 706,
@@ -132,8 +132,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 702,
@@ -144,8 +144,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "化学类",
     "major_group": "",
     "min_score": 701,
@@ -156,8 +156,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "能源动力类",
     "major_group": "",
     "min_score": 701,
@@ -168,8 +168,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "材料类",
     "major_group": "",
     "min_score": 700,
@@ -180,8 +180,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "智能建造与智慧交通",
     "major_group": "",
     "min_score": 699,
@@ -192,8 +192,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "机械类",
     "major_group": "",
     "min_score": 699,
@@ -204,8 +204,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "环境科学与工程类",
     "major_group": "",
     "min_score": 699,
@@ -216,8 +216,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 698,
@@ -228,8 +228,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 694,
@@ -240,8 +240,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 692,
@@ -252,8 +252,8 @@
     "province": "海南"
   },
   {
-    "2025": 2025,
-    "山东大学": "山东大学",
+    "year": 2025,
+    "school_name": "山东大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 692,
