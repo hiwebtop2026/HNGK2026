@@ -858,7 +858,16 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
   mainSheet.properties.tabColor = { argb: COLORS.headerBg };
   summarySheet.properties.tabColor = { argb: COLORS.probHighBg };
   
-  await workbook.xlsx.writeFile(filename);
+  const buffer = await workbook.xlsx.writeBuffer();
+  const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
 }
 
 // 导出为Excel
