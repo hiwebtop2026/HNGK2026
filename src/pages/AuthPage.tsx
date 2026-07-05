@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Mail, Lock, Loader2, AlertCircle, CheckCircle2, School, Sparkles,
-  User, LogOut, ArrowRight
+  User, LogOut, ArrowRight, Info
 } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 import { useAppStore } from '../store/appStore';
@@ -54,53 +54,75 @@ export function AuthPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  
+  const [nickname, setNickname] = useState('');
+  const [showGuide, setShowGuide] = useState(false);
+
   // 检查认证状态并设置页面标题
   useEffect(() => {
     document.title = '智能高考志愿助理';
     checkAuth();
-  }, [checkAuth]);
-  
+    // 首次进入注册页时自动展示注册指引弹窗
+    if (mode === 'register') {
+      try {
+        if (!sessionStorage.getItem('hngk_guide_shown')) {
+          setShowGuide(true);
+          sessionStorage.setItem('hngk_guide_shown', '1');
+        }
+      } catch {
+        // sessionStorage 在隐私模式下可能不可用，忽略错误
+      }
+    }
+  }, [checkAuth, mode]);
+
   // 已认证则跳转首页
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/');
     }
   }, [isAuthenticated, navigate]);
-  
+
   const handleSubmit = async () => {
     if (!email) {
       setError('请输入邮箱地址');
       return;
     }
-    
+
     if (!password) {
       setError('请输入密码');
       return;
     }
-    
+
     if (mode === 'register') {
+      if (!nickname.trim()) {
+        setError('请输入昵称');
+        return;
+      }
+      if (nickname.trim().length < 2 || nickname.trim().length > 20) {
+        setError('昵称长度2-20个字符');
+        return;
+      }
       if (password.length < 6) {
         setError('密码长度至少6位');
         return;
       }
-      
+
       if (password !== confirmPassword) {
         setError('两次输入的密码不一致');
         return;
       }
-      
-      await register(email, password);
+
+      await register(email, password, nickname);
     } else {
       await login(email, password);
     }
   };
-  
+
   const handleLogout = () => {
     logout();
     setEmail('');
     setPassword('');
     setConfirmPassword('');
+    setNickname('');
   };
   
   const textPrimary = isDark ? 'text-white' : 'text-gray-800';
@@ -119,7 +141,7 @@ export function AuthPage() {
             <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary-500/25">
               <User className="w-10 h-10 text-white" />
             </div>
-            <h2 className={`text-2xl font-bold ${textPrimary} mb-2`}>欢迎回来</h2>
+            <h2 className={`text-2xl font-bold ${textPrimary} mb-2`}>欢迎回来，{user.nickname || user.email.split('@')[0]}</h2>
             <p className={`${textSecondary}`}>
               {user.email}
             </p>
@@ -198,6 +220,21 @@ export function AuthPage() {
               注册
             </button>
           </div>
+
+          {/* 注册指引按钮 */}
+          {mode === 'register' && (
+            <div className="flex justify-end -mt-3 mb-4">
+              <button
+                onClick={() => setShowGuide(true)}
+                className={`text-xs flex items-center gap-1 transition-colors ${
+                  isDark ? 'text-primary-400 hover:text-primary-300' : 'text-primary-600 hover:text-primary-700'
+                }`}
+              >
+                <Info className="w-3.5 h-3.5" />
+                <span>注册指引</span>
+              </button>
+            </div>
+          )}
           
           <div className="text-center mb-6">
             <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-4 ${isDark ? '' : 'shadow-sm'}`}>
@@ -216,6 +253,29 @@ export function AuthPage() {
           
           {/* 表单 */}
           <div className="space-y-4">
+            {mode === 'register' && (
+              <div>
+                <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
+                  昵称
+                </label>
+                <div className="relative">
+                  <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
+                  <input
+                    type="text"
+                    value={nickname}
+                    onChange={(e) => {
+                      setNickname(e.target.value);
+                      setError(null);
+                    }}
+                    placeholder="请输入昵称（2-20个字符）"
+                    maxLength={20}
+                    className={`w-full pl-12 pr-4 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all`}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
+                  />
+                </div>
+              </div>
+            )}
+
             <div>
               <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
                 邮箱地址
@@ -294,7 +354,7 @@ export function AuthPage() {
             
             <button
               onClick={handleSubmit}
-              disabled={isLoading || !email || !password || (mode === 'register' && !confirmPassword)}
+              disabled={isLoading || !email || !password || (mode === 'register' && (!confirmPassword || !nickname.trim()))}
               className="w-full px-6 py-4 bg-gradient-to-r from-primary-600 to-primary-500 text-white rounded-xl font-semibold text-lg shadow-xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
             >
               {isLoading ? (
@@ -316,6 +376,80 @@ export function AuthPage() {
           </div>
         </div>
       </div>
+
+      {/* 注册指引弹窗 */}
+      {showGuide && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className={`glass rounded-2xl p-6 w-full max-w-lg ${isDark ? '' : 'shadow-xl'}`}>
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+                  <Sparkles className="w-4 h-4 text-white" />
+                </div>
+                <h3 className={`text-lg font-semibold ${textPrimary}`}>注册指引</h3>
+              </div>
+              <button
+                onClick={() => setShowGuide(false)}
+                className={`text-2xl leading-none ${textMuted} hover:${textSecondary} transition-colors`}
+                aria-label="关闭"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="space-y-3">
+              <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-full bg-primary-500 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">1</div>
+                  <div>
+                    <p className={`font-medium ${textPrimary} mb-1`}>设置昵称</p>
+                    <p className={`text-sm ${textSecondary}`}>输入2-20个字符的昵称，将显示在欢迎页与个人中心</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-full bg-primary-500 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
+                  <div>
+                    <p className={`font-medium ${textPrimary} mb-1`}>填写邮箱</p>
+                    <p className={`text-sm ${textSecondary}`}>使用有效邮箱注册，邮箱将作为登录账号</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                <div className="flex items-start gap-3">
+                  <div className="w-7 h-7 rounded-full bg-primary-500 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">3</div>
+                  <div>
+                    <p className={`font-medium ${textPrimary} mb-1`}>设置密码</p>
+                    <p className={`text-sm ${textSecondary}`}>密码至少6位，建议字母数字组合，两次输入需一致</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={`p-4 rounded-xl ${isDark ? 'bg-blue-500/10 border border-blue-500/20' : 'bg-blue-50 border border-blue-200'}`}>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className={`text-sm font-medium ${isDark ? 'text-blue-400' : 'text-blue-600'} mb-1`}>邮箱验证说明</p>
+                    <p className={`text-xs ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>
+                      部分邮箱可能收到验证邮件。如未收到验证邮件或验证失败，系统会自动启用本地模式登录，您可继续使用志愿填报核心功能。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button
+              onClick={() => setShowGuide(false)}
+              className="w-full mt-6 py-3 rounded-xl bg-gradient-to-r from-primary-600 to-primary-500 text-white font-medium hover:shadow-lg hover:shadow-primary-500/25 transition-all"
+            >
+              我已了解，开始注册
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

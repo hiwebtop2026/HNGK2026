@@ -3,69 +3,13 @@ import type { SchoolScore, VolunteerResult } from '../utils/volunteerUtils';
 import { loadSchoolDataFromSupabase } from '../utils/supabaseDataLoader';
 import { SCHOOL_DATA, AVAILABLE_REGIONS } from '../data/schoolData';
 import { getProvinceConfig, type ProvinceConfig } from '../data/provinceConfigs';
+import { STRATEGY_CONFIGS, type StrategyType } from '../config/strategyConfig';
+
+// 重新导出策略配置，保持向后兼容（HomePage.tsx 等从 appStore 导入）
+export { STRATEGY_CONFIGS };
+export type { StrategyType };
 
 type Theme = 'light' | 'dark';
-
-export type StrategyType = '激进' | '稳妥' | '保守' | '个性化';
-
-export interface StrategyConfig {
-  name: string;
-  chongRatio: number;
-  wenRatio: number;
-  baoRatio: number;
-  chongScoreDiff: number;
-  wenScoreDiff: number;
-  baoScoreDiff: number;
-  description: string;
-  color: string;
-}
-
-export const STRATEGY_CONFIGS: Record<StrategyType, StrategyConfig> = {
-  '激进': {
-    name: '激进',
-    chongRatio: 0.5,
-    wenRatio: 0.35,
-    baoRatio: 0.15,
-    chongScoreDiff: 15,
-    wenScoreDiff: 5,
-    baoScoreDiff: 8,
-    description: '冲刺更多高分院校',
-    color: 'from-red-500 to-orange-500',
-  },
-  '稳妥': {
-    name: '稳妥',
-    chongRatio: 0.3,
-    wenRatio: 0.5,
-    baoRatio: 0.2,
-    chongScoreDiff: 10,
-    wenScoreDiff: 3,
-    baoScoreDiff: 15,
-    description: '均衡分配，适合大多数考生',
-    color: 'from-amber-500 to-yellow-500',
-  },
-  '保守': {
-    name: '保守',
-    chongRatio: 0.15,
-    wenRatio: 0.35,
-    baoRatio: 0.5,
-    chongScoreDiff: 5,
-    wenScoreDiff: 1,
-    baoScoreDiff: 20,
-    description: '侧重保底院校，降低风险',
-    color: 'from-green-500 to-emerald-500',
-  },
-  '个性化': {
-    name: '个性化',
-    chongRatio: 0.3,
-    wenRatio: 0.4,
-    baoRatio: 0.3,
-    chongScoreDiff: 15,
-    wenScoreDiff: 5,
-    baoScoreDiff: 15,
-    description: '结合专业偏好，定制专属方案',
-    color: 'from-blue-500 to-purple-500',
-  },
-};
 
 interface AppState {
   // 主题

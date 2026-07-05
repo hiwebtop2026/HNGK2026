@@ -4,6 +4,7 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 interface User {
   id: string;
   email: string;
+  nickname: string;
   registeredAt: string;
 }
 
@@ -13,9 +14,9 @@ interface AuthState {
   isLoading: boolean;
   error: string | null;
   successMessage: string | null;
-  
+
   // 操作方法
-  register: (email: string, password: string) => Promise<boolean>;
+  register: (email: string, password: string, nickname: string) => Promise<boolean>;
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => Promise<boolean>;
   checkAuth: () => Promise<void>;
@@ -27,12 +28,12 @@ interface AuthState {
 const USERS_KEY = 'hngk_users';
 const CURRENT_USER_KEY = 'hngk_current_user';
 
-function getLocalUsers(): Record<string, { email: string; password: string; registeredAt: string }> {
+function getLocalUsers(): Record<string, { email: string; password: string; nickname: string; registeredAt: string }> {
   const stored = localStorage.getItem(USERS_KEY);
   return stored ? JSON.parse(stored) : {};
 }
 
-function saveLocalUsers(users: Record<string, { email: string; password: string; registeredAt: string }>): void {
+function saveLocalUsers(users: Record<string, { email: string; password: string; nickname: string; registeredAt: string }>): void {
   localStorage.setItem(USERS_KEY, JSON.stringify(users));
 }
 
@@ -85,29 +86,32 @@ function translateSupabaseError(errorMessage: string): string {
 
 // 本地注册辅助函数
 async function registerLocal(
-  email: string, 
-  password: string, 
+  email: string,
+  password: string,
+  nickname: string,
   set: (partial: Partial<AuthState>) => void
 ): Promise<boolean> {
   await new Promise(resolve => setTimeout(resolve, 300));
-  
+
   const users = getLocalUsers();
-  
+
   if (users[email]) {
     set({ isLoading: false, error: '该邮箱已注册，请直接登录' });
     return false;
   }
-  
+
+  const trimmedNickname = nickname.trim();
   const user: User = {
     id: 'local_' + Date.now(),
     email,
+    nickname: trimmedNickname,
     registeredAt: new Date().toISOString(),
   };
-  
-  users[email] = { email, password: hashPassword(password), registeredAt: user.registeredAt };
+
+  users[email] = { email, password: hashPassword(password), nickname: trimmedNickname, registeredAt: user.registeredAt };
   saveLocalUsers(users);
   saveLocalCurrentUser(user);
-  
+
   set({ isLoading: false, isAuthenticated: true, user, error: null });
   return true;
 }
@@ -136,6 +140,7 @@ async function loginLocal(
   const user: User = {
     id: 'local_' + Date.now(),
     email,
+    nickname: stored.nickname || email.split('@')[0],
     registeredAt: stored.registeredAt,
   };
   saveLocalCurrentUser(user);
@@ -151,15 +156,25 @@ export const useAuthStore = create<AuthState>((set) => ({
   error: null,
   successMessage: null,
   
-  register: async (email: string, password: string) => {
+  register: async (email: string, password: string, nickname: string) => {
     set({ isLoading: true, error: null, successMessage: null });
-    
+
     // 本地验证（无论哪种模式都先验证）
     if (!email || !email.includes('@')) {
       set({ isLoading: false, error: '请输入正确的邮箱地址' });
       return false;
     }
-    
+
+    if (!nickname || nickname.trim().length < 2) {
+      set({ isLoading: false, error: '昵称至少2个字符' });
+      return false;
+    }
+
+    if (nickname.trim().length > 20) {
+      set({ isLoading: false, error: '昵称最多20个字符' });
+      return false;
+    }
+
     if (!password || password.length < 6) {
       set({ isLoading: false, error: '密码长度至少6位' });
       return false;
@@ -178,25 +193,29 @@ export const useAuthStore = create<AuthState>((set) => ({
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
+          options: {
+            data: { nickname: nickname.trim() }
+          }
         });
-        
+
         if (error) {
           // 翻译错误消息
           const translatedError = translateSupabaseError(error.message);
-          
+
           // 如果是频率限制错误，自动降级到本地模式
           if (error.message.includes('email rate limit exceeded')) {
-            return registerLocal(email, password, set);
+            return registerLocal(email, password, nickname, set);
           }
-          
+
           set({ isLoading: false, error: translatedError });
           return false;
         }
-        
+
         if (data.user) {
           const user: User = {
             id: data.user.id,
             email: data.user.email || email,
+            nickname: (data.user.user_metadata?.nickname as string) || nickname.trim(),
             registeredAt: data.user.created_at || new Date().toISOString(),
           };
           
@@ -215,7 +234,7 @@ export const useAuthStore = create<AuthState>((set) => ({
           // 由于已将用户信息保存到本地，可以直接自动登录
           if (!data.session) {
             // 保存到本地作为备份
-            localUsers[email] = { email, password: hashPassword(password), registeredAt: user.registeredAt };
+            localUsers[email] = { email, password: hashPassword(password), nickname: nickname.trim(), registeredAt: user.registeredAt };
             saveLocalUsers(localUsers);
             saveLocalCurrentUser(user);
             
@@ -231,24 +250,24 @@ export const useAuthStore = create<AuthState>((set) => ({
           }
           
           // 同时保存到本地作为备份
-          localUsers[email] = { email, password: hashPassword(password), registeredAt: user.registeredAt };
+          localUsers[email] = { email, password: hashPassword(password), nickname: nickname.trim(), registeredAt: user.registeredAt };
           saveLocalUsers(localUsers);
           saveLocalCurrentUser(user);
-          
+
           set({ isLoading: false, isAuthenticated: true, user, error: null });
           return true;
         }
-        
+
         // Supabase 返回空数据，降级到本地模式
-        return registerLocal(email, password, set);
+        return registerLocal(email, password, nickname, set);
       } else {
         // 本地模式（localStorage）
-        return registerLocal(email, password, set);
+        return registerLocal(email, password, nickname, set);
       }
     } catch (err: any) {
       // Supabase 网络错误或其他异常，降级到本地模式
       console.warn('Supabase registration failed, falling back to local mode:', err);
-      return registerLocal(email, password, set);
+      return registerLocal(email, password, nickname, set);
     }
   },
   
@@ -292,9 +311,10 @@ export const useAuthStore = create<AuthState>((set) => ({
           const user: User = {
             id: data.user.id,
             email: data.user.email || email,
+            nickname: (data.user.user_metadata?.nickname as string) || email.split('@')[0],
             registeredAt: data.user.created_at || new Date().toISOString(),
           };
-          
+
           // 记录登录行为
           try {
             await supabase.from('usage_logs').insert({
@@ -305,11 +325,11 @@ export const useAuthStore = create<AuthState>((set) => ({
               user_agent: navigator.userAgent,
             });
           } catch {}
-          
+
           // 同时保存到本地作为备份
           const users = getLocalUsers();
           if (!users[email]) {
-            users[email] = { email, password: hashPassword(password), registeredAt: user.registeredAt };
+            users[email] = { email, password: hashPassword(password), nickname: user.nickname, registeredAt: user.registeredAt };
             saveLocalUsers(users);
           }
           saveLocalCurrentUser(user);
@@ -372,6 +392,7 @@ export const useAuthStore = create<AuthState>((set) => ({
           const user: User = {
             id: session.user.id,
             email: session.user.email || '',
+            nickname: (session.user.user_metadata?.nickname as string) || (session.user.email || '').split('@')[0],
             registeredAt: session.user.created_at || new Date().toISOString(),
           };
           set({ isAuthenticated: true, user, isLoading: false });

@@ -411,7 +411,8 @@ export function HomePage() {
         strategy,
         selectedSubjects,
         selectedMajors,
-        excludedMajors
+        excludedMajors,
+        currentRegion
       );
 
       if (results.length === 0) {
@@ -542,6 +543,39 @@ export function HomePage() {
           </div>
         </header>
 
+        {/* 未认证提示卡片（置于页首，地区栏之上） */}
+        {!isAuthenticated && (
+          <div className="max-w-6xl mx-auto px-6 mb-4">
+            <div className={`glass rounded-2xl p-6 animate-fade-in ${
+              isDark
+              ? 'bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20'
+              : 'bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 shadow-md'
+            }`}>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-md">
+                    <AlertCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className={`text-lg font-semibold ${textPrimary} mb-1`}>请先注册账号</h3>
+                    <p className={`text-sm ${textSecondary}`}>
+                      注册账号后即可使用志愿生成、导出等功能，更好地规划你的高考志愿
+                    </p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => navigate('/auth')}
+                  className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-medium shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] transition-all flex items-center gap-2"
+                >
+                  <User className="w-4 h-4" />
+                  <span>立即注册</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* 顶部地区与选科组合栏（页首固定区域） */}
         <div className="max-w-6xl mx-auto px-6 mb-6">
           <div className={`glass rounded-2xl p-4 md:p-5 animate-fade-in ${isDark ? '' : 'shadow-md'}`}>
@@ -658,37 +692,6 @@ export function HomePage() {
 
         {/* 主内容区 */}
         <main className="max-w-6xl mx-auto px-6 pb-16">
-          {/* 未认证提示卡片 */}
-          {!isAuthenticated && (
-            <div className={`glass rounded-2xl p-6 mb-6 animate-fade-in ${
-              isDark
-              ? 'bg-gradient-to-r from-amber-500/10 to-orange-500/10 border border-amber-500/20'
-              : 'bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 shadow-md'
-            }`}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center shadow-md">
-                    <AlertCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className={`text-lg font-semibold ${textPrimary} mb-1`}>请先注册账号</h3>
-                    <p className={`text-sm ${textSecondary}`}>
-                      注册账号后即可使用志愿生成、导出等功能，更好地规划你的高考志愿
-                    </p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => navigate('/auth')}
-                  className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-medium shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] transition-all flex items-center gap-2"
-                >
-                  <User className="w-4 h-4" />
-                  <span>立即注册</span>
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          )}
-
           {/* 数据上传卡片 */}
           <div className={`glass rounded-2xl p-6 mb-6 animate-fade-in card-hover ${isDark ? '' : 'shadow-md'}`}>
             <div className="flex items-center gap-3 mb-4">

@@ -195,6 +195,26 @@ export function calculateComprehensiveAdmissionProbability(
   };
 }
 
+/**
+ * 将某档超额的配额按优先级转移给其他档
+ * 用于冲稳保三档之间的双向再平衡
+ */
+function transferOverflow(
+  overflow: number,
+  priorities: Array<'chong' | 'wen' | 'bao'>,
+  current: { chong: number; wen: number; bao: number },
+  pools: { chong: number; wen: number; bao: number }
+): void {
+  let remaining = overflow;
+  for (const tier of priorities) {
+    if (remaining <= 0) break;
+    const room = pools[tier] - current[tier];
+    const add = Math.min(remaining, Math.max(0, room));
+    current[tier] += add;
+    remaining -= add;
+  }
+}
+
 export function getSmartTier(
   candidateScore: number,
   schoolRefScore: number,
@@ -459,9 +479,20 @@ export async function filterSchoolsWithMajors(
   }
   
   // 按分数范围筛选（任一年份在范围内即可）
+  // 关键修复：筛选范围必须覆盖策略所需的最大保档/冲档分差，否则会丢失候选院校
+  // 海南高分制下 adjustedDiff = scoreDiff/2，因此筛选范围需 ×2
+  const isHighScore = isHighScoreSystem(province);
+  const strategyMaxDiff = Math.max(
+    strategyConfig.chongScoreDiff,
+    strategyConfig.wenScoreDiff,
+    strategyConfig.baoScoreDiff
+  );
+  const strategyRequiredRange = isHighScore ? strategyMaxDiff * 2 : strategyMaxDiff;
+  const effectiveRange = Math.max(scoreRange, strategyRequiredRange);
+
   const inRange = filtered.filter(s => {
     const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
-    return refScore >= baseScore - scoreRange && refScore <= baseScore + scoreRange;
+    return refScore >= baseScore - effectiveRange && refScore <= baseScore + effectiveRange;
   });
   
   // 计算参考分并排序
@@ -493,18 +524,42 @@ export async function filterSchoolsWithMajors(
   let chongCount = Math.min(Math.ceil(totalVolunteers * strategyConfig.chongRatio), chong.length);
   let wenCount = Math.min(Math.ceil(totalVolunteers * strategyConfig.wenRatio), wen.length);
   let baoCount = Math.max(0, totalVolunteers - chongCount - wenCount);
-  
-  if (baoCount > bao.length) {
-    const extra = baoCount - bao.length;
-    baoCount = bao.length;
-    wenCount = Math.min(wenCount + extra, wen.length);
+
+  // 双向再平衡：三档之间互相调配，确保总数尽量等于 totalVolunteers
+  const counts = { chong: chongCount, wen: wenCount, bao: baoCount };
+  const pools = { chong: chong.length, wen: wen.length, bao: bao.length };
+
+  // 第一轮：保档不足 → 让给稳档，再让给冲档
+  if (counts.bao > pools.bao) {
+    const extra = counts.bao - pools.bao;
+    counts.bao = pools.bao;
+    transferOverflow(extra, ['wen', 'chong'], counts, pools);
   }
-  
-  if (wenCount > wen.length) {
-    const extra = wenCount - wen.length;
-    wenCount = wen.length;
-    chongCount = Math.min(chongCount + extra, chong.length);
+
+  // 第二轮：稳档不足 → 让给冲档，再让给保档
+  if (counts.wen > pools.wen) {
+    const extra = counts.wen - pools.wen;
+    counts.wen = pools.wen;
+    transferOverflow(extra, ['chong', 'bao'], counts, pools);
   }
+
+  // 第三轮：冲档不足 → 让给稳档，再让给保档（新增，解决高分考生冲档少）
+  if (counts.chong > pools.chong) {
+    const extra = counts.chong - pools.chong;
+    counts.chong = pools.chong;
+    transferOverflow(extra, ['wen', 'bao'], counts, pools);
+  }
+
+  // 第四轮：兜底补足，剩余配额按"保→稳→冲"优先级填补（新增）
+  const currentTotal = counts.chong + counts.wen + counts.bao;
+  if (currentTotal < totalVolunteers) {
+    const deficit = totalVolunteers - currentTotal;
+    transferOverflow(deficit, ['bao', 'wen', 'chong'], counts, pools);
+  }
+
+  chongCount = counts.chong;
+  wenCount = counts.wen;
+  baoCount = counts.bao;
   
   // 组合结果
   const result: VolunteerResult[] = [];

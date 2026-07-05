@@ -49,12 +49,12 @@ export const STRATEGY_CONFIGS: Record<StrategyType, StrategyConfig> = {
   '个性化': {
     name: '个性化',
     chongRatio: 0.3,
-    wenRatio: 0.5,
-    baoRatio: 0.2,
-    chongScoreDiff: 10,
-    wenScoreDiff: 3,
+    wenRatio: 0.4,
+    baoRatio: 0.3,
+    chongScoreDiff: 15,
+    wenScoreDiff: 5,
     baoScoreDiff: 15,
-    description: '自定义冲稳保策略',
-    color: 'from-purple-500 to-pink-500',
+    description: '结合专业偏好，定制专属方案',
+    color: 'from-blue-500 to-purple-500',
   },
 };
