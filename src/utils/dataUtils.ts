@@ -165,16 +165,51 @@ export function isSubjectMatch(selectedSubjects: string[], requirement: string |
     return true;
   }
   
+  const requirements = reqStr.split('|');
+  for (const req of requirements) {
+    const { codes, type } = parseSubjectRequirementFromString(req);
+    
+    if (codes.length === 0) {
+      return true;
+    }
+    
+    if (type === 'any') {
+      if (codes.some(d => selectedSubjects.includes(d))) {
+        return true;
+      }
+    } else {
+      if (codes.every(d => selectedSubjects.includes(d))) {
+        return true;
+      }
+    }
+  }
+  
+  return false;
+}
+
+export function isSubjectMatchExtended(selectedSubjects: string[], requirement: string | number): boolean {
+  if (!selectedSubjects || selectedSubjects.length === 0) {
+    return true;
+  }
+  
+  const reqStr = String(requirement).trim();
+  
+  if (!reqStr || reqStr === '0' || reqStr.includes('不限')) {
+    return true;
+  }
+  
   const { codes, type } = parseSubjectRequirementFromString(reqStr);
   
   if (codes.length === 0) {
     return true;
   }
   
+  const selectedSet = new Set(selectedSubjects);
+  
   if (type === 'any') {
-    return codes.some(d => selectedSubjects.includes(d));
+    return codes.some(d => selectedSet.has(d));
   } else {
-    return codes.every(d => selectedSubjects.includes(d));
+    return codes.every(d => selectedSet.has(d));
   }
 }
 

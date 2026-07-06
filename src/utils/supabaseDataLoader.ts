@@ -51,7 +51,13 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
       if (item.subject !== 0 && existing.subject === 0) {
         existing.subject = item.subject;
       }
-      if (item.subject_requirement && !existing.subject_requirement) {
+      if (item.subject_requirement && existing.subject_requirement) {
+        const existingReqs = existing.subject_requirement.split('|');
+        const newReq = item.subject_requirement;
+        if (!existingReqs.includes(newReq)) {
+          existing.subject_requirement += `|${newReq}`;
+        }
+      } else if (item.subject_requirement) {
         existing.subject_requirement = item.subject_requirement;
       }
     } else {
@@ -79,6 +85,15 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
         if (item.subject !== 0 && matched.subject === 0) {
           matched.subject = item.subject;
         }
+        if (item.subject_requirement && matched.subject_requirement) {
+          const existingReqs = matched.subject_requirement.split('|');
+          const newReq = item.subject_requirement;
+          if (!existingReqs.includes(newReq)) {
+            matched.subject_requirement += `|${newReq}`;
+          }
+        } else if (item.subject_requirement) {
+          matched.subject_requirement = item.subject_requirement;
+        }
         continue;
       }
     }
@@ -89,6 +104,15 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
       if (item.score2023 !== null && existing.score2023 === null) existing.score2023 = item.score2023;
       if (item.subject !== 0 && existing.subject === 0) {
         existing.subject = item.subject;
+      }
+      if (item.subject_requirement && existing.subject_requirement) {
+        const existingReqs = existing.subject_requirement.split('|');
+        const newReq = item.subject_requirement;
+        if (!existingReqs.includes(newReq)) {
+          existing.subject_requirement += `|${newReq}`;
+        }
+      } else if (item.subject_requirement) {
+        existing.subject_requirement = item.subject_requirement;
       }
     } else {
       result.set(key, item);
@@ -125,15 +149,15 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
       
       if (existing) {
         if (year === 2025) {
-          if (existing.score2025 === null || score.score < existing.score2025) {
+          if (existing.score2025 === null || score.score > existing.score2025) {
             existing.score2025 = score.score;
           }
         } else if (year === 2024) {
-          if (existing.score2024 === null || score.score < existing.score2024) {
+          if (existing.score2024 === null || score.score > existing.score2024) {
             existing.score2024 = score.score;
           }
         } else if (year === 2023) {
-          if (existing.score2023 === null || score.score < existing.score2023) {
+          if (existing.score2023 === null || score.score > existing.score2023) {
             existing.score2023 = score.score;
           }
         }
@@ -201,15 +225,15 @@ async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
       
       if (existing) {
         if (score.year === 2025) {
-          if (existing.score2025 === null || score.min_score < existing.score2025) {
+          if (existing.score2025 === null || score.min_score > existing.score2025) {
             existing.score2025 = score.min_score;
           }
         } else if (score.year === 2024) {
-          if (existing.score2024 === null || score.min_score < existing.score2024) {
+          if (existing.score2024 === null || score.min_score > existing.score2024) {
             existing.score2024 = score.min_score;
           }
         } else if (score.year === 2023) {
-          if (existing.score2023 === null || score.min_score < existing.score2023) {
+          if (existing.score2023 === null || score.min_score > existing.score2023) {
             existing.score2023 = score.min_score;
           }
         }

@@ -430,10 +430,16 @@ export async function filterSchoolsWithMajors(
 ): Promise<VolunteerResult[]> {
   const strategyConfig = STRATEGY_CONFIGS[strategy];
   
-  // 按科目筛选（支持3+3省份的选科匹配）
+  // 按科目筛选（支持3+3省份的选科匹配，扩展匹配逻辑）
   let filtered = schools.filter(s => {
     if (selectedSubjects.length > 0) {
-      return isSubjectMatch(selectedSubjects, s.subject_requirement ?? s.subject);
+      if (s.subject_requirement) {
+        return isSubjectMatch(selectedSubjects, s.subject_requirement);
+      }
+      if (s.subject !== undefined && s.subject !== null) {
+        return isSubjectMatch(selectedSubjects, s.subject);
+      }
+      return true;
     }
     if (subject === 0) {
       return true;

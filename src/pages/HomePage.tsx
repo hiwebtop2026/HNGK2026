@@ -1021,41 +1021,24 @@ export function HomePage() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>选考科目要求</label>
-                    <select
-                      value={subject}
-                      onChange={(e) => setSubject(parseInt(e.target.value))}
-                      className={`w-full px-4 py-3.5 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all appearance-none cursor-pointer`}
-                    >
-                      {subjectOptions.map((s) => (
-                        <option key={s} value={s} className={isDark ? 'bg-gray-900' : 'bg-white'}>
-                          {parseSubjectRequirement(s)}（{s}）
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>志愿数量</label>
-                    <div className="flex gap-2">
-                      {volunteerOptions.map((count) => (
-                        <button
-                          key={count}
-                          onClick={() => setTotalVolunteers(count)}
-                          className={`flex-1 px-3 py-3.5 rounded-xl border font-medium transition-all ${
-                            totalVolunteers === count
-                              ? 'bg-gradient-to-r from-accent-600 to-accent-500 text-white border-transparent shadow-lg shadow-accent-500/25'
-                              : isDark
-                              ? 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20 hover:text-gray-300'
-                              : 'bg-white text-gray-500 border-gray-200 hover:border-accent-300 hover:text-gray-700'
-                          }`}
-                        >
-                          {count}个
-                        </button>
-                      ))}
-                    </div>
+                <div>
+                  <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>志愿数量</label>
+                  <div className="flex gap-2">
+                    {volunteerOptions.map((count) => (
+                      <button
+                        key={count}
+                        onClick={() => setTotalVolunteers(count)}
+                        className={`flex-1 px-3 py-3.5 rounded-xl border font-medium transition-all ${
+                          totalVolunteers === count
+                            ? 'bg-gradient-to-r from-accent-600 to-accent-500 text-white border-transparent shadow-lg shadow-accent-500/25'
+                            : isDark
+                            ? 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20 hover:text-gray-300'
+                            : 'bg-white text-gray-500 border-gray-200 hover:border-accent-300 hover:text-gray-700'
+                        }`}
+                      >
+                        {count}个
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -1580,7 +1563,7 @@ export function HomePage() {
                 <div className={`w-px h-16 ${isDark ? 'bg-white/10' : 'bg-gray-200'}`} />
                 <div className={`text-sm ${textSecondary} space-y-1`}>
                   <p>分数范围：<span className={`${textPrimary} font-medium`}>{baseScore !== null ? `${baseScore - scoreRange} - ${baseScore + scoreRange} 分` : '待输入'}</span></p>
-                  <p>科目要求：<span className={`${textPrimary} font-medium`}>{parseSubjectRequirement(subject)}</span></p>
+                  <p>选科组合：<span className={`${textPrimary} font-medium`}>{selectedSubjects.length === 0 ? '未选择' : selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')}</span></p>
                 </div>
               </div>
               
