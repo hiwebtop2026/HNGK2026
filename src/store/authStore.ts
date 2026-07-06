@@ -6,7 +6,95 @@ const REMEMBER_EMAIL_KEY = 'hngk_remember_email';
 const REMEMBER_PASSWORD_KEY = 'hngk_remember_password';
 const OTP_EXPIRE_MINUTES = 10;
 
-// 简单的编码/解码函数（非加密，仅做基础混淆，避免明文存储）
+// 密码加密相关常量
+const ENCRYPTION_KEY_SALT = 'hngk_password_v1';
+
+// 使用 Web Crypto API 进行 AES-GCM 加密
+async function encryptPassword(password: string, email: string): Promise<string> {
+  try {
+    const combinedSalt = ENCRYPTION_KEY_SALT + email;
+    const keyMaterial = await window.crypto.subtle.importKey(
+      'raw',
+      new TextEncoder().encode(combinedSalt),
+      'PBKDF2',
+      false,
+      ['deriveKey']
+    );
+    
+    const key = await window.crypto.subtle.deriveKey(
+      {
+        name: 'PBKDF2',
+        salt: new TextEncoder().encode('hngk_salt'),
+        iterations: 100000,
+        hash: 'SHA-256',
+      },
+      keyMaterial,
+      { name: 'AES-GCM', length: 256 },
+      false,
+      ['encrypt']
+    );
+    
+    const iv = window.crypto.getRandomValues(new Uint8Array(12));
+    const encodedPassword = new TextEncoder().encode(password);
+    const encrypted = await window.crypto.subtle.encrypt(
+      { name: 'AES-GCM', iv },
+      key,
+      encodedPassword
+    );
+    
+    const encryptedArray = Array.from(new Uint8Array(encrypted));
+    const ivArray = Array.from(iv);
+    return JSON.stringify({ iv: ivArray, data: encryptedArray });
+  } catch {
+    return encodePassword(password);
+  }
+}
+
+// 使用 Web Crypto API 进行 AES-GCM 解密
+async function decryptPassword(encryptedData: string, email: string): Promise<string> {
+  try {
+    const parsed = JSON.parse(encryptedData);
+    if (!parsed.iv || !parsed.data) {
+      return decodePassword(encryptedData);
+    }
+    
+    const combinedSalt = ENCRYPTION_KEY_SALT + email;
+    const keyMaterial = await window.crypto.subtle.importKey(
+      'raw',
+      new TextEncoder().encode(combinedSalt),
+      'PBKDF2',
+      false,
+      ['deriveKey']
+    );
+    
+    const key = await window.crypto.subtle.deriveKey(
+      {
+        name: 'PBKDF2',
+        salt: new TextEncoder().encode('hngk_salt'),
+        iterations: 100000,
+        hash: 'SHA-256',
+      },
+      keyMaterial,
+      { name: 'AES-GCM', length: 256 },
+      false,
+      ['decrypt']
+    );
+    
+    const iv = new Uint8Array(parsed.iv);
+    const encrypted = new Uint8Array(parsed.data);
+    const decrypted = await window.crypto.subtle.decrypt(
+      { name: 'AES-GCM', iv },
+      key,
+      encrypted
+    );
+    
+    return new TextDecoder().decode(decrypted);
+  } catch {
+    return decodePassword(encryptedData);
+  }
+}
+
+// 简单的编码/解码函数（作为 Web Crypto API 的降级方案）
 function encodePassword(password: string): string {
   try {
     return btoa(unescape(encodeURIComponent(password)));
@@ -58,7 +146,8 @@ export function isPasswordStrong(password: string): boolean {
 }
 
 export function isEmail(str: string): boolean {
-  return str.includes('@');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(str);
 }
 
 function translateSupabaseError(errorMessage: string): string {
@@ -136,26 +225,30 @@ function saveRememberEmail(email: string | null) {
   } catch {}
 }
 
-function loadSavedPassword(): { enabled: boolean; password: string } {
+export async function loadSavedPassword(email: string): Promise<{ enabled: boolean; password: string }> {
   try {
     const saved = localStorage.getItem(REMEMBER_PASSWORD_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
-      return {
-        enabled: !!parsed.enabled,
-        password: parsed.password ? decodePassword(parsed.password) : '',
-      };
+      if (parsed.enabled && parsed.password) {
+        const decryptedPassword = await decryptPassword(parsed.password, email);
+        return {
+          enabled: true,
+          password: decryptedPassword,
+        };
+      }
     }
   } catch {}
   return { enabled: false, password: '' };
 }
 
-function saveSavedPassword(enabled: boolean, password: string | null) {
+async function saveSavedPassword(enabled: boolean, password: string | null, email: string) {
   try {
-    if (enabled && password) {
+    if (enabled && password && email) {
+      const encryptedPassword = await encryptPassword(password, email);
       localStorage.setItem(REMEMBER_PASSWORD_KEY, JSON.stringify({
         enabled: true,
-        password: encodePassword(password),
+        password: encryptedPassword,
       }));
     } else {
       localStorage.removeItem(REMEMBER_PASSWORD_KEY);
@@ -164,8 +257,6 @@ function saveSavedPassword(enabled: boolean, password: string | null) {
 }
 
 export const useAuthStore = create<AuthState>((set, get) => {
-  const initialSavedPassword = loadSavedPassword();
-  
   return {
   isAuthenticated: false,
   user: null,
@@ -173,8 +264,8 @@ export const useAuthStore = create<AuthState>((set, get) => {
   error: null,
   successMessage: null,
   rememberEmail: loadRememberEmail(),
-  rememberPassword: initialSavedPassword.enabled,
-  savedPassword: initialSavedPassword.password,
+  rememberPassword: false,
+  savedPassword: null,
 
   findEmailByNickname: async (nickname: string): Promise<string | null> => {
     if (!isSupabaseConfigured || !supabase) return null;
@@ -317,7 +408,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
         }
         set({
           isLoading: false,
-          successMessage: `验证码已生成：${code}（邮件发送失败，可直接使用此验证码）`,
+          successMessage: '验证码已生成，请查收邮箱',
           error: null,
         });
         return true;
@@ -558,10 +649,10 @@ export const useAuthStore = create<AuthState>((set, get) => {
         // 根据用户选择保存或清除密码
         const { rememberPassword } = get();
         if (rememberPassword) {
-          saveSavedPassword(true, password);
+          await saveSavedPassword(true, password, email);
           set({ savedPassword: password });
         } else {
-          saveSavedPassword(false, null);
+          await saveSavedPassword(false, null, email);
           set({ savedPassword: null });
         }
 
@@ -643,15 +734,11 @@ export const useAuthStore = create<AuthState>((set, get) => {
     set({ rememberEmail: email });
   },
 
-  setRememberPassword: (enabled: boolean, password?: string) => {
-    if (enabled && password) {
-      saveSavedPassword(true, password);
-      set({ rememberPassword: true, savedPassword: password });
-    } else if (enabled) {
-      // 只切换状态，不保存密码（密码会在登录成功后保存）
+  setRememberPassword: (enabled: boolean) => {
+    if (enabled) {
       set({ rememberPassword: true });
     } else {
-      saveSavedPassword(false, null);
+      localStorage.removeItem(REMEMBER_PASSWORD_KEY);
       set({ rememberPassword: false, savedPassword: null });
     }
   },

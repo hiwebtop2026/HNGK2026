@@ -4,7 +4,7 @@ import {
   Mail, Lock, Loader2, AlertCircle, CheckCircle2, School, Sparkles,
   User, LogOut, ArrowRight, Info, Eye, EyeOff
 } from 'lucide-react';
-import { useAuthStore, isPasswordStrong } from '../store/authStore';
+import { useAuthStore, isPasswordStrong, loadSavedPassword } from '../store/authStore';
 import { useAppStore } from '../store/appStore';
 
 function ThemeToggle() {
@@ -69,11 +69,23 @@ export function AuthPage() {
     if (rememberEmail && mode === 'login') {
       setEmail(rememberEmail);
     }
-    // 如果启用了记住密码且有保存的密码，自动填充
-    if (rememberPassword && savedPassword && mode === 'login') {
-      setPassword(savedPassword);
-    }
-  }, [rememberEmail, rememberPassword, savedPassword, mode]);
+  }, [rememberEmail, mode]);
+
+  useEffect(() => {
+    const loadPassword = async () => {
+      if (rememberPassword && email && mode === 'login') {
+        try {
+          const { enabled, password: loadedPassword } = await loadSavedPassword(email);
+          if (enabled && loadedPassword) {
+            setPassword(loadedPassword);
+          }
+        } catch {
+          // 密码加载失败，不做处理
+        }
+      }
+    };
+    loadPassword();
+  }, [rememberPassword, email, mode]);
 
   useEffect(() => {
     document.title = '智能高考志愿助理';
@@ -394,7 +406,7 @@ export function AuthPage() {
                       checked={rememberPassword}
                       onChange={(e) => {
                         if (e.target.checked) {
-                          setRememberPassword(true, password || undefined);
+                          setRememberPassword(true);
                         } else {
                           setRememberPassword(false);
                           setPassword('');
