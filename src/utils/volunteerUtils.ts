@@ -961,9 +961,6 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
     { key: 'index', width: 10 },
     { key: 'tier', width: 10 },
     { key: 'probability', width: 12 },
-    { key: 'trend', width: 10 },
-    { key: 'trendValue', width: 12 },
-    { key: 'volatility', width: 14 },
     { key: 'level', width: 12 },
     { key: 'province', width: 10 },
     { key: 'code', width: 16 },
@@ -972,13 +969,8 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
     { key: 'score2025', width: 12 },
     { key: 'score2024', width: 12 },
     { key: 'score2023', width: 12 },
-    { key: 'majorBao', width: 45 },
-    { key: 'majorWen', width: 45 },
-    { key: 'majorChong', width: 45 },
-    { key: 'detailsBao', width: 65 },
-    { key: 'detailsWen', width: 65 },
-    { key: 'detailsChong', width: 65 },
-    { key: 'reason', width: 60 },
+    { key: 'majors', width: 60 },
+    { key: 'reason', width: 50 },
   ];
   
   const headerStyle = {
@@ -1005,12 +997,8 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
   };
   
   const headers = [
-    '志愿序号', '志愿档次', '录取概率', '分数趋势', '趋势值(%)', '波动系数(%)',
-    '院校层次', '省份', '院校专业组代码', '院校专业组名称', '科目要求',
-    '2025投档线', '2024投档线', '2023投档线',
-    '推荐专业（保）', '推荐专业（稳）', '推荐专业（冲）',
-    '保-专业详情', '稳-专业详情', '冲-专业详情',
-    '推荐理由',
+    '志愿序号', '志愿档次', '录取概率', '院校层次', '省份', '院校代码', '院校名称',
+    '科目要求', '2025投档线', '2024投档线', '2023投档线', '推荐专业', '推荐理由',
   ];
   
   const headerRow = mainSheet.addRow(headers);
@@ -1021,39 +1009,34 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
   for (const v of volunteers) {
     const realMajors = v.matchedMajors || [];
     
-    const baoMajors = realMajors.filter(m => m.tier === '保');
-    const wenMajors = realMajors.filter(m => m.tier === '稳');
-    const chongMajors = realMajors.filter(m => m.tier === '冲');
-    
-    const baoMajorNames = baoMajors.map(m => m.major_name).join('、');
-    const wenMajorNames = wenMajors.map(m => m.major_name).join('、');
-    const chongMajorNames = chongMajors.map(m => m.major_name).join('、');
-    
-    const formatMajorDetail = (major: MajorScore) => {
+    const formatMajor = (major: MajorScore) => {
       const details: string[] = [`${major.major_name}`];
       if (major.min_score) details.push(`${major.min_score}分`);
-      if (major.avg_score && major.avg_score !== major.min_score) details.push(`平均${major.avg_score}分`);
-      if (major.min_rank) details.push(`位次${major.min_rank}`);
-      if (major.year) details.push(`${major.year}年`);
-      if (major.batch) details.push(major.batch);
-      if (major.subject_requirement) details.push(`选科:${major.subject_requirement}`);
-      if (major.admission_probability !== undefined) details.push(`录取率${major.admission_probability}%`);
-      return details.join(' ');
+      if (major.admission_probability !== undefined) details.push(`(${major.admission_probability}%)`);
+      return details.join('');
     };
     
-    const baoMajorDetails = baoMajors.map(formatMajorDetail).join('\n');
-    const wenMajorDetails = wenMajors.map(formatMajorDetail).join('\n');
-    const chongMajorDetails = chongMajors.map(formatMajorDetail).join('\n');
+    const baoMajors = realMajors.filter(m => m.tier === '保').slice(0, 2);
+    const wenMajors = realMajors.filter(m => m.tier === '稳').slice(0, 2);
+    const chongMajors = realMajors.filter(m => m.tier === '冲').slice(0, 2);
     
-    const trendText = v.scoreTrend === 'up' ? '上涨' : v.scoreTrend === 'down' ? '下降' : '平稳';
+    const formattedMajors: string[] = [];
+    if (baoMajors.length > 0) {
+      formattedMajors.push(`【保】${baoMajors.map(formatMajor).join('、')}`);
+    }
+    if (wenMajors.length > 0) {
+      formattedMajors.push(`【稳】${wenMajors.map(formatMajor).join('、')}`);
+    }
+    if (chongMajors.length > 0) {
+      formattedMajors.push(`【冲】${chongMajors.map(formatMajor).join('、')}`);
+    }
+    
+    const majorsText = formattedMajors.length > 0 ? formattedMajors.join('\n') : v.majorSuggestion || '';
     
     const row = mainSheet.addRow([
       v.index,
       v.tier,
       `${v.admissionProbability}%`,
-      trendText,
-      v.trendValue !== undefined ? (Math.round(v.trendValue * 100) / 100).toString() : '',
-      v.volatility !== undefined ? (Math.round(v.volatility * 100) / 100).toString() : '',
       v.level,
       v.province,
       v.code,
@@ -1062,12 +1045,7 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
       v.score2025 ?? '',
       v.score2024 ?? '',
       v.score2023 ?? '',
-      baoMajorNames,
-      wenMajorNames,
-      chongMajorNames,
-      baoMajorDetails,
-      wenMajorDetails,
-      chongMajorDetails,
+      majorsText,
       v.reason,
     ]);
     
@@ -1090,20 +1068,16 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
         cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: probStyle.bg } };
         cell.font = { ...cell.font, bold: true, color: { argb: probStyle.font } };
       } else if (colNumber === 4) {
-        cell.alignment = { ...cell.alignment, horizontal: 'center' };
-        const trendColor = v.scoreTrend === 'up' ? 'DC2626' : v.scoreTrend === 'down' ? '10B981' : COLORS.textSecondary;
-        cell.font = { ...cell.font, color: { argb: trendColor } };
-      } else if (colNumber === 7) {
         cell.font = { ...cell.font, bold: levelStyle.bold, color: { argb: levelStyle.font } };
+      } else if (colNumber === 5) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+      } else if (colNumber === 6) {
+        cell.alignment = { ...cell.alignment, horizontal: 'center' };
+      } else if (colNumber === 7) {
+        cell.font = { ...cell.font, bold: true };
       } else if (colNumber === 8) {
         cell.alignment = { ...cell.alignment, horizontal: 'center' };
-      } else if (colNumber === 9) {
-        cell.alignment = { ...cell.alignment, horizontal: 'center' };
-      } else if (colNumber === 10) {
-        cell.font = { ...cell.font, bold: true };
-      } else if (colNumber === 11) {
-        cell.alignment = { ...cell.alignment, horizontal: 'center' };
-      } else if (colNumber >= 12 && colNumber <= 14) {
+      } else if (colNumber >= 9 && colNumber <= 11) {
         cell.alignment = { ...cell.alignment, horizontal: 'center' };
         cell.font = { ...cell.font, size: 10 };
       }

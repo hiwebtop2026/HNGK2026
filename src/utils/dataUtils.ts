@@ -273,32 +273,32 @@ export function getRecommendationReason(refScore: number, baseScore: number, pro
   
   if (isHighScoreSystem) {
     if (diff > 20) {
-      return `近三年投档线稳定在${refScore}分左右，高于考生分数${diff}分，作为冲刺院校有一定录取机会，建议谨慎填报。`;
+      return `投档线${refScore}分，超${diff}分，冲刺院校，机会有限`;
     } else if (diff > 10) {
-      return `近三年投档线约${refScore}分，高于考生分数${diff}分，属于合理冲刺范围，录取机会中等。`;
+      return `投档线${refScore}分，超${diff}分，合理冲刺，机会中等`;
     } else if (diff === 0) {
-      return `近三年投档线与考生分数相当，录取把握较大，是理想的稳投院校。`;
+      return `投档线${refScore}分，分数相当，稳投理想选择`;
     } else if (diff >= -10) {
-      return `近三年投档线约${refScore}分，与考生分数接近，录取把握较大，建议优先考虑。`;
+      return `投档线${refScore}分，接近分数，录取把握较大`;
     } else if (diff >= -20) {
-      return `近三年投档线低于考生分数${Math.abs(diff)}分，录取机会大，适合作为稳妥保底院校。`;
+      return `投档线${refScore}分，低${Math.abs(diff)}分，稳妥保底院校`;
     } else {
-      return `近三年投档线显著低于考生分数${Math.abs(diff)}分，录取概率很高，可作为最终保底选择。`;
+      return `投档线${refScore}分，低${Math.abs(diff)}分，保底选择，概率很高`;
     }
   }
   
   if (diff > 10) {
-    return `近三年投档线稳定在${refScore}分左右，高于考生分数${diff}分，作为冲刺院校有一定录取机会，建议谨慎填报。`;
+    return `投档线${refScore}分，超${diff}分，冲刺院校，机会有限`;
   } else if (diff > 5) {
-    return `近三年投档线约${refScore}分，高于考生分数${diff}分，属于合理冲刺范围，录取机会中等。`;
+    return `投档线${refScore}分，超${diff}分，合理冲刺，机会中等`;
   } else if (diff === 0) {
-    return `近三年投档线与考生分数相当，录取把握较大，是理想的稳投院校。`;
+    return `投档线${refScore}分，分数相当，稳投理想选择`;
   } else if (diff >= -5) {
-    return `近三年投档线约${refScore}分，与考生分数接近，录取把握较大，建议优先考虑。`;
+    return `投档线${refScore}分，接近分数，录取把握较大`;
   } else if (diff >= -10) {
-    return `近三年投档线低于考生分数${Math.abs(diff)}分，录取机会大，适合作为稳妥保底院校。`;
+    return `投档线${refScore}分，低${Math.abs(diff)}分，稳妥保底院校`;
   } else {
-    return `近三年投档线显著低于考生分数${Math.abs(diff)}分，录取概率很高，可作为最终保底选择。`;
+    return `投档线${refScore}分，低${Math.abs(diff)}分，保底选择，概率很高`;
   }
 }
 
