@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Mail, Lock, Loader2, AlertCircle, CheckCircle2, School, Sparkles,
-  User, LogOut, ArrowRight, Info, Eye, EyeOff, RefreshCw
+  User, LogOut, ArrowRight, Info, Eye, EyeOff
 } from 'lucide-react';
-import { useAuthStore, isPasswordStrong, isEmail } from '../store/authStore';
+import { useAuthStore, isPasswordStrong } from '../store/authStore';
 import { useAppStore } from '../store/appStore';
 
 function ThemeToggle() {
@@ -33,8 +33,6 @@ function ThemeToggle() {
   );
 }
 
-type RegisterStep = 'info' | 'otp';
-
 export function AuthPage() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -48,8 +46,6 @@ export function AuthPage() {
     successMessage,
     rememberEmail,
     register,
-    sendOtp,
-    verifyOtpAndRegister,
     login,
     logout,
     checkAuth,
@@ -59,16 +55,12 @@ export function AuthPage() {
   } = useAuthStore();
   
   const [mode, setMode] = useState<'login' | 'register'>('register');
-  const [registerStep, setRegisterStep] = useState<RegisterStep>('info');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [nickname, setNickname] = useState('');
-  const [otpCode, setOtpCode] = useState('');
   const [showGuide, setShowGuide] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [countdown, setCountdown] = useState(0);
-  const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (rememberEmail && mode === 'login') {
@@ -95,26 +87,17 @@ export function AuthPage() {
     }
   }, [isAuthenticated, navigate, from]);
 
-  useEffect(() => {
-    if (countdown > 0) {
-      timerRef.current = window.setTimeout(() => setCountdown(c => c - 1), 1000);
-    }
-    return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, [countdown]);
-
-  const handleSendOtp = async () => {
-    if (!email || !email.includes('@')) {
-      setError('请输入正确的邮箱地址');
-      return;
-    }
+  const handleRegisterSubmit = async () => {
     if (!nickname.trim()) {
       setError('请输入昵称');
       return;
     }
     if (nickname.trim().length < 2 || nickname.trim().length > 20) {
       setError('昵称长度2-20个字符');
+      return;
+    }
+    if (!email || !email.includes('@')) {
+      setError('请输入正确的邮箱地址');
       return;
     }
     if (!password || !isPasswordStrong(password)) {
@@ -125,36 +108,7 @@ export function AuthPage() {
       setError('两次输入的密码不一致');
       return;
     }
-
-    const ok = await sendOtp(email, nickname);
-    if (ok) {
-      setRegisterStep('otp');
-      setCountdown(60);
-    }
-  };
-
-  const handleResendOtp = async () => {
-    if (countdown > 0) return;
-    const ok = await sendOtp(email, nickname);
-    if (ok) {
-      setCountdown(60);
-    }
-  };
-
-  const handleVerifyOtp = async () => {
-    if (!otpCode || otpCode.length !== 6) {
-      setError('请输入6位验证码');
-      return;
-    }
-    await verifyOtpAndRegister(email, otpCode.trim(), password, nickname);
-  };
-
-  const handleRegisterSubmit = async () => {
-    if (registerStep === 'info') {
-      await handleSendOtp();
-    } else {
-      await handleVerifyOtp();
-    }
+    await register(email, password, nickname);
   };
 
   const handleLoginSubmit = async () => {
@@ -175,14 +129,12 @@ export function AuthPage() {
     setPassword('');
     setConfirmPassword('');
     setNickname('');
-    setRegisterStep('info');
   };
 
   const handleModeSwitch = (newMode: 'login' | 'register') => {
     setMode(newMode);
     setError(null);
     setSuccessMessage(null);
-    setRegisterStep('info');
     if (newMode === 'login' && rememberEmail) {
       setEmail(rememberEmail);
     }
@@ -298,30 +250,21 @@ export function AuthPage() {
             <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-4 ${isDark ? '' : 'shadow-sm'}`}>
               <Sparkles className="w-4 h-4 text-primary-500" />
               <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                {mode === 'login' ? '欢迎回来' : registerStep === 'otp' ? '验证邮箱' : '免费注册'}
+                {mode === 'login' ? '欢迎回来' : '免费注册'}
               </span>
             </div>
             <h1 className={`text-2xl font-bold ${textPrimary} mb-2`}>
-              {mode === 'login' ? '登录账户' : registerStep === 'otp' ? '输入验证码' : '创建账户'}
+              {mode === 'login' ? '登录账户' : '创建账户'}
             </h1>
             <p className={`${textSecondary}`}>
               {mode === 'login' 
                 ? '登录后继续使用志愿助手' 
-                : registerStep === 'otp' 
-                  ? '验证码已发送到您的邮箱'
-                  : '注册后可使用全部志愿填报功能'}
+                : '注册后可使用全部志愿填报功能'}
             </p>
           </div>
-
-          {mode === 'register' && registerStep === 'otp' && (
-            <div className={`p-3 rounded-xl mb-4 flex items-center gap-2 ${isDark ? 'bg-blue-500/10 border border-blue-500/20 text-blue-400' : 'bg-blue-50 border border-blue-200 text-blue-600'}`}>
-              <Mail className="w-4 h-4 flex-shrink-0" />
-              <span className="text-xs">验证码已发送至 <span className="font-medium">{email}</span></span>
-            </div>
-          )}
           
           <div className="space-y-4">
-            {mode === 'register' && registerStep === 'info' && (
+            {mode === 'register' && (
               <div>
                 <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
                   昵称
@@ -344,112 +287,61 @@ export function AuthPage() {
               </div>
             )}
 
-            {!(mode === 'register' && registerStep === 'otp') && (
-              <div>
-                <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                  {mode === 'login' ? '邮箱或昵称' : '邮箱地址'}
-                </label>
-                <div className="relative">
-                  {mode === 'login' ? (
-                    <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
-                  ) : (
-                    <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
-                  )}
-                  <input
-                    type={mode === 'login' ? 'text' : 'email'}
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      setError(null);
-                    }}
-                    placeholder={mode === 'login' ? '请输入邮箱或昵称' : '请输入邮箱地址'}
-                    className={`w-full pl-12 pr-4 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all`}
-                    onKeyDown={(e) => e.key === 'Enter' && (mode === 'login' ? handleLoginSubmit() : handleRegisterSubmit())}
-                  />
-                </div>
-                {mode === 'login' && (
-                  <p className={`text-xs mt-1 ${textMuted}`}>支持使用邮箱或昵称登录</p>
+            <div>
+              <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
+                {mode === 'login' ? '邮箱或昵称' : '邮箱地址'}
+              </label>
+              <div className="relative">
+                {mode === 'login' ? (
+                  <User className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
+                ) : (
+                  <Mail className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
                 )}
+                <input
+                  type={mode === 'login' ? 'text' : 'email'}
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setError(null);
+                  }}
+                  placeholder={mode === 'login' ? '请输入邮箱或昵称' : '请输入邮箱地址'}
+                  className={`w-full pl-12 pr-4 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all`}
+                  onKeyDown={(e) => e.key === 'Enter' && (mode === 'login' ? handleLoginSubmit() : handleRegisterSubmit())}
+                />
               </div>
-            )}
+              {mode === 'login' && (
+                <p className={`text-xs mt-1 ${textMuted}`}>支持使用邮箱或昵称登录</p>
+              )}
+            </div>
 
-            {mode === 'register' && registerStep === 'otp' && (
-              <div>
-                <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                  邮箱验证码
-                </label>
-                <div className="flex gap-3">
-                  <div className="relative flex-1">
-                    <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
-                    <input
-                      type="text"
-                      value={otpCode}
-                      onChange={(e) => {
-                        const val = e.target.value.replace(/\D/g, '').slice(0, 6);
-                        setOtpCode(val);
-                        setError(null);
-                      }}
-                      placeholder="请输入6位验证码"
-                      maxLength={6}
-                      className={`w-full pl-12 pr-4 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all tracking-widest text-center font-mono text-lg`}
-                      onKeyDown={(e) => e.key === 'Enter' && handleVerifyOtp()}
-                      autoFocus
-                    />
-                  </div>
-                  <button
-                    onClick={handleResendOtp}
-                    disabled={countdown > 0 || isLoading}
-                    className={`px-4 py-4 rounded-xl text-sm font-medium whitespace-nowrap transition-all flex items-center gap-2 ${
-                      countdown > 0 || isLoading
-                        ? isDark ? 'bg-white/5 text-gray-500 cursor-not-allowed' : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                        : isDark
-                          ? 'bg-white/10 text-primary-400 hover:bg-white/20'
-                          : 'bg-primary-50 text-primary-600 hover:bg-primary-100'
-                    }`}
-                  >
-                    {countdown > 0 ? (
-                      <>{countdown}s</>
-                    ) : (
-                      <>
-                        <RefreshCw className="w-4 h-4" />
-                        重新获取
-                      </>
-                    )}
-                  </button>
-                </div>
+            <div>
+              <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
+                密码
+              </label>
+              <div className="relative">
+                <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    setError(null);
+                  }}
+                  placeholder="请输入密码"
+                  className={`w-full pl-12 pr-12 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all`}
+                  onKeyDown={(e) => e.key === 'Enter' && (mode === 'login' ? handleLoginSubmit() : handleRegisterSubmit())}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className={`absolute right-4 top-1/2 -translate-y-1/2 ${textMuted} hover:${textSecondary} transition-colors`}
+                >
+                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                </button>
               </div>
-            )}
+            </div>
             
-            {!(mode === 'register' && registerStep === 'otp') && (
-              <div>
-                <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                  密码
-                </label>
-                <div className="relative">
-                  <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                      setError(null);
-                    }}
-                    placeholder="请输入密码"
-                    className={`w-full pl-12 pr-12 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all`}
-                    onKeyDown={(e) => e.key === 'Enter' && (mode === 'login' ? handleLoginSubmit() : handleRegisterSubmit())}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className={`absolute right-4 top-1/2 -translate-y-1/2 ${textMuted} hover:${textSecondary} transition-colors`}
-                  >
-                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                  </button>
-                </div>
-              </div>
-            )}
-            
-            {mode === 'register' && registerStep === 'info' && (
+            {mode === 'register' && (
               <div>
                 <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
                   确认密码
@@ -517,7 +409,7 @@ export function AuthPage() {
                 <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
                 <>
-                  <span>{mode === 'login' ? '立即登录' : registerStep === 'otp' ? '完成注册' : '获取验证码并注册'}</span>
+                  <span>{mode === 'login' ? '立即登录' : '立即注册'}</span>
                   <ArrowRight className="w-5 h-5" />
                 </>
               )}
@@ -569,7 +461,7 @@ export function AuthPage() {
                   <div className="w-7 h-7 rounded-full bg-primary-500 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">2</div>
                   <div>
                     <p className={`font-medium ${textPrimary} mb-1`}>填写邮箱</p>
-                    <p className={`text-sm ${textSecondary}`}>使用有效邮箱注册，将发送验证码用于验证</p>
+                    <p className={`text-sm ${textSecondary}`}>使用有效邮箱注册，将用于找回密码等操作</p>
                   </div>
                 </div>
               </div>
@@ -584,14 +476,12 @@ export function AuthPage() {
                 </div>
               </div>
 
-              <div className={`p-4 rounded-xl ${isDark ? 'bg-blue-500/10 border border-blue-500/20' : 'bg-blue-50 border border-blue-200'}`}>
+              <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                  <div className="w-7 h-7 rounded-full bg-primary-500 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">4</div>
                   <div>
-                    <p className={`text-sm font-medium ${isDark ? 'text-blue-400' : 'text-blue-600'} mb-1`}>邮箱验证说明</p>
-                    <p className={`text-xs ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>
-                      点击"获取验证码并注册"后，系统将向您的邮箱发送6位验证码。请输入验证码完成注册。如未收到，请检查垃圾邮件箱或稍后重试。
-                    </p>
+                    <p className={`font-medium ${textPrimary} mb-1`}>确认密码</p>
+                    <p className={`text-sm ${textSecondary}`}>再次输入密码，确保两次输入一致</p>
                   </div>
                 </div>
               </div>

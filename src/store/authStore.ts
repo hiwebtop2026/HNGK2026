@@ -158,7 +158,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         email,
         password,
         options: {
-          data: { nickname: nickname.trim() }
+          data: { nickname: nickname.trim() },
+          emailRedirectTo: window.location.origin + '/',
         }
       });
 
@@ -186,17 +187,32 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         } catch {}
 
         if (!data.session) {
+          try {
+            const { data: sessionData, error: signInError } = await supabase.auth.signInWithPassword({
+              email,
+              password,
+            });
+            if (!signInError && sessionData.session) {
+              set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: '注册成功！' });
+              return true;
+            }
+          } catch (signInErr) {
+            if (import.meta.env.DEV) {
+              console.error('注册后自动登录失败:', signInErr);
+            }
+          }
+
           set({
             isLoading: false,
             isAuthenticated: true,
             user,
             error: null,
-            successMessage: '注册成功！请查收验证邮件完成激活。'
+            successMessage: '注册成功！请查收邮件完成验证，或直接登录。'
           });
           return true;
         }
 
-        set({ isLoading: false, isAuthenticated: true, user, error: null });
+        set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: '注册成功！' });
         return true;
       }
 
