@@ -1,9 +1,7 @@
 import { create } from 'zustand';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { sendVerificationCode } from '../services/emailService';
 
 const REMEMBER_EMAIL_KEY = 'hngk_remember_email';
-const OTP_EXPIRE_MINUTES = 10;
 
 interface User {
   id: string;
@@ -225,28 +223,17 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     try {
-      const code = Math.floor(100000 + Math.random() * 900000).toString();
-      const expiresAt = new Date(Date.now() + OTP_EXPIRE_MINUTES * 60 * 1000).toISOString();
-
-      const { error: insertError } = await supabase.from('auth_otps').insert({
+      const { error } = await supabase.auth.signInWithOtp({
         email: email.trim(),
-        code,
-        expires_at: expiresAt,
-        used: false,
+        options: {
+          shouldCreateUser: true,
+          emailRedirectTo: `${window.location.origin}/`,
+          data: nickname ? { nickname: nickname.trim() } : undefined,
+        },
       });
 
-      if (insertError) {
-        if (import.meta.env.DEV) {
-          console.error('保存验证码失败:', insertError);
-        }
-        set({ isLoading: false, error: '验证码生成失败，请稍后重试' });
-        return false;
-      }
-
-      const emailResult = await sendVerificationCode(email.trim(), code);
-
-      if (!emailResult.success) {
-        set({ isLoading: false, error: emailResult.error || '验证码发送失败，请稍后重试' });
+      if (error) {
+        set({ isLoading: false, error: translateSupabaseError(error.message) });
         return false;
       }
 
@@ -277,8 +264,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       set({ isLoading: false, error: '请输入正确的邮箱地址' });
       return false;
     }
-    if (!token || token.length !== 6) {
-      set({ isLoading: false, error: '请输入6位验证码' });
+    if (!token || token.length < 4) {
+      set({ isLoading: false, error: '请输入有效的验证码' });
       return false;
     }
     if (!password || !isPasswordStrong(password)) {
@@ -296,61 +283,73 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     try {
-      const { data: otpData, error: otpError } = await supabase
-        .from('auth_otps')
-        .select('*')
-        .eq('email', email.trim())
-        .eq('code', token.trim())
-        .eq('used', false)
-        .gt('expires_at', new Date().toISOString())
-        .single();
+      const { data: otpData, error: otpError } = await supabase.auth.verifyOtp({
+        email: email.trim(),
+        token: token.trim(),
+        type: 'email',
+      });
 
-      if (otpError || !otpData) {
-        set({ isLoading: false, error: '验证码错误或已过期，请重新获取' });
+      if (otpError) {
+        set({ isLoading: false, error: translateSupabaseError(otpError.message) });
         return false;
       }
 
-      const { error: updateError } = await supabase
-        .from('auth_otps')
-        .update({ used: true })
-        .eq('id', otpData.id);
+      if (!otpData.user) {
+        set({ isLoading: false, error: '验证码验证失败' });
+        return false;
+      }
+
+      const { error: updateError } = await supabase.auth.updateUser({
+        password,
+        data: { nickname: nickname.trim() },
+      });
 
       if (updateError) {
         if (import.meta.env.DEV) {
-          console.error('标记验证码为已使用失败:', updateError);
+          console.error('设置密码失败:', updateError);
         }
-      }
-
-      const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
-        email: email.trim(),
-        password,
-        options: {
-          data: { nickname: nickname.trim() },
-        },
-      });
-
-      if (signUpError) {
-        if (signUpError.message.includes('User already registered')) {
-          set({ isLoading: false, error: '该邮箱已注册，请直接登录' });
-          return false;
-        }
-        set({ isLoading: false, error: translateSupabaseError(signUpError.message) });
-        return false;
-      }
-
-      if (signUpData.user) {
-        const profileNickname = await fetchNicknameFromProfile(signUpData.user.id);
         const user: User = {
-          id: signUpData.user.id,
-          email: signUpData.user.email || email,
-          nickname: profileNickname || (signUpData.user.user_metadata?.nickname as string) || nickname.trim(),
-          registeredAt: signUpData.user.created_at || new Date().toISOString(),
+          id: otpData.user.id,
+          email: otpData.user.email || email,
+          nickname: nickname.trim(),
+          registeredAt: otpData.user.created_at || new Date().toISOString(),
         };
 
         try {
           await supabase.from('usage_logs').insert({
-            user_id: signUpData.user.id,
-            email: signUpData.user.email || email,
+            user_id: otpData.user.id,
+            email: otpData.user.email || email,
+            action: 'register',
+            details: { source: 'web', password_set: false },
+            user_agent: navigator.userAgent,
+          });
+        } catch {}
+
+        set({
+          isLoading: false,
+          isAuthenticated: true,
+          user,
+          error: null,
+          successMessage: '注册成功！密码设置失败，可在登录后重置密码',
+        });
+        return true;
+      }
+
+      const { data: { user: currentUser } } = await supabase.auth.getUser();
+
+      if (currentUser) {
+        const profileNickname = await fetchNicknameFromProfile(currentUser.id);
+        const user: User = {
+          id: currentUser.id,
+          email: currentUser.email || email,
+          nickname: profileNickname || (currentUser.user_metadata?.nickname as string) || nickname.trim(),
+          registeredAt: currentUser.created_at || new Date().toISOString(),
+        };
+
+        try {
+          await supabase.from('usage_logs').insert({
+            user_id: currentUser.id,
+            email: currentUser.email || email,
             action: 'register',
             details: { source: 'web', otp: true },
             user_agent: navigator.userAgent,
