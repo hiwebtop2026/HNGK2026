@@ -228,7 +228,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
-          shouldCreateUser: false,
+          shouldCreateUser: true,
           data: nickname ? { nickname: nickname.trim() } : undefined,
         },
       });
