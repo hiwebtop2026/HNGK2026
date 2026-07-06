@@ -1,0 +1,9 @@
+{
+  "name": "send-otp",
+  "version": "1.0.0",
+  "description": "发送注册验证码邮件",
+  "env": {
+    "SENDGRID_API_KEY": "发送邮件的SendGrid API密钥",
+    "FROM_EMAIL": "发送邮件的地址"
+  }
+}
