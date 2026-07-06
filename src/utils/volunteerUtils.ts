@@ -907,15 +907,55 @@ export async function filterSchoolsAsync(
         return 60;
       };
       
-      // 综合排序：优先考虑分数匹配度 + 专业热度
-      // 分数匹配度：录取概率越高越好（50%权重）
-      // 专业热度：热门专业优先（50%权重）
-      matched.sort((a, b) => {
-        const scoreMatchA = (a.admission_probability || 0) * 0.5;
-        const scoreMatchB = (b.admission_probability || 0) * 0.5;
+      // 严格按策略匹配专业：
+      // 冲档院校：优先推荐冲专业（分数较高的专业），其次稳专业
+      // 稳档院校：优先推荐稳专业（分数接近的专业），其次保专业
+      // 保档院校：优先推荐保专业（分数较低的专业），其次稳专业
+      let strategyMatched: MajorScore[] = [];
+      const chongMajors = matched.filter(m => m.tier === '冲');
+      const wenMajors = matched.filter(m => m.tier === '稳');
+      const baoMajors = matched.filter(m => m.tier === '保');
+      
+      if (result.tier === '冲') {
+        // 冲档院校：优先推荐冲专业，其次稳专业
+        strategyMatched = [...chongMajors, ...wenMajors];
+      } else if (result.tier === '稳') {
+        // 稳档院校：优先推荐稳专业，其次保专业（保专业更容易录取，增加稳妥性）
+        strategyMatched = [...wenMajors, ...baoMajors];
+      } else if (result.tier === '保') {
+        // 保档院校：优先推荐保专业，其次稳专业
+        strategyMatched = [...baoMajors, ...wenMajors];
+      } else {
+        strategyMatched = [...matched];
+      }
+      
+      // 如果没有符合策略的专业，则使用全部匹配的专业
+      if (strategyMatched.length === 0) {
+        strategyMatched = [...matched];
+      }
+      
+      // 专业排序：根据策略类型调整权重
+      // 激进策略：更看重专业热度（冲刺热门专业）
+      // 稳妥策略：均衡考虑分数匹配度和专业热度
+      // 保守策略：更看重分数匹配度（确保录取）
+      // 个性化策略：根据专业偏好调整
+      let scoreWeight = 0.5;
+      let heatWeight = 0.5;
+      
+      if (strategy === '激进') {
+        scoreWeight = 0.3;
+        heatWeight = 0.7;
+      } else if (strategy === '保守') {
+        scoreWeight = 0.7;
+        heatWeight = 0.3;
+      }
+      
+      strategyMatched.sort((a, b) => {
+        const scoreMatchA = (a.admission_probability || 0) * scoreWeight;
+        const scoreMatchB = (b.admission_probability || 0) * scoreWeight;
         
-        const heatA = getMajorHeatScore(a.major_name || '') * 0.5;
-        const heatB = getMajorHeatScore(b.major_name || '') * 0.5;
+        const heatA = getMajorHeatScore(a.major_name || '') * heatWeight;
+        const heatB = getMajorHeatScore(b.major_name || '') * heatWeight;
         
         const totalA = scoreMatchA + heatA;
         const totalB = scoreMatchB + heatB;
@@ -923,7 +963,7 @@ export async function filterSchoolsAsync(
         return totalB - totalA;
       });
       
-      const uniqueMajors = deduplicateMajors(matched);
+      const uniqueMajors = deduplicateMajors(strategyMatched);
       const limitedMajors = uniqueMajors.slice(0, 6);
       
       result.matchedMajors = limitedMajors;
