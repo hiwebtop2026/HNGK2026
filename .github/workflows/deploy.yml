@@ -34,6 +34,9 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_RESEND_API_KEY: ${{ secrets.VITE_RESEND_API_KEY }}
+          VITE_RESEND_FROM_EMAIL: ${{ secrets.VITE_RESEND_FROM_EMAIL }}
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
