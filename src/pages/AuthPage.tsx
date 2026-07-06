@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Mail, Lock, Loader2, AlertCircle, CheckCircle2, School, Sparkles,
-  User, LogOut, ArrowRight, Info, KeyRound, RefreshCw, Eye, EyeOff
+  User, LogOut, ArrowRight, Info, Eye, EyeOff, RefreshCw
 } from 'lucide-react';
 import { useAuthStore, isPasswordStrong, isEmail } from '../store/authStore';
 import { useAppStore } from '../store/appStore';
@@ -66,8 +66,8 @@ export function AuthPage() {
   const [nickname, setNickname] = useState('');
   const [otpCode, setOtpCode] = useState('');
   const [showGuide, setShowGuide] = useState(false);
-  const [countdown, setCountdown] = useState(0);
   const [showPassword, setShowPassword] = useState(false);
+  const [countdown, setCountdown] = useState(0);
   const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -142,11 +142,19 @@ export function AuthPage() {
   };
 
   const handleVerifyOtp = async () => {
-    if (!otpCode || otpCode.length < 4) {
-      setError('请输入有效的验证码');
+    if (!otpCode || otpCode.length !== 6) {
+      setError('请输入6位验证码');
       return;
     }
     await verifyOtpAndRegister(email, otpCode.trim(), password, nickname);
+  };
+
+  const handleRegisterSubmit = async () => {
+    if (registerStep === 'info') {
+      await handleSendOtp();
+    } else {
+      await handleVerifyOtp();
+    }
   };
 
   const handleLoginSubmit = async () => {
@@ -161,21 +169,12 @@ export function AuthPage() {
     await login(email, password);
   };
 
-  const handleRegisterSubmit = async () => {
-    if (registerStep === 'info') {
-      await handleSendOtp();
-    } else {
-      await handleVerifyOtp();
-    }
-  };
-
   const handleLogout = () => {
     logout();
     setEmail('');
     setPassword('');
     setConfirmPassword('');
     setNickname('');
-    setOtpCode('');
     setRegisterStep('info');
   };
 
@@ -184,17 +183,9 @@ export function AuthPage() {
     setError(null);
     setSuccessMessage(null);
     setRegisterStep('info');
-    setOtpCode('');
     if (newMode === 'login' && rememberEmail) {
       setEmail(rememberEmail);
     }
-  };
-
-  const handleBackToInfo = () => {
-    setRegisterStep('info');
-    setError(null);
-    setSuccessMessage(null);
-    setOtpCode('');
   };
 
   const textPrimary = isDark ? 'text-white' : 'text-gray-800';
@@ -374,7 +365,6 @@ export function AuthPage() {
                     placeholder={mode === 'login' ? '请输入邮箱或昵称' : '请输入邮箱地址'}
                     className={`w-full pl-12 pr-4 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all`}
                     onKeyDown={(e) => e.key === 'Enter' && (mode === 'login' ? handleLoginSubmit() : handleRegisterSubmit())}
-                    disabled={mode === 'register' && registerStep === 'otp'}
                   />
                 </div>
                 {mode === 'login' && (
@@ -390,7 +380,7 @@ export function AuthPage() {
                 </label>
                 <div className="flex gap-3">
                   <div className="relative flex-1">
-                    <KeyRound className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
+                    <Lock className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
                     <input
                       type="text"
                       value={otpCode}
@@ -518,15 +508,6 @@ export function AuthPage() {
               </div>
             )}
 
-            {mode === 'register' && registerStep === 'otp' && (
-              <button
-                onClick={handleBackToInfo}
-                className={`w-full text-sm transition-colors ${isDark ? 'text-gray-400 hover:text-gray-300' : 'text-gray-500 hover:text-gray-600'}`}
-              >
-                ← 返回修改信息
-              </button>
-            )}
-            
             <button
               onClick={mode === 'login' ? handleLoginSubmit : handleRegisterSubmit}
               disabled={isLoading}
