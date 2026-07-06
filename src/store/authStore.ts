@@ -1,115 +1,8 @@
 import { create } from 'zustand';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { sendVerificationCode } from '../services/emailService';
 
 const REMEMBER_EMAIL_KEY = 'hngk_remember_email';
-const REMEMBER_PASSWORD_KEY = 'hngk_remember_password';
 const OTP_EXPIRE_MINUTES = 10;
-
-// 密码加密相关常量
-const ENCRYPTION_KEY_SALT = 'hngk_password_v1';
-
-// 使用 Web Crypto API 进行 AES-GCM 加密
-async function encryptPassword(password: string, email: string): Promise<string> {
-  try {
-    const combinedSalt = ENCRYPTION_KEY_SALT + email;
-    const keyMaterial = await window.crypto.subtle.importKey(
-      'raw',
-      new TextEncoder().encode(combinedSalt),
-      'PBKDF2',
-      false,
-      ['deriveKey']
-    );
-    
-    const key = await window.crypto.subtle.deriveKey(
-      {
-        name: 'PBKDF2',
-        salt: new TextEncoder().encode('hngk_salt'),
-        iterations: 100000,
-        hash: 'SHA-256',
-      },
-      keyMaterial,
-      { name: 'AES-GCM', length: 256 },
-      false,
-      ['encrypt']
-    );
-    
-    const iv = window.crypto.getRandomValues(new Uint8Array(12));
-    const encodedPassword = new TextEncoder().encode(password);
-    const encrypted = await window.crypto.subtle.encrypt(
-      { name: 'AES-GCM', iv },
-      key,
-      encodedPassword
-    );
-    
-    const encryptedArray = Array.from(new Uint8Array(encrypted));
-    const ivArray = Array.from(iv);
-    return JSON.stringify({ iv: ivArray, data: encryptedArray });
-  } catch {
-    return encodePassword(password);
-  }
-}
-
-// 使用 Web Crypto API 进行 AES-GCM 解密
-async function decryptPassword(encryptedData: string, email: string): Promise<string> {
-  try {
-    const parsed = JSON.parse(encryptedData);
-    if (!parsed.iv || !parsed.data) {
-      return decodePassword(encryptedData);
-    }
-    
-    const combinedSalt = ENCRYPTION_KEY_SALT + email;
-    const keyMaterial = await window.crypto.subtle.importKey(
-      'raw',
-      new TextEncoder().encode(combinedSalt),
-      'PBKDF2',
-      false,
-      ['deriveKey']
-    );
-    
-    const key = await window.crypto.subtle.deriveKey(
-      {
-        name: 'PBKDF2',
-        salt: new TextEncoder().encode('hngk_salt'),
-        iterations: 100000,
-        hash: 'SHA-256',
-      },
-      keyMaterial,
-      { name: 'AES-GCM', length: 256 },
-      false,
-      ['decrypt']
-    );
-    
-    const iv = new Uint8Array(parsed.iv);
-    const encrypted = new Uint8Array(parsed.data);
-    const decrypted = await window.crypto.subtle.decrypt(
-      { name: 'AES-GCM', iv },
-      key,
-      encrypted
-    );
-    
-    return new TextDecoder().decode(decrypted);
-  } catch {
-    return decodePassword(encryptedData);
-  }
-}
-
-// 简单的编码/解码函数（作为 Web Crypto API 的降级方案）
-function encodePassword(password: string): string {
-  try {
-    return btoa(unescape(encodeURIComponent(password)));
-  } catch {
-    return password;
-  }
-}
-
-function decodePassword(encoded: string): string {
-  try {
-    return decodeURIComponent(escape(atob(encoded)));
-  } catch {
-    return '';
-  }
-}
 
 interface User {
   id: string;
@@ -125,8 +18,6 @@ interface AuthState {
   error: string | null;
   successMessage: string | null;
   rememberEmail: string | null;
-  rememberPassword: boolean;
-  savedPassword: string | null;
 
   register: (email: string, password: string, nickname: string) => Promise<boolean>;
   sendOtp: (email: string, nickname?: string) => Promise<boolean>;
@@ -138,7 +29,6 @@ interface AuthState {
   setError: (error: string | null) => void;
   setSuccessMessage: (message: string | null) => void;
   setRememberEmail: (email: string | null) => void;
-  setRememberPassword: (enabled: boolean, password?: string) => void;
 }
 
 export function isPasswordStrong(password: string): boolean {
@@ -225,37 +115,6 @@ function saveRememberEmail(email: string | null) {
   } catch {}
 }
 
-export async function loadSavedPassword(email: string): Promise<{ enabled: boolean; password: string }> {
-  try {
-    const saved = localStorage.getItem(REMEMBER_PASSWORD_KEY);
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      if (parsed.enabled && parsed.password) {
-        const decryptedPassword = await decryptPassword(parsed.password, email);
-        return {
-          enabled: true,
-          password: decryptedPassword,
-        };
-      }
-    }
-  } catch {}
-  return { enabled: false, password: '' };
-}
-
-async function saveSavedPassword(enabled: boolean, password: string | null, email: string) {
-  try {
-    if (enabled && password && email) {
-      const encryptedPassword = await encryptPassword(password, email);
-      localStorage.setItem(REMEMBER_PASSWORD_KEY, JSON.stringify({
-        enabled: true,
-        password: encryptedPassword,
-      }));
-    } else {
-      localStorage.removeItem(REMEMBER_PASSWORD_KEY);
-    }
-  } catch {}
-}
-
 export const useAuthStore = create<AuthState>((set, get) => {
   return {
   isAuthenticated: false,
@@ -264,8 +123,6 @@ export const useAuthStore = create<AuthState>((set, get) => {
   error: null,
   successMessage: null,
   rememberEmail: loadRememberEmail(),
-  rememberPassword: false,
-  savedPassword: null,
 
   findEmailByNickname: async (nickname: string): Promise<string | null> => {
     if (!isSupabaseConfigured || !supabase) return null;
@@ -371,7 +228,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
   sendOtp: async (email: string, nickname?: string): Promise<boolean> => {
     set({ isLoading: true, error: null, successMessage: null });
 
-    if (!email || !email.includes('@')) {
+    if (!email || !isEmail(email)) {
       set({ isLoading: false, error: '请输入正确的邮箱地址' });
       return false;
     }
@@ -382,36 +239,19 @@ export const useAuthStore = create<AuthState>((set, get) => {
     }
 
     try {
-      const code = Math.floor(100000 + Math.random() * 900000).toString();
-      const expiresAt = new Date(Date.now() + OTP_EXPIRE_MINUTES * 60 * 1000).toISOString();
-
-      const { error: insertError } = await supabase.from('auth_otps').insert({
+      // 使用 Supabase Auth 自带的 OTP 功能发送验证码
+      // 邮件由 Supabase 服务端发送，不需要暴露 Resend API key
+      const { error: otpError } = await supabase.auth.signInWithOtp({
         email: email.trim(),
-        code,
-        expires_at: expiresAt,
-        used: false,
+        options: {
+          data: nickname ? { nickname: nickname.trim() } : undefined,
+        },
       });
 
-      if (insertError) {
-        if (import.meta.env.DEV) {
-          console.error('保存验证码失败:', insertError);
-        }
-        set({ isLoading: false, error: '验证码生成失败，请稍后重试' });
+      if (otpError) {
+        const errorMessage = translateSupabaseError(otpError.message);
+        set({ isLoading: false, error: errorMessage });
         return false;
-      }
-
-      const emailResult = await sendVerificationCode(email.trim(), code, nickname);
-
-      if (!emailResult.success) {
-        if (import.meta.env.DEV) {
-          console.error('发送验证码失败:', emailResult.error);
-        }
-        set({
-          isLoading: false,
-          successMessage: '验证码已生成，请查收邮箱',
-          error: null,
-        });
-        return true;
       }
 
       set({
@@ -437,7 +277,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
   ): Promise<boolean> => {
     set({ isLoading: true, error: null, successMessage: null });
 
-    if (!email || !email.includes('@')) {
+    if (!email || !isEmail(email)) {
       set({ isLoading: false, error: '请输入正确的邮箱地址' });
       return false;
     }
@@ -460,90 +300,46 @@ export const useAuthStore = create<AuthState>((set, get) => {
     }
 
     try {
-      const { data: otpData, error: otpError } = await supabase
-        .from('auth_otps')
-        .select('*')
-        .eq('email', email.trim())
-        .eq('code', token.trim())
-        .eq('used', false)
-        .gt('expires_at', new Date().toISOString())
-        .single();
-
-      if (otpError || !otpData) {
-        set({ isLoading: false, error: '验证码错误或已过期，请重新获取' });
-        return false;
-      }
-
-      const { error: updateError } = await supabase
-        .from('auth_otps')
-        .update({ used: true })
-        .eq('id', otpData.id);
-
-      if (updateError && import.meta.env.DEV) {
-        console.error('标记验证码为已使用失败:', updateError);
-      }
-
-      const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+      // 使用 Supabase Auth 自带的 OTP 验证功能
+      // 验证成功后用户自动登录，然后设置密码和昵称
+      const { data: verifyData, error: verifyError } = await supabase.auth.verifyOtp({
         email: email.trim(),
-        password,
-        options: {
-          data: { nickname: nickname.trim() },
-        },
+        token: token.trim(),
+        type: 'email',
       });
 
-      if (signUpError) {
-        if (signUpError.message.includes('User already registered')) {
-          const { data: { user: currentUser }, error: getUserError } = await supabase.auth.getUser();
-          
-          if (!getUserError && currentUser) {
-            const profileNickname = await fetchNicknameFromProfile(currentUser.id);
-            const user: User = {
-              id: currentUser.id,
-              email: currentUser.email || email,
-              nickname: profileNickname || (currentUser.user_metadata?.nickname as string) || nickname.trim(),
-              registeredAt: currentUser.created_at || new Date().toISOString(),
-            };
-
-            try {
-              await supabase.from('usage_logs').insert({
-                user_id: currentUser.id,
-                email: currentUser.email || email,
-                action: 'login_after_otp',
-                details: { source: 'web' },
-                user_agent: navigator.userAgent,
-              });
-            } catch {}
-
-            const rememberEmail = get().rememberEmail;
-            if (rememberEmail !== null && rememberEmail !== email) {
-              saveRememberEmail(email);
-              set({ rememberEmail: email });
-            }
-
-            set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: '登录成功！' });
-            return true;
-          }
-
-          set({ isLoading: false, error: '该邮箱已注册，请直接登录' });
-          return false;
-        }
-        set({ isLoading: false, error: translateSupabaseError(signUpError.message) });
+      if (verifyError) {
+        set({ isLoading: false, error: translateSupabaseError(verifyError.message) });
         return false;
       }
 
-      if (signUpData.user) {
-        const profileNickname = await fetchNicknameFromProfile(signUpData.user.id);
+      if (verifyData.user) {
+        // 验证成功，设置密码和昵称
+        const { error: updateError } = await supabase.auth.updateUser({
+          password,
+          data: { nickname: nickname.trim() },
+        });
+
+        if (updateError) {
+          if (import.meta.env.DEV) {
+            console.error('设置密码失败:', updateError);
+          }
+          set({ isLoading: false, error: translateSupabaseError(updateError.message) });
+          return false;
+        }
+
+        const profileNickname = await fetchNicknameFromProfile(verifyData.user.id);
         const user: User = {
-          id: signUpData.user.id,
-          email: signUpData.user.email || email,
-          nickname: profileNickname || (signUpData.user.user_metadata?.nickname as string) || nickname.trim(),
-          registeredAt: signUpData.user.created_at || new Date().toISOString(),
+          id: verifyData.user.id,
+          email: verifyData.user.email || email,
+          nickname: profileNickname || nickname.trim(),
+          registeredAt: verifyData.user.created_at || new Date().toISOString(),
         };
 
         try {
           await supabase.from('usage_logs').insert({
-            user_id: signUpData.user.id,
-            email: signUpData.user.email || email,
+            user_id: verifyData.user.id,
+            email: verifyData.user.email || email,
             action: 'register',
             details: { source: 'web', otp: true },
             user_agent: navigator.userAgent,
@@ -551,26 +347,16 @@ export const useAuthStore = create<AuthState>((set, get) => {
         } catch {}
 
         const rememberEmail = get().rememberEmail;
-        if (rememberEmail !== null && rememberEmail !== email) {
+        if (rememberEmail !== email) {
           saveRememberEmail(email);
           set({ rememberEmail: email });
         }
 
-        if (signUpData.session) {
-          set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: '注册成功！' });
-        } else {
-          set({
-            isLoading: false,
-            isAuthenticated: true,
-            user,
-            error: null,
-            successMessage: '注册成功！请查收验证邮件完成激活。',
-          });
-        }
+        set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: '注册成功！' });
         return true;
       }
 
-      set({ isLoading: false, error: '注册失败，请稍后重试' });
+      set({ isLoading: false, error: '验证失败，请稍后重试' });
       return false;
     } catch (err: any) {
       if (import.meta.env.DEV) {
@@ -644,16 +430,6 @@ export const useAuthStore = create<AuthState>((set, get) => {
         if (rememberEmail !== email) {
           saveRememberEmail(email);
           set({ rememberEmail: email });
-        }
-
-        // 根据用户选择保存或清除密码
-        const { rememberPassword } = get();
-        if (rememberPassword) {
-          await saveSavedPassword(true, password, email);
-          set({ savedPassword: password });
-        } else {
-          await saveSavedPassword(false, null, email);
-          set({ savedPassword: null });
         }
 
         set({ isLoading: false, isAuthenticated: true, user, error: null });
@@ -732,15 +508,6 @@ export const useAuthStore = create<AuthState>((set, get) => {
   setRememberEmail: (email: string | null) => {
     saveRememberEmail(email);
     set({ rememberEmail: email });
-  },
-
-  setRememberPassword: (enabled: boolean) => {
-    if (enabled) {
-      set({ rememberPassword: true });
-    } else {
-      localStorage.removeItem(REMEMBER_PASSWORD_KEY);
-      set({ rememberPassword: false, savedPassword: null });
-    }
   },
   };
 });

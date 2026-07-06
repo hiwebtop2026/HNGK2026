@@ -4,7 +4,7 @@ import {
   Mail, Lock, Loader2, AlertCircle, CheckCircle2, School, Sparkles,
   User, LogOut, ArrowRight, Info, Eye, EyeOff
 } from 'lucide-react';
-import { useAuthStore, isPasswordStrong, loadSavedPassword } from '../store/authStore';
+import { useAuthStore, isPasswordStrong } from '../store/authStore';
 import { useAppStore } from '../store/appStore';
 
 function ThemeToggle() {
@@ -45,8 +45,6 @@ export function AuthPage() {
     error,
     successMessage,
     rememberEmail,
-    rememberPassword,
-    savedPassword,
     register,
     login,
     logout,
@@ -54,7 +52,6 @@ export function AuthPage() {
     setError,
     setSuccessMessage,
     setRememberEmail,
-    setRememberPassword,
   } = useAuthStore();
   
   const [mode, setMode] = useState<'login' | 'register'>('register');
@@ -70,22 +67,6 @@ export function AuthPage() {
       setEmail(rememberEmail);
     }
   }, [rememberEmail, mode]);
-
-  useEffect(() => {
-    const loadPassword = async () => {
-      if (rememberPassword && email && mode === 'login') {
-        try {
-          const { enabled, password: loadedPassword } = await loadSavedPassword(email);
-          if (enabled && loadedPassword) {
-            setPassword(loadedPassword);
-          }
-        } catch {
-          // 密码加载失败，不做处理
-        }
-      }
-    };
-    loadPassword();
-  }, [rememberPassword, email, mode]);
 
   useEffect(() => {
     document.title = '智能高考志愿助理';
@@ -326,6 +307,7 @@ export function AuthPage() {
                   placeholder={mode === 'login' ? '请输入邮箱或昵称' : '请输入邮箱地址'}
                   className={`w-full pl-12 pr-4 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all`}
                   onKeyDown={(e) => e.key === 'Enter' && (mode === 'login' ? handleLoginSubmit() : handleRegisterSubmit())}
+                  autoComplete={mode === 'login' ? 'username' : 'email'}
                 />
               </div>
               {mode === 'login' && (
@@ -349,6 +331,7 @@ export function AuthPage() {
                   placeholder="请输入密码"
                   className={`w-full pl-12 pr-12 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all`}
                   onKeyDown={(e) => e.key === 'Enter' && (mode === 'login' ? handleLoginSubmit() : handleRegisterSubmit())}
+                  autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
                 />
                 <button
                   type="button"
@@ -384,39 +367,21 @@ export function AuthPage() {
 
             {mode === 'login' && (
               <div className="flex items-center justify-between flex-wrap gap-2">
-                <div className="flex items-center gap-4">
-                  <label className={`flex items-center gap-2 cursor-pointer text-sm ${textSecondary}`}>
-                    <input
-                      type="checkbox"
-                      checked={!!rememberEmail}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setRememberEmail(email || null);
-                        } else {
-                          setRememberEmail(null);
-                        }
-                      }}
-                      className="w-4 h-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-                    />
-                    记住邮箱
-                  </label>
-                  <label className={`flex items-center gap-2 cursor-pointer text-sm ${textSecondary}`}>
-                    <input
-                      type="checkbox"
-                      checked={rememberPassword}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          setRememberPassword(true);
-                        } else {
-                          setRememberPassword(false);
-                          setPassword('');
-                        }
-                      }}
-                      className="w-4 h-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-                    />
-                    记住密码
-                  </label>
-                </div>
+                <label className={`flex items-center gap-2 cursor-pointer text-sm ${textSecondary}`}>
+                  <input
+                    type="checkbox"
+                    checked={!!rememberEmail}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setRememberEmail(email || null);
+                      } else {
+                        setRememberEmail(null);
+                      }
+                    }}
+                    className="w-4 h-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                  />
+                  记住邮箱
+                </label>
                 <button className={`text-sm transition-colors ${isDark ? 'text-primary-400 hover:text-primary-300' : 'text-primary-600 hover:text-primary-700'}`}>
                   忘记密码？
                 </button>
