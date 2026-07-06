@@ -430,8 +430,11 @@ export async function filterSchoolsWithMajors(
 ): Promise<VolunteerResult[]> {
   const strategyConfig = STRATEGY_CONFIGS[strategy];
   
+  // 强制按考生所在省份过滤：只推荐该省份有招生数据的院校
+  let filtered = schools.filter(s => s.province === province || s.region === province);
+  
   // 按科目筛选（支持3+3省份的选科匹配，扩展匹配逻辑）
-  let filtered = schools.filter(s => {
+  filtered = filtered.filter(s => {
     if (selectedSubjects.length > 0) {
       if (s.subject_requirement) {
         return isSubjectMatch(selectedSubjects, s.subject_requirement);

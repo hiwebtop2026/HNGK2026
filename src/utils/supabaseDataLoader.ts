@@ -135,8 +135,8 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
     try {
       scores = await admissionScoreService.getByProvinceAndYear(province, year);
     } catch (error) {
-      if (import.meta.env.DEV) console.warn(`按省份查询失败，尝试按年份查询:`, error);
-      scores = await admissionScoreService.getByYear(year);
+      if (import.meta.env.DEV) console.warn(`按省份查询失败，跳过该年份:`, error);
+      continue;
     }
     
     if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores ${year}年原始记录数: ${scores.length}`);
