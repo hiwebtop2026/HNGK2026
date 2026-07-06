@@ -41,7 +41,7 @@ export function isEmail(str: string): boolean {
 }
 
 function translateSupabaseError(errorMessage: string): string {
-  if (errorMessage.includes('email rate limit exceeded')) {
+  if (errorMessage.includes('rate limit exceeded') || errorMessage.includes('rate limited')) {
     return '请求过于频繁，请稍后再试';
   }
   if (errorMessage.includes('User already registered')) {
@@ -51,7 +51,7 @@ function translateSupabaseError(errorMessage: string): string {
     return '账号或密码错误';
   }
   if (errorMessage.includes('Email not confirmed')) {
-    return '邮箱尚未验证，请先完成验证';
+    return '邮箱尚未验证，请先完成验证后登录';
   }
   if (errorMessage.includes('Password should be at least')) {
     return '密码长度至少8位，且必须包含字母和数字';
@@ -62,8 +62,20 @@ function translateSupabaseError(errorMessage: string): string {
   if (errorMessage.includes('Invalid OTP') || errorMessage.includes('otp') || errorMessage.includes('验证码')) {
     return '验证码错误或已过期，请重新获取';
   }
-  if (errorMessage.includes('Email rate limit') || errorMessage.includes('rate limit')) {
-    return '验证码发送过于频繁，请稍后再试';
+  if (errorMessage.includes('too many requests') || errorMessage.includes('Too Many Requests')) {
+    return '请求过于频繁，请稍后再试';
+  }
+  if (errorMessage.includes('User not found')) {
+    return '该账号不存在，请先注册';
+  }
+  if (errorMessage.includes('email already exists')) {
+    return '该邮箱已注册，请直接登录';
+  }
+  if (errorMessage.includes('Network error') || errorMessage.includes('fetch failed')) {
+    return '网络连接失败，请检查网络后重试';
+  }
+  if (errorMessage.includes('Internal Server Error') || errorMessage.includes('500')) {
+    return '服务器繁忙，请稍后再试';
   }
   return errorMessage;
 }
@@ -186,33 +198,18 @@ export const useAuthStore = create<AuthState>((set, get) => ({
           });
         } catch {}
 
-        if (!data.session) {
-          try {
-            const { data: sessionData, error: signInError } = await supabase.auth.signInWithPassword({
-              email,
-              password,
-            });
-            if (!signInError && sessionData.session) {
-              set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: '注册成功！' });
-              return true;
-            }
-          } catch (signInErr) {
-            if (import.meta.env.DEV) {
-              console.error('注册后自动登录失败:', signInErr);
-            }
-          }
-
-          set({
-            isLoading: false,
-            isAuthenticated: true,
-            user,
-            error: null,
-            successMessage: '注册成功！请查收邮件完成验证，或直接登录。'
-          });
+        if (data.session) {
+          set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: '注册成功！' });
           return true;
         }
 
-        set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: '注册成功！' });
+        set({
+          isLoading: false,
+          isAuthenticated: false,
+          user: null,
+          error: null,
+          successMessage: '注册成功！请查收邮件完成验证后登录，或直接使用密码登录。'
+        });
         return true;
       }
 
