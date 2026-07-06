@@ -9,6 +9,11 @@ import { STRATEGY_CONFIGS, type StrategyType } from '../config/strategyConfig';
 import { scoreDistributionService } from '../services/scoreDistributionService';
 export type { SchoolScore, MajorRecommendation };
 
+function extractSchoolNameKey(schoolName: string): string {
+  const cleaned = schoolName.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '').trim();
+  return cleaned;
+}
+
 export interface VolunteerResult {
   index: number;
   tier: '冲' | '稳' | '保';
@@ -487,6 +492,46 @@ export async function filterSchoolsWithMajors(
     });
   }
   
+  // 专业优先：先从major_scores表获取该省份所有专业数据，按专业分数筛选
+  // 只有专业最低分在分数范围内的院校才推荐
+  const allProvinceMajors = await majorScoreService.getByProvince(province);
+  
+  // 筛选符合条件的专业：选科匹配 + 分数在范围内 + 想学/排除专业匹配
+  const validMajors = allProvinceMajors.filter(major => {
+    if (!major.min_score) return false;
+    
+    // 选科匹配
+    if (selectedSubjects.length > 0 && major.subject_requirement) {
+      if (!isSubjectMatch(selectedSubjects, major.subject_requirement)) {
+        return false;
+      }
+    }
+    
+    // 想学专业匹配
+    if (selectedMajors.length > 0) {
+      if (!selectedMajors.some(m => major.major_name?.includes(m))) {
+        return false;
+      }
+    }
+    
+    // 排除专业匹配
+    if (excludedMajors.length > 0) {
+      if (excludedMajors.some(m => major.major_name?.includes(m))) {
+        return false;
+      }
+    }
+    
+    return true;
+  });
+  
+  // 获取有符合条件专业的院校列表
+  const schoolsWithValidMajors = new Set<string>();
+  validMajors.forEach(major => {
+    if (major.school_name) {
+      schoolsWithValidMajors.add(major.school_name);
+    }
+  });
+  
   // 按分数范围筛选（任一年份在范围内即可）
   // 关键修复：筛选范围必须覆盖策略所需的最大保档/冲档分差，否则会丢失候选院校
   // 海南高分制下 adjustedDiff = scoreDiff/2，因此筛选范围需 ×2
@@ -500,6 +545,13 @@ export async function filterSchoolsWithMajors(
   const effectiveRange = Math.max(scoreRange, strategyRequiredRange);
 
   const inRange = filtered.filter(s => {
+    // 专业优先：必须有符合条件的专业才推荐
+    const schoolNameKey = extractSchoolNameKey(s.name);
+    const hasValidMajor = Array.from(schoolsWithValidMajors).some(
+      sn => extractSchoolNameKey(sn) === schoolNameKey || sn.includes(schoolNameKey)
+    );
+    if (!hasValidMajor) return false;
+    
     const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
     return refScore >= baseScore - effectiveRange && refScore <= baseScore + effectiveRange;
   });

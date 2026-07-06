@@ -48,6 +48,7 @@ export function MajorScorePage() {
   const [selectedYear, setSelectedYear] = useState(2025);
   const [selectedBatch, setSelectedBatch] = useState('');
   const [selectedSubject, setSelectedSubject] = useState('');
+  const [selectedProvince, setSelectedProvince] = useState('');
   const [data, setData] = useState<MajorScore[]>([]);
   const [loading, setLoading] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -55,6 +56,7 @@ export function MajorScorePage() {
   const years = [2023, 2024, 2025];
   const batches = ['', '本科批', '本科提前批'];
   const subjects = ['', '不限', '物理必选', '物+化(2科必选)', '必选物理'];
+  const provinces = ['', '海南', '天津', '宁夏', '其他'];
   
   const textPrimary = isDark ? 'text-white' : 'text-gray-800';
   const textSecondary = isDark ? 'text-gray-400' : 'text-gray-500';
@@ -81,6 +83,9 @@ export function MajorScorePage() {
       }
       if (selectedSubject) {
         query = query.ilike('subject_requirement', `%${selectedSubject}%`);
+      }
+      if (selectedProvince) {
+        query = query.eq('province', selectedProvince);
       }
       
       query = query.order('min_score', { ascending: false });
@@ -131,7 +136,7 @@ export function MajorScorePage() {
     if (isSupabaseConfigured) {
       fetchData();
     }
-  }, [selectedYear, selectedBatch, selectedSubject]);
+  }, [selectedYear, selectedBatch, selectedSubject, selectedProvince]);
   
   const handleBack = () => {
     navigate('/');
@@ -168,7 +173,7 @@ export function MajorScorePage() {
       
       {/* 搜索筛选区 */}
       <div className={`glass mx-6 mt-6 rounded-2xl p-6 ${isDark ? 'border-white/10' : 'border-gray-200'}`}>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           <div>
             <label className={`block text-sm font-medium mb-2 ${textSecondary}`}>院校名称</label>
             <div className="relative">
@@ -188,6 +193,23 @@ export function MajorScorePage() {
                   <X className="w-4 h-4 text-gray-400" />
                 </button>
               )}
+            </div>
+          </div>
+          
+          <div>
+            <label className={`block text-sm font-medium mb-2 ${textSecondary}`}>省份</label>
+            <div className="relative">
+              <Filter className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 ${textMuted}`} />
+              <select
+                value={selectedProvince}
+                onChange={(e) => setSelectedProvince(e.target.value)}
+                className={`w-full pl-10 pr-8 py-2.5 rounded-xl ${inputBg} ${inputBorder} border ${inputFocus} text-sm outline-none transition-all ${textPrimary} appearance-none cursor-pointer`}
+              >
+                {provinces.map(pro => (
+                  <option key={pro} value={pro}>{pro || '全部省份'}</option>
+                ))}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
             </div>
           </div>
           
