@@ -11,12 +11,15 @@ CREATE INDEX IF NOT EXISTS idx_auth_otps_email ON auth_otps(email);
 
 ALTER TABLE auth_otps ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Allow anonymous to insert OTP" ON auth_otps;
 CREATE POLICY "Allow anonymous to insert OTP" ON auth_otps
   FOR INSERT TO anon WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Allow anonymous to select OTP" ON auth_otps;
 CREATE POLICY "Allow anonymous to select OTP" ON auth_otps
   FOR SELECT TO anon USING (email IS NOT NULL);
 
+DROP POLICY IF EXISTS "Allow authenticated to manage OTP" ON auth_otps;
 CREATE POLICY "Allow authenticated to manage OTP" ON auth_otps
   FOR ALL TO authenticated USING (true);
 
