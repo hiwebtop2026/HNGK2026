@@ -877,6 +877,7 @@ export async function filterSchoolsAsync(
   for (const result of results) {
     try {
       const schoolName = extractSchoolName(result.name);
+      const schoolRefScore = result.refScore || 0;
       const allMajors = await majorScoreService.getBySchoolAndProvince(schoolName, province);
       
       const filteredMajors = allMajors.filter(major => {
@@ -891,10 +892,24 @@ export async function filterSchoolsAsync(
         return true;
       });
       
-      const matched = filteredMajors.filter(major => {
-        const score = major.min_score || 0;
-        return score >= baseScore - effectiveRange && score <= baseScore + effectiveRange;
-      });
+      let matched: MajorScore[];
+      
+      if (result.tier === '保') {
+        matched = filteredMajors.filter(major => {
+          const score = major.min_score || 0;
+          return score >= schoolRefScore - effectiveRange && score <= schoolRefScore;
+        });
+      } else if (result.tier === '稳') {
+        matched = filteredMajors.filter(major => {
+          const score = major.min_score || 0;
+          return score >= schoolRefScore - effectiveRange * 0.5 && score <= schoolRefScore + effectiveRange * 0.3;
+        });
+      } else {
+        matched = filteredMajors.filter(major => {
+          const score = major.min_score || 0;
+          return score >= schoolRefScore - effectiveRange * 0.3 && score <= schoolRefScore + effectiveRange * 0.5;
+        });
+      }
       
       matched.forEach(major => {
         const score = major.min_score || 0;
