@@ -798,7 +798,7 @@ export async function filterSchoolsAsync(
   for (const result of results) {
     try {
       const schoolName = extractSchoolName(result.name);
-      const allMajors = await majorScoreService.getBySchool(schoolName);
+      const allMajors = await majorScoreService.getBySchoolAndProvince(schoolName, province);
       
       const filteredMajors = allMajors.filter(major => {
         if (!major.min_score) return false;

@@ -63,6 +63,7 @@ function clearCache(): void {
 }
 
 function clearAllLocalStorage(): void {
+  cache.clear();
   try {
     Object.keys(localStorage).forEach(key => {
       localStorage.removeItem(key);
