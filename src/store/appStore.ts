@@ -11,6 +11,44 @@ export type { StrategyType };
 
 type Theme = 'light' | 'dark';
 
+interface UserPreferences {
+  baseScore: number | null;
+  subject: number;
+  selectedSubjects: string[];
+  scoreRange: number;
+  totalVolunteers: number;
+  strategy: StrategyType;
+  currentRegion: string;
+  selectedLevels: string[];
+  selectedProvinces: string[];
+  selectedMajorCategories: string[];
+  selectedNatures: string[];
+  selectedMajors: string[];
+  excludedMajors: string[];
+}
+
+const USER_PREFS_KEY = 'gaokao_user_preferences';
+
+function saveUserPreferences(prefs: UserPreferences): void {
+  try {
+    localStorage.setItem(USER_PREFS_KEY, JSON.stringify(prefs));
+  } catch (error) {
+    if (import.meta.env.DEV) console.warn('保存用户偏好失败:', error);
+  }
+}
+
+function loadUserPreferences(): UserPreferences | null {
+  try {
+    const saved = localStorage.getItem(USER_PREFS_KEY);
+    if (saved) {
+      return JSON.parse(saved) as UserPreferences;
+    }
+  } catch (error) {
+    if (import.meta.env.DEV) console.warn('加载用户偏好失败:', error);
+  }
+  return null;
+}
+
 interface AppState {
   // 主题
   theme: Theme;
@@ -89,6 +127,7 @@ interface AppState {
   setCurrentRegion: (region: string) => Promise<void>;
   reset: () => void;
   loadFromSupabase: (province?: string) => Promise<void>;
+  savePreferences: () => void;
 }
 
 const getInitialTheme = (): Theme => {
@@ -102,35 +141,43 @@ const getInitialTheme = (): Theme => {
 
 export const useAppStore = create<AppState>((set, get) => {
   const initialTheme = getInitialTheme();
+  const savedPrefs = loadUserPreferences();
   
   if (typeof document !== 'undefined') {
     document.documentElement.classList.remove('light', 'dark');
     document.documentElement.classList.add(initialTheme);
   }
   
+  const getInitialValue = <T>(key: keyof UserPreferences, defaultValue: T): T => {
+    if (savedPrefs && savedPrefs[key] !== undefined) {
+      return savedPrefs[key] as T;
+    }
+    return defaultValue;
+  };
+  
   return {
     // 主题
     theme: initialTheme,
     isDark: initialTheme === 'dark',
     
-    // 默认值
-    baseScore: null,
-    scoreRange: 15,
-    subject: 54,
-    selectedSubjects: [],
-    totalVolunteers: 30,
+    // 默认值（优先从localStorage加载）
+    baseScore: getInitialValue('baseScore', null),
+    scoreRange: getInitialValue('scoreRange', 15),
+    subject: getInitialValue('subject', 54),
+    selectedSubjects: getInitialValue('selectedSubjects', []),
+    totalVolunteers: getInitialValue('totalVolunteers', 30),
     // 当前地区（默认海南）
-    currentRegion: '海南',
+    currentRegion: getInitialValue('currentRegion', '海南'),
     availableRegions: AVAILABLE_REGIONS,
-    provinceConfig: getProvinceConfig('海南') || null,
+    provinceConfig: getProvinceConfig(getInitialValue('currentRegion', '海南')) || null,
     // 志愿策略（默认稳妥）
-    strategy: '稳妥',
-    selectedLevels: ['985', '211', '双一流', '普通本科'],
-    selectedProvinces: [],
-    selectedMajorCategories: [],
-    selectedNatures: [],
-    selectedMajors: [],
-    excludedMajors: [],
+    strategy: getInitialValue('strategy', '稳妥'),
+    selectedLevels: getInitialValue('selectedLevels', ['985', '211', '双一流', '普通本科']),
+    selectedProvinces: getInitialValue('selectedProvinces', []),
+    selectedMajorCategories: getInitialValue('selectedMajorCategories', []),
+    selectedNatures: getInitialValue('selectedNatures', []),
+    selectedMajors: getInitialValue('selectedMajors', []),
+    excludedMajors: getInitialValue('excludedMajors', []),
     
     // 数据状态
     schoolData: [],
@@ -173,11 +220,44 @@ export const useAppStore = create<AppState>((set, get) => {
       document.documentElement.classList.add(theme);
     },
     
-    // 方法
-    setBaseScore: (score) => set({ baseScore: score }),
-    setScoreRange: (range) => set({ scoreRange: range }),
-    setSubject: (subject) => set({ subject: subject }),
-    setSelectedSubjects: (subjects) => set({ selectedSubjects: subjects }),
+    // 保存用户偏好到localStorage
+    savePreferences: () => {
+      const state = get();
+      const prefs: UserPreferences = {
+        baseScore: state.baseScore,
+        subject: state.subject,
+        selectedSubjects: state.selectedSubjects,
+        scoreRange: state.scoreRange,
+        totalVolunteers: state.totalVolunteers,
+        strategy: state.strategy,
+        currentRegion: state.currentRegion,
+        selectedLevels: state.selectedLevels,
+        selectedProvinces: state.selectedProvinces,
+        selectedMajorCategories: state.selectedMajorCategories,
+        selectedNatures: state.selectedNatures,
+        selectedMajors: state.selectedMajors,
+        excludedMajors: state.excludedMajors,
+      };
+      saveUserPreferences(prefs);
+    },
+    
+    // 方法（自动保存用户偏好）
+    setBaseScore: (score) => {
+      set({ baseScore: score });
+      get().savePreferences();
+    },
+    setScoreRange: (range) => {
+      set({ scoreRange: range });
+      get().savePreferences();
+    },
+    setSubject: (subject) => {
+      set({ subject: subject });
+      get().savePreferences();
+    },
+    setSelectedSubjects: (subjects) => {
+      set({ selectedSubjects: subjects });
+      get().savePreferences();
+    },
     toggleSelectedSubject: (subject) => {
       const current = get().selectedSubjects;
       if (current.includes(subject)) {
@@ -185,9 +265,16 @@ export const useAppStore = create<AppState>((set, get) => {
       } else {
         set({ selectedSubjects: [...current, subject] });
       }
+      get().savePreferences();
     },
-    setTotalVolunteers: (count) => set({ totalVolunteers: count }),
-    setStrategy: (strategy) => set({ strategy }),
+    setTotalVolunteers: (count) => {
+      set({ totalVolunteers: count });
+      get().savePreferences();
+    },
+    setStrategy: (strategy) => {
+      set({ strategy });
+      get().savePreferences();
+    },
     toggleNature: (nature) => {
       const current = get().selectedNatures;
       if (current.includes(nature)) {
@@ -195,6 +282,7 @@ export const useAppStore = create<AppState>((set, get) => {
       } else {
         set({ selectedNatures: [...current, nature] });
       }
+      get().savePreferences();
     },
     toggleLevel: (level) => {
       const current = get().selectedLevels;
@@ -203,6 +291,7 @@ export const useAppStore = create<AppState>((set, get) => {
       } else {
         set({ selectedLevels: [...current, level] });
       }
+      get().savePreferences();
     },
     toggleProvince: (province) => {
       const current = get().selectedProvinces;
@@ -211,6 +300,7 @@ export const useAppStore = create<AppState>((set, get) => {
       } else {
         set({ selectedProvinces: [...current, province] });
       }
+      get().savePreferences();
     },
     toggleMajorCategory: (categoryId) => {
       const current = get().selectedMajorCategories;
@@ -219,6 +309,7 @@ export const useAppStore = create<AppState>((set, get) => {
       } else {
         set({ selectedMajorCategories: [...current, categoryId] });
       }
+      get().savePreferences();
     },
     toggleMajor: (major) => {
       const current = get().selectedMajors;
@@ -227,6 +318,7 @@ export const useAppStore = create<AppState>((set, get) => {
       } else {
         set({ selectedMajors: [...current, major] });
       }
+      get().savePreferences();
     },
     toggleExcludedMajor: (major) => {
       const current = get().excludedMajors;
@@ -235,14 +327,25 @@ export const useAppStore = create<AppState>((set, get) => {
       } else {
         set({ excludedMajors: [...current, major] });
       }
+      get().savePreferences();
     },
-    clearAllMajors: () => set({ selectedMajors: [] }),
-    clearAllExcludedMajors: () => set({ excludedMajors: [] }),
-    clearAllProvinces: () => set({ selectedProvinces: [] }),
+    clearAllMajors: () => {
+      set({ selectedMajors: [] });
+      get().savePreferences();
+    },
+    clearAllExcludedMajors: () => {
+      set({ excludedMajors: [] });
+      get().savePreferences();
+    },
+    clearAllProvinces: () => {
+      set({ selectedProvinces: [] });
+      get().savePreferences();
+    },
     selectAllProvinces: () => {
       const { schoolData } = get();
       const allProvinces = [...new Set(schoolData.map(s => s.province))];
       set({ selectedProvinces: allProvinces });
+      get().savePreferences();
     },
     toggleRegion: (provinces) => {
       const current = get().selectedProvinces;
@@ -253,6 +356,7 @@ export const useAppStore = create<AppState>((set, get) => {
         const merged = [...new Set([...current, ...provinces])];
         set({ selectedProvinces: merged });
       }
+      get().savePreferences();
     },
     setSchoolData: (data) => set({ schoolData: data }),
     setLoading: (loading) => set({ isLoading: loading }),
@@ -284,6 +388,7 @@ export const useAppStore = create<AppState>((set, get) => {
           isQuerying: false,
         },
       });
+      get().savePreferences();
 
       await get().loadFromSupabase(region);
     },
@@ -307,24 +412,27 @@ export const useAppStore = create<AppState>((set, get) => {
         set({ error: `从云端加载${targetProvince}数据失败：${err instanceof Error ? err.message : '未知错误'}`, isLoading: false });
       }
     },
-    reset: () => set({
-      baseScore: null,
-      scoreRange: 15,
-      subject: 54,
-      selectedSubjects: [],
-      totalVolunteers: 30,
-      currentRegion: '海南',
-      availableRegions: AVAILABLE_REGIONS,
-      provinceConfig: getProvinceConfig('海南') || null,
-      strategy: '稳妥',
-      selectedLevels: ['985', '211', '双一流', '普通本科'],
-      selectedProvinces: [],
-      selectedMajorCategories: [],
-      selectedNatures: [],
-      selectedMajors: [],
-      excludedMajors: [],
-      results: [],
-      error: null,
-    }),
+    reset: () => {
+      set({
+        baseScore: null,
+        scoreRange: 15,
+        subject: 54,
+        selectedSubjects: [],
+        totalVolunteers: 30,
+        currentRegion: '海南',
+        availableRegions: AVAILABLE_REGIONS,
+        provinceConfig: getProvinceConfig('海南') || null,
+        strategy: '稳妥',
+        selectedLevels: ['985', '211', '双一流', '普通本科'],
+        selectedProvinces: [],
+        selectedMajorCategories: [],
+        selectedNatures: [],
+        selectedMajors: [],
+        excludedMajors: [],
+        results: [],
+        error: null,
+      });
+      get().savePreferences();
+    },
   };
 });
