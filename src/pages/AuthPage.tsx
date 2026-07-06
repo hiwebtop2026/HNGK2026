@@ -45,6 +45,8 @@ export function AuthPage() {
     error,
     successMessage,
     rememberEmail,
+    rememberPassword,
+    savedPassword,
     register,
     login,
     logout,
@@ -52,6 +54,7 @@ export function AuthPage() {
     setError,
     setSuccessMessage,
     setRememberEmail,
+    setRememberPassword,
   } = useAuthStore();
   
   const [mode, setMode] = useState<'login' | 'register'>('register');
@@ -66,7 +69,11 @@ export function AuthPage() {
     if (rememberEmail && mode === 'login') {
       setEmail(rememberEmail);
     }
-  }, [rememberEmail, mode]);
+    // 如果启用了记住密码且有保存的密码，自动填充
+    if (rememberPassword && savedPassword && mode === 'login') {
+      setPassword(savedPassword);
+    }
+  }, [rememberEmail, rememberPassword, savedPassword, mode]);
 
   useEffect(() => {
     document.title = '智能高考志愿助理';
@@ -364,22 +371,40 @@ export function AuthPage() {
             )}
 
             {mode === 'login' && (
-              <div className="flex items-center justify-between">
-                <label className={`flex items-center gap-2 cursor-pointer text-sm ${textSecondary}`}>
-                  <input
-                    type="checkbox"
-                    checked={!!rememberEmail}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setRememberEmail(email || null);
-                      } else {
-                        setRememberEmail(null);
-                      }
-                    }}
-                    className="w-4 h-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-                  />
-                  保持登录
-                </label>
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center gap-4">
+                  <label className={`flex items-center gap-2 cursor-pointer text-sm ${textSecondary}`}>
+                    <input
+                      type="checkbox"
+                      checked={!!rememberEmail}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setRememberEmail(email || null);
+                        } else {
+                          setRememberEmail(null);
+                        }
+                      }}
+                      className="w-4 h-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                    />
+                    记住邮箱
+                  </label>
+                  <label className={`flex items-center gap-2 cursor-pointer text-sm ${textSecondary}`}>
+                    <input
+                      type="checkbox"
+                      checked={rememberPassword}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setRememberPassword(true, password || undefined);
+                        } else {
+                          setRememberPassword(false);
+                          setPassword('');
+                        }
+                      }}
+                      className="w-4 h-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                    />
+                    记住密码
+                  </label>
+                </div>
                 <button className={`text-sm transition-colors ${isDark ? 'text-primary-400 hover:text-primary-300' : 'text-primary-600 hover:text-primary-700'}`}>
                   忘记密码？
                 </button>

@@ -3,7 +3,25 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { sendVerificationCode } from '../services/emailService';
 
 const REMEMBER_EMAIL_KEY = 'hngk_remember_email';
+const REMEMBER_PASSWORD_KEY = 'hngk_remember_password';
 const OTP_EXPIRE_MINUTES = 10;
+
+// 简单的编码/解码函数（非加密，仅做基础混淆，避免明文存储）
+function encodePassword(password: string): string {
+  try {
+    return btoa(unescape(encodeURIComponent(password)));
+  } catch {
+    return password;
+  }
+}
+
+function decodePassword(encoded: string): string {
+  try {
+    return decodeURIComponent(escape(atob(encoded)));
+  } catch {
+    return '';
+  }
+}
 
 interface User {
   id: string;
@@ -19,6 +37,8 @@ interface AuthState {
   error: string | null;
   successMessage: string | null;
   rememberEmail: string | null;
+  rememberPassword: boolean;
+  savedPassword: string | null;
 
   register: (email: string, password: string, nickname: string) => Promise<boolean>;
   sendOtp: (email: string, nickname?: string) => Promise<boolean>;
@@ -30,6 +50,7 @@ interface AuthState {
   setError: (error: string | null) => void;
   setSuccessMessage: (message: string | null) => void;
   setRememberEmail: (email: string | null) => void;
+  setRememberPassword: (enabled: boolean, password?: string) => void;
 }
 
 export function isPasswordStrong(password: string): boolean {
@@ -115,13 +136,45 @@ function saveRememberEmail(email: string | null) {
   } catch {}
 }
 
-export const useAuthStore = create<AuthState>((set, get) => ({
+function loadSavedPassword(): { enabled: boolean; password: string } {
+  try {
+    const saved = localStorage.getItem(REMEMBER_PASSWORD_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      return {
+        enabled: !!parsed.enabled,
+        password: parsed.password ? decodePassword(parsed.password) : '',
+      };
+    }
+  } catch {}
+  return { enabled: false, password: '' };
+}
+
+function saveSavedPassword(enabled: boolean, password: string | null) {
+  try {
+    if (enabled && password) {
+      localStorage.setItem(REMEMBER_PASSWORD_KEY, JSON.stringify({
+        enabled: true,
+        password: encodePassword(password),
+      }));
+    } else {
+      localStorage.removeItem(REMEMBER_PASSWORD_KEY);
+    }
+  } catch {}
+}
+
+export const useAuthStore = create<AuthState>((set, get) => {
+  const initialSavedPassword = loadSavedPassword();
+  
+  return {
   isAuthenticated: false,
   user: null,
   isLoading: false,
   error: null,
   successMessage: null,
   rememberEmail: loadRememberEmail(),
+  rememberPassword: initialSavedPassword.enabled,
+  savedPassword: initialSavedPassword.password,
 
   findEmailByNickname: async (nickname: string): Promise<string | null> => {
     if (!isSupabaseConfigured || !supabase) return null;
@@ -502,6 +555,16 @@ export const useAuthStore = create<AuthState>((set, get) => ({
           set({ rememberEmail: email });
         }
 
+        // 根据用户选择保存或清除密码
+        const { rememberPassword } = get();
+        if (rememberPassword) {
+          saveSavedPassword(true, password);
+          set({ savedPassword: password });
+        } else {
+          saveSavedPassword(false, null);
+          set({ savedPassword: null });
+        }
+
         set({ isLoading: false, isAuthenticated: true, user, error: null });
         return true;
       }
@@ -579,4 +642,19 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     saveRememberEmail(email);
     set({ rememberEmail: email });
   },
-}));
+
+  setRememberPassword: (enabled: boolean, password?: string) => {
+    if (enabled && password) {
+      saveSavedPassword(true, password);
+      set({ rememberPassword: true, savedPassword: password });
+    } else if (enabled) {
+      // 只切换状态，不保存密码（密码会在登录成功后保存）
+      set({ rememberPassword: true });
+    } else {
+      saveSavedPassword(false, null);
+      set({ rememberPassword: false, savedPassword: null });
+    }
+  },
+  };
+});
+
