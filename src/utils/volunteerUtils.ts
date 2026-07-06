@@ -521,10 +521,21 @@ export async function filterSchoolsWithMajors(
     };
   }));
   
-  // 按档次分组
-  const chong = withRankAnalysis.filter(s => s.tier === '冲');
-  const wen = withRankAnalysis.filter(s => s.tier === '稳');
-  const bao = withRankAnalysis.filter(s => s.tier === '保');
+  // 按档次分组，并按分数优化排序
+  // 冲档：按分数从高到低排序（最高分优先，冲击更好的学校）
+  const chong = withRankAnalysis
+    .filter(s => s.tier === '冲')
+    .sort((a, b) => b.refScore - a.refScore);
+  
+  // 稳档：按分数接近程度排序（越接近考生分数越优先）
+  const wen = withRankAnalysis
+    .filter(s => s.tier === '稳')
+    .sort((a, b) => Math.abs(a.refScore - baseScore) - Math.abs(b.refScore - baseScore));
+  
+  // 保档：按分数从低到高排序（最低分优先，确保保底安全）
+  const bao = withRankAnalysis
+    .filter(s => s.tier === '保')
+    .sort((a, b) => a.refScore - b.refScore);
   
   // 使用策略配置的比例计算各档次数量
   let chongCount = Math.min(Math.ceil(totalVolunteers * strategyConfig.chongRatio), chong.length);
@@ -823,10 +834,38 @@ export async function filterSchoolsAsync(
         major.tier = getMajorTierByScore(score, baseScore, chongDiff, wenDiff, province);
       });
       
+      // 专业热度关键词映射（基于专业名称判断热度）
+      const getMajorHeatScore = (majorName: string): number => {
+        const hotKeywords = ['计算机', '软件', '电子信息', '人工智能', '数据', '金融', '经济', '临床医学', '口腔', '法学', '会计'];
+        const warmKeywords = ['机械', '土木', '化工', '材料', '环境', '生物', '数学', '物理', '化学', '英语', '汉语言'];
+        const coolKeywords = ['历史', '哲学', '考古', '地质', '矿业', '林业', '农学', '水利', '测绘', '海洋'];
+        
+        for (const keyword of hotKeywords) {
+          if (majorName.includes(keyword)) return 100;
+        }
+        for (const keyword of warmKeywords) {
+          if (majorName.includes(keyword)) return 70;
+        }
+        for (const keyword of coolKeywords) {
+          if (majorName.includes(keyword)) return 40;
+        }
+        return 60;
+      };
+      
+      // 综合排序：优先考虑分数匹配度 + 专业热度
+      // 分数匹配度：录取概率越高越好（50%权重）
+      // 专业热度：热门专业优先（50%权重）
       matched.sort((a, b) => {
-        const scoreA = a.min_score || 0;
-        const scoreB = b.min_score || 0;
-        return scoreB - scoreA;
+        const scoreMatchA = (a.admission_probability || 0) * 0.5;
+        const scoreMatchB = (b.admission_probability || 0) * 0.5;
+        
+        const heatA = getMajorHeatScore(a.major_name || '') * 0.5;
+        const heatB = getMajorHeatScore(b.major_name || '') * 0.5;
+        
+        const totalA = scoreMatchA + heatA;
+        const totalB = scoreMatchB + heatB;
+        
+        return totalB - totalA;
       });
       
       const uniqueMajors = deduplicateMajors(matched);

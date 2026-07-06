@@ -186,8 +186,33 @@ export function generateMajorRecommendations(
     };
   });
   
-  // 按录取概率从高到低排序
-  recommendations.sort((a, b) => b.probability - a.probability);
+  // 专业热度权重
+  const HEAT_SCORE: Record<string, number> = {
+    'top': 100,
+    'hot': 80,
+    'warm': 60,
+    'cool': 40,
+  };
+  
+  // 综合排序：优先考虑分数匹配度 + 专业热度
+  // 分数匹配度：录取概率越高越好（40%权重）
+  // 专业热度：热门专业优先（40%权重）
+  // 学科实力：实力越强越优先（20%权重）
+  recommendations.sort((a, b) => {
+    const scoreMatchA = a.probability * 0.4;
+    const scoreMatchB = b.probability * 0.4;
+    
+    const heatA = (HEAT_SCORE[a.heat] || 50) * 0.4;
+    const heatB = (HEAT_SCORE[b.heat] || 50) * 0.4;
+    
+    const levelA = (LEVEL_SCORE[a.level] || 60) * 0.2;
+    const levelB = (LEVEL_SCORE[b.level] || 60) * 0.2;
+    
+    const totalA = scoreMatchA + heatA + levelA;
+    const totalB = scoreMatchB + heatB + levelB;
+    
+    return totalB - totalA;
+  });
   
   // 分档次选择，确保每个档次都有推荐
   const chongMajors = recommendations.filter(m => m.admissionTier === '冲刺').slice(0, 2);
@@ -196,14 +221,28 @@ export function generateMajorRecommendations(
   
   const result = [...chongMajors, ...wenMajors, ...baoMajors];
   
-  // 如果结果不足6个，补充其他专业
+  // 如果结果不足6个，按综合排序补充其他专业
   if (result.length < 6) {
     const remaining = recommendations.filter(m => !result.find(r => r.name === m.name));
     result.push(...remaining.slice(0, 6 - result.length));
   }
   
-  // 保持排序（保底在前，冲刺在后，便于考生了解梯度）
-  result.sort((a, b) => b.probability - a.probability);
+  // 保持综合排序
+  result.sort((a, b) => {
+    const scoreMatchA = a.probability * 0.4;
+    const scoreMatchB = b.probability * 0.4;
+    
+    const heatA = (HEAT_SCORE[a.heat] || 50) * 0.4;
+    const heatB = (HEAT_SCORE[b.heat] || 50) * 0.4;
+    
+    const levelA = (LEVEL_SCORE[a.level] || 60) * 0.2;
+    const levelB = (LEVEL_SCORE[b.level] || 60) * 0.2;
+    
+    const totalA = scoreMatchA + heatA + levelA;
+    const totalB = scoreMatchB + heatB + levelB;
+    
+    return totalB - totalA;
+  });
   
   return result.slice(0, 6);
 }

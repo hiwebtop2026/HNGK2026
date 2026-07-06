@@ -202,6 +202,9 @@ export function HomePage() {
     
     const is3Plus3Mode = provinceConfig?.examMode === '3+3';
     
+    const isHighScoreSystem = ['海南'].includes(currentRegion);
+    const adjustedScoreRange = isHighScoreSystem ? scoreRange * 2 : scoreRange;
+    
     return data.filter(s => {
       if (is3Plus3Mode) {
         if (selectedSubjects.length > 0) {
@@ -220,13 +223,13 @@ export function HomePage() {
       }
       if (baseScore !== null) {
         const refScore = s.score2025 ?? s.score2024 ?? s.score2023 ?? 0;
-        return refScore >= baseScore - scoreRange && refScore <= baseScore + scoreRange;
+        return refScore >= baseScore - adjustedScoreRange && refScore <= baseScore + adjustedScoreRange;
       }
       return true;
     }).length;
-  }, [baseScore, scoreRange, subject, selectedLevels, selectedNatures, selectedProvinces, selectedMajorCategories, schoolData, provinceConfig, selectedSubjects]);
+  }, [baseScore, scoreRange, subject, selectedLevels, selectedNatures, selectedProvinces, selectedMajorCategories, schoolData, provinceConfig, selectedSubjects, currentRegion]);
   
-  const scoreRangeOptions = [10, 15, 20, 25, 30];
+  const scoreRangeOptions = ['海南'].includes(currentRegion) ? [20, 30, 40, 50, 60] : [10, 15, 20, 25, 30];
   const volunteerOptions = [15, 20, 30, 45];
 
   const subjectOptions = useMemo(() => {
@@ -1283,7 +1286,7 @@ export function HomePage() {
                     <div className="flex items-center gap-2 mb-3 flex-wrap">
                       {ALL_MAJOR_CATEGORIES.map((category) => (
                         <button
-                          key={category}
+                          key={`select-${category}`}
                           onClick={() => {
                             const majorsInCategory = getMajorsByCategory(category);
                             majorsInCategory.forEach((m) => {
@@ -1298,7 +1301,29 @@ export function HomePage() {
                               : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                           }`}
                         >
-                          全选{category}
+                          想学{category}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 mb-3 flex-wrap">
+                      {ALL_MAJOR_CATEGORIES.map((category) => (
+                        <button
+                          key={`exclude-${category}`}
+                          onClick={() => {
+                            const majorsInCategory = getMajorsByCategory(category);
+                            majorsInCategory.forEach((m) => {
+                              if (!excludedMajors.includes(m.name) && !selectedMajors.includes(m.name)) {
+                                toggleExcludedMajor(m.name);
+                              }
+                            });
+                          }}
+                          className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
+                            isDark
+                              ? 'bg-red-500/20 text-red-400 hover:bg-red-500/30'
+                              : 'bg-red-50 text-red-600 hover:bg-red-100'
+                          }`}
+                        >
+                          不选{category}
                         </button>
                       ))}
                     </div>
