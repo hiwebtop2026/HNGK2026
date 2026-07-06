@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
   Mail, Lock, Loader2, AlertCircle, CheckCircle2, School, Sparkles,
-  User, LogOut, ArrowRight, Info, Eye, EyeOff
+  User, LogOut, ArrowRight, Info, Eye, EyeOff, ShieldCheck
 } from 'lucide-react';
 import { useAuthStore, isPasswordStrong } from '../store/authStore';
 import { useAppStore } from '../store/appStore';
+import Captcha from '../components/Captcha';
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useAppStore();
@@ -61,6 +62,20 @@ export function AuthPage() {
   const [nickname, setNickname] = useState('');
   const [showGuide, setShowGuide] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [captchaInput, setCaptchaInput] = useState('');
+  const [captchaCode, setCaptchaCode] = useState('');
+  const captchaRef = useCallback((code: string) => {
+    setCaptchaCode(code);
+  }, []);
+
+  const validateCaptcha = (): boolean => {
+    if (!captchaInput || captchaInput.toUpperCase() !== captchaCode.toUpperCase()) {
+      setError('验证码错误，请重新输入');
+      setCaptchaInput('');
+      return false;
+    }
+    return true;
+  };
 
   useEffect(() => {
     if (rememberEmail && mode === 'login') {
@@ -108,6 +123,9 @@ export function AuthPage() {
       setError('两次输入的密码不一致');
       return;
     }
+    if (!validateCaptcha()) {
+      return;
+    }
     await register(email, password, nickname);
   };
 
@@ -118,6 +136,9 @@ export function AuthPage() {
     }
     if (!password) {
       setError('请输入密码');
+      return;
+    }
+    if (!validateCaptcha()) {
       return;
     }
     await login(email, password);
@@ -135,6 +156,7 @@ export function AuthPage() {
     setMode(newMode);
     setError(null);
     setSuccessMessage(null);
+    setCaptchaInput('');
     if (newMode === 'login' && rememberEmail) {
       setEmail(rememberEmail);
     }
@@ -364,6 +386,32 @@ export function AuthPage() {
                 </div>
               </div>
             )}
+
+            <div>
+              <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
+                验证码
+              </label>
+              <div className="flex items-center gap-2">
+                <div className="relative flex-1">
+                  <ShieldCheck className={`absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 ${textMuted}`} />
+                  <input
+                    type="text"
+                    value={captchaInput}
+                    onChange={(e) => {
+                      setCaptchaInput(e.target.value);
+                      setError(null);
+                    }}
+                    placeholder="请输入验证码"
+                    maxLength={4}
+                    className={`w-full pl-12 pr-4 py-4 ${inputBg} border ${inputBorder} rounded-xl ${textPrimary} ${inputFocus} outline-none transition-all`}
+                    onKeyDown={(e) => e.key === 'Enter' && (mode === 'login' ? handleLoginSubmit() : handleRegisterSubmit())}
+                    autoComplete="off"
+                  />
+                </div>
+                <Captcha onChange={captchaRef} width={120} height={48} length={4} />
+              </div>
+              <p className={`text-xs mt-1 ${textMuted}`}>点击图片可刷新验证码</p>
+            </div>
 
             {mode === 'login' && (
               <div className="flex items-center justify-between flex-wrap gap-2">

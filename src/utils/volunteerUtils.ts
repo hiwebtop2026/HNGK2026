@@ -225,20 +225,26 @@ export function getSmartTier(
   schoolRefScore: number,
   rankAnalysis: RankAnalysis | null,
   strategyConfig: { chongScoreDiff: number; wenScoreDiff: number; baoScoreDiff: number },
-  province: string
+  province: string,
+  scoreRange: number = 15
 ): '冲' | '稳' | '保' {
   const isHighScore = isHighScoreSystem(province);
   const scoreDiff = candidateScore - schoolRefScore;
   const adjustedDiff = isHighScore ? scoreDiff / 2 : scoreDiff;
 
+  const effectiveRange = isHighScore ? scoreRange / 2 : scoreRange;
+  
   const chongDiff = strategyConfig.chongScoreDiff;
   const wenDiff = strategyConfig.wenScoreDiff;
 
+  const actualChongDiff = Math.min(chongDiff, effectiveRange);
+  const actualWenDiff = Math.min(wenDiff, effectiveRange * 0.5);
+
   let tier: '冲' | '稳' | '保';
 
-  if (adjustedDiff > chongDiff) {
+  if (adjustedDiff > actualChongDiff) {
     tier = '保';
-  } else if (adjustedDiff >= -wenDiff && adjustedDiff <= chongDiff) {
+  } else if (adjustedDiff >= -actualWenDiff && adjustedDiff <= actualChongDiff) {
     tier = '稳';
   } else {
     tier = '冲';
@@ -495,26 +501,31 @@ export async function filterSchoolsWithMajors(
   // 专业优先：先从major_scores表获取该省份所有专业数据，按专业分数筛选
   // 只有专业最低分在分数范围内的院校才推荐
   const allProvinceMajors = await majorScoreService.getByProvince(province);
+  const isHighScore = isHighScoreSystem(province);
+  const effectiveRange = isHighScore ? scoreRange * 2 : scoreRange;
   
   // 筛选符合条件的专业：选科匹配 + 分数在范围内 + 想学/排除专业匹配
   const validMajors = allProvinceMajors.filter(major => {
     if (!major.min_score) return false;
     
-    // 选科匹配
+    if (major.province !== province) return false;
+    
+    if (major.min_score < baseScore - effectiveRange || major.min_score > baseScore + effectiveRange) {
+      return false;
+    }
+    
     if (selectedSubjects.length > 0 && major.subject_requirement) {
       if (!isSubjectMatch(selectedSubjects, major.subject_requirement)) {
         return false;
       }
     }
     
-    // 想学专业匹配
     if (selectedMajors.length > 0) {
       if (!selectedMajors.some(m => major.major_name?.includes(m))) {
         return false;
       }
     }
     
-    // 排除专业匹配
     if (excludedMajors.length > 0) {
       if (excludedMajors.some(m => major.major_name?.includes(m))) {
         return false;
@@ -524,40 +535,40 @@ export async function filterSchoolsWithMajors(
     return true;
   });
   
-  // 获取有符合条件专业的院校列表
   const schoolsWithValidMajors = new Set<string>();
   validMajors.forEach(major => {
     if (major.school_name) {
       schoolsWithValidMajors.add(major.school_name);
     }
   });
-  
-  // 按分数范围筛选（任一年份在范围内即可）
-  // 关键修复：筛选范围必须覆盖策略所需的最大保档/冲档分差，否则会丢失候选院校
-  // 海南高分制下 adjustedDiff = scoreDiff/2，因此筛选范围需 ×2
-  const isHighScore = isHighScoreSystem(province);
-  const strategyMaxDiff = Math.max(
-    strategyConfig.chongScoreDiff,
-    strategyConfig.wenScoreDiff,
-    strategyConfig.baoScoreDiff
-  );
-  const strategyRequiredRange = isHighScore ? strategyMaxDiff * 2 : strategyMaxDiff;
-  const effectiveRange = Math.max(scoreRange, strategyRequiredRange);
 
   const inRange = filtered.filter(s => {
-    // 专业优先：必须有符合条件的专业才推荐
+    const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
+    if (refScore < baseScore - effectiveRange || refScore > baseScore + effectiveRange) {
+      return false;
+    }
+    
     const schoolNameKey = extractSchoolNameKey(s.name);
     const hasValidMajor = Array.from(schoolsWithValidMajors).some(
       sn => extractSchoolNameKey(sn) === schoolNameKey || sn.includes(schoolNameKey)
     );
-    if (!hasValidMajor) return false;
     
-    const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
-    return refScore >= baseScore - effectiveRange && refScore <= baseScore + effectiveRange;
+    return hasValidMajor;
   });
   
+  const useMajorFilter = schoolsWithValidMajors.size > 0 && inRange.length >= Math.min(totalVolunteers, 10);
+  
+  let finalSchools = inRange;
+  
+  if (!useMajorFilter) {
+    finalSchools = filtered.filter(s => {
+      const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
+      return refScore >= baseScore - effectiveRange && refScore <= baseScore + effectiveRange;
+    });
+  }
+  
   // 计算参考分并排序
-  const withRefScore = inRange.map(s => ({
+  const withRefScore = finalSchools.map(s => ({
     ...s,
     refScore: getRefScore(s.score2025, s.score2024, s.score2023),
   }));
@@ -568,7 +579,7 @@ export async function filterSchoolsWithMajors(
   // 并行计算位次分析
   const withRankAnalysis = await Promise.all(sorted.map(async s => {
     const rankAnalysis = await analyzeRank(baseScore, s.refScore, province);
-    const tier = getSmartTier(baseScore, s.refScore, rankAnalysis, strategyConfig, province);
+    const tier = getSmartTier(baseScore, s.refScore, rankAnalysis, strategyConfig, province, scoreRange);
     return {
       ...s,
       tier,
@@ -800,13 +811,16 @@ function getMajorTierByScore(
   baseScore: number,
   chongDiff: number,
   wenDiff: number,
-  province: string = '海南'
+  province: string = '海南',
+  scoreRange: number = 15
 ): '冲' | '稳' | '保' {
   const diff = majorScore - baseScore;
   const isHighScoreSystem = ['海南'].includes(province);
   
-  const adjustedChongDiff = isHighScoreSystem ? chongDiff * 2 : chongDiff;
-  const adjustedWenDiff = isHighScoreSystem ? wenDiff * 2 : wenDiff;
+  const effectiveRange = isHighScoreSystem ? scoreRange * 2 : scoreRange;
+  
+  const adjustedChongDiff = Math.min(isHighScoreSystem ? chongDiff * 2 : chongDiff, effectiveRange);
+  const adjustedWenDiff = Math.min(isHighScoreSystem ? wenDiff * 2 : wenDiff, effectiveRange * 0.5);
   
   if (diff > 0 && diff <= adjustedChongDiff) {
     return '冲';
@@ -856,10 +870,9 @@ export async function filterSchoolsAsync(
   const strategyConfig = STRATEGY_CONFIGS[strategy];
   const chongDiff = strategyConfig.chongScoreDiff;
   const wenDiff = strategyConfig.wenScoreDiff;
-  const baoDiff = strategyConfig.baoScoreDiff;
   
   const isHighScoreSystem = ['海南'].includes(province);
-  const adjustedMaxRange = isHighScoreSystem ? Math.max(chongDiff, wenDiff, baoDiff) * 2 + 60 : Math.max(chongDiff, wenDiff, baoDiff) + 30;
+  const effectiveRange = isHighScoreSystem ? scoreRange * 2 : scoreRange;
   
   for (const result of results) {
     try {
@@ -880,13 +893,13 @@ export async function filterSchoolsAsync(
       
       const matched = filteredMajors.filter(major => {
         const score = major.min_score || 0;
-        return score >= baseScore - adjustedMaxRange && score <= baseScore + adjustedMaxRange;
+        return score >= baseScore - effectiveRange && score <= baseScore + effectiveRange;
       });
       
       matched.forEach(major => {
         const score = major.min_score || 0;
         major.admission_probability = getMajorAdmissionProbability(score, baseScore, province);
-        major.tier = getMajorTierByScore(score, baseScore, chongDiff, wenDiff, province);
+        major.tier = getMajorTierByScore(score, baseScore, chongDiff, wenDiff, province, scoreRange);
       });
       
       // 专业热度关键词映射（基于专业名称判断热度）

@@ -41,6 +41,11 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
   if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores表加载了 ${admissionData.length} 所学校`);
   
   for (const item of admissionData) {
+    if (item.province !== province) {
+      if (import.meta.env.DEV) console.warn(`[DEBUG] 跳过province不匹配的admission数据: ${item.name}, province=${item.province}`);
+      continue;
+    }
+    
     const key = extractSchoolNameKey(item.name);
     const existing = result.get(key);
     if (existing) {
@@ -71,6 +76,11 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
   if (import.meta.env.DEV) console.log(`[DEBUG] major_scores表加载了 ${majorData.length} 所学校`);
   
   for (const item of majorData) {
+    if (item.province !== province) {
+      if (import.meta.env.DEV) console.warn(`[DEBUG] 跳过province不匹配的major数据: ${item.name}, province=${item.province}`);
+      continue;
+    }
+    
     const key = extractSchoolNameKey(item.name);
     const existing = result.get(key);
     
@@ -120,7 +130,7 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
   }
   
   if (import.meta.env.DEV) console.log(`[DEBUG] 合并major_scores后共有 ${result.size} 所学校`);
-  if (import.meta.env.DEV) console.log(`[DEBUG] 返回学校列表前5所: ${Array.from(result.values()).slice(0, 5).map(s => s.name).join(', ')}`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] 返回学校列表前5所: ${Array.from(result.values()).slice(0, 5).map(s => `${s.name}(${s.province})`).join(', ')}`);
   if (import.meta.env.DEV) console.log(`[DEBUG] ==================== 加载${province}数据完成 ====================`);
   
   return Array.from(result.values());
@@ -143,6 +153,11 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
     
     for (const score of scores) {
       if (!score.school_name) continue;
+      
+      if (score.province !== province) {
+        if (import.meta.env.DEV) console.warn(`[DEBUG] admission_scores数据province不匹配: ${score.school_name}, db_province=${score.province}, target=${province}`);
+        continue;
+      }
       
       const key = extractSchoolNameKey(score.school_name);
       const existing = result.get(key);
@@ -216,6 +231,12 @@ async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
     
     for (const score of scores) {
       if (!score.school_name || score.min_score === null) {
+        skipped++;
+        continue;
+      }
+      
+      if (score.province !== province) {
+        if (import.meta.env.DEV) console.warn(`[DEBUG] major_scores数据province不匹配: ${score.school_name}, db_province=${score.province}, target=${province}`);
         skipped++;
         continue;
       }

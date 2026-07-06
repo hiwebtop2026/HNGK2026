@@ -229,7 +229,6 @@ export function HomePage() {
     }).length;
   }, [baseScore, scoreRange, subject, selectedLevels, selectedNatures, selectedProvinces, selectedMajorCategories, schoolData, provinceConfig, selectedSubjects, currentRegion]);
   
-  const scoreRangeOptions = ['海南'].includes(currentRegion) ? [20, 30, 40, 50, 60] : [10, 15, 20, 25, 30];
   const volunteerOptions = [15, 20, 30, 45];
 
   const subjectOptions = useMemo(() => {
@@ -807,7 +806,7 @@ export function HomePage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-6">
                   <div>
                     <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>高考分数</label>
                     <div className="relative">
@@ -831,23 +830,25 @@ export function HomePage() {
                   </div>
 
                   <div>
-                    <label className={`block text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-3`}>分数浮动范围（±分）</label>
-                    <div className="flex gap-2">
-                      {scoreRangeOptions.map((range) => (
-                        <button
-                          key={range}
-                          onClick={() => setScoreRange(range)}
-                          className={`flex-1 px-3 py-3 rounded-xl border font-medium transition-all ${
-                            scoreRange === range
-                              ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white border-transparent shadow-lg shadow-primary-500/25'
-                              : isDark
-                              ? 'bg-white/5 text-gray-400 border-white/10 hover:border-white/20 hover:text-gray-300'
-                              : 'bg-white text-gray-500 border-gray-200 hover:border-primary-300 hover:text-gray-700'
-                          }`}
-                        >
-                          ±{range}
-                        </button>
-                      ))}
+                    <div className="flex items-center justify-between mb-3">
+                      <label className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>分数浮动范围</label>
+                      <span className={`text-sm font-bold ${isDark ? 'text-primary-400' : 'text-primary-600'}`}>±{scoreRange} 分</span>
+                    </div>
+                    <div className="px-2">
+                      <input
+                        type="range"
+                        min={['海南'].includes(currentRegion) ? 10 : 5}
+                        max={['海南'].includes(currentRegion) ? 80 : 40}
+                        step={['海南'].includes(currentRegion) ? 5 : 5}
+                        value={scoreRange}
+                        onChange={(e) => setScoreRange(parseInt(e.target.value))}
+                        className="w-full h-2 rounded-full appearance-none cursor-pointer bg-gradient-to-r from-primary-500 to-primary-400 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-primary-500"
+                      />
+                    </div>
+                    <div className={`flex justify-between text-xs ${textMuted} mt-2 px-2`}>
+                      <span>±{['海南'].includes(currentRegion) ? 10 : 5}分</span>
+                      <span>±{Math.floor((['海南'].includes(currentRegion) ? 80 : 40) / 2)}分</span>
+                      <span>±{['海南'].includes(currentRegion) ? 80 : 40}分</span>
                     </div>
                   </div>
                 </div>
