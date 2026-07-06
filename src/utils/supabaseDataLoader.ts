@@ -149,15 +149,15 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
       
       if (existing) {
         if (year === 2025) {
-          if (existing.score2025 === null || score.score > existing.score2025) {
+          if (existing.score2025 === null || score.score < existing.score2025) {
             existing.score2025 = score.score;
           }
         } else if (year === 2024) {
-          if (existing.score2024 === null || score.score > existing.score2024) {
+          if (existing.score2024 === null || score.score < existing.score2024) {
             existing.score2024 = score.score;
           }
         } else if (year === 2023) {
-          if (existing.score2023 === null || score.score > existing.score2023) {
+          if (existing.score2023 === null || score.score < existing.score2023) {
             existing.score2023 = score.score;
           }
         }
@@ -225,15 +225,15 @@ async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
       
       if (existing) {
         if (score.year === 2025) {
-          if (existing.score2025 === null || score.min_score > existing.score2025) {
+          if (existing.score2025 === null || score.min_score < existing.score2025) {
             existing.score2025 = score.min_score;
           }
         } else if (score.year === 2024) {
-          if (existing.score2024 === null || score.min_score > existing.score2024) {
+          if (existing.score2024 === null || score.min_score < existing.score2024) {
             existing.score2024 = score.min_score;
           }
         } else if (score.year === 2023) {
-          if (existing.score2023 === null || score.min_score > existing.score2023) {
+          if (existing.score2023 === null || score.min_score < existing.score2023) {
             existing.score2023 = score.min_score;
           }
         }
