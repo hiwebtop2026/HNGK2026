@@ -20,29 +20,38 @@ CREATE INDEX IF NOT EXISTS idx_profiles_email ON profiles(email);
 -- 3. 启用 RLS（行级安全）
 ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
 
--- 4. 创建策略：匿名用户可按昵称查询邮箱（用于昵称登录）
+-- 4. 删除旧策略
 DROP POLICY IF EXISTS "Anyone can read profile by nickname" ON profiles;
-CREATE POLICY "Anyone can read profile by nickname"
-  ON profiles
-  FOR SELECT
-  USING (true);
+DROP POLICY IF EXISTS "Users can view own profile" ON profiles;
+DROP POLICY IF EXISTS "Users can update own profile" ON profiles;
 
 -- 5. 创建策略：用户可以查看自己的资料
-DROP POLICY IF EXISTS "Users can view own profile" ON profiles;
 CREATE POLICY "Users can view own profile"
   ON profiles
   FOR SELECT
   USING (auth.uid() = id);
 
 -- 6. 创建策略：用户可以更新自己的资料
-DROP POLICY IF EXISTS "Users can update own profile" ON profiles;
 CREATE POLICY "Users can update own profile"
   ON profiles
   FOR UPDATE
   USING (auth.uid() = id)
   WITH CHECK (auth.uid() = id);
 
--- 7. 创建触发器函数：用户注册时自动创建 profile
+-- 7. 创建安全的昵称查询函数（用于昵称登录）
+-- 使用 SECURITY DEFINER 允许匿名用户查询邮箱，但只能按昵称精确查询
+CREATE OR REPLACE FUNCTION public.get_email_by_nickname(p_nickname TEXT)
+RETURNS TEXT AS $$
+BEGIN
+  RETURN (
+    SELECT email FROM public.profiles
+    WHERE nickname = p_nickname
+    LIMIT 1
+  );
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- 8. 创建触发器函数：用户注册时自动创建 profile
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
 BEGIN
@@ -56,7 +65,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
--- 8. 绑定触发器到 auth.users
+-- 9. 绑定触发器到 auth.users
 DROP TRIGGER IF EXISTS on_auth_user_created ON auth.users;
 CREATE TRIGGER on_auth_user_created
   AFTER INSERT ON auth.users
@@ -70,3 +79,6 @@ CREATE TRIGGER on_auth_user_created
 
 -- 查看 RLS 策略
 -- SELECT policyname, cmd, roles, qual, with_check FROM pg_policies WHERE tablename = 'profiles';
+
+-- 测试昵称查询函数
+-- SELECT public.get_email_by_nickname('testuser');

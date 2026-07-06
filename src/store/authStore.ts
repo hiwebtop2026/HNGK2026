@@ -113,14 +113,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     if (!isSupabaseConfigured || !supabase) return null;
 
     try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('email')
-        .eq('nickname', nickname.trim())
-        .single();
+      const { data, error } = await supabase.rpc('get_email_by_nickname', {
+        p_nickname: nickname.trim(),
+      });
 
-      if (!error && data?.email) {
-        return data.email;
+      if (!error && typeof data === 'string') {
+        return data;
       }
       return null;
     } catch {
