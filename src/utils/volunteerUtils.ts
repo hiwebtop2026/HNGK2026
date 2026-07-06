@@ -918,12 +918,24 @@ export async function filterSchoolsAsync(
       
       if (result.tier === '冲') {
         // 冲档院校：优先推荐冲专业，其次稳专业
+        // 冲专业按分数降序排列（优先推荐分数最高的冲专业，更符合冲刺概念）
+        // 稳专业按分数降序排列（优先推荐分数较高的稳专业）
+        chongMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
+        wenMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
         strategyMatched = [...chongMajors, ...wenMajors];
       } else if (result.tier === '稳') {
         // 稳档院校：优先推荐稳专业，其次保专业（保专业更容易录取，增加稳妥性）
+        // 稳专业按与考生分数的差值升序排列（优先推荐最接近考生分数的专业）
+        // 保专业按分数降序排列（优先推荐分数较高的保专业，不浪费分数）
+        wenMajors.sort((a, b) => Math.abs((a.min_score || 0) - baseScore) - Math.abs((b.min_score || 0) - baseScore));
+        baoMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
         strategyMatched = [...wenMajors, ...baoMajors];
       } else if (result.tier === '保') {
         // 保档院校：优先推荐保专业，其次稳专业
+        // 保专业按分数降序排列（优先推荐分数较高的保专业，既保证录取又不浪费分数）
+        // 稳专业按分数降序排列（优先推荐分数较高的稳专业）
+        baoMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
+        wenMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
         strategyMatched = [...baoMajors, ...wenMajors];
       } else {
         strategyMatched = [...matched];
@@ -933,35 +945,6 @@ export async function filterSchoolsAsync(
       if (strategyMatched.length === 0) {
         strategyMatched = [...matched];
       }
-      
-      // 专业排序：根据策略类型调整权重
-      // 激进策略：更看重专业热度（冲刺热门专业）
-      // 稳妥策略：均衡考虑分数匹配度和专业热度
-      // 保守策略：更看重分数匹配度（确保录取）
-      // 个性化策略：根据专业偏好调整
-      let scoreWeight = 0.5;
-      let heatWeight = 0.5;
-      
-      if (strategy === '激进') {
-        scoreWeight = 0.3;
-        heatWeight = 0.7;
-      } else if (strategy === '保守') {
-        scoreWeight = 0.7;
-        heatWeight = 0.3;
-      }
-      
-      strategyMatched.sort((a, b) => {
-        const scoreMatchA = (a.admission_probability || 0) * scoreWeight;
-        const scoreMatchB = (b.admission_probability || 0) * scoreWeight;
-        
-        const heatA = getMajorHeatScore(a.major_name || '') * heatWeight;
-        const heatB = getMajorHeatScore(b.major_name || '') * heatWeight;
-        
-        const totalA = scoreMatchA + heatA;
-        const totalB = scoreMatchB + heatB;
-        
-        return totalB - totalA;
-      });
       
       const uniqueMajors = deduplicateMajors(strategyMatched);
       const limitedMajors = uniqueMajors.slice(0, 6);
