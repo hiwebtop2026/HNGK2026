@@ -990,7 +990,7 @@ export async function filterSchoolsWithMajors(
   return result;
 }
 
-function extractSchoolName(schoolName: string): string {
+export function extractSchoolName(schoolName: string): string {
   const match = schoolName.match(/^(.+?)(?:\(\d+\))?$/);
   return match ? match[1].trim() : schoolName.trim();
 }

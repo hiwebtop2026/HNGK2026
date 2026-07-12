@@ -3,17 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import {
   Upload, GraduationCap, ChevronRight, MapPin, Award, Sparkles, Target, Zap, BookOpen,
   Cpu, Radio, Lightbulb, Stethoscope, TrendingUp, Scale, Palette, Database, RefreshCw,
-  Trophy, Users, Sun, Moon, School, Info, LogOut, User, AlertCircle
+  Trophy, Users, Sun, Moon, School, Info, LogOut, User, AlertCircle, ExternalLink
 } from 'lucide-react';
+import { MajorSchoolModal } from '../components/MajorSchoolModal';
 import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
 import { useUsageStore } from '../store/usageStore';
-import { filterSchools, filterSchoolsAsync, loadSchoolDataFromExcel } from '../utils/volunteerUtils';
-import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST, isSubjectMatch } from '../utils/dataUtils';
+import { filterSchools, filterSchoolsAsync, loadSchoolDataFromExcel, extractSchoolName } from '../utils/volunteerUtils';
+import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST, isSubjectMatch, getRefScore } from '../utils/dataUtils';
 import { fetchRankInfo } from '../utils/dataUtils';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, SCHOOL_NATURES, REGION_GROUPS } from '../data/schoolData';
 import { ALL_MAJORS, MAJOR_CATEGORIES as ALL_MAJOR_CATEGORIES, getMajorsByCategory } from '../data/majorData';
 import { STRATEGY_CONFIGS } from '../store/appStore';
+import { majorScoreService } from '../services/majorScoreService';
 
 const majorIcons: Record<string, React.ReactNode> = {
   cs: <Cpu className="w-5 h-5" />,
@@ -112,6 +114,9 @@ export function HomePage() {
   
   const [file, setFile] = useState<File | null>(null);
   const [dragActive, setDragActive] = useState(false);
+  const [showMajorModal, setShowMajorModal] = useState(false);
+  const [selectedMajorForModal, setSelectedMajorForModal] = useState('');
+  const [availableCount, setAvailableCount] = useState(0);
 
   // 检查认证状态并设置页面标题
   useEffect(() => {
@@ -197,37 +202,98 @@ export function HomePage() {
     }
   }, [baseScore, subject, currentRegion, provinceConfig, setRankInfo]);
   
-  const availableCount = useMemo(() => {
-    const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
-    
-    const is3Plus3Mode = provinceConfig?.examMode === '3+3';
-    
-    const isHighScoreSystem = ['海南'].includes(currentRegion);
-    const adjustedScoreRange = isHighScoreSystem ? scoreRange * 2 : scoreRange;
-    
-    return data.filter(s => {
-      if (is3Plus3Mode) {
-        if (selectedSubjects.length > 0) {
-          if (!isSubjectMatch(selectedSubjects, s.subject_requirement ?? s.subject)) return false;
+  useEffect(() => {
+    const calculateAvailableCount = async () => {
+      const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
+      
+      const is3Plus3Mode = provinceConfig?.examMode === '3+3';
+      
+      const isHighScoreSystem = ['海南'].includes(currentRegion);
+      const adjustedScoreRange = isHighScoreSystem ? scoreRange * 2 : scoreRange;
+      
+      let filtered = data.filter(s => {
+        if (s.province !== currentRegion && s.region !== currentRegion) return false;
+        
+        if (is3Plus3Mode) {
+          if (selectedSubjects.length > 0) {
+            if (!isSubjectMatch(selectedSubjects, s.subject_requirement ?? s.subject)) return false;
+          }
+        } else {
+          if (subject !== undefined && s.subject !== subject) return false;
         }
-      } else {
-        if (subject !== undefined && s.subject !== subject) return false;
+        
+        if (selectedLevels.length > 0 && !selectedLevels.includes(s.level)) return false;
+        if (selectedNatures.length > 0 && !selectedNatures.includes(s.nature)) return false;
+        if (selectedProvinces.length > 0 && !selectedProvinces.includes(s.province)) return false;
+        if (selectedMajorCategories.length > 0) {
+          const cats = matchMajorCategories(s.name);
+          if (!selectedMajorCategories.some(c => cats.includes(c))) return false;
+        }
+        if (baseScore !== null) {
+          const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
+          return refScore >= baseScore - adjustedScoreRange && refScore <= baseScore + adjustedScoreRange;
+        }
+        return true;
+      });
+      
+      if (selectedMajors.length > 0 || excludedMajors.length > 0) {
+        try {
+          const allProvinceMajors = await majorScoreService.getByProvince(currentRegion);
+          
+          const validMajors = allProvinceMajors.filter(major => {
+            if (!major.min_score) return false;
+            if (major.province !== currentRegion) return false;
+            
+            if (baseScore !== null) {
+              if (major.min_score < baseScore - adjustedScoreRange || major.min_score > baseScore + adjustedScoreRange) {
+                return false;
+              }
+            }
+            
+            if (selectedSubjects.length > 0 && major.subject_requirement) {
+              if (!isSubjectMatch(selectedSubjects, major.subject_requirement)) {
+                return false;
+              }
+            }
+            
+            if (selectedMajors.length > 0) {
+              if (!selectedMajors.some(m => major.major_name?.includes(m))) {
+                return false;
+              }
+            }
+            
+            if (excludedMajors.length > 0) {
+              if (excludedMajors.some(m => major.major_name?.includes(m))) {
+                return false;
+              }
+            }
+            
+            return true;
+          });
+          
+          const schoolsWithValidMajors = new Set<string>();
+          validMajors.forEach(major => {
+            if (major.school_name) {
+              schoolsWithValidMajors.add(extractSchoolName(major.school_name));
+            }
+          });
+          
+          filtered = filtered.filter(s => {
+            const schoolNameKey = extractSchoolName(s.name);
+            return Array.from(schoolsWithValidMajors).some(
+              sn => sn === schoolNameKey || sn.includes(schoolNameKey) || schoolNameKey.includes(sn)
+            );
+          });
+        } catch (error) {
+          console.error('获取专业数据失败:', error);
+        }
       }
       
-      if (selectedLevels.length > 0 && !selectedLevels.includes(s.level)) return false;
-      if (selectedNatures.length > 0 && !selectedNatures.includes(s.nature)) return false;
-      if (selectedProvinces.length > 0 && !selectedProvinces.includes(s.province)) return false;
-      if (selectedMajorCategories.length > 0) {
-        const cats = matchMajorCategories(s.name);
-        if (!selectedMajorCategories.some(c => cats.includes(c))) return false;
-      }
-      if (baseScore !== null) {
-        const refScore = s.score2025 ?? s.score2024 ?? s.score2023 ?? 0;
-        return refScore >= baseScore - adjustedScoreRange && refScore <= baseScore + adjustedScoreRange;
-      }
-      return true;
-    }).length;
-  }, [baseScore, scoreRange, subject, selectedLevels, selectedNatures, selectedProvinces, selectedMajorCategories, schoolData, provinceConfig, selectedSubjects, currentRegion]);
+      setAvailableCount(filtered.length);
+    };
+    
+    calculateAvailableCount();
+  }, [baseScore, scoreRange, subject, selectedLevels, selectedNatures, selectedProvinces, selectedMajorCategories, schoolData, provinceConfig, selectedSubjects, currentRegion, selectedMajors, excludedMajors]);
   
   const volunteerOptions = [15, 20, 30, 45];
 
@@ -1220,11 +1286,23 @@ export function HomePage() {
                       {selectedMajors.map((major) => (
                         <span
                           key={major}
-                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-medium"
+                          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-medium group cursor-pointer"
                         >
-                          {major}
+                          <span
+                            onClick={() => {
+                              setSelectedMajorForModal(major);
+                              setShowMajorModal(true);
+                            }}
+                            className="flex items-center gap-1.5 hover:text-green-900 transition-colors"
+                          >
+                            {major}
+                            <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                          </span>
                           <button
-                            onClick={() => toggleMajor(major)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleMajor(major);
+                            }}
                             className="hover:text-green-900 transition-colors"
                           >
                             ×
@@ -1639,6 +1717,13 @@ export function HomePage() {
           </div>
         </main>
       </div>
+
+      <MajorSchoolModal
+        majorName={selectedMajorForModal}
+        isOpen={showMajorModal}
+        onClose={() => setShowMajorModal(false)}
+        province={currentRegion}
+      />
     </div>
   );
 }
