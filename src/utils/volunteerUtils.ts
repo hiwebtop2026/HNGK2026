@@ -568,7 +568,7 @@ export async function filterSchoolsWithMajors(
     
     if (major.province !== province) return false;
     
-    if (major.min_score < baseScore - effectiveRange || major.min_score > baseScore + effectiveRange) {
+    if (major.min_score > baseScore + effectiveRange) {
       return false;
     }
     
@@ -602,7 +602,7 @@ export async function filterSchoolsWithMajors(
 
   const inRange = filtered.filter(s => {
     const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
-    if (refScore < baseScore - effectiveRange || refScore > baseScore + effectiveRange) {
+    if (refScore > baseScore + effectiveRange) {
       return false;
     }
     
@@ -621,7 +621,7 @@ export async function filterSchoolsWithMajors(
   if (!useMajorFilter) {
     finalSchools = filtered.filter(s => {
       const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
-      return refScore >= baseScore - effectiveRange && refScore <= baseScore + effectiveRange;
+      return refScore <= baseScore + effectiveRange;
     });
   }
   

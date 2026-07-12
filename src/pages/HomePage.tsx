@@ -231,7 +231,7 @@ export function HomePage() {
         }
         if (baseScore !== null) {
           const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
-          return refScore >= baseScore - adjustedScoreRange && refScore <= baseScore + adjustedScoreRange;
+          return refScore <= baseScore + adjustedScoreRange;
         }
         return true;
       });
@@ -245,7 +245,7 @@ export function HomePage() {
             if (major.province !== currentRegion) return false;
             
             if (baseScore !== null) {
-              if (major.min_score < baseScore - adjustedScoreRange || major.min_score > baseScore + adjustedScoreRange) {
+              if (major.min_score > baseScore + adjustedScoreRange) {
                 return false;
               }
             }
