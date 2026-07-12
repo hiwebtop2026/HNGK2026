@@ -413,11 +413,11 @@ async function selectDropdown(page, containerIdx, buttonIdx, targetText, buttonT
 
     // 在下拉选项中查找并点击目标文本
     const clicked = await page.evaluate((target) => {
-      // 优先查找下拉面板内的选项（class含 select-modal-grid-pc-item）。
-      // 诊断发现：页面使用 select-modal-grid-pc-item 作为选项类名，而非 select-modal-li
-      const modal = document.querySelector('[class*="select-modal-grid-pc"]');
+      // 优先查找下拉面板内的选项（class含 select-modal-grid-item）。
+      // 诊断发现：页面使用 select-modal-grid-item 作为选项类名，而非 select-modal-grid-pc-item
+      const modal = document.querySelector('[class*="select-modal-grid"]');
       if (modal) {
-        const optionEls = modal.querySelectorAll('[class*="select-modal-grid-pc-item"]');
+        const optionEls = modal.querySelectorAll('[class*="select-modal-grid-item"]');
         for (let i = 0; i < optionEls.length; i++) {
           const el = optionEls[i];
           const text = (el.innerText || el.textContent || '').trim();
@@ -430,6 +430,23 @@ async function selectDropdown(page, containerIdx, buttonIdx, targetText, buttonT
               el.click();
               return { found: true, text: text, src: 'grid-item' };
             }
+          }
+        }
+      }
+
+      // 备用：查找 class 含 select-modal-grid-pc-item 的选项（PC端可能使用）
+      const pcGridEls = document.querySelectorAll('[class*="select-modal-grid-pc-item"]');
+      for (let i = 0; i < pcGridEls.length; i++) {
+        const el = pcGridEls[i];
+        const text = (el.innerText || el.textContent || '').trim();
+        const style = window.getComputedStyle(el);
+        const rect = el.getBoundingClientRect();
+        if (text === target.targetText || text === target.targetText + '\n') {
+          if (style.display !== 'none' && style.visibility !== 'hidden' &&
+              rect.width > 0 && rect.height > 0 &&
+              rect.top >= 0 && rect.top < window.innerHeight) {
+            el.click();
+            return { found: true, text: text, src: 'pc-grid-item' };
           }
         }
       }
@@ -518,28 +535,103 @@ async function selectBatch(page, containerIdx, buttonIdx, batch) {
 }
 
 async function clickViewAll(page) {
-  try {
-    const viewAllBtn = page.locator('text=查看全部').first();
-    if (await viewAllBtn.count() > 0) {
-      await viewAllBtn.click({ force: true, timeout: 3000 });
-      await page.waitForTimeout(2000);
-      console.log('    ✓ 已点击查看全部');
-      return true;
-    }
-  } catch (e) {}
+  let totalClicked = 0;
   
-  try {
-    const allBtn = page.locator('text=全部').first();
-    if (await allBtn.count() > 0) {
-      await allBtn.click({ force: true, timeout: 3000 });
-      await page.waitForTimeout(2000);
-      console.log('    ✓ 已点击全部');
-      return true;
+  // 循环点击所有可见的"查看全部"按钮（页面上可能存在多个卡片各有一个）
+  for (let round = 0; round < 5; round++) {
+    try {
+      const viewAllBtns = page.locator('text=查看全部');
+      const count = await viewAllBtns.count();
+      if (count === 0) break;
+      
+      let clickedThisRound = false;
+      for (let i = 0; i < count; i++) {
+        try {
+          const btn = viewAllBtns.nth(i);
+          const isVisible = await btn.evaluate(el => {
+            const rect = el.getBoundingClientRect();
+            const style = window.getComputedStyle(el);
+            return style.display !== 'none' && style.visibility !== 'hidden' &&
+                   rect.width > 0 && rect.height > 0 &&
+                   rect.top >= 0 && rect.top < window.innerHeight;
+          }).catch(() => false);
+          
+          if (isVisible) {
+            await btn.click({ force: true, timeout: 3000 });
+            await page.waitForTimeout(1500);
+            totalClicked++;
+            clickedThisRound = true;
+            console.log('    ✓ 已点击查看全部 (#' + totalClicked + ')');
+          }
+        } catch (e) {}
+      }
+      
+      if (!clickedThisRound) break;
+    } catch (e) {
+      break;
     }
-  } catch (e) {}
+  }
   
-  console.log('    ⚠ 未找到查看全部按钮');
-  return false;
+  // 备用：点击"全部"按钮
+  if (totalClicked === 0) {
+    try {
+      const allBtn = page.locator('text=全部').first();
+      if (await allBtn.count() > 0) {
+        await allBtn.click({ force: true, timeout: 3000 });
+        await page.waitForTimeout(2000);
+        totalClicked++;
+        console.log('    ✓ 已点击全部');
+      }
+    } catch (e) {}
+  }
+  
+  if (totalClicked === 0) {
+    console.log('    ⚠ 未找到查看全部按钮');
+  } else {
+    console.log('    ✓ 共点击查看全部 ' + totalClicked + ' 次');
+  }
+  return totalClicked > 0;
+}
+
+// 滚动专业分数线卡片区域，触发懒加载所有专业数据
+async function scrollScoreCardToLoadAll(page) {
+  try {
+    await page.evaluate(() => {
+      const cards = document.querySelectorAll(
+        '.fenshuxian-card.card-padding-zhuanye, .fenshuxian-card-pc.card-padding-zhuanye'
+      );
+      if (cards.length > 0) {
+        cards[0].scrollIntoView({ behavior: 'instant', block: 'start' });
+      }
+    });
+    await page.waitForTimeout(800);
+    
+    // 在卡片内部滚动加载剩余数据
+    await page.evaluate(() => {
+      const cards = document.querySelectorAll(
+        '.fenshuxian-card.card-padding-zhuanye, .fenshuxian-card-pc.card-padding-zhuanye'
+      );
+      if (cards.length > 0) {
+        const card = cards[0];
+        // 尝试在卡片内滚动
+        card.scrollTop = card.scrollHeight;
+        // 也滚动整个页面
+        window.scrollTo(0, document.body.scrollHeight);
+      }
+    });
+    await page.waitForTimeout(800);
+    
+    // 滚回顶部
+    await page.evaluate(() => {
+      const cards = document.querySelectorAll(
+        '.fenshuxian-card.card-padding-zhuanye, .fenshuxian-card-pc.card-padding-zhuanye'
+      );
+      if (cards.length > 0) {
+        cards[0].scrollIntoView({ behavior: 'instant', block: 'start' });
+      }
+    });
+    await page.waitForTimeout(500);
+  } catch (e) {}
 }
 
 async function expandAllItems(page) {
@@ -1110,12 +1202,29 @@ async function main() {
 
             // 点击查看全部（如果有）
             await clickViewAll(page);
+            // 滚动卡片区域触发懒加载
+            await scrollScoreCardToLoadAll(page);
             // 展开所有可展开元素
             await expandAllItems(page);
             // 等待数据加载完成
             await page.waitForTimeout(2000);
 
             const records = await extractData(page, schoolName, year, prov.name);
+
+            // 如果第一次提取的数据偏少，再尝试点击查看全部并重新提取
+            if (records.length < 5) {
+              console.log('    ℹ 提取到 ' + records.length + ' 条数据偏少，尝试重新加载...');
+              await clickViewAll(page);
+              await scrollScoreCardToLoadAll(page);
+              await expandAllItems(page);
+              await page.waitForTimeout(2000);
+              const records2 = await extractData(page, schoolName, year, prov.name);
+              if (records2.length > records.length) {
+                records.length = 0;
+                records.push(...records2);
+                console.log('    ✓ 重新加载后获取到 ' + records2.length + ' 条数据');
+              }
+            }
 
             if (records.length > 0) {
               await saveRecords(records, prov.name, schoolName, year);
