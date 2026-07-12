@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Download, ArrowLeft, AlertCircle, Zap, Target, Shield, Filter, TrendingUp,
-  TrendingDown, Minus, Percent, BarChart3, GraduationCap, AlertTriangle, CheckCircle, Info
+  TrendingDown, Minus, Percent, BarChart3, GraduationCap, AlertTriangle, CheckCircle, Info, ExternalLink
 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
@@ -376,7 +376,20 @@ export function ResultPage() {
                       <div className="flex items-start justify-between gap-4 mb-3">
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2 mb-1">
-                            <h3 className={`text-lg font-semibold ${textPrimary} truncate`}>{volunteer.name}</h3>
+                            {volunteer.website ? (
+                              <a
+                                href={volunteer.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`text-lg font-semibold ${textPrimary} truncate hover:text-primary-600 flex items-center gap-1.5 transition-colors group`}
+                                title={`访问${volunteer.name}官网`}
+                              >
+                                {volunteer.name}
+                                <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                              </a>
+                            ) : (
+                              <h3 className={`text-lg font-semibold ${textPrimary} truncate`}>{volunteer.name}</h3>
+                            )}
                           </div>
                           <p className={`text-sm ${textMuted}`}>院校代码：{volunteer.code}</p>
                         </div>

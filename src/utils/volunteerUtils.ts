@@ -7,6 +7,7 @@ import { majorScoreService, type MajorScore } from '../services/majorScoreServic
 import { calculateAdmissionProbability, calculateTrendAnalysis, calculateRiskAssessment, getSmartConfig } from './trendAnalyzer';
 import { STRATEGY_CONFIGS, type StrategyType } from '../config/strategyConfig';
 import { scoreDistributionService } from '../services/scoreDistributionService';
+import { getUniversityWebsite } from '../data/universityWebsites';
 export type { SchoolScore, MajorRecommendation };
 
 function extractSchoolNameKey(schoolName: string): string {
@@ -20,6 +21,7 @@ export interface VolunteerResult {
   code: string;
   name: string;
   schoolName: string;
+  website: string | null;
   subject: number;
   subjectText: string;
   province: string;
@@ -776,6 +778,7 @@ export async function filterSchoolsWithMajors(
       code: s.code,
       name: s.name,
       schoolName: schoolNameKey,
+      website: getUniversityWebsite(s.name),
       subject: s.subject,
       subjectText: parseSubjectRequirement(s.subject),
       province: s.province,
@@ -863,6 +866,7 @@ export async function filterSchoolsWithMajors(
       code: s.code,
       name: s.name,
       schoolName: schoolNameKey,
+      website: getUniversityWebsite(s.name),
       subject: s.subject,
       subjectText: parseSubjectRequirement(s.subject),
       province: s.province,
@@ -950,6 +954,7 @@ export async function filterSchoolsWithMajors(
       code: s.code,
       name: s.name,
       schoolName: schoolNameKey,
+      website: getUniversityWebsite(s.name),
       subject: s.subject,
       subjectText: parseSubjectRequirement(s.subject),
       province: s.province,
