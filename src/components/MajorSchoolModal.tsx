@@ -66,7 +66,9 @@ export function MajorSchoolModal({ majorName, isOpen, onClose, province }: Major
     const fetchData = async () => {
       setLoading(true);
       try {
-        const rawData = await majorScoreService.searchMajors(majorName);
+        const rawData = province 
+          ? await majorScoreService.searchMajorsByProvince(majorName, province)
+          : await majorScoreService.searchMajors(majorName);
         const filteredData = province 
           ? rawData.filter(item => item.province === province)
           : rawData;

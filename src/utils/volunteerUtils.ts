@@ -10,7 +10,7 @@ import { scoreDistributionService } from '../services/scoreDistributionService';
 import { getUniversityWebsite } from '../data/universityWebsites';
 export type { SchoolScore, MajorRecommendation };
 
-function extractSchoolNameKey(schoolName: string): string {
+export function extractSchoolNameKey(schoolName: string): string {
   const cleaned = schoolName.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '').trim();
   return cleaned;
 }
@@ -477,14 +477,17 @@ function validateSubjectMatch(school: SchoolScore, selectedSubjects: string[], s
   
   if (selectedSubjects.length > 0) {
     let matched = false;
+    let hasRequirement = false;
     
     if (school.subject_requirement) {
+      hasRequirement = true;
       if (isSubjectMatch(selectedSubjects, school.subject_requirement)) {
         matched = true;
       } else {
         warnings.push(`选科要求不匹配：${school.subject_requirement}`);
       }
-    } else if (school.subject !== undefined && school.subject !== null) {
+    } else if (school.subject !== undefined && school.subject !== null && school.subject !== 0) {
+      hasRequirement = true;
       if (isSubjectMatch(selectedSubjects, school.subject)) {
         matched = true;
       } else {
@@ -492,8 +495,10 @@ function validateSubjectMatch(school: SchoolScore, selectedSubjects: string[], s
       }
     }
     
-    if (!matched) {
+    if (hasRequirement && !matched) {
       return { valid: false, warnings };
+    } else if (!hasRequirement) {
+      warnings.push('选科要求数据缺失，建议谨慎填报');
     }
   } else if (subject !== 0) {
     if (school.subject !== subject && school.subject !== 0) {
@@ -554,18 +559,6 @@ export async function filterSchoolsWithMajors(
     });
   }
   
-  if (selectedMajors.length > 0) {
-    filtered = filtered.filter(s => {
-      return selectedMajors.some(major => s.name.includes(major));
-    });
-  }
-  
-  if (excludedMajors.length > 0) {
-    filtered = filtered.filter(s => {
-      return !excludedMajors.some(major => s.name.includes(major));
-    });
-  }
-  
   const allProvinceMajors = await majorScoreService.getByProvince(province);
   const isHighScore = isHighScoreSystem(province);
   const effectiveRange = isHighScore ? scoreRange * 2 : scoreRange;
@@ -603,7 +596,7 @@ export async function filterSchoolsWithMajors(
   const schoolsWithValidMajors = new Set<string>();
   validMajors.forEach(major => {
     if (major.school_name) {
-      schoolsWithValidMajors.add(major.school_name);
+      schoolsWithValidMajors.add(extractSchoolNameKey(major.school_name));
     }
   });
 
@@ -615,7 +608,7 @@ export async function filterSchoolsWithMajors(
     
     const schoolNameKey = extractSchoolNameKey(s.name);
     const hasValidMajor = Array.from(schoolsWithValidMajors).some(
-      sn => extractSchoolNameKey(sn) === schoolNameKey || sn.includes(schoolNameKey)
+      sn => sn === schoolNameKey || sn.includes(schoolNameKey) || schoolNameKey.includes(sn)
     );
     
     return hasValidMajor;

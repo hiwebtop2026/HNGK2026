@@ -246,6 +246,27 @@ export const majorScoreService = {
     }, keyword);
   },
 
+  async searchMajorsByProvince(keyword: string, province: string): Promise<MajorScore[]> {
+    return cacheService.get('searchMajorsByProvince', async () => {
+      if (!supabase) return [];
+      
+      const { data, error } = await supabase
+        .from('major_scores')
+        .select('*')
+        .ilike('major_name', `%${keyword}%`)
+        .eq('province', province)
+        .order('min_score', { ascending: false })
+        .limit(200);
+      
+      if (error) {
+        if (import.meta.env.DEV) console.error(`搜索${province}专业失败:`, error);
+        return [];
+      }
+      
+      return data || [];
+    }, keyword, province);
+  },
+
   async getSchoolStats(schoolName?: string): Promise<SchoolMajorStats[]> {
     return cacheService.get('getSchoolStats', async () => {
       if (!supabase) return [];
@@ -345,6 +366,7 @@ export const majorScoreService = {
     cacheService.clearByPrefix('getByScoreRange');
     cacheService.clearByPrefix('getByScoreRangeAndYear');
     cacheService.clearByPrefix('searchMajors');
+    cacheService.clearByPrefix('searchMajorsByProvince');
     cacheService.clearByPrefix('getSchoolStats');
     cacheService.clearByPrefix('getAllSchools');
     cacheService.clearByPrefix('getMajorsBySchool');

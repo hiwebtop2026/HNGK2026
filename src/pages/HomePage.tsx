@@ -9,7 +9,7 @@ import { MajorSchoolModal } from '../components/MajorSchoolModal';
 import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
 import { useUsageStore } from '../store/usageStore';
-import { filterSchools, filterSchoolsAsync, loadSchoolDataFromExcel, extractSchoolName } from '../utils/volunteerUtils';
+import { filterSchools, filterSchoolsAsync, loadSchoolDataFromExcel, extractSchoolNameKey } from '../utils/volunteerUtils';
 import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST, isSubjectMatch, getRefScore } from '../utils/dataUtils';
 import { fetchRankInfo } from '../utils/dataUtils';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, SCHOOL_NATURES, REGION_GROUPS } from '../data/schoolData';
@@ -274,12 +274,12 @@ export function HomePage() {
           const schoolsWithValidMajors = new Set<string>();
           validMajors.forEach(major => {
             if (major.school_name) {
-              schoolsWithValidMajors.add(extractSchoolName(major.school_name));
+              schoolsWithValidMajors.add(extractSchoolNameKey(major.school_name));
             }
           });
           
           filtered = filtered.filter(s => {
-            const schoolNameKey = extractSchoolName(s.name);
+            const schoolNameKey = extractSchoolNameKey(s.name);
             return Array.from(schoolsWithValidMajors).some(
               sn => sn === schoolNameKey || sn.includes(schoolNameKey) || schoolNameKey.includes(sn)
             );
