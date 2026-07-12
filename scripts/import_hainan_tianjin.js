@@ -192,28 +192,27 @@ async function verifyImport() {
 
   const provinces = ['海南', '天津'];
   for (const province of provinces) {
-    const { data, error } = await supabase
+    const { data: totalData, error: totalError } = await supabase
       .from('major_scores')
-      .select('school_name, year, count(*) as count')
-      .eq('province', province)
-      .groupBy('school_name, year')
-      .order('year', { ascending: false })
-      .limit(10);
+      .select('id')
+      .eq('province', province);
 
-    if (error) {
-      console.log(`   ⚠️ 验证 ${province} 失败: ${error.message}`);
+    if (totalError) {
+      console.log(`   ⚠️ 验证 ${province} 失败: ${totalError.message}`);
       continue;
     }
 
-    const { data: totalData, error: totalError } = await supabase
+    const { data: sampleData, error: sampleError } = await supabase
       .from('major_scores')
-      .select('count(*)')
-      .eq('province', province);
+      .select('school_name, year, major_name, min_score')
+      .eq('province', province)
+      .order('min_score', { ascending: false })
+      .limit(5);
 
-    console.log(`\n   ${province}: ${totalData?.[0]?.count || 0} 条记录（示例）:`);
-    if (data && data.length > 0) {
-      for (const item of data) {
-        console.log(`     ${item.school_name} (${item.year}): ${item.count}条`);
+    console.log(`\n   ${province}: ${totalData?.length || 0} 条记录（示例）:`);
+    if (sampleData && sampleData.length > 0) {
+      for (const item of sampleData) {
+        console.log(`     ${item.school_name} (${item.year}): ${item.major_name} - ${item.min_score}分`);
       }
     }
   }

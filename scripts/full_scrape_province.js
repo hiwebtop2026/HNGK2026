@@ -320,11 +320,19 @@ async function findMajorScoreContainer(page) {
       // 硬性条件4：必须有 nianfen(年份) 和 pici(批次) 按钮（专业分数线选择器特征）
       const btns = container.querySelectorAll('button.select-tabs-tab');
       let hasNianfen = false, hasPici = false, hasChengshi = false;
+      let chengshiIdx = -1, nianfenIdx = -1, piciIdx = -1;
       for (let j = 0; j < btns.length; j++) {
         const cls = (btns[j].className || '').toString();
-        if (cls.includes('chengshi')) hasChengshi = true;
-        else if (cls.includes('nianfen')) hasNianfen = true;
-        else if (cls.includes('pici')) hasPici = true;
+        if (cls.includes('chengshi')) {
+          hasChengshi = true;
+          chengshiIdx = j;
+        } else if (cls.includes('nianfen')) {
+          hasNianfen = true;
+          nianfenIdx = j;
+        } else if (cls.includes('pici')) {
+          hasPici = true;
+          piciIdx = j;
+        }
       }
       if (!hasNianfen || !hasPici) continue;
 
@@ -335,15 +343,26 @@ async function findMajorScoreContainer(page) {
       if (rect.top >= 50 && rect.top < window.innerHeight - 100) score += 20; // 完全在视口纵向内
       score += Math.min(10, Math.round(rect.width / 100)); // 宽度越大越好
 
-      candidates.push({ idx: i, score: score, top: Math.round(rect.top), left: Math.round(rect.left), btnCount: btns.length });
+      candidates.push({ idx: i, score: score, top: Math.round(rect.top), left: Math.round(rect.left), btnCount: btns.length, chengshiIdx, nianfenIdx, piciIdx });
     }
 
     // 选得分最高的；若都未达标，回退到第4组（诊断确认的可见组索引）
     if (candidates.length > 0) {
       candidates.sort((a, b) => b.score - a.score);
-      return candidates[0].idx;
+      const best = candidates[0];
+      return {
+        containerIdx: best.idx,
+        chengshiIdx: best.chengshiIdx,
+        nianfenIdx: best.nianfenIdx,
+        piciIdx: best.piciIdx
+      };
     }
-    return 4;
+    return {
+      containerIdx: 4,
+      chengshiIdx: 0,
+      nianfenIdx: 1,
+      piciIdx: 2
+    };
   });
 }
 
@@ -486,16 +505,16 @@ async function selectDropdown(page, containerIdx, buttonIdx, targetText, buttonT
   }
 }
 
-async function selectProvince(page, containerIdx, province) {
-  return await selectDropdown(page, containerIdx, 0, province, '省份');
+async function selectProvince(page, containerIdx, buttonIdx, province) {
+  return await selectDropdown(page, containerIdx, buttonIdx, province, '省份');
 }
 
-async function selectYear(page, containerIdx, year) {
-  return await selectDropdown(page, containerIdx, 1, year.toString(), '年份');
+async function selectYear(page, containerIdx, buttonIdx, year) {
+  return await selectDropdown(page, containerIdx, buttonIdx, year.toString(), '年份');
 }
 
-async function selectBatch(page, containerIdx, batch) {
-  return await selectDropdown(page, containerIdx, 2, batch, '批次');
+async function selectBatch(page, containerIdx, buttonIdx, batch) {
+  return await selectDropdown(page, containerIdx, buttonIdx, batch, '批次');
 }
 
 async function clickViewAll(page) {
@@ -1058,8 +1077,8 @@ async function main() {
 
         // 步骤3: 确保专业分数线区域完全加载后再查找容器
         await page.waitForTimeout(1000);
-        const containerIdx = await findMajorScoreContainer(page);
-        console.log('  📋 专业分数线容器索引:', containerIdx);
+        const selectorInfo = await findMajorScoreContainer(page);
+        console.log('  📋 专业分数线选择器信息:', selectorInfo);
 
         // 步骤4: 依次切换地区采集各省份的数据（先海南，再天津）
         for (const prov of PROVINCES) {
@@ -1068,20 +1087,26 @@ async function main() {
           let provRecords = 0;
 
           // 先切换地区到目标省份（切换一次，后续年份切换保持地区不变）
-          await selectProvince(page, containerIdx, prov.name);
+          if (selectorInfo.chengshiIdx >= 0) {
+            await selectProvince(page, selectorInfo.containerIdx, selectorInfo.chengshiIdx, prov.name);
+          } else {
+            console.log('    ⚠ 未找到省份选择器按钮');
+          }
 
           // 按年份采集，选择失败则跳过（该年份无招生计划）
           for (const year of YEARS) {
             console.log('  📅 [' + prov.name + '] ' + year + '年');
 
             // 选年份，选择失败说明该年份无招生计划，直接跳过
-            const yearSelected = await selectYear(page, containerIdx, year);
+            const yearSelected = await selectYear(page, selectorInfo.containerIdx, selectorInfo.nianfenIdx, year);
             if (!yearSelected) {
               console.log('    ⏭ [' + prov.name + '] ' + year + '年无招生计划，跳过');
               continue;
             }
             // 选批次
-            await selectBatch(page, containerIdx, BATCH);
+            if (selectorInfo.piciIdx >= 0) {
+              await selectBatch(page, selectorInfo.containerIdx, selectorInfo.piciIdx, BATCH);
+            }
 
             // 点击查看全部（如果有）
             await clickViewAll(page);
