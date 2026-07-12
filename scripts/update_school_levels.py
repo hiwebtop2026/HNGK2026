@@ -5,7 +5,7 @@
 """
 import re
 
-SCHOOL_DATA_PATH = r'C:\Users\lhp\Documents\trae_projects\GAOKAO2026\src\data\schoolData.ts'
+SCHOOL_DATA_PATH = r'I:\trae_projects\GAOKAO2026\src\data\schoolData.ts'
 
 UNIVERSITY_985 = {
     '清华大学', '北京大学', '中国人民大学', '北京师范大学', '北京航空航天大学',

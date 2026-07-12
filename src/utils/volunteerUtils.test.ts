@@ -89,7 +89,7 @@ describe('calculateComprehensiveAdmissionProbability', () => {
     };
     
     const result = calculateComprehensiveAdmissionProbability(
-      600, 590, 590, 588, 585, '海南', rankAnalysis
+      600, 590, 590, 588, 585, '海南', rankAnalysis, null
     );
     
     expect(result.probability).toBeDefined();
@@ -103,7 +103,7 @@ describe('calculateComprehensiveAdmissionProbability', () => {
 
   it('should work without rank analysis', () => {
     const result = calculateComprehensiveAdmissionProbability(
-      600, 590, 590, 588, 585, '海南', null
+      600, 590, 590, 588, 585, '海南', null, null
     );
     
     expect(result.probability).toBeDefined();

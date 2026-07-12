@@ -41,7 +41,7 @@ https://vt.quark.cn/blm/gaokao-college-794/tab?app=fen_shu_xian&university_name=
 
 ### 步骤2：运行自动化脚本
 ```bash
-cd "C:\Users\lhp\Documents\trae_projects\GAOKAO2026\scripts"
+cd "I:\trae_projects\GAOKAO2026\scripts"
 python scrape_with_edge.py
 ```
 
@@ -62,7 +62,7 @@ https://vt.quark.cn/blm/gaokao-college-794/tab?app=fen_shu_xian&university_name=
 
 1. **数据保存位置**：将导出的JSON文件保存到：
    ```
-   C:\Users\lhp\Documents\trae_projects\GAOKAO2026\data\
+   I:\trae_projects\GAOKAO2026\data\
    ```
 
 2. **文件名格式**：
@@ -93,7 +93,7 @@ https://vt.quark.cn/blm/gaokao-college-794/tab?app=fen_shu_xian&university_name=
 
 4. **数据库导入**：导出完数据后，运行以下命令导入到数据库：
    ```bash
-   cd "C:\Users\lhp\Documents\trae_projects\GAOKAO2026\scripts"
+   cd "I:\trae_projects\GAOKAO2026\scripts"
    python import_major_scores_db.py
    ```
 

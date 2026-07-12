@@ -1,6 +1,6 @@
 import * as XLSX from 'xlsx';
 import ExcelJS from 'exceljs';
-import { getRefScore, getTier, getRecommendationReason, matchMajorCategories, isSubjectMatch } from './dataUtils';
+import { getRefScore, getTier, getRecommendationReason, matchMajorCategories, isSubjectMatch, parseSubjectRequirement, SUBJECT_NAMES, SUBJECT_LIST } from './dataUtils';
 import type { SchoolScore, MajorRecommendation } from './dataUtils';
 import { generateMajorRecommendations, formatMajorSuggestion } from './majorRecommender';
 import { majorScoreService, type MajorScore } from '../services/majorScoreService';
@@ -19,7 +19,9 @@ export interface VolunteerResult {
   tier: '冲' | '稳' | '保';
   code: string;
   name: string;
+  schoolName: string;
   subject: number;
+  subjectText: string;
   province: string;
   level: string;
   nature: '公办' | '民办' | '中外合作办学';
@@ -39,6 +41,13 @@ export interface VolunteerResult {
   rankPercentage: number | null;
   candidateRank: number | null;
   schoolRank: number | null;
+  batchLine: number | null;
+  scoreAboveBatch: number | null;
+  warnings: string[];
+  riskLevel: 'low' | 'medium' | 'high';
+  riskFactors: string[];
+  majorSpread: number | null;
+  admissionGap: number | null;
 }
 
 export interface RankAnalysis {
@@ -56,6 +65,19 @@ const PROVINCE_TOTAL_CANDIDATES: Record<string, number> = {
 
 const HIGH_SCORE_PROVINCES = ['海南'];
 
+const PROVINCE_BATCH_LINES: Record<string, Record<number, { physics: number; history: number }>> = {
+  '海南': {
+    2025: { physics: 567, history: 606 },
+    2024: { physics: 568, history: 607 },
+    2023: { physics: 539, history: 587 },
+  },
+  '天津': {
+    2025: { physics: 547, history: 547 },
+    2024: { physics: 547, history: 547 },
+    2023: { physics: 532, history: 532 },
+  },
+};
+
 function isHighScoreSystem(province: string): boolean {
   return HIGH_SCORE_PROVINCES.includes(province);
 }
@@ -66,6 +88,27 @@ function getTotalCandidates(province: string): number {
 
 function getScoreToRankFactor(province: string): number {
   return isHighScoreSystem(province) ? 2 : 1;
+}
+
+function getBatchLine(province: string, year: number, subject: number): number | null {
+  const lines = PROVINCE_BATCH_LINES[province];
+  if (!lines || !lines[year]) return null;
+  
+  const subjectStr = String(subject);
+  
+  const physicsCodes = ['1', '2', '3', '4', '5', '6'];
+  const historyCodes = ['4', '5', '6', '7', '8', '9'];
+  
+  const hasPhysicsNew = ['1', '2', '3'].some(code => subjectStr.includes(code));
+  const hasHistoryNew = ['4', '5', '6'].some(code => subjectStr.includes(code));
+  
+  const hasPhysicsOld = ['4', '5', '6'].some(code => subjectStr.includes(code));
+  const hasHistoryOld = ['7', '8', '9'].some(code => subjectStr.includes(code));
+  
+  if (hasPhysicsNew || (hasPhysicsOld && !hasHistoryOld)) {
+    return lines[year].physics;
+  }
+  return lines[year].history;
 }
 
 export async function analyzeRank(
@@ -139,27 +182,25 @@ export function calculateComprehensiveAdmissionProbability(
   schoolScore2024: number | null,
   schoolScore2023: number | null,
   province: string,
-  rankAnalysis: RankAnalysis | null
-): { probability: number; factors: { scoreFactor: number; rankFactor: number; trendFactor: number; volatilityFactor: number } } {
+  rankAnalysis: RankAnalysis | null,
+  batchLine: number | null
+): { probability: number; factors: { scoreFactor: number; rankFactor: number; trendFactor: number; volatilityFactor: number; batchFactor: number } } {
   const isHighScore = isHighScoreSystem(province);
   const scoreDiff = candidateScore - schoolRefScore;
   const adjustedDiff = isHighScore ? scoreDiff / 2 : scoreDiff;
 
   let scoreFactor = 50;
-  if (adjustedDiff >= 30) scoreFactor = 99;
-  else if (adjustedDiff >= 25) scoreFactor = 97;
-  else if (adjustedDiff >= 20) scoreFactor = 94;
-  else if (adjustedDiff >= 15) scoreFactor = 88;
-  else if (adjustedDiff >= 10) scoreFactor = 78;
-  else if (adjustedDiff >= 5) scoreFactor = 65;
-  else if (adjustedDiff >= 0) scoreFactor = 50;
-  else if (adjustedDiff >= -5) scoreFactor = 38;
-  else if (adjustedDiff >= -10) scoreFactor = 28;
-  else if (adjustedDiff >= -15) scoreFactor = 18;
-  else if (adjustedDiff >= -20) scoreFactor = 12;
-  else if (adjustedDiff >= -25) scoreFactor = 8;
-  else if (adjustedDiff >= -30) scoreFactor = 5;
-  else scoreFactor = 2;
+  const diffThresholds = isHighScore 
+    ? [60, 50, 40, 30, 20, 10, 0, -10, -20, -30, -40, -50, -60]
+    : [30, 25, 20, 15, 10, 5, 0, -5, -10, -15, -20, -25, -30];
+  const factorValues = [99, 97, 94, 88, 78, 65, 50, 38, 28, 18, 12, 8, 5, 2];
+
+  for (let i = 0; i < diffThresholds.length; i++) {
+    if (adjustedDiff >= diffThresholds[i]) {
+      scoreFactor = factorValues[i];
+      break;
+    }
+  }
 
   let rankFactor = scoreFactor;
   if (rankAnalysis) {
@@ -168,14 +209,28 @@ export function calculateComprehensiveAdmissionProbability(
       ? Math.abs(rankAnalysis.rankDiff) / totalCandidates * 100 
       : 0;
 
+    const rankWeight = Math.min(0.3, rankDiffPercent / 10);
+
     if (rankAnalysis.rankDiff <= -5) {
-      rankFactor = Math.min(99, scoreFactor + rankDiffPercent * 0.5);
+      rankFactor = Math.min(99, scoreFactor + rankDiffPercent * 0.3 + rankWeight * 10);
     } else if (rankAnalysis.rankDiff <= -2) {
-      rankFactor = Math.min(95, scoreFactor + rankDiffPercent * 0.3);
+      rankFactor = Math.min(95, scoreFactor + rankDiffPercent * 0.2 + rankWeight * 5);
     } else if (rankAnalysis.rankDiff >= 5) {
-      rankFactor = Math.max(2, scoreFactor - rankDiffPercent * 0.5);
+      rankFactor = Math.max(2, scoreFactor - rankDiffPercent * 0.3 - rankWeight * 10);
     } else if (rankAnalysis.rankDiff >= 2) {
-      rankFactor = Math.max(10, scoreFactor - rankDiffPercent * 0.3);
+      rankFactor = Math.max(10, scoreFactor - rankDiffPercent * 0.2 - rankWeight * 5);
+    }
+  }
+
+  let batchFactor = 1.0;
+  if (batchLine !== null) {
+    const schoolAboveBatch = schoolRefScore - batchLine;
+    const candidateAboveBatch = candidateScore - batchLine;
+    
+    if (candidateAboveBatch < 0) {
+      batchFactor = Math.max(0.3, 1.0 + candidateAboveBatch / batchLine);
+    } else if (schoolAboveBatch < 0) {
+      batchFactor = 1.1;
     }
   }
 
@@ -183,10 +238,13 @@ export function calculateComprehensiveAdmissionProbability(
   const trendFactor = trendAnalysis.trendCoefficient;
   const volatilityFactor = trendAnalysis.volatilityCoefficient;
 
-  const combinedScoreFactor = (scoreFactor * 0.6 + rankFactor * 0.4);
+  const scoreWeight = rankAnalysis ? 0.5 : 0.7;
+  const rankWeightValue = rankAnalysis ? 0.3 : 0.1;
+  const combinedScoreFactor = (scoreFactor * scoreWeight + rankFactor * rankWeightValue);
+  
   const finalProbability = Math.max(
     1,
-    Math.min(99, combinedScoreFactor * trendFactor * volatilityFactor)
+    Math.min(99, combinedScoreFactor * trendFactor * volatilityFactor * batchFactor)
   );
 
   return {
@@ -196,14 +254,11 @@ export function calculateComprehensiveAdmissionProbability(
       rankFactor: Math.round(rankFactor),
       trendFactor,
       volatilityFactor,
+      batchFactor: Math.round(batchFactor * 100) / 100,
     },
   };
 }
 
-/**
- * 将某档超额的配额按优先级转移给其他档
- * 用于冲稳保三档之间的双向再平衡
- */
 function transferOverflow(
   overflow: number,
   priorities: Array<'chong' | 'wen' | 'bao'>,
@@ -276,14 +331,12 @@ export function getSmartTier(
   return tier;
 }
 
-// 从Excel文件读取数据（浏览器环境）
 export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]> {
   const arrayBuffer = await file.arrayBuffer();
   const workbook = XLSX.read(arrayBuffer);
   
   const result: SchoolScore[] = [];
   
-  // 读取各年份数据
   const sheets = ['2025', '2024', '2023'];
   
   for (const sheetName of sheets) {
@@ -293,7 +346,6 @@ export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]
     const year = parseInt(sheetName);
     const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
     
-    // 找到表头行（包含"院校专业组代码"）
     let headerRow = -1;
     for (let i = 0; i < data.length; i++) {
       const row = data[i] as string[];
@@ -305,7 +357,6 @@ export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]
     
     if (headerRow === -1) continue;
     
-    // 解析数据行
     for (let i = headerRow + 1; i < data.length; i++) {
       const row = data[i] as (string | number)[];
       if (!row || row.length < 4) continue;
@@ -317,7 +368,6 @@ export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]
       
       if (!code || !name || score === 0) continue;
       
-      // 查找或创建记录
       const existing = result.find(s => s.code === code);
       if (existing) {
         if (year === 2025) existing.score2025 = score;
@@ -344,7 +394,6 @@ export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]
   return result;
 }
 
-// 计算分数趋势
 export function calculateScoreTrend(
   score2025: number | null,
   score2024: number | null,
@@ -387,7 +436,6 @@ function deduplicateMajors(majors: MajorScore[]): MajorScore[] {
   return Array.from(map.values());
 }
 
-// 筛选院校（同步版本，保持向后兼容）
 export async function filterSchools(
   schools: SchoolScore[],
   baseScore: number,
@@ -422,7 +470,39 @@ export async function filterSchools(
   );
 }
 
-// 筛选院校（带专业数据版本，支持位次分析）
+function validateSubjectMatch(school: SchoolScore, selectedSubjects: string[], subject: number): { valid: boolean; warnings: string[] } {
+  const warnings: string[] = [];
+  
+  if (selectedSubjects.length > 0) {
+    let matched = false;
+    
+    if (school.subject_requirement) {
+      if (isSubjectMatch(selectedSubjects, school.subject_requirement)) {
+        matched = true;
+      } else {
+        warnings.push(`选科要求不匹配：${school.subject_requirement}`);
+      }
+    } else if (school.subject !== undefined && school.subject !== null) {
+      if (isSubjectMatch(selectedSubjects, school.subject)) {
+        matched = true;
+      } else {
+        warnings.push(`选科代码不匹配：${school.subject}`);
+      }
+    }
+    
+    if (!matched) {
+      return { valid: false, warnings };
+    }
+  } else if (subject !== 0) {
+    if (school.subject !== subject && school.subject !== 0) {
+      warnings.push(`科目要求不匹配：院校要求${school.subject}`);
+      return { valid: false, warnings };
+    }
+  }
+  
+  return { valid: true, warnings };
+}
+
 export async function filterSchoolsWithMajors(
   schools: SchoolScore[],
   baseScore: number,
@@ -441,42 +521,30 @@ export async function filterSchoolsWithMajors(
 ): Promise<VolunteerResult[]> {
   const strategyConfig = STRATEGY_CONFIGS[strategy];
   
-  // 强制按考生所在省份过滤：只推荐该省份有招生数据的院校
   let filtered = schools.filter(s => s.province === province || s.region === province);
   
-  // 按科目筛选（支持3+3省份的选科匹配，扩展匹配逻辑）
+  const schoolWarnings = new Map<string, string[]>();
+  
   filtered = filtered.filter(s => {
-    if (selectedSubjects.length > 0) {
-      if (s.subject_requirement) {
-        return isSubjectMatch(selectedSubjects, s.subject_requirement);
-      }
-      if (s.subject !== undefined && s.subject !== null) {
-        return isSubjectMatch(selectedSubjects, s.subject);
-      }
-      return true;
+    const { valid, warnings } = validateSubjectMatch(s, selectedSubjects, subject);
+    if (warnings.length > 0) {
+      schoolWarnings.set(s.code, warnings);
     }
-    if (subject === 0) {
-      return true;
-    }
-    return s.subject === subject || s.subject === 0;
+    return valid;
   });
   
-  // 按院校层次筛选
   if (selectedLevels.length > 0) {
     filtered = filtered.filter(s => selectedLevels.includes(s.level));
   }
   
-  // 按院校性质筛选
   if (selectedNatures.length > 0) {
     filtered = filtered.filter(s => selectedNatures.includes(s.nature));
   }
   
-  // 按省份筛选
   if (selectedProvinces.length > 0) {
     filtered = filtered.filter(s => selectedProvinces.includes(s.province));
   }
   
-  // 按专业类别筛选
   if (selectedMajorCategories.length > 0) {
     filtered = filtered.filter(s => {
       const categories = matchMajorCategories(s.name);
@@ -484,27 +552,22 @@ export async function filterSchoolsWithMajors(
     });
   }
   
-  // 按想学的专业筛选（包含任意一个想学的专业）
   if (selectedMajors.length > 0) {
     filtered = filtered.filter(s => {
       return selectedMajors.some(major => s.name.includes(major));
     });
   }
   
-  // 按排除的专业筛选（不包含任何排除的专业）
   if (excludedMajors.length > 0) {
     filtered = filtered.filter(s => {
       return !excludedMajors.some(major => s.name.includes(major));
     });
   }
   
-  // 专业优先：先从major_scores表获取该省份所有专业数据，按专业分数筛选
-  // 只有专业最低分在分数范围内的院校才推荐
   const allProvinceMajors = await majorScoreService.getByProvince(province);
   const isHighScore = isHighScoreSystem(province);
   const effectiveRange = isHighScore ? scoreRange * 2 : scoreRange;
   
-  // 筛选符合条件的专业：选科匹配 + 分数在范围内 + 想学/排除专业匹配
   const validMajors = allProvinceMajors.filter(major => {
     if (!major.min_score) return false;
     
@@ -567,16 +630,35 @@ export async function filterSchoolsWithMajors(
     });
   }
   
-  // 计算参考分并排序
   const withRefScore = finalSchools.map(s => ({
     ...s,
     refScore: getRefScore(s.score2025, s.score2024, s.score2023),
   }));
   
-  // 按参考分从高到低排序
+  for (const s of withRefScore) {
+    const availableYears = [];
+    if (s.score2025 !== null) availableYears.push(2025);
+    if (s.score2024 !== null) availableYears.push(2024);
+    if (s.score2023 !== null) availableYears.push(2023);
+    
+    if (availableYears.length < 2) {
+      const existingWarnings = schoolWarnings.get(s.code) || [];
+      existingWarnings.push(`招生数据不完整：仅${availableYears.length}年有数据，建议谨慎填报`);
+      schoolWarnings.set(s.code, existingWarnings);
+    }
+    
+    const hasGap = availableYears.length >= 2 && 
+      ((availableYears.includes(2025) && availableYears.includes(2023) && !availableYears.includes(2024)) ||
+       (!availableYears.includes(2025) && availableYears.includes(2024) && availableYears.includes(2023)));
+    if (hasGap) {
+      const existingWarnings = schoolWarnings.get(s.code) || [];
+      existingWarnings.push('招生数据存在断档，可能存在招生计划变化');
+      schoolWarnings.set(s.code, existingWarnings);
+    }
+  }
+  
   const sorted = withRefScore.sort((a, b) => b.refScore - a.refScore);
   
-  // 并行计算位次分析
   const withRankAnalysis = await Promise.all(sorted.map(async s => {
     const rankAnalysis = await analyzeRank(baseScore, s.refScore, province);
     const tier = getSmartTier(baseScore, s.refScore, rankAnalysis, strategyConfig, province, scoreRange);
@@ -587,53 +669,43 @@ export async function filterSchoolsWithMajors(
     };
   }));
   
-  // 按档次分组，并按分数优化排序
-  // 冲档：按分数从高到低排序（最高分优先，冲击更好的学校）
   const chong = withRankAnalysis
     .filter(s => s.tier === '冲')
     .sort((a, b) => b.refScore - a.refScore);
   
-  // 稳档：按分数接近程度排序（越接近考生分数越优先）
   const wen = withRankAnalysis
     .filter(s => s.tier === '稳')
     .sort((a, b) => Math.abs(a.refScore - baseScore) - Math.abs(b.refScore - baseScore));
   
-  // 保档：按分数从低到高排序（最低分优先，确保保底安全）
   const bao = withRankAnalysis
     .filter(s => s.tier === '保')
     .sort((a, b) => a.refScore - b.refScore);
   
-  // 使用策略配置的比例计算各档次数量
   let chongCount = Math.min(Math.ceil(totalVolunteers * strategyConfig.chongRatio), chong.length);
   let wenCount = Math.min(Math.ceil(totalVolunteers * strategyConfig.wenRatio), wen.length);
   let baoCount = Math.max(0, totalVolunteers - chongCount - wenCount);
 
-  // 双向再平衡：三档之间互相调配，确保总数尽量等于 totalVolunteers
   const counts = { chong: chongCount, wen: wenCount, bao: baoCount };
   const pools = { chong: chong.length, wen: wen.length, bao: bao.length };
 
-  // 第一轮：保档不足 → 让给稳档，再让给冲档
   if (counts.bao > pools.bao) {
     const extra = counts.bao - pools.bao;
     counts.bao = pools.bao;
     transferOverflow(extra, ['wen', 'chong'], counts, pools);
   }
 
-  // 第二轮：稳档不足 → 让给冲档，再让给保档
   if (counts.wen > pools.wen) {
     const extra = counts.wen - pools.wen;
     counts.wen = pools.wen;
     transferOverflow(extra, ['chong', 'bao'], counts, pools);
   }
 
-  // 第三轮：冲档不足 → 让给稳档，再让给保档（新增，解决高分考生冲档少）
   if (counts.chong > pools.chong) {
     const extra = counts.chong - pools.chong;
     counts.chong = pools.chong;
     transferOverflow(extra, ['wen', 'bao'], counts, pools);
   }
 
-  // 第四轮：兜底补足，剩余配额按"保→稳→冲"优先级填补（新增）
   const currentTotal = counts.chong + counts.wen + counts.bao;
   if (currentTotal < totalVolunteers) {
     const deficit = totalVolunteers - currentTotal;
@@ -644,22 +716,68 @@ export async function filterSchoolsWithMajors(
   wenCount = counts.wen;
   baoCount = counts.bao;
   
-  // 组合结果
   const result: VolunteerResult[] = [];
   let index = 1;
   
+  const processedSchoolGroups = new Set<string>();
+  
   for (const s of chong.slice(0, chongCount)) {
-    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
+    const groupKey = `${s.code}_${s.name}`;
+    if (processedSchoolGroups.has(groupKey)) {
+      continue;
+    }
+    processedSchoolGroups.add(groupKey);
+    
+    const schoolNameKey = extractSchoolNameKey(s.name);
+    const majorRecs = await generateMajorRecommendations(s.name, baseScore, s.refScore, s.level, selectedSubjects, province);
     const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
+    const batchLine = getBatchLine(province, 2025, s.subject);
+    const scoreAboveBatch = batchLine !== null ? s.refScore - batchLine : null;
+    
     const probResult = calculateComprehensiveAdmissionProbability(
-      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis
+      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis, batchLine
     );
+    
+    const warnings = schoolWarnings.get(s.code) || [];
+    
+    if (scoreAboveBatch !== null && scoreAboveBatch < 0) {
+      warnings.push(`低于批次线${Math.abs(scoreAboveBatch)}分`);
+    }
+    
+    if (baseScore < (batchLine || 0)) {
+      warnings.push(`考生分数低于批次线${Math.abs(baseScore - (batchLine || 0))}分，录取风险极高`);
+    }
+    
+    const riskFactors: string[] = [];
+    if (s.tier === '冲') riskFactors.push('冲刺志愿');
+    if (trendAnalysis.trend === 'up') riskFactors.push('分数上涨趋势');
+    if (trendAnalysis.volatility > 10) riskFactors.push('分数波动较大');
+    if (probResult.probability < 30) riskFactors.push('录取概率低');
+    if (s.score2025 === null || s.score2024 === null) riskFactors.push('数据不完整');
+    
+    let riskLevel: 'low' | 'medium' | 'high' = 'low';
+    if (riskFactors.length >= 3 || probResult.probability < 20 || baseScore < (batchLine || 0)) {
+      riskLevel = 'high';
+    } else if (riskFactors.length >= 2 || probResult.probability < 40) {
+      riskLevel = 'medium';
+    }
+    
+    const majorSpread = majorRecs.length >= 2 
+      ? Math.max(...majorRecs.map(m => m.estimatedScore)) - Math.min(...majorRecs.map(m => m.estimatedScore))
+      : null;
+    
+    const admissionGap = s.score2025 !== null && s.score2024 !== null 
+      ? s.score2025 - s.score2024
+      : null;
+    
     result.push({
       index,
       tier: s.tier,
       code: s.code,
       name: s.name,
+      schoolName: schoolNameKey,
       subject: s.subject,
+      subjectText: parseSubjectRequirement(s.subject),
       province: s.province,
       level: s.level,
       nature: s.nature,
@@ -679,22 +797,74 @@ export async function filterSchoolsWithMajors(
       rankPercentage: s.rankAnalysis?.rankPercentage ?? null,
       candidateRank: s.rankAnalysis?.candidateRank ?? null,
       schoolRank: s.rankAnalysis?.schoolRank ?? null,
+      batchLine,
+      scoreAboveBatch,
+      warnings,
+      riskLevel,
+      riskFactors,
+      majorSpread,
+      admissionGap,
     });
     index++;
   }
   
   for (const s of wen.slice(0, wenCount)) {
-    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
+    const groupKey = `${s.code}_${s.name}`;
+    if (processedSchoolGroups.has(groupKey)) {
+      continue;
+    }
+    processedSchoolGroups.add(groupKey);
+    
+    const schoolNameKey = extractSchoolNameKey(s.name);
+    const majorRecs = await generateMajorRecommendations(s.name, baseScore, s.refScore, s.level, selectedSubjects, province);
     const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
+    const batchLine = getBatchLine(province, 2025, s.subject);
+    const scoreAboveBatch = batchLine !== null ? s.refScore - batchLine : null;
+    
     const probResult = calculateComprehensiveAdmissionProbability(
-      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis
+      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis, batchLine
     );
+    
+    const warnings = schoolWarnings.get(s.code) || [];
+    
+    if (scoreAboveBatch !== null && scoreAboveBatch < 0) {
+      warnings.push(`低于批次线${Math.abs(scoreAboveBatch)}分`);
+    }
+    
+    if (baseScore < (batchLine || 0)) {
+      warnings.push(`考生分数低于批次线${Math.abs(baseScore - (batchLine || 0))}分，录取风险极高`);
+    }
+    
+    const riskFactors: string[] = [];
+    if (s.tier === '冲') riskFactors.push('冲刺志愿');
+    if (trendAnalysis.trend === 'up') riskFactors.push('分数上涨趋势');
+    if (trendAnalysis.volatility > 10) riskFactors.push('分数波动较大');
+    if (probResult.probability < 30) riskFactors.push('录取概率低');
+    if (s.score2025 === null || s.score2024 === null) riskFactors.push('数据不完整');
+    
+    let riskLevel: 'low' | 'medium' | 'high' = 'low';
+    if (riskFactors.length >= 3 || probResult.probability < 20 || baseScore < (batchLine || 0)) {
+      riskLevel = 'high';
+    } else if (riskFactors.length >= 2 || probResult.probability < 40) {
+      riskLevel = 'medium';
+    }
+    
+    const majorSpread = majorRecs.length >= 2 
+      ? Math.max(...majorRecs.map(m => m.estimatedScore)) - Math.min(...majorRecs.map(m => m.estimatedScore))
+      : null;
+    
+    const admissionGap = s.score2025 !== null && s.score2024 !== null 
+      ? s.score2025 - s.score2024
+      : null;
+    
     result.push({
       index,
       tier: s.tier,
       code: s.code,
       name: s.name,
+      schoolName: schoolNameKey,
       subject: s.subject,
+      subjectText: parseSubjectRequirement(s.subject),
       province: s.province,
       level: s.level,
       nature: s.nature,
@@ -714,22 +884,74 @@ export async function filterSchoolsWithMajors(
       rankPercentage: s.rankAnalysis?.rankPercentage ?? null,
       candidateRank: s.rankAnalysis?.candidateRank ?? null,
       schoolRank: s.rankAnalysis?.schoolRank ?? null,
+      batchLine,
+      scoreAboveBatch,
+      warnings,
+      riskLevel,
+      riskFactors,
+      majorSpread,
+      admissionGap,
     });
     index++;
   }
   
   for (const s of bao.slice(0, baoCount)) {
-    const majorRecs = generateMajorRecommendations(s.name, baseScore, s.refScore, s.level);
+    const groupKey = `${s.code}_${s.name}`;
+    if (processedSchoolGroups.has(groupKey)) {
+      continue;
+    }
+    processedSchoolGroups.add(groupKey);
+    
+    const schoolNameKey = extractSchoolNameKey(s.name);
+    const majorRecs = await generateMajorRecommendations(s.name, baseScore, s.refScore, s.level, selectedSubjects, province);
     const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
+    const batchLine = getBatchLine(province, 2025, s.subject);
+    const scoreAboveBatch = batchLine !== null ? s.refScore - batchLine : null;
+    
     const probResult = calculateComprehensiveAdmissionProbability(
-      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis
+      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis, batchLine
     );
+    
+    const warnings = schoolWarnings.get(s.code) || [];
+    
+    if (scoreAboveBatch !== null && scoreAboveBatch < 0) {
+      warnings.push(`低于批次线${Math.abs(scoreAboveBatch)}分`);
+    }
+    
+    if (baseScore < (batchLine || 0)) {
+      warnings.push(`考生分数低于批次线${Math.abs(baseScore - (batchLine || 0))}分，录取风险极高`);
+    }
+    
+    const riskFactors: string[] = [];
+    if (s.tier === '冲') riskFactors.push('冲刺志愿');
+    if (trendAnalysis.trend === 'up') riskFactors.push('分数上涨趋势');
+    if (trendAnalysis.volatility > 10) riskFactors.push('分数波动较大');
+    if (probResult.probability < 30) riskFactors.push('录取概率低');
+    if (s.score2025 === null || s.score2024 === null) riskFactors.push('数据不完整');
+    
+    let riskLevel: 'low' | 'medium' | 'high' = 'low';
+    if (riskFactors.length >= 3 || probResult.probability < 20 || baseScore < (batchLine || 0)) {
+      riskLevel = 'high';
+    } else if (riskFactors.length >= 2 || probResult.probability < 40) {
+      riskLevel = 'medium';
+    }
+    
+    const majorSpread = majorRecs.length >= 2 
+      ? Math.max(...majorRecs.map(m => m.estimatedScore)) - Math.min(...majorRecs.map(m => m.estimatedScore))
+      : null;
+    
+    const admissionGap = s.score2025 !== null && s.score2024 !== null 
+      ? s.score2025 - s.score2024
+      : null;
+    
     result.push({
       index,
       tier: s.tier,
       code: s.code,
       name: s.name,
+      schoolName: schoolNameKey,
       subject: s.subject,
+      subjectText: parseSubjectRequirement(s.subject),
       province: s.province,
       level: s.level,
       nature: s.nature,
@@ -749,6 +971,13 @@ export async function filterSchoolsWithMajors(
       rankPercentage: s.rankAnalysis?.rankPercentage ?? null,
       candidateRank: s.rankAnalysis?.candidateRank ?? null,
       schoolRank: s.rankAnalysis?.schoolRank ?? null,
+      batchLine,
+      scoreAboveBatch,
+      warnings,
+      riskLevel,
+      riskFactors,
+      majorSpread,
+      admissionGap,
     });
     index++;
   }
@@ -756,15 +985,11 @@ export async function filterSchoolsWithMajors(
   return result;
 }
 
-// 提取院校名称主体（去除括号及专业组信息）
-// 例如："清华大学(03)" -> "清华大学"，"海南大学(80)" -> "海南大学"
 function extractSchoolName(schoolName: string): string {
   const match = schoolName.match(/^(.+?)(?:\(\d+\))?$/);
   return match ? match[1].trim() : schoolName.trim();
 }
 
-// 获取专业录取概率（基于分数差）
-// 海南900分制使用更大的分数差区间
 function getMajorAdmissionProbability(majorScore: number, baseScore: number, province: string = '海南'): number {
   const diff = baseScore - majorScore;
   const isHighScoreSystem = ['海南'].includes(province);
@@ -802,10 +1027,6 @@ function getMajorAdmissionProbability(majorScore: number, baseScore: number, pro
   return 2;
 }
 
-// 根据分数差获取专业档次（与院校分类逻辑一致）
-// 冲：min_score > baseScore 且 min_score <= baseScore + chongDiff（专业分更高，冲刺）
-// 稳：baseScore - wenDiff <= min_score <= baseScore（专业分接近，稳妥）
-// 保：min_score < baseScore - wenDiff（专业分更低，保底）
 function getMajorTierByScore(
   majorScore: number,
   baseScore: number,
@@ -833,7 +1054,6 @@ function getMajorTierByScore(
   }
 }
 
-// 筛选院校（异步版本，从Supabase获取专业数据）
 export async function filterSchoolsAsync(
   schools: SchoolScore[],
   baseScore: number,
@@ -897,17 +1117,17 @@ export async function filterSchoolsAsync(
       if (result.tier === '保') {
         matched = filteredMajors.filter(major => {
           const score = major.min_score || 0;
-          return score >= schoolRefScore - effectiveRange && score <= schoolRefScore;
+          return score >= baseScore - effectiveRange * 2 && score <= baseScore;
         });
       } else if (result.tier === '稳') {
         matched = filteredMajors.filter(major => {
           const score = major.min_score || 0;
-          return score >= schoolRefScore - effectiveRange * 0.5 && score <= schoolRefScore + effectiveRange * 0.3;
+          return score >= baseScore - effectiveRange && score <= baseScore + effectiveRange;
         });
       } else {
         matched = filteredMajors.filter(major => {
           const score = major.min_score || 0;
-          return score >= schoolRefScore - effectiveRange * 0.3 && score <= schoolRefScore + effectiveRange * 0.5;
+          return score >= baseScore - effectiveRange * 0.5 && score <= baseScore + effectiveRange * 1.5;
         });
       }
       
@@ -917,7 +1137,6 @@ export async function filterSchoolsAsync(
         major.tier = getMajorTierByScore(score, baseScore, chongDiff, wenDiff, province, scoreRange);
       });
       
-      // 专业热度关键词映射（基于专业名称判断热度）
       const getMajorHeatScore = (majorName: string): number => {
         const hotKeywords = ['计算机', '软件', '电子信息', '人工智能', '数据', '金融', '经济', '临床医学', '口腔', '法学', '会计'];
         const warmKeywords = ['机械', '土木', '化工', '材料', '环境', '生物', '数学', '物理', '化学', '英语', '汉语言'];
@@ -935,33 +1154,20 @@ export async function filterSchoolsAsync(
         return 60;
       };
       
-      // 严格按策略匹配专业：
-      // 冲档院校：优先推荐冲专业（分数较高的专业），其次稳专业
-      // 稳档院校：优先推荐稳专业（分数接近的专业），其次保专业
-      // 保档院校：优先推荐保专业（分数较低的专业），其次稳专业
       let strategyMatched: MajorScore[] = [];
       const chongMajors = matched.filter(m => m.tier === '冲');
       const wenMajors = matched.filter(m => m.tier === '稳');
       const baoMajors = matched.filter(m => m.tier === '保');
       
       if (result.tier === '冲') {
-        // 冲档院校：优先推荐冲专业，其次稳专业
-        // 冲专业按分数降序排列（优先推荐分数最高的冲专业，更符合冲刺概念）
-        // 稳专业按分数降序排列（优先推荐分数较高的稳专业）
         chongMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
         wenMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
         strategyMatched = [...chongMajors, ...wenMajors];
       } else if (result.tier === '稳') {
-        // 稳档院校：优先推荐稳专业，其次保专业（保专业更容易录取，增加稳妥性）
-        // 稳专业按与考生分数的差值升序排列（优先推荐最接近考生分数的专业）
-        // 保专业按分数降序排列（优先推荐分数较高的保专业，不浪费分数）
         wenMajors.sort((a, b) => Math.abs((a.min_score || 0) - baseScore) - Math.abs((b.min_score || 0) - baseScore));
         baoMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
         strategyMatched = [...wenMajors, ...baoMajors];
       } else if (result.tier === '保') {
-        // 保档院校：优先推荐保专业，其次稳专业
-        // 保专业按分数降序排列（优先推荐分数较高的保专业，既保证录取又不浪费分数）
-        // 稳专业按分数降序排列（优先推荐分数较高的稳专业）
         baoMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
         wenMajors.sort((a, b) => (b.min_score || 0) - (a.min_score || 0));
         strategyMatched = [...baoMajors, ...wenMajors];
@@ -969,7 +1175,6 @@ export async function filterSchoolsAsync(
         strategyMatched = [...matched];
       }
       
-      // 如果没有符合策略的专业，则使用全部匹配的专业
       if (strategyMatched.length === 0) {
         strategyMatched = [...matched];
       }
@@ -981,6 +1186,22 @@ export async function filterSchoolsAsync(
       
       if (limitedMajors.length > 0) {
         result.majorSuggestion = limitedMajors.slice(0, 3).map(m => m.major_name).join('、') || result.majorSuggestion;
+      }
+      
+      const majorWarnings: string[] = [];
+      if (limitedMajors.length === 0) {
+        majorWarnings.push('无匹配专业');
+      } else {
+        const allMajorsMatch = limitedMajors.every(m => 
+          !m.subject_requirement || isSubjectMatch(selectedSubjects, m.subject_requirement)
+        );
+        if (!allMajorsMatch && selectedSubjects.length > 0) {
+          majorWarnings.push('部分专业选科要求不匹配');
+        }
+      }
+      
+      if (majorWarnings.length > 0) {
+        result.warnings = [...result.warnings, ...majorWarnings];
       }
     } catch (error) {
       console.error(`获取${result.name}专业数据失败:`, error);
@@ -1071,12 +1292,13 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
     { key: 'province', width: 10 },
     { key: 'code', width: 16 },
     { key: 'name', width: 28 },
-    { key: 'subject', width: 10 },
+    { key: 'subject', width: 15 },
     { key: 'score2025', width: 12 },
     { key: 'score2024', width: 12 },
     { key: 'score2023', width: 12 },
     { key: 'majors', width: 60 },
     { key: 'reason', width: 50 },
+    { key: 'warnings', width: 50 },
   ];
   
   const headerStyle = {
@@ -1104,7 +1326,7 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
   
   const headers = [
     '志愿序号', '志愿档次', '录取概率', '院校层次', '省份', '院校代码', '院校名称',
-    '科目要求', '2025投档线', '2024投档线', '2023投档线', '推荐专业', '推荐理由',
+    '科目要求', '2025投档线', '2024投档线', '2023投档线', '推荐专业', '推荐理由', '警告信息',
   ];
   
   const headerRow = mainSheet.addRow(headers);
@@ -1138,6 +1360,7 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
     }
     
     const majorsText = formattedMajors.length > 0 ? formattedMajors.join('\n') : v.majorSuggestion || '';
+    const warningsText = v.warnings?.length > 0 ? v.warnings.join('; ') : '';
     
     const row = mainSheet.addRow([
       v.index,
@@ -1147,12 +1370,13 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
       v.province,
       v.code,
       v.name,
-      v.subject,
+      v.subjectText,
       v.score2025 ?? '',
       v.score2024 ?? '',
       v.score2023 ?? '',
       majorsText,
       v.reason,
+      warningsText,
     ]);
     
     const probStyle = getProbabilityStyle(v.admissionProbability);
@@ -1282,7 +1506,6 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
   URL.revokeObjectURL(url);
 }
 
-// 导出为Excel
 export function exportToExcel(volunteers: VolunteerResult[], filename: string): void {
   const baseScore = volunteers[0]?.refScore || 0;
   
@@ -1296,7 +1519,7 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
        '2025投档线', '2024投档线', '2023投档线', 
        '推荐专业（保）', '推荐专业（稳）', '推荐专业（冲）',
        '保-专业详情', '稳-专业详情', '冲-专业详情',
-       '推荐理由'],
+       '推荐理由', '警告信息'],
     ];
     
     for (const v of volunteers) {
@@ -1327,6 +1550,7 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
       const chongMajorDetails = chongMajors.map(formatMajorDetail).join('\n');
       
       const trendText = v.scoreTrend === 'up' ? '上涨' : v.scoreTrend === 'down' ? '下降' : '平稳';
+      const warningsText = v.warnings?.length > 0 ? v.warnings.join('; ') : '';
       
       data.push([
         String(v.index),
@@ -1339,7 +1563,7 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
         v.province,
         v.code,
         v.name,
-        String(v.subject),
+        v.subjectText,
         v.score2025 !== null ? String(v.score2025) : '',
         v.score2024 !== null ? String(v.score2024) : '',
         v.score2023 !== null ? String(v.score2023) : '',
@@ -1350,6 +1574,7 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
         wenMajorDetails,
         chongMajorDetails,
         v.reason,
+        warningsText,
       ]);
     }
     
@@ -1366,7 +1591,7 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
       { wch: 10 },
       { wch: 16 },
       { wch: 28 },
-      { wch: 10 },
+      { wch: 15 },
       { wch: 12 },
       { wch: 12 },
       { wch: 12 },
@@ -1377,6 +1602,7 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
       { wch: 65 },
       { wch: 65 },
       { wch: 60 },
+      { wch: 50 },
     ];
     
     XLSX.utils.book_append_sheet(workbook, worksheet, '志愿方案');

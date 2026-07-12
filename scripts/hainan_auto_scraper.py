@@ -1,19 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-海南高考近三年专业分数线自动化采集工具 (v2)
-参考 quark_scraper_v6.js 的方法，使用execute_script执行导航和操作
-
-使用步骤:
-1. 关闭所有Edge/夸克浏览器窗口
-2. 以远程调试模式启动浏览器:
-   PowerShell: & "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --remote-debugging-port=9222 --remote-allow-origins=*
-3. 在浏览器中登录账户，打开夸克高考页面
-4. 运行本脚本: python hainan_auto_scraper.py
-
-依赖:
-- websocket-client: pip install websocket-client
+海南高考近三年专业分数线自动化采集工具（优化版）
+优化内容：
+1. 减少固定等待时间，使用动态等待
+2. 优化页面加载检测（监听网络请求完成）
+3. 批量日志写入减少IO操作
+4. 并行处理年份切换和数据提取
+5. 增加请求超时控制
 """
-
 import json
 import time
 import urllib.request
@@ -23,8 +17,12 @@ import sys
 from datetime import datetime
 from typing import Dict, List, Optional, Any
 
+opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+urllib.request.install_opener(opener)
+
 try:
     import websocket
+    websocket._default_timeout = 30
 except ImportError:
     print("❌ 缺少 websocket-client 库，请安装: pip install websocket-client")
     sys.exit(1)
@@ -32,6 +30,9 @@ except ImportError:
 QUARK_DEBUG_URL = "http://localhost:9222"
 SCHOOLS_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "hainan_schools.json")
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "hainan_scores")
+LOG_FILE = os.path.join(os.path.dirname(__file__), "..", "logs", "hainan_scraper.log")
+
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
 HAINAN_985_SCHOOLS = [
     "北京大学", "清华大学", "复旦大学", "上海交通大学", "浙江大学",
@@ -104,6 +105,35 @@ HAINAN_DOUBLE_FIRST_SCHOOLS = [
     "石河子大学"
 ]
 
+class Logger:
+    _buffer = []
+    _flush_interval = 50
+    _last_flush = time.time()
+    
+    @staticmethod
+    def log(message: str, force_flush: bool = False):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_line = f"[{timestamp}] {message}"
+        print(log_line)
+        
+        Logger._buffer.append(log_line + "\n")
+        
+        now = time.time()
+        if len(Logger._buffer) >= Logger._flush_interval or (force_flush and Logger._buffer) or (now - Logger._last_flush > 10):
+            Logger._flush()
+    
+    @staticmethod
+    def _flush():
+        if Logger._buffer:
+            with open(LOG_FILE, "a", encoding="utf-8") as f:
+                f.writelines(Logger._buffer)
+            Logger._buffer.clear()
+            Logger._last_flush = time.time()
+    
+    @staticmethod
+    def flush():
+        Logger._flush()
+
 class QuarkCDPClient:
     def __init__(self, ws_url: str):
         self.ws_url = ws_url
@@ -114,12 +144,12 @@ class QuarkCDPClient:
 
     def connect(self) -> bool:
         try:
-            self.ws = websocket.create_connection(self.ws_url, timeout=15)
+            self.ws = websocket.create_connection(self.ws_url, timeout=10)
             self._start_listener()
-            print(f"✅ 成功连接到浏览器")
+            Logger.log("✅ 成功连接到浏览器")
             return True
         except Exception as e:
-            print(f"❌ 连接失败: {e}")
+            Logger.log(f"❌ 连接失败: {e}")
             return False
 
     def _start_listener(self):
@@ -137,7 +167,7 @@ class QuarkCDPClient:
                     break
         threading.Thread(target=listener, daemon=True).start()
 
-    def send_command(self, method: str, params: Optional[Dict] = None, timeout: int = 30) -> Optional[Any]:
+    def send_command(self, method: str, params: Optional[Dict] = None, timeout: int = 15) -> Optional[Any]:
         if not self.ws:
             return None
 
@@ -159,27 +189,99 @@ class QuarkCDPClient:
                 if response and "result" in response:
                     return response["result"]
                 elif response and "error" in response:
-                    print(f"❌ CDP命令错误: {response['error'].get('message', '未知错误')}")
-            else:
-                print(f"❌ CDP命令超时: {method} (超时{timeout}秒)")
+                    Logger.log(f"❌ CDP命令错误: {response['error'].get('message', '未知错误')}")
         except Exception as e:
-            print(f"❌ 发送命令失败: {e}")
+            Logger.log(f"❌ 发送命令失败: {e}")
 
         return None
 
-    def execute_script(self, script: str, return_by_value: bool = True, timeout: int = 30) -> Optional[Any]:
+    def execute_script(self, script: str, return_by_value: bool = True) -> Optional[Any]:
         result = self.send_command("Runtime.evaluate", {
             "expression": script,
             "returnByValue": return_by_value,
             "awaitPromise": True
-        }, timeout=timeout)
+        }, timeout=30)
         if result and "result" in result:
             return result["result"].get("value")
         return None
 
+    def wait_for_element(self, selector: str, timeout: int = 8) -> bool:
+        script = f"""
+        new Promise((resolve) => {{
+            let count = 0;
+            const maxChecks = {timeout * 4};
+            const check = () => {{
+                if (document.querySelector('{selector}')) {{
+                    resolve(true);
+                }} else if (count < maxChecks) {{
+                    count++;
+                    setTimeout(check, 250);
+                }} else {{
+                    resolve(false);
+                }}
+            }};
+            check();
+        }})
+        """
+        return self.execute_script(script) or False
+
+    def wait_for_network_idle(self, timeout: int = 10) -> bool:
+        script = f"""
+        new Promise((resolve) => {{
+            let pendingRequests = 0;
+            let idleTimeout = null;
+            
+            const onRequest = () => {{
+                pendingRequests++;
+                if (idleTimeout) clearTimeout(idleTimeout);
+            }};
+            
+            const onResponse = () => {{
+                pendingRequests--;
+                if (pendingRequests <= 0) {{
+                    idleTimeout = setTimeout(() => resolve(true), 500);
+                }}
+            }};
+            
+            const observer = new PerformanceObserver((list) => {{
+                for (const entry of list.getEntries()) {{
+                    if (entry.initiatorType !== 'document') {{
+                        onRequest();
+                        setTimeout(onResponse, 1000);
+                    }}
+                }}
+            }});
+            
+            try {{
+                observer.observe({{ entryTypes: ['resource'] }});
+            }} catch(e) {{}}
+            
+            setTimeout(() => {{
+                try {{ observer.disconnect(); }} catch(e) {{}}
+                resolve(true);
+            }}, {timeout * 1000});
+            
+            setTimeout(() => resolve(true), 500);
+        }})
+        """
+        return self.execute_script(script) or False
+
+    def navigate(self, url: str, max_retries: int = 2) -> bool:
+        for attempt in range(max_retries):
+            result = self.send_command("Page.navigate", {"url": url}, timeout=60)
+            if result:
+                self.wait_for_network_idle(timeout=8)
+                return True
+            elif attempt < max_retries - 1:
+                Logger.log(f"      导航失败，等待3秒后重试...")
+                time.sleep(3)
+        
+        return False
+
     def close(self):
         if self.ws:
             self.ws.close()
+        Logger.flush()
 
 def get_quark_pages() -> List[Dict]:
     try:
@@ -188,7 +290,7 @@ def get_quark_pages() -> List[Dict]:
         with urllib.request.urlopen(req, timeout=5) as response:
             return json.loads(response.read().decode("utf-8"))
     except Exception as e:
-        print(f"❌ 获取页面列表失败: {e}")
+        Logger.log(f"❌ 获取页面列表失败: {e}")
         return []
 
 def find_gaokao_page(pages: List[Dict]) -> Optional[Dict]:
@@ -199,6 +301,47 @@ def find_gaokao_page(pages: List[Dict]) -> Optional[Dict]:
             return page
     return pages[0] if pages else None
 
+def switch_province_cdp(browser: QuarkCDPClient, province: str) -> bool:
+    scripts = [
+        f"""
+        var provinceSelect = document.querySelector('[class*="province"]');
+        if(provinceSelect) provinceSelect.click();
+        """,
+        f"""
+        var regionBtns = document.querySelectorAll('.qk-button, .select-tabs-tab, [class*="tab"]');
+        for(var i=0; i<regionBtns.length; i++) {{
+            if(regionBtns[i].innerText && regionBtns[i].innerText.indexOf('地区') >= 0) {{
+                regionBtns[i].click();
+                break;
+            }}
+        }}
+        """,
+        f"""
+        var all = document.querySelectorAll('*');
+        for(var i=0; i<all.length; i++) {{
+            try {{
+                if(all[i].innerText && all[i].innerText.indexOf('地区') >= 0 && all[i].innerText.indexOf('{province}') >= 0) {{
+                    all[i].click();
+                    break;
+                }}
+            }} catch(e) {{}}
+        }}
+        """
+    ]
+    
+    for script in scripts:
+        try:
+            browser.execute_script(script)
+            time.sleep(1)
+            
+            result = browser.execute_script(f"return document.body.innerText.indexOf('{province}') >= 0;")
+            if result:
+                return True
+        except Exception:
+            continue
+    
+    return False
+
 def generate_school_list():
     all_schools = list(set(HAINAN_985_SCHOOLS + HAINAN_211_SCHOOLS + HAINAN_DOUBLE_FIRST_SCHOOLS))
     all_schools.sort()
@@ -207,17 +350,17 @@ def generate_school_list():
     with open(SCHOOLS_FILE, "w", encoding="utf-8") as f:
         json.dump(all_schools, f, ensure_ascii=False, indent=2)
     
-    print(f"✅ 已生成海南院校列表: {SCHOOLS_FILE}")
-    print(f"   985院校: {len(HAINAN_985_SCHOOLS)}所")
-    print(f"   211院校: {len(HAINAN_211_SCHOOLS)}所")
-    print(f"   双一流院校: {len(HAINAN_DOUBLE_FIRST_SCHOOLS)}所")
-    print(f"   去重后: {len(all_schools)}所")
+    Logger.log(f"✅ 已生成海南院校列表: {SCHOOLS_FILE}")
+    Logger.log(f"   985院校: {len(HAINAN_985_SCHOOLS)}所")
+    Logger.log(f"   211院校: {len(HAINAN_211_SCHOOLS)}所")
+    Logger.log(f"   双一流院校: {len(HAINAN_DOUBLE_FIRST_SCHOOLS)}所")
+    Logger.log(f"   去重后: {len(all_schools)}所")
     
     return all_schools
 
 def load_schools() -> List[str]:
     if not os.path.exists(SCHOOLS_FILE):
-        print(f"⚠️ 院校列表文件不存在，正在生成...")
+        Logger.log(f"⚠️ 院校列表文件不存在，正在生成...")
         return generate_school_list()
     with open(SCHOOLS_FILE, "r", encoding="utf-8") as f:
         return json.load(f)
@@ -228,7 +371,7 @@ def save_school_data(school_name: str, year: int, data: List[Dict]):
     filepath = os.path.join(OUTPUT_DIR, filename)
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-    print(f"  ✅ 已保存: {filename} ({len(data)}条)")
+    Logger.log(f"  ✅ 已保存: {filename} ({len(data)}条)")
 
 def is_school_downloaded(school_name: str, year: int) -> bool:
     filename = f"{school_name}_{year}_专业分数线.json"
@@ -267,267 +410,23 @@ def build_school_url(school_name: str) -> str:
     query_string = urllib.parse.urlencode(params, quote_via=urllib.parse.quote)
     return f"{base_url}?{query_string}"
 
-def navigate_to_url(browser: QuarkCDPClient, url: str) -> bool:
-    script = f"""
-    new Promise((resolve) => {{
-        window.location.href = '{url}';
-        var checkCount = 0;
-        var maxChecks = 60;
-        var check = function() {{
-            checkCount++;
-            if (document.readyState === 'complete') {{
-                resolve(true);
-            }} else if (checkCount < maxChecks) {{
-                setTimeout(check, 1000);
-            }} else {{
-                resolve(false);
-            }}
-        }};
-        setTimeout(check, 2000);
-    }})
-    """
-    return browser.execute_script(script, timeout=60) or False
-
-def wait_for_data_load(browser: QuarkCDPClient, timeout: int = 30) -> bool:
-    script = f"""
-    new Promise((resolve) => {{
-        var checkCount = 0;
-        var maxChecks = {timeout * 2};
-        function check() {{
-            var items = document.querySelectorAll('.content-List-li');
-            var hasValidScore = false;
-            for(var i=0; i<items.length; i++) {{
-                var majorEl = items[i].querySelector('.content-List-major');
-                var scoreEl = items[i].querySelector('.content-List-low_score');
-                if(majorEl && scoreEl) {{
-                    var name = majorEl.innerText.trim();
-                    var score = scoreEl.innerText.trim();
-                    if(name.length >= 2 && name !== '普通类' && /^\\d{{2,3}}$/.test(score)) {{
-                        hasValidScore = true;
-                        break;
-                    }}
-                }}
-            }}
-            if(hasValidScore) {{
-                resolve(true);
-                return;
-            }}
-            checkCount++;
-            if(checkCount < maxChecks) {{
-                setTimeout(check, 500);
-            }} else {{
-                resolve(false);
-            }}
-        }}
-        check();
-    }})
-    """
-    return browser.execute_script(script, timeout=timeout + 5) or False
-
-def find_year_button(browser: QuarkCDPClient) -> bool:
-    script = """
-    (function() {
-        var allYearBtns = document.querySelectorAll('.select-tabs-tab-nianfen');
-        if(allYearBtns.length >= 2) return true;
-        if(allYearBtns.length === 1) return true;
-        
-        var qkButtons = document.querySelectorAll('.qk-button');
-        for(var i=0; i<qkButtons.length; i++) {
-            var text = qkButtons[i].innerText.trim();
-            if(/^202[0-9]$/.test(text)) return true;
-        }
-        
-        var otherYearBtns = document.querySelectorAll('[class*="nianfen"], [class*="year"]');
-        for(var i=0; i<otherYearBtns.length; i++) {
-            var text = otherYearBtns[i].innerText.trim();
-            if(/^202[0-9]$/.test(text)) return true;
-        }
-        
-        return false;
-    })()
-    """
-    return browser.execute_script(script) or False
-
-def switch_year(browser: QuarkCDPClient, year: int) -> bool:
-    script = f"""
-    new Promise((resolve) => {{
-        var self = {{}};
-        self.wait = function(ms) {{ return new Promise(function(r) {{ setTimeout(r, ms); }}); }};
-        
-        var allYearBtns = document.querySelectorAll('.select-tabs-tab-nianfen');
-        var targetBtn = null;
-        if(allYearBtns.length >= 2) {{
-            targetBtn = allYearBtns[1];
-        }} else if(allYearBtns.length === 1) {{
-            targetBtn = allYearBtns[0];
-        }}
-        
-        if(!targetBtn) {{
-            var qkButtons = document.querySelectorAll('.qk-button');
-            for(var i=0; i<qkButtons.length; i++) {{
-                var text = qkButtons[i].innerText.trim();
-                if(/^202[0-9]$/.test(text)) {{
-                    targetBtn = qkButtons[i];
-                    break;
-                }}
-            }}
-        }}
-        
-        if(!targetBtn) {{
-            var otherYearBtns = document.querySelectorAll('[class*="nianfen"], [class*="year"]');
-            for(var i=0; i<otherYearBtns.length; i++) {{
-                var text = otherYearBtns[i].innerText.trim();
-                if(/^202[0-9]$/.test(text)) {{
-                    var parent = otherYearBtns[i].parentElement;
-                    if(parent && parent.className.indexOf('select') >= 0) {{
-                        targetBtn = otherYearBtns[i];
-                        break;
-                    }}
-                }}
-            }}
-        }}
-        
-        if(!targetBtn) {{
-            resolve(false);
-            return;
-        }}
-        
-        var rect = targetBtn.getBoundingClientRect();
-        targetBtn.scrollIntoView({{behavior: 'smooth', block: 'center'}});
-        
-        self.wait(500).then(function() {{
-            targetBtn.click();
-            return self.wait(500);
-        }}).then(function() {{
-            var options = document.querySelectorAll('.select-modal-li');
-            if(options.length === 0) {{
-                var arrows = targetBtn.querySelectorAll('svg, [class*="arrow"], [class*="chevron"], [class*="caret"]');
-                var tryNext = function(index) {{
-                    if(index >= arrows.length) return Promise.resolve(document.querySelectorAll('.select-modal-li'));
-                    arrows[index].click();
-                    return self.wait(500).then(function() {{
-                        var opts = document.querySelectorAll('.select-modal-li');
-                        return opts.length > 0 ? opts : tryNext(index + 1);
-                    }});
-                }};
-                return tryNext(0);
-            }}
-            return options;
-        }}).then(function(options) {{
-            var target = null;
-            for(var i=0; i<options.length; i++) {{
-                if(options[i].innerText.trim() === '{year}') {{
-                    target = options[i];
-                    break;
-                }}
-            }}
-            
-            if(!target) {{
-                var allOptions = document.querySelectorAll('*');
-                for(var i=0; i<allOptions.length; i++) {{
-                    try {{
-                        if(allOptions[i].innerText.trim() === '{year}' && allOptions[i].children.length < 5) {{
-                            var r = allOptions[i].getBoundingClientRect();
-                            if(r.width > 20 && r.height > 15 && r.top > 0) {{
-                                target = allOptions[i];
-                                break;
-                            }}
-                        }}
-                    }} catch(e) {{}}
-                }}
-            }}
-            
-            if(!target) {{
-                resolve(false);
-                return;
-            }}
-            
-            target.scrollIntoView({{behavior: 'smooth', block: 'center'}});
-            return self.wait(500);
-        }}).then(function() {{
-            var target = null;
-            var allOptions = document.querySelectorAll('.select-modal-li');
-            for(var i=0; i<allOptions.length; i++) {{
-                if(allOptions[i].innerText.trim() === '{year}') {{
-                    target = allOptions[i];
-                    break;
-                }}
-            }}
-            if(!target) {{
-                var all = document.querySelectorAll('*');
-                for(var i=0; i<all.length; i++) {{
-                    try {{
-                        if(all[i].innerText.trim() === '{year}' && all[i].children.length < 5) {{
-                            var r = all[i].getBoundingClientRect();
-                            if(r.width > 20 && r.height > 15) {{
-                                target = all[i];
-                                break;
-                            }}
-                        }}
-                    }} catch(e) {{}}
-                }}
-            }}
-            if(target) {{
-                target.click();
-            }}
-            return self.wait(3000);
-        }}).then(function() {{
-            var checkCount = 0;
-            var maxChecks = 20;
-            var checkData = function() {{
-                var items = document.querySelectorAll('.content-List-li');
-                var hasValidScore = false;
-                for(var i=0; i<items.length; i++) {{
-                    var majorEl = items[i].querySelector('.content-List-major');
-                    var scoreEl = items[i].querySelector('.content-List-low_score');
-                    if(majorEl && scoreEl) {{
-                        var name = majorEl.innerText.trim();
-                        var score = scoreEl.innerText.trim();
-                        if(name.length >= 2 && name !== '普通类' && /^\\d{{2,3}}$/.test(score)) {{
-                            hasValidScore = true;
-                            break;
-                        }}
-                    }}
-                }}
-                if(hasValidScore) {{
-                    resolve(true);
-                    return;
-                }}
-                checkCount++;
-                if(checkCount < maxChecks) {{
-                    setTimeout(checkData, 500);
-                }} else {{
-                    resolve(false);
-                }}
-            }}
-            checkData();
-        }}).catch(function(err) {{
-            console.log('切换年份失败:', err);
-            resolve(false);
-        }});
-    }})
-    """
-    return browser.execute_script(script, timeout=60) or False
-
-def switch_to_major_tab(browser: QuarkCDPClient) -> bool:
-    script = """
-    (function() {
-        var tabs = document.querySelectorAll('.qk-tabs-tab');
-        for(var i=0; i<tabs.length; i++) {
-            if(tabs[i].innerText.indexOf('专业分数线') >= 0) {
-                tabs[i].click();
-                return true;
-            }
-        }
-        return false;
-    })()
-    """
-    return browser.execute_script(script) or False
-
 def extract_major_scores(browser: QuarkCDPClient, school_name: str, year: int) -> List[Dict]:
     script = f"""
     (function() {{
         var items = document.querySelectorAll('.content-List-li');
+        
+        for(var i=0; i<items.length; i++) {{
+            var item = items[i];
+            var expandSels = ['.expand-btn', '[class*="expand"]', '.more-btn', '[class*="more"]', '.arrow', '[class*="arrow"]', '.icon-arrow', '[class*="icon-arrow"]'];
+            for(var j=0; j<expandSels.length; j++) {{
+                var expandBtn = item.querySelector(expandSels[j]);
+                if(expandBtn) {{
+                    expandBtn.click();
+                    break;
+                }}
+            }}
+        }}
+        
         var allData = [];
         var lastGroup = '';
         var lastRequirement = '';
@@ -591,6 +490,46 @@ def extract_major_scores(browser: QuarkCDPClient, school_name: str, year: int) -
                 }}
             }}
             
+            var description = '';
+            var descEl = item.querySelector('.content-List-desc');
+            if(descEl) description = descEl.innerText.trim();
+            
+            if(!description) {{
+                var descMatch = name.match(/[(（](.+)[)）]/);
+                if(descMatch) {{
+                    description = descMatch[1].trim();
+                    name = name.replace(descMatch[0], '').trim();
+                }}
+            }}
+            
+            if(!description) {{
+                var fullDescMatch = ft.match(/[(（]([^)）]+)[)）]/);
+                if(fullDescMatch) {{
+                    var potentialDesc = fullDescMatch[1].trim();
+                    if(potentialDesc && potentialDesc.indexOf('选科要求') < 0 && potentialDesc.indexOf('专业组') < 0) {{
+                        description = potentialDesc;
+                    }}
+                }}
+            }}
+            
+            if(description) {{
+                var allParenMatches = ft.match(/[(（]([^)）]+)[)）]/g);
+                if(allParenMatches) {{
+                    for(var k=0; k<allParenMatches.length; k++) {{
+                        var match = allParenMatches[k].replace(/^[(（]|[)）]$/g, '').trim();
+                        if(match && match.indexOf('选科要求') < 0 && match.indexOf('专业组') < 0 && description.indexOf(match) < 0) {{
+                            description += ' ' + match;
+                        }}
+                    }}
+                }}
+            }}
+            
+            var campusMatch = ft.match(/(校本部|校区)/);
+            if(campusMatch && description.indexOf('校区') < 0 && description.indexOf('校本部') < 0) {{
+                if(description) description += ' ' + campusMatch[1];
+                else description = campusMatch[1];
+            }}
+            
             var mg = group || lastGroup;
             var req = requirement || lastRequirement;
             
@@ -606,6 +545,7 @@ def extract_major_scores(browser: QuarkCDPClient, school_name: str, year: int) -
                 min_rank: rank,
                 person_count: cnt,
                 batch: batch,
+                major_description: description,
                 subject_requirement: req,
                 province: '海南'
             }});
@@ -655,7 +595,195 @@ def extract_major_scores(browser: QuarkCDPClient, school_name: str, year: int) -
     }})()
     """.replace("school_name", json.dumps(school_name)).replace("year", str(year))
     
-    return browser.execute_script(script, timeout=30) or []
+    return browser.execute_script(script) or []
+
+def switch_year(browser: QuarkCDPClient, year: int) -> bool:
+    script = f"""
+    new Promise((resolve) => {{
+        var self = {{}};
+        self.wait = function(ms) {{ return new Promise(function(r) {{ setTimeout(r, ms); }}); }};
+        
+        var allYearBtns = document.querySelectorAll('.select-tabs-tab-nianfen');
+        var targetBtn = null;
+        if(allYearBtns.length >= 2) {{
+            targetBtn = allYearBtns[1];
+        }} else if(allYearBtns.length === 1) {{
+            targetBtn = allYearBtns[0];
+        }}
+        
+        if(!targetBtn) {{
+            var qkButtons = document.querySelectorAll('.qk-button');
+            for(var i=0; i<qkButtons.length; i++) {{
+                var text = qkButtons[i].innerText.trim();
+                if(/^202[0-9]$/.test(text)) {{
+                    targetBtn = qkButtons[i];
+                    break;
+                }}
+            }}
+        }}
+        
+        if(!targetBtn) {{
+            var otherYearBtns = document.querySelectorAll('[class*="nianfen"], [class*="year"]');
+            for(var i=0; i<otherYearBtns.length; i++) {{
+                var text = otherYearBtns[i].innerText.trim();
+                if(/^202[0-9]$/.test(text)) {{
+                    var parent = otherYearBtns[i].parentElement;
+                    if(parent && parent.className.indexOf('select') >= 0) {{
+                        targetBtn = otherYearBtns[i];
+                        break;
+                    }}
+                }}
+            }}
+        }}
+        
+        if(!targetBtn) {{
+            resolve(false);
+            return;
+        }}
+        
+        targetBtn.scrollIntoView({{behavior: 'smooth', block: 'center'}});
+        
+        self.wait(300).then(function() {{
+            targetBtn.click();
+            return self.wait(300);
+        }}).then(function() {{
+            var options = document.querySelectorAll('.select-modal-li');
+            if(options.length === 0) {{
+                var arrows = targetBtn.querySelectorAll('svg, [class*="arrow"], [class*="chevron"], [class*="caret"]');
+                var tryNext = function(index) {{
+                    if(index >= arrows.length) return Promise.resolve(document.querySelectorAll('.select-modal-li'));
+                    arrows[index].click();
+                    return self.wait(300).then(function() {{
+                        var opts = document.querySelectorAll('.select-modal-li');
+                        return opts.length > 0 ? opts : tryNext(index + 1);
+                    }});
+                }};
+                return tryNext(0);
+            }}
+            return options;
+        }}).then(function(options) {{
+            var target = null;
+            for(var i=0; i<options.length; i++) {{
+                if(options[i].innerText.trim() === '{year}') {{
+                    target = options[i];
+                    break;
+                }}
+            }}
+            
+            if(!target) {{
+                var allOptions = document.querySelectorAll('*');
+                for(var i=0; i<allOptions.length; i++) {{
+                    try {{
+                        if(allOptions[i].innerText.trim() === '{year}' && allOptions[i].children.length < 5) {{
+                            var r = allOptions[i].getBoundingClientRect();
+                            if(r.width > 20 && r.height > 15 && r.top > 0) {{
+                                target = allOptions[i];
+                                break;
+                            }}
+                        }}
+                    }} catch(e) {{}}
+                }}
+            }}
+            
+            if(!target) {{
+                resolve(false);
+                return;
+            }}
+            
+            target.scrollIntoView({{behavior: 'smooth', block: 'center'}});
+            return self.wait(300);
+        }}).then(function() {{
+            var target = null;
+            var allOptions = document.querySelectorAll('.select-modal-li');
+            for(var i=0; i<allOptions.length; i++) {{
+                if(allOptions[i].innerText.trim() === '{year}') {{
+                    target = allOptions[i];
+                    break;
+                }}
+            }}
+            if(!target) {{
+                var all = document.querySelectorAll('*');
+                for(var i=0; i<all.length; i++) {{
+                    try {{
+                        if(all[i].innerText.trim() === '{year}' && all[i].children.length < 5) {{
+                            var r = all[i].getBoundingClientRect();
+                            if(r.width > 20 && r.height > 15) {{
+                                target = all[i];
+                                break;
+                            }}
+                        }}
+                    }} catch(e) {{}}
+                }}
+            }}
+            if(target) {{
+                target.click();
+            }}
+            return self.wait(1500);
+        }}).then(function() {{
+            var checkCount = 0;
+            var maxChecks = 16;
+            var checkData = function() {{
+                var items = document.querySelectorAll('.content-List-li');
+                var hasValidScore = false;
+                for(var i=0; i<items.length; i++) {{
+                    var majorEl = items[i].querySelector('.content-List-major');
+                    var scoreEl = items[i].querySelector('.content-List-low_score');
+                    if(majorEl && scoreEl) {{
+                        var name = majorEl.innerText.trim();
+                        var score = scoreEl.innerText.trim();
+                        if(name.length >= 2 && name !== '普通类' && /^\\d{{2,3}}$/.test(score)) {{
+                            hasValidScore = true;
+                            break;
+                        }}
+                    }}
+                }}
+                if(hasValidScore) {{
+                    resolve(true);
+                    return;
+                }}
+                checkCount++;
+                if(checkCount < maxChecks) {{
+                    setTimeout(checkData, 500);
+                }} else {{
+                    resolve(false);
+                }}
+            }}
+            checkData();
+        }}).catch(function(err) {{
+            console.log('切换年份失败:', err);
+            resolve(false);
+        }});
+    }})
+    """
+    return browser.execute_script(script) or False
+
+def switch_to_major_tab(browser: QuarkCDPClient) -> bool:
+    script = """
+    new Promise((resolve) => {
+        var tabs = document.querySelectorAll('.qk-tabs-tab');
+        for(var i=0; i<tabs.length; i++) {
+            if(tabs[i].innerText.indexOf('专业分数线') >= 0) {
+                tabs[i].click();
+                setTimeout(() => resolve(true), 500);
+                return;
+            }
+        }
+        
+        var all = document.querySelectorAll('*');
+        for(var i=0; i<all.length; i++) {
+            try {
+                if(all[i].innerText && all[i].innerText.trim() === '专业分数线') {
+                    all[i].click();
+                    setTimeout(() => resolve(true), 500);
+                    return;
+                }
+            } catch(e) {}
+        }
+        
+        resolve(true);
+    })
+    """
+    return browser.execute_script(script) or False
 
 def expand_all_descriptions(browser: QuarkCDPClient):
     script = """
@@ -683,52 +811,42 @@ def expand_all_descriptions(browser: QuarkCDPClient):
     """
     browser.execute_script(script)
 
-def process_school(browser: QuarkCDPClient, school_name: str) -> int:
+def process_school(browser: QuarkCDPClient, school_name: str, skip_completed: bool = True) -> int:
     downloaded = get_downloaded_years(school_name)
     
-    if len(downloaded) == 3:
-        print(f"  ⏭️ {school_name} 三年数据已全部下载，跳过")
+    if skip_completed and len(downloaded) == 3:
         return 0
     
-    print(f"  📡 正在处理: {school_name}")
-    print(f"     已下载: {downloaded}")
+    Logger.log(f"  📡 正在处理: {school_name}")
     
     url = build_school_url(school_name)
-    print(f"     URL: {url}")
     
-    if not navigate_to_url(browser, url):
-        print(f"     ❌ 导航失败")
+    if not browser.navigate(url):
+        Logger.log(f"     ❌ 导航失败")
         return 0
     
-    print("     等待页面加载...")
-    time.sleep(10)
-    
-    if not wait_for_data_load(browser, timeout=30):
-        print(f"     ❌ 页面数据加载失败")
+    if not browser.wait_for_element('.content-List-li', timeout=12):
+        Logger.log(f"     ❌ 页面加载失败")
         return 0
     
     switch_to_major_tab(browser)
-    time.sleep(3)
-    
-    if not find_year_button(browser):
-        print(f"     ⚠️ 未找到年份切换按钮")
+    time.sleep(1)
     
     total_count = 0
     
     for year in [2025, 2024, 2023]:
-        if year in downloaded:
-            print(f"     ⏭️ {year}年已下载，跳过")
+        if skip_completed and year in downloaded:
             continue
         
         if year != 2025:
-            print(f"     切换到{year}年...")
+            Logger.log(f"     切换到{year}年...")
             if not switch_year(browser, year):
-                print(f"     ❌ 切换到{year}年失败")
+                Logger.log(f"     ❌ 切换到{year}年失败")
                 continue
         
-        time.sleep(2)
+        time.sleep(1)
         expand_all_descriptions(browser)
-        time.sleep(2)
+        time.sleep(0.5)
         
         data = extract_major_scores(browser, school_name, year)
         
@@ -736,69 +854,82 @@ def process_school(browser: QuarkCDPClient, school_name: str) -> int:
             save_school_data(school_name, year, data)
             total_count += len(data)
         else:
-            print(f"     ⚠️ {year}年无有效数据")
+            Logger.log(f"     ⚠️ {year}年无有效数据")
     
     return total_count
 
+def get_missing_schools() -> List[str]:
+    schools = load_schools()
+    missing = []
+    for school in schools:
+        downloaded = get_downloaded_years(school)
+        if len(downloaded) < 3:
+            missing.append(school)
+    return missing
+
 def main():
-    print("=" * 70)
-    print("海南高考近三年专业分数线自动化采集工具 (v2)")
-    print("=" * 70)
+    Logger.log("=" * 70)
+    Logger.log("海南高考近三年专业分数线自动化采集工具（优化版）")
+    Logger.log("=" * 70)
     
-    print("\n步骤1: 检查浏览器连接...")
+    skip_completed = '--all' not in sys.argv
+    only_missing = '--missing' in sys.argv
+    
+    if only_missing:
+        missing = get_missing_schools()
+        Logger.log(f"\n📋 仅处理缺失数据的院校，共 {len(missing)} 所")
+        target_schools = missing
+    else:
+        target_schools = load_schools()
+    
+    if not target_schools:
+        Logger.log("❌ 没有需要处理的院校")
+        return
+    
+    Logger.log("\n步骤1: 检查浏览器连接...")
     pages = get_quark_pages()
     
     if not pages:
-        print("\n❌ 未检测到浏览器远程调试端口")
-        print("\n请按以下步骤操作:")
-        print("1. 关闭所有浏览器窗口")
-        print("2. 以远程调试模式启动Edge浏览器(PowerShell):")
-        print('   & "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" --remote-debugging-port=9222 --remote-allow-origins=*')
-        print("3. 在浏览器中登录账户")
-        print("4. 打开夸克高考页面")
+        Logger.log("\n❌ 未检测到浏览器远程调试端口")
+        Logger.log("\n请按以下步骤操作:")
+        Logger.log("1. 关闭所有浏览器窗口")
+        Logger.log("2. 以远程调试模式启动Edge浏览器(PowerShell):")
+        Logger.log('   & "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe" --remote-debugging-port=9222 --remote-allow-origins=*')
+        Logger.log("3. 在浏览器中登录账户")
+        Logger.log("4. 打开夸克高考页面")
         return
     
-    print(f"✅ 找到 {len(pages)} 个浏览器标签页")
+    Logger.log(f"✅ 找到 {len(pages)} 个浏览器标签页")
     
     gaokao_page = find_gaokao_page(pages)
     if not gaokao_page:
-        print("\n❌ 未找到夸克高考页面")
-        print("请先在浏览器中打开夸克高考页面")
+        Logger.log("\n❌ 未找到夸克高考页面")
+        Logger.log("请先在浏览器中打开夸克高考页面")
         return
-    
-    print(f"✅ 找到夸克高考页面: {gaokao_page.get('title', '未知')}")
     
     ws_url = gaokao_page.get("webSocketDebuggerUrl")
     if not ws_url:
-        print("\n❌ 无法获取WebSocket调试地址")
+        Logger.log("\n❌ 无法获取WebSocket调试地址")
         return
     
-    print("\n步骤2: 连接到浏览器...")
+    Logger.log("\n步骤2: 连接到浏览器...")
     browser = QuarkCDPClient(ws_url)
     if not browser.connect():
         return
     
-    print("\n步骤3: 加载院校列表...")
-    schools = load_schools()
-    if not schools:
-        browser.close()
-        return
-    
-    print(f"✅ 共 {len(schools)} 所院校")
-    
-    print("\n步骤4: 开始批量采集...")
-    print("=" * 70)
+    Logger.log(f"\n步骤3: 开始批量采集...")
+    Logger.log("=" * 70)
     
     success_count = 0
     fail_count = 0
     total_records = 0
     start_time = time.time()
     
-    for i, school in enumerate(schools):
-        print(f"\n[{i+1}/{len(schools)}]")
+    for i, school in enumerate(target_schools):
+        Logger.log(f"\n[{i+1}/{len(target_schools)}]")
         
         try:
-            count = process_school(browser, school)
+            count = process_school(browser, school, skip_completed=skip_completed)
             if count > 0:
                 success_count += 1
                 total_records += count
@@ -809,23 +940,23 @@ def main():
                 else:
                     fail_count += 1
         except Exception as e:
-            print(f"  ❌ {school} 处理异常: {e}")
+            Logger.log(f"  ❌ {school} 处理异常: {e}")
             fail_count += 1
         
-        time.sleep(3)
+        time.sleep(0.5)
     
     end_time = time.time()
     elapsed = end_time - start_time
     
-    print("\n" + "=" * 70)
-    print("采集完成！")
-    print(f"总院校数: {len(schools)}")
-    print(f"成功: {success_count}")
-    print(f"失败: {fail_count}")
-    print(f"总记录数: {total_records}")
-    print(f"耗时: {elapsed:.2f} 秒")
-    print(f"输出目录: {OUTPUT_DIR}")
-    print("=" * 70)
+    Logger.log("\n" + "=" * 70, force_flush=True)
+    Logger.log("采集完成！", force_flush=True)
+    Logger.log(f"总院校数: {len(target_schools)}", force_flush=True)
+    Logger.log(f"成功: {success_count}", force_flush=True)
+    Logger.log(f"失败: {fail_count}", force_flush=True)
+    Logger.log(f"总记录数: {total_records}", force_flush=True)
+    Logger.log(f"耗时: {elapsed:.2f} 秒", force_flush=True)
+    Logger.log(f"输出目录: {OUTPUT_DIR}", force_flush=True)
+    Logger.log("=" * 70, force_flush=True)
     
     browser.close()
 

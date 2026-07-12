@@ -152,6 +152,98 @@
     return false;
   }
 
+  async function expandAllItems() {
+    console.log('  → 展开所有可展开元素...');
+    
+    let expandedCount = 0;
+    let retries = 0;
+    const maxRetries = 3;
+    
+    while (retries < maxRetries) {
+      let foundNew = false;
+      
+      const expanders = document.querySelectorAll(
+        '[class*="expand"], [class*="arrow"], [class*="icon-arrow"], [class*="toggle"], [class*="collapse"], [class*="dropdown"], [class*="expand-icon"], [class*="down-arrow"], [class*="icon-down"], [class*="icon-right"]'
+      );
+      
+      for (const expander of expanders) {
+        const style = window.getComputedStyle(expander);
+        if (style.display === 'none' || style.visibility === 'hidden') continue;
+        
+        const rect = expander.getBoundingClientRect();
+        if (rect.width === 0 || rect.height === 0) continue;
+        
+        if (expander.closest('.expanded') || expander.closest('[class*="expanded"]')) continue;
+        
+        expander.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        await sleep(300);
+        
+        try {
+          expander.click();
+          expandedCount++;
+          foundNew = true;
+          await sleep(500);
+        } catch (e) {
+          console.warn('    ⚠ 点击展开按钮失败:', e.message);
+        }
+      }
+      
+      const chevronIcons = document.querySelectorAll(
+        '[class*="chevron"], [class*="icon-chevron"], svg[class*="arrow"], svg[class*="icon"]'
+      );
+      
+      for (const icon of chevronIcons) {
+        const parent = icon.closest('button, div, span');
+        if (!parent) continue;
+        
+        const style = window.getComputedStyle(parent);
+        if (style.display === 'none' || style.visibility === 'hidden') continue;
+        
+        if (parent.closest('.expanded') || parent.closest('[class*="expanded"]')) continue;
+        
+        parent.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        await sleep(300);
+        
+        try {
+          parent.click();
+          expandedCount++;
+          foundNew = true;
+          await sleep(500);
+        } catch (e) {
+          console.warn('    ⚠ 点击图标按钮失败:', e.message);
+        }
+      }
+      
+      const clickableArrows = document.querySelectorAll('div, span');
+      for (const el of clickableArrows) {
+        const text = el.textContent || '';
+        if (text.includes('▼') || text.includes('▶') || text.includes('展开')) {
+          const style = window.getComputedStyle(el);
+          if (style.cursor === 'pointer' && style.display !== 'none') {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            await sleep(300);
+            
+            try {
+              el.click();
+              expandedCount++;
+              foundNew = true;
+              await sleep(500);
+            } catch (e) {
+              console.warn('    ⚠ 点击箭头按钮失败:', e.message);
+            }
+          }
+        }
+      }
+      
+      if (!foundNew) break;
+      retries++;
+      await sleep(1000);
+    }
+    
+    console.log(`    ✓ 已展开 ${expandedCount} 个元素`);
+    await sleep(1000);
+  }
+
   // ========== 数据提取 ==========
   
   function extractMajorScores(schoolName, year) {
@@ -177,6 +269,7 @@
       let subjectReq = '';
       let avgScore = null;
       let batchLineDiff = null;
+      let majorDesc = '';
       
       for (const line of lines) {
         const majorMatch = line.match(/^(.+?专业.*?)$/);
@@ -208,6 +301,15 @@
         if (subjectMatch && !subjectReq) {
           subjectReq = subjectMatch[1].trim();
         }
+        
+        const descMatch = line.match(/(包含专业[：:].+)$/);
+        if (descMatch && !majorDesc) {
+          majorDesc = descMatch[1].trim();
+        }
+        
+        if (!majorDesc && line.includes('包含') && line.includes('专业')) {
+          majorDesc = line.trim();
+        }
       }
       
       if (!majorName && lines[0]) {
@@ -228,6 +330,7 @@
           major_group: majorGroup || undefined,
           subject_requirement: subjectReq || undefined,
           batch_line_diff: batchLineDiff || undefined,
+          major_description: majorDesc || undefined,
           province: CONFIG.province,
           year: year,
           batch: CONFIG.batch,
@@ -324,6 +427,7 @@
       
       await switchToMajorTab();
       await clickViewAll();
+      await expandAllItems();
       await sleep(1500);
       
       const records = extractMajorScores(schoolName, year);

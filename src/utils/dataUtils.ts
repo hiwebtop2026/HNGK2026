@@ -25,8 +25,17 @@ export interface MajorRecommendation {
   probability: number;    // 录取概率 0-100
 }
 
-// 科目名称映射
 export const SUBJECT_NAMES: Record<string, string> = {
+  '1': '物理',
+  '2': '化学',
+  '3': '生物',
+  '4': '政治',
+  '5': '历史',
+  '6': '地理',
+  '7': '思想政治',
+};
+
+export const SUBJECT_NAMES_ALT: Record<string, string> = {
   '4': '物理',
   '5': '化学',
   '6': '生物',
@@ -35,34 +44,36 @@ export const SUBJECT_NAMES: Record<string, string> = {
   '9': '地理',
 };
 
-// 六科列表
 export const SUBJECT_LIST = [
-  { code: '4', name: '物理', icon: '⚛️', color: 'from-blue-500 to-cyan-500' },
-  { code: '5', name: '化学', icon: '🧪', color: 'from-green-500 to-emerald-500' },
-  { code: '6', name: '生物', icon: '🧬', color: 'from-rose-500 to-pink-500' },
-  { code: '7', name: '思想政治', icon: '📚', color: 'from-amber-500 to-orange-500' },
-  { code: '8', name: '历史', icon: '🏛️', color: 'from-purple-500 to-indigo-500' },
-  { code: '9', name: '地理', icon: '🌍', color: 'from-teal-500 to-green-500' },
+  { code: '1', name: '物理', icon: '⚛️', color: 'from-blue-500 to-cyan-500' },
+  { code: '2', name: '化学', icon: '🧪', color: 'from-green-500 to-emerald-500' },
+  { code: '3', name: '生物', icon: '🧬', color: 'from-rose-500 to-pink-500' },
+  { code: '4', name: '政治', icon: '📚', color: 'from-amber-500 to-orange-500' },
+  { code: '5', name: '历史', icon: '🏛️', color: 'from-purple-500 to-indigo-500' },
+  { code: '6', name: '地理', icon: '🌍', color: 'from-teal-500 to-green-500' },
 ];
 
-// 解析科目要求代码（数字代码 -> 文字描述）
-// 规则：
-// - 0: 不限
-// - 单位数: 单科
-// - 多位数: 数字从小到大=选考其中一门即可，数字从大到小=均须选考
 export function parseSubjectRequirement(code: number): string {
   if (code === 0) return '不限';
   
   const digits = String(code).split('');
   
+  const getName = (d: string) => {
+    const num = parseInt(d);
+    if (num >= 4 && num <= 9) {
+      return SUBJECT_NAMES_ALT[d] || SUBJECT_NAMES[d] || d;
+    }
+    return SUBJECT_NAMES[d] || SUBJECT_NAMES_ALT[d] || d;
+  };
+  
   if (digits.length === 1) {
-    return SUBJECT_NAMES[digits[0]] || `科目${code}`;
+    return getName(digits[0]);
   }
   
   const isAscending = digits.every((d, i) => i === 0 || parseInt(digits[i - 1]) < parseInt(d));
   const isDescending = digits.every((d, i) => i === 0 || parseInt(digits[i - 1]) > parseInt(d));
   
-  const names = digits.map(d => SUBJECT_NAMES[d] || d).join('+');
+  const names = digits.map(getName).join('+');
   
   if (isDescending) {
     return `${names}(均须选考)`;
@@ -73,13 +84,22 @@ export function parseSubjectRequirement(code: number): string {
   }
 }
 
-// 判断考生选科是否满足专业选科要求
-// selectedSubjects: 考生选择的科目代码数组，如 ['4', '5', '6']
-// requirement: 专业选科要求，支持多种格式：
-//   - 数字代码：54, 45, 0, 5等
-//   - 文字描述："选科要求：物理+化学", "不限", "物理或化学"等
-// 科目名称到代码的映射
 const SUBJECT_NAME_TO_CODE: Record<string, string> = {
+  '物理': '1',
+  '化学': '2',
+  '生物': '3',
+  '政治': '4',
+  '思想政治': '4',
+  '历史': '5',
+  '地理': '6',
+  '物': '1',
+  '化': '2',
+  '生': '3',
+  '史': '5',
+  '地': '6',
+};
+
+const SUBJECT_NAME_TO_CODE_ALT: Record<string, string> = {
   '物理': '4',
   '化学': '5',
   '生物': '6',
@@ -94,7 +114,6 @@ const SUBJECT_NAME_TO_CODE: Record<string, string> = {
   '地': '9',
 };
 
-// 从文字描述的选科要求中解析出科目代码和类型
 function parseSubjectRequirementFromString(requirement: string): { codes: string[]; type: 'all' | 'any' } {
   const reqStr = String(requirement).trim();
   
@@ -103,29 +122,58 @@ function parseSubjectRequirementFromString(requirement: string): { codes: string
   }
   
   if (reqStr.match(/^\d+$/)) {
-    const digits = reqStr.match(/[4-9]/g) || [];
-    const isAscending = digits.length > 1 && digits.every((d, i) => i === 0 || parseInt(digits[i - 1]) < parseInt(d));
-    return { codes: digits, type: isAscending ? 'any' : 'all' };
+    const digits = reqStr.match(/[1-9]/g) || [];
+    if (digits.length === 0) {
+      return { codes: [], type: 'any' };
+    }
+    
+    const hasLowDigits = digits.some(d => ['1', '2', '3', '4', '5', '6'].includes(d));
+    const hasHighDigits = digits.some(d => ['4', '5', '6', '7', '8', '9'].includes(d));
+    
+    let normalizedDigits: string[];
+    if (hasLowDigits && !hasHighDigits) {
+      normalizedDigits = digits;
+    } else if (hasHighDigits && !hasLowDigits) {
+      normalizedDigits = digits.map(d => {
+        const mapping: Record<string, string> = { '4': '1', '5': '2', '6': '3', '7': '4', '8': '5', '9': '6' };
+        return mapping[d] || d;
+      });
+    } else {
+      normalizedDigits = digits;
+    }
+    
+    const isAscending = normalizedDigits.length > 1 && normalizedDigits.every((d, i) => i === 0 || parseInt(normalizedDigits[i - 1]) < parseInt(normalizedDigits[i]));
+    return { codes: normalizedDigits, type: isAscending ? 'any' : 'all' };
   }
   
   let codes: string[] = [];
   let type: 'all' | 'any' = 'all';
   
+  const getCode = (name: string): string | undefined => {
+    return SUBJECT_NAME_TO_CODE[name] || SUBJECT_NAME_TO_CODE_ALT[name];
+  };
+  
   if (reqStr.includes('必选')) {
     type = 'all';
-    for (const [name, code] of Object.entries(SUBJECT_NAME_TO_CODE)) {
-      if (reqStr.includes(name) && !codes.includes(code)) {
-        codes.push(code);
+    for (const name of Object.keys(SUBJECT_NAME_TO_CODE)) {
+      if (reqStr.includes(name)) {
+        const code = getCode(name);
+        if (code && !codes.includes(code)) {
+          codes.push(code);
+        }
       }
     }
   } else if (reqStr.includes('+') || reqStr.includes('均须') || reqStr.includes('均需') || reqStr.includes('2科必选') || reqStr.includes('3科必选')) {
     type = 'all';
     const parts = reqStr.split(/[+\/、，,]/);
     for (const part of parts) {
-      for (const [name, code] of Object.entries(SUBJECT_NAME_TO_CODE)) {
-        if (part.trim().startsWith(name) && !codes.includes(code)) {
-          codes.push(code);
-          break;
+      for (const name of Object.keys(SUBJECT_NAME_TO_CODE)) {
+        if (part.trim().startsWith(name)) {
+          const code = getCode(name);
+          if (code && !codes.includes(code)) {
+            codes.push(code);
+            break;
+          }
         }
       }
     }
@@ -133,18 +181,31 @@ function parseSubjectRequirementFromString(requirement: string): { codes: string
     type = 'any';
     const parts = reqStr.split(/[\/、，,]/);
     for (const part of parts) {
-      for (const [name, code] of Object.entries(SUBJECT_NAME_TO_CODE)) {
-        if (part.trim().startsWith(name) && !codes.includes(code)) {
-          codes.push(code);
-          break;
+      for (const name of Object.keys(SUBJECT_NAME_TO_CODE)) {
+        if (part.trim().startsWith(name)) {
+          const code = getCode(name);
+          if (code && !codes.includes(code)) {
+            codes.push(code);
+            break;
+          }
         }
       }
     }
   } else {
-    const reqDigits = reqStr.match(/[4-9]/g) || [];
+    const reqDigits = reqStr.match(/[1-9]/g) || [];
     if (reqDigits.length > 0) {
-      codes = reqDigits;
-      const isAscending = codes.length > 1 && codes.every((d, i) => i === 0 || parseInt(codes[i - 1]) < parseInt(d));
+      const hasLowDigits = reqDigits.some(d => ['1', '2', '3', '4', '5', '6'].includes(d));
+      const hasHighDigits = reqDigits.some(d => ['7', '8', '9'].includes(d));
+      
+      if (hasHighDigits && !hasLowDigits) {
+        codes = reqDigits.map(d => {
+          const mapping: Record<string, string> = { '4': '1', '5': '2', '6': '3', '7': '4', '8': '5', '9': '6' };
+          return mapping[d] || d;
+        });
+      } else {
+        codes = reqDigits;
+      }
+      const isAscending = codes.length > 1 && codes.every((d, i) => i === 0 || parseInt(codes[i - 1]) < parseInt(codes[i]));
       type = isAscending ? 'any' : 'all';
     }
   }
@@ -219,23 +280,29 @@ export function extractSubjectCodes(requirement: string): string[] {
   return codes;
 }
 
-// 科目要求说明（保留向后兼容，使用函数生成）
 export const SUBJECT_REQUIREMENTS: Record<number, string> = {
   0: '不限',
-  4: '物理',
-  5: '化学',
-  6: '生物',
+  1: '物理',
+  2: '化学',
+  3: '生物',
+  4: '政治',
+  5: '历史',
+  6: '地理',
   7: '思想政治',
   8: '历史',
   9: '地理',
-  54: '物理+化学(均须选考)',
-  45: '物理或化学(选一门即可)',
+  12: '物理或化学(选一门即可)',
+  21: '物理+化学(均须选考)',
+  23: '化学+生物(均须选考)',
+  32: '化学+生物(选一门即可)',
   56: '化学+生物(均须选考)',
   65: '化学+生物(选一门即可)',
+  78: '历史+思想政治(选一门即可)',
+  87: '历史+思想政治(均须选考)',
+  123: '物理+化学+生物(选一门即可)',
+  321: '物理+化学+生物(均须选考)',
   456: '物理+化学+生物(选一门即可)',
   654: '物理+化学+生物(均须选考)',
-  87: '历史+思想政治(均须选考)',
-  78: '历史+思想政治(选一门即可)',
 };
 
 // 计算参考分（优先2025年）
@@ -273,32 +340,36 @@ export function getRecommendationReason(refScore: number, baseScore: number, pro
   
   if (isHighScoreSystem) {
     if (diff > 20) {
-      return `投档线${refScore}分，超${diff}分，冲刺院校，机会有限`;
+      return `投档线${refScore}分，高于考生分数${diff}分，冲刺院校，机会有限`;
     } else if (diff > 10) {
-      return `投档线${refScore}分，超${diff}分，合理冲刺，机会中等`;
+      return `投档线${refScore}分，高于考生分数${diff}分，合理冲刺，机会中等`;
+    } else if (diff > 0) {
+      return `投档线${refScore}分，略高于考生分数，冲刺院校`;
     } else if (diff === 0) {
-      return `投档线${refScore}分，分数相当，稳投理想选择`;
+      return `投档线${refScore}分，分数相当，录取把握较大，理想的稳投选择`;
     } else if (diff >= -10) {
       return `投档线${refScore}分，接近分数，录取把握较大`;
     } else if (diff >= -20) {
-      return `投档线${refScore}分，低${Math.abs(diff)}分，稳妥保底院校`;
+      return `投档线${refScore}分，低于考生分数${Math.abs(diff)}分，稳妥保底院校，录取概率很高`;
     } else {
-      return `投档线${refScore}分，低${Math.abs(diff)}分，保底选择，概率很高`;
+      return `投档线${refScore}分，低于考生分数${Math.abs(diff)}分，保底选择，录取概率很高`;
     }
   }
   
   if (diff > 10) {
-    return `投档线${refScore}分，超${diff}分，冲刺院校，机会有限`;
+    return `投档线${refScore}分，高于考生分数${diff}分，冲刺院校，机会有限`;
   } else if (diff > 5) {
-    return `投档线${refScore}分，超${diff}分，合理冲刺，机会中等`;
+    return `投档线${refScore}分，高于考生分数${diff}分，合理冲刺，机会中等`;
+  } else if (diff > 0) {
+    return `投档线${refScore}分，略高于考生分数，冲刺院校`;
   } else if (diff === 0) {
-    return `投档线${refScore}分，分数相当，稳投理想选择`;
+    return `投档线${refScore}分，分数相当，录取把握较大，理想的稳投选择`;
   } else if (diff >= -5) {
     return `投档线${refScore}分，接近分数，录取把握较大`;
   } else if (diff >= -10) {
-    return `投档线${refScore}分，低${Math.abs(diff)}分，稳妥保底院校`;
+    return `投档线${refScore}分，低于考生分数${Math.abs(diff)}分，稳妥保底院校，录取概率很高`;
   } else {
-    return `投档线${refScore}分，低${Math.abs(diff)}分，保底选择，概率很高`;
+    return `投档线${refScore}分，低于考生分数${Math.abs(diff)}分，保底选择，录取概率很高`;
   }
 }
 

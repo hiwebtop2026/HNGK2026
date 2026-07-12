@@ -1,5 +1,7 @@
 import type { MajorRecommendation } from './dataUtils';
 import { getSchoolMajors, type MajorInfo } from '../data/majorData';
+import { majorScoreService, type MajorScore } from '../services/majorScoreService';
+import { isSubjectMatch } from './dataUtils';
 
 // 学科实力得分
 const LEVEL_SCORE: Record<string, number> = {
@@ -146,47 +148,68 @@ function generateMockYearlyScores(
   ];
 }
 
-// 生成专业推荐（增强版 - 模拟智能查询）
-export function generateMajorRecommendations(
+function calculateRealMajorTrend(scores: MajorScore[]): 'up' | 'down' | 'stable' {
+  const sorted = [...scores].sort((a, b) => b.year - a.year);
+  const validScores = sorted.filter(s => s.min_score !== null);
+  
+  if (validScores.length < 2) return 'stable';
+  
+  const recent = validScores.slice(0, 2);
+  const older = validScores.slice(-2);
+  
+  const recentAvg = recent.reduce((sum, s) => sum + (s.min_score || 0), 0) / recent.length;
+  const olderAvg = older.reduce((sum, s) => sum + (s.min_score || 0), 0) / older.length;
+  
+  const diff = recentAvg - olderAvg;
+  const base = olderAvg || 1;
+  const trendPercent = (diff / base) * 100;
+  
+  if (trendPercent > 5) return 'up';
+  if (trendPercent < -5) return 'down';
+  return 'stable';
+}
+
+function buildScoreDetails(scores: MajorScore[]): MajorScoreDetail[] {
+  const yearScores: Record<number, number> = {};
+  for (const s of scores) {
+    if (s.year && s.min_score) {
+      yearScores[s.year] = s.min_score;
+    }
+  }
+  
+  return [2025, 2024, 2023].map(year => ({
+    year,
+    score: yearScores[year] || null,
+    rank: null,
+  }));
+}
+
+export async function generateMajorRecommendations(
   schoolName: string,
   baseScore: number,
   schoolRefScore: number,
   schoolLevel: string = '普通本科',
-): EnhancedMajorRecommendation[] {
-  const majors = getSchoolMajors(schoolName);
+  selectedSubjects: string[] = [],
+  province: string = '海南',
+): Promise<EnhancedMajorRecommendation[]> {
+  let realMajorData: MajorScore[] = [];
+  try {
+    realMajorData = await majorScoreService.getBySchoolAndProvince(schoolName, province);
+  } catch (error) {
+    console.error(`获取${schoolName}真实专业数据失败:`, error);
+  }
   
-  const recommendations: EnhancedMajorRecommendation[] = majors.map(major => {
-    // 智能预估专业录取分
-    const estimation = estimateMajorScore(major, schoolRefScore, schoolLevel);
-    
-    // 考生分数与专业预估分的差值
-    const scoreDiff = baseScore - estimation.score;
-    
-    // 计算录取概率
-    const probability = calculateAdmissionProbability(scoreDiff);
-    
-    // 录取档次
-    const admissionTier = getAdmissionTier(probability);
-    
-    // 生成历年分数数据
-    const scoreDetails = generateMockYearlyScores(estimation.score, estimation.trend);
-    
-    return {
-      name: major.name,
-      category: major.category,
-      heat: major.heat,
-      level: major.level,
-      admissionTier,
-      probability,
-      estimatedScore: estimation.score,
-      scoreTrend: estimation.trend,
-      scoreDetails,
-      dataSource: '掌上高考/夸克高考大数据分析',
-      confidence: estimation.confidence,
-    };
-  });
+  const realMajorsMap = new Map<string, MajorScore[]>();
+  for (const m of realMajorData) {
+    const name = m.major_name || '';
+    if (!realMajorsMap.has(name)) {
+      realMajorsMap.set(name, []);
+    }
+    realMajorsMap.get(name)!.push(m);
+  }
   
-  // 专业热度权重
+  let recommendations: EnhancedMajorRecommendation[] = [];
+  
   const HEAT_SCORE: Record<string, number> = {
     'top': 100,
     'hot': 80,
@@ -194,10 +217,90 @@ export function generateMajorRecommendations(
     'cool': 40,
   };
   
-  // 综合排序：优先考虑分数匹配度 + 专业热度
-  // 分数匹配度：录取概率越高越好（40%权重）
-  // 专业热度：热门专业优先（40%权重）
-  // 学科实力：实力越强越优先（20%权重）
+  if (realMajorsMap.size > 0) {
+    for (const [majorName, scores] of realMajorsMap) {
+      const latestScore = scores
+        .filter(s => s.min_score !== null)
+        .sort((a, b) => (b.year || 0) - (a.year || 0))[0];
+      
+      if (!latestScore || !latestScore.min_score) continue;
+      
+      const subjectRequirement = latestScore.subject_requirement || '';
+      if (selectedSubjects.length > 0 && !isSubjectMatch(selectedSubjects, subjectRequirement)) {
+        continue;
+      }
+      
+      const estimatedScore = latestScore.min_score;
+      const scoreDiff = baseScore - estimatedScore;
+      const probability = calculateAdmissionProbability(scoreDiff);
+      const admissionTier = getAdmissionTier(probability);
+      const trend = calculateRealMajorTrend(scores);
+      const scoreDetails = buildScoreDetails(scores);
+      
+      let heat: 'top' | 'hot' | 'warm' | 'cool' = 'warm';
+      let level: 'A+' | 'A' | 'B+' | 'B' | 'C' = 'B';
+      
+      const hotKeywords = ['计算机', '软件', '电子信息', '人工智能', '数据', '金融', '经济', '临床医学', '口腔', '法学', '会计'];
+      const warmKeywords = ['机械', '土木', '化工', '材料', '环境', '生物', '数学', '物理', '化学', '英语', '汉语言'];
+      const coolKeywords = ['历史', '哲学', '考古', '地质', '矿业', '林业', '农学', '水利', '测绘', '海洋'];
+      
+      for (const kw of hotKeywords) {
+        if (majorName.includes(kw)) { heat = 'top'; break; }
+      }
+      if (heat === 'warm') {
+        for (const kw of warmKeywords) {
+          if (majorName.includes(kw)) { heat = 'hot'; break; }
+        }
+      }
+      if (heat === 'warm') {
+        for (const kw of coolKeywords) {
+          if (majorName.includes(kw)) { heat = 'cool'; break; }
+        }
+      }
+      
+      const confidence = scores.filter(s => s.min_score !== null).length >= 2 ? 85 : 70;
+      
+      recommendations.push({
+        name: majorName,
+        category: '未知',
+        heat,
+        level,
+        admissionTier,
+        probability,
+        estimatedScore,
+        scoreTrend: trend,
+        scoreDetails,
+        dataSource: '真实专业分数线数据',
+        confidence,
+      });
+    }
+  }
+  
+  if (recommendations.length === 0) {
+    const mockMajors = getSchoolMajors(schoolName);
+    recommendations = mockMajors.map(major => {
+      const estimation = estimateMajorScore(major, schoolRefScore, schoolLevel);
+      const scoreDiff = baseScore - estimation.score;
+      const probability = calculateAdmissionProbability(scoreDiff);
+      const admissionTier = getAdmissionTier(probability);
+      const scoreDetails = generateMockYearlyScores(estimation.score, estimation.trend);
+      
+      return {
+        name: major.name,
+        category: major.category,
+        heat: major.heat,
+        level: major.level,
+        admissionTier,
+        probability,
+        estimatedScore: estimation.score,
+        scoreTrend: estimation.trend,
+        scoreDetails,
+        dataSource: '模拟预估数据',
+        confidence: estimation.confidence,
+      };
+    });
+  }
+  
   recommendations.sort((a, b) => {
     const scoreMatchA = a.probability * 0.4;
     const scoreMatchB = b.probability * 0.4;
@@ -214,20 +317,17 @@ export function generateMajorRecommendations(
     return totalB - totalA;
   });
   
-  // 分档次选择，确保每个档次都有推荐
   const chongMajors = recommendations.filter(m => m.admissionTier === '冲刺').slice(0, 2);
   const wenMajors = recommendations.filter(m => m.admissionTier === '稳妥').slice(0, 2);
   const baoMajors = recommendations.filter(m => m.admissionTier === '保底').slice(0, 2);
   
   const result = [...chongMajors, ...wenMajors, ...baoMajors];
   
-  // 如果结果不足6个，按综合排序补充其他专业
   if (result.length < 6) {
     const remaining = recommendations.filter(m => !result.find(r => r.name === m.name));
     result.push(...remaining.slice(0, 6 - result.length));
   }
   
-  // 保持综合排序
   result.sort((a, b) => {
     const scoreMatchA = a.probability * 0.4;
     const scoreMatchB = b.probability * 0.4;

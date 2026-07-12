@@ -18,7 +18,7 @@ TIANJIN_LOCAL_UNIVERSITIES = [
     "天津大学仁爱学院", "天津财经大学珠江学院"
 ]
 
-OUTPUT_DIR = r"C:\Users\lhp\Documents\trae_projects\GAOKAO2026\data\tianjin_scores"
+OUTPUT_DIR = r"I:\trae_projects\GAOKAO2026\data\tianjin_scores"
 
 def get_downloaded_schools():
     downloaded = set()

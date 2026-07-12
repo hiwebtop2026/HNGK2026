@@ -644,7 +644,7 @@ output.append('];')
 output.append('')
 output.append("export const SCHOOL_LEVELS = ['985', '211', '双一流', '普通本科'];")
 
-with open(r'C:\Users\lhp\Documents\trae_projects\GAOKAO2026\src\data\schoolData.ts', 'w', encoding='utf-8') as f:
+with open(r'I:\trae_projects\GAOKAO2026\src\data\schoolData.ts', 'w', encoding='utf-8') as f:
     f.write('\n'.join(output))
 
 print(f'\n数据已生成，共{len(result)}条记录')
