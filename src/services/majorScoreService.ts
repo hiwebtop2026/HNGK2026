@@ -16,6 +16,7 @@ export interface MajorScore {
   province: string | null;
   school_code: string | null;
   level: string | null;
+  nature: string | null;
   avg_score: number | null;
   batch_line: number | null;
   batch_line_diff: number | null;

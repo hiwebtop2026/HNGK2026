@@ -3,7 +3,7 @@ import { majorScoreService, type MajorScore } from '../services/majorScoreServic
 import { cacheService } from '../services/cacheService';
 import { extractSubjectCodes } from './dataUtils';
 import type { SchoolScore } from './dataUtils';
-import { getUniversityLevel } from '../data/universityLevels';
+import { getUniversityLevel, getUniversityNature } from '../data/universityLevels';
 
 function extractSchoolNameKey(schoolName: string): string {
   const cleaned = schoolName.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '').trim();
@@ -194,7 +194,7 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
           subject_requirement: score.subject_requirement ?? null,
           province: province,
           level: getSchoolLevel(score.school_name),
-          nature: '公办',
+          nature: getUniversityNature(score.school_name),
           region: province,
           score2025: year === 2025 ? score.score : null,
           score2024: year === 2024 ? score.score : null,
@@ -276,7 +276,7 @@ async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
             subject_requirement: score.subject_requirement,
             province: province,
             level: getSchoolLevel(score.school_name),
-            nature: '公办',
+            nature: getUniversityNature(score.school_name),
             region: province,
             score2025: score.year === 2025 ? score.min_score : null,
             score2024: score.year === 2024 ? score.min_score : null,

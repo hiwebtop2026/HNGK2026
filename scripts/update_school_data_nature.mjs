@@ -1,235 +1,11 @@
-/**
- * 全国高校层次公共数据（985/211/双一流）
- *
- * 数据来源（官方第二轮双一流建设高校名单，共147所）：
- * - 985工程高校：39所（全国官方正版，无新增无撤销）
- * - 211工程高校：116所（包含所有985）
- * - 双一流建设高校：147所（第二轮，包含所有985和211，新增7所）
- *
- * 本文件为所有地区共享的公共数据，避免在每个地区的 schoolData 中冗余存储 level 字段。
- * 层次优先级：985 > 211 > 双一流 > 普通本科
- *
- * 参考资料：
- * - 教育部第二轮"双一流"建设高校及建设学科名单
- * - https://gaokao.chsi.com.cn/gkxx/zt/syljs.shtml
- * - https://www.csc.edu.cn/article/3807
- */
+import fs from 'fs';
+import path from 'path';
 
-// 985工程高校（39所，官方正版名单）
-const UNIVERSITY_985: ReadonlySet<string> = new Set([
-  // 北京（8所）
-  '北京大学', '清华大学', '中国人民大学', '北京航空航天大学',
-  '北京理工大学', '北京师范大学', '中国农业大学', '中央民族大学',
-  // 上海（4所）
-  '复旦大学', '上海交通大学', '同济大学', '华东师范大学',
-  // 湖南（3所）
-  '中南大学', '湖南大学', '国防科技大学',
-  // 陕西（3所）
-  '西安交通大学', '西北工业大学', '西北农林科技大学',
-  // 江苏（2所）
-  '南京大学', '东南大学',
-  // 湖北（2所）
-  '武汉大学', '华中科技大学',
-  // 四川（2所）
-  '四川大学', '电子科技大学',
-  // 山东（2所）
-  '山东大学', '中国海洋大学',
-  // 辽宁（2所）
-  '大连理工大学', '东北大学',
-  // 广东（2所）
-  '中山大学', '华南理工大学',
-  // 天津（2所）
-  '南开大学', '天津大学',
-  // 其余各省市（各1所）
-  '中国科学技术大学', '浙江大学', '哈尔滨工业大学',
-  '吉林大学', '厦门大学', '重庆大学', '兰州大学',
-]);
-
-// 985高校的分校区/医学院（毕业证与本部一致，按985层次对待）
-const UNIVERSITY_985_BRANCH: ReadonlySet<string> = new Set([
-  '北京大学医学部',
-  '哈尔滨工业大学(深圳)',
-  '哈尔滨工业大学(威海)',
-  '东北大学秦皇岛分校',
-  '大连理工大学(盘锦校区)',
-  '山东大学威海分校',
-  '中国人民大学(苏州校区)',
-  '电子科技大学(沙河校区)',
-  '复旦大学医学院',
-  '上海交通大学医学院',
-  '浙江大学医学院',
-]);
-
-// 211工程高校（116所，含985），这里只列出纯211（非985）的77所
-const UNIVERSITY_211_ONLY: ReadonlySet<string> = new Set([
-  // 北京（18所，非985）
-  '北京交通大学', '北京工业大学', '北京科技大学', '北京化工大学',
-  '北京邮电大学', '北京林业大学', '北京中医药大学', '北京外国语大学',
-  '中国传媒大学', '中央财经大学', '对外经济贸易大学', '北京体育大学',
-  '中央音乐学院', '中国政法大学', '华北电力大学', '中国矿业大学(北京)',
-  '中国石油大学(北京)', '中国地质大学(北京)',
-  // 上海（6所，非985）
-  '华东理工大学', '东华大学', '上海外国语大学', '上海财经大学',
-  '上海大学', '海军军医大学',
-  // 江苏（9所，非985）
-  '苏州大学', '南京航空航天大学', '南京理工大学', '中国矿业大学',
-  '河海大学', '江南大学', '南京农业大学', '中国药科大学', '南京师范大学',
-  // 陕西（5所，非985）
-  '西安电子科技大学', '长安大学', '西北大学', '陕西师范大学', '空军军医大学',
-  // 湖北（5所，非985）
-  '中国地质大学(武汉)', '武汉理工大学', '华中农业大学', '华中师范大学',
-  '中南财经政法大学',
-  // 四川（3所，非985）
-  '西南交通大学', '西南财经大学', '四川农业大学',
-  // 湖南（1所，非985）
-  '湖南师范大学',
-  // 黑龙江（3所，非985）
-  '哈尔滨工程大学', '东北农业大学', '东北林业大学',
-  // 辽宁（2所，非985）
-  '辽宁大学', '大连海事大学',
-  // 天津（1所，非985）
-  '天津医科大学',
-  // 吉林（2所，非985）
-  '东北师范大学', '延边大学',
-  // 山东（1所，非985）
-  '中国石油大学(华东)',
-  // 安徽（2所，非985）
-  '合肥工业大学', '安徽大学',
-  // 广东（2所，非985）
-  '暨南大学', '华南师范大学',
-  // 福建（1所，非985）
-  '福州大学',
-  // 重庆（1所，非985）
-  '西南大学',
-  // 其余省份（各1所）
-  '河北工业大学', '太原理工大学', '内蒙古大学', '南昌大学',
-  '郑州大学', '广西大学', '海南大学', '贵州大学', '云南大学',
-  '西藏大学', '青海大学', '宁夏大学', '新疆大学', '石河子大学',
-]);
-
-// 第二轮双一流建设高校中新增的7所（非985、非211）
-const UNIVERSITY_DOUBLE_FIRST_NEW: ReadonlySet<string> = new Set([
-  '山西大学',
-  '南京医科大学',
-  '湘潭大学',
-  '华南农业大学',
-  '广州医科大学',
-  '南方科技大学',
-  '上海科技大学',
-  // 以下为第二轮双一流中其他非211高校
-  '中国科学院大学',
-  '首都医科大学',
-  '南京邮电大学',
-  '南京信息工程大学',
-  '南京林业大学',
-  '南京中医药大学',
-  '上海海洋大学',
-  '上海中医药大学',
-  '上海体育学院',
-  '上海音乐学院',
-  '中国美术学院',
-  '外交学院',
-  '中国人民公安大学',
-  '中国音乐学院',
-  '中央美术学院',
-  '中央戏剧学院',
-  '天津工业大学',
-  '天津中医药大学',
-  '中国矿业大学(北京)',
-  '中国石油大学(北京)',
-  '中国地质大学(北京)',
-  '宁波大学',
-  '河南大学',
-  '成都理工大学',
-  '成都中医药大学',
-  '西南石油大学',
-  '广州中医药大学',
-  '北京协和医学院',
-]);
-
-// 所有985高校（含分校区）
-const ALL_985 = new Set([...UNIVERSITY_985, ...UNIVERSITY_985_BRANCH]);
-
-// 所有211高校（含985）
-const ALL_211 = new Set([...ALL_985, ...UNIVERSITY_211_ONLY]);
-
-// 所有双一流高校（含985、211）
-const ALL_DOUBLE_FIRST = new Set([...ALL_211, ...UNIVERSITY_DOUBLE_FIRST_NEW]);
-
-/**
- * 从院校名称中提取基础名称（去除括号后缀）
- * 例如："清华大学(03)" -> "清华大学"，"中国地质大学(武汉)(03)" -> "中国地质大学(武汉)"
- */
-function extractBaseName(schoolName: string): string {
-  // 先去除纯数字括号后缀，如 (01)、(02)、(80)
-  let name = schoolName.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '');
-  // 去除首尾空格
-  name = name.trim();
-  return name;
+function extractBaseName(name) {
+  return name.replace(/\(.*?\)/g, '').trim();
 }
 
-/**
- * 根据院校名称获取院校层次
- *
- * 层次优先级：985 > 211 > 双一流 > 普通本科
- *
- * @param schoolName 院校名称（可包含括号后缀，如 "清华大学(03)"）
- * @returns 院校层次：'985' | '211' | '双一流' | '普通本科'
- */
-export function getUniversityLevel(schoolName: string): string {
-  if (!schoolName) return '普通本科';
-
-  const baseName = extractBaseName(schoolName);
-
-  // 精确匹配
-  if (ALL_985.has(baseName)) return '985';
-  if (ALL_211.has(baseName)) return '211';
-  if (ALL_DOUBLE_FIRST.has(baseName)) return '双一流';
-
-  // 模糊匹配：处理"中国地质大学(武汉)"等带括号的情况
-  // 去除所有括号内容后再匹配
-  const nameWithoutAllBrackets = baseName.replace(/\([^)]*\)/g, '').replace(/（[^）]*）/g, '').trim();
-
-  if (ALL_985.has(nameWithoutAllBrackets)) return '985';
-  if (ALL_211.has(nameWithoutAllBrackets)) return '211';
-  if (ALL_DOUBLE_FIRST.has(nameWithoutAllBrackets)) return '双一流';
-
-  // 前缀匹配：处理"北京大学医学部"等带后缀的情况
-  for (const name of ALL_985) {
-    if (baseName.startsWith(name)) return '985';
-  }
-  for (const name of ALL_211) {
-    if (baseName.startsWith(name)) return '211';
-  }
-  for (const name of ALL_DOUBLE_FIRST) {
-    if (baseName.startsWith(name)) return '双一流';
-  }
-
-  return '普通本科';
-}
-
-/**
- * 获取所有985高校列表
- */
-export function getAll985Universities(): string[] {
-  return Array.from(ALL_985);
-}
-
-/**
- * 获取所有211高校列表（含985）
- */
-export function getAll211Universities(): string[] {
-  return Array.from(ALL_211);
-}
-
-/**
- * 获取所有双一流高校列表（含985、211）
- */
-export function getAllDoubleFirstUniversities(): string[] {
-  return Array.from(ALL_DOUBLE_FIRST);
-}
-
-const PRIVATE_COLLEGES: ReadonlySet<string> = new Set([
+const PRIVATE_COLLEGES = new Set([
   '三亚学院', '上海建桥学院', '北京工业大学耿丹学院', '北京中医药大学东方学院',
   '天津体育学院运动与文化艺术学院', '天津医科大学临床医学院', '天津商业大学宝德学院',
   '天津外国语大学滨海外事学院', '天津大学仁爱学院', '天津天狮学院', '河北传媒学院',
@@ -299,7 +75,7 @@ const PRIVATE_COLLEGES: ReadonlySet<string> = new Set([
   '宁夏理工学院', '银川能源学院', '新疆理工学院', '新疆天山职业技术大学',
 ]);
 
-const PUBLIC_COLLEGES: ReadonlySet<string> = new Set([
+const PUBLIC_COLLEGES = new Set([
   '浙江大学城市学院', '浙江大学宁波理工学院', '苏州大学文正学院',
   '嘉兴南湖学院', '湖州学院', '无锡学院', '绍兴理工学院',
   '浙大城市学院', '浙大宁波理工学院', '苏州城市学院',
@@ -330,7 +106,7 @@ const NATURE_INDICATORS = {
   '中外合作办学': ['中外合作办学'],
 };
 
-function isRealUniversityCollege(name: string): boolean {
+function isRealUniversityCollege(name) {
   for (const keyword of UNIVERSITY_COLLEGE_KEYWORDS) {
     if (name.includes(keyword)) {
       return true;
@@ -339,7 +115,7 @@ function isRealUniversityCollege(name: string): boolean {
   return false;
 }
 
-export function getUniversityNature(schoolName: string): '公办' | '民办' | '中外合作办学' {
+function getUniversityNature(schoolName) {
   if (!schoolName) return '公办';
 
   const baseName = extractBaseName(schoolName);
@@ -376,11 +152,78 @@ export function getUniversityNature(schoolName: string): '公办' | '民办' | '
   return '公办';
 }
 
-/**
- * 统计信息
- */
-export const UNIVERSITY_STATS = {
-  count985: ALL_985.size,
-  count211: ALL_211.size,
-  countDoubleFirst: ALL_DOUBLE_FIRST.size,
-} as const;
+const filePath = path.join('src', 'data', 'schoolData.ts');
+const content = fs.readFileSync(filePath, 'utf-8');
+
+console.log(`原始文件行数: ${content.split('\n').length}`);
+
+const natureMatches = content.match(/nature:\s*'([^']+)'/g);
+const natureValues = [...new Set((natureMatches || []).map(m => m.match(/'([^']+)'/)[1]))];
+console.log(`\n修复前 nature 值分布:`);
+natureValues.forEach(v => {
+  const count = (content.match(new RegExp(`nature:\\s*'${v}'`, 'g')) || []).length;
+  console.log(`  ${v}: ${count} 次`);
+});
+
+let fixedContent = content;
+let fixCount = 0;
+let skipCount = 0;
+
+const lines = content.split('\n');
+for (let i = 0; i < lines.length; i++) {
+  const line = lines[i];
+  
+  if (line.includes("name: '")) {
+    const nameMatch = line.match(/name:\s*'([^']+)'/);
+    if (nameMatch) {
+      const schoolName = nameMatch[1];
+      const expectedNature = getUniversityNature(schoolName);
+      
+      let objStart = i;
+      let braceCount = 0;
+      
+      for (let j = i; j >= 0; j--) {
+        if (lines[j].includes('{')) {
+          objStart = j;
+          break;
+        }
+      }
+      
+      let foundNature = false;
+      for (let j = objStart; j <= Math.min(objStart + 15, lines.length - 1); j++) {
+        const natureMatch = lines[j].match(/nature:\s*'([^']+)'/);
+        if (natureMatch) {
+          const currentNature = natureMatch[1];
+          if (currentNature !== expectedNature) {
+            lines[j] = lines[j].replace(/nature:\s*'[^']+'/, `nature: '${expectedNature}'`);
+            fixCount++;
+            console.log(`  修复第 ${j + 1} 行: ${schoolName} 的 nature 从 '${currentNature}' 改为 '${expectedNature}'`);
+          } else {
+            skipCount++;
+          }
+          foundNature = true;
+          break;
+        }
+      }
+      
+      if (!foundNature) {
+        console.log(`  ⚠️ 第 ${i + 1} 行: ${schoolName} 未找到 nature 字段`);
+      }
+    }
+  }
+}
+
+fixedContent = lines.join('\n');
+
+console.log(`\n修复完成，共修复 ${fixCount} 处，跳过 ${skipCount} 处`);
+
+const fixedNatureMatches = fixedContent.match(/nature:\s*'([^']+)'/g);
+const fixedNatureValues = [...new Set((fixedNatureMatches || []).map(m => m.match(/'([^']+)'/)[1]))];
+console.log(`\n修复后 nature 值分布:`);
+fixedNatureValues.forEach(v => {
+  const count = (fixedContent.match(new RegExp(`nature:\\s*'${v}'`, 'g')) || []).length;
+  console.log(`  ${v}: ${count} 次`);
+});
+
+fs.writeFileSync(filePath, fixedContent, 'utf-8');
+console.log(`\n文件已写入: ${filePath}`);
