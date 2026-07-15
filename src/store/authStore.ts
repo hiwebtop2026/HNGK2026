@@ -127,9 +127,14 @@ export const useAuthStore = create<AuthState>((set, get) => {
   findEmailByNickname: async (nickname: string): Promise<string | null> => {
     if (!isSupabaseConfigured || !supabase) return null;
 
+    const trimmed = nickname.trim();
+    if (!trimmed || trimmed.length < 2 || trimmed.length > 20) {
+      return null;
+    }
+
     try {
       const { data, error } = await supabase.rpc('get_email_by_nickname', {
-        p_nickname: nickname.trim(),
+        p_nickname: trimmed,
       });
 
       if (!error && typeof data === 'string') {

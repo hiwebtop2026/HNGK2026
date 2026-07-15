@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
+import { buildSafeLikePattern, sanitizeSearchInput } from '../utils/inputSanitizer';
 
 interface MajorScore {
   id?: string;
@@ -73,7 +74,7 @@ export function MajorScorePage() {
       let query = supabase.from('major_scores').select('*');
       
       if (schoolName) {
-        query = query.ilike('school_name', `%${schoolName}%`);
+        query = query.ilike('school_name', buildSafeLikePattern(schoolName));
       }
       if (selectedYear) {
         query = query.eq('year', selectedYear);
@@ -82,7 +83,7 @@ export function MajorScorePage() {
         query = query.eq('batch', selectedBatch);
       }
       if (selectedSubject) {
-        query = query.ilike('subject_requirement', `%${selectedSubject}%`);
+        query = query.ilike('subject_requirement', buildSafeLikePattern(selectedSubject));
       }
       if (selectedProvince) {
         query = query.eq('province', selectedProvince);

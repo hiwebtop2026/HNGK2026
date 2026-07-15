@@ -1,4 +1,5 @@
 import { supabase, TABLES } from '../lib/supabase';
+import { buildSafeLikePattern, sanitizeSearchInput } from '../utils/inputSanitizer';
 
 export interface AdmissionScore {
   id: string;
@@ -158,7 +159,7 @@ export const admissionScoreService = {
     const { data, error } = await supabase
       .from(TABLES.ADMISSION_SCORES)
       .select('*')
-      .ilike('school_name', `%${schoolName}%`)
+      .ilike('school_name', buildSafeLikePattern(schoolName))
       .order('year', { ascending: false })
       .order('score', { ascending: false });
     
@@ -202,11 +203,11 @@ export const admissionScoreService = {
       .select('*');
     
     if (schoolName) {
-      query = query.ilike('school_name', `%${schoolName}%`);
+      query = query.ilike('school_name', buildSafeLikePattern(schoolName));
     }
-    
+
     const { data, error } = await query.order('avg_score', { ascending: false });
-    
+
     if (error) {
       if (import.meta.env.DEV) console.error('获取学校统计失败:', error);
       return [];
@@ -223,11 +224,11 @@ export const admissionScoreService = {
       .select('*');
     
     if (schoolName) {
-      query = query.ilike('school_name', `%${schoolName}%`);
+      query = query.ilike('school_name', buildSafeLikePattern(schoolName));
     }
-    
+
     const { data, error } = await query.order('school_name', { ascending: true });
-    
+
     if (error) {
       if (import.meta.env.DEV) console.error('获取专业组分数变化失败:', error);
       return [];
@@ -274,7 +275,7 @@ export const admissionScoreService = {
     let query = supabase
       .from(TABLES.ADMISSION_SCORES)
       .select('*')
-      .ilike('school_name', `%${keyword}%`);
+      .ilike('school_name', buildSafeLikePattern(keyword));
     
     if (year) {
       query = query.eq('year', year);

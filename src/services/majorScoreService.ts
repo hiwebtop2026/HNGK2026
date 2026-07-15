@@ -1,5 +1,6 @@
 import { supabase } from '../lib/supabase';
 import { cacheService } from './cacheService';
+import { buildSafeLikePattern, sanitizeSearchInput } from '../utils/inputSanitizer';
 
 export interface MajorScore {
   id: string;
@@ -59,18 +60,18 @@ export const majorScoreService = {
       const { data, error } = await supabase
         .from('major_scores')
         .select('*')
-        .ilike('school_name', `%${schoolName}%`)
+        .ilike('school_name', buildSafeLikePattern(schoolName))
         .order('year', { ascending: false })
         .order('min_score', { ascending: false })
         .limit(1000);
-      
+
       if (error) {
         if (import.meta.env.DEV) console.error('获取学校专业分数线失败:', error);
         return [];
       }
-      
+
       return data || [];
-    }, schoolName);
+    }, sanitizeSearchInput(schoolName));
   },
 
   async getBySchoolAndProvince(schoolName: string, province: string): Promise<MajorScore[]> {
@@ -80,19 +81,19 @@ export const majorScoreService = {
       const { data, error } = await supabase
         .from('major_scores')
         .select('*')
-        .ilike('school_name', `%${schoolName}%`)
+        .ilike('school_name', buildSafeLikePattern(schoolName))
         .eq('province', province)
         .order('year', { ascending: false })
         .order('min_score', { ascending: false })
         .limit(1000);
-      
+
       if (error) {
         if (import.meta.env.DEV) console.error(`获取${province}学校专业分数线失败:`, error);
         return [];
       }
-      
+
       return data || [];
-    }, schoolName, province);
+    }, sanitizeSearchInput(schoolName), province);
   },
 
   async getByProvince(province: string): Promise<MajorScore[]> {
@@ -146,18 +147,18 @@ export const majorScoreService = {
       const { data, error } = await supabase
         .from('major_scores')
         .select('*')
-        .ilike('school_name', `%${schoolName}%`)
+        .ilike('school_name', buildSafeLikePattern(schoolName))
         .eq('year', year)
         .order('min_score', { ascending: false })
         .limit(500);
-      
+
       if (error) {
         if (import.meta.env.DEV) console.error('获取学校年度专业分数线失败:', error);
         return [];
       }
-      
+
       return data || [];
-    }, schoolName, year);
+    }, sanitizeSearchInput(schoolName), year);
   },
 
   async getByScoreRange(minScore: number, maxScore: number): Promise<MajorScore[]> {
@@ -234,17 +235,17 @@ export const majorScoreService = {
       const { data, error } = await supabase
         .from('major_scores')
         .select('*')
-        .ilike('major_name', `%${keyword}%`)
+        .ilike('major_name', buildSafeLikePattern(keyword))
         .order('min_score', { ascending: false })
         .limit(100);
-      
+
       if (error) {
         if (import.meta.env.DEV) console.error('搜索专业失败:', error);
         return [];
       }
-      
+
       return data || [];
-    }, keyword);
+    }, sanitizeSearchInput(keyword));
   },
 
   async searchMajorsByProvince(keyword: string, province: string): Promise<MajorScore[]> {
@@ -254,18 +255,18 @@ export const majorScoreService = {
       const { data, error } = await supabase
         .from('major_scores')
         .select('*')
-        .ilike('major_name', `%${keyword}%`)
+        .ilike('major_name', buildSafeLikePattern(keyword))
         .eq('province', province)
         .order('min_score', { ascending: false })
         .limit(200);
-      
+
       if (error) {
         if (import.meta.env.DEV) console.error(`搜索${province}专业失败:`, error);
         return [];
       }
-      
+
       return data || [];
-    }, keyword, province);
+    }, sanitizeSearchInput(keyword), province);
   },
 
   async getSchoolStats(schoolName?: string): Promise<SchoolMajorStats[]> {
@@ -278,7 +279,7 @@ export const majorScoreService = {
         .order('school_name', { ascending: true });
       
       if (schoolName) {
-        query = query.ilike('school_name', `%${schoolName}%`);
+        query = query.ilike('school_name', buildSafeLikePattern(schoolName));
       }
       
       const { data, error } = await query;
@@ -349,16 +350,16 @@ export const majorScoreService = {
       const { data, error } = await supabase
         .from('major_scores')
         .select('major_name')
-        .ilike('school_name', `%${schoolName}%`);
-      
+        .ilike('school_name', buildSafeLikePattern(schoolName));
+
       if (error) {
         if (import.meta.env.DEV) console.error('获取学校专业列表失败:', error);
         return [];
       }
-      
+
       const majors = [...new Set((data || []).map(item => item.major_name))];
       return majors.sort();
-    }, schoolName);
+    }, sanitizeSearchInput(schoolName));
   },
   
   clearCache(): void {
