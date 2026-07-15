@@ -1287,9 +1287,9 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
     { key: 'tier', width: 10 },
     { key: 'probability', width: 12 },
     { key: 'level', width: 12 },
+    { key: 'nature', width: 12 },
     { key: 'province', width: 10 },
-    { key: 'code', width: 16 },
-    { key: 'name', width: 28 },
+    { key: 'name', width: 30 },
     { key: 'subject', width: 15 },
     { key: 'score2025', width: 12 },
     { key: 'score2024', width: 12 },
@@ -1323,7 +1323,7 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
   };
   
   const headers = [
-    '志愿序号', '志愿档次', '录取概率', '院校层次', '省份', '院校代码', '院校名称',
+    '志愿序号', '志愿档次', '录取概率', '院校层次', '院校性质', '省份', '院校名称',
     '科目要求', '2025投档线', '2024投档线', '2023投档线', '推荐专业', '推荐理由', '警告信息',
   ];
   
@@ -1365,8 +1365,8 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
       v.tier,
       `${v.admissionProbability}%`,
       v.level,
+      v.nature,
       v.province,
-      v.code,
       v.name,
       v.subjectText,
       v.score2025 ?? '',
@@ -1513,7 +1513,7 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
     const workbook = XLSX.utils.book_new();
     
     const data = [
-      ['志愿序号', '志愿档次', '录取概率', '分数趋势', '趋势值(%)', '波动系数(%)', '院校层次', '省份', '院校专业组代码', '院校专业组名称', '科目要求', 
+      ['志愿序号', '志愿档次', '录取概率', '分数趋势', '趋势值(%)', '波动系数(%)', '院校层次', '院校性质', '省份', '院校名称', '科目要求', 
        '2025投档线', '2024投档线', '2023投档线', 
        '推荐专业（保）', '推荐专业（稳）', '推荐专业（冲）',
        '保-专业详情', '稳-专业详情', '冲-专业详情',
@@ -1558,8 +1558,8 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
         v.trendValue !== undefined ? String(Math.round(v.trendValue * 100) / 100) : '',
         v.volatility !== undefined ? String(Math.round(v.volatility * 100) / 100) : '',
         v.level,
+        v.nature,
         v.province,
-        v.code,
         v.name,
         v.subjectText,
         v.score2025 !== null ? String(v.score2025) : '',
@@ -1586,9 +1586,9 @@ export function exportToExcel(volunteers: VolunteerResult[], filename: string): 
       { wch: 12 },
       { wch: 14 },
       { wch: 12 },
+      { wch: 12 },
       { wch: 10 },
-      { wch: 16 },
-      { wch: 28 },
+      { wch: 30 },
       { wch: 15 },
       { wch: 12 },
       { wch: 12 },
