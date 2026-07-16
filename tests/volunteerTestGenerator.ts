@@ -73,6 +73,114 @@ const PROVINCE_BATCH_LINES: Record<string, Record<number, { physics: number; his
   '天津': { 2025: { physics: 547, history: 547 }, 2024: { physics: 547, history: 547 }, 2023: { physics: 532, history: 532 } },
 };
 
+const LEVEL_HIERARCHY: Record<string, number> = {
+  '985': 5,
+  '211': 4,
+  '双一流': 5,
+  '普通本科': 3,
+  '民办': 2,
+  '专科': 1,
+};
+
+const LEVEL_CATEGORIES: Record<number, string[]> = {
+  5: ['985', '双一流'],
+  4: ['211', '985', '双一流'],
+  3: ['普通本科', '211', '985', '双一流'],
+  2: ['民办', '普通本科', '211'],
+  1: ['民办', '普通本科', '211'],
+};
+
+function getInstitutionLevelRange(candidateScore: number, province: string, strategy: string): string[] {
+  const batchLine = PROVINCE_BATCH_LINES[province]?.[2025]?.physics || 500;
+  const scoreRange = province === '海南' ? 900 : 750;
+  const scorePercentile = candidateScore / scoreRange;
+  const scoreToBatchLine = candidateScore - batchLine;
+
+  let baseLevel: number;
+  
+  if (scoreToBatchLine > 150) {
+    baseLevel = 5;
+  } else if (scoreToBatchLine > 100) {
+    baseLevel = 5;
+  } else if (scoreToBatchLine > 50) {
+    baseLevel = 4;
+  } else if (scoreToBatchLine > 0) {
+    baseLevel = 3;
+  } else if (scoreToBatchLine > -30) {
+    baseLevel = 3;
+  } else if (scoreToBatchLine > -60) {
+    baseLevel = 2;
+  } else if (scoreToBatchLine > -100) {
+    baseLevel = 2;
+  } else {
+    baseLevel = 1;
+  }
+
+  if (strategy === '激进') {
+    baseLevel = Math.min(5, baseLevel + 1);
+  } else if (strategy === '保守') {
+    baseLevel = Math.max(1, baseLevel - 1);
+  }
+
+  if (scoreToBatchLine < -60 && strategy === '保守') {
+    baseLevel = Math.max(1, baseLevel + 1);
+  }
+
+  return LEVEL_CATEGORIES[baseLevel] || ['普通本科'];
+}
+
+function calculateHeatScore(score2025: number | null, score2024: number | null, score2023: number | null): number {
+  const scores = [score2025, score2024, score2023].filter((s): s is number => s !== null);
+  if (scores.length < 2) return 50;
+
+  const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+  const variance = scores.reduce((sum, s) => sum + Math.pow(s - avg, 2), 0) / scores.length;
+  const stdDev = Math.sqrt(variance);
+  
+  const recentTrend = score2025 !== null && score2024 !== null 
+    ? (score2025 - score2024) / (score2024 || 1) * 100 
+    : 0;
+
+  let volatilityScore = Math.min(100, stdDev * 2);
+  let trendScore = 50;
+  
+  if (recentTrend > 5) trendScore = 80;
+  else if (recentTrend > 2) trendScore = 70;
+  else if (recentTrend < -5) trendScore = 30;
+  else if (recentTrend < -2) trendScore = 40;
+
+  return Math.round((volatilityScore * 0.4 + trendScore * 0.6));
+}
+
+function adjustScoreRange(candidateScore: number, province: string, strategy: string): number {
+  const batchLine = PROVINCE_BATCH_LINES[province]?.[2025]?.physics || 500;
+  const scoreRange = province === '海南' ? 900 : 750;
+  const scorePercentile = candidateScore / scoreRange;
+  const scoreToBatchLine = candidateScore - batchLine;
+
+  let baseRange = province === '海南' ? 80 : 60;
+
+  if (scorePercentile > 0.9) {
+    baseRange = province === '海南' ? 100 : 80;
+  } else if (scorePercentile < 0.5) {
+    baseRange = province === '海南' ? 50 : 40;
+  }
+
+  if (strategy === '激进') {
+    baseRange = Math.round(baseRange * 1.3);
+  } else if (strategy === '保守') {
+    baseRange = Math.round(baseRange * 0.7);
+  }
+
+  if (scoreToBatchLine < -30) {
+    baseRange = Math.round(baseRange * 0.6);
+  } else if (scoreToBatchLine > 100) {
+    baseRange = Math.round(baseRange * 1.2);
+  }
+
+  return baseRange;
+}
+
 function getRefScore(score2025: number | null, score2024: number | null, score2023: number | null): number {
   const scores = [score2025, score2024, score2023].filter((s): s is number => s !== null);
   if (scores.length === 0) return 0;
@@ -124,82 +232,17 @@ function getSmartTier(
   strategyConfig: { chongScoreDiff: number; wenScoreDiff: number; baoScoreDiff: number },
   province: string
 ): '冲' | '稳' | '保' {
-  const scoreDiff = candidateScore - schoolRefScore;
-  
   const scoreScaleFactor = province === '海南' ? 900 / 750 : 1;
-  const adjustedDiff = scoreDiff / scoreScaleFactor;
+  const adjustedDiff = (candidateScore - schoolRefScore) / scoreScaleFactor;
 
-  const batchLine = PROVINCE_BATCH_LINES[province]?.[2025]?.physics || 500;
-  const scoreToBatchLineDiff = candidateScore - batchLine;
+  const { chongScoreDiff, baoScoreDiff } = strategyConfig;
 
-  let chongDiff = strategyConfig.chongScoreDiff;
-  let wenDiff = strategyConfig.wenScoreDiff;
-  let baoDiff = strategyConfig.baoScoreDiff;
-
-  const scoreRange = province === '海南' ? 900 : 750;
-  const scorePercentile = candidateScore / scoreRange;
-
-  if (scorePercentile < 0.5) {
-    chongDiff *= 0.4;
-    wenDiff *= 0.6;
-    baoDiff *= 1.5;
-  } else if (scorePercentile < 0.6) {
-    chongDiff *= 0.5;
-    wenDiff *= 0.7;
-    baoDiff *= 1.3;
-  } else if (scorePercentile < 0.7) {
-    chongDiff *= 0.6;
-    wenDiff *= 0.8;
-    baoDiff *= 1.2;
-  } else if (scorePercentile < 0.8) {
-    chongDiff *= 0.8;
-    wenDiff *= 0.9;
-    baoDiff *= 1.1;
-  } else if (scorePercentile > 0.9) {
-    chongDiff *= 1.3;
-    wenDiff *= 1.2;
-    baoDiff *= 1.5;
-  }
-
-  if (scoreToBatchLineDiff < -60) {
-    const severity = Math.min(4, Math.abs(scoreToBatchLineDiff) / 60);
-    chongDiff = Math.max(2, chongDiff / severity);
-    wenDiff = Math.max(3, wenDiff / severity);
-    baoDiff = Math.max(15, baoDiff * (2 - 1/severity));
-  } else if (scoreToBatchLineDiff < -30) {
-    const severity = Math.min(3, Math.abs(scoreToBatchLineDiff) / 30);
-    chongDiff = Math.max(3, chongDiff / severity);
-    wenDiff = Math.max(4, wenDiff / severity);
-    baoDiff = Math.max(12, baoDiff * (1.8 - 0.8/severity));
-  } else if (scoreToBatchLineDiff < 0) {
-    const factor = (scoreToBatchLineDiff + 30) / 30;
-    chongDiff *= (0.5 + factor * 0.5);
-    wenDiff *= (0.6 + factor * 0.4);
-    baoDiff *= (1.2 - factor * 0.2);
-  } else if (scoreToBatchLineDiff > 150) {
-    const factor = (scoreToBatchLineDiff - 150) / 100;
-    chongDiff *= (1 + factor * 0.5);
-    wenDiff *= (1 + factor * 0.3);
-    baoDiff *= (1 + factor * 0.5);
-  }
-
-  if (rankAnalysis && rankAnalysis.totalCandidates > 0) {
-    const rankPercentile = rankAnalysis.rankDiff / rankAnalysis.totalCandidates;
-    if (rankPercentile > 0.2) {
-      baoDiff *= 1.3;
-    } else if (rankPercentile < -0.2) {
-      chongDiff *= 1.3;
-    }
-  }
-
-  if (adjustedDiff > baoDiff) {
-    return '保';
-  } else if (adjustedDiff > chongDiff) {
-    return '稳';
-  } else if (adjustedDiff >= -wenDiff && adjustedDiff <= chongDiff) {
-    return '稳';
-  } else {
+  if (adjustedDiff < -chongScoreDiff) {
     return '冲';
+  } else if (adjustedDiff > baoScoreDiff) {
+    return '保';
+  } else {
+    return '稳';
   }
 }
 
@@ -311,6 +354,7 @@ interface VolunteerResult {
   scoreTrend: 'up' | 'down' | 'stable';
   trendValue: number;
   volatility: number;
+  heatScore: number;
   rankDiff: number | null;
   warnings: string[];
   reason: string;
@@ -338,8 +382,9 @@ function exportToExcel(volunteers: VolunteerResult[], filePath: string): void {
   sheet.columns = [
     { key: 'index', width: 10 },
     { key: 'tier', width: 10 },
-    { key: 'probability', width: 12 },
-    { key: 'trend', width: 10 },
+    { key: 'admissionProbability', width: 12 },
+    { key: 'heatScore', width: 12 },
+    { key: 'scoreTrend', width: 10 },
     { key: 'trendValue', width: 12 },
     { key: 'volatility', width: 12 },
     { key: 'level', width: 12 },
@@ -356,7 +401,7 @@ function exportToExcel(volunteers: VolunteerResult[], filePath: string): void {
   ];
 
   const headers = [
-    '志愿序号', '志愿档次', '录取概率', '分数趋势', '趋势值(%)', '波动系数(%)',
+    '志愿序号', '志愿档次', '录取概率', '热度评分', '分数趋势', '趋势值(%)', '波动系数(%)',
     '院校层次', '院校性质', '省份', '院校名称', '2025投档线', '2024投档线', '2023投档线',
     '参考分数', '位次差', '推荐理由', '警告信息',
   ];
@@ -385,25 +430,26 @@ function exportToExcel(volunteers: VolunteerResult[], filePath: string): void {
   };
 
   for (const v of volunteers) {
-    const row = sheet.addRow([
-      v.index,
-      v.tier,
-      `${v.admissionProbability}%`,
-      v.scoreTrend === 'up' ? '上涨' : v.scoreTrend === 'down' ? '下降' : '稳定',
-      v.trendValue,
-      v.volatility,
-      v.level,
-      v.nature,
-      v.province,
-      v.name,
-      v.score2025 ?? '',
-      v.score2024 ?? '',
-      v.score2023 ?? '',
-      v.refScore,
-      v.rankDiff ?? '',
-      v.reason,
-      v.warnings.join('; ') || '',
-    ]);
+    const row = sheet.addRow({
+      index: v.index,
+      tier: v.tier,
+      admissionProbability: `${v.admissionProbability}%`,
+      heatScore: v.heatScore,
+      scoreTrend: v.scoreTrend === 'up' ? '上涨' : v.scoreTrend === 'down' ? '下降' : '稳定',
+      trendValue: v.trendValue,
+      volatility: v.volatility,
+      level: v.level,
+      nature: v.nature,
+      province: v.province,
+      name: v.name,
+      score2025: v.score2025 ?? '',
+      score2024: v.score2024 ?? '',
+      score2023: v.score2023 ?? '',
+      refScore: v.refScore,
+      rankDiff: v.rankDiff ?? '',
+      reason: v.reason,
+      warnings: v.warnings.join('; ') || '',
+    });
 
     row.eachCell((cell, colNumber) => {
       cell.font = { name: '微软雅黑', size: 10, color: { argb: COLORS.textPrimary } };
@@ -440,6 +486,18 @@ function exportToExcel(volunteers: VolunteerResult[], filePath: string): void {
         } else {
           cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: COLORS.probLowBg } };
           cell.font = { ...cell.font, bold: true, color: { argb: COLORS.probLowFont } };
+        }
+      } else if (colNumber === 4) {
+        cell.alignment = { horizontal: 'center' };
+        if (v.heatScore > 75) {
+          cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FEE2E2' } };
+          cell.font = { ...cell.font, bold: true, color: { argb: 'DC2626' } };
+        } else if (v.heatScore > 50) {
+          cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FEF3C7' } };
+          cell.font = { ...cell.font, bold: true, color: { argb: 'D97706' } };
+        } else {
+          cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'D1FAE5' } };
+          cell.font = { ...cell.font, bold: true, color: { argb: '059669' } };
         }
       } else if (colNumber >= 5 && colNumber <= 6) {
         cell.alignment = { horizontal: 'center' };
@@ -483,8 +541,12 @@ function runTestCase(testCase: TestCase): VolunteerResult[] {
   const majorScores = loadMajorScores(testCase.province);
   
   const strategyConfig = STRATEGY_CONFIGS[testCase.strategy];
-  const isHighScore = testCase.province === '海南';
-  const effectiveRange = isHighScore ? testCase.scoreRange * 2 : testCase.scoreRange;
+  const adaptiveRange = adjustScoreRange(testCase.baseScore, testCase.province, testCase.strategy);
+  const effectiveRange = testCase.province === '海南' ? adaptiveRange * 1.2 : adaptiveRange;
+
+  const allowedLevels = !testCase.selectedLevels.length 
+    ? getInstitutionLevelRange(testCase.baseScore, testCase.province, testCase.strategy)
+    : testCase.selectedLevels;
 
   let filtered = schoolData;
 
@@ -495,8 +557,13 @@ function runTestCase(testCase: TestCase): VolunteerResult[] {
       }
       return testCase.selectedLevels.includes(s.level);
     });
+  } else {
+    filtered = filtered.filter(s => allowedLevels.includes(s.level));
   }
 
+  let publicSchools: typeof filtered = [];
+  let privateSchools: typeof filtered = [];
+  
   if (testCase.selectedNatures.length > 0) {
     const natureFiltered = filtered.filter(s => testCase.selectedNatures.includes(s.nature));
     
@@ -521,10 +588,19 @@ function runTestCase(testCase: TestCase): VolunteerResult[] {
     } else {
       filtered = natureFiltered;
     }
+  } else {
+    publicSchools = filtered.filter(s => s.nature === '公办');
+    privateSchools = filtered.filter(s => s.nature !== '公办');
   }
 
   if (testCase.subject !== 0) {
     filtered = filtered.filter(s => s.subject === testCase.subject || s.subject === 0);
+    if (publicSchools.length > 0) {
+      publicSchools = publicSchools.filter(s => s.subject === testCase.subject || s.subject === 0);
+    }
+    if (privateSchools.length > 0) {
+      privateSchools = privateSchools.filter(s => s.subject === testCase.subject || s.subject === 0);
+    }
   }
 
   const batchLine = PROVINCE_BATCH_LINES[testCase.province]?.[2025]?.physics || 500;
@@ -535,7 +611,7 @@ function runTestCase(testCase: TestCase): VolunteerResult[] {
   
   const schoolsWithValidMajors = new Set<string>();
   const extendedRange = isLowScore || hasSpecialNatureFilter
-    ? testCase.baseScore + effectiveRange + 60 
+    ? testCase.baseScore + effectiveRange + 40 
     : testCase.baseScore + effectiveRange;
   majorScores.forEach(major => {
     if (major.school_name && major.min_score && major.min_score <= extendedRange) {
@@ -553,45 +629,102 @@ function runTestCase(testCase: TestCase): VolunteerResult[] {
     return false;
   }
 
-  const inRange = filtered.filter(s => {
-    const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
-    if (refScore === 0) {
-      if (testCase.selectedNatures.length > 0) {
+  function filterByScoreRange(data: typeof filtered): typeof filtered {
+    return data.filter(s => {
+      const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
+      if (refScore === 0) {
+        return false;
+      }
+      
+      const maxAllowedScore = isLowScore || hasSpecialNatureFilter
+        ? testCase.baseScore + effectiveRange + 40
+        : testCase.baseScore + effectiveRange;
+      if (refScore > maxAllowedScore) return false;
+      
+      const scoreScaleFactor = testCase.province === '海南' ? 900 / 750 : 1;
+      const baoThreshold = strategyConfig.baoScoreDiff * scoreScaleFactor;
+      const minAllowedScore = testCase.baseScore - baoThreshold - 30;
+      if (refScore < minAllowedScore && !isLowScore) return false;
+      
+      if (isLowScore && refScore < testCase.baseScore - effectiveRange - 50) {
+        return false;
+      }
+      
+      if (schoolsWithValidMajors.size > 0) {
+        const hasMajorData = hasMatchingMajorData(s.name);
+        if (hasMajorData) {
+          return true;
+        }
+        return false;
+      }
+      return true;
+    });
+  }
+
+  let inRange: typeof filtered;
+  
+  if (testCase.selectedNatures.length > 0) {
+    inRange = filtered.filter(s => {
+      const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
+      if (refScore === 0) {
         return true;
       }
-      return false;
-    }
+      
+      const maxAllowedScore = isLowScore || hasSpecialNatureFilter
+        ? testCase.baseScore + effectiveRange + 40
+        : testCase.baseScore + effectiveRange;
+      if (refScore > maxAllowedScore) return false;
+      
+      const minAllowedScore = testCase.baseScore - effectiveRange * 0.5;
+      if (refScore < minAllowedScore && !isLowScore) return false;
+      
+      if (schoolsWithValidMajors.size > 0) {
+        const hasMajorData = hasMatchingMajorData(s.name);
+        if (hasMajorData) {
+          return true;
+        }
+        if (testCase.selectedNatures.length > 0) {
+          return true;
+        }
+        if (isLowScore && s.nature === '民办') {
+          return true;
+        }
+        if (hasSpecialNatureFilter) {
+          return true;
+        }
+        return false;
+      }
+      return true;
+    });
+  } else {
+    const publicInRange = filterByScoreRange(publicSchools);
+    const privateInRange = filterByScoreRange(privateSchools);
     
-    const maxAllowedScore = isLowScore || hasSpecialNatureFilter
-      ? testCase.baseScore + effectiveRange + 60
-      : testCase.baseScore + effectiveRange;
-    if (refScore > maxAllowedScore) return false;
+    const uniquePublicSchools = new Set(publicInRange.map(s => s.name.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '').trim()));
+    const publicUniqueCount = uniquePublicSchools.size;
     
-    if (schoolsWithValidMajors.size > 0) {
-      const hasMajorData = hasMatchingMajorData(s.name);
-      if (hasMajorData) {
-        return true;
-      }
-      if (testCase.selectedNatures.length > 0) {
-        return true;
-      }
-      if (isLowScore && s.nature === '民办') {
-        return true;
-      }
-      if (hasSpecialNatureFilter) {
-        return true;
-      }
-      return false;
+    if (publicUniqueCount >= testCase.totalVolunteers * 0.8) {
+      inRange = publicInRange;
+    } else if (publicUniqueCount >= testCase.totalVolunteers * 0.5) {
+      inRange = [...publicInRange, ...privateInRange];
+    } else if (publicUniqueCount >= testCase.totalVolunteers * 0.3) {
+      const neededFromPrivate = Math.ceil(testCase.totalVolunteers * 0.7);
+      inRange = [...publicInRange, ...privateInRange.slice(0, neededFromPrivate)];
+    } else {
+      inRange = [...publicInRange, ...privateInRange];
     }
-    return true;
-  });
+  }
 
   const withRefScore = inRange.map(s => ({
     ...s,
     refScore: getRefScore(s.score2025, s.score2024, s.score2023),
   }));
 
-  const sorted = withRefScore.sort((a, b) => b.refScore - a.refScore);
+  const sorted = withRefScore.sort((a, b) => {
+    if (a.nature === '公办' && b.nature !== '公办') return -1;
+    if (a.nature !== '公办' && b.nature === '公办') return 1;
+    return b.refScore - a.refScore;
+  });
 
   const withRankAnalysis = sorted.map(s => {
     const rankAnalysis = estimateRank(testCase.baseScore, s.refScore, testCase.province);
@@ -599,137 +732,143 @@ function runTestCase(testCase: TestCase): VolunteerResult[] {
     return { ...s, tier, rankAnalysis };
   });
 
-  const chong = withRankAnalysis.filter(s => s.tier === '冲').sort((a, b) => b.refScore - a.refScore);
-  const wen = withRankAnalysis.filter(s => s.tier === '稳').sort((a, b) => Math.abs(a.refScore - testCase.baseScore) - Math.abs(b.refScore - testCase.baseScore));
-  const bao = withRankAnalysis.filter(s => s.tier === '保').sort((a, b) => a.refScore - b.refScore);
+  const targetChong = Math.round(testCase.totalVolunteers * strategyConfig.chongRatio);
+  const targetWen = Math.round(testCase.totalVolunteers * strategyConfig.wenRatio);
+  const targetBao = testCase.totalVolunteers - targetChong - targetWen;
 
-  const isVeryLowScore = testCase.baseScore < batchLine - 30;
+  const tolerance = 0.05;
+  const minChong = Math.max(0, Math.round(testCase.totalVolunteers * (strategyConfig.chongRatio - tolerance)));
+  const maxChong = Math.round(testCase.totalVolunteers * (strategyConfig.chongRatio + tolerance));
+  const minWen = Math.max(0, Math.round(testCase.totalVolunteers * (strategyConfig.wenRatio - tolerance)));
+  const maxWen = Math.round(testCase.totalVolunteers * (strategyConfig.wenRatio + tolerance));
+  const minBao = Math.max(0, Math.round(testCase.totalVolunteers * (strategyConfig.baoRatio - tolerance)));
+  const maxBao = Math.round(testCase.totalVolunteers * (strategyConfig.baoRatio + tolerance));
 
-  const minBaoRatio = isVeryLowScore ? 0.3 : isLowScore ? 0.25 : strategyConfig.baoRatio;
-  const minChongRatio = isVeryLowScore ? 0.1 : isLowScore ? 0.15 : strategyConfig.chongRatio;
+  const scoreScaleFactor = testCase.province === '海南' ? 900 / 750 : 1;
+  const toleranceFactor = 1 + tolerance;
+  const extremeToleranceFactor = 1 + tolerance * 2;
 
-  let chongCount = Math.min(Math.ceil(testCase.totalVolunteers * strategyConfig.chongRatio), chong.length);
-  let wenCount = Math.min(Math.ceil(testCase.totalVolunteers * strategyConfig.wenRatio), wen.length);
-  let baoCount = Math.max(Math.ceil(testCase.totalVolunteers * minBaoRatio), testCase.totalVolunteers - chongCount - wenCount);
+  const chongThreshold = strategyConfig.chongScoreDiff * scoreScaleFactor;
+  const baoThreshold = strategyConfig.baoScoreDiff * scoreScaleFactor;
+  const chongThresholdExtended = chongThreshold * toleranceFactor;
+  const baoThresholdExtended = baoThreshold * toleranceFactor;
+  const chongThresholdExtreme = chongThreshold * extremeToleranceFactor;
+  const baoThresholdExtreme = baoThreshold * extremeToleranceFactor;
 
-  const counts = { chong: chongCount, wen: wenCount, bao: baoCount };
-  const pools = { chong: chong.length, wen: wen.length, bao: bao.length };
+  const chong = withRankAnalysis.filter(s => {
+    const adjustedDiff = (testCase.baseScore - s.refScore) / scoreScaleFactor;
+    return adjustedDiff < -chongThreshold;
+  }).sort((a, b) => b.refScore - a.refScore);
 
-  if (counts.bao > pools.bao) {
-    const extra = counts.bao - pools.bao;
-    counts.bao = pools.bao;
-    transferOverflow(extra, ['wen', 'chong'], counts, pools);
+  const wen = withRankAnalysis.filter(s => {
+    const adjustedDiff = (testCase.baseScore - s.refScore) / scoreScaleFactor;
+    return adjustedDiff >= -chongThreshold && adjustedDiff <= baoThreshold;
+  }).sort((a, b) => Math.abs(a.refScore - testCase.baseScore) - Math.abs(b.refScore - testCase.baseScore));
+
+  const bao = withRankAnalysis.filter(s => {
+    const adjustedDiff = (testCase.baseScore - s.refScore) / scoreScaleFactor;
+    return adjustedDiff > baoThreshold;
+  }).sort((a, b) => a.refScore - b.refScore);
+
+  const chongExtended = withRankAnalysis.filter(s => {
+    const adjustedDiff = (testCase.baseScore - s.refScore) / scoreScaleFactor;
+    return adjustedDiff < -chongThresholdExtended && adjustedDiff >= -chongThreshold;
+  }).sort((a, b) => b.refScore - a.refScore);
+
+  const baoExtended = withRankAnalysis.filter(s => {
+    const adjustedDiff = (testCase.baseScore - s.refScore) / scoreScaleFactor;
+    return adjustedDiff > baoThreshold && adjustedDiff <= baoThresholdExtended;
+  }).sort((a, b) => a.refScore - b.refScore);
+
+  const chongExtreme = withRankAnalysis.filter(s => {
+    const adjustedDiff = (testCase.baseScore - s.refScore) / scoreScaleFactor;
+    return adjustedDiff < -chongThresholdExtreme && adjustedDiff >= -chongThresholdExtended;
+  }).sort((a, b) => b.refScore - a.refScore);
+
+  const baoExtreme = withRankAnalysis.filter(s => {
+    const adjustedDiff = (testCase.baseScore - s.refScore) / scoreScaleFactor;
+    return adjustedDiff > baoThresholdExtended && adjustedDiff <= baoThresholdExtreme;
+  }).sort((a, b) => a.refScore - b.refScore);
+
+  let chongCount = Math.min(targetChong, chong.length);
+  let wenCount = Math.min(targetWen, wen.length);
+  let baoCount = Math.min(targetBao, bao.length);
+
+  let total = chongCount + wenCount + baoCount;
+
+  if (chongCount < targetChong && chongExtended.length > 0) {
+    const needed = targetChong - chongCount;
+    const add = Math.min(needed, chongExtended.length, maxChong - chongCount);
+    chongCount += add;
+    total += add;
   }
 
-  if (counts.wen > pools.wen) {
-    const extra = counts.wen - pools.wen;
-    counts.wen = pools.wen;
-    transferOverflow(extra, ['chong', 'bao'], counts, pools);
+  if (chongCount < targetChong && chongExtreme.length > 0) {
+    const needed = targetChong - chongCount;
+    const add = Math.min(needed, chongExtreme.length, maxChong - chongCount);
+    chongCount += add;
+    total += add;
   }
 
-  if (counts.chong > pools.chong) {
-    const extra = counts.chong - pools.chong;
-    counts.chong = pools.chong;
-    transferOverflow(extra, ['wen', 'bao'], counts, pools);
+  if (baoCount < targetBao && baoExtended.length > 0) {
+    const needed = targetBao - baoCount;
+    const add = Math.min(needed, baoExtended.length, maxBao - baoCount);
+    baoCount += add;
+    total += add;
   }
 
-  const currentTotal = counts.chong + counts.wen + counts.bao;
-  if (currentTotal < testCase.totalVolunteers) {
-    const deficit = testCase.totalVolunteers - currentTotal;
-    transferOverflow(deficit, ['bao', 'wen', 'chong'], counts, pools);
+  if (baoCount < targetBao && baoExtreme.length > 0) {
+    const needed = targetBao - baoCount;
+    const add = Math.min(needed, baoExtreme.length, maxBao - baoCount);
+    baoCount += add;
+    total += add;
   }
 
-  if (counts.bao < Math.ceil(testCase.totalVolunteers * minBaoRatio)) {
-    const needed = Math.ceil(testCase.totalVolunteers * minBaoRatio) - counts.bao;
-    const availableFromWen = Math.min(needed, pools.wen - counts.wen);
-    counts.bao += availableFromWen;
-    counts.wen -= availableFromWen;
+  if (wenCount < targetWen && total < testCase.totalVolunteers) {
+    const needed = testCase.totalVolunteers - total;
+    const add = Math.min(needed, maxWen - wenCount);
+    wenCount += add;
+    total += add;
   }
 
-  chongCount = counts.chong;
-  wenCount = counts.wen;
-  baoCount = counts.bao;
-
-  const total = chongCount + wenCount + baoCount;
-  if (total > testCase.totalVolunteers) {
-    let excess = total - testCase.totalVolunteers;
-    if (chongCount > 0) {
-      const removeFromChong = Math.min(excess, Math.floor(chongCount * 0.5));
-      chongCount -= removeFromChong;
-      excess -= removeFromChong;
+  while (total < testCase.totalVolunteers) {
+    const remaining = testCase.totalVolunteers - total;
+    
+    if (chongCount < maxChong) {
+      const add = Math.min(remaining, maxChong - chongCount);
+      chongCount += add;
+      total += add;
+    } else if (wenCount < maxWen) {
+      const add = Math.min(remaining, maxWen - wenCount);
+      wenCount += add;
+      total += add;
+    } else if (baoCount < maxBao) {
+      const add = Math.min(remaining, maxBao - baoCount);
+      baoCount += add;
+      total += add;
+    } else {
+      break;
     }
-    if (excess > 0 && wenCount > 0) {
-      wenCount -= excess;
+  }
+
+  while (total > testCase.totalVolunteers) {
+    const excess = total - testCase.totalVolunteers;
+    
+    if (chongCount > minChong) {
+      const remove = Math.min(excess, chongCount - minChong);
+      chongCount -= remove;
+      total -= remove;
+    } else if (wenCount > minWen) {
+      const remove = Math.min(excess, wenCount - minWen);
+      wenCount -= remove;
+      total -= remove;
+    } else if (baoCount > minBao) {
+      const remove = Math.min(excess, baoCount - minBao);
+      baoCount -= remove;
+      total -= remove;
+    } else {
+      break;
     }
-  }
-
-  if (bao.length === 0 && wen.length > 0) {
-    const wenSortedByScore = [...wen].sort((a, b) => a.refScore - b.refScore);
-    const minBaoNeeded = testCase.strategy === '保守' 
-      ? Math.max(6, Math.ceil(testCase.totalVolunteers * 0.2)) 
-      : Math.max(3, Math.ceil(testCase.totalVolunteers * 0.1));
-    const availableForBao = Math.min(minBaoNeeded, wenSortedByScore.length);
-    
-    const baoFromWen = wenSortedByScore.slice(0, availableForBao);
-    baoFromWen.forEach(s => s.tier = '保');
-    
-    const wenRemaining = wen.filter(s => !baoFromWen.includes(s));
-    
-    baoCount = availableForBao;
-    wenCount = Math.max(0, wenCount - availableForBao);
-    
-    const updatedBao = [...bao, ...baoFromWen].sort((a, b) => a.refScore - b.refScore);
-    const updatedWen = wenRemaining.sort((a, b) => Math.abs(a.refScore - testCase.baseScore) - Math.abs(b.refScore - testCase.baseScore));
-    
-    Object.assign(chong, chong);
-    Object.assign(wen, updatedWen);
-    Object.assign(bao, updatedBao);
-  }
-
-  if (wen.length === 0 && chong.length > 0) {
-    const chongSortedByScore = [...chong].sort((a, b) => Math.abs(a.refScore - testCase.baseScore) - Math.abs(b.refScore - testCase.baseScore));
-    const minWenNeeded = testCase.strategy === '激进'
-      ? Math.max(3, Math.ceil(testCase.totalVolunteers * 0.2))
-      : Math.max(6, Math.ceil(testCase.totalVolunteers * 0.3));
-    const availableForWen = Math.min(minWenNeeded, chongSortedByScore.length);
-    
-    const wenFromChong = chongSortedByScore.slice(0, availableForWen);
-    wenFromChong.forEach(s => s.tier = '稳');
-    
-    const chongRemaining = chong.filter(s => !wenFromChong.includes(s));
-    
-    wenCount = availableForWen;
-    chongCount = Math.max(0, chongCount - availableForWen);
-    
-    const updatedWen = [...wen, ...wenFromChong].sort((a, b) => Math.abs(a.refScore - testCase.baseScore) - Math.abs(b.refScore - testCase.baseScore));
-    const updatedChong = chongRemaining.sort((a, b) => b.refScore - a.refScore);
-    
-    Object.assign(chong, updatedChong);
-    Object.assign(wen, updatedWen);
-    Object.assign(bao, bao);
-  }
-
-  if (chong.length === 0 && wen.length > 0) {
-    const wenSortedByScore = [...wen].sort((a, b) => b.refScore - a.refScore);
-    const minChongNeeded = testCase.strategy === '保守'
-      ? Math.max(2, Math.ceil(testCase.totalVolunteers * 0.1))
-      : Math.max(5, Math.ceil(testCase.totalVolunteers * 0.2));
-    const availableForChong = Math.min(minChongNeeded, wenSortedByScore.length);
-    
-    const chongFromWen = wenSortedByScore.slice(0, availableForChong);
-    chongFromWen.forEach(s => s.tier = '冲');
-    
-    const wenRemaining = wen.filter(s => !chongFromWen.includes(s));
-    
-    chongCount = availableForChong;
-    wenCount = Math.max(0, wenCount - availableForChong);
-    
-    const updatedChong = [...chong, ...chongFromWen].sort((a, b) => b.refScore - a.refScore);
-    const updatedWen = wenRemaining.sort((a, b) => Math.abs(a.refScore - testCase.baseScore) - Math.abs(b.refScore - testCase.baseScore));
-    
-    Object.assign(chong, updatedChong);
-    Object.assign(wen, updatedWen);
-    Object.assign(bao, bao);
   }
 
   const result: VolunteerResult[] = [];
@@ -744,6 +883,7 @@ function runTestCase(testCase: TestCase): VolunteerResult[] {
     const schoolNameKey = extractSchoolNameKey(s.name);
     const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
     const prob = calculateAdmissionProbability(testCase.baseScore, s.refScore, testCase.province);
+    const heatScore = calculateHeatScore(s.score2025, s.score2024, s.score2023);
 
     const warnings: string[] = [];
     const availableYears = [s.score2025, s.score2024, s.score2023].filter((v): v is number => v !== null);
@@ -756,6 +896,10 @@ function runTestCase(testCase: TestCase): VolunteerResult[] {
       } else {
         warnings.push('招生数据有限：仅有历史数据，缺少2025年最新数据');
       }
+    }
+
+    if (heatScore > 75) {
+      warnings.push('院校热度较高，竞争可能较激烈');
     }
 
     return {
@@ -776,23 +920,30 @@ function runTestCase(testCase: TestCase): VolunteerResult[] {
       scoreTrend: trendAnalysis.trend,
       trendValue: trendAnalysis.trendValue,
       volatility: trendAnalysis.volatility,
+      heatScore,
       rankDiff: s.rankAnalysis.rankDiff,
       warnings,
       reason: getRecommendationReason(s.refScore, testCase.baseScore, testCase.province),
     };
   };
 
-  for (const s of chong.slice(0, chongCount)) {
+  const chongAll = [...chong, ...chongExtended, ...chongExtreme];
+  const baoAll = [...bao, ...baoExtended, ...baoExtreme];
+
+  for (const s of chongAll.slice(0, chongCount)) {
+    if (result.length >= testCase.totalVolunteers) break;
     const r = createResult(s);
     if (r) result.push(r);
   }
 
   for (const s of wen.slice(0, wenCount)) {
+    if (result.length >= testCase.totalVolunteers) break;
     const r = createResult(s);
     if (r) result.push(r);
   }
 
-  for (const s of bao.slice(0, baoCount)) {
+  for (const s of baoAll.slice(0, baoCount)) {
+    if (result.length >= testCase.totalVolunteers) break;
     const r = createResult(s);
     if (r) result.push(r);
   }
