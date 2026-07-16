@@ -8,8 +8,11 @@
     "min_rank": 809,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(生命科学)(包含专业:生物科学类、农学、种子科学与工程、园艺、植物保护、动物医学类、动物科学、草业科学、环境科学与工程类、食品科学与工程类、化学类)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 1253,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:动物医学、中兽医学、兽医公共卫生)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 1386,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:生物科学、生物技术)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 1610,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含农学、种子科学与工程两个专业方向)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,20 +68,11 @@
     "min_rank": 1610,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国农业大学",
-    "major_name": "植物保护",
-    "major_group": "",
-    "min_score": 700,
-    "min_rank": 1763,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:食品科学与工程、食品质量与安全、葡萄与葡萄酒工程、食品营养与健康)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +83,11 @@
     "min_rank": 1935,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,19 +98,10 @@
     "min_rank": 2774,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国农业大学",
-    "major_name": "传播学",
-    "major_group": "",
-    "min_score": 675,
-    "min_rank": 3092,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(学费国内一年级10万元/(生/年)，二年级起12.98万元/(生/年)；如出国学习，合作院校将按留学生标准收取学费;详细信息详见院校招生网站)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

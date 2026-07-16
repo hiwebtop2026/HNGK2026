@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "江西师范大学科学技术学院",
+    "major_name": "电子商务",
+    "major_group": "",
+    "min_score": 551,
+    "min_rank": 23195,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "江西师范大学科学技术学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 551,
+    "min_rank": 23195,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "江西师范大学科学技术学院",
+    "major_name": "数字经济",
+    "major_group": "",
+    "min_score": 548,
+    "min_rank": 23980,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "江西师范大学科学技术学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 513,
+    "min_rank": 33773,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

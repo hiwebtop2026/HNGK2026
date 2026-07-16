@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "河南中医药大学",
+    "major_name": "中西医临床医学",
+    "major_group": "专业组（1）",
+    "min_score": 578,
+    "min_rank": 17503,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "河南中医药大学",
+    "major_name": "针灸推拿学",
+    "major_group": "专业组（1）",
+    "min_score": 572,
+    "min_rank": 18938,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "河南中医药大学",
+    "major_name": "中药学类",
+    "major_group": "专业组（1）",
+    "min_score": 567,
+    "min_rank": 20142,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

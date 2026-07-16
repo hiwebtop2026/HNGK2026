@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "上海工程技术大学",
+    "major_name": "制药工程",
+    "major_group": "专业组（1）",
+    "min_score": 574,
+    "min_rank": 18443,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海工程技术大学",
+    "major_name": "化学工程与工艺",
+    "major_group": "专业组（1）",
+    "min_score": 569,
+    "min_rank": 19683,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海工程技术大学",
+    "major_name": "涂料工程",
+    "major_group": "专业组（1）",
+    "min_score": 566,
+    "min_rank": 20411,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

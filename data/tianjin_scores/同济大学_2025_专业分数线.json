@@ -1,72 +1,7 @@
 [
   {
-    "school_name": "同济大学",
     "year": 2025,
-    "major_name": "工科试验班",
-    "major_group": "",
-    "min_score": 676,
-    "min_rank": 552,
-    "person_count": 8,
-    "batch": "本科批",
-    "major_description": "(国豪精英班)(工科拔尖创新人才培养计划，含未来技术学院(人工智能+领域培养)，所有工科专业任选，本研贯通培养)(上海)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
-  },
-  {
     "school_name": "同济大学",
-    "year": 2025,
-    "major_name": "医学试验班",
-    "major_group": "",
-    "min_score": 671,
-    "min_rank": 788,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "(国豪精英班)(基础医学)(医科拔尖人才培养计划，本博贯通培养；该专业不招色盲、色弱考生)(上海)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
-  },
-  {
-    "school_name": "同济大学",
-    "year": 2025,
-    "major_name": "工科试验班",
-    "major_group": "",
-    "min_score": 667,
-    "min_rank": 1040,
-    "person_count": 21,
-    "batch": "本科批",
-    "major_description": "(信息与智能网联类)(计算机科学与技术、信息安全、数据科学与大数据技术、电气工程及其自动化、自动化、通信工程、人工智能、微电子科学与工程、软件工程、交通工程、交通运输、车辆工程(汽车)、车辆工程、测绘工程、光电信息科学与工程)(含双学位培养项目：光电信息科学与工程-应用物理学，微电子科学与工程-应用物理学，测绘工程-应用物理学，视觉传达设计-人工智能，交通工程-数学与应用数学；含计算机科学拔尖学生培养基地；分流专业中软件工程专业三、四年级收费标准为16000元/年)(上海)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
-  },
-  {
-    "school_name": "同济大学",
-    "year": 2025,
-    "major_name": "工科试验班",
-    "major_group": "",
-    "min_score": 666,
-    "min_rank": 1096,
-    "person_count": 5,
-    "batch": "本科批",
-    "major_description": "(智能化制造与新能源类)(新能源材料与器件、机械设计制造及其自动化、能源与动力工程、智能制造工程、飞行器制造工程、建筑环境与能源应用工程)(含双学位培养项目：能源与动力工程-应用化学)(上海)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
-  },
-  {
-    "school_name": "同济大学",
-    "year": 2025,
-    "major_name": "经济管理试验班",
-    "major_group": "",
-    "min_score": 666,
-    "min_rank": 1096,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "(信息管理与信息系统(商务数据分析)、工程管理(数智工程管理、智慧运维与资产管理)、金融学)(含双学位培养项目：金融学-数学与应用数学)(上海)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
-  },
-  {
-    "school_name": "同济大学",
-    "year": 2025,
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 681,
@@ -75,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(国豪精英班；工科拔尖人才培养计划，含未来技术班；按照2+1+X培养，所有工科专业任选；专业确认后按专业标准收费；校本部)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "同济大学",
     "year": 2025,
+    "school_name": "同济大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 679,
@@ -88,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(信息类；计算机科学与技术、信息安全、数据科学与大数据技术、电气工程及其自动化、自动化、通信工程、人工智能、微电子科学与工程、软件工程；含双学位培养项目：光电信息科学与工程-应用物理学，微电子科学与工程-应用物理学，视觉传达设计-人工智能；含计算机科学拔尖学生培养基地；分流专业中软件工程三、四年级收费标准为每年16000元；校本部)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "同济大学",
     "year": 2025,
+    "school_name": "同济大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 678,
@@ -101,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(卓越计划班；含机器人、工程互联网、智能网联车辆、智慧空间四个领域，按照2+1+X培养，领域内专业任选；校本部)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "同济大学",
     "year": 2025,
+    "school_name": "同济大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 675,
@@ -114,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(含双学位培养项目：法学-英语，德语-法学，土木工程-法学，城乡规划-法学；校本部)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "同济大学",
     "year": 2025,
+    "school_name": "同济大学",
     "major_name": "人文科学试验班",
     "major_group": "",
     "min_score": 672,
@@ -127,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(传播学、德语、英语(数智人文)、日语、哲学、文化产业管理、汉语言文学；含双学位培养项目：德语-政治学与行政学，法学-英语，德语-法学；校本部)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "同济大学",
     "year": 2025,
+    "school_name": "同济大学",
     "major_name": "医学试验班",
     "major_group": "",
     "min_score": 670,
@@ -140,37 +85,28 @@
     "batch": "本科批",
     "major_description": "(临床医学(领军人才培养)、临床医学、口腔医学、生物技术、生物信息学；该专业不招色盲、色弱考生；含生命科学拔尖学生培养基地；分流专业中生物技术和生物信息学为四年制；校本部)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "同济大学",
     "year": 2025,
+    "school_name": "同济大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 668,
     "min_rank": 1454,
     "person_count": 3,
     "batch": "本科批",
-    "major_description": "(5+3一体化；本硕衔接培养，合格毕业生获执业医师资格证、住院医师规范化培训合格证书、硕士研究生毕业证和学位证；该专业不招色盲、色弱考生；校本部)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
-  },
-  {
-    "school_name": "同济大学",
-    "year": 2025,
-    "major_name": "政治学与行政学",
-    "major_group": "",
-    "min_score": 668,
-    "min_rank": 1454,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(含双学位培养项目：德语-政治学与行政学；校本部)",
     "subject_requirement": "必选政治",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "同济大学",
     "year": 2025,
+    "school_name": "同济大学",
     "major_name": "医学试验班",
     "major_group": "",
     "min_score": 666,
@@ -179,11 +115,13 @@
     "batch": "本科批",
     "major_description": "(国豪精英班；基础医学；医科拔尖人才培养计划；该专业不招色盲、色弱考生；校本部)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "同济大学",
     "year": 2025,
+    "school_name": "同济大学",
     "major_name": "机械类",
     "major_group": "",
     "min_score": 664,
@@ -192,6 +130,8 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(机械电子工程(中外合作办学)、建筑电气与智能化(中外合作办学)、车辆工程(中外合作办学)；中国教育部与德国联邦科研、技术和宇航部(BMFTR)(原德国联邦教研部BMBF)共同倡议和直接经费支持在同济大学设立的中外合作办学项目；采用3(同济)+1(德国/瑞士)进阶式国际化人才培养模式，成绩合格者获得同济大学毕业证、工学学士学位证以及外方合作院校学士学位证书；校本部)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   }
 ]

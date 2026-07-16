@@ -8,8 +8,11 @@
     "min_rank": 4451,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(设有基础学科拔尖计划2.0基地；崂山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 4611,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(崂山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 4928,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(教育部卓越农林人才教育培养计划改革试点专业；鱼山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 4928,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(计算机科学与技术、智能科学与技术、数据科学与大数据技术、网络空间安全、软件工程、保密技术；设有软件工程五八卓越人才班、计算机科学与技术卓越工程师班、中法卓越工程师班；西海岸校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 5080,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(崂山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +83,11 @@
     "min_rank": 5080,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(材料科学与工程、高分子材料与工程、新能源材料与器件；西海岸校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,20 +98,11 @@
     "min_rank": 5080,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国海洋大学",
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 639,
-    "min_rank": 5080,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(西海岸校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +113,11 @@
     "min_rank": 5224,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(数学与应用数学、信息与计算科学；可选拔至金融科技(金融学+数学与应用数学)双学位项目；崂山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,20 +128,11 @@
     "min_rank": 5224,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国海洋大学",
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 637,
-    "min_rank": 5379,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(设有国际注册会计师ACCA方向班；崂山校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,8 +143,11 @@
     "min_rank": 5379,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(崂山校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,32 +158,11 @@
     "min_rank": 5379,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国海洋大学",
-    "major_name": "化学",
-    "major_group": "",
-    "min_score": 636,
-    "min_rank": 5535,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国海洋大学",
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 636,
-    "min_rank": 5535,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(与澳大利亚阿德莱德大学合办，“4+0”“2+2”“3+2”模式均可，非英语语种考生慎重报考；崂山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -188,8 +173,11 @@
     "min_rank": 5535,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(鱼山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -200,8 +188,11 @@
     "min_rank": 5535,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(西海岸校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -212,8 +203,11 @@
     "min_rank": 5535,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(西海岸校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -224,8 +218,11 @@
     "min_rank": 5535,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(鱼山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -236,8 +233,11 @@
     "min_rank": 5535,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(设有特许金融分析师CFA实验班，可选拔至金融科技(金融学+数学与应用数学)双学位项目；崂山校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -248,8 +248,11 @@
     "min_rank": 5689,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(与美国亚利桑那大学罗杰斯法学院合办，“4+0”“2+2”“3+1”模式均可，非英语语种考生慎重报考；崂山校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -260,8 +263,11 @@
     "min_rank": 6375,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(与澳大利亚塔斯马尼亚大学合办，“4+0”“2+2”“3+2”模式均可，非英语语种考生慎重报考；崂山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -272,8 +278,11 @@
     "min_rank": 6772,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(与澳大利亚阿德莱德大学合办，“4+0”“2+2”“3+2”模式均可，非英语语种考生慎重报考；崂山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -284,7 +293,10 @@
     "min_rank": 6950,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(与澳大利亚阿德莱德大学合办，“4+0”“2+2”“3+2”模式均可，非英语语种考生慎重报考；崂山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   }
 ]

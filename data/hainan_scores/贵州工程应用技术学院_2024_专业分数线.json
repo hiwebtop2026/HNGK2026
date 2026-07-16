@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "贵州工程应用技术学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 562,
+    "min_rank": 20113,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "贵州工程应用技术学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 561,
+    "min_rank": 20364,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "贵州工程应用技术学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 513,
+    "min_rank": 33405,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "贵州工程应用技术学院",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 506,
+    "min_rank": 35366,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "海口经济学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 455,
+    "min_rank": 50435,
+    "person_count": 12,
+    "batch": "本科批",
+    "major_description": "(教育、翻译、商务方向)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "海口经济学院",
+    "major_name": "经济学类",
+    "major_group": "",
+    "min_score": 454,
+    "min_rank": 50672,
+    "person_count": 24,
+    "batch": "本科批",
+    "major_description": "(经济学(金融与科技方向)、国际经济与贸易(跨境电商方向))(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "海口经济学院",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 445,
+    "min_rank": 52670,
+    "person_count": 23,
+    "batch": "本科批",
+    "major_description": "(智能控制)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -8,8 +8,11 @@
     "min_rank": 445,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(信息与通信)(包含专业:电子信息工程、通信工程、信息对抗技术、网络工程、物联网工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,20 +23,11 @@
     "min_rank": 467,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "电子科技大学",
-    "major_name": "集成电路设计与集成系统",
-    "major_group": "",
-    "min_score": 750,
-    "min_rank": 482,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(国家示范性微电子学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +38,11 @@
     "min_rank": 495,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(电子工程类)(包含专业:电子科学与技术、电磁场与无线技术)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +53,11 @@
     "min_rank": 525,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智能仪器、智能控制)(包含专业:自动化、测控技术与仪器)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,7 +68,10 @@
     "min_rank": 555,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(电子信息与物理科学复合培养)(包含专业:电子信息科学与技术、应用物理学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "南京财经大学红山学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 505,
+    "min_rank": 38775,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(高淳校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京财经大学红山学院",
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 504,
+    "min_rank": 39076,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(高淳校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京财经大学红山学院",
+    "major_name": "人力资源管理",
+    "major_group": "",
+    "min_score": 503,
+    "min_rank": 39379,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(高淳校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京财经大学红山学院",
+    "major_name": "工商管理",
+    "major_group": "",
+    "min_score": 503,
+    "min_rank": 39379,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(高淳校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

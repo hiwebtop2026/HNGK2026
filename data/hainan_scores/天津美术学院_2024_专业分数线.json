@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "天津美术学院",
+    "major_name": "艺术设计学",
+    "major_group": "",
+    "min_score": 522,
+    "min_rank": 27234,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "天津美术学院",
+    "major_name": "艺术管理",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 29083,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

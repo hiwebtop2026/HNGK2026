@@ -8,20 +8,11 @@
     "min_rank": 1351,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南师范大学",
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 697,
-    "min_rank": 1889,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含世承书院天问班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +23,11 @@
     "min_rank": 2713,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含世承书院周光召班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,32 +38,11 @@
     "min_rank": 2962,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南师范大学",
-    "major_name": "社会学",
-    "major_group": "",
-    "min_score": 674,
-    "min_rank": 3157,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南师范大学",
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 666,
-    "min_rank": 3746,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +53,11 @@
     "min_rank": 3746,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:英语、俄语、德语、法语、西班牙语、阿拉伯语、日语、朝鲜语;含世承书院锺书班)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +68,11 @@
     "min_rank": 3746,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +83,11 @@
     "min_rank": 3824,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,8 +98,11 @@
     "min_rank": 3898,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:新闻学、编辑出版学、网络与新媒体)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -128,8 +113,11 @@
     "min_rank": 3898,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,8 +128,11 @@
     "min_rank": 3984,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,8 +143,11 @@
     "min_rank": 4151,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -164,20 +158,11 @@
     "min_rank": 4238,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南师范大学",
-    "major_name": "文物与博物馆学",
-    "major_group": "",
-    "min_score": 660,
-    "min_rank": 4238,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -188,7 +173,10 @@
     "min_rank": 4238,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

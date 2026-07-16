@@ -8,8 +8,11 @@
     "min_rank": 1853,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(拔尖创新班)(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 2713,
     "person_count": 8,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:药学、药物制剂、药物分析、药物化学;不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 2962,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 3029,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:制药工程、食品营养与健康、环境科学;不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 3984,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +83,11 @@
     "min_rank": 4062,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +98,11 @@
     "min_rank": 4314,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:中药学、中药资源与开发、中药制药;不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,7 +113,10 @@
     "min_rank": 4314,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

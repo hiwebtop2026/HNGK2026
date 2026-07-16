@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "内蒙古艺术学院",
+    "major_name": "文化产业管理",
+    "major_group": "",
+    "min_score": 476,
+    "min_rank": 37407,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(语文线:90；外语线:85)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "内蒙古艺术学院",
+    "major_name": "艺术史论",
+    "major_group": "",
+    "min_score": 476,
+    "min_rank": 37407,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(语文线:90；外语线:85)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

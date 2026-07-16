@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "重庆师范大学",
     "year": 2025,
+    "school_name": "重庆师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 672,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选历史",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆师范大学",
     "year": 2025,
+    "school_name": "重庆师范大学",
     "major_name": "思想政治教育",
     "major_group": "",
     "min_score": 660,
@@ -23,50 +25,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选政治",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆师范大学",
     "year": 2025,
+    "school_name": "重庆师范大学",
     "major_name": "应用心理学",
     "major_group": "",
     "min_score": 620,
     "min_rank": 8822,
     "person_count": 3,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "重庆师范大学",
-    "year": 2025,
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 617,
-    "min_rank": 9286,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "重庆师范大学",
-    "year": 2025,
-    "major_name": "化学",
-    "major_group": "",
-    "min_score": 612,
-    "min_rank": 10091,
-    "person_count": 3,
-    "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆师范大学",
     "year": 2025,
+    "school_name": "重庆师范大学",
     "major_name": "外国语言文学类",
     "major_group": "",
     "min_score": 612,
@@ -75,24 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:日语、翻译)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆师范大学",
     "year": 2025,
-    "major_name": "社会工作",
-    "major_group": "",
-    "min_score": 611,
-    "min_rank": 10262,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "重庆师范大学",
-    "year": 2025,
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 609,
@@ -101,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:工商管理、财务管理、人力资源管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆师范大学",
     "year": 2025,
+    "school_name": "重庆师范大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 608,
@@ -114,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆师范大学",
     "year": 2025,
+    "school_name": "重庆师范大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 607,
@@ -127,32 +100,23 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆师范大学",
     "year": 2025,
+    "school_name": "重庆师范大学",
     "major_name": "电子商务",
     "major_group": "",
     "min_score": 595,
     "min_rank": 13116,
     "person_count": 5,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "重庆师范大学",
-    "year": 2025,
-    "major_name": "广播电视编导",
-    "major_group": "",
-    "min_score": 592,
-    "min_rank": 13725,
-    "person_count": 3,
-    "batch": "本科批",
     "major_description": "(授予艺术学学士学位)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

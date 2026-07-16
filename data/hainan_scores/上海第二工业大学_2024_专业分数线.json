@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "上海第二工业大学",
     "year": 2024,
+    "school_name": "上海第二工业大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 616,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海第二工业大学",
     "year": 2024,
+    "school_name": "上海第二工业大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 608,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海第二工业大学",
     "year": 2024,
+    "school_name": "上海第二工业大学",
     "major_name": "新能源科学与工程",
     "major_group": "",
     "min_score": 607,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海第二工业大学",
     "year": 2024,
+    "school_name": "上海第二工业大学",
     "major_name": "电子商务",
     "major_group": "",
     "min_score": 605,
@@ -49,71 +55,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海第二工业大学",
-    "year": 2024,
-    "major_name": "智能科学与技术",
-    "major_group": "",
-    "min_score": 619,
-    "min_rank": 8984,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海第二工业大学",
-    "year": 2024,
-    "major_name": "新能源科学与工程",
-    "major_group": "",
-    "min_score": 618,
-    "min_rank": 9132,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海第二工业大学",
-    "year": 2024,
-    "major_name": "通信工程",
-    "major_group": "",
-    "min_score": 614,
-    "min_rank": 9773,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海第二工业大学",
-    "year": 2024,
-    "major_name": "标准化工程",
-    "major_group": "",
-    "min_score": 610,
-    "min_rank": 10420,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海第二工业大学",
-    "year": 2024,
-    "major_name": "电子商务",
-    "major_group": "",
-    "min_score": 599,
-    "min_rank": 12365,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

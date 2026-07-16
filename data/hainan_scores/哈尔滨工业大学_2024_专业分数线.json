@@ -4,23 +4,14 @@
     "school_name": "哈尔滨工业大学",
     "major_name": "工科试验班",
     "major_group": "",
-    "min_score": 812,
-    "min_rank": 105,
-    "person_count": 1,
+    "min_score": 790,
+    "min_rank": 144,
+    "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2024,
-    "school_name": "哈尔滨工业大学",
-    "major_name": "工科试验班",
-    "major_group": "",
-    "min_score": 787,
-    "min_rank": 161,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(院士特色班、未来技术拔尖班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

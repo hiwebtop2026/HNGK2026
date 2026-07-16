@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海商学院",
+    "major_name": "旅游管理",
+    "major_group": "",
+    "min_score": 589,
+    "min_rank": 14358,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海商学院",
+    "major_name": "工商管理",
+    "major_group": "",
+    "min_score": 587,
+    "min_rank": 14726,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海商学院",
+    "major_name": "食品质量与安全",
+    "major_group": "",
+    "min_score": 576,
+    "min_rank": 17094,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

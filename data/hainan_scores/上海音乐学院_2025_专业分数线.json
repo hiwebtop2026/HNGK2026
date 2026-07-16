@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海音乐学院",
+    "major_name": "艺术管理",
+    "major_group": "",
+    "min_score": 578,
+    "min_rank": 17004,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海音乐学院",
+    "major_name": "艺术与科技",
+    "major_group": "",
+    "min_score": 576,
+    "min_rank": 17506,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  }
+]

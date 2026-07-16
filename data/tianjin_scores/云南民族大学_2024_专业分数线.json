@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "云南民族大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 563,
+    "min_rank": 21441,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(雨花校区)",
+    "subject_requirement": "史+地+政(3科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "云南民族大学",
+    "major_name": "经济学",
+    "major_group": "",
+    "min_score": 534,
+    "min_rank": 29376,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(雨花校区)",
+    "subject_requirement": "必选政治",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "云南民族大学",
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": 529,
+    "min_rank": 30758,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(雨花校区)",
+    "subject_requirement": "必选历史",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

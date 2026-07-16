@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "电子科技大学成都学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 507,
+    "min_rank": 36803,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(成都校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "电子科技大学成都学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 507,
+    "min_rank": 36803,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(成都校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "电子科技大学成都学院",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 502,
+    "min_rank": 38171,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(成都校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "电子科技大学成都学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 499,
+    "min_rank": 39003,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(什邡校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

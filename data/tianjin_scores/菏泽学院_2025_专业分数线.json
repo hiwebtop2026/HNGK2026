@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "菏泽学院",
+    "major_name": "心理学",
+    "major_group": "",
+    "min_score": 562,
+    "min_rank": 20421,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "菏泽学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 21189,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(师范)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "菏泽学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 558,
+    "min_rank": 21454,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "菏泽学院",
+    "major_name": "生物工程",
+    "major_group": "",
+    "min_score": 480,
+    "min_rank": 43089,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "核工程与核技术",
     "major_group": "",
     "min_score": 624,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "辐射防护与核安全",
     "major_group": "",
     "min_score": 616,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 612,
@@ -36,24 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 609,
-    "min_rank": 10621,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "东华理工大学",
-    "year": 2025,
     "major_name": "法学",
     "major_group": "",
     "min_score": 606,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(抚州校区就读)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 606,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 597,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(对外文化交流方向)(抚州校区就读)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "遥感科学与技术",
     "major_group": "",
     "min_score": 597,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "给排水科学与工程",
     "major_group": "",
     "min_score": 594,
@@ -114,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 591,
@@ -127,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 591,
@@ -140,37 +145,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 589,
     "min_rank": 14358,
     "person_count": 3,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "东华理工大学",
-    "year": 2025,
-    "major_name": "广告学",
-    "major_group": "",
-    "min_score": 584,
-    "min_rank": 15369,
-    "person_count": 3,
-    "batch": "本科批",
     "major_description": "(抚州校区就读)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "防灾减灾科学与工程",
     "major_group": "",
     "min_score": 583,
@@ -179,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东华理工大学",
     "year": 2025,
+    "school_name": "东华理工大学",
     "major_name": "水文与水资源工程",
     "major_group": "",
     "min_score": 582,
@@ -192,19 +190,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "东华理工大学",
-    "year": 2025,
-    "major_name": "应用化学",
-    "major_group": "",
-    "min_score": 580,
-    "min_rank": 16238,
-    "person_count": 6,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

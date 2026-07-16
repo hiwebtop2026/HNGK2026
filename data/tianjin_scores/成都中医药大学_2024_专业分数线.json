@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "成都中医药大学",
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 610,
+    "min_rank": 9504,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(5+3一体化)(不招收色盲色弱考生)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "成都中医药大学",
+    "major_name": "中药学",
+    "major_group": "",
+    "min_score": 606,
+    "min_rank": 10384,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(凌一揆班)(不招收色盲色弱考生)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "成都中医药大学",
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 599,
+    "min_rank": 12029,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "(不招收色盲色弱考生)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "成都中医药大学",
+    "major_name": "康复治疗学",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 22524,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(不招收色盲色弱考生)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

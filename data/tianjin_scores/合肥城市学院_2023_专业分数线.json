@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "合肥城市学院",
+    "major_name": "财务管理",
+    "major_group": "专业组（3）",
+    "min_score": 476,
+    "min_rank": 43482,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "合肥城市学院",
+    "major_name": "工程管理",
+    "major_group": "",
+    "min_score": 473,
+    "min_rank": 44207,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "合肥城市学院",
+    "major_name": "城市管理",
+    "major_group": "专业组（2）",
+    "min_score": 471,
+    "min_rank": 44635,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

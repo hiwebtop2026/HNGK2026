@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "安徽财经大学",
+    "major_name": "会计学",
+    "major_group": "专业组（1）",
+    "min_score": 595,
+    "min_rank": 13633,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "安徽财经大学",
+    "major_name": "金融学",
+    "major_group": "专业组（1）",
+    "min_score": 589,
+    "min_rank": 14969,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "安徽财经大学",
+    "major_name": "经济与贸易类",
+    "major_group": "专业组（1）",
+    "min_score": 584,
+    "min_rank": 16061,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "安徽财经大学",
+    "major_name": "经济学类",
+    "major_group": "专业组（1）",
+    "min_score": 584,
+    "min_rank": 16061,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

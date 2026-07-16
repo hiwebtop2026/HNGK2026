@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "四川外国语大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 585,
+    "min_rank": 16523,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川外国语大学",
+    "major_name": "商务英语",
+    "major_group": "",
+    "min_score": 579,
+    "min_rank": 18022,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川外国语大学",
+    "major_name": "商务英语",
+    "major_group": "",
+    "min_score": 550,
+    "min_rank": 25874,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川外国语大学",
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 537,
+    "min_rank": 29432,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

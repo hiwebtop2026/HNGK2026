@@ -8,20 +8,11 @@
     "min_rank": 318,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中央财经大学",
-    "major_name": "保险学",
-    "major_group": "",
-    "min_score": 716,
-    "min_rank": 1192,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(北理工智能、保险联培项目)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,20 +23,11 @@
     "min_rank": 1253,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中央财经大学",
-    "major_name": "精算学",
-    "major_group": "",
-    "min_score": 713,
-    "min_rank": 1292,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:财政学、税收学、资产评估、财政学(财政基础理论基地班)、税收学(全球税收治理菁英班))",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +38,11 @@
     "min_rank": 1386,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(会计学院)(包含专业:会计学、会计学(法学、会计学双学位项目)、财务管理)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +53,11 @@
     "min_rank": 1386,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:国际经济与贸易、国际经济与贸易(国际贸易、应统双学位项目)、国际商务、贸易经济)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +68,11 @@
     "min_rank": 1454,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含金融学、金融学北外英语专业联培2个专业)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +83,11 @@
     "min_rank": 1562,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(商学院)(包含专业:工商管理、工商管理(法学、工管双学位项目)、市场营销(大数据营销)、人力资源管理、供应链管理、供应链管理(供应链、经统双学位项目))",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +98,11 @@
     "min_rank": 1610,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含法学(卓越法治人才教育培养计划)、法学(涉外法治人才培养基地班)、法学(法学-会计学双学位项目)、法学(法学-工商管理双学位项目)4个专业)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,8 +113,11 @@
     "min_rank": 1641,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:金融工程、金融科技)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -128,20 +128,11 @@
     "min_rank": 1682,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中央财经大学",
-    "major_name": "投资学",
-    "major_group": "",
-    "min_score": 701,
-    "min_rank": 1720,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含投资学、投资学大数据双学位项目2个专业)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,8 +143,11 @@
     "min_rank": 1720,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:管理科学(商务量化分析)、工程管理(建设经济管理))",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -164,7 +158,10 @@
     "min_rank": 1809,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(国际金融与公司理财)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

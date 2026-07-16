@@ -1,0 +1,86 @@
+[
+  {
+    "year": 2023,
+    "school_name": "北京化工大学",
+    "major_name": "自动化类",
+    "major_group": "",
+    "min_score": 691,
+    "min_rank": 2186,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京化工大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 686,
+    "min_rank": 2429,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京化工大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 685,
+    "min_rank": 2483,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京化工大学",
+    "major_name": "理科试验班",
+    "major_group": "",
+    "min_score": 679,
+    "min_rank": 2839,
+    "person_count": 6,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京化工大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 677,
+    "min_rank": 2962,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京化工大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 676,
+    "min_rank": 3029,
+    "person_count": 6,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京化工大学",
+    "major_name": "理科试验班",
+    "major_group": "",
+    "min_score": 673,
+    "min_rank": 3221,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

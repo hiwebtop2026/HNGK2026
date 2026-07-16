@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "川北医学院",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 594,
+    "min_rank": 13128,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "川北医学院",
+    "major_name": "预防医学",
+    "major_group": "",
+    "min_score": 591,
+    "min_rank": 13666,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

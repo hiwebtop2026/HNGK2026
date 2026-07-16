@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "沈阳工程学院",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 583,
+    "min_rank": 15966,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "沈阳工程学院",
+    "major_name": "电气工程与智能控制",
+    "major_group": "",
+    "min_score": 577,
+    "min_rank": 17586,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "沈阳工程学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 573,
+    "min_rank": 18714,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

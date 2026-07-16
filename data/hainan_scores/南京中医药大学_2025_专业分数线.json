@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "南京中医药大学",
+    "major_name": "公共事业管理",
+    "major_group": "",
+    "min_score": 551,
+    "min_rank": 23796,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京中医药大学",
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 546,
+    "min_rank": 25137,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(五年)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  }
+]

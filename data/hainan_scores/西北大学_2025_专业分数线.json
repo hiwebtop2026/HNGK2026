@@ -2,38 +2,17 @@
   {
     "year": 2025,
     "school_name": "西北大学",
-    "major_name": "考古学",
-    "major_group": "",
-    "min_score": 730,
-    "min_rank": 831,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "西北大学",
-    "major_name": "世界史",
-    "major_group": "",
-    "min_score": 679,
-    "min_rank": 2839,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "西北大学",
     "major_name": "中国语言文学类",
     "major_group": "",
     "min_score": 678,
     "min_rank": 2903,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:汉语言文学、汉语国际教育)",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +23,11 @@
     "min_rank": 3221,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(人工智能实验班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +38,11 @@
     "min_rank": 3356,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +53,11 @@
     "min_rank": 3356,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +68,11 @@
     "min_rank": 3448,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(数理经济实验班)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +83,11 @@
     "min_rank": 3587,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:英语、日语、俄语)",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +98,11 @@
     "min_rank": 3746,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:工商管理、会计学)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,8 +113,11 @@
     "min_rank": 4151,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(全球丝路合作发展方向)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -128,32 +128,11 @@
     "min_rank": 4238,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "西北大学",
-    "major_name": "城乡规划",
-    "major_group": "",
-    "min_score": 659,
-    "min_rank": 4314,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "西北大学",
-    "major_name": "知识产权",
-    "major_group": "",
-    "min_score": 658,
-    "min_rank": 4406,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(国土空间规划方向)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -164,8 +143,11 @@
     "min_rank": 4483,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(数据科学与智能管理方向)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -176,8 +158,11 @@
     "min_rank": 4681,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:数学与应用数学、应用统计学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -188,8 +173,11 @@
     "min_rank": 4681,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:物理学、应用物理学、材料物理、光电信息科学与工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -200,8 +188,11 @@
     "min_rank": 4856,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:自然地理与资源环境、人文地理与城乡规划、地理信息科学)",
+    "subject_requirement": "物+地(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -212,8 +203,11 @@
     "min_rank": 5164,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(华大创新班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -224,8 +218,11 @@
     "min_rank": 5269,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:化学、应用化学、化学生物学、材料化学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -236,8 +233,11 @@
     "min_rank": 5269,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:化学工程与工艺、制药工程、能源化学工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -248,8 +248,11 @@
     "min_rank": 5356,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -260,8 +263,11 @@
     "min_rank": 5469,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -272,7 +278,10 @@
     "min_rank": 5469,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

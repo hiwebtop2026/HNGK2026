@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "上海大学",
+    "major_name": "电气类",
+    "major_group": "",
+    "min_score": 624,
+    "min_rank": 6693,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(数学与应用数学、信息与计算科学、应用物理学、理论与应用力学、机械电子工程、智能制造工程、测控技术与仪器、新能源材料与器件、电子科学与技术、自动化、机器人工程、生物医学工程、建筑学、城乡规划、城市设计、工业工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海大学",
+    "major_name": "社会学类",
+    "major_group": "",
+    "min_score": 623,
+    "min_rank": 6848,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(哲学、法学、知识产权、社会学、社会工作、汉语言文学、汉语国际教育、新闻学、广播电视学、广告学、网络与新媒体、会展、历史学、考古学)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海大学",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 612,
+    "min_rank": 8660,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  }
+]

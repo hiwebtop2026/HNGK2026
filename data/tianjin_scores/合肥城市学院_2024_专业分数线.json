@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "合肥城市学院",
+    "major_name": "安全工程",
+    "major_group": "",
+    "min_score": 477,
+    "min_rank": 44987,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(滨湖校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "合肥城市学院",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 473,
+    "min_rank": 45985,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(滨湖校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "合肥城市学院",
+    "major_name": "给排水科学与工程",
+    "major_group": "",
+    "min_score": 468,
+    "min_rank": 47226,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(滨湖校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "合肥城市学院",
+    "major_name": "建筑环境与能源应用工程",
+    "major_group": "",
+    "min_score": 467,
+    "min_rank": 47487,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(滨湖校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

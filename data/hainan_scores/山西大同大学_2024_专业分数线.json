@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "山西大同大学",
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 577,
+    "min_rank": 16644,
+    "person_count": 15,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+生(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "山西大同大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 572,
+    "min_rank": 17764,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "山西大同大学",
+    "major_name": "商务英语",
+    "major_group": "",
+    "min_score": 563,
+    "min_rank": 19861,
+    "person_count": 15,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

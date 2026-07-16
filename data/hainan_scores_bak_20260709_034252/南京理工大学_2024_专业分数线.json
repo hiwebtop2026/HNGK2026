@@ -1,0 +1,122 @@
+[
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 708,
+    "min_rank": 1454,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 706,
+    "min_rank": 1528,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "机械类",
+    "major_group": "",
+    "min_score": 705,
+    "min_rank": 1562,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "能源动力类",
+    "major_group": "",
+    "min_score": 704,
+    "min_rank": 1610,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "兵器类",
+    "major_group": "",
+    "min_score": 701,
+    "min_rank": 1720,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "化工与制药类",
+    "major_group": "",
+    "min_score": 698,
+    "min_rank": 1853,
+    "person_count": 6,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "材料类",
+    "major_group": "",
+    "min_score": 697,
+    "min_rank": 1889,
+    "person_count": 8,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "语言学",
+    "major_group": "",
+    "min_score": 682,
+    "min_rank": 2657,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "经济学类",
+    "major_group": "",
+    "min_score": 673,
+    "min_rank": 3221,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京理工大学",
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 670,
+    "min_rank": 3448,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

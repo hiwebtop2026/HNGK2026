@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "江西师范大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 587,
+    "min_rank": 14985,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(江西省南昌市江西师范大学)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "江西师范大学",
+    "major_name": "心理学类",
+    "major_group": "",
+    "min_score": 570,
+    "min_rank": 19519,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(心理学(师范)、应用心理学)(江西省南昌市江西师范大学)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

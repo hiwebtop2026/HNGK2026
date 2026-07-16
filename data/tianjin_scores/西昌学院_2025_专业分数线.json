@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "西昌学院",
+    "major_name": "翻译",
+    "major_group": "",
+    "min_score": 557,
+    "min_rank": 21656,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "西昌学院",
+    "major_name": "工程管理",
+    "major_group": "",
+    "min_score": 556,
+    "min_rank": 21885,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "西昌学院",
+    "major_name": "行政管理",
+    "major_group": "",
+    "min_score": 554,
+    "min_rank": 22467,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "西昌学院",
+    "major_name": "水利水电工程",
+    "major_group": "",
+    "min_score": 506,
+    "min_rank": 35824,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

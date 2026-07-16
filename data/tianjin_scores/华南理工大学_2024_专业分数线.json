@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "华南理工大学",
     "year": 2024,
+    "school_name": "华南理工大学",
     "major_name": "电气类",
     "major_group": "",
     "min_score": 643,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(电气工程及其自动化、能源与动力工程)(不招单色识别不全者)(广州)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "华南理工大学",
     "year": 2024,
+    "school_name": "华南理工大学",
     "major_name": "信息工程",
     "major_group": "",
     "min_score": 642,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(广州)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "华南理工大学",
     "year": 2024,
+    "school_name": "华南理工大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 642,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(计算机科学与技术、网络工程、信息安全)(不招单色识别不全者)(广州)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "华南理工大学",
     "year": 2024,
+    "school_name": "华南理工大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 641,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(智能装备与先进制造)(机械工程、机械电子工程、智能车辆工程、过程装备与控制工程、材料成型及控制工程)(广州)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "华南理工大学",
     "year": 2024,
+    "school_name": "华南理工大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 639,
@@ -62,84 +70,68 @@
     "batch": "本科批",
     "major_description": "(数学与应用数学、信息与计算科学、统计学)(广州)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "华南理工大学",
     "year": 2024,
-    "major_name": "工科试验班",
+    "school_name": "华南理工大学",
+    "major_name": "环境科学与工程类",
     "major_group": "",
-    "min_score": 658,
-    "min_rank": 2463,
-    "person_count": 3,
+    "min_score": 639,
+    "min_rank": 4056,
+    "person_count": 1,
     "batch": "本科批",
-    "major_description": "(卓越人才班；电气工程及其自动化(卓越班)、能源与动力工程(低碳与智慧能源卓越班)、软件工程(卓越班)、软件工程(工业软件卓越班)、电子科学与技术(卓越班)、食品科学与工程(未来食品卓越班)；软件工程专业第一、二学年6850元/年，第三、四学年16000元/年；广州)",
+    "major_description": "(环境工程、环境科学与工程)(不招收色盲色弱考生)(广州)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "华南理工大学",
     "year": 2024,
-    "major_name": "电气类",
+    "school_name": "华南理工大学",
+    "major_name": "食品科学与工程类",
     "major_group": "",
-    "min_score": 657,
-    "min_rank": 2568,
+    "min_score": 639,
+    "min_rank": 4056,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "(电气工程及其自动化、能源与动力工程；不招单色识别不全者；广州)",
+    "major_description": "(食品科学与工程、食品质量与安全、食品营养与健康)(不招收色盲色弱考生)(广州)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "华南理工大学",
     "year": 2024,
-    "major_name": "工科试验班",
+    "school_name": "华南理工大学",
+    "major_name": "经济学类",
     "major_group": "",
-    "min_score": 656,
-    "min_rank": 2696,
+    "min_score": 638,
+    "min_rank": 4183,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "(AI与低空技术；智能科学与技术、低空技术与工程；广州)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "major_description": "(经济学、金融学、国际经济与贸易)(广州)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "华南理工大学",
     "year": 2024,
-    "major_name": "计算机类",
-    "major_group": "",
-    "min_score": 656,
-    "min_rank": 2696,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "(计算机科学与技术、网络工程、信息安全；广州)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
-  },
-  {
     "school_name": "华南理工大学",
-    "year": 2024,
-    "major_name": "工科试验班",
+    "major_name": "新闻传播学类",
     "major_group": "",
-    "min_score": 655,
-    "min_rank": 2784,
-    "person_count": 4,
+    "min_score": 636,
+    "min_rank": 4484,
+    "person_count": 2,
     "batch": "本科批",
-    "major_description": "(智能装备与先进制造；机械工程、机械电子工程、智能车辆工程、过程装备与控制工程、材料成型及控制工程；广州)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
-  },
-  {
-    "school_name": "华南理工大学",
-    "year": 2024,
-    "major_name": "工科试验班",
-    "major_group": "",
-    "min_score": 653,
-    "min_rank": 3039,
-    "person_count": 5,
-    "batch": "本科批",
-    "major_description": "(先进材料；高分子材料与工程、材料科学与工程、功能材料、生物材料；不招色盲考生；广州)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "major_description": "(新闻学、传播学、广告学)(广州)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   }
 ]

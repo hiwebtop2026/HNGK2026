@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 627,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 627,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "信息管理与信息系统",
     "major_group": "",
     "min_score": 622,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "供应链管理",
     "major_group": "",
     "min_score": 616,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 615,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 604,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 601,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 595,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "医学影像学",
     "major_group": "",
     "min_score": 588,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "预防医学",
     "major_group": "",
     "min_score": 587,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "医学检验技术",
     "major_group": "",
     "min_score": 582,
@@ -139,25 +159,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "青岛大学",
-    "year": 2025,
-    "major_name": "财政学",
-    "major_group": "",
-    "min_score": 579,
-    "min_rank": 16448,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 577,
@@ -166,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "复合材料与工程",
     "major_group": "",
     "min_score": 577,
@@ -179,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "高分子材料与工程",
     "major_group": "",
     "min_score": 577,
@@ -192,11 +205,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "药学",
     "major_group": "",
     "min_score": 575,
@@ -205,24 +220,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 574,
-    "min_rank": 17584,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "青岛大学",
-    "year": 2025,
     "major_name": "智能材料与结构",
     "major_group": "",
     "min_score": 572,
@@ -231,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 572,
@@ -244,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "物理学",
     "major_group": "",
     "min_score": 571,
@@ -257,37 +265,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "环境科学与工程",
     "major_group": "",
     "min_score": 569,
     "min_rank": 18735,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "青岛大学",
-    "year": 2025,
-    "major_name": "应用化学",
-    "major_group": "",
-    "min_score": 567,
-    "min_rank": 19243,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "纺织工程",
     "major_group": "",
     "min_score": 567,
@@ -296,11 +295,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "青岛大学",
     "year": 2025,
+    "school_name": "青岛大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 564,
@@ -309,6 +310,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

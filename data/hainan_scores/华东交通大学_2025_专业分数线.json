@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "交通运输",
     "major_group": "",
     "min_score": 644,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 637,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 635,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "人力资源管理",
     "major_group": "",
     "min_score": 634,
@@ -48,51 +54,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "(第1年在进贤教学点就读，后3年在校本部就读)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "华东交通大学",
-    "year": 2025,
-    "major_name": "轨道交通信号与控制",
-    "major_group": "",
-    "min_score": 629,
-    "min_rank": 7578,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "(第1年在进贤教学点就读，后3年在校本部就读)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "华东交通大学",
-    "year": 2025,
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "华东交通大学",
-    "year": 2025,
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 622,
@@ -101,24 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
-    "major_name": "翻译",
-    "major_group": "",
-    "min_score": 619,
-    "min_rank": 8984,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "华东交通大学",
-    "year": 2025,
     "major_name": "铁道工程",
     "major_group": "",
     "min_score": 619,
@@ -127,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "建筑电气与智能化",
     "major_group": "",
     "min_score": 618,
@@ -139,25 +99,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "华东交通大学",
-    "year": 2025,
-    "major_name": "葡萄牙语",
-    "major_group": "",
-    "min_score": 618,
-    "min_rank": 9132,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 617,
@@ -166,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 616,
@@ -179,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "物流工程",
     "major_group": "",
     "min_score": 613,
@@ -192,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 613,
@@ -205,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(基础学科拔尖人才培养基地;第1年在进贤教学点就读，后3年在校本部就读)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 608,
@@ -218,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(第1年在进贤教学点就读，后3年在校本部就读)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "机械电子工程",
     "major_group": "",
     "min_score": 607,
@@ -231,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "给排水科学与工程",
     "major_group": "",
     "min_score": 603,
@@ -244,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": 603,
@@ -257,11 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "建筑学",
     "major_group": "",
     "min_score": 602,
@@ -270,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "交通工程",
     "major_group": "",
     "min_score": 601,
@@ -283,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 601,
@@ -296,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "物联网工程",
     "major_group": "",
     "min_score": 600,
@@ -309,11 +280,13 @@
     "batch": "本科批",
     "major_description": "(第1年在进贤教学点就读，后3年在校本部就读)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 597,
@@ -322,11 +295,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 597,
@@ -335,11 +310,13 @@
     "batch": "本科批",
     "major_description": "(第1年在进贤教学点就读，后3年在校本部就读)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "建筑环境与能源应用工程",
     "major_group": "",
     "min_score": 591,
@@ -348,11 +325,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 590,
@@ -361,37 +340,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 590,
     "min_rank": 14110,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "(中外联合培养)(与英国切斯特大学2+2/3+1双学位联合培养(学生自愿出国，不出国仅获中方学位)；四年均须向中方大学缴纳学费，赴外期间须向外方大学缴纳学费;具体查阅学校官网的招生简章;第1年在进贤教学点就读，后3年在校本部就读)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "华东交通大学",
-    "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 581,
-    "min_rank": 16028,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(中外联合培养)(与英国切斯特大学2+2/3+1双学位联合培养(学生自愿出国，不出国仅获中方学位);四年均须向中方大学缴纳学费，赴外期间须向外方大学缴纳学费:具体查阅学校官网的招生简章;第1年在进贤教学点就读，后3年在校本部就读)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 581,
@@ -400,11 +370,13 @@
     "batch": "本科批",
     "major_description": "(中外联合培养)(与英国切斯特大学2+2/3+1双学位联合培养(学生自愿出国，不出国仅获中方学位);四年均须向中方大学缴纳学费，赴外期间须向外方大学缴纳学费;具体查阅学校官网的招生简章;第1年在进贤教学点就读，后3年在校本部就读)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 580,
@@ -413,11 +385,13 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 580,
@@ -426,11 +400,13 @@
     "batch": "本科批",
     "major_description": "(中外联合培养)(与英国切斯特大学2+2/3+1双学位联合培养(学生自愿出国，不出国仅获中方学位)；四年均须向中方大学缴纳学费，赴外期间须向外方大学缴纳学费;具体查阅学校官网的招生简章;第1年在进贤教学点就读，后3年在校本部就读)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华东交通大学",
     "year": 2025,
+    "school_name": "华东交通大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 571,
@@ -439,6 +415,8 @@
     "batch": "本科批",
     "major_description": "(中外联合培养)(与英国切斯特大学2+2/3+1双学位联合培养(学生自愿出国，不出国仅获中方学位)；四年均须向中方大学缴纳学费，赴外期间须向外方大学缴纳学费;具体查阅学校官网的招生简章;第1年在进贤教学点就读，后3年在校本部就读)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

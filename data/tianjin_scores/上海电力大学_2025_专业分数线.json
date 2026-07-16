@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海电力大学",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 634,
+    "min_rank": 5859,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(临港校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海电力大学",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 625,
+    "min_rank": 7531,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(临港校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海电力大学",
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": 625,
+    "min_rank": 7531,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(临港校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

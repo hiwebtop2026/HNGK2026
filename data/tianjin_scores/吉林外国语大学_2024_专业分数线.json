@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "吉林外国语大学",
+    "major_name": "金融科技",
+    "major_group": "",
+    "min_score": 499,
+    "min_rank": 39003,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(吉林外国语大学)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "吉林外国语大学",
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 496,
+    "min_rank": 39827,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(市场营销、人力资源管理)(吉林外国语大学)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "吉林外国语大学",
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 492,
+    "min_rank": 40975,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(与美国新泽西城市大学合作办学，采取3+1培养模式；非英语语种考生不宜报考，录取有专业志愿考生)(吉林外国语大学)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 674,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "思想政治教育",
     "major_group": "",
     "min_score": 668,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选政治",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 660,
@@ -35,25 +39,14 @@
     "person_count": 18,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "必选历史",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "国际法",
-    "major_group": "",
-    "min_score": 658,
-    "min_rank": 4406,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 658,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "戏剧影视文学",
     "major_group": "",
     "min_score": 656,
@@ -74,77 +69,29 @@
     "person_count": 10,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "必选历史",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "传播学",
-    "major_group": "",
-    "min_score": 650,
-    "min_rank": 5164,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "史+政(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 650,
     "min_rank": 5164,
     "person_count": 17,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 650,
-    "min_rank": 5164,
-    "person_count": 9,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "国际新闻与传播",
-    "major_group": "",
-    "min_score": 649,
-    "min_rank": 5269,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "史+政(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 647,
-    "min_rank": 5469,
-    "person_count": 19,
-    "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "电子科学与技术",
     "major_group": "",
     "min_score": 647,
@@ -153,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "信息安全",
     "major_group": "",
     "min_score": 646,
@@ -166,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 646,
@@ -179,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 646,
@@ -192,11 +145,13 @@
     "batch": "本科批",
     "major_description": "(NIIT)(部分课程采用英文教材和英语授课)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 644,
@@ -205,24 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 643,
-    "min_rank": 5904,
-    "person_count": 8,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "海南大学",
-    "year": 2025,
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 643,
@@ -231,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 643,
@@ -244,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 641,
@@ -256,25 +204,14 @@
     "person_count": 12,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 639,
-    "min_rank": 6349,
-    "person_count": 26,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "土地资源管理",
     "major_group": "",
     "min_score": 638,
@@ -283,11 +220,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 637,
@@ -296,24 +235,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
-    "major_name": "俄语",
-    "major_group": "",
-    "min_score": 636,
-    "min_rank": 6697,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "海南大学",
-    "year": 2025,
     "major_name": "农林经济管理",
     "major_group": "",
     "min_score": 636,
@@ -322,24 +250,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
-    "major_name": "日语",
-    "major_group": "",
-    "min_score": 636,
-    "min_rank": 6697,
-    "person_count": 7,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "海南大学",
-    "year": 2025,
     "major_name": "生物医学工程",
     "major_group": "",
     "min_score": 636,
@@ -348,11 +265,13 @@
     "batch": "本科批",
     "major_description": "(一、二年级在海甸校区，三、四年级在三亚崖州湾科教园)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": 636,
@@ -361,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "密码科学与技术",
     "major_group": "",
     "min_score": 634,
@@ -374,11 +295,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "会展经济与管理",
     "major_group": "",
     "min_score": 633,
@@ -387,11 +310,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "行政管理",
     "major_group": "",
     "min_score": 633,
@@ -400,11 +325,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "酒店管理",
     "major_group": "",
     "min_score": 633,
@@ -413,11 +340,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 632,
@@ -426,11 +355,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 632,
@@ -439,11 +370,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 628,
@@ -452,11 +385,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "应用物理学",
     "major_group": "",
     "min_score": 626,
@@ -465,11 +400,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "建筑学",
     "major_group": "",
     "min_score": 626,
@@ -478,11 +415,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "动物科学",
     "major_group": "",
     "min_score": 623,
@@ -490,38 +429,14 @@
     "person_count": 12,
     "batch": "本科批",
     "major_description": "(一年级在海甸校区，二、三、四年级在儋州校区)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "应用化学",
-    "major_group": "",
-    "min_score": 622,
-    "min_rank": 8546,
-    "person_count": 9,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "园林",
-    "major_group": "",
-    "min_score": 621,
-    "min_rank": 8697,
-    "person_count": 9,
-    "batch": "本科批",
-    "major_description": "(一年级在海甸校区，二、三、四年级在儋州校区)",
     "subject_requirement": "化+生(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 621,
@@ -530,11 +445,13 @@
     "batch": "本科批",
     "major_description": "(观澜湖校区)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "生物科学",
     "major_group": "",
     "min_score": 620,
@@ -543,37 +460,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "生物技术",
     "major_group": "",
     "min_score": 619,
     "min_rank": 8984,
     "person_count": 5,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "风景园林",
-    "major_group": "",
-    "min_score": 619,
-    "min_rank": 8984,
-    "person_count": 10,
-    "batch": "本科批",
     "major_description": "(一年级在海甸校区，二、三、四年级在儋州校区)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "食品科学与工程",
     "major_group": "",
     "min_score": 619,
@@ -582,24 +490,13 @@
     "batch": "本科批",
     "major_description": "(一、二年级在海甸校区，三、四年级在观澜湖校区城西教学点)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
-    "major_name": "化学",
-    "major_group": "",
-    "min_score": 616,
-    "min_rank": 9485,
-    "person_count": 10,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "海南大学",
-    "year": 2025,
     "major_name": "材料科学与工程",
     "major_group": "",
     "min_score": 616,
@@ -608,11 +505,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "生物育种科学",
     "major_group": "",
     "min_score": 616,
@@ -621,11 +520,13 @@
     "batch": "本科批",
     "major_description": "(一年级在海甸校区，二、三、四年级在三亚崖州湾科教园)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "食品质量与安全",
     "major_group": "",
     "min_score": 616,
@@ -634,11 +535,13 @@
     "batch": "本科批",
     "major_description": "(一、二年级在海甸校区，三、四年级在观澜湖校区城西教学点)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "高分子材料与工程",
     "major_group": "",
     "min_score": 612,
@@ -647,11 +550,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 611,
@@ -660,11 +565,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "海洋工程与技术",
     "major_group": "",
     "min_score": 611,
@@ -673,11 +580,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "设施农业科学与工程",
     "major_group": "",
     "min_score": 608,
@@ -686,11 +595,13 @@
     "batch": "本科批",
     "major_description": "(一年级在海甸校区，二、三、四年级在儋州校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "农学",
     "major_group": "",
     "min_score": 606,
@@ -699,24 +610,13 @@
     "batch": "本科批",
     "major_description": "(一年级在海甸校区，二、三、四年级在儋州校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
-    "major_name": "生态学",
-    "major_group": "",
-    "min_score": 606,
-    "min_rank": 11126,
-    "person_count": 12,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "海南大学",
-    "year": 2025,
     "major_name": "药学",
     "major_group": "",
     "min_score": 606,
@@ -725,11 +625,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 604,
@@ -738,11 +640,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "海洋渔业科学与技术",
     "major_group": "",
     "min_score": 603,
@@ -751,11 +655,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "海洋科学",
     "major_group": "",
     "min_score": 603,
@@ -764,11 +670,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "农业资源与环境",
     "major_group": "",
     "min_score": 602,
@@ -777,50 +685,28 @@
     "batch": "本科批",
     "major_description": "(一年级在海甸校区，二、三、四年级在儋州校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "动物医学",
     "major_group": "",
     "min_score": 601,
     "min_rank": 12010,
     "person_count": 8,
     "batch": "本科批",
-    "major_description": "(一年级在海甸校区，二、三、四、五年级在儋州校区)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "园艺",
-    "major_group": "",
-    "min_score": 601,
-    "min_rank": 12010,
-    "person_count": 21,
-    "batch": "本科批",
     "major_description": "(一年级在海甸校区，二、三、四年级在儋州校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
-    "major_name": "植物保护",
-    "major_group": "",
-    "min_score": 601,
-    "min_rank": 12010,
-    "person_count": 15,
-    "batch": "本科批",
-    "major_description": "(一年级在海甸校区，二、三、四年级在儋州校区)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "海南大学",
-    "year": 2025,
     "major_name": "环境科学",
     "major_group": "",
     "min_score": 601,
@@ -829,37 +715,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "种子科学与工程",
     "major_group": "",
     "min_score": 601,
     "min_rank": 12010,
     "person_count": 15,
     "batch": "本科批",
-    "major_description": "(一年级在海甸校区，二、三、四年级在三亚崖州湾科教园)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "林学",
-    "major_group": "",
-    "min_score": 600,
-    "min_rank": 12182,
-    "person_count": 35,
-    "batch": "本科批",
     "major_description": "(一年级在海甸校区，二、三、四年级在儋州校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "水产养殖学",
     "major_group": "",
     "min_score": 600,
@@ -868,37 +745,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 592,
     "min_rank": 13725,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "(中外合作办学)(英语单科成绩不低于105分(150分制))",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "乡村治理",
-    "major_group": "",
-    "min_score": 584,
-    "min_rank": 15369,
-    "person_count": 240,
-    "batch": "本科批",
     "major_description": "(儋州校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "电子商务",
     "major_group": "",
     "min_score": 566,
@@ -906,25 +774,14 @@
     "person_count": 4,
     "batch": "本科批",
     "major_description": "(中外合作办学)(英语单科成绩不低于105分(150分制);观澜湖校区)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "海南大学",
-    "year": 2025,
-    "major_name": "人文地理与城乡规划",
-    "major_group": "",
-    "min_score": 559,
-    "min_rank": 21189,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "(中外合作办学)(英语单科成绩不低于105分(150分制);观澜湖校区)",
     "subject_requirement": "必选地理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "会展经济与管理",
     "major_group": "",
     "min_score": 555,
@@ -933,11 +790,13 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(英语单科成绩不低于105分(150分制);观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "行政管理",
     "major_group": "",
     "min_score": 555,
@@ -946,24 +805,28 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(英语单科成绩不低于105分(150分制);观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "农艺教育",
     "major_group": "",
     "min_score": 542,
     "min_rank": 25618,
-    "person_count": 180,
+    "person_count": 62,
     "batch": "本科批",
     "major_description": "(儋州校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "海南大学",
     "year": 2025,
+    "school_name": "海南大学",
     "major_name": "酒店管理",
     "major_group": "",
     "min_score": 542,
@@ -972,6 +835,8 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(英语单科成绩不低于105分(150分制):观澜湖校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

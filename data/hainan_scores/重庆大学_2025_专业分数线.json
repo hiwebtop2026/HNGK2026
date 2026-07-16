@@ -8,8 +8,11 @@
     "min_rank": 831,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(卓越计划)(包含专业:电气工程及其自动化、计算机科学与技术、人工智能、机械设计制造及其自动化、储能科学与工程(等普通类四年制理工类专业);分流时，按照学生意愿在全校四年制理工科专业中任选)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 831,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 925,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(未来信息)(包含专业:通信工程、测控技术与仪器、自动化、电子信息工程、机器人工程、集成电路设计与集成系统、智能感知工程;第二学期分流，按照学生意愿在试验班内任选专业)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 994,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智能网联汽车创新班)(包含专业:车辆工程(等智能网联汽车领域相关专业);第三学年分流，结合创新班培养方案及学生意愿确定专业)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 1056,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(计算机与智能软件)(包含专业:计算机科学与技术、软件工程、人工智能、数据科学与大数据技术、信息安全；第二学期分流，按照学生意愿在试验班内任选专业；其中软件工程、人工智能、数据科学与大数据技术专业第三、四学年每年预交学费标准为1.5万元)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,7 +83,10 @@
     "min_rank": 1292,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(法学新闻类)(包含专业:法学、新闻学;第一学期末分流，按照绩点结合学生意愿在试验班内确定专业)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

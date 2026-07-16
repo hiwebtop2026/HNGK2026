@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "青岛黄海学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 543,
+    "min_rank": 25356,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "青岛黄海学院",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 526,
+    "min_rank": 30093,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选生物",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

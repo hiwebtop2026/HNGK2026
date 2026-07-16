@@ -2,38 +2,17 @@
   {
     "year": 2025,
     "school_name": "中国传媒大学",
-    "major_name": "国际新闻与传播",
-    "major_group": "",
-    "min_score": 658,
-    "min_rank": 2463,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
-    "major_name": "广播电视编导",
-    "major_group": "",
-    "min_score": 648,
-    "min_rank": 3695,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
     "major_name": "数字媒体技术",
     "major_group": "",
     "min_score": 640,
     "min_rank": 4928,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(游戏科学与技术方向；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +23,11 @@
     "min_rank": 5224,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,32 +38,11 @@
     "min_rank": 5379,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
-    "major_name": "网络与新媒体",
-    "major_group": "",
-    "min_score": 637,
-    "min_rank": 5379,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
-    "major_name": "新闻学",
-    "major_group": "",
-    "min_score": 636,
-    "min_rank": 5535,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(新闻舆论学方向；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +53,11 @@
     "min_rank": 5535,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +68,11 @@
     "min_rank": 5535,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,20 +83,11 @@
     "min_rank": 5535,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
-    "major_name": "广播电视学",
-    "major_group": "",
-    "min_score": 635,
-    "min_rank": 5689,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(视听传播方向；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,44 +98,11 @@
     "min_rank": 5689,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
-    "major_name": "智能装备与系统",
-    "major_group": "",
-    "min_score": 635,
-    "min_rank": 5689,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
-    "major_name": "广告学",
-    "major_group": "",
-    "min_score": 634,
-    "min_rank": 5859,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
-    "major_name": "数字出版",
-    "major_group": "",
-    "min_score": 632,
-    "min_rank": 6207,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -188,8 +113,11 @@
     "min_rank": 6375,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -200,32 +128,11 @@
     "min_rank": 6375,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
-    "major_name": "传播学",
-    "major_group": "",
-    "min_score": 619,
-    "min_rank": 8745,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中国传媒大学",
-    "major_name": "广告学",
-    "major_group": "",
-    "min_score": 619,
-    "min_rank": 8745,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -236,8 +143,11 @@
     "min_rank": 11344,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(办学地点：海南省陵水黎族自治县黎安国际教育创新试验区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -248,7 +158,10 @@
     "min_rank": 11344,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(办学地点：海南省陵水黎族自治县黎安国际教育创新试验区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   }
 ]

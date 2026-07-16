@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "信阳师范大学",
+    "major_name": "自然地理与资源环境",
+    "major_group": "",
+    "min_score": 525,
+    "min_rank": 32921,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(谭山校区)",
+    "subject_requirement": "必选地理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "信阳师范大学",
+    "major_name": "物理学",
+    "major_group": "",
+    "min_score": 522,
+    "min_rank": 33773,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(谭山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

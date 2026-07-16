@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "中国传媒大学南广学院",
+    "major_name": "新闻传播学类",
+    "major_group": "专业组（3）",
+    "min_score": 499,
+    "min_rank": 37581,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "中国传媒大学南广学院",
+    "major_name": "跨境电子商务",
+    "major_group": "专业组（3）",
+    "min_score": 496,
+    "min_rank": 38354,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

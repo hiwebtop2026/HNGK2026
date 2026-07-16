@@ -8,20 +8,11 @@
     "min_rank": 121,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "北京航空航天大学",
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 794,
-    "min_rank": 129,
-    "person_count": 4,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(卓越人才培养试验班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +23,11 @@
     "min_rank": 153,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(航空航天类)(含智能飞行器技术、空天智能电推进技术、智能制造工程、纳米材料与技术、低空技术与工程等专业;具体包含专业详见学校招生信息网)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +38,11 @@
     "min_rank": 575,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学，中法未来科技试验班)(包含专业:计算机科学与技术、航空航天工程、微电子科学与工程、材料科学与工程、生物医学工程;中外合作办学，与法国国立应用科学学院联合培养，本科阶段不可转入北京市各校区设立的学院学习；办学地点:浙江省杭州市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +53,11 @@
     "min_rank": 585,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学，中法航空试验班)(包含专业:交通运输、飞行器适航技术、测控技术与仪器、电子信息工程；中外合作办学，与法国国立民航大学联合培养，本科阶段不可转入北京市各校区设立的学院学习；办学地点:浙江省杭州市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,7 +68,10 @@
     "min_rank": 657,
     "person_count": 7,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:经济学、行政管理、法学;含人工智能-行政管理双学士学位项目、法学-人工智能双学士学位项目；具体包含专业详见学校招生信息网)",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

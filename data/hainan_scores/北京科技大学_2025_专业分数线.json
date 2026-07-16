@@ -8,8 +8,11 @@
     "min_rank": 1454,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:计算机科学与技术、信息安全、物联网工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 1489,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:自动化、测控技术与仪器、智能感知工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 1528,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(大数据与金融试验班)(大一学年结束可分流至大数据管理与应用、信息管理与信息系统、金融工程、数字经济专业)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 1562,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:机器人工程、智能制造工程、机械工程、车辆工程、物流工程、工业设计)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 1562,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(大一学年结束可分流至材料科学与工程、材料物理、材料化学、无机非金属材料工程、材料成型及控制工程、高分子材料与工程专业；百分百满足学生分流意愿)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,7 +83,10 @@
     "min_rank": 2483,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(数智管理试验班)(包含专业:工商管理(工商、智能双学士学位)、会计学；“工商管理+人工智能”双学士学位项目)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

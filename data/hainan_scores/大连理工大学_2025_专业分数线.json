@@ -2,37 +2,16 @@
   {
     "year": 2025,
     "school_name": "大连理工大学",
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 754,
-    "min_rank": 431,
-    "person_count": 4,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "大连理工大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 753,
     "min_rank": 445,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "大连理工大学",
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 745,
-    "min_rank": 555,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(未来技术班)(智能+工程培养:低年级人工智能通识培养，高年级按学生意愿向人工智能、智能制造工程、智能车辆工程、智能分子工程、生物工程、智能建造专业分流)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

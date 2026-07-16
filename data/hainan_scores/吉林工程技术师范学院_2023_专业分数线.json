@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "吉林工程技术师范学院",
+    "major_name": "英语",
+    "major_group": "专业组（01）",
+    "min_score": 538,
+    "min_rank": 25065,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "吉林工程技术师范学院",
+    "major_name": "教育学",
+    "major_group": "专业组（01）",
+    "min_score": 537,
+    "min_rank": 25323,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

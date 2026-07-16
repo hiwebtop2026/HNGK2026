@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 631,
@@ -10,24 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "南昌航空大学",
-    "year": 2025,
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 624,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 621,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 620,
@@ -62,24 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
-    "major_name": "飞行器动力工程",
-    "major_group": "",
-    "min_score": 620,
-    "min_rank": 8822,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "南昌航空大学",
-    "year": 2025,
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 618,
@@ -88,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 617,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "高分子材料与工程",
     "major_group": "",
     "min_score": 615,
@@ -114,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "电子封装技术",
     "major_group": "",
     "min_score": 613,
@@ -127,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 611,
@@ -140,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "给排水科学与工程",
     "major_group": "",
     "min_score": 611,
@@ -153,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 610,
@@ -166,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 610,
@@ -179,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "金属材料工程",
     "major_group": "",
     "min_score": 609,
@@ -192,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "材料化学",
     "major_group": "",
     "min_score": 608,
@@ -205,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "复合材料与工程",
     "major_group": "",
     "min_score": 606,
@@ -218,37 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 606,
-    "min_rank": 11126,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "南昌航空大学",
-    "year": 2025,
-    "major_name": "应用化学",
-    "major_group": "",
-    "min_score": 605,
-    "min_rank": 11264,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "南昌航空大学",
-    "year": 2025,
     "major_name": "经济学",
     "major_group": "",
     "min_score": 603,
@@ -257,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "电子商务",
     "major_group": "",
     "min_score": 601,
@@ -270,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南昌航空大学",
     "year": 2025,
+    "school_name": "南昌航空大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 599,
@@ -283,6 +265,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

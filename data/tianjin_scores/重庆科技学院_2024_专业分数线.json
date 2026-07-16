@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "重庆科技学院",
+    "major_name": "海洋油气工程",
+    "major_group": "",
+    "min_score": 553,
+    "min_rank": 24137,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "重庆科技学院",
+    "major_name": "油气储运工程",
+    "major_group": "",
+    "min_score": 548,
+    "min_rank": 25498,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

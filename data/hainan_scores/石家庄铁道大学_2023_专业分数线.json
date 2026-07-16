@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "石家庄铁道大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 602,
+    "min_rank": 11060,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "石家庄铁道大学",
+    "major_name": "机械类",
+    "major_group": "",
+    "min_score": 597,
+    "min_rank": 11934,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "石家庄铁道大学",
+    "major_name": "土木类",
+    "major_group": "",
+    "min_score": 596,
+    "min_rank": 12101,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "石家庄铁道大学",
+    "major_name": "工商管理类",
+    "major_group": "专业组（01）",
+    "min_score": 583,
+    "min_rank": 14591,
+    "person_count": 100,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

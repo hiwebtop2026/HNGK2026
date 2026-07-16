@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 684,
@@ -9,25 +9,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "西南大学",
-    "year": 2025,
-    "major_name": "俄语",
-    "major_group": "",
-    "min_score": 677,
-    "min_rank": 2962,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 676,
@@ -35,25 +24,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "(包含专业:工商管理、会计学)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "西南大学",
-    "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 672,
-    "min_rank": 3289,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "制药工程",
     "major_group": "",
     "min_score": 671,
@@ -62,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 671,
@@ -75,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "材料类",
     "major_group": "",
     "min_score": 668,
@@ -88,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:材料物理、金属材料工程、新能源材料与器件;不招色盲)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 665,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "生物科学",
     "major_group": "",
     "min_score": 664,
@@ -114,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲)",
     "subject_requirement": "物+化+生(3科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 663,
@@ -127,11 +115,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:电子信息工程、通信工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "环境科学与工程",
     "major_group": "",
     "min_score": 660,
@@ -140,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "化学类",
     "major_group": "",
     "min_score": 658,
@@ -153,37 +145,28 @@
     "batch": "本科批",
     "major_description": "(包含专业:化学工程与工艺、应用化学;不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "食品科学与工程类",
     "major_group": "",
     "min_score": 658,
     "min_rank": 4406,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "(包含专业:食品科学与工程、食品质量与安全)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "西南大学",
-    "year": 2025,
-    "major_name": "智慧农业",
-    "major_group": "",
-    "min_score": 656,
-    "min_rank": 4584,
-    "person_count": 1,
-    "batch": "本科批",
     "major_description": "(不招色盲)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "生物技术",
     "major_group": "",
     "min_score": 647,
@@ -192,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "植物生产类",
     "major_group": "",
     "min_score": 645,
@@ -205,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:农学、园艺、植物保护;不招色盲)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "药学",
     "major_group": "",
     "min_score": 645,
@@ -218,11 +205,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "量子信息科学",
     "major_group": "",
     "min_score": 643,
@@ -231,32 +220,23 @@
     "batch": "本科批",
     "major_description": "(不招色盲)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西南大学",
     "year": 2025,
+    "school_name": "西南大学",
     "major_name": "自然保护与环境生态类",
     "major_group": "",
     "min_score": 638,
     "min_rank": 6465,
     "person_count": 1,
     "batch": "本科批",
-    "major_description": "(包含专业:农业资源与环境、水土保持与荒漠化防治、土地科学与技术；不招色盲、色弱)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "西南大学",
-    "year": 2025,
-    "major_name": "蚕学",
-    "major_group": "",
-    "min_score": 631,
-    "min_rank": 7322,
-    "person_count": 1,
-    "batch": "本科批",
     "major_description": "(双学士学位)(不招色盲;蚕学+生物技术双学士学位复合型人才培养项目)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

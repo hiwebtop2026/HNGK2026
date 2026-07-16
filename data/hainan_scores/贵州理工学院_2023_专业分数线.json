@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "贵州理工学院",
+    "major_name": "建筑学",
+    "major_group": "专业组（02）",
+    "min_score": 560,
+    "min_rank": 19618,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/史(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "贵州理工学院",
+    "major_name": "智能科学与技术",
+    "major_group": "",
+    "min_score": 554,
+    "min_rank": 21093,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "贵州理工学院",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 553,
+    "min_rank": 21291,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "贵州理工学院",
+    "major_name": "酿酒工程",
+    "major_group": "",
+    "min_score": 537,
+    "min_rank": 25323,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（03） - 物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

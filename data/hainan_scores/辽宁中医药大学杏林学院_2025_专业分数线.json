@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "辽宁中医药大学杏林学院",
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 485,
+    "min_rank": 41748,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "辽宁中医药大学杏林学院",
+    "major_name": "针灸推拿学",
+    "major_group": "",
+    "min_score": 483,
+    "min_rank": 42296,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "辽宁中医药大学杏林学院",
+    "major_name": "中西医临床医学",
+    "major_group": "",
+    "min_score": 481,
+    "min_rank": 42847,
+    "person_count": 9,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "蚌埠学院",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 524,
+    "min_rank": 32111,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(蚌埠学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "蚌埠学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 515,
+    "min_rank": 34510,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(蚌埠学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "蚌埠学院",
+    "major_name": "车辆工程",
+    "major_group": "",
+    "min_score": 515,
+    "min_rank": 34510,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(蚌埠学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -8,8 +8,11 @@
     "min_rank": 347,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(元班)(包含专业:通信工程、电子科学与技术；未来学院“元班”实验班；一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 378,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(元班)(包含专业:计算机科学与技术、网络空间安全；未来学院“元班”实验班;一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 620,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:计算机科学与技术、网络工程、数据科学与大数据技术；一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,20 +53,11 @@
     "min_rank": 709,
     "person_count": 13,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "北京邮电大学",
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 735,
-    "min_rank": 729,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(大类招生)(包含:信息工程、人工智能专业；一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +68,11 @@
     "min_rank": 767,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区；后两年学费为16000元/年;本专业部分课程采用英语授课)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +83,11 @@
     "min_rank": 791,
     "person_count": 13,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:电子科学与技术、电子信息科学与技术、光电信息科学与工程、集成电路设计与集成系统;一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +98,11 @@
     "min_rank": 1809,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区；本专业部分课程采用英语授课)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +113,11 @@
     "min_rank": 1935,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区；本专业部分课程采用英语授课)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,8 +128,11 @@
     "min_rank": 2229,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区；本专业部分课程采用英语授课)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -128,8 +143,11 @@
     "min_rank": 2554,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(一年级在沙河校区，二、三、四年级将根据学校规划安排在沙河校区或西土城路校区:本专业部分课程采用英语授课)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,8 +158,11 @@
     "min_rank": 5572,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(办学地点在海南陵水黎安国际教育创新试验区;本专业部分课程采用英语授课)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,8 +173,11 @@
     "min_rank": 7443,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(办学地点在海南陵水黎安国际教育创新试验区;本专业部分课程采用英语授课)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -164,7 +188,10 @@
     "min_rank": 8546,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(办学地点在海南陵水黎安国际教育创新试验区;本专业部分课程采用英语授课)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

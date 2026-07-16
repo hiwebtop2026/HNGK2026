@@ -8,8 +8,11 @@
     "min_rank": 831,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(通信)(包含专业:通信工程、信息工程、空间信息与数字技术)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 925,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(电子工程)(包含专业:电子信息工程、信息对抗技术、电磁场与无线技术)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 925,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(创新实验班)(包含专业:网络空间安全(实验班)、人工智能(图灵班))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 971,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(集成电路)(包含专业:微电子科学与工程、集成电路设计与集成系统)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 994,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智能)(包含专业:人工智能、智能科学与技术)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +83,11 @@
     "min_rank": 1028,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:计算机科学与技术、软件工程;大类包含专业“软件工程”一、二年级每人每年学费6600元，大三、大四按学分计，每学分不超过400元，总学分不高于80学分)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,7 +98,10 @@
     "min_rank": 1763,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(数字化与商务智能融合培养)(包含专业:信息管理与信息系统、工业工程、大数据管理与应用)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "石家庄铁道大学",
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": 605,
+    "min_rank": 11264,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(不能准确识别红、黄、绿、兰、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "石家庄铁道大学",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 595,
+    "min_rank": 13116,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "石家庄铁道大学",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 591,
+    "min_rank": 13911,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

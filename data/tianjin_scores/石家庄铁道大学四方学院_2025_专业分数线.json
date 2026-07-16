@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "石家庄铁道大学四方学院",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 510,
+    "min_rank": 37310,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(石家庄铁道大学四方学院南校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "石家庄铁道大学四方学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 503,
+    "min_rank": 39379,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "(石家庄铁道大学四方学院南校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "石家庄铁道大学四方学院",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 498,
+    "min_rank": 40807,
+    "person_count": 15,
+    "batch": "本科批",
+    "major_description": "(石家庄铁道大学四方学院南校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "石家庄铁道大学四方学院",
+    "major_name": "工程管理",
+    "major_group": "",
+    "min_score": 497,
+    "min_rank": 41118,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(石家庄铁道大学四方学院南校区)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

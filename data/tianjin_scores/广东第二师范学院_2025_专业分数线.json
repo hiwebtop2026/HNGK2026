@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "广东第二师范学院",
+    "major_name": "数学与应用数学",
+    "major_group": "",
+    "min_score": 588,
+    "min_rank": 13616,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东第二师范学院",
+    "major_name": "网络工程",
+    "major_group": "",
+    "min_score": 585,
+    "min_rank": 14182,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东第二师范学院",
+    "major_name": "统计学",
+    "major_group": "",
+    "min_score": 580,
+    "min_rank": 15212,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东第二师范学院",
+    "major_name": "教育技术学",
+    "major_group": "",
+    "min_score": 579,
+    "min_rank": 15427,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

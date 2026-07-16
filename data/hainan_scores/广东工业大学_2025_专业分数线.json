@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "自动化类",
     "major_group": "",
     "min_score": 674,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:自动化、机器人工程；不招色盲:自动化(创新班、卓越工程师班)第二学期选拔:机器人工程专业不直接招生，第一学期在自动化类、机械类、电子信息类、计算机类、数学类、工业设计专业的录取生中选拔)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 668,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(揭阳校区)(在揭阳校区就读;不招色盲)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 663,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(揭阳校区)(在揭阳校区就读)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "机械电子工程",
     "major_group": "",
     "min_score": 660,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(揭阳校区)(在揭阳校区就读)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 658,
@@ -61,25 +69,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "(揭阳校区)(在揭阳校区就读;不招色盲、色弱)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "广东工业大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 653,
-    "min_rank": 4856,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 651,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:计算机科学与技术、软件工程、网络工程、信息安全;24年起计算机类调整为计算机类(含计算机科学与科学技术、软件工程、网络空间安全)，第三学期分流，含:计算机科学与技术专业、软件工程专业，与网络空间安全(强国班))",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "机械电子工程",
     "major_group": "",
     "min_score": 650,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 642,
@@ -114,37 +115,28 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱;创新班、卓越工程师班第二学期选拔)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "食品科学与工程",
     "major_group": "",
     "min_score": 640,
     "min_rank": 6238,
     "person_count": 3,
     "batch": "本科批",
-    "major_description": "(不招色盲、色弱)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "广东工业大学",
-    "year": 2025,
-    "major_name": "能源动力类",
-    "major_group": "",
-    "min_score": 639,
-    "min_rank": 6349,
-    "person_count": 3,
-    "batch": "本科批",
     "major_description": "(包含专业:能源与动力工程、新能源科学与工程;第三学期专业分流)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "材料成型及控制工程",
     "major_group": "",
     "min_score": 638,
@@ -153,11 +145,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲;含卓越工程师班，第三学期选拔)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 636,
@@ -166,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 634,
@@ -179,37 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
-    "major_name": "市场营销",
-    "major_group": "",
-    "min_score": 634,
-    "min_rank": 6934,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "广东工业大学",
-    "year": 2025,
-    "major_name": "社会工作",
-    "major_group": "",
-    "min_score": 634,
-    "min_rank": 6934,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "广东工业大学",
-    "year": 2025,
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 632,
@@ -218,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "人力资源管理",
     "major_group": "",
     "min_score": 631,
@@ -231,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "土地资源管理",
     "major_group": "",
     "min_score": 629,
@@ -244,11 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 629,
@@ -257,11 +235,13 @@
     "batch": "本科批",
     "major_description": "(国际班)(国际班；第一、二学年，除收取全日制学生学费外，收取国际化培养费33800元/年;第三、四学年，到国外合作院校完成专业培养，除收取全日制学生学费外，按国外合作院校当年招录国际留学生的标准缴费;留在校内按国际化培养模式完成专业学习的学生，除收取全日制学生学费外收取国际化培养费48000元/年;具体信息详见学校招生章程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 628,
@@ -270,11 +250,13 @@
     "batch": "本科批",
     "major_description": "(国际班)(不招色盲:国际班;第一、二学年，除收取全日制学生学费外，收取国际化培养费33800元/年;第三、四学年，到国外合作院校完成专业培养，除收取全日制学生学费外，按国外合作院校当年招录国际留学生的标准缴费;留在校内按国际化培养模式完成专业学习的学生，除收取全日制学生学费外收取国际化培养费48000元/年;具体信息详见学校招生章程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 622,
@@ -283,11 +265,13 @@
     "batch": "本科批",
     "major_description": "(国际班)(国际班；第一、二学年，除收取全日制学生学费外，收取国际化培养费33800元/年;第三、四学年，到国外合作院校完成专业培养，除收取全日制学生学费外，按国外合作院校当年招录国际留学生的标准缴费;留在校内按国际化培养模式完成专业学习的学生，除收取全日制学生学费外收取国际化培养费48000元/年;具体信息详见学校招生章程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "广东工业大学",
     "year": 2025,
+    "school_name": "广东工业大学",
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 598,
@@ -296,6 +280,8 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

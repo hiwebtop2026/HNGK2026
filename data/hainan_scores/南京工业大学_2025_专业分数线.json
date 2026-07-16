@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 652,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 649,
@@ -23,24 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 643,
-    "min_rank": 5904,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "南京工业大学",
-    "year": 2025,
     "major_name": "柔性电子学",
     "major_group": "",
     "min_score": 636,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 634,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "过程装备与控制工程",
     "major_group": "",
     "min_score": 631,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "工业工程",
     "major_group": "",
     "min_score": 629,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "化工安全工程",
     "major_group": "",
     "min_score": 627,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "无机非金属材料工程",
     "major_group": "",
     "min_score": 625,
@@ -114,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "食品科学与工程",
     "major_group": "",
     "min_score": 625,
@@ -127,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "交通工程",
     "major_group": "",
     "min_score": 623,
@@ -140,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "生物工程",
     "major_group": "",
     "min_score": 619,
@@ -153,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "药学",
     "major_group": "",
     "min_score": 615,
@@ -166,24 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
-    "major_name": "应用化学",
-    "major_group": "",
-    "min_score": 614,
-    "min_rank": 9773,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "南京工业大学",
-    "year": 2025,
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 614,
@@ -192,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 612,
@@ -205,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "安全工程",
     "major_group": "",
     "min_score": 611,
@@ -218,11 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "测绘工程",
     "major_group": "",
     "min_score": 610,
@@ -231,24 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
-    "major_name": "智能建造",
-    "major_group": "",
-    "min_score": 609,
-    "min_rank": 10621,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "南京工业大学",
-    "year": 2025,
     "major_name": "制药工程",
     "major_group": "",
     "min_score": 605,
@@ -257,24 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
-    "major_name": "城乡规划",
-    "major_group": "",
-    "min_score": 605,
-    "min_rank": 11264,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "南京工业大学",
-    "year": 2025,
     "major_name": "应急技术与管理",
     "major_group": "",
     "min_score": 605,
@@ -283,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "轻化工程",
     "major_group": "",
     "min_score": 605,
@@ -296,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "给排水科学与工程",
     "major_group": "",
     "min_score": 604,
@@ -309,11 +295,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "地质工程",
     "major_group": "",
     "min_score": 603,
@@ -322,11 +310,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "南京工业大学",
     "year": 2025,
+    "school_name": "南京工业大学",
     "major_name": "应急管理",
     "major_group": "",
     "min_score": 603,
@@ -335,6 +325,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

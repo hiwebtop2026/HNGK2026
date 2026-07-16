@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "哈尔滨师范大学",
+    "major_name": "历史学",
+    "major_group": "",
+    "min_score": 610,
+    "min_rank": 10420,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "哈尔滨师范大学",
+    "major_name": "跨境电子商务",
+    "major_group": "",
+    "min_score": 580,
+    "min_rank": 16238,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(非师范)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "哈尔滨师范大学",
+    "major_name": "材料化学",
+    "major_group": "",
+    "min_score": 529,
+    "min_rank": 29206,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

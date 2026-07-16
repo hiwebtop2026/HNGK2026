@@ -1,0 +1,86 @@
+[
+  {
+    "year": 2023,
+    "school_name": "华东师范大学",
+    "major_name": "数学与应用数学",
+    "major_group": "",
+    "min_score": 757,
+    "min_rank": 397,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "华东师范大学",
+    "major_name": "物理学",
+    "major_group": "",
+    "min_score": 742,
+    "min_rank": 603,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "华东师范大学",
+    "major_name": "微电子科学与工程",
+    "major_group": "",
+    "min_score": 741,
+    "min_rank": 620,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "华东师范大学",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 737,
+    "min_rank": 689,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "华东师范大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 734,
+    "min_rank": 746,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "华东师范大学",
+    "major_name": "化学",
+    "major_group": "",
+    "min_score": 732,
+    "min_rank": 791,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2023,
+    "school_name": "华东师范大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 729,
+    "min_rank": 856,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

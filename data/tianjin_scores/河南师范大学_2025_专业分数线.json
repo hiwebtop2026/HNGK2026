@@ -1,62 +1,47 @@
 [
   {
-    "school_name": "河南师范大学",
     "year": 2025,
+    "school_name": "河南师范大学",
     "major_name": "历史学",
     "major_group": "",
     "min_score": 553,
     "min_rank": 25018,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(科技创新港校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河南师范大学",
     "year": 2025,
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 540,
-    "min_rank": 28631,
-    "person_count": 5,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
     "school_name": "河南师范大学",
-    "year": 2025,
     "major_name": "物理学",
     "major_group": "",
     "min_score": 537,
     "min_rank": 29432,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(新媒体方向；主校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河南师范大学",
     "year": 2025,
-    "major_name": "广播电视学",
-    "major_group": "",
-    "min_score": 536,
-    "min_rank": 29727,
-    "person_count": 5,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
     "school_name": "河南师范大学",
-    "year": 2025,
     "major_name": "水产养殖学",
     "major_group": "",
     "min_score": 529,
     "min_rank": 31779,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(智慧渔业方向；主校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

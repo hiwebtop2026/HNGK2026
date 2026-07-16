@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "广西财经学院",
+    "major_name": "法学",
+    "major_group": "专业组（01）",
+    "min_score": 579,
+    "min_rank": 15427,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广西财经学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "专业组（01）",
+    "min_score": 576,
+    "min_rank": 16084,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

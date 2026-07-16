@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "重庆工程学院",
+    "major_name": "电子商务",
+    "major_group": "专业组（01）",
+    "min_score": 532,
+    "min_rank": 26626,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "重庆工程学院",
+    "major_name": "工商管理类",
+    "major_group": "专业组（01）",
+    "min_score": 531,
+    "min_rank": 26906,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "重庆工程学院",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 530,
+    "min_rank": 27180,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "重庆工程学院",
+    "major_name": "自动化类",
+    "major_group": "",
+    "min_score": 530,
+    "min_rank": 27180,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

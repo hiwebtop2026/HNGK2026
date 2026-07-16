@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "电子科技大学成都学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 502,
+    "min_rank": 36534,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（2） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "电子科技大学成都学院",
+    "major_name": "软件工程",
+    "major_group": "专业组（2）",
+    "min_score": 501,
+    "min_rank": 36795,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（2） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "电子科技大学成都学院",
+    "major_name": "财务管理",
+    "major_group": "专业组（1）",
+    "min_score": 498,
+    "min_rank": 37581,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "电子科技大学成都学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "专业组（1）",
+    "min_score": 496,
+    "min_rank": 38085,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

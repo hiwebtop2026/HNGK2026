@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "云南师范大学",
+    "major_name": "汉语言文学",
+    "major_group": "专业组（1）",
+    "min_score": 575,
+    "min_rank": 18209,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "云南师范大学",
+    "major_name": "学前教育",
+    "major_group": "专业组（1）",
+    "min_score": 565,
+    "min_rank": 20683,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

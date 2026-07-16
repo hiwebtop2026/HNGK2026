@@ -2,26 +2,17 @@
   {
     "year": 2025,
     "school_name": "西安交通大学",
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 788,
-    "min_rank": 158,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "西安交通大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 786,
     "min_rank": 168,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(电气类)(包含专业:电气工程及其自动化、能源互联网工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +23,11 @@
     "min_rank": 183,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(越杰计划机类专业预选)(包含专业:测控技术与仪器、能源与动力工程、新能源科学与工程、核工程与核技术、环境工程、化学工程与工艺、过程装备与控制工程、机械工程、智能制造工程、车辆工程、飞行器设计与工程、材料科学与工程、工程力学、飞行器动力工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +38,11 @@
     "min_rank": 199,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(计算机科学技术类)(包含专业:计算机科学与技术、网络空间安全、物联网工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +53,11 @@
     "min_rank": 298,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(5+3一体化)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,7 +68,10 @@
     "min_rank": 3508,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(意大利米兰理工)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

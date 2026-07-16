@@ -1,20 +1,7 @@
 [
   {
-    "school_name": "天津商业大学",
     "year": 2024,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 617,
-    "min_rank": 9159,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "天津商业大学",
-    "year": 2024,
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 606,
@@ -23,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津商业大学",
     "year": 2024,
+    "school_name": "天津商业大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 605,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津商业大学",
     "year": 2024,
+    "school_name": "天津商业大学",
     "major_name": "会展经济与管理",
     "major_group": "",
     "min_score": 602,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津商业大学",
     "year": 2024,
+    "school_name": "天津商业大学",
     "major_name": "旅游管理类",
     "major_group": "",
     "min_score": 601,
@@ -62,71 +55,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津商业大学",
-    "year": 2024,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 599,
-    "min_rank": 12365,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津商业大学",
-    "year": 2024,
-    "major_name": "经济学类",
-    "major_group": "",
-    "min_score": 592,
-    "min_rank": 13725,
-    "person_count": 6,
-    "batch": "本科批",
-    "major_description": "(包含专业:经济学、财政学、金融学、信用管理、国际经济与贸易)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津商业大学",
-    "year": 2024,
-    "major_name": "工商管理类",
-    "major_group": "",
-    "min_score": 586,
-    "min_rank": 14931,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "(包含专业:工商管理、市场营销、人力资源管理)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津商业大学",
-    "year": 2024,
-    "major_name": "会展经济与管理",
-    "major_group": "",
-    "min_score": 585,
-    "min_rank": 15154,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津商业大学",
-    "year": 2024,
-    "major_name": "旅游管理类",
-    "major_group": "",
-    "min_score": 582,
-    "min_rank": 15806,
-    "person_count": 8,
-    "batch": "本科批",
-    "major_description": "(包含专业:旅游管理、酒店管理)",
-    "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

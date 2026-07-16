@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "北京印刷学院",
+    "major_name": "传播学",
+    "major_group": "",
+    "min_score": 583,
+    "min_rank": 15966,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(国际出版实验班)(主干课程英文授课)(主校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京印刷学院",
+    "major_name": "新闻学",
+    "major_group": "",
+    "min_score": 582,
+    "min_rank": 16244,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(主校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京印刷学院",
+    "major_name": "印刷工程",
+    "major_group": "",
+    "min_score": 572,
+    "min_rank": 18977,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)(主校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京印刷学院",
+    "major_name": "包装工程",
+    "major_group": "",
+    "min_score": 569,
+    "min_rank": 19801,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)(主校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

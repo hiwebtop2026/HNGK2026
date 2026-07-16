@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "沈阳航空航天大学",
+    "major_name": "飞行器制造工程",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 21697,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "沈阳航空航天大学",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 554,
+    "min_rank": 23002,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "沈阳航空航天大学",
+    "major_name": "材料成型及控制工程",
+    "major_group": "",
+    "min_score": 547,
+    "min_rank": 24864,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "沈阳航空航天大学",
+    "major_name": "环境工程",
+    "major_group": "",
+    "min_score": 546,
+    "min_rank": 25137,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

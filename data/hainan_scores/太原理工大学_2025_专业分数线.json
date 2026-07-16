@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 675,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 662,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 659,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 657,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 656,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "网络空间安全",
     "major_group": "",
     "min_score": 656,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "机械电子工程",
     "major_group": "",
     "min_score": 654,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 653,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "电子科学与技术",
     "major_group": "",
     "min_score": 651,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 649,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 649,
@@ -140,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(试验班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": 646,
@@ -153,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 643,
@@ -166,50 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
-    "major_name": "集成电路设计与集成系统",
-    "major_group": "",
-    "min_score": 643,
-    "min_rank": 5904,
-    "person_count": 6,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "太原理工大学",
-    "year": 2025,
-    "major_name": "能源与动力工程",
-    "major_group": "",
-    "min_score": 642,
-    "min_rank": 6010,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "太原理工大学",
-    "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 640,
-    "min_rank": 6238,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "太原理工大学",
-    "year": 2025,
     "major_name": "量子信息科学",
     "major_group": "",
     "min_score": 638,
@@ -218,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "机器人工程",
     "major_group": "",
     "min_score": 636,
@@ -231,11 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "应用物理学",
     "major_group": "",
     "min_score": 632,
@@ -244,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "建筑环境与能源应用工程",
     "major_group": "",
     "min_score": 632,
@@ -257,50 +250,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
-    "major_name": "工业设计",
-    "major_group": "",
-    "min_score": 629,
-    "min_rank": 7578,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "太原理工大学",
-    "year": 2025,
     "major_name": "水利水电工程",
     "major_group": "",
     "min_score": 629,
     "min_rank": 7578,
     "person_count": 4,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "太原理工大学",
-    "year": 2025,
-    "major_name": "集成电路设计与集成系统",
-    "major_group": "",
-    "min_score": 628,
-    "min_rank": 7724,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(试验班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 627,
@@ -309,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "机器人工程",
     "major_group": "",
     "min_score": 627,
@@ -322,11 +295,13 @@
     "batch": "本科批",
     "major_description": "(试验班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "高分子材料与工程",
     "major_group": "",
     "min_score": 627,
@@ -335,11 +310,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "测绘工程",
     "major_group": "",
     "min_score": 626,
@@ -348,24 +325,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
-    "major_name": "统计学",
-    "major_group": "",
-    "min_score": 626,
-    "min_rank": 7972,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "太原理工大学",
-    "year": 2025,
     "major_name": "能源互联网工程",
     "major_group": "",
     "min_score": 626,
@@ -374,11 +340,13 @@
     "batch": "本科批",
     "major_description": "(试验班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "过程装备与控制工程",
     "major_group": "",
     "min_score": 626,
@@ -387,11 +355,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "水文与水资源工程",
     "major_group": "",
     "min_score": 625,
@@ -400,11 +370,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "给排水科学与工程",
     "major_group": "",
     "min_score": 625,
@@ -413,11 +385,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "道路桥梁与渡河工程",
     "major_group": "",
     "min_score": 625,
@@ -426,11 +400,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "材料成型及控制工程",
     "major_group": "",
     "min_score": 624,
@@ -439,11 +415,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "制药工程",
     "major_group": "",
     "min_score": 623,
@@ -452,11 +430,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 623,
@@ -465,11 +445,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 622,
@@ -478,11 +460,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "材料科学与工程",
     "major_group": "",
     "min_score": 622,
@@ -491,11 +475,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "太原理工大学",
     "year": 2025,
+    "school_name": "太原理工大学",
     "major_name": "建筑学",
     "major_group": "",
     "min_score": 620,
@@ -504,19 +490,8 @@
     "batch": "本科批",
     "major_description": "(入校后加试美术，成绩不合格者根据学校转专业相关文件要求执行)",
     "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "太原理工大学",
-    "year": 2025,
-    "major_name": "城乡规划",
-    "major_group": "",
-    "min_score": 613,
-    "min_rank": 9938,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "(入校后加试美术，成绩不合格者根据学校转专业相关文件要求执行)",
-    "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

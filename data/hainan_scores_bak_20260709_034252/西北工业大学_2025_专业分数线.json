@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "西北工业大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 770,
+    "min_rank": 271,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "西北工业大学",
+    "major_name": "航空航天类",
+    "major_group": "",
+    "min_score": 755,
+    "min_rank": 420,
+    "person_count": 8,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "西北工业大学",
+    "major_name": "航空航天类",
+    "major_group": "",
+    "min_score": 751,
+    "min_rank": 467,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "西北工业大学",
+    "major_name": "航空航天工程",
+    "major_group": "",
+    "min_score": 700,
+    "min_rank": 1763,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "西北工业大学",
+    "major_name": "探测制导与控制技术",
+    "major_group": "",
+    "min_score": 693,
+    "min_rank": 2076,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

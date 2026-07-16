@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "湖南工程学院应用技术学院",
+    "major_name": "金融工程",
+    "major_group": "",
+    "min_score": 549,
+    "min_rank": 23420,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "湖南工程学院应用技术学院",
+    "major_name": "电子商务",
+    "major_group": "",
+    "min_score": 544,
+    "min_rank": 24716,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "湖南工程学院应用技术学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 541,
+    "min_rank": 25500,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

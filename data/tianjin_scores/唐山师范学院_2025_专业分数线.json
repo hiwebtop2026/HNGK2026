@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "唐山师范学院",
+    "major_name": "历史学",
+    "major_group": "",
+    "min_score": 525,
+    "min_rank": 32921,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "唐山师范学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 518,
+    "min_rank": 34912,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(不能准确在显示器上识别红、黄、绿、兰、紫各颜色中任何一种颜色的数码、字母者不予录取；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "唐山师范学院",
+    "major_name": "生物技术",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 36107,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(色弱、色盲者，不能准确识别红、黄、绿、兰、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

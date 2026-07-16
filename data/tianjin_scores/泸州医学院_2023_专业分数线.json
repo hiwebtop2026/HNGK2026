@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "泸州医学院",
+    "major_name": "临床医学",
+    "major_group": "专业组（1）",
+    "min_score": 607,
+    "min_rank": 11106,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 化+生(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "泸州医学院",
+    "major_name": "医学影像学",
+    "major_group": "",
+    "min_score": 603,
+    "min_rank": 11949,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（3） - 物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

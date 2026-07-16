@@ -1,0 +1,93 @@
+[
+  {
+    "school_name": "上海政法学院",
+    "year": 2024,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 628,
+    "min_rank": 6950,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "涉外卓越法律人才培养创新班；外语单科成绩不低于105分；校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海政法学院",
+    "year": 2024,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 625,
+    "min_rank": 7531,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "民商法方向；校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海政法学院",
+    "year": 2024,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 621,
+    "min_rank": 8339,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "人工智能法学方向；校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海政法学院",
+    "year": 2024,
+    "major_name": "汉语国际教育",
+    "major_group": "",
+    "min_score": 620,
+    "min_rank": 8532,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海政法学院",
+    "year": 2024,
+    "major_name": "应用心理学",
+    "major_group": "",
+    "min_score": 619,
+    "min_rank": 8745,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海政法学院",
+    "year": 2024,
+    "major_name": "电子商务及法律",
+    "major_group": "",
+    "min_score": 619,
+    "min_rank": 8745,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海政法学院",
+    "year": 2024,
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 619,
+    "min_rank": 8745,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  }
+]

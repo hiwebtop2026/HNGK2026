@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "山西晋中理工学院",
+    "major_name": "法学",
+    "major_group": "专业组（1）",
+    "min_score": 490,
+    "min_rank": 39922,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "山西晋中理工学院",
+    "major_name": "金融工程",
+    "major_group": "专业组（1）",
+    "min_score": 487,
+    "min_rank": 40730,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

@@ -8,8 +8,11 @@
     "min_rank": 1225,
     "person_count": 14,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:飞行器设计与工程、飞行器环境与生命保障工程、飞行器动力工程、飞行器制造工程、航空航天工程、飞行器控制与信息工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 1292,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(一、二年级在常州市天目湖校区就读，三、四年级在南京市将军路校区就读)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 1351,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(办学地点为天目湖校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,20 +53,11 @@
     "min_rank": 1386,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "南京航空航天大学",
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 685,
-    "min_rank": 2483,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(一至三年级在南京市将军路校区就读，四年级学习地点根据培养计划具体安排;学费拟按75000元/生/年收费)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,20 +68,11 @@
     "min_rank": 3092,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "南京航空航天大学",
-    "major_name": "广播电视学",
-    "major_group": "",
-    "min_score": 672,
-    "min_rank": 3289,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(一、二年级在常州市天目湖校区就读，三、四年级在南京市将军路校区就读)",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,7 +83,10 @@
     "min_rank": 3587,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(一至三年级在南京市将军路校区就读，四年级学习地点根据培养计划具体安排;学费拟按75000元/生/年收费)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

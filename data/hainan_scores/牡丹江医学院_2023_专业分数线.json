@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "牡丹江医学院",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 591,
+    "min_rank": 13023,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（03） - 化+生(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "牡丹江医学院",
+    "major_name": "医学检验技术",
+    "major_group": "",
+    "min_score": 587,
+    "min_rank": 13783,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（03） - 化+生(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "牡丹江医学院",
+    "major_name": "医学影像学",
+    "major_group": "",
+    "min_score": 583,
+    "min_rank": 14591,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 物+生(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "牡丹江医学院",
+    "major_name": "护理学",
+    "major_group": "专业组（01）",
+    "min_score": 569,
+    "min_rank": 17601,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

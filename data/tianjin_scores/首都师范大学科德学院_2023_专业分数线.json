@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "首都师范大学科德学院",
+    "major_name": "会展经济与管理",
+    "major_group": "专业组（1）",
+    "min_score": 466,
+    "min_rank": 45876,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "首都师范大学科德学院",
+    "major_name": "小学教育",
+    "major_group": "专业组（1）",
+    "min_score": 464,
+    "min_rank": 46336,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "首都师范大学科德学院",
+    "major_name": "学前教育",
+    "major_group": "专业组（1）",
+    "min_score": 457,
+    "min_rank": 48046,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "首都师范大学科德学院",
+    "major_name": "汉语言文学",
+    "major_group": "专业组（1）",
+    "min_score": 455,
+    "min_rank": 48542,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

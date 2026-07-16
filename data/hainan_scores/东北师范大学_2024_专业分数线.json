@@ -8,8 +8,11 @@
     "min_rank": 1471,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2024,
@@ -20,8 +23,11 @@
     "min_rank": 1696,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2024,
@@ -32,8 +38,11 @@
     "min_rank": 2145,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2024,
@@ -44,8 +53,11 @@
     "min_rank": 2193,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2024,
@@ -56,43 +68,10 @@
     "min_rank": 2344,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2024,
-    "school_name": "东北师范大学",
-    "major_name": "数学类",
-    "major_group": "",
-    "min_score": 696,
-    "min_rank": 1935,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2024,
-    "school_name": "东北师范大学",
-    "major_name": "物理学类",
-    "major_group": "",
-    "min_score": 688,
-    "min_rank": 2336,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2024,
-    "school_name": "东北师范大学",
-    "major_name": "教育学类",
-    "major_group": "",
-    "min_score": 679,
-    "min_rank": 2839,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

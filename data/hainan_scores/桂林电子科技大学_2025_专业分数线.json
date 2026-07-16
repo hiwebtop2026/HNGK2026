@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
+    "school_name": "桂林电子科技大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 652,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
+    "school_name": "桂林电子科技大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 650,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
+    "school_name": "桂林电子科技大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 648,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
+    "school_name": "桂林电子科技大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 645,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
+    "school_name": "桂林电子科技大学",
     "major_name": "电子封装技术",
     "major_group": "",
     "min_score": 633,
@@ -62,24 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
-    "major_name": "应用统计学",
-    "major_group": "",
-    "min_score": 632,
-    "min_rank": 7178,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "桂林电子科技大学",
-    "year": 2025,
     "major_name": "机器人工程",
     "major_group": "",
     "min_score": 631,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
+    "school_name": "桂林电子科技大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 630,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
+    "school_name": "桂林电子科技大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 630,
@@ -114,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
+    "school_name": "桂林电子科技大学",
     "major_name": "新能源材料与器件",
     "major_group": "",
     "min_score": 629,
@@ -127,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
+    "school_name": "桂林电子科技大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 615,
@@ -140,24 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "桂林电子科技大学",
     "year": 2025,
-    "major_name": "国际经贸规则",
-    "major_group": "",
-    "min_score": 581,
-    "min_rank": 16028,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "桂林电子科技大学",
-    "year": 2025,
     "major_name": "英语",
     "major_group": "",
     "min_score": 573,
@@ -166,6 +160,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

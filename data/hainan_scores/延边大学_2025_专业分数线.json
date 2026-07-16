@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "中医学",
     "major_group": "",
     "min_score": 617,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+生(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "地理科学类",
     "major_group": "",
     "min_score": 616,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含地理科学、地理信息科学专业；第一学年末分流;地理科学专业为师范；在珲春校区办学)",
     "subject_requirement": "必选地理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 615,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 599,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:经济学、国际经济与贸易;第一学年末分流；在珲春校区办学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 597,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(与韩国崇实大学合作办学，培养金融学方向专业人才:在珲春校区办学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 597,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "中国语言文学类",
     "major_group": "",
     "min_score": 596,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:汉语国际教育、汉语言、汉语言文学;第一学年末分流;含师范、非师范)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 596,
@@ -101,50 +115,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 596,
     "min_rank": 12911,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "延边大学",
-    "year": 2025,
-    "major_name": "朝鲜语",
-    "major_group": "",
-    "min_score": 595,
-    "min_rank": 13116,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(招汉语答卷非朝鲜族考生)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "延边大学",
-    "year": 2025,
-    "major_name": "麻醉学",
-    "major_group": "",
-    "min_score": 595,
-    "min_rank": 13116,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 594,
@@ -153,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 592,
@@ -166,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 589,
@@ -179,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "物理学",
     "major_group": "",
     "min_score": 588,
@@ -192,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(含师范、非师范;第一学年末分流)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "化学类",
     "major_group": "",
     "min_score": 585,
@@ -205,37 +205,28 @@
     "batch": "本科批",
     "major_description": "(包含化学、应用化学专业;第一学年末分流;化学专业为师范)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "药学类",
     "major_group": "",
     "min_score": 585,
     "min_rank": 15154,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "(包含药学、药物制剂专业;第三学期末分流)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "延边大学",
-    "year": 2025,
-    "major_name": "日语",
-    "major_group": "",
-    "min_score": 583,
-    "min_rank": 15584,
-    "person_count": 3,
-    "batch": "本科批",
     "major_description": "(零起点)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 581,
@@ -244,11 +235,13 @@
     "batch": "本科批",
     "major_description": "(在珲春校区办学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 555,
@@ -257,11 +250,13 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(与韩国湖西大学合作办学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "延边大学",
     "year": 2025,
+    "school_name": "延边大学",
     "major_name": "食品科学与工程",
     "major_group": "",
     "min_score": 550,
@@ -270,6 +265,8 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(与韩国全北大学合作办学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

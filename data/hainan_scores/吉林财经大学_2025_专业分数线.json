@@ -1,20 +1,7 @@
 [
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
-    "major_name": "税收学",
-    "major_group": "",
-    "min_score": 605,
-    "min_rank": 11264,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "吉林财经大学",
-    "year": 2025,
     "major_name": "金融数学",
     "major_group": "",
     "min_score": 595,
@@ -22,64 +9,29 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "吉林财经大学",
-    "year": 2025,
-    "major_name": "审计学",
-    "major_group": "",
-    "min_score": 594,
-    "min_rank": 13340,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "财务管理",
     "major_group": "",
     "min_score": 586,
     "min_rank": 14931,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "吉林财经大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 584,
-    "min_rank": 15369,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(中外合作办学)(与澳大利亚查尔斯特大学合作办学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 583,
-    "min_rank": 15584,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "吉林财经大学",
-    "year": 2025,
     "major_name": "电子商务",
     "major_group": "",
     "min_score": 578,
@@ -88,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 577,
@@ -101,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 577,
@@ -114,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 574,
@@ -126,25 +84,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "吉林财经大学",
-    "year": 2025,
-    "major_name": "财政学",
-    "major_group": "",
-    "min_score": 573,
-    "min_rank": 17772,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 570,
@@ -153,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "行政管理",
     "major_group": "",
     "min_score": 569,
@@ -165,25 +114,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "吉林财经大学",
-    "year": 2025,
-    "major_name": "统计学",
-    "major_group": "",
-    "min_score": 568,
-    "min_rank": 19005,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 567,
@@ -192,24 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
-    "major_name": "应用统计学",
-    "major_group": "",
-    "min_score": 566,
-    "min_rank": 19444,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "吉林财经大学",
-    "year": 2025,
     "major_name": "数据科学",
     "major_group": "",
     "min_score": 564,
@@ -218,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "跨境电子商务",
     "major_group": "",
     "min_score": 563,
@@ -231,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 562,
@@ -244,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 561,
@@ -257,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 561,
@@ -270,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "吉林财经大学",
     "year": 2025,
+    "school_name": "吉林财经大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 555,
@@ -283,45 +220,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "吉林财经大学",
-    "year": 2025,
-    "major_name": "国际商务",
-    "major_group": "",
-    "min_score": 553,
-    "min_rank": 22684,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "吉林财经大学",
-    "year": 2025,
-    "major_name": "保险学",
-    "major_group": "",
-    "min_score": 552,
-    "min_rank": 22952,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "吉林财经大学",
-    "year": 2025,
-    "major_name": "劳动与社会保障",
-    "major_group": "",
-    "min_score": 552,
-    "min_rank": 22952,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "沈阳航空航天大学",
+    "major_name": "飞行器制造工程",
+    "major_group": "",
+    "min_score": 598,
+    "min_rank": 13028,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "沈阳航空航天大学",
+    "major_name": "新能源科学与工程",
+    "major_group": "专业组（1）",
+    "min_score": 593,
+    "min_rank": 14084,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化(2选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "沈阳航空航天大学",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 589,
+    "min_rank": 14969,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "沈阳航空航天大学",
+    "major_name": "金融学",
+    "major_group": "专业组（5）",
+    "min_score": 565,
+    "min_rank": 20683,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "河北科技师范学院",
+    "major_name": "信息管理与信息系统",
+    "major_group": "",
+    "min_score": 560,
+    "min_rank": 20621,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "河北科技师范学院",
+    "major_name": "工程管理",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 20885,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "河北科技师范学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 537,
+    "min_rank": 26650,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "河北科技师范学院",
+    "major_name": "微电子科学与工程",
+    "major_group": "",
+    "min_score": 518,
+    "min_rank": 31962,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

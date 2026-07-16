@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "延安大学",
+    "major_name": "旅游管理",
+    "major_group": "专业组（01）",
+    "min_score": 577,
+    "min_rank": 15858,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "延安大学",
+    "major_name": "应用心理学",
+    "major_group": "专业组（03）",
+    "min_score": 576,
+    "min_rank": 16084,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "延安大学",
+    "major_name": "环境工程",
+    "major_group": "专业组（02）",
+    "min_score": 572,
+    "min_rank": 16897,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "化/生(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

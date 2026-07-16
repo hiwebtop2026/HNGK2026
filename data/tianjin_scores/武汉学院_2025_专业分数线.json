@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "武汉学院",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 506,
+    "min_rank": 38459,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(数智会计；武汉学院校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "武汉学院",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 500,
+    "min_rank": 40233,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(中软卓越工程师班；武汉学院校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "武汉学院",
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 496,
+    "min_rank": 41412,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(数字金融方向；武汉学院校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

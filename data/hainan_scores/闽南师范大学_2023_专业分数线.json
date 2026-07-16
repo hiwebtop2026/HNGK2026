@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "闽南师范大学",
+    "major_name": "市场营销",
+    "major_group": "专业组（02）",
+    "min_score": 574,
+    "min_rank": 16450,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "闽南师范大学",
+    "major_name": "环境科学与工程",
+    "major_group": "专业组（03）",
+    "min_score": 570,
+    "min_rank": 17332,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

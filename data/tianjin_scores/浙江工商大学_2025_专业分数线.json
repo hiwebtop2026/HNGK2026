@@ -1,50 +1,47 @@
 [
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
+    "school_name": "浙江工商大学",
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 585,
     "min_rank": 16523,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(慈善管理、行政管理、土地资源管理、文化产业管理；下沙校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
+    "school_name": "浙江工商大学",
     "major_name": "食品科学与工程类",
     "major_group": "",
     "min_score": 578,
     "min_rank": 18257,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(下沙校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
-    "major_name": "社会工作",
-    "major_group": "",
-    "min_score": 574,
-    "min_rank": 19332,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
     "school_name": "浙江工商大学",
-    "year": 2025,
     "major_name": "环境科学与工程类",
     "major_group": "",
     "min_score": 573,
     "min_rank": 19601,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(环境科学、环境工程；下沙校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "湖北大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 599,
+    "min_rank": 12029,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(师范类)(第一学年在阳逻校区，第二至第四学年在武昌校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "湖北大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 597,
+    "min_rank": 12482,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(师范类)(第一学年在阳逻校区，第二至第四学年在武昌校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "湖北大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 595,
+    "min_rank": 12966,
+    "person_count": 13,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(第一学年在阳逻校区，第二至第四学年在武昌校区)",
+    "subject_requirement": "必选政治",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

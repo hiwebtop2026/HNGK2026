@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "北京第二外国语学院中瑞酒店管理学院",
+    "major_name": "财务管理",
+    "major_group": "专业组（01）",
+    "min_score": 487,
+    "min_rank": 38694,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京第二外国语学院中瑞酒店管理学院",
+    "major_name": "人力资源管理",
+    "major_group": "专业组（01）",
+    "min_score": 485,
+    "min_rank": 39253,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京第二外国语学院中瑞酒店管理学院",
+    "major_name": "酒店管理",
+    "major_group": "专业组（01）",
+    "min_score": 485,
+    "min_rank": 39253,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京第二外国语学院中瑞酒店管理学院",
+    "major_name": "健康服务与管理",
+    "major_group": "专业组（01）",
+    "min_score": 484,
+    "min_rank": 39503,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

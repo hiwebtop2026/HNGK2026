@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "湖南工程学院应用技术学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "专业组（01）",
+    "min_score": 533,
+    "min_rank": 26390,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "湖南工程学院应用技术学院",
+    "major_name": "电子商务",
+    "major_group": "专业组（01）",
+    "min_score": 532,
+    "min_rank": 26626,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

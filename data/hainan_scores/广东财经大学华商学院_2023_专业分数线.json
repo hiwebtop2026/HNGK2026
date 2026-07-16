@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "学前教育",
+    "major_group": "专业组（01）",
+    "min_score": 514,
+    "min_rank": 31473,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "会计学",
+    "major_group": "专业组（01）",
+    "min_score": 513,
+    "min_rank": 31761,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "汉语言文学",
+    "major_group": "专业组（01）",
+    "min_score": 513,
+    "min_rank": 31761,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

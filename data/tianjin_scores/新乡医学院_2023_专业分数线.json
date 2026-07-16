@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "新乡医学院",
+    "major_name": "临床医学",
+    "major_group": "专业组（1）",
+    "min_score": 586,
+    "min_rank": 15589,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 化+生(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "新乡医学院",
+    "major_name": "儿科学",
+    "major_group": "",
+    "min_score": 575,
+    "min_rank": 18209,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 化+生(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

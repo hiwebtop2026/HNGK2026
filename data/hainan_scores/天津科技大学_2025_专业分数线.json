@@ -1,33 +1,7 @@
 [
   {
-    "school_name": "天津科技大学",
     "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 633,
-    "min_rank": 7049,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "(实行学分制收费)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "天津科技大学",
-    "year": 2025,
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 626,
-    "min_rank": 7972,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "(实行学分制收费)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津科技大学",
-    "year": 2025,
     "major_name": "智能制造工程",
     "major_group": "",
     "min_score": 625,
@@ -36,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 625,
@@ -49,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "数字媒体技术",
     "major_group": "",
     "min_score": 622,
@@ -62,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 622,
@@ -75,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(实施“英语+法学/国际经济与贸易”的“主修+辅修”学士学位改革试点班;实行学分制收费)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 614,
@@ -88,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 612,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 612,
@@ -114,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "法学类",
     "major_group": "",
     "min_score": 611,
@@ -127,37 +115,28 @@
     "batch": "本科批",
     "major_description": "(包含专业:法学、知识产权;实行学分制收费；只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "过程装备与控制工程",
     "major_group": "",
     "min_score": 611,
     "min_rank": 10262,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "(实行学分制收费)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津科技大学",
-    "year": 2025,
-    "major_name": "翻译",
-    "major_group": "",
-    "min_score": 609,
-    "min_rank": 10621,
-    "person_count": 1,
-    "batch": "本科批",
     "major_description": "(实施“翻译+法学/国际经济与贸易”的“主修+辅修”学士学位改革试点班;实行学分制收费)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "财务管理",
     "major_group": "",
     "min_score": 609,
@@ -166,11 +145,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 606,
@@ -179,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "人力资源管理",
     "major_group": "",
     "min_score": 591,
@@ -192,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "生物工程",
     "major_group": "",
     "min_score": 588,
@@ -205,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 581,
@@ -218,11 +205,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "制药工程",
     "major_group": "",
     "min_score": 579,
@@ -231,11 +220,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "工业工程",
     "major_group": "",
     "min_score": 578,
@@ -244,11 +235,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "海洋技术",
     "major_group": "",
     "min_score": 578,
@@ -257,11 +250,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "金融工程",
     "major_group": "",
     "min_score": 571,
@@ -270,11 +265,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 565,
@@ -283,11 +280,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "微电子科学与工程",
     "major_group": "",
     "min_score": 555,
@@ -296,11 +295,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "物联网工程",
     "major_group": "",
     "min_score": 553,
@@ -309,11 +310,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "机器人工程",
     "major_group": "",
     "min_score": 551,
@@ -322,11 +325,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "海洋科学",
     "major_group": "",
     "min_score": 542,
@@ -335,11 +340,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 538,
@@ -348,11 +355,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "食品科学与工程",
     "major_group": "",
     "min_score": 538,
@@ -361,11 +370,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "轻化工程",
     "major_group": "",
     "min_score": 537,
@@ -374,11 +385,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "高分子材料与工程",
     "major_group": "",
     "min_score": 536,
@@ -387,11 +400,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "材料化学",
     "major_group": "",
     "min_score": 533,
@@ -400,11 +415,13 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津科技大学",
     "year": 2025,
+    "school_name": "天津科技大学",
     "major_name": "环境科学",
     "major_group": "",
     "min_score": 533,
@@ -413,6 +430,8 @@
     "batch": "本科批",
     "major_description": "(实行学分制收费;只招收经审核取得少数民族聚居地区的少数民族加分资格及取得少数民族预科班(民族班)资格的考生)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

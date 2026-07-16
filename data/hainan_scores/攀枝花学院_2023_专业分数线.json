@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "攀枝花学院",
+    "major_name": "生物工程",
+    "major_group": "专业组（03）",
+    "min_score": 554,
+    "min_rank": 21093,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "化/生(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "攀枝花学院",
+    "major_name": "商务英语",
+    "major_group": "专业组（02）",
+    "min_score": 544,
+    "min_rank": 23544,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

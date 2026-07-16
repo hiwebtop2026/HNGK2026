@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "聊城大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 560,
+    "min_rank": 22273,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(师范类)(聊城市)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "聊城大学",
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 34831,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(聊城市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "聊城大学",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 508,
+    "min_rank": 36520,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(聊城市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "聊城大学",
+    "major_name": "生物科学",
+    "major_group": "",
+    "min_score": 500,
+    "min_rank": 38740,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(师范类)(聊城市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "河北中医学院",
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 569,
+    "min_rank": 19221,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(五年)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河北中医学院",
+    "major_name": "针灸推拿学",
+    "major_group": "",
+    "min_score": 565,
+    "min_rank": 20186,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(五年)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河北中医学院",
+    "major_name": "中西医临床医学",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 21697,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(五年)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

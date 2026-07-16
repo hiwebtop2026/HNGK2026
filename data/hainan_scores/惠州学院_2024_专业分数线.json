@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "惠州学院",
+    "major_name": "生物科学",
+    "major_group": "",
+    "min_score": 529,
+    "min_rank": 28875,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(师范)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "惠州学院",
+    "major_name": "化学工程与工艺",
+    "major_group": "",
+    "min_score": 515,
+    "min_rank": 32818,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

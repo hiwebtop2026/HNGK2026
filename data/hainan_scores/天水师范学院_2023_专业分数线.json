@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "天水师范学院",
+    "major_name": "法学",
+    "major_group": "专业组（05）",
+    "min_score": 559,
+    "min_rank": 19852,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "史/政(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "天水师范学院",
+    "major_name": "英语",
+    "major_group": "专业组（04）",
+    "min_score": 554,
+    "min_rank": 21093,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "天水师范学院",
+    "major_name": "生物制药",
+    "major_group": "专业组（02）",
+    "min_score": 542,
+    "min_rank": 24070,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

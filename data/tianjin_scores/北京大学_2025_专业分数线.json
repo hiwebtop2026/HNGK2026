@@ -8,8 +8,11 @@
     "min_rank": 10,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(元培；数学类、物理学类、地球物理学类、计算机类、电子信息类；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 14,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(元培；中国语言文学类、考古学、历史学类、哲学类、社会学类、法学、新闻传播学类、经济学类、工商管理类、公共管理类；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 50,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(哲学、宗教学、哲学(科技哲学与逻辑学方向)；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 50,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(生物科学、生物技术；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 58,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(电子信息科学与技术、微电子科学与工程；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +83,11 @@
     "min_rank": 58,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(计算机科学与技术、智能科学与技术；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +98,11 @@
     "min_rank": 71,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(汉语言文学、汉语言、古典文献学、应用语言学；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +113,11 @@
     "min_rank": 71,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(天体物理、天文高新技术和应用；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +128,11 @@
     "min_rank": 71,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(数学与应用数学(数学)、数学与应用数学(概率统计)、数学与应用数学(科学与工程计算)、数学与应用数学(信息科学)、数学与应用数学(金融)；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,8 +143,11 @@
     "min_rank": 80,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(金融学、金融学(金融经济学)、会计学、市场营销；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -128,8 +158,11 @@
     "min_rank": 80,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(理论与应用力学、工程力学、能源与环境系统工程、航空航天工程、生物医学工程、材料科学与工程；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,8 +173,11 @@
     "min_rank": 80,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(物理学、大气科学(大气与海洋)；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,8 +188,11 @@
     "min_rank": 80,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(社会学、社会工作；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -164,8 +203,11 @@
     "min_rank": 106,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(历史学(中国史)、世界史、外国语言与外国历史；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -176,8 +218,11 @@
     "min_rank": 106,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(应用心理学；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -188,8 +233,11 @@
     "min_rank": 106,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -200,7 +248,10 @@
     "min_rank": 106,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(经济学、金融学、国际经济与贸易、财政学；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   }
 ]

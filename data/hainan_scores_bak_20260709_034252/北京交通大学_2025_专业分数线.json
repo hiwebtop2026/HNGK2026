@@ -1,0 +1,50 @@
+[
+  {
+    "year": 2025,
+    "school_name": "北京交通大学",
+    "major_name": "理科试验班类",
+    "major_group": "",
+    "min_score": 742,
+    "min_rank": 603,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京交通大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 713,
+    "min_rank": 1292,
+    "person_count": 5,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京交通大学",
+    "major_name": "自动化类",
+    "major_group": "",
+    "min_score": 710,
+    "min_rank": 1386,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京交通大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 709,
+    "min_rank": 1420,
+    "person_count": 9,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

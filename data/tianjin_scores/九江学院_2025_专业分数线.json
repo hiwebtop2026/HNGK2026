@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "九江学院",
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 515,
+    "min_rank": 35839,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "九江学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 513,
+    "min_rank": 36409,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "九江学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 511,
+    "min_rank": 37007,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "九江学院",
+    "major_name": "物联网工程",
+    "major_group": "",
+    "min_score": 510,
+    "min_rank": 37310,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "山东财经大学",
     "year": 2025,
+    "school_name": "山东财经大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 626,
@@ -9,38 +9,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "山东财经大学",
-    "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "山东财经大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 616,
-    "min_rank": 9485,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "山东财经大学",
     "year": 2025,
+    "school_name": "山东财经大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 616,
@@ -49,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:经济学、资源与环境经济学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "山东财经大学",
     "year": 2025,
+    "school_name": "山东财经大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 614,
@@ -62,24 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "山东财经大学",
     "year": 2025,
-    "major_name": "精算学",
-    "major_group": "",
-    "min_score": 613,
-    "min_rank": 9938,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
     "school_name": "山东财经大学",
-    "year": 2025,
     "major_name": "汉语国际教育",
     "major_group": "",
     "min_score": 611,
@@ -88,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "山东财经大学",
     "year": 2025,
+    "school_name": "山东财经大学",
     "major_name": "经济与贸易类",
     "major_group": "",
     "min_score": 599,
@@ -101,24 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:国际经济与贸易、国际商务)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "山东财经大学",
     "year": 2025,
-    "major_name": "审计学",
-    "major_group": "",
-    "min_score": 539,
-    "min_rank": 26446,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "山东财经大学",
-    "year": 2025,
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 538,
@@ -127,37 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:工商管理、市场营销、人力资源管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "山东财经大学",
     "year": 2025,
-    "major_name": "税收学",
-    "major_group": "",
-    "min_score": 492,
-    "min_rank": 39778,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "山东财经大学",
-    "year": 2025,
-    "major_name": "投资学",
-    "major_group": "",
-    "min_score": 491,
-    "min_rank": 40093,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "山东财经大学",
-    "year": 2025,
     "major_name": "国际经济发展合作",
     "major_group": "",
     "min_score": 488,
@@ -166,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "山东财经大学",
     "year": 2025,
+    "school_name": "山东财经大学",
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 487,
@@ -179,11 +115,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:行政管理、劳动与社会保障、城市管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "山东财经大学",
     "year": 2025,
+    "school_name": "山东财经大学",
     "major_name": "外国语言文学类",
     "major_group": "",
     "min_score": 483,
@@ -192,6 +130,8 @@
     "batch": "本科批",
     "major_description": "(包含专业:英语、法语、日语、商务英语)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

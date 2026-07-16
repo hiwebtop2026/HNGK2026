@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "西北民族大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 571,
+    "min_rank": 19242,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(英语单科成绩不低于90分)(榆中校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "西北民族大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 520,
+    "min_rank": 33186,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(电子信息工程、通信工程)(榆中校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "西北民族大学",
+    "major_name": "无机非金属材料工程",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 33464,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(榆中校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

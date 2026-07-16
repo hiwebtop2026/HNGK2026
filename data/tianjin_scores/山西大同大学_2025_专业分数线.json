@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "山西大同大学",
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 23374,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(体检为色弱或色盲或不能准确识别红、黄、绿、蓝、紫各种颜色中任意一种颜色不予录取；御东校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "山西大同大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 546,
+    "min_rank": 26966,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(御东校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "山西大同大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 535,
+    "min_rank": 30029,
+    "person_count": 20,
+    "batch": "本科批",
+    "major_description": "(体检为色弱或色盲或不能准确识别红、黄、绿、蓝、紫各种颜色中任意一种颜色不予录取；御东校区)",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "山西大同大学",
+    "major_name": "心理学",
+    "major_group": "",
+    "min_score": 527,
+    "min_rank": 32342,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(体检为色弱或色盲或不能准确识别红、黄、绿、蓝、紫各种颜色中任意一种颜色不予录取；御东校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

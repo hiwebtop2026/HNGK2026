@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "惠州学院",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 32423,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "惠州学院",
+    "major_name": "服装设计与工程",
+    "major_group": "专业组（2）",
+    "min_score": 504,
+    "min_rank": 36289,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化(2选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

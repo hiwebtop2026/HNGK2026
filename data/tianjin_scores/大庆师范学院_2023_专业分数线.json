@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "大庆师范学院",
+    "major_name": "英语",
+    "major_group": "专业组（1）",
+    "min_score": 514,
+    "min_rank": 33704,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "大庆师范学院",
+    "major_name": "财务管理",
+    "major_group": "专业组（1）",
+    "min_score": 507,
+    "min_rank": 35495,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "大庆师范学院",
+    "major_name": "经济与金融",
+    "major_group": "专业组（1）",
+    "min_score": 505,
+    "min_rank": 36006,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "大庆师范学院",
+    "major_name": "学前教育",
+    "major_group": "专业组（1）",
+    "min_score": 503,
+    "min_rank": 36534,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

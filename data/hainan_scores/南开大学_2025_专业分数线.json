@@ -8,8 +8,11 @@
     "min_rank": 298,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(卓越拔尖计划伯苓班)(包含专业:光电信息科学与工程、计算机科学与技术、智能科学与技术；本专业大类内业任选)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 495,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(数学与大数据)(包含专业:数学与应用数学、信息与计算科学、数据科学、统计学;本专业大类内专业任选)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 525,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(物理与光电信息技术工程)(包含专业:物理学、应用物理学、光电信息科学与工程、电子信息科学与技术、微电子科学与工程、电子科学与技术、通信工程；本专业大类内专业任选)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 575,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(信息科学与技术)(包含专业:计算机科学与技术、信息安全、物联网工程、自动化、智能科学与技术、软件工程；本专业大类内专业任选)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 575,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +83,11 @@
     "min_rank": 709,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:汉语言文学、新闻学、网络与新媒体(出版与智能传播方向)、汉语国际教育;本专业大类内专业任选)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +98,11 @@
     "min_rank": 709,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:金融学、保险学(保险与精算);本专业大类内专业任选)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,7 +113,10 @@
     "min_rank": 729,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:经济学、国际经济与贸易、财政学、商务经济学;本专业大类内专业任选)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

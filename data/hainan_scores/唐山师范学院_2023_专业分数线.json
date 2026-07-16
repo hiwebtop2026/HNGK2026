@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "唐山师范学院",
+    "major_name": "生物科学",
+    "major_group": "专业组（04）",
+    "min_score": 552,
+    "min_rank": 21532,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "唐山师范学院",
+    "major_name": "旅游管理",
+    "major_group": "专业组（01）",
+    "min_score": 539,
+    "min_rank": 24814,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

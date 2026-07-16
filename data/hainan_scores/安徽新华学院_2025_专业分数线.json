@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "安徽新华学院",
+    "major_name": "大数据管理与应用",
+    "major_group": "",
+    "min_score": 535,
+    "min_rank": 27538,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "安徽新华学院",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 531,
+    "min_rank": 28663,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "安徽新华学院",
+    "major_name": "网络与新媒体",
+    "major_group": "",
+    "min_score": 530,
+    "min_rank": 28948,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

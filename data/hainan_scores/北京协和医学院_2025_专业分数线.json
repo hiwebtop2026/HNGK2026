@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "北京协和医学院",
+    "major_name": "药学",
+    "major_group": "",
+    "min_score": 614,
+    "min_rank": 8294,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京协和医学院",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 566,
+    "min_rank": 17509,
+    "person_count": 43,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
+  }
+]

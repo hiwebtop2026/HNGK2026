@@ -4,23 +4,29 @@
     "school_name": "华南师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
-    "min_score": null,
-    "min_rank": null,
+    "min_score": 635,
+    "min_rank": 5689,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(广州校区大学城校园)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
     "school_name": "华南师范大学",
     "major_name": "应用心理学",
     "major_group": "",
-    "min_score": null,
-    "min_rank": null,
+    "min_score": 624,
+    "min_rank": 7725,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(不招色盲色弱；广州校区石牌校园)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   }
 ]

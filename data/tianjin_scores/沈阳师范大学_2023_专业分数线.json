@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "沈阳师范大学",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 539,
+    "min_rank": 27267,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "沈阳师范大学",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 538,
+    "min_rank": 27512,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

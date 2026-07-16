@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "南京财经大学红山学院",
+    "major_name": "人力资源管理",
+    "major_group": "专业组（1）",
+    "min_score": 496,
+    "min_rank": 38354,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "南京财经大学红山学院",
+    "major_name": "工商管理",
+    "major_group": "专业组（1）",
+    "min_score": 496,
+    "min_rank": 38354,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "南京财经大学红山学院",
+    "major_name": "财务管理",
+    "major_group": "专业组（1）",
+    "min_score": 496,
+    "min_rank": 38354,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "南京财经大学红山学院",
+    "major_name": "金融学",
+    "major_group": "专业组（1）",
+    "min_score": 496,
+    "min_rank": 38354,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

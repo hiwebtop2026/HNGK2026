@@ -1,62 +1,32 @@
 [
   {
-    "school_name": "西藏大学",
     "year": 2024,
-    "major_name": "税收学",
-    "major_group": "",
-    "min_score": 584,
-    "min_rank": 16781,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
     "school_name": "西藏大学",
-    "year": 2024,
-    "major_name": "计算机科学与技术",
-    "major_group": "",
-    "min_score": 584,
-    "min_rank": 16781,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "school_name": "西藏大学",
-    "year": 2024,
     "major_name": "汉语言文学",
     "major_group": "",
-    "min_score": 575,
-    "min_rank": 19060,
+    "min_score": 574,
+    "min_rank": 18421,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(师范类)(语文单科成绩不低于100分)(河坝林校区)",
+    "subject_requirement": "必选历史",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "西藏大学",
     "year": 2024,
+    "school_name": "西藏大学",
     "major_name": "法学",
     "major_group": "",
-    "min_score": 570,
-    "min_rank": 20413,
-    "person_count": 1,
+    "min_score": 573,
+    "min_rank": 18714,
+    "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "school_name": "西藏大学",
-    "year": 2024,
-    "major_name": "生物科学",
-    "major_group": "",
-    "min_score": 568,
-    "min_rank": 20940,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(河坝林校区)",
+    "subject_requirement": "史+政(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   }
 ]

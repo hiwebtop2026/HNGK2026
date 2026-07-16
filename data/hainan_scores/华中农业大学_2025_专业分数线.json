@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "华中农业大学",
     "year": 2025,
+    "school_name": "华中农业大学",
     "major_name": "植物生产类",
     "major_group": "",
     "min_score": 693,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:农学(国家卓越农林人才计划)、植物科学与技术、种子科学与工程、植物保护(国家卓越农林人才计划)、应用生物科学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华中农业大学",
     "year": 2025,
+    "school_name": "华中农业大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 670,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:市场营销、人力资源管理、会计学、财务管理、工商管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华中农业大学",
     "year": 2025,
+    "school_name": "华中农业大学",
     "major_name": "动物医学",
     "major_group": "",
     "min_score": 669,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华中农业大学",
     "year": 2025,
+    "school_name": "华中农业大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 669,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:经济学、国际经济与贸易、农林经济管理(国家卓越农林人才计划)、农村区域发展)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华中农业大学",
     "year": 2025,
+    "school_name": "华中农业大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 667,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华中农业大学",
     "year": 2025,
+    "school_name": "华中农业大学",
     "major_name": "管理科学与工程类",
     "major_group": "",
     "min_score": 667,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:工程管理、信息管理与信息系统)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华中农业大学",
     "year": 2025,
+    "school_name": "华中农业大学",
     "major_name": "机械类",
     "major_group": "",
     "min_score": 658,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:机械设计制造及其自动化、机械电子工程、自动化、机器人工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华中农业大学",
     "year": 2025,
+    "school_name": "华中农业大学",
     "major_name": "动物科学",
     "major_group": "",
     "min_score": 654,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "(国家卓越农林人才计划)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华中农业大学",
     "year": 2025,
+    "school_name": "华中农业大学",
     "major_name": "水产类",
     "major_group": "",
     "min_score": 652,
@@ -114,6 +130,8 @@
     "batch": "本科批",
     "major_description": "(包含专业:水产养殖学(国家卓越农林人才计划)、水族科学与技术)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

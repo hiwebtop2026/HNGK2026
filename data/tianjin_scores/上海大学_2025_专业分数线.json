@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "上海大学",
     "year": 2025,
+    "school_name": "上海大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 633,
@@ -10,6 +10,8 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(收费标准以批复为准；嘉定校区)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   }
 ]

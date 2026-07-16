@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "广西财经学院",
+    "major_name": "金融学",
+    "major_group": "专业组（1）",
+    "min_score": 518,
+    "min_rank": 32675,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广西财经学院",
+    "major_name": "经济学",
+    "major_group": "专业组（1）",
+    "min_score": 517,
+    "min_rank": 32915,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广西财经学院",
+    "major_name": "工商管理",
+    "major_group": "专业组（1）",
+    "min_score": 514,
+    "min_rank": 33704,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

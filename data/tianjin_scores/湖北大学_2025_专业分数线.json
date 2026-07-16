@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "湖北大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 600,
+    "min_rank": 12965,
+    "person_count": 13,
+    "batch": "本科批",
+    "major_description": "(计算机科学与技术、软件工程、数据科学与大数据技术；第一学年在武昌校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "湖北大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 597,
+    "min_rank": 13657,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(优秀学生可选拔至“强师实验班”；长江新区校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "湖北大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 593,
+    "min_rank": 14616,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(非英语语种考生谨慎报考；长江新区校区)",
+    "subject_requirement": "必选政治",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

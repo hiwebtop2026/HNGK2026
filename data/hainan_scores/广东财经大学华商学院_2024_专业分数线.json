@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 31653,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 518,
+    "min_rank": 31962,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "学前教育",
+    "major_group": "",
+    "min_score": 516,
+    "min_rank": 32517,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(师范)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "跨境电子商务",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 33109,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(含产教融合创新班)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

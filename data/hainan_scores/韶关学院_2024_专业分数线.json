@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "韶关学院",
+    "major_name": "行政管理",
+    "major_group": "",
+    "min_score": 566,
+    "min_rank": 19137,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "韶关学院",
+    "major_name": "旅游管理",
+    "major_group": "",
+    "min_score": 564,
+    "min_rank": 19597,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "韶关学院",
+    "major_name": "药学",
+    "major_group": "",
+    "min_score": 539,
+    "min_rank": 26094,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "韶关学院",
+    "major_name": "动物科学",
+    "major_group": "",
+    "min_score": 535,
+    "min_rank": 27215,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "上海理工大学",
+    "major_name": "经济管理试验班",
+    "major_group": "",
+    "min_score": 656,
+    "min_rank": 4510,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海理工大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 649,
+    "min_rank": 5168,
+    "person_count": 14,
+    "batch": "本科批",
+    "major_description": "(电子与信息类)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海理工大学",
+    "major_name": "理科试验班",
+    "major_group": "",
+    "min_score": 646,
+    "min_rank": 5489,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海理工大学",
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 638,
+    "min_rank": 6368,
+    "person_count": 28,
+    "batch": "本科批",
+    "major_description": "(智能化制造类)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

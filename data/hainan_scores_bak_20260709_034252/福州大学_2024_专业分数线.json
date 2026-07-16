@@ -1,0 +1,50 @@
+[
+  {
+    "year": 2024,
+    "school_name": "福州大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 665,
+    "min_rank": 3824,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "福州大学",
+    "major_name": "人文地理与城乡规划",
+    "major_group": "",
+    "min_score": 658,
+    "min_rank": 4406,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "福州大学",
+    "major_name": "车辆工程",
+    "major_group": "",
+    "min_score": 650,
+    "min_rank": 5164,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "福州大学",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 645,
+    "min_rank": 5663,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

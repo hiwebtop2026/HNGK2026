@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "四川文理学院",
+    "major_name": "汉语国际教育",
+    "major_group": "专业组（02）",
+    "min_score": 555,
+    "min_rank": 20839,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "四川文理学院",
+    "major_name": "物业管理",
+    "major_group": "专业组（02）",
+    "min_score": 551,
+    "min_rank": 21824,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "四川文理学院",
+    "major_name": "行政管理",
+    "major_group": "专业组（02）",
+    "min_score": 551,
+    "min_rank": 21824,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "四川文理学院",
+    "major_name": "健康服务与管理",
+    "major_group": "专业组（02）",
+    "min_score": 550,
+    "min_rank": 22023,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "德州学院",
+    "major_name": "英语",
+    "major_group": "专业组（2）",
+    "min_score": 524,
+    "min_rank": 31119,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "德州学院",
+    "major_name": "新闻学",
+    "major_group": "专业组（1）",
+    "min_score": 516,
+    "min_rank": 33198,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/地/政(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "德州学院",
+    "major_name": "行政管理",
+    "major_group": "专业组（2）",
+    "min_score": 508,
+    "min_rank": 35241,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

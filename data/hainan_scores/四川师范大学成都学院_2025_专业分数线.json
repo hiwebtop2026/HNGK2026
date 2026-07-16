@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "四川师范大学成都学院",
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 549,
+    "min_rank": 23760,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川师范大学成都学院",
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 33499,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川师范大学成都学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 511,
+    "min_rank": 34386,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

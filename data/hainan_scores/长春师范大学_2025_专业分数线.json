@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "长春师范大学",
+    "major_name": "历史学",
+    "major_group": "",
+    "min_score": 609,
+    "min_rank": 10621,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "长春师范大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 608,
+    "min_rank": 10765,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "长春师范大学",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 563,
+    "min_rank": 20161,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "长春师范大学",
+    "major_name": "生物科学",
+    "major_group": "",
+    "min_score": 562,
+    "min_rank": 20421,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

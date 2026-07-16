@@ -8,8 +8,11 @@
     "min_rank": 1853,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(实验班)(后两年学费16000/学年)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,7 +23,10 @@
     "min_rank": 2229,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(实验班)(包含专业:材料科学与工程、纳米材料与技术、资源循环科学与工程、焊接技术与工程、新能源材料与器件；不招色盲)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "陕西理工大学",
+    "major_name": "化学工程与工艺",
+    "major_group": "专业组（1）",
+    "min_score": 548,
+    "min_rank": 24947,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "陕西理工大学",
+    "major_name": "工商管理",
+    "major_group": "专业组（2）",
+    "min_score": 543,
+    "min_rank": 26224,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "（市场营销方向）",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "陕西理工大学",
+    "major_name": "学前教育",
+    "major_group": "专业组（2）",
+    "min_score": 542,
+    "min_rank": 26477,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

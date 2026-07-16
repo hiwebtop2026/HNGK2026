@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "广东外语外贸大学南国商学院",
+    "major_name": "西班牙语",
+    "major_group": "",
+    "min_score": 533,
+    "min_rank": 28111,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东外语外贸大学南国商学院",
+    "major_name": "应用心理学",
+    "major_group": "",
+    "min_score": 530,
+    "min_rank": 28948,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东外语外贸大学南国商学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 529,
+    "min_rank": 29206,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东外语外贸大学南国商学院",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 527,
+    "min_rank": 29804,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

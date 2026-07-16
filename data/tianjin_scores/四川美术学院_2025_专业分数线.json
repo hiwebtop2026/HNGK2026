@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "四川美术学院",
+    "major_name": "艺术设计学",
+    "major_group": "",
+    "min_score": 544,
+    "min_rank": 27532,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(非色盲；虎溪校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川美术学院",
+    "major_name": "艺术史论",
+    "major_group": "",
+    "min_score": 541,
+    "min_rank": 28355,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(非色盲；虎溪校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川美术学院",
+    "major_name": "建筑学",
+    "major_group": "",
+    "min_score": 537,
+    "min_rank": 29432,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(非色盲；虎溪校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川美术学院",
+    "major_name": "艺术教育",
+    "major_group": "",
+    "min_score": 527,
+    "min_rank": 32342,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(非色盲；虎溪校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

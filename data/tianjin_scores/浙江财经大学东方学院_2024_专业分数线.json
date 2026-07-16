@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "浙江财经大学东方学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 504,
+    "min_rank": 37627,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "浙江财经大学东方学院",
+    "major_name": "工商管理",
+    "major_group": "",
+    "min_score": 497,
+    "min_rank": 39561,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "浙江财经大学东方学院",
+    "major_name": "工程管理",
+    "major_group": "",
+    "min_score": 497,
+    "min_rank": 39561,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "浙江财经大学东方学院",
+    "major_name": "电子商务",
+    "major_group": "",
+    "min_score": 495,
+    "min_rank": 40112,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

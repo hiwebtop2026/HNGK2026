@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "北京金融科技学院",
+    "major_name": "应用心理学",
+    "major_group": "",
+    "min_score": 515,
+    "min_rank": 33196,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(学校开设雅思教学等相关课程，同百余所世界名校建立合作，具体培养模式、收费标准等请查看院校招生章程并咨询院校)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京金融科技学院",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 506,
+    "min_rank": 35824,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(学校开设雅思教学等相关课程，同百余所世界名校建立合作，具体培养模式、收费标准等请查看院校招生章程并咨询院校)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京金融科技学院",
+    "major_name": "审计学",
+    "major_group": "",
+    "min_score": 485,
+    "min_rank": 41748,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(学校开设雅思教学等相关课程，同百余所世界名校建立合作，具体培养模式、收费标准等请查看院校招生章程并咨询院校)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "广西医科大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 623,
+    "min_rank": 6808,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(5+3一体化)(不招色盲色弱)(南宁-武鸣校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广西医科大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 616,
+    "min_rank": 8193,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(不招色盲色弱)(南宁-武鸣校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广西医科大学",
+    "major_name": "预防医学",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 22524,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(不招色盲色弱)(南宁-武鸣校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广西医科大学",
+    "major_name": "临床药学",
+    "major_group": "",
+    "min_score": 543,
+    "min_rank": 26869,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(不招色盲色弱)(南宁-武鸣校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

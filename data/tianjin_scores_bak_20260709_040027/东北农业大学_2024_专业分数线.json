@@ -1,0 +1,93 @@
+[
+  {
+    "school_name": "东北农业大学",
+    "year": 2024,
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 615,
+    "min_rank": 9591,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北农业大学",
+    "year": 2024,
+    "major_name": "农林经济管理",
+    "major_group": "",
+    "min_score": 608,
+    "min_rank": 11105,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "拔尖人才培养班；实行动态考核与分流培养的管理机制；不招单色识别不全考生；校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北农业大学",
+    "year": 2024,
+    "major_name": "金融学类",
+    "major_group": "",
+    "min_score": 605,
+    "min_rank": 11793,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "金融学、保险学、国际经济与贸易；校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北农业大学",
+    "year": 2024,
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 604,
+    "min_rank": 12046,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "工商管理、会计学、市场营销、人力资源管理；不招单色识别不全考生；校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北农业大学",
+    "year": 2024,
+    "major_name": "机械类",
+    "major_group": "",
+    "min_score": 604,
+    "min_rank": 12046,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "机械设计制造及其自动化、农业机械化及其自动化；校本部 2科必选",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北农业大学",
+    "year": 2024,
+    "major_name": "食品科学与工程类",
+    "major_group": "",
+    "min_score": 604,
+    "min_rank": 12046,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "食品科学与工程、食品质量与安全、粮食工程、乳品工程、食品营养与健康；不招色弱、色盲、单色识别不全考生；校本部 2科必选",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "东北农业大学",
+    "year": 2024,
+    "major_name": "食品科学与工程",
+    "major_group": "",
+    "min_score": 584,
+    "min_rank": 16781,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "中美121双学位项目；与美国威斯康星大学斯托特分校合作，仅建议有出国留学意愿考生报考，非英语语种考生慎重报考，国内学费5500元/年，国外学费、食宿费和医疗保险等预计25174美元/年，入学后第3-6学期出国学习；报考条件、出国手续等费用见招生章程；不招色弱、色盲、单色识别不全考生；校本部 2科必选",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海政法学院",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 685,
+    "min_rank": 2483,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(涉外卓越法律人才培养创新班)(英语单科成绩不低于105分(150分制))",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海政法学院",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 644,
+    "min_rank": 5768,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(国际经济法方向)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海政法学院",
+    "major_name": "应用心理学",
+    "major_group": "",
+    "min_score": 636,
+    "min_rank": 6697,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海政法学院",
+    "major_name": "行政管理",
+    "major_group": "",
+    "min_score": 636,
+    "min_rank": 6697,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

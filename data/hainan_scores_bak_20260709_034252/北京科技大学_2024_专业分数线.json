@@ -1,0 +1,74 @@
+[
+  {
+    "year": 2024,
+    "school_name": "北京科技大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 708,
+    "min_rank": 1454,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京科技大学",
+    "major_name": "自动化类",
+    "major_group": "",
+    "min_score": 707,
+    "min_rank": 1489,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京科技大学",
+    "major_name": "大数据管理与应用",
+    "major_group": "",
+    "min_score": 706,
+    "min_rank": 1528,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京科技大学",
+    "major_name": "机械类",
+    "major_group": "",
+    "min_score": 705,
+    "min_rank": 1562,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京科技大学",
+    "major_name": "材料科学与工程",
+    "major_group": "",
+    "min_score": 705,
+    "min_rank": 1562,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京科技大学",
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 685,
+    "min_rank": 2483,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

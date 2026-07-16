@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "河北东方学院",
+    "major_name": "医学影像技术",
+    "major_group": "专业组（02）",
+    "min_score": 548,
+    "min_rank": 22571,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "河北东方学院",
+    "major_name": "英语",
+    "major_group": "专业组（01）",
+    "min_score": 531,
+    "min_rank": 26906,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "河北东方学院",
+    "major_name": "护理学",
+    "major_group": "专业组（01）",
+    "min_score": 525,
+    "min_rank": 28518,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

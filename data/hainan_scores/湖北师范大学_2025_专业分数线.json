@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "湖北师范大学",
+    "major_name": "教育学类",
+    "major_group": "",
+    "min_score": 621,
+    "min_rank": 8697,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(包含专业:教育学、小学教育、特殊教育)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "湖北师范大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 620,
+    "min_rank": 8822,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "湖北师范大学",
+    "major_name": "生物科学",
+    "major_group": "",
+    "min_score": 579,
+    "min_rank": 16448,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

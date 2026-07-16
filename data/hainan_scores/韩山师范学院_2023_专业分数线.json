@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "韩山师范学院",
+    "major_name": "汉语国际教育",
+    "major_group": "专业组（01）",
+    "min_score": 595,
+    "min_rank": 12306,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "韩山师范学院",
+    "major_name": "历史学",
+    "major_group": "专业组（04）",
+    "min_score": 592,
+    "min_rank": 12840,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "史/地(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "韩山师范学院",
+    "major_name": "物联网工程",
+    "major_group": "",
+    "min_score": 569,
+    "min_rank": 17601,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "韩山师范学院",
+    "major_name": "烹饪与营养教育",
+    "major_group": "专业组（03）",
+    "min_score": 536,
+    "min_rank": 25583,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

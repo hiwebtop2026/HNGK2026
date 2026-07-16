@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "山东协和学院",
+    "major_name": "学前教育",
+    "major_group": "",
+    "min_score": 531,
+    "min_rank": 28298,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "山东协和学院",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 531,
+    "min_rank": 28298,
+    "person_count": 22,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选生物",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "山东协和学院",
+    "major_name": "医学检验技术",
+    "major_group": "",
+    "min_score": 507,
+    "min_rank": 35056,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

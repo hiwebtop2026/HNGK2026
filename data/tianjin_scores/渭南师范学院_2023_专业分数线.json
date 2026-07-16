@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "渭南师范学院",
+    "major_name": "经济学",
+    "major_group": "专业组（1）",
+    "min_score": 515,
+    "min_rank": 33464,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "渭南师范学院",
+    "major_name": "商务英语",
+    "major_group": "专业组（1）",
+    "min_score": 507,
+    "min_rank": 35495,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

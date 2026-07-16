@@ -1,86 +1,92 @@
 [
   {
-    "school_name": "东北师范大学",
     "year": 2025,
+    "school_name": "东北师范大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 641,
     "min_rank": 4777,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(数学与应用数学(师范)、统计学；人民大街校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "东北师范大学",
     "year": 2025,
+    "school_name": "东北师范大学",
     "major_name": "物理学类",
     "major_group": "",
     "min_score": 634,
     "min_rank": 5859,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(物理学(师范)、电子信息科学与技术、材料物理；人民大街校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "东北师范大学",
     "year": 2025,
+    "school_name": "东北师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 628,
     "min_rank": 6950,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(人民大街校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "东北师范大学",
     "year": 2025,
+    "school_name": "东北师范大学",
     "major_name": "马克思主义理论类",
     "major_group": "",
     "min_score": 628,
     "min_rank": 6950,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(思想政治教育(师范)、社会学、哲学；人民大街校区)",
+    "subject_requirement": "必选政治",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "东北师范大学",
     "year": 2025,
+    "school_name": "东北师范大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 627,
     "min_rank": 7161,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(金融学、会计学、人力资源管理、经济学、市场营销；净月大街校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "东北师范大学",
     "year": 2025,
+    "school_name": "东北师范大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 622,
     "min_rank": 8141,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "school_name": "东北师范大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 614,
-    "min_rank": 9791,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(净月大街校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   }
 ]

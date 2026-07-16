@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "辽宁大学",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 657,
+    "min_rank": 4483,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "辽宁大学",
+    "major_name": "档案学",
+    "major_group": "",
+    "min_score": 650,
+    "min_rank": 5164,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "辽宁大学",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 639,
+    "min_rank": 6349,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "辽宁大学",
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 638,
+    "min_rank": 6465,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "辽宁大学",
+    "major_name": "新闻学",
+    "major_group": "",
+    "min_score": 636,
+    "min_rank": 6697,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

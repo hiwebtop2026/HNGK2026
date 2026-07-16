@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "工业工程",
     "major_group": "",
     "min_score": 645,
@@ -10,37 +10,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 642,
     "min_rank": 6010,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津工业大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 639,
-    "min_rank": 6349,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(不招单色不识别者)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 639,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 634,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(不招单色不识别者)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "材料科学与工程",
     "major_group": "",
     "min_score": 631,
@@ -74,25 +69,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津工业大学",
-    "year": 2025,
-    "major_name": "网络与新媒体",
-    "major_group": "",
-    "min_score": 630,
-    "min_rank": 7443,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 629,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 626,
@@ -114,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "物联网工程",
     "major_group": "",
     "min_score": 623,
@@ -127,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "电子科学与技术",
     "major_group": "",
     "min_score": 621,
@@ -140,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 620,
@@ -153,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "化学生物学",
     "major_group": "",
     "min_score": 618,
@@ -166,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "智能医学工程",
     "major_group": "",
     "min_score": 617,
@@ -179,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "信息管理与信息系统",
     "major_group": "",
     "min_score": 616,
@@ -192,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(不招单色不识别者)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "服装设计与工程",
     "major_group": "",
     "min_score": 616,
@@ -205,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "天津工业大学",
     "year": 2025,
+    "school_name": "天津工业大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 616,
@@ -218,6 +220,8 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   }
 ]

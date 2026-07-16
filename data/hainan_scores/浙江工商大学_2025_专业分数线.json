@@ -1,20 +1,7 @@
 [
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 662,
-    "min_rank": 4062,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "(含会计学、财务管理、审计学和会计学(ACCA)；1年后搬迁至下沙校区)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "浙江工商大学",
-    "year": 2025,
     "major_name": "金融学",
     "major_group": "",
     "min_score": 660,
@@ -23,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
+    "school_name": "浙江工商大学",
     "major_name": "法学类",
     "major_group": "",
     "min_score": 642,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:法学、知识产权)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
+    "school_name": "浙江工商大学",
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 641,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
+    "school_name": "浙江工商大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 639,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:经济学、国际经济与贸易)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
+    "school_name": "浙江工商大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 630,
@@ -75,24 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:广告学、新闻学、网络与新媒体；1年后搬迁至下沙校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
-    "major_name": "保险学",
-    "major_group": "",
-    "min_score": 628,
-    "min_rank": 7724,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "浙江工商大学",
-    "year": 2025,
     "major_name": "电子商务类",
     "major_group": "",
     "min_score": 628,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:电子商务、物流管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
+    "school_name": "浙江工商大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 627,
@@ -114,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(含营销、智能双学士学位项目)(包含专业:工商管理、市场营销、人力资源管理、国际商务)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
+    "school_name": "浙江工商大学",
     "major_name": "旅游管理类",
     "major_group": "",
     "min_score": 624,
@@ -127,24 +115,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:旅游管理、酒店管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
-    "major_name": "社会工作",
-    "major_group": "",
-    "min_score": 623,
-    "min_rank": 8400,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "浙江工商大学",
-    "year": 2025,
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 621,
@@ -153,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:慈善管理、行政管理、土地资源管理、文化产业管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "浙江工商大学",
     "year": 2025,
+    "school_name": "浙江工商大学",
     "major_name": "食品科学与工程类",
     "major_group": "",
     "min_score": 604,
@@ -166,6 +145,8 @@
     "batch": "本科批",
     "major_description": "(包含专业:食品科学与工程、食品质量与安全)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "锦州医科大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 597,
+    "min_rank": 13657,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(体检要求按照《锦州医科大学2025年本科招生章程》执行；锦州医科大学东校园)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "锦州医科大学",
+    "major_name": "医学影像学",
+    "major_group": "",
+    "min_score": 593,
+    "min_rank": 14616,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(体检要求按照《锦州医科大学2025年本科招生章程》执行；锦州医科大学东校园)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "锦州医科大学",
+    "major_name": "口腔医学",
+    "major_group": "",
+    "min_score": 593,
+    "min_rank": 14616,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(体检要求按照《锦州医科大学2025年本科招生章程》执行；锦州医科大学东校园)",
+    "subject_requirement": "物+生(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

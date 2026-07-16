@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "青海大学",
     "year": 2024,
+    "school_name": "青海大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 645,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "青海大学",
     "year": 2024,
+    "school_name": "青海大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 631,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "青海大学",
     "year": 2024,
+    "school_name": "青海大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 625,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "青海大学",
     "year": 2024,
+    "school_name": "青海大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 606,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "青海大学",
     "year": 2024,
+    "school_name": "青海大学",
     "major_name": "动物医学",
     "major_group": "",
     "min_score": 603,
@@ -62,97 +70,83 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "青海大学",
     "year": 2024,
-    "major_name": "计算机科学与技术",
+    "school_name": "青海大学",
+    "major_name": "药学",
     "major_group": "",
-    "min_score": 630,
-    "min_rank": 7443,
+    "min_score": 600,
+    "min_rank": 12004,
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "青海大学",
     "year": 2024,
-    "major_name": "经济学",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "青海大学",
-    "year": 2024,
-    "major_name": "金融学",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "青海大学",
-    "year": 2024,
-    "major_name": "电气工程及其自动化",
-    "major_group": "",
-    "min_score": 611,
-    "min_rank": 10262,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "青海大学",
-    "year": 2024,
-    "major_name": "动物医学",
-    "major_group": "",
-    "min_score": 606,
-    "min_rank": 11126,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "青海大学",
-    "year": 2024,
     "major_name": "临床医学",
     "major_group": "",
-    "min_score": 598,
-    "min_rank": 12558,
+    "min_score": 594,
+    "min_rank": 13128,
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化+生(3科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "青海大学",
     "year": 2024,
-    "major_name": "医学影像学",
+    "school_name": "青海大学",
+    "major_name": "动物科学",
     "major_group": "",
-    "min_score": 597,
-    "min_rank": 12734,
+    "min_score": 593,
+    "min_rank": 13321,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "青海大学",
+    "major_name": "植物生产类",
+    "major_group": "",
+    "min_score": 591,
+    "min_rank": 13666,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "青海大学",
+    "major_name": "预防医学",
+    "major_group": "",
+    "min_score": 581,
+    "min_rank": 15788,
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化+生(3科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

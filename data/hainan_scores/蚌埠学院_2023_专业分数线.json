@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "蚌埠学院",
+    "major_name": "生物制药",
+    "major_group": "",
+    "min_score": 560,
+    "min_rank": 19618,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "蚌埠学院",
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": 554,
+    "min_rank": 21093,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

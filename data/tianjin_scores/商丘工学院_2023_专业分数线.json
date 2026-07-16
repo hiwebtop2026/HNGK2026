@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "商丘工学院",
+    "major_name": "城市地下空间工程",
+    "major_group": "",
+    "min_score": 472,
+    "min_rank": 44437,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "商丘工学院",
+    "major_name": "物联网工程",
+    "major_group": "",
+    "min_score": 472,
+    "min_rank": 44437,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

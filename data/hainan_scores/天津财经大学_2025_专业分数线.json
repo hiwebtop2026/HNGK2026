@@ -1,33 +1,22 @@
 [
   {
-    "school_name": "天津财经大学",
     "year": 2025,
+    "school_name": "天津财经大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 643,
     "min_rank": 5904,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "天津财经大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 641,
-    "min_rank": 6129,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(注册会计师)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
+    "school_name": "天津财经大学",
     "major_name": "金融数学",
     "major_group": "",
     "min_score": 639,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
+    "school_name": "天津财经大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 637,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
+    "school_name": "天津财经大学",
     "major_name": "经济统计学",
     "major_group": "",
     "min_score": 636,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(杨曾武班)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
+    "school_name": "天津财经大学",
     "major_name": "金融学类",
     "major_group": "",
     "min_score": 629,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:保险学、投资学、信用管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
+    "school_name": "天津财经大学",
     "major_name": "管理科学与工程类",
     "major_group": "",
     "min_score": 627,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:管理科学、信息管理与信息系统、工程管理)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
+    "school_name": "天津财经大学",
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 626,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
+    "school_name": "天津财经大学",
     "major_name": "财务管理",
     "major_group": "",
     "min_score": 625,
@@ -114,24 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
-    "major_name": "国际商务",
-    "major_group": "",
-    "min_score": 622,
-    "min_rank": 8546,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "天津财经大学",
-    "year": 2025,
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 613,
@@ -140,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:行政管理、劳动与社会保障)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
+    "school_name": "天津财经大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 611,
@@ -153,24 +145,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:工商管理、市场营销、人力资源管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "天津财经大学",
     "year": 2025,
-    "major_name": "广播电视学",
-    "major_group": "",
-    "min_score": 611,
-    "min_rank": 10262,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "天津财经大学",
-    "year": 2025,
     "major_name": "旅游管理类",
     "major_group": "",
     "min_score": 608,
@@ -179,6 +160,8 @@
     "batch": "本科批",
     "major_description": "(包含专业:旅游管理、会展经济与管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

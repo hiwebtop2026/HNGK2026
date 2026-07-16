@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "辽宁中医药大学",
+    "major_name": "公共事业管理",
+    "major_group": "",
+    "min_score": 570,
+    "min_rank": 18478,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(沈阳校区(第一学年本溪校区就读))",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "辽宁中医药大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 569,
+    "min_rank": 18735,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱:大连校区(第一学年本溪校区就读))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "辽宁中医药大学",
+    "major_name": "中药学",
+    "major_group": "",
+    "min_score": 534,
+    "min_rank": 27812,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱:大连校区(第一学年本溪校区就读))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "辽宁中医药大学",
+    "major_name": "中药制药",
+    "major_group": "",
+    "min_score": 513,
+    "min_rank": 33773,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱:大连校区(第一学年本溪校区就读))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

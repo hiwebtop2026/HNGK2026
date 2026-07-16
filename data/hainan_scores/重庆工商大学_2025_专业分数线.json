@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "财务管理",
     "major_group": "",
     "min_score": 634,
@@ -10,24 +10,13 @@
     "batch": "本科批",
     "major_description": "(不招单色识别不全者)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
-    "major_name": "财政学",
-    "major_group": "",
-    "min_score": 618,
-    "min_rank": 9132,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "重庆工商大学",
-    "year": 2025,
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 613,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 609,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(不招单色识别不全者)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 609,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:工商管理、人力资源管理、市场营销、国际商务；不招单色识别不全者)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "金融学类",
     "major_group": "",
     "min_score": 609,
@@ -74,25 +69,14 @@
     "person_count": 4,
     "batch": "本科批",
     "major_description": "(包含专业:金融学、保险学、投资学)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "重庆工商大学",
-    "year": 2025,
-    "major_name": "人文地理与城乡规划",
-    "major_group": "",
-    "min_score": 608,
-    "min_rank": 10765,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "必选生物",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "经济与贸易类",
     "major_group": "",
     "min_score": 608,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:贸易经济、国际经济与贸易)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 606,
@@ -114,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:广播电视学、网络与新媒体)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "电子商务",
     "major_group": "",
     "min_score": 606,
@@ -127,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 604,
@@ -140,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:劳动与社会保障、城市管理、土地资源管理;不招单色识别不全者)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 604,
@@ -153,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "经济统计学",
     "major_group": "",
     "min_score": 603,
@@ -166,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(不招单色识别不全者)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 601,
@@ -178,25 +174,14 @@
     "person_count": 3,
     "batch": "本科批",
     "major_description": "(不招单色识别不全者)",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "重庆工商大学",
-    "year": 2025,
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 599,
-    "min_rank": 12365,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "机械电子工程",
     "major_group": "",
     "min_score": 596,
@@ -205,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 594,
@@ -218,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆工商大学",
     "year": 2025,
+    "school_name": "重庆工商大学",
     "major_name": "食品科学与工程",
     "major_group": "",
     "min_score": 590,
@@ -231,6 +220,8 @@
     "batch": "本科批",
     "major_description": "(不招色弱、色盲、单色识别不全者)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

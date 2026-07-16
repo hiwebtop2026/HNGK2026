@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "重庆工商大学派斯学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 551,
+    "min_rank": 22908,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "重庆工商大学派斯学院",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 549,
+    "min_rank": 23420,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "重庆工商大学派斯学院",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 492,
+    "min_rank": 39297,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "辽宁工程技术大学",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 502,
+    "min_rank": 31794,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "辽宁工程技术大学",
+    "major_name": "安全工程",
+    "major_group": "",
+    "min_score": 491,
+    "min_rank": 34236,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "辽宁工程技术大学",
+    "major_name": "数字媒体技术",
+    "major_group": "",
+    "min_score": 487,
+    "min_rank": 35128,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

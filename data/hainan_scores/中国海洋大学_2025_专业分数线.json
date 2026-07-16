@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 713,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(设有教育部涉外法治人才协同培养创新基地(培育))",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 703,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:计算机科学与技术、智能科学与技术、数据科学与大数据技术、网络空间安全、软件工程、保密技术；设有软件工程五八卓越人才班、计算机科学与技术卓越工程师班、中法卓越工程师班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "海洋科学",
     "major_group": "",
     "min_score": 701,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(设有基础学科拔尖计划2.0基地)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 695,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:电子信息工程、电子信息科学与技术、通信工程、微电子科学与工程、集成电路设计与集成系统；设有中法卓越工程师项目班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "生物科学类",
     "major_group": "",
     "min_score": 694,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:生态学、生物技术、生物科学;设有基础学科拔尖计划2.0基地)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "大气科学",
     "major_group": "",
     "min_score": 693,
@@ -75,24 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
-    "major_name": "声学",
-    "major_group": "",
-    "min_score": 691,
-    "min_rank": 2186,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "中国海洋大学",
-    "year": 2025,
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 690,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 685,
@@ -114,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 684,
@@ -127,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "海洋技术",
     "major_group": "",
     "min_score": 684,
@@ -140,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 682,
@@ -153,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:新闻学、网络与新媒体)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "水产养殖学",
     "major_group": "",
     "min_score": 682,
@@ -166,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(教育部卓越农林人才教育培养计划改革试点专业)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 682,
@@ -179,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "海洋资源开发技术",
     "major_group": "",
     "min_score": 680,
@@ -192,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "地质学",
     "major_group": "",
     "min_score": 676,
@@ -205,11 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "海洋渔业科学与技术",
     "major_group": "",
     "min_score": 676,
@@ -218,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 675,
@@ -231,11 +250,13 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(与美国亚利桑那大学罗杰斯法学院合办，“4+0”“2+2”“3+1”模式均可)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "轮机工程",
     "major_group": "",
     "min_score": 674,
@@ -244,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "地球信息科学与技术",
     "major_group": "",
     "min_score": 672,
@@ -257,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "海洋资源与环境",
     "major_group": "",
     "min_score": 671,
@@ -270,11 +295,13 @@
     "batch": "本科批",
     "major_description": "(教育部卓越农林人才教育培养计划改革试点专业)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "船舶与海洋工程",
     "major_group": "",
     "min_score": 671,
@@ -283,11 +310,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "生物技术",
     "major_group": "",
     "min_score": 667,
@@ -296,11 +325,13 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(与澳大利亚阿德莱德大学合办，“4+0”“2+2”“3+2”模式均可)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "材料类",
     "major_group": "",
     "min_score": 665,
@@ -309,24 +340,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:材料科学与工程、高分子材料与工程、新能源材料与器件)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
-    "major_name": "化学",
-    "major_group": "",
-    "min_score": 664,
-    "min_rank": 3898,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "中国海洋大学",
-    "year": 2025,
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 664,
@@ -335,11 +355,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "港口航道与海岸工程",
     "major_group": "",
     "min_score": 664,
@@ -348,11 +370,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "食品科学与工程类",
     "major_group": "",
     "min_score": 663,
@@ -361,11 +385,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:食品科学与工程、食品营养与健康)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中国海洋大学",
     "year": 2025,
+    "school_name": "中国海洋大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 660,
@@ -374,6 +400,8 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(与英国赫瑞瓦特大学合办，“3+1”模式)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 652,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(不能准确在显示器上识别红、黄、绿、蓝、紫各颜色中任何一种颜色的数码、字母者不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 640,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 628,
@@ -36,37 +40,28 @@
     "batch": "本科批",
     "major_description": "(不能准确在显示器上识别红、黄、绿、蓝、紫各颜色中任何一种颜色的数码、字母者不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 627,
     "min_rank": 7840,
     "person_count": 1,
     "batch": "本科批",
-    "major_description": "(拔尖学生培养基地)(拔尖学生培养基地;不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "内蒙古大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 625,
-    "min_rank": 8143,
-    "person_count": 1,
-    "batch": "本科批",
     "major_description": "(不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 625,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:通信工程、电子信息科学与技术、自动化)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 625,
@@ -87,25 +84,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "(不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "内蒙古大学",
-    "year": 2025,
-    "major_name": "新闻学",
-    "major_group": "",
-    "min_score": 621,
-    "min_rank": 8697,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "必选政治",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": 618,
@@ -113,25 +99,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "内蒙古大学",
-    "year": 2025,
-    "major_name": "纪检监察",
-    "major_group": "",
-    "min_score": 616,
-    "min_rank": 9485,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 616,
@@ -140,50 +115,28 @@
     "batch": "本科批",
     "major_description": "(不能准确在显示器上识别红、黄、绿、蓝、紫各颜色中任何一种颜色的数码、字母者不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 615,
     "min_rank": 9627,
     "person_count": 1,
     "batch": "本科批",
-    "major_description": "(不能准确在显示器上识别红、黄、绿、蓝、紫各颜色中任何一种颜色的数码、字母者不予录取)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "内蒙古大学",
-    "year": 2025,
-    "major_name": "劳动与社会保障",
-    "major_group": "",
-    "min_score": 614,
-    "min_rank": 9773,
-    "person_count": 1,
-    "batch": "本科批",
     "major_description": "(不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "内蒙古大学",
-    "year": 2025,
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 612,
-    "min_rank": 10091,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "电子科学与技术",
     "major_group": "",
     "min_score": 611,
@@ -192,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "机械工程",
     "major_group": "",
     "min_score": 609,
@@ -204,38 +159,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "内蒙古大学",
-    "year": 2025,
-    "major_name": "政治学与行政学",
-    "major_group": "",
-    "min_score": 607,
-    "min_rank": 10923,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "必选政治",
-    "province": "海南"
-  },
-  {
-    "school_name": "内蒙古大学",
-    "year": 2025,
-    "major_name": "社会工作",
-    "major_group": "",
-    "min_score": 605,
-    "min_rank": 11264,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "物理学类",
     "major_group": "",
     "min_score": 598,
@@ -244,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:物理学、应用物理学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 597,
@@ -257,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 595,
@@ -269,25 +204,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "内蒙古大学",
-    "year": 2025,
-    "major_name": "智能建造",
-    "major_group": "",
-    "min_score": 593,
-    "min_rank": 13518,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 580,
@@ -296,11 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "交通运输",
     "major_group": "",
     "min_score": 572,
@@ -309,11 +235,13 @@
     "batch": "本科批",
     "major_description": "(色觉异常II度(俗称色盲)不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 570,
@@ -322,24 +250,13 @@
     "batch": "本科批",
     "major_description": "(轻度色觉异常(俗称色弱)不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
-    "major_name": "化学",
-    "major_group": "",
-    "min_score": 567,
-    "min_rank": 19243,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "(轻度色觉异常(俗称色弱)不予录取)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "内蒙古大学",
-    "year": 2025,
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 565,
@@ -348,11 +265,13 @@
     "batch": "本科批",
     "major_description": "(轻度色觉异常(俗称色弱)不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "生物科学",
     "major_group": "",
     "min_score": 562,
@@ -361,11 +280,13 @@
     "batch": "本科批",
     "major_description": "(轻度色觉异常(俗称色弱)不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "材料化学",
     "major_group": "",
     "min_score": 559,
@@ -374,11 +295,13 @@
     "batch": "本科批",
     "major_description": "(轻度色觉异常(俗称色弱)不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "内蒙古大学",
     "year": 2025,
+    "school_name": "内蒙古大学",
     "major_name": "生物技术",
     "major_group": "",
     "min_score": 559,
@@ -387,6 +310,8 @@
     "batch": "本科批",
     "major_description": "(轻度色觉异常(俗称色弱)不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

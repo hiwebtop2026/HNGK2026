@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 670,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "智能电网信息工程",
     "major_group": "",
     "min_score": 668,
@@ -23,24 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 663,
-    "min_rank": 3984,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "长沙理工大学",
-    "year": 2025,
     "major_name": "新能源科学与工程",
     "major_group": "",
     "min_score": 661,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 659,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 656,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "电子信息科学与技术",
     "major_group": "",
     "min_score": 653,
@@ -87,38 +84,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "长沙理工大学",
-    "year": 2025,
-    "major_name": "应用化学",
-    "major_group": "",
-    "min_score": 651,
-    "min_rank": 5051,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "长沙理工大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 649,
-    "min_rank": 5269,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "交通运输",
     "major_group": "",
     "min_score": 646,
@@ -127,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "港口航道与海岸工程",
     "major_group": "",
     "min_score": 642,
@@ -140,11 +115,13 @@
     "batch": "本科批",
     "major_description": "(创新班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "新能源材料与器件",
     "major_group": "",
     "min_score": 637,
@@ -153,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 635,
@@ -166,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 631,
@@ -179,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "财务管理",
     "major_group": "",
     "min_score": 629,
@@ -192,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 628,
@@ -205,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 626,
@@ -218,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "食品科学与工程",
     "major_group": "",
     "min_score": 625,
@@ -231,11 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "水利水电工程",
     "major_group": "",
     "min_score": 624,
@@ -244,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 624,
@@ -257,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "建筑学",
     "major_group": "",
     "min_score": 623,
@@ -270,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "智能制造工程",
     "major_group": "",
     "min_score": 622,
@@ -283,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 619,
@@ -296,11 +295,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "建筑环境与能源应用工程",
     "major_group": "",
     "min_score": 617,
@@ -309,11 +310,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "船舶与海洋工程",
     "major_group": "",
     "min_score": 616,
@@ -322,11 +325,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "水文与水资源工程",
     "major_group": "",
     "min_score": 615,
@@ -335,11 +340,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "测绘工程",
     "major_group": "",
     "min_score": 614,
@@ -348,24 +355,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
-    "major_name": "智能建造",
-    "major_group": "",
-    "min_score": 612,
-    "min_rank": 10091,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "长沙理工大学",
-    "year": 2025,
     "major_name": "轻化工程",
     "major_group": "",
     "min_score": 612,
@@ -374,11 +370,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "道路桥梁与渡河工程",
     "major_group": "",
     "min_score": 612,
@@ -387,11 +385,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "长沙理工大学",
     "year": 2025,
+    "school_name": "长沙理工大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 610,
@@ -400,6 +400,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

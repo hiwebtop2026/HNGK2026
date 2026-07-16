@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "内蒙古师范大学",
+    "major_name": "小学教育",
+    "major_group": "",
+    "min_score": 581,
+    "min_rank": 15788,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(数学)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "内蒙古师范大学",
+    "major_name": "土地资源管理",
+    "major_group": "",
+    "min_score": 574,
+    "min_rank": 17335,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "内蒙古师范大学",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 492,
+    "min_rank": 39297,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "内蒙古师范大学",
+    "major_name": "生物技术",
+    "major_group": "",
+    "min_score": 486,
+    "min_rank": 40965,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

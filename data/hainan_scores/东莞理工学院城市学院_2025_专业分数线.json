@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "东莞理工学院城市学院",
+    "major_name": "人文地理与城乡规划",
+    "major_group": "",
+    "min_score": 500,
+    "min_rank": 37504,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选地理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "东莞理工学院城市学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 499,
+    "min_rank": 37818,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "东莞理工学院城市学院",
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 498,
+    "min_rank": 38086,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "东莞理工学院城市学院",
+    "major_name": "物联网工程",
+    "major_group": "",
+    "min_score": 484,
+    "min_rank": 41975,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

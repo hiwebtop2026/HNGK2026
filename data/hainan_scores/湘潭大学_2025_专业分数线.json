@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 670,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(卓越班)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 660,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 658,
@@ -35,25 +39,14 @@
     "person_count": 3,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "湘潭大学",
-    "year": 2025,
-    "major_name": "知识产权",
-    "major_group": "",
-    "min_score": 653,
-    "min_rank": 4856,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 648,
@@ -62,37 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 647,
-    "min_rank": 5469,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "湘潭大学",
-    "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 646,
-    "min_rank": 5572,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "湘潭大学",
-    "year": 2025,
     "major_name": "法学",
     "major_group": "",
     "min_score": 646,
@@ -101,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 646,
@@ -114,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 641,
@@ -127,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 637,
@@ -140,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 637,
@@ -153,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 637,
@@ -166,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "网络空间安全",
     "major_group": "",
     "min_score": 636,
@@ -179,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 631,
@@ -192,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(学费如有变动，以正式批复为准)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "数学类",
     "major_group": "",
     "min_score": 629,
@@ -205,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:数学与应用数学、信息与计算科学、统计学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "哲学",
     "major_group": "",
     "min_score": 628,
@@ -218,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 628,
@@ -231,89 +220,43 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 626,
     "min_rank": 7972,
     "person_count": 3,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "湘潭大学",
-    "year": 2025,
-    "major_name": "新闻学",
-    "major_group": "",
-    "min_score": 626,
-    "min_rank": 7972,
-    "person_count": 3,
-    "batch": "本科批",
     "major_description": "(学费如有变动，以正式批复为准)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "信用风险管理与法律防控",
     "major_group": "",
     "min_score": 625,
     "min_rank": 8143,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "湘潭大学",
-    "year": 2025,
-    "major_name": "档案学",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "湘潭大学",
-    "year": 2025,
-    "major_name": "广告学",
-    "major_group": "",
-    "min_score": 623,
-    "min_rank": 8400,
-    "person_count": 3,
-    "batch": "本科批",
     "major_description": "(学费如有变动，以正式批复为准)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
-    "major_name": "图书馆学",
-    "major_group": "",
-    "min_score": 621,
-    "min_rank": 8697,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "湘潭大学",
-    "year": 2025,
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 621,
@@ -322,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "行政管理",
     "major_group": "",
     "min_score": 621,
@@ -335,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "人力资源管理",
     "major_group": "",
     "min_score": 620,
@@ -348,11 +295,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 620,
@@ -361,11 +310,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 619,
@@ -374,37 +325,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
-    "major_name": "法语",
-    "major_group": "",
-    "min_score": 619,
-    "min_rank": 8984,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "湘潭大学",
-    "year": 2025,
-    "major_name": "西班牙语",
-    "major_group": "",
-    "min_score": 619,
-    "min_rank": 8984,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "湘潭大学",
-    "year": 2025,
     "major_name": "新能源材料与器件",
     "major_group": "",
     "min_score": 617,
@@ -413,11 +340,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 617,
@@ -426,11 +355,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "智能制造工程",
     "major_group": "",
     "min_score": 616,
@@ -439,24 +370,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
-    "major_name": "化学",
-    "major_group": "",
-    "min_score": 613,
-    "min_rank": 9938,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "湘潭大学",
-    "year": 2025,
     "major_name": "工程力学",
     "major_group": "",
     "min_score": 613,
@@ -465,24 +385,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
-    "major_name": "能源与动力工程",
-    "major_group": "",
-    "min_score": 613,
-    "min_rank": 9938,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "湘潭大学",
-    "year": 2025,
     "major_name": "物理学",
     "major_group": "",
     "min_score": 610,
@@ -491,11 +400,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "安全工程",
     "major_group": "",
     "min_score": 608,
@@ -504,24 +415,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
-    "major_name": "工业设计",
-    "major_group": "",
-    "min_score": 607,
-    "min_rank": 10923,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "湘潭大学",
-    "year": 2025,
     "major_name": "材料科学与工程",
     "major_group": "",
     "min_score": 606,
@@ -530,11 +430,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "信息管理与信息系统",
     "major_group": "",
     "min_score": 605,
@@ -543,11 +445,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 605,
@@ -556,11 +460,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "制药工程",
     "major_group": "",
     "min_score": 604,
@@ -569,11 +475,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "测绘工程",
     "major_group": "",
     "min_score": 604,
@@ -582,11 +490,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "湘潭大学",
     "year": 2025,
+    "school_name": "湘潭大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 601,
@@ -595,6 +505,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   }
 ]

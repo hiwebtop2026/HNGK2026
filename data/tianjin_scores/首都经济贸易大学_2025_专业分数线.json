@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "首都经济贸易大学",
+    "major_name": "经济学",
+    "major_group": "",
+    "min_score": 625,
+    "min_rank": 7531,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(琢玉班；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "首都经济贸易大学",
+    "major_name": "公共管理类",
+    "major_group": "",
+    "min_score": 622,
+    "min_rank": 8141,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(行政管理(数字政府)、城市管理(智慧治理)、城市管理(区域经济管理)、城市管理(智慧国土)；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "首都经济贸易大学",
+    "major_name": "金融科技",
+    "major_group": "",
+    "min_score": 620,
+    "min_rank": 8532,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(英语授课，外语单科成绩不低于105分；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

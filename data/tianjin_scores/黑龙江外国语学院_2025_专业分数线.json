@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "黑龙江外国语学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 453,
+    "min_rank": 53181,
+    "person_count": 9,
+    "batch": "本科批",
+    "major_description": "(黑龙江外国语学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "黑龙江外国语学院",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 452,
+    "min_rank": 53448,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(黑龙江外国语学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "黑龙江外国语学院",
+    "major_name": "小学教育",
+    "major_group": "",
+    "min_score": 448,
+    "min_rank": 54441,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(黑龙江外国语学院)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "黑龙江外国语学院",
+    "major_name": "人力资源管理",
+    "major_group": "",
+    "min_score": 441,
+    "min_rank": 56110,
+    "person_count": 35,
+    "batch": "本科批",
+    "major_description": "(数智人力方向；黑龙江外国语学院)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

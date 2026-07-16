@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "长春科技学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 474,
+    "min_rank": 45738,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(东华大街校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "长春科技学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 464,
+    "min_rank": 48234,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(东华大街校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

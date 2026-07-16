@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 702,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "法学类",
     "major_group": "",
     "min_score": 695,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:法学、法学(涉外法治))",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "汉语国际教育",
     "major_group": "",
     "min_score": 692,
@@ -36,37 +40,28 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 690,
     "min_rank": 2229,
     "person_count": 5,
     "batch": "本科批",
-    "major_description": "(包含专业:经济学、财政学、金融学、国际经济与贸易)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "中央民族大学",
-    "year": 2025,
-    "major_name": "民族学",
-    "major_group": "",
-    "min_score": 688,
-    "min_rank": 2336,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(与中国少数民族语言双学位)",
     "subject_requirement": "必选历史",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "外国语言文学类",
     "major_group": "",
     "min_score": 686,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:英语、翻译)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 685,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:电子信息工程、通信工程、人工智能)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 685,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:计算机科学与技术、软件工程、数据科学与大数据技术)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 684,
@@ -114,11 +115,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:工商管理、会计学、财务管理、人力资源管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "教育学",
     "major_group": "",
     "min_score": 684,
@@ -127,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 684,
@@ -140,11 +145,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:新闻学、广告学、网络与新媒体)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "社会学类",
     "major_group": "",
     "min_score": 684,
@@ -153,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:社会学、社会工作)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 683,
@@ -166,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 679,
@@ -179,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "环境科学与工程类",
     "major_group": "",
     "min_score": 677,
@@ -192,11 +205,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:环境工程、环境科学、化学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "统计学类",
     "major_group": "",
     "min_score": 677,
@@ -205,11 +220,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:统计学、应用统计学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "生物科学类",
     "major_group": "",
     "min_score": 675,
@@ -218,11 +235,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:生物科学、生态学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "纳米材料与技术",
     "major_group": "",
     "min_score": 675,
@@ -231,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "中央民族大学",
     "year": 2025,
+    "school_name": "中央民族大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 629,
@@ -244,6 +265,8 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(办学地点在海南陵水黎安国际教育创新试验区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

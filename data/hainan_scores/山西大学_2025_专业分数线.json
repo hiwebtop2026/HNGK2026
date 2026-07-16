@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 647,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "历史学",
     "major_group": "",
     "min_score": 641,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 637,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 630,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:新闻学、广告学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 626,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "哲学类",
     "major_group": "",
     "min_score": 624,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:哲学、伦理学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 624,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 620,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "物理学",
     "major_group": "",
     "min_score": 620,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(国家基地)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "教育学",
     "major_group": "",
     "min_score": 619,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 618,
@@ -140,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "政治学类",
     "major_group": "",
     "min_score": 615,
@@ -152,25 +174,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "(包含专业:政治学与行政学、国际政治)",
-    "subject_requirement": "必选政治",
-    "province": "海南"
-  },
-  {
-    "school_name": "山西大学",
-    "year": 2025,
-    "major_name": "能源与动力工程",
-    "major_group": "",
-    "min_score": 615,
-    "min_rank": 9627,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "生物科学类",
     "major_group": "",
     "min_score": 613,
@@ -179,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:生物科学、生物工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 613,
@@ -192,24 +205,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:电子信息工程、电子信息科学与技术)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
-    "major_name": "统计学",
-    "major_group": "",
-    "min_score": 611,
-    "min_rank": 10262,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "山西大学",
-    "year": 2025,
     "major_name": "环境科学与工程类",
     "major_group": "",
     "min_score": 609,
@@ -217,25 +219,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "(包含专业:环境科学、环境工程)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "山西大学",
-    "year": 2025,
-    "major_name": "马克思主义理论",
-    "major_group": "",
-    "min_score": 609,
-    "min_rank": 10621,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "必选政治",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "化学类",
     "major_group": "",
     "min_score": 607,
@@ -244,11 +235,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:化学、应用化学、材料化学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "数据科学",
     "major_group": "",
     "min_score": 602,
@@ -257,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "智慧建筑与建造",
     "major_group": "",
     "min_score": 600,
@@ -270,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "政治学、经济学与哲学",
     "major_group": "",
     "min_score": 597,
@@ -283,11 +280,13 @@
     "batch": "本科批",
     "major_description": "(PPE初民试验班)",
     "subject_requirement": "必选政治",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "山西大学",
     "year": 2025,
+    "school_name": "山西大学",
     "major_name": "行政管理",
     "major_group": "",
     "min_score": 594,
@@ -296,6 +295,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选政治",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   }
 ]

@@ -8,8 +8,11 @@
     "min_rank": 4451,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(法学、法学(涉外法治)；丰台校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,20 +23,11 @@
     "min_rank": 4451,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
-  },
-  {
-    "year": 2025,
-    "school_name": "中央民族大学",
-    "major_name": "民族学",
-    "major_group": "",
-    "min_score": 642,
-    "min_rank": 4611,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(与中国少数民族语言双学位；丰台校区)",
+    "subject_requirement": "必选历史",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +38,11 @@
     "min_rank": 4611,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(电子信息工程、通信工程、人工智能；丰台校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +53,11 @@
     "min_rank": 4777,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(丰台校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +68,11 @@
     "min_rank": 4928,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(统计学、应用统计学；丰台校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +83,11 @@
     "min_rank": 5080,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(丰台校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +98,11 @@
     "min_rank": 5080,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(丰台校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +113,11 @@
     "min_rank": 5224,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(生物科学、生态学；海淀校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,8 +128,11 @@
     "min_rank": 5379,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(环境工程、环境科学、化学；海淀校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -128,8 +143,11 @@
     "min_rank": 5689,
     "person_count": 7,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(工商管理、会计学、财务管理、人力资源管理；丰台校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,8 +158,11 @@
     "min_rank": 5689,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(经济学、财政学、金融学、国际经济与贸易；丰台校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,8 +173,11 @@
     "min_rank": 5859,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(考古学、文物与博物馆学；丰台校区)",
+    "subject_requirement": "必选历史",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -164,8 +188,11 @@
     "min_rank": 5859,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(英语、翻译；丰台校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -176,8 +203,11 @@
     "min_rank": 6023,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(与教育学双学位；丰台校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -188,8 +218,11 @@
     "min_rank": 6207,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(丰台校区)",
+    "subject_requirement": "必选历史",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -200,8 +233,11 @@
     "min_rank": 6207,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(哲学、宗教学；丰台校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -212,8 +248,11 @@
     "min_rank": 6207,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(新闻学、广告学、网络与新媒体；丰台校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -224,8 +263,11 @@
     "min_rank": 6207,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(丰台校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -236,8 +278,11 @@
     "min_rank": 6207,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(社会学、社会工作；丰台校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -248,8 +293,11 @@
     "min_rank": 7531,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(海南国际学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -260,7 +308,10 @@
     "min_rank": 8532,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(海淀校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   }
 ]

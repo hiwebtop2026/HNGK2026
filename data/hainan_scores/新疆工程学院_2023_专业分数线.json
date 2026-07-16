@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "新疆工程学院",
+    "major_name": "测控技术与仪器",
+    "major_group": "专业组（01）",
+    "min_score": 538,
+    "min_rank": 25065,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "新疆工程学院",
+    "major_name": "物联网工程",
+    "major_group": "",
+    "min_score": 537,
+    "min_rank": 25323,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

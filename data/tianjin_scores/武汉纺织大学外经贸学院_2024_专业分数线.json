@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "武汉纺织大学外经贸学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 496,
+    "min_rank": 39827,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "武汉纺织大学外经贸学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 487,
+    "min_rank": 42309,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

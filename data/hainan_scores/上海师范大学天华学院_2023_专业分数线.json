@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "上海师范大学天华学院",
+    "major_name": "财务管理",
+    "major_group": "专业组（01）",
+    "min_score": 494,
+    "min_rank": 36898,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海师范大学天华学院",
+    "major_name": "财务管理",
+    "major_group": "专业组（01）",
+    "min_score": 493,
+    "min_rank": 37168,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海师范大学天华学院",
+    "major_name": "英语",
+    "major_group": "专业组（01）",
+    "min_score": 491,
+    "min_rank": 37650,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

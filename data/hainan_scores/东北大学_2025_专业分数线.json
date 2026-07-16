@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "东北大学",
     "year": 2025,
+    "school_name": "东北大学",
     "major_name": "自动化类",
     "major_group": "",
     "min_score": 712,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:自动化、电气工程及其自动化、测控技术与仪器、电子科学与技术、工业智能；入学后部分课程采用英文教材和英语授课)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "东北大学",
     "year": 2025,
+    "school_name": "东北大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 710,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:软件工程、信息安全、数字媒体技术;入学后部分课程采用英文教材和英语授课；学年学费标准大一大二5200元/年，大三大四16000元/年)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "东北大学",
     "year": 2025,
+    "school_name": "东北大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 709,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:电子信息工程、通信工程；入学后部分课程采用英文教材和英语授课)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "东北大学",
     "year": 2025,
+    "school_name": "东北大学",
     "major_name": "智能制造工程",
     "major_group": "",
     "min_score": 708,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "东北大学",
     "year": 2025,
+    "school_name": "东北大学",
     "major_name": "机械类",
     "major_group": "",
     "min_score": 708,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:机械工程、过程装备与控制工程、车辆工程、工业设计)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "东北大学",
     "year": 2025,
+    "school_name": "东北大学",
     "major_name": "经济管理试验班",
     "major_group": "",
     "min_score": 685,
@@ -75,6 +85,8 @@
     "batch": "本科批",
     "major_description": "(包含专业:工商管理、市场营销、会计学、工业工程、信息管理与信息系统、金融学、经济学;入学后部分课程采用英文教材和英语授课)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "陕西科技大学",
     "year": 2024,
+    "school_name": "陕西科技大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 617,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "陕西科技大学",
     "year": 2024,
+    "school_name": "陕西科技大学",
     "major_name": "机械类",
     "major_group": "",
     "min_score": 611,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "陕西科技大学",
     "year": 2024,
+    "school_name": "陕西科技大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 611,
@@ -36,97 +40,23 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "陕西科技大学",
     "year": 2024,
-    "major_name": "人工智能",
+    "school_name": "陕西科技大学",
+    "major_name": "化学类",
     "major_group": "",
-    "min_score": 609,
-    "min_rank": 10437,
+    "min_score": 604,
+    "min_rank": 11285,
     "person_count": 2,
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "陕西科技大学",
-    "year": 2024,
-    "major_name": "工业设计",
-    "major_group": "",
-    "min_score": 607,
-    "min_rank": 10761,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "(中外合作办学)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "陕西科技大学",
-    "year": 2024,
-    "major_name": "数字经济",
-    "major_group": "",
-    "min_score": 609,
-    "min_rank": 10621,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "陕西科技大学",
-    "year": 2024,
-    "major_name": "计算机类",
-    "major_group": "",
-    "min_score": 608,
-    "min_rank": 10765,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "(包含专业:计算机科学与技术、网络工程)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "陕西科技大学",
-    "year": 2024,
-    "major_name": "机械类",
-    "major_group": "",
-    "min_score": 607,
-    "min_rank": 10923,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "(包含专业:机械设计制造及其自动化、材料成型及控制工程、机械电子工程、过程装备与控制工程)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "陕西科技大学",
-    "year": 2024,
-    "major_name": "数据科学与大数据技术",
-    "major_group": "",
-    "min_score": 599,
-    "min_rank": 12365,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "陕西科技大学",
-    "year": 2024,
-    "major_name": "工业设计",
-    "major_group": "",
-    "min_score": 598,
-    "min_rank": 12558,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

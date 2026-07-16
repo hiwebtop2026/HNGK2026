@@ -1,0 +1,74 @@
+[
+  {
+    "year": 2025,
+    "school_name": "北京航空航天大学",
+    "major_name": "工科试验班类",
+    "major_group": "",
+    "min_score": 796,
+    "min_rank": 121,
+    "person_count": 6,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京航空航天大学",
+    "major_name": "人工智能",
+    "major_group": "",
+    "min_score": 794,
+    "min_rank": 129,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京航空航天大学",
+    "major_name": "工科试验班类",
+    "major_group": "",
+    "min_score": 789,
+    "min_rank": 153,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京航空航天大学",
+    "major_name": "工科试验班类",
+    "major_group": "",
+    "min_score": 744,
+    "min_rank": 575,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京航空航天大学",
+    "major_name": "工科试验班类",
+    "major_group": "",
+    "min_score": 743,
+    "min_rank": 585,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京航空航天大学",
+    "major_name": "社会科学试验班",
+    "major_group": "",
+    "min_score": 739,
+    "min_rank": 657,
+    "person_count": 7,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

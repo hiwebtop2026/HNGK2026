@@ -2,38 +2,17 @@
   {
     "year": 2025,
     "school_name": "湖南大学",
-    "major_name": "精算学",
-    "major_group": "",
-    "min_score": 736,
-    "min_rank": 709,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 731,
     "min_rank": 809,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南大学",
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 727,
-    "min_rank": 900,
-    "person_count": 1,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含会计学(智慧会计)、会计学(ACCA)、财务管理(智慧公司金融)，专业分流时在上述专业内任选；分流专业均为国家级一流本科专业建设点；会计学(ACCA)培养国际化人才，出国深造率高;有体检要求，具体详见学校招生章程)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +23,11 @@
     "min_rank": 994,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(国家级一流本科专业建设点；导师制培养)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +38,11 @@
     "min_rank": 1028,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含计算机科学与技术、软件工程，专业分流时在上述专业内任选;分流专业均为国家级一流本科专业建设点；拥有国家拔尖计划2.0基地；入选教育部“101计划”;获批国家特色化示范性软件学院;入校后可选拔进入工科试验班(人工智能类);有体检要求，具体详见学校招生章程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +53,11 @@
     "min_rank": 1056,
     "person_count": 9,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含电气工程及其自动化、自动化、电子信息工程、测控技术与仪器、储能科学与工程，专业分流时在上述专业内任选;电气工程及其自动化、自动化、电子信息工程、测控技术与仪器为国家级一流本科专业建设点:依托电气工程世界一流建设学科建设)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +68,11 @@
     "min_rank": 1056,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智能实验班)(含智能科学与技术、物联网工程、数字媒体技术、数据科学与大数据技术，专业分流时在上述专业内任选;拥有国家拔尖计划2.0基地；入选教育部“101计划”;入校后可选拔进入工科试验班(人工智能类);有体检要求，具体详见学校招生章程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,20 +83,11 @@
     "min_rank": 1076,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南大学",
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 718,
-    "min_rank": 1136,
-    "person_count": 6,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含电气工程及其自动化、自动化、电子信息工程、测控技术与仪器、储能科学与工程，专业分流时在上述专业内任选;电气工程及其自动化、自动化、电子信息工程、测控技术与仪器为国家级一流本科专业建设点:依托电气工程世界一流建设学科建设)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,20 +98,11 @@
     "min_rank": 1165,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南大学",
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 716,
-    "min_rank": 1192,
-    "person_count": 5,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含人工智能、机器人工程，专业分流时在上述专业内任选;依托机器人视觉感知与控制技术国家工程研究中心建设；入校后可选拔进入工科试验班(人工智能类))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,8 +113,11 @@
     "min_rank": 1192,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含信息安全、保密技术，专业分流时在上述专业内任选；信息安全为国家级一流本科专业建设点:依托国家一流网络安全学院(全国共16所)和国家保密学院建设)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,20 +128,11 @@
     "min_rank": 1225,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南大学",
-    "major_name": "集成电路设计与集成系统",
-    "major_group": "",
-    "min_score": 715,
-    "min_rank": 1225,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(新增专业，适应芯片设计与系统开发领域急需创新人才开设:依托功率半导体与集成技术国家重点实验室建设;入校后可选拔进入工科试验班(人工智能类))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -176,20 +143,11 @@
     "min_rank": 1253,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南大学",
-    "major_name": "工业设计",
-    "major_group": "",
-    "min_score": 713,
-    "min_rank": 1292,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(国家级一流本科专业建设点；学校是教育部工业设计专业教学指导分委员会主任单位)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -200,8 +158,11 @@
     "min_rank": 1319,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含智能车辆工程、车辆工程、工业工程，专业分流时在上述专业内任选;依托机械工程世界一流建设学科建设;拥有“整车先进设计制造技术全国重点实验室”;入校后可选拔进入能源与动力工程(未来能源与动力创新实验班)、工科试验班(人工智能类))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -212,8 +173,11 @@
     "min_rank": 1319,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含生物技术、生物医学工程，专业分流时在上述专业内任选:分流专业均为国家级一流本科专业建设点;项目制和导师制培养;入校后可选拔进入理科试验班专;考生入校后可选拔进入生物技术+计算机科学与技术(双学位)专业；有体检要求，具体详见学校招生章程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -224,8 +188,11 @@
     "min_rank": 1386,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含化学、应用化学、化学生物学，本专业类内分流任选;化学入选世界一流建设学科，入选教育部“101计划”;化学、应用化学为国家级一流本科专业建设点；拥有国家拔尖计划2.0基地;有体检要求，具体详见学校招生章程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -236,8 +203,11 @@
     "min_rank": 1454,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含智能制造工程、机械设计制造及其自动化、工业工程，专业分流时在上述专业内任选；依托机械工程世界一流建设学科建设；入校后可选拔进入能源与动力工程(未来能源与动力创新实验班)、工科试验班(人工智能类))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -248,8 +218,11 @@
     "min_rank": 1454,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(新增专业，适应国家量子信息领域重大战略需求开设)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -260,8 +233,11 @@
     "min_rank": 1489,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(国家级一流本科专业建设点:依托国家重点学科建设，拥有“建筑安全与节能教育部重点实验室”等专业教学实践基地)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -272,8 +248,11 @@
     "min_rank": 1610,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含新闻学、广告学，本专业类内分流任选；分流专业均为国家级一流本科专业建设点)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -284,8 +263,11 @@
     "min_rank": 1935,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(导师制培养，小班培养;与美国加州大学洛杉矶分校、美国加州大学伯克利分校、英国爱丁堡大学等有联合培养项目；入校后可选拔进入人文科学试验班)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -296,19 +278,10 @@
     "min_rank": 1935,
     "person_count": 8,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "湖南大学",
-    "major_name": "边防军人子女预科班",
-    "major_group": "",
-    "min_score": 652,
-    "min_rank": 4963,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(只招经审核符合边防军人子女资格的考生，且考生的资格类型为“一、二类人员”;考生投档成绩须达到部分特殊类型招生投档最低控制分数线;预科培养地点:湖南大学)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

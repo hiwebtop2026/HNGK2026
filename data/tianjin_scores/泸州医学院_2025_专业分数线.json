@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "泸州医学院",
+    "major_name": "医学影像学",
+    "major_group": "",
+    "min_score": 605,
+    "min_rank": 11793,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色弱色盲考生；城北校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "泸州医学院",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 604,
+    "min_rank": 12046,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(不招色弱色盲考生；城北校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

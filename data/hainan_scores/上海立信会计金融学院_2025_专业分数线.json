@@ -1,46 +1,7 @@
 [
   {
-    "school_name": "上海立信会计金融学院",
     "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 662,
-    "min_rank": 4062,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "上海立信会计金融学院",
-    "year": 2025,
-    "major_name": "财政学",
-    "major_group": "",
-    "min_score": 634,
-    "min_rank": 6934,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海立信会计金融学院",
-    "year": 2025,
-    "major_name": "审计学",
-    "major_group": "",
-    "min_score": 631,
-    "min_rank": 7322,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海立信会计金融学院",
-    "year": 2025,
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 629,
@@ -48,38 +9,14 @@
     "person_count": 1,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海立信会计金融学院",
-    "year": 2025,
-    "major_name": "税收学",
-    "major_group": "",
-    "min_score": 629,
-    "min_rank": 7578,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海立信会计金融学院",
-    "year": 2025,
-    "major_name": "精算学",
-    "major_group": "",
-    "min_score": 629,
-    "min_rank": 7578,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海立信会计金融学院",
     "year": 2025,
+    "school_name": "上海立信会计金融学院",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 626,
@@ -88,24 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海立信会计金融学院",
     "year": 2025,
-    "major_name": "资产评估",
-    "major_group": "",
-    "min_score": 626,
-    "min_rank": 7972,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "上海立信会计金融学院",
-    "year": 2025,
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 624,
@@ -114,24 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海立信会计金融学院",
     "year": 2025,
-    "major_name": "市场营销",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "上海立信会计金融学院",
-    "year": 2025,
     "major_name": "金融学",
     "major_group": "",
     "min_score": 624,
@@ -139,25 +54,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "上海立信会计金融学院",
-    "year": 2025,
-    "major_name": "投资学",
-    "major_group": "",
-    "min_score": 619,
-    "min_rank": 8984,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海立信会计金融学院",
     "year": 2025,
+    "school_name": "上海立信会计金融学院",
     "major_name": "金融工程",
     "major_group": "",
     "min_score": 610,
@@ -166,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海立信会计金融学院",
     "year": 2025,
+    "school_name": "上海立信会计金融学院",
     "major_name": "金融科技",
     "major_group": "",
     "min_score": 610,
@@ -179,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海立信会计金融学院",
     "year": 2025,
+    "school_name": "上海立信会计金融学院",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 604,
@@ -192,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海立信会计金融学院",
     "year": 2025,
+    "school_name": "上海立信会计金融学院",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 603,
@@ -205,24 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "上海立信会计金融学院",
     "year": 2025,
-    "major_name": "应用统计学",
-    "major_group": "",
-    "min_score": 602,
-    "min_rank": 11828,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "上海立信会计金融学院",
-    "year": 2025,
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 597,
@@ -231,6 +130,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

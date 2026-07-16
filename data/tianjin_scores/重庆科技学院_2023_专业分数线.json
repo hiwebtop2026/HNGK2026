@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "重庆科技学院",
+    "major_name": "油气储运工程",
+    "major_group": "专业组（1）",
+    "min_score": 545,
+    "min_rank": 25694,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/地(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "重庆科技学院",
+    "major_name": "海洋油气工程",
+    "major_group": "专业组（1）",
+    "min_score": 535,
+    "min_rank": 28303,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/地(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

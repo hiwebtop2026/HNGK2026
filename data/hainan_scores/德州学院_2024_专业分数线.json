@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "德州学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 566,
+    "min_rank": 19137,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(师范类)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "德州学院",
+    "major_name": "人文地理与城乡规划",
+    "major_group": "",
+    "min_score": 561,
+    "min_rank": 20364,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选地理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

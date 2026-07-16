@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "新乡医学院",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 598,
+    "min_rank": 12245,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "新乡医学院",
+    "major_name": "儿科学",
+    "major_group": "",
+    "min_score": 588,
+    "min_rank": 14725,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

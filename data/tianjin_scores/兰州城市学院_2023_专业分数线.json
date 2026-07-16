@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "兰州城市学院",
+    "major_name": "智能制造工程",
+    "major_group": "",
+    "min_score": 505,
+    "min_rank": 36006,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（2） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "兰州城市学院",
+    "major_name": "石油工程",
+    "major_group": "专业组（4）",
+    "min_score": 505,
+    "min_rank": 36006,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（3） - 物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "兰州城市学院",
+    "major_name": "汉语国际教育",
+    "major_group": "专业组（4）",
+    "min_score": 502,
+    "min_rank": 36795,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

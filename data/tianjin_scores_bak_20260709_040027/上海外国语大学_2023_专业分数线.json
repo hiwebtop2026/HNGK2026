@@ -1,0 +1,41 @@
+[
+  {
+    "school_name": "上海外国语大学",
+    "year": 2023,
+    "major_name": "外交学",
+    "major_group": "",
+    "min_score": 637,
+    "min_rank": 5379,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "法语双学位；主校区",
+    "subject_requirement": "必选政治",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海外国语大学",
+    "year": 2023,
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 634,
+    "min_rank": 5859,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "主校区",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海外国语大学",
+    "year": 2023,
+    "major_name": "翻译",
+    "major_group": "",
+    "min_score": 632,
+    "min_rank": 6207,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "多元方向；含翻译、翻译(工商管理双学位 校区",
+    "subject_requirement": "不限",
+    "province": "天津"
+  }
+]

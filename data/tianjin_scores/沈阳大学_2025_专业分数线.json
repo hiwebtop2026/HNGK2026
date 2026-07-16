@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "沈阳大学",
+    "major_name": "环境工程",
+    "major_group": "",
+    "min_score": 533,
+    "min_rank": 30630,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(望花/联合路校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "沈阳大学",
+    "major_name": "工业工程",
+    "major_group": "",
+    "min_score": 522,
+    "min_rank": 33773,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(部分课程英语授课，小语种慎报；望花/联合路校区)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

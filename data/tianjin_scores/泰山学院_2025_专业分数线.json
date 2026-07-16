@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "泰山学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 520,
+    "min_rank": 34394,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(泰山学院)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "泰山学院",
+    "major_name": "人力资源管理",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 34670,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(泰山学院)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "许昌学院",
+    "major_name": "应用心理学",
+    "major_group": "",
+    "min_score": 558,
+    "min_rank": 21454,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "许昌学院",
+    "major_name": "经济学",
+    "major_group": "",
+    "min_score": 558,
+    "min_rank": 21454,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "许昌学院",
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": 550,
+    "min_rank": 23459,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "许昌学院",
+    "major_name": "信息安全",
+    "major_group": "",
+    "min_score": 547,
+    "min_rank": 24344,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

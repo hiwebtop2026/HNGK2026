@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "沈阳师范大学",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 569,
+    "min_rank": 18472,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "沈阳师范大学",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 567,
+    "min_rank": 18906,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

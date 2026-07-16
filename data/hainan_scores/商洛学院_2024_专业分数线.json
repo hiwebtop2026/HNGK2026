@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "商洛学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 581,
+    "min_rank": 15788,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商洛学院",
+    "major_name": "大数据管理与应用",
+    "major_group": "",
+    "min_score": 577,
+    "min_rank": 16644,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商洛学院",
+    "major_name": "电子商务",
+    "major_group": "",
+    "min_score": 563,
+    "min_rank": 19861,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商洛学院",
+    "major_name": "资源循环科学与工程",
+    "major_group": "",
+    "min_score": 522,
+    "min_rank": 30842,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "四川工商学院",
+    "major_name": "人力资源管理",
+    "major_group": "",
+    "min_score": 491,
+    "min_rank": 42851,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(眉山校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川工商学院",
+    "major_name": "小学教育",
+    "major_group": "",
+    "min_score": 488,
+    "min_rank": 43748,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(眉山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川工商学院",
+    "major_name": "信息安全",
+    "major_group": "",
+    "min_score": 481,
+    "min_rank": 45775,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(眉山校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "四川工商学院",
+    "major_name": "建筑电气与智能化",
+    "major_group": "",
+    "min_score": 481,
+    "min_rank": 45775,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(成都校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

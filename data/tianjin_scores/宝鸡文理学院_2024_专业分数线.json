@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "宝鸡文理学院",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 522,
+    "min_rank": 32623,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(高新校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "宝鸡文理学院",
+    "major_name": "化学",
+    "major_group": "",
+    "min_score": 499,
+    "min_rank": 39003,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(师范类)(高新校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "宝鸡文理学院",
+    "major_name": "给排水科学与工程",
+    "major_group": "",
+    "min_score": 494,
+    "min_rank": 40396,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(高新校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

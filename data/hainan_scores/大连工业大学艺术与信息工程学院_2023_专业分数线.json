@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "大连工业大学艺术与信息工程学院",
+    "major_name": "互联网金融",
+    "major_group": "专业组（01）",
+    "min_score": 503,
+    "min_rank": 34504,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "大连工业大学艺术与信息工程学院",
+    "major_name": "工商管理",
+    "major_group": "专业组（01）",
+    "min_score": 503,
+    "min_rank": 34504,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "大连工业大学艺术与信息工程学院",
+    "major_name": "网络与新媒体",
+    "major_group": "专业组（01）",
+    "min_score": 499,
+    "min_rank": 35571,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "大连工业大学艺术与信息工程学院",
+    "major_name": "英语",
+    "major_group": "专业组（01）",
+    "min_score": 499,
+    "min_rank": 35571,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

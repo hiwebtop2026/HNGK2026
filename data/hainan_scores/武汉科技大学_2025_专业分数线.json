@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 626,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 624,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:会计学(智能会计与智慧财务方向)、工商管理(数智运营管理、数智人资管理方向)、市场营销(大数据与智能营销方向))",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "机械类",
     "major_group": "",
     "min_score": 621,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:机械工程、机械电子工程、智能制造工程、测控技术与仪器、工业工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "法学类",
     "major_group": "",
     "min_score": 621,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:法学、社会工作(人文社科试验班))",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "金融科技",
     "major_group": "",
     "min_score": 621,
@@ -62,37 +70,28 @@
     "batch": "本科批",
     "major_description": "(AI金融方向)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "自动化类",
     "major_group": "",
     "min_score": 620,
     "min_rank": 8822,
     "person_count": 3,
     "batch": "本科批",
-    "major_description": "(电子信息)(包含专业:电子信息工程、通信工程、电子科学与技术(集成电路方向))",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "武汉科技大学",
-    "year": 2025,
-    "major_name": "投资学",
-    "major_group": "",
-    "min_score": 619,
-    "min_rank": 8984,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(产业投资与风险管理方向)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 619,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(智慧物流双学士学位项目)(物流管理+自动化双学士学位复合型人才培养，学生达到教学要求后，可获得本科毕业证书和双学士学位证书(管理学学士、工学学士))",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 618,
@@ -114,11 +115,13 @@
     "batch": "本科批",
     "major_description": "(英语教育、数智翻译、涉外法商方向)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 615,
@@ -127,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:计算机科学与技术、软件工程、智能科学与技术)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 611,
@@ -140,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 611,
@@ -153,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(智联化工双学士学位项目)(化学工程与工艺+信息管理与信息系统双学士学位复合型人才培养，学生达到教学要求后，可获得本科毕业证书和双学士学位证书(工学学士、管理学学士))",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "安全工程",
     "major_group": "",
     "min_score": 605,
@@ -166,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 604,
@@ -179,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "武汉科技大学",
     "year": 2025,
+    "school_name": "武汉科技大学",
     "major_name": "土木类",
     "major_group": "",
     "min_score": 604,
@@ -192,6 +205,8 @@
     "batch": "本科批",
     "major_description": "(包含专业:土木工程、建筑环境与能源应用工程、给排水科学与工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "曲阜师范大学",
+    "major_name": "文化产业管理",
+    "major_group": "专业组（03）",
+    "min_score": 579,
+    "min_rank": 15427,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "曲阜师范大学",
+    "major_name": "商务英语",
+    "major_group": "专业组（03）",
+    "min_score": 569,
+    "min_rank": 17601,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "曲阜师范大学",
+    "major_name": "旅游管理",
+    "major_group": "专业组（03）",
+    "min_score": 569,
+    "min_rank": 17601,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

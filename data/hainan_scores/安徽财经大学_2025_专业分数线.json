@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "会计学",
     "major_group": "",
     "min_score": 644,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "审计学",
     "major_group": "",
     "min_score": 635,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "财政学类",
     "major_group": "",
     "min_score": 625,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:财政学、税收学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 608,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 602,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 600,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "统计学",
     "major_group": "",
     "min_score": 600,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "国际商务",
     "major_group": "",
     "min_score": 598,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "经济统计学",
     "major_group": "",
     "min_score": 595,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "金融工程",
     "major_group": "",
     "min_score": 595,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 593,
@@ -140,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:工商管理、市场营销、人力资源管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "经济与贸易类",
     "major_group": "",
     "min_score": 592,
@@ -153,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:国际经济与贸易、贸易经济)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 592,
@@ -166,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:经济学、国民经济管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "管理科学与工程类",
     "major_group": "",
     "min_score": 591,
@@ -179,11 +205,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:信息管理与信息系统、工程管理、工程造价)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "日语",
     "major_group": "",
     "min_score": 589,
@@ -192,11 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "金融学类",
     "major_group": "",
     "min_score": 589,
@@ -205,11 +235,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:投资学、保险学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "电子商务",
     "major_group": "",
     "min_score": 587,
@@ -218,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "供应链管理",
     "major_group": "",
     "min_score": 582,
@@ -231,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 581,
@@ -244,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "资产评估",
     "major_group": "",
     "min_score": 580,
@@ -257,11 +295,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 579,
@@ -270,11 +310,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:行政管理、劳动与社会保障、土地资源管理)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 574,
@@ -283,11 +325,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "信息安全",
     "major_group": "",
     "min_score": 573,
@@ -296,11 +340,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽财经大学",
     "year": 2025,
+    "school_name": "安徽财经大学",
     "major_name": "应用统计学",
     "major_group": "",
     "min_score": 572,
@@ -309,19 +355,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "安徽财经大学",
-    "year": 2025,
-    "major_name": "数据计算及应用",
-    "major_group": "",
-    "min_score": 571,
-    "min_rank": 18255,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "商洛学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 521,
+    "min_rank": 32894,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(北新街校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商洛学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 513,
+    "min_rank": 35102,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(北新街校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商洛学院",
+    "major_name": "食品科学与工程",
+    "major_group": "",
+    "min_score": 511,
+    "min_rank": 35651,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(丹江校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商洛学院",
+    "major_name": "电子信息科学与技术",
+    "major_group": "",
+    "min_score": 508,
+    "min_rank": 36520,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(丹江校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

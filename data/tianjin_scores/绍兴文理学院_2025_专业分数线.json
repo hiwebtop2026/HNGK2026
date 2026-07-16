@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "绍兴文理学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 533,
+    "min_rank": 30630,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "绍兴文理学院",
+    "major_name": "公共事业管理",
+    "major_group": "",
+    "min_score": 531,
+    "min_rank": 31231,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "河南科技学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 564,
+    "min_rank": 19597,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "河南科技学院",
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": 525,
+    "min_rank": 29966,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "河南科技学院",
+    "major_name": "信息与计算科学",
+    "major_group": "",
+    "min_score": 490,
+    "min_rank": 39844,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "河南科技学院",
+    "major_name": "生物技术",
+    "major_group": "",
+    "min_score": 483,
+    "min_rank": 41779,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

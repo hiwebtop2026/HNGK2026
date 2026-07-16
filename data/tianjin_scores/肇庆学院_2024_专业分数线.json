@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "肇庆学院",
+    "major_name": "行政管理",
+    "major_group": "",
+    "min_score": 571,
+    "min_rank": 17978,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "肇庆学院",
+    "major_name": "化学",
+    "major_group": "",
+    "min_score": 485,
+    "min_rank": 41238,
+    "person_count": 9,
+    "batch": "本科批",
+    "major_description": "(师范)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "肇庆学院",
+    "major_name": "制药工程",
+    "major_group": "",
+    "min_score": 484,
+    "min_rank": 41507,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "浙江工业大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 655,
+    "min_rank": 4387,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "浙江工业大学",
+    "major_name": "土木类",
+    "major_group": "",
+    "min_score": 643,
+    "min_rank": 5510,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "浙江工业大学",
+    "major_name": "管理科学与工程类",
+    "major_group": "",
+    "min_score": 641,
+    "min_rank": 5718,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "浙江工业大学",
+    "major_name": "化工与制药类",
+    "major_group": "专业组（02）",
+    "min_score": 636,
+    "min_rank": 6281,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

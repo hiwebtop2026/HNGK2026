@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "河南中医药大学",
+    "major_name": "针灸推拿学",
+    "major_group": "",
+    "min_score": 585,
+    "min_rank": 16523,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(河南中医药大学龙子湖校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河南中医药大学",
+    "major_name": "中西医临床医学",
+    "major_group": "",
+    "min_score": 577,
+    "min_rank": 18537,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(河南中医药大学龙子湖校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河南中医药大学",
+    "major_name": "中药学类",
+    "major_group": "",
+    "min_score": 547,
+    "min_rank": 26718,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "(中药学、药学、药物制剂、制药工程、中药制药、中药资源与开发、生物工程；河南中医药大学龙子湖校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

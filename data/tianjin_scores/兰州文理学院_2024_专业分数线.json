@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "兰州文理学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 574,
+    "min_rank": 17335,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "兰州文理学院",
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": 539,
+    "min_rank": 26094,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

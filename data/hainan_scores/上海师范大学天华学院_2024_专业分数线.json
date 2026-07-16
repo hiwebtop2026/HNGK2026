@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "上海师范大学天华学院",
+    "major_name": "健康服务与管理",
+    "major_group": "",
+    "min_score": 501,
+    "min_rank": 36812,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海师范大学天华学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 499,
+    "min_rank": 37370,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "(英语教育)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海师范大学天华学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 498,
+    "min_rank": 37632,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(双语教学,特许金融分析师培养)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

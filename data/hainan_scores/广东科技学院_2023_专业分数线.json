@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "广东科技学院",
+    "major_name": "物联网工程",
+    "major_group": "",
+    "min_score": 505,
+    "min_rank": 33924,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广东科技学院",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 504,
+    "min_rank": 34220,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广东科技学院",
+    "major_name": "电子商务",
+    "major_group": "专业组（01）",
+    "min_score": 502,
+    "min_rank": 34774,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广东科技学院",
+    "major_name": "金融工程",
+    "major_group": "专业组（01）",
+    "min_score": 501,
+    "min_rank": 35025,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

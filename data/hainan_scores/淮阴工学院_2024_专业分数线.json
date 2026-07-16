@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "淮阴工学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 580,
+    "min_rank": 15994,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "淮阴工学院",
+    "major_name": "经济与金融",
+    "major_group": "",
+    "min_score": 578,
+    "min_rank": 16442,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "淮阴工学院",
+    "major_name": "金融数学",
+    "major_group": "",
+    "min_score": 578,
+    "min_rank": 16442,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "淮阴工学院",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 504,
+    "min_rank": 35899,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

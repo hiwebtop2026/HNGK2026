@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "商丘学院",
+    "major_name": "学前教育",
+    "major_group": "",
+    "min_score": 498,
+    "min_rank": 39288,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商丘学院",
+    "major_name": "小学教育",
+    "major_group": "",
+    "min_score": 490,
+    "min_rank": 41492,
+    "person_count": 24,
+    "batch": "本科批",
+    "major_description": "(师范类)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商丘学院",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 486,
+    "min_rank": 42567,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商丘学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 477,
+    "min_rank": 44987,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

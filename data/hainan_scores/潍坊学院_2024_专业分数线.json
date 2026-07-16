@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "潍坊学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 568,
+    "min_rank": 18658,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "潍坊学院",
+    "major_name": "智能制造工程",
+    "major_group": "",
+    "min_score": 527,
+    "min_rank": 29380,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

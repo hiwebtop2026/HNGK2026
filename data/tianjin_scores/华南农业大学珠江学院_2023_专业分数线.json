@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "华南农业大学珠江学院",
+    "major_name": "汉语言文学",
+    "major_group": "专业组（1）",
+    "min_score": 495,
+    "min_rank": 38604,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "华南农业大学珠江学院",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 489,
+    "min_rank": 40185,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（2） - 物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

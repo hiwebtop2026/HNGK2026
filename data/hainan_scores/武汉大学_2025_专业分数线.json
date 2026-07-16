@@ -8,8 +8,11 @@
     "min_rank": 233,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(弘毅学堂)(含人文科学试验班(可全校任选专业，医学长学制除外)、数智人文试验班、国际组织与全球治理试验班，以及理科试验班(弘毅学堂)对应的各试验班)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 318,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(弘毅学堂)(包含专业:含未来科技试验班(可全校任选专业，医学长学制除外)、数智经济试验班、健康科技试验班、智能制造与集成电路试验班、碳中和经济管理创新班，以及文科试验班(弘毅学堂)对应的各试验班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 318,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(特软班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 333,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:生物科学、生物技术、生态学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 333,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(计算机学院)(包含专业:计算机科学与技术、软件工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +83,11 @@
     "min_rank": 347,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智能导航创新班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +98,11 @@
     "min_rank": 397,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含法学(含德语法学、法语法学试验班)、国际法(含国际法试验班))",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +113,11 @@
     "min_rank": 455,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:数学与应用数学、信息与计算科学、统计学、数据科学与大数据技术)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +128,11 @@
     "min_rank": 455,
     "person_count": 7,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(电子信息学院)(包含专业:电子信息工程(含电子信息方向、光电子方向、机器人方向)、通信工程；电子信息工程专业含卓越工程师计划试验班、逐光创新试验班、人工智能试验班；通信工程专业含卓越工程师计划试验班、人工智能试验班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,8 +143,11 @@
     "min_rank": 482,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含经济学(基地班、能源经济管理试验班)、国际经济与贸易、金融学、保险学(精算试验班)、财政学、金融工程)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -128,8 +158,11 @@
     "min_rank": 482,
     "person_count": 7,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含遥感科学与技术、空间信息与数字技术)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,8 +173,11 @@
     "min_rank": 511,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(含工商管理(国际试验班战略与投资方向)、市场营销(数智特色创新试验班)、人力资源管理、会计学、财务管理、物流管理(供应链运营方向试验班)、工程管理、管理科学(商业大数据分析方向试验班))",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,8 +188,11 @@
     "min_rank": 511,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(电气类)(包含专业:电气工程及其自动化、储能科学与工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -164,20 +203,11 @@
     "min_rank": 511,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "武汉大学",
-    "major_name": "社会学",
-    "major_group": "",
-    "min_score": 747,
-    "min_rank": 525,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(知行试验班)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -188,7 +218,10 @@
     "min_rank": 4406,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(中外合作办学)(含数智建筑方向、城市设计方向；只录取有专业志愿的考生;前4年在武汉大学学习，第5年在英国邓迪大学学习，毕业生可同时获得武汉大学建筑学学士学位和英国邓迪大学的建筑学荣誉学位)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

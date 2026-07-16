@@ -1,0 +1,98 @@
+[
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学",
+    "major_name": "航空航天类",
+    "major_group": "",
+    "min_score": 715,
+    "min_rank": 1225,
+    "person_count": 14,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 713,
+    "min_rank": 1292,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学",
+    "major_name": "无人驾驶航空器系统工程",
+    "major_group": "",
+    "min_score": 711,
+    "min_rank": 1351,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学",
+    "major_name": "机械工程",
+    "major_group": "",
+    "min_score": 710,
+    "min_rank": 1386,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学",
+    "major_name": "人工智能",
+    "major_group": "",
+    "min_score": 685,
+    "min_rank": 2483,
+    "person_count": 1,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 675,
+    "min_rank": 3092,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学",
+    "major_name": "广播电视学",
+    "major_group": "",
+    "min_score": 672,
+    "min_rank": 3289,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学",
+    "major_name": "工业工程",
+    "major_group": "",
+    "min_score": 668,
+    "min_rank": 3587,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

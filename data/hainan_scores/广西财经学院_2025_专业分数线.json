@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "广西财经学院",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 596,
+    "min_rank": 12911,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(第一学年在武鸣校区，第二至第四学年在明秀或相思湖校区;专业体检受限要求详见学校招生章程)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广西财经学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 591,
+    "min_rank": 13911,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(第一学年在武鸣校区，第二至第四学年在明秀或相思湖校区)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广西财经学院",
+    "major_name": "旅游管理",
+    "major_group": "",
+    "min_score": 582,
+    "min_rank": 15806,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(第一学年在武鸣校区，第二至第四学年在明秀或相思湖校区)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广西财经学院",
+    "major_name": "金融科技",
+    "major_group": "",
+    "min_score": 568,
+    "min_rank": 19005,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(第一学年在武鸣校区，第二至第四学年在明秀或相思湖校区)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "school_name": "上海工程技术大学",
+    "year": 2024,
+    "major_name": "化学工程与工艺",
+    "major_group": "",
+    "min_score": 570,
+    "min_rank": 20413,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "通过工程教育专业认证，国家级一流本科专业建设点；松江校区 2科必选",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海工程技术大学",
+    "year": 2024,
+    "major_name": "制药工程",
+    "major_group": "",
+    "min_score": 558,
+    "min_rank": 23634,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "通过工程教育专业认证，国家级一流本科专业建设点；松江校区 2科必选",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海工程技术大学",
+    "year": 2024,
+    "major_name": "涂料工程",
+    "major_group": "",
+    "min_score": 558,
+    "min_rank": 23634,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "松江校区 2科必选",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  }
+]

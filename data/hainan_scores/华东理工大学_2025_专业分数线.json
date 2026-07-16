@@ -8,8 +8,11 @@
     "min_rank": 1610,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智能与机器人)(包含专业:人工智能、机器人工程；不招色盲者;优秀学生可申请拔尖创新人才培养计划(3+1+X))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 1610,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:自动化、电气工程及其自动化、信息工程;不招色盲;优秀学生可申请拔尖创新人才培养计划(3+1+X))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 1682,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(机械智能化实验班)(包含专业:机械设计制造及其自动化、过程装备与控制工程、智能制造工程;不招色盲;优秀学生可申请拔尖创新人才培养计划(3+1+X))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 1889,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智慧化工)(包含专业:化学工程与工艺、油气储运工程、资源循环科学与工程、轻化工程;不招色弱、色盲、嗅觉迟钝者;优秀学生可申请拔尖创新人才培养计划(3+1+X))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 1935,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(新工科化学实验班)(包含专业:应用化学、精细化工(光电信息材料方向);不招色弱、色盲、嗅觉迟钝者;优秀学生可申请拔尖创新人才培养计划(3+1+X))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +83,11 @@
     "min_rank": 1935,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(能源与环境)(包含专业:能源与动力工程、环境工程、储能科学与工程;不招色弱、色盲、嗅觉迟钝者;优秀学生可申请拔尖创新人才培养计划(3+1+X))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +98,11 @@
     "min_rank": 1993,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:生物工程、生物科学、生物技术、食品科学与工程、食品质量与安全;不招色弱、色盲、嗅觉迟钝者;优秀学生可申请拔尖创新人才培养计划(3+1+X))",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +113,11 @@
     "min_rank": 2774,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:工商管理(商务分析)、市场营销(大数据营销)、会计学(大数据会计)、财务管理(智能财务);优秀学生可申请拔尖创新人才培养计划(3+1+X))",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,7 +128,10 @@
     "min_rank": 3092,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:社会学、社会工作、公共事业管理、行政管理；优秀学生可申请拔尖创新人才培养计划(3+1+X))",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

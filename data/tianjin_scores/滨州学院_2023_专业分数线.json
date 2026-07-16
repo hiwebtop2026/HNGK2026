@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "滨州学院",
+    "major_name": "财务管理",
+    "major_group": "专业组（1）",
+    "min_score": 534,
+    "min_rank": 28548,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "滨州学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 524,
+    "min_rank": 31119,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "滨州学院",
+    "major_name": "光电信息科学与工程",
+    "major_group": "",
+    "min_score": 523,
+    "min_rank": 31375,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "滨州学院",
+    "major_name": "化学工程与工艺",
+    "major_group": "专业组（3）",
+    "min_score": 511,
+    "min_rank": 34486,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化(2选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

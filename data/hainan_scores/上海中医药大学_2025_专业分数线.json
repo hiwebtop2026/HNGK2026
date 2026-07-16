@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海中医药大学",
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 636,
+    "min_rank": 5139,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(屠呦呦班)(九年医)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海中医药大学",
+    "major_name": "中药学",
+    "major_group": "",
+    "min_score": 598,
+    "min_rank": 12318,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(创新班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海中医药大学",
+    "major_name": "智能医学工程",
+    "major_group": "",
+    "min_score": 583,
+    "min_rank": 15792,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(医工创新班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海中医药大学",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 32440,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选化学",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  }
+]

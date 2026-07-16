@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "信阳师范大学",
+    "major_name": "自然地理与资源环境",
+    "major_group": "",
+    "min_score": 512,
+    "min_rank": 35393,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(谭山校区)",
+    "subject_requirement": "必选地理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "信阳师范大学",
+    "major_name": "经济学",
+    "major_group": "",
+    "min_score": 511,
+    "min_rank": 35651,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(与美国米勒斯维尔大学合作)(谭山校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "信阳师范大学",
+    "major_name": "工程管理",
+    "major_group": "",
+    "min_score": 507,
+    "min_rank": 36803,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(谭山校区)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

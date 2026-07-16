@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 608,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "工业工程",
     "major_group": "",
     "min_score": 602,
@@ -22,38 +24,14 @@
     "person_count": 4,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "石河子大学",
-    "year": 2025,
-    "major_name": "审计学",
-    "major_group": "",
-    "min_score": 600,
-    "min_rank": 12182,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 597,
-    "min_rank": 12734,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "石河子大学",
-    "year": 2025,
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 594,
@@ -62,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "小学教育",
     "major_group": "",
     "min_score": 583,
@@ -75,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 581,
@@ -88,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 581,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:计算机科学与技术、网络空间安全、数据科学与大数据技术)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "学前教育",
     "major_group": "",
     "min_score": 579,
@@ -114,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 579,
@@ -127,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "农林经济管理",
     "major_group": "",
     "min_score": 578,
@@ -140,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 577,
@@ -153,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "无人驾驶航空器系统工程",
     "major_group": "",
     "min_score": 576,
@@ -166,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 576,
@@ -179,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:金融学、经济学、国际经济与贸易)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 573,
@@ -192,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:财务管理、工商管理、人力资源管理、市场营销)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "应用心理学",
     "major_group": "",
     "min_score": 570,
@@ -205,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 568,
@@ -218,11 +220,13 @@
     "batch": "本科批",
     "major_description": "(NIIT班)(只招收有专业志愿考生，详见学校招生章程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "农业资源与环境",
     "major_group": "",
     "min_score": 567,
@@ -231,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "食品科学与工程类",
     "major_group": "",
     "min_score": 564,
@@ -244,11 +250,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:食品科学与工程、食品质量与安全)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "葡萄与葡萄酒工程",
     "major_group": "",
     "min_score": 563,
@@ -257,11 +265,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "石河子大学",
     "year": 2025,
+    "school_name": "石河子大学",
     "major_name": "植物生产类",
     "major_group": "",
     "min_score": 561,
@@ -270,6 +280,8 @@
     "batch": "本科批",
     "major_description": "(包含专业:农学、园艺、植物保护、种子科学与工程、设施农业科学与工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

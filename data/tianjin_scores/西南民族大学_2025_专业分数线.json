@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "西南民族大学",
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": 585,
+    "min_rank": 16523,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(航空港校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "西南民族大学",
+    "major_name": "网络工程",
+    "major_group": "",
+    "min_score": 582,
+    "min_rank": 17292,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(航空港校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "西南民族大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 579,
+    "min_rank": 18022,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(航空港校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "西南民族大学",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 577,
+    "min_rank": 18537,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(航空港校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

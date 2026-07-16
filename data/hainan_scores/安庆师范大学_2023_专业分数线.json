@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "安庆师范大学",
+    "major_name": "新闻传播学类",
+    "major_group": "专业组（01）",
+    "min_score": 596,
+    "min_rank": 12101,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "安庆师范大学",
+    "major_name": "国际经济与贸易",
+    "major_group": "专业组（01）",
+    "min_score": 572,
+    "min_rank": 16897,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

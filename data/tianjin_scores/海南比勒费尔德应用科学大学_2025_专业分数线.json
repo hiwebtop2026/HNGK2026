@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "海南比勒费尔德应用科学大学",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 501,
+    "min_rank": 39953,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "(全英文授课，非英语语种考生慎重报考；红、黄、绿、蓝、紫单色识别不清者不能报考；海南比勒费尔德应用科学大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "海南比勒费尔德应用科学大学",
+    "major_name": "电子信息科学与技术",
+    "major_group": "",
+    "min_score": 498,
+    "min_rank": 40807,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "(全英文授课，非英语语种考生慎重报考；海南比勒费尔德应用科学大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "海南比勒费尔德应用科学大学",
+    "major_name": "经济工程",
+    "major_group": "",
+    "min_score": 495,
+    "min_rank": 41708,
+    "person_count": 9,
+    "batch": "本科批",
+    "major_description": "(全英文授课，非英语语种考生慎重报考；海南比勒费尔德应用科学大学)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "海南比勒费尔德应用科学大学",
+    "major_name": "物流工程",
+    "major_group": "",
+    "min_score": 487,
+    "min_rank": 44054,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "(全英文授课，非英语语种考生慎重报考；海南比勒费尔德应用科学大学)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

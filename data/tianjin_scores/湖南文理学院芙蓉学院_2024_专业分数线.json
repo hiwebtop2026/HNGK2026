@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "湖南文理学院芙蓉学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 512,
+    "min_rank": 35393,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(师范类)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "湖南文理学院芙蓉学院",
+    "major_name": "物理学",
+    "major_group": "",
+    "min_score": 487,
+    "min_rank": 42309,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(师范类)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

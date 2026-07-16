@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "西安财经大学",
     "year": 2025,
+    "school_name": "西安财经大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 615,
@@ -10,24 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安财经大学",
     "year": 2025,
-    "major_name": "审计学",
-    "major_group": "",
-    "min_score": 610,
-    "min_rank": 10420,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "西安财经大学",
-    "year": 2025,
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 590,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安财经大学",
     "year": 2025,
+    "school_name": "西安财经大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 590,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安财经大学",
     "year": 2025,
+    "school_name": "西安财经大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 584,
@@ -62,24 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安财经大学",
     "year": 2025,
-    "major_name": "财政学",
-    "major_group": "",
-    "min_score": 573,
-    "min_rank": 17772,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "西安财经大学",
-    "year": 2025,
     "major_name": "人力资源管理",
     "major_group": "",
     "min_score": 570,
@@ -88,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安财经大学",
     "year": 2025,
+    "school_name": "西安财经大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 555,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安财经大学",
     "year": 2025,
+    "school_name": "西安财经大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 552,
@@ -114,6 +100,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

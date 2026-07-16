@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "锦州医科大学",
+    "major_name": "口腔医学",
+    "major_group": "",
+    "min_score": 605,
+    "min_rank": 10633,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(不招色盲和色弱考生)(锦州医科大学东校园)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "锦州医科大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 601,
+    "min_rank": 11529,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(不招色盲和色弱考生)(锦州医科大学东校园)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "锦州医科大学",
+    "major_name": "医学检验技术",
+    "major_group": "",
+    "min_score": 565,
+    "min_rank": 20845,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(不招色盲和色弱考生)(锦州医科大学东校园)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "锦州医科大学",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 558,
+    "min_rank": 22798,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(不招色盲和色弱考生，其他详见锦州医科大学2024年招生章程)(锦州医科大学东校园)",
+    "subject_requirement": "物+生(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海大学",
+    "major_name": "文科试验班类",
+    "major_group": "",
+    "min_score": 623,
+    "min_rank": 7249,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海大学",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 608,
+    "min_rank": 10111,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  }
+]

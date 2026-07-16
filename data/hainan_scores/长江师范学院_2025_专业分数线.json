@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "长江师范学院",
+    "major_name": "食品科学与工程",
+    "major_group": "",
+    "min_score": 540,
+    "min_rank": 26163,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色盲)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "长江师范学院",
+    "major_name": "生物工程",
+    "major_group": "",
+    "min_score": 530,
+    "min_rank": 28948,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色盲)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "长江师范学院",
+    "major_name": "环境科学与工程类",
+    "major_group": "",
+    "min_score": 525,
+    "min_rank": 30362,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(包含专业:环境科学、环境生态工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

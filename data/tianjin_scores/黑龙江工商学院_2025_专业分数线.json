@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "黑龙江工商学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 451,
+    "min_rank": 53712,
+    "person_count": 20,
+    "batch": "本科批",
+    "major_description": "(哈尔滨市)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "黑龙江工商学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 450,
+    "min_rank": 53963,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(哈尔滨市)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "黑龙江工商学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 448,
+    "min_rank": 54441,
+    "person_count": 40,
+    "batch": "本科批",
+    "major_description": "(哈尔滨市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "黑龙江工商学院",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 445,
+    "min_rank": 55139,
+    "person_count": 25,
+    "batch": "本科批",
+    "major_description": "(哈尔滨市)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

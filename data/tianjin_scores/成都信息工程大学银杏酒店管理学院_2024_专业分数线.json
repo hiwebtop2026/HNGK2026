@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "成都信息工程大学银杏酒店管理学院",
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 475,
+    "min_rank": 45489,
+    "person_count": 16,
+    "batch": "本科批",
+    "major_description": "(市场营销、会计学、财务管理、人力资源管理、审计学、物业管理、文化产业管理)(一年级在宜宾校区完成通识课程学习，二年级开始按照学校大类招生专业分流管理办法确定专业，编入成都校区相应学院完成专业学习)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "成都信息工程大学银杏酒店管理学院",
+    "major_name": "旅游管理类",
+    "major_group": "",
+    "min_score": 475,
+    "min_rank": 45489,
+    "person_count": 9,
+    "batch": "本科批",
+    "major_description": "(旅游管理、会展经济与管理)(一年级在宜宾校区完成通识课程学习，二年级开始按照学校大类招生专业分流管理办法确定专业，编入成都校区相应学院完成专业学习)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "华东政法大学",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 678,
+    "min_rank": 2903,
+    "person_count": 19,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "华东政法大学",
+    "major_name": "经济学类",
+    "major_group": "",
+    "min_score": 671,
+    "min_rank": 3356,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(包含专业:经济学、金融学、国际经济与贸易、会计学、金融学(数量金融))",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "华东政法大学",
+    "major_name": "社会学类",
+    "major_group": "",
+    "min_score": 670,
+    "min_rank": 3448,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(包含专业:社会学、社会工作、社会政策)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

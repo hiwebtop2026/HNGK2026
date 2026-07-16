@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "南京晓庄学院",
+    "major_name": "小学教育",
+    "major_group": "",
+    "min_score": 502,
+    "min_rank": 31794,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京晓庄学院",
+    "major_name": "学前教育",
+    "major_group": "",
+    "min_score": 494,
+    "min_rank": 33572,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "南京晓庄学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 493,
+    "min_rank": 33792,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

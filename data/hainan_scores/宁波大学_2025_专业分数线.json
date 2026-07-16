@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "宁波大学",
     "year": 2025,
+    "school_name": "宁波大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 669,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "宁波大学",
     "year": 2025,
+    "school_name": "宁波大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 658,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(梅山校区)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "宁波大学",
     "year": 2025,
+    "school_name": "宁波大学",
     "major_name": "微电子科学与工程",
     "major_group": "",
     "min_score": 632,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "宁波大学",
     "year": 2025,
+    "school_name": "宁波大学",
     "major_name": "水产养殖学",
     "major_group": "",
     "min_score": 631,
@@ -49,37 +55,13 @@
     "batch": "本科批",
     "major_description": "(拔尖人才创新班)(梅山校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "宁波大学",
     "year": 2025,
-    "major_name": "化学",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 5,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "宁波大学",
-    "year": 2025,
-    "major_name": "工业设计",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 5,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "宁波大学",
-    "year": 2025,
     "major_name": "物理学",
     "major_group": "",
     "min_score": 620,
@@ -88,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   },
   {
-    "school_name": "宁波大学",
     "year": 2025,
+    "school_name": "宁波大学",
     "major_name": "生物科学类",
     "major_group": "",
     "min_score": 618,
@@ -101,6 +85,8 @@
     "batch": "本科批",
     "major_description": "(包含专业:生物技术、水产养殖学;梅山校区；按类招生，含生物技术、水产养殖学专业)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "双一流",
+    "nature": "公办"
   }
 ]

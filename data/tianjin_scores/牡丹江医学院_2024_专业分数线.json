@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "牡丹江医学院",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 575,
+    "min_rank": 18157,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "牡丹江医学院",
+    "major_name": "口腔医学",
+    "major_group": "",
+    "min_score": 572,
+    "min_rank": 18977,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "牡丹江医学院",
+    "major_name": "医学影像学",
+    "major_group": "",
+    "min_score": 567,
+    "min_rank": 20336,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "牡丹江医学院",
+    "major_name": "生物技术",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 34831,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "西安科技大学",
     "year": 2025,
+    "school_name": "西安科技大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 598,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安科技大学",
     "year": 2025,
+    "school_name": "西安科技大学",
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 596,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安科技大学",
     "year": 2025,
+    "school_name": "西安科技大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 593,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安科技大学",
     "year": 2025,
+    "school_name": "西安科技大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 586,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安科技大学",
     "year": 2025,
+    "school_name": "西安科技大学",
     "major_name": "物联网工程",
     "major_group": "",
     "min_score": 582,
@@ -62,24 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "西安科技大学",
     "year": 2025,
-    "major_name": "智能建造",
-    "major_group": "",
-    "min_score": 568,
-    "min_rank": 19005,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "西安科技大学",
-    "year": 2025,
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 558,
@@ -88,6 +85,8 @@
     "batch": "本科批",
     "major_description": "(菁英人才培养计划)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

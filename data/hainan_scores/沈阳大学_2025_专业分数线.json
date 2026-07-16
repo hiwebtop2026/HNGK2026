@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "沈阳大学",
+    "major_name": "环境工程",
+    "major_group": "",
+    "min_score": 534,
+    "min_rank": 27812,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "沈阳大学",
+    "major_name": "环境生态工程",
+    "major_group": "",
+    "min_score": 528,
+    "min_rank": 29537,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

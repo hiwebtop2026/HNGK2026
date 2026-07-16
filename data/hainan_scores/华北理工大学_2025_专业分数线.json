@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "临床医学",
     "major_group": "",
     "min_score": 614,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化+生(3科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "应用心理学",
     "major_group": "",
     "min_score": 589,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 578,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 571,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "物流工程",
     "major_group": "",
     "min_score": 567,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "经济统计学",
     "major_group": "",
     "min_score": 563,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "生物科学类",
     "major_group": "",
     "min_score": 556,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:生物技术、生物信息学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "给排水科学与工程",
     "major_group": "",
     "min_score": 556,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "能源化学工程",
     "major_group": "",
     "min_score": 556,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "采矿工程",
     "major_group": "",
     "min_score": 555,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "华北理工大学",
     "year": 2025,
+    "school_name": "华北理工大学",
     "major_name": "矿物加工工程",
     "major_group": "",
     "min_score": 554,
@@ -140,6 +160,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

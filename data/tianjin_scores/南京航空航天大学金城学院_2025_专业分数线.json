@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学金城学院",
+    "major_name": "物联网工程",
+    "major_group": "",
+    "min_score": 507,
+    "min_rank": 38187,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京航空航天大学金城学院",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 505,
+    "min_rank": 38775,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

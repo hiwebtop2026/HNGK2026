@@ -8,8 +8,11 @@
     "min_rank": 106,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(八年制本博连读；色盲不予录取；北京大学医学部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 118,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(八年制本博连读；色盲不予录取；北京大学医学部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 137,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(八年制本博连读；北京大学医学部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 167,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(六年制本硕连读；北京大学医学部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 199,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(色盲不予录取；北京大学医学部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +83,11 @@
     "min_rank": 199,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(色盲不予录取；北京大学医学部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +98,11 @@
     "min_rank": 228,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(七年制本硕连读；北京大学医学部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +113,11 @@
     "min_rank": 389,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(医学英语；北京大学医学部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,7 +128,10 @@
     "min_rank": 1151,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(色盲不予录取；北京大学医学部)",
+    "subject_requirement": "必选化学",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   }
 ]

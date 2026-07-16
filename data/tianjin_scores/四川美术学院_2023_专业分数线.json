@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "四川美术学院",
+    "major_name": "建筑学",
+    "major_group": "专业组（4）",
+    "min_score": 597,
+    "min_rank": 13243,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/史/地(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "四川美术学院",
+    "major_name": "艺术教育",
+    "major_group": "专业组（2）",
+    "min_score": 585,
+    "min_rank": 15826,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

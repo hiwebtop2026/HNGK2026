@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "大连医科大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 705,
+    "min_rank": 1562,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(5+3一体化)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "大连医科大学",
+    "major_name": "口腔医学",
+    "major_group": "",
+    "min_score": 633,
+    "min_rank": 7049,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "大连医科大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 631,
+    "min_rank": 7322,
+    "person_count": 9,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "大连医科大学",
+    "major_name": "中西医临床医学",
+    "major_group": "",
+    "min_score": 629,
+    "min_rank": 7578,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

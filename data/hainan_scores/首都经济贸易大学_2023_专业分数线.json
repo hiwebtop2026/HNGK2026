@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "首都经济贸易大学",
+    "major_name": "金融学类",
+    "major_group": "专业组（01）",
+    "min_score": 649,
+    "min_rank": 4921,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "首都经济贸易大学",
+    "major_name": "法学",
+    "major_group": "专业组（01）",
+    "min_score": 647,
+    "min_rank": 5119,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "首都经济贸易大学",
+    "major_name": "劳动经济学",
+    "major_group": "专业组（01）",
+    "min_score": 643,
+    "min_rank": 5510,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "首都经济贸易大学",
+    "major_name": "工商管理类",
+    "major_group": "专业组（01）",
+    "min_score": 643,
+    "min_rank": 5510,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

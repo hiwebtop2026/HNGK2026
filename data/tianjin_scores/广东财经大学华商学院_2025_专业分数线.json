@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 521,
+    "min_rank": 31468,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "跨境电子商务",
+    "major_group": "",
+    "min_score": 517,
+    "min_rank": 32652,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(含产教融合创新班)(含产教融合创新班;具体培养模式详见学校招生章程)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 515,
+    "min_rank": 33196,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东财经大学华商学院",
+    "major_name": "学前教育",
+    "major_group": "",
+    "min_score": 511,
+    "min_rank": 34386,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(师范)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

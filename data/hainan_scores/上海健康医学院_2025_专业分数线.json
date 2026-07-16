@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海健康医学院",
+    "major_name": "健康服务与管理",
+    "major_group": "",
+    "min_score": 581,
+    "min_rank": 16028,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海健康医学院",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 570,
+    "min_rank": 18478,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(用人单位一般只招女生)",
+    "subject_requirement": "必选化学",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

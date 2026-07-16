@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "济宁学院",
+    "major_name": "行政管理",
+    "major_group": "",
+    "min_score": 520,
+    "min_rank": 34394,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(济宁学院)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "济宁学院",
+    "major_name": "光电信息材料与器件",
+    "major_group": "",
+    "min_score": 512,
+    "min_rank": 36711,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(济宁学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "济宁学院",
+    "major_name": "金融工程",
+    "major_group": "",
+    "min_score": 512,
+    "min_rank": 36711,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(济宁学院)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "济宁学院",
+    "major_name": "化学工程与工艺",
+    "major_group": "",
+    "min_score": 511,
+    "min_rank": 37007,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(济宁学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

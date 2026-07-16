@@ -4,12 +4,15 @@
     "school_name": "哈尔滨工业大学",
     "major_name": "工科试验班",
     "major_group": "",
-    "min_score": 812,
-    "min_rank": 105,
-    "person_count": 1,
+    "min_score": null,
+    "min_rank": 812,
+    "person_count": null,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(未来技术拔尖班)(包含专业:自动化、人工智能、计算机科学与技术、通信工程、电子信息工程、飞行器设计与工程、机器人工程、焊接技术与工程、电气工程及其自动化、复合材料与工程、智能材料与结构、集成电路设计与集成系统、微电子科学与工程、智能视觉工程、探测制导与控制技术、智能装备与系统等，校本部理工专业任选，未来技术学院培养、书院制管理，采用“一生一策”拔尖培养)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,7 +23,10 @@
     "min_rank": 161,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(AI加先进技术领军班深圳拔尖班)(包含专业:自动化、集成电路设计与集成系统、通信工程、电气工程及其自动化、计算机科学与技术;本专业类内任选专业，培养地点为深圳校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "苏州科技大学",
     "year": 2024,
+    "school_name": "苏州科技大学",
     "major_name": "财务管理",
     "major_group": "",
     "min_score": 620,
@@ -10,24 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "苏州科技大学",
     "year": 2024,
-    "major_name": "城乡规划",
-    "major_group": "",
-    "min_score": 615,
-    "min_rank": 9467,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "苏州科技大学",
-    "year": 2024,
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 614,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "苏州科技大学",
     "year": 2024,
+    "school_name": "苏州科技大学",
     "major_name": "建筑学",
     "major_group": "",
     "min_score": 612,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "苏州科技大学",
     "year": 2024,
+    "school_name": "苏州科技大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 611,
@@ -62,97 +55,53 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "苏州科技大学",
     "year": 2024,
-    "major_name": "城乡规划",
-    "major_group": "",
-    "min_score": 610,
-    "min_rank": 10420,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "苏州科技大学",
-    "year": 2024,
-    "major_name": "建筑学",
-    "major_group": "",
-    "min_score": 610,
-    "min_rank": 10420,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "苏州科技大学",
-    "year": 2024,
-    "major_name": "财务管理",
-    "major_group": "",
-    "min_score": 610,
-    "min_rank": 10420,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "苏州科技大学",
-    "year": 2024,
-    "major_name": "工商管理",
-    "major_group": "",
-    "min_score": 605,
-    "min_rank": 11264,
-    "person_count": 4,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "苏州科技大学",
-    "year": 2024,
     "major_name": "微电子科学与工程",
     "major_group": "",
-    "min_score": 600,
-    "min_rank": 12182,
-    "person_count": 4,
+    "min_score": 606,
+    "min_rank": 10952,
+    "person_count": 3,
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "苏州科技大学",
     "year": 2024,
-    "major_name": "智能建造",
-    "major_group": "",
-    "min_score": 599,
-    "min_rank": 12365,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "苏州科技大学",
-    "year": 2024,
     "major_name": "物流管理",
     "major_group": "",
-    "min_score": 589,
-    "min_rank": 14358,
-    "person_count": 4,
+    "min_score": 587,
+    "min_rank": 14506,
+    "person_count": 2,
     "batch": "本科批",
     "major_description": "(中外合作办学)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "苏州科技大学",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 565,
+    "min_rank": 19373,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

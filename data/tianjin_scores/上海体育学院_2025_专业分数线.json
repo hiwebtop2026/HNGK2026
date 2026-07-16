@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海体育学院",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 600,
+    "min_rank": 12965,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海体育学院",
+    "major_name": "医学技术类",
+    "major_group": "",
+    "min_score": 596,
+    "min_rank": 13904,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(运动人体科学、运动康复、运动与公共健康、康复治疗学；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
+  }
+]

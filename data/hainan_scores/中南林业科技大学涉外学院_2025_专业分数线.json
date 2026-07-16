@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "中南林业科技大学涉外学院",
+    "major_name": "电子商务",
+    "major_group": "",
+    "min_score": 552,
+    "min_rank": 22952,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "中南林业科技大学涉外学院",
+    "major_name": "旅游管理",
+    "major_group": "",
+    "min_score": 551,
+    "min_rank": 23195,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "中南林业科技大学涉外学院",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 502,
+    "min_rank": 36949,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

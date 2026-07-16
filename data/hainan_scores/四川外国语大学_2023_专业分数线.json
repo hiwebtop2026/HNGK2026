@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "四川外国语大学",
+    "major_name": "英语",
+    "major_group": "专业组（01）",
+    "min_score": 621,
+    "min_rank": 8154,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "四川外国语大学",
+    "major_name": "商务英语",
+    "major_group": "专业组（01）",
+    "min_score": 582,
+    "min_rank": 14796,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "四川外国语大学",
+    "major_name": "新闻传播学类",
+    "major_group": "专业组（01）",
+    "min_score": 545,
+    "min_rank": 23302,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

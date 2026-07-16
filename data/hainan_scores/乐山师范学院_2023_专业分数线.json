@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "乐山师范学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "专业组（01）",
+    "min_score": 547,
+    "min_rank": 22825,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "乐山师范学院",
+    "major_name": "汉语国际教育",
+    "major_group": "专业组（02）",
+    "min_score": 546,
+    "min_rank": 23072,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "史/地/政(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "乐山师范学院",
+    "major_name": "旅游管理",
+    "major_group": "专业组（01）",
+    "min_score": 544,
+    "min_rank": 23544,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

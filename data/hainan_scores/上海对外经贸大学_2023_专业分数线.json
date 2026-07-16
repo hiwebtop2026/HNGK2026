@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "上海对外经贸大学",
+    "major_name": "国际经济与贸易",
+    "major_group": "专业组（01）",
+    "min_score": 663,
+    "min_rank": 3746,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海对外经贸大学",
+    "major_name": "工商管理类",
+    "major_group": "专业组（01）",
+    "min_score": 652,
+    "min_rank": 4647,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海对外经贸大学",
+    "major_name": "旅游管理",
+    "major_group": "专业组（01）",
+    "min_score": 649,
+    "min_rank": 4921,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

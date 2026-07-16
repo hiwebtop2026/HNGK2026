@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "北京印刷学院",
+    "major_name": "包装工程",
+    "major_group": "专业组（03）",
+    "min_score": 578,
+    "min_rank": 15619,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "北京印刷学院",
+    "major_name": "印刷工程",
+    "major_group": "专业组（03）",
+    "min_score": 552,
+    "min_rank": 21532,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

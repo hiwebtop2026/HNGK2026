@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "西安工程大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 597,
+    "min_rank": 11934,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "西安工程大学",
+    "major_name": "机械工程",
+    "major_group": "",
+    "min_score": 593,
+    "min_rank": 12668,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

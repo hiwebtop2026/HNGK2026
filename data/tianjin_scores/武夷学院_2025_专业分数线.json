@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "武夷学院",
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 525,
+    "min_rank": 32921,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(武夷山)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "武夷学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 516,
+    "min_rank": 35525,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(武夷山)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "武夷学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 512,
+    "min_rank": 36711,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(专业体检要求详见学校招生章程；武夷山)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "武夷学院",
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": 512,
+    "min_rank": 36711,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(武夷山)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海外国语大学",
+    "major_name": "新闻传播学类",
+    "major_group": "",
+    "min_score": 713,
+    "min_rank": 1292,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海外国语大学",
+    "major_name": "西班牙语",
+    "major_group": "",
+    "min_score": 707,
+    "min_rank": 1489,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海外国语大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 700,
+    "min_rank": 1763,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海外国语大学",
+    "major_name": "德语",
+    "major_group": "",
+    "min_score": 699,
+    "min_rank": 1809,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "新乡医学院",
+    "major_name": "法医学",
+    "major_group": "",
+    "min_score": 536,
+    "min_rank": 29727,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "新乡医学院",
+    "major_name": "精神医学",
+    "major_group": "",
+    "min_score": 528,
+    "min_rank": 32064,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "新乡医学院",
+    "major_name": "放射医学",
+    "major_group": "",
+    "min_score": 515,
+    "min_rank": 35839,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "新乡医学院",
+    "major_name": "儿科学",
+    "major_group": "",
+    "min_score": 510,
+    "min_rank": 37310,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

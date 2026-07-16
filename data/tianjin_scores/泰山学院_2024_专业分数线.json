@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "泰山学院",
+    "major_name": "人力资源管理",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 33464,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(泰山学院)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "泰山学院",
+    "major_name": "历史学类",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 33464,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(文物与博物馆学、历史学(师范类))(泰山学院)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "泰山学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 33464,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(师范类)(泰山学院)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "金融学类",
     "major_group": "",
     "min_score": 670,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:金融学、投资学;学生大学二年级依据个人意愿、学习成绩、综合表现和学校相关规定在所录取专业类内确定专业)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "金融科技",
     "major_group": "",
     "min_score": 647,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 622,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "管理科学与工程类",
     "major_group": "",
     "min_score": 620,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:工程管理、房地产开发与管理;学生大学二年级依据个人意愿、学习成绩、综合表现和学校相关规定在所录取专业类内确定专业)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 613,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "市场营销",
     "major_group": "",
     "min_score": 594,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(与经济统计双学士学位)(市场营销-经济统计学双学士学位)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 585,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "日语",
     "major_group": "",
     "min_score": 584,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "新闻传播学类",
     "major_group": "",
     "min_score": 575,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:新闻学、广告学;学生大学二年级依据个人意愿、学习成绩、综合表现和学校相关规定在所录取专业类内确定专业)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "电子商务",
     "major_group": "",
     "min_score": 547,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "东北财经大学",
     "year": 2025,
+    "school_name": "东北财经大学",
     "major_name": "商务英语",
     "major_group": "",
     "min_score": 535,
@@ -140,6 +160,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

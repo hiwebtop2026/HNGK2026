@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "河北医科大学临床学院",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 555,
+    "min_rank": 22214,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选生物",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河北医科大学临床学院",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 542,
+    "min_rank": 25618,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河北医科大学临床学院",
+    "major_name": "医学影像技术",
+    "major_group": "",
+    "min_score": 511,
+    "min_rank": 34386,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河北医科大学临床学院",
+    "major_name": "中西医临床医学",
+    "major_group": "",
+    "min_score": 510,
+    "min_rank": 34670,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

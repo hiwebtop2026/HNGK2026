@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "商丘工学院",
+    "major_name": "车辆工程",
+    "major_group": "",
+    "min_score": 468,
+    "min_rank": 47226,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(虞城校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "商丘工学院",
+    "major_name": "城市地下空间工程",
+    "major_group": "",
+    "min_score": 467,
+    "min_rank": 47487,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(虞城校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

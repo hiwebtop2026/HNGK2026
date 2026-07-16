@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "上海政法学院",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 676,
+    "min_rank": 3001,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(经济法方向)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海政法学院",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 663,
+    "min_rank": 3920,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(国际经济法方向)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海政法学院",
+    "major_name": "行政管理",
+    "major_group": "",
+    "min_score": 646,
+    "min_rank": 5489,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

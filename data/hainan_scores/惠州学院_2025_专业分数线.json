@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "惠州学院",
+    "major_name": "地理信息科学",
+    "major_group": "",
+    "min_score": 580,
+    "min_rank": 16238,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色盲)",
+    "subject_requirement": "必选地理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "惠州学院",
+    "major_name": "服装设计与工程",
+    "major_group": "",
+    "min_score": 580,
+    "min_rank": 16238,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(不招色盲)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "惠州学院",
+    "major_name": "建筑学",
+    "major_group": "",
+    "min_score": 565,
+    "min_rank": 19738,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(不招色盲)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

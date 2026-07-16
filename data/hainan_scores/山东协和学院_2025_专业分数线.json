@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "山东协和学院",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 528,
+    "min_rank": 29537,
+    "person_count": 14,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选生物",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "山东协和学院",
+    "major_name": "中药学",
+    "major_group": "",
+    "min_score": 499,
+    "min_rank": 37818,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "山东协和学院",
+    "major_name": "医学影像技术",
+    "major_group": "",
+    "min_score": 487,
+    "min_rank": 41216,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "山东协和学院",
+    "major_name": "医学检验技术",
+    "major_group": "",
+    "min_score": 487,
+    "min_rank": 41216,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

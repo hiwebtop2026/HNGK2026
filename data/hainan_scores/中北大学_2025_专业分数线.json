@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "武器系统与工程",
     "major_group": "",
     "min_score": 637,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 629,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "装甲车辆工程",
     "major_group": "",
     "min_score": 628,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "探测制导与控制技术",
     "major_group": "",
     "min_score": 626,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 619,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "智能无人系统技术",
     "major_group": "",
     "min_score": 616,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 610,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "飞行器设计与工程",
     "major_group": "",
     "min_score": 608,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "高分子材料与工程",
     "major_group": "",
     "min_score": 608,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "电子科学与技术",
     "major_group": "",
     "min_score": 606,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "工业工程",
     "major_group": "",
     "min_score": 604,
@@ -140,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "机器人工程",
     "major_group": "",
     "min_score": 604,
@@ -153,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 603,
@@ -166,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "微电子科学与工程",
     "major_group": "",
     "min_score": 602,
@@ -179,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "物联网工程",
     "major_group": "",
     "min_score": 602,
@@ -192,37 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
-    "major_name": "统计学",
-    "major_group": "",
-    "min_score": 601,
-    "min_rank": 12010,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "中北大学",
-    "year": 2025,
-    "major_name": "自动化",
-    "major_group": "",
-    "min_score": 601,
-    "min_rank": 12010,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "中北大学",
-    "year": 2025,
     "major_name": "机械电子工程",
     "major_group": "",
     "min_score": 600,
@@ -231,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 599,
@@ -244,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 598,
@@ -257,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "飞行器制造工程",
     "major_group": "",
     "min_score": 598,
@@ -270,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "材料成型及控制工程",
     "major_group": "",
     "min_score": 597,
@@ -283,11 +295,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "新能源汽车工程",
     "major_group": "",
     "min_score": 596,
@@ -296,11 +310,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "工程力学",
     "major_group": "",
     "min_score": 594,
@@ -309,11 +325,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "新能源科学与工程",
     "major_group": "",
     "min_score": 594,
@@ -322,11 +340,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "智能制造工程",
     "major_group": "",
     "min_score": 594,
@@ -335,24 +355,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
-    "major_name": "能源与动力工程",
-    "major_group": "",
-    "min_score": 594,
-    "min_rank": 13340,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "中北大学",
-    "year": 2025,
     "major_name": "金属材料工程",
     "major_group": "",
     "min_score": 592,
@@ -361,11 +370,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "无机非金属材料工程",
     "major_group": "",
     "min_score": 591,
@@ -374,11 +385,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "特种能源技术与工程",
     "major_group": "",
     "min_score": 591,
@@ -387,24 +400,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
-    "major_name": "轨道交通信号与控制",
-    "major_group": "",
-    "min_score": 591,
-    "min_rank": 13911,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "中北大学",
-    "year": 2025,
     "major_name": "复合材料与工程",
     "major_group": "",
     "min_score": 590,
@@ -413,11 +415,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 589,
@@ -426,11 +430,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "新能源材料与器件",
     "major_group": "",
     "min_score": 589,
@@ -439,11 +445,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 588,
@@ -452,11 +460,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "城市地下空间工程",
     "major_group": "",
     "min_score": 588,
@@ -465,11 +475,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "能源化学工程",
     "major_group": "",
     "min_score": 588,
@@ -478,11 +490,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 587,
@@ -491,11 +505,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "船舶与海洋工程",
     "major_group": "",
     "min_score": 587,
@@ -504,11 +520,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "过程装备与控制工程",
     "major_group": "",
     "min_score": 587,
@@ -517,11 +535,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 586,
@@ -530,11 +550,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "生物工程",
     "major_group": "",
     "min_score": 586,
@@ -542,38 +564,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "中北大学",
-    "year": 2025,
-    "major_name": "市场营销",
-    "major_group": "",
-    "min_score": 582,
-    "min_rank": 15806,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "中北大学",
-    "year": 2025,
-    "major_name": "广播电视学",
-    "major_group": "",
-    "min_score": 581,
-    "min_rank": 16028,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "财务管理",
     "major_group": "",
     "min_score": 579,
@@ -582,11 +580,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "经济统计学",
     "major_group": "",
     "min_score": 575,
@@ -595,11 +595,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "中北大学",
     "year": 2025,
+    "school_name": "中北大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 571,
@@ -608,6 +610,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

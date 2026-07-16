@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "邯郸学院",
+    "major_name": "应用心理学",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 34670,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(邯郸学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "邯郸学院",
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": 510,
+    "min_rank": 37310,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(邯郸学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "邯郸学院",
+    "major_name": "食品科学与工程",
+    "major_group": "",
+    "min_score": 510,
+    "min_rank": 37310,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(邯郸学院)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

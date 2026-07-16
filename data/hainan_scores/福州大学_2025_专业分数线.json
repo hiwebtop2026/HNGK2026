@@ -8,20 +8,11 @@
     "min_rank": 3824,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "福州大学",
-    "major_name": "人文地理与城乡规划",
-    "major_group": "",
-    "min_score": 658,
-    "min_rank": 4406,
-    "person_count": 4,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(第一学年在福州市铜盘校区培养，专业体检要求详见学校招生章程)",
+    "subject_requirement": "必选地理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +23,11 @@
     "min_rank": 5164,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(第一学年在福州市铜盘校区培养，专业体检要求详见学校招生章程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,7 +38,10 @@
     "min_rank": 5663,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(第一学年在福州市铜盘校区培养，专业体检要求详见学校招生章程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

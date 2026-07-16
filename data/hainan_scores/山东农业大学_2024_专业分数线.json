@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "山东农业大学",
+    "major_name": "木材科学与工程",
+    "major_group": "",
+    "min_score": 542,
+    "min_rank": 25271,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "山东农业大学",
+    "major_name": "土木类",
+    "major_group": "",
+    "min_score": 540,
+    "min_rank": 25810,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "山东农业大学",
+    "major_name": "食品科学与工程",
+    "major_group": "",
+    "min_score": 539,
+    "min_rank": 26094,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "山东农业大学",
+    "major_name": "植物生产类",
+    "major_group": "",
+    "min_score": 538,
+    "min_rank": 26380,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

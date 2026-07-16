@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "德州学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 567,
+    "min_rank": 19243,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(师范)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "德州学院",
+    "major_name": "自然地理与资源环境",
+    "major_group": "",
+    "min_score": 564,
+    "min_rank": 19954,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选地理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

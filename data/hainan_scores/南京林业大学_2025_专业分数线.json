@@ -1,33 +1,22 @@
 [
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 643,
     "min_rank": 5904,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "南京林业大学",
-    "year": 2025,
-    "major_name": "园林",
-    "major_group": "",
-    "min_score": 640,
-    "min_rank": 6238,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "必选生物",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 639,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 637,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "林学类",
     "major_group": "",
     "min_score": 618,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:林学、智慧林业、经济林；不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "食品科学与工程类",
     "major_group": "",
     "min_score": 612,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:食品科学与工程、食品质量与安全；不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "环境科学",
     "major_group": "",
     "min_score": 609,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "测绘工程",
     "major_group": "",
     "min_score": 606,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 606,
@@ -114,24 +115,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
-    "major_name": "园艺",
-    "major_group": "",
-    "min_score": 605,
-    "min_rank": 11264,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "(不招色盲、色弱)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "南京林业大学",
-    "year": 2025,
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 604,
@@ -140,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "交通运输",
     "major_group": "",
     "min_score": 603,
@@ -153,11 +145,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "南京林业大学",
     "year": 2025,
+    "school_name": "南京林业大学",
     "major_name": "野生动物与自然保护区管理",
     "major_group": "",
     "min_score": 602,
@@ -166,6 +160,8 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

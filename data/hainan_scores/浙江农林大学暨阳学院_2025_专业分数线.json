@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "浙江农林大学暨阳学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 507,
+    "min_rank": 35551,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "浙江农林大学暨阳学院",
+    "major_name": "中药学",
+    "major_group": "",
+    "min_score": 492,
+    "min_rank": 39778,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "浙江农林大学暨阳学院",
+    "major_name": "环境工程",
+    "major_group": "",
+    "min_score": 483,
+    "min_rank": 42296,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

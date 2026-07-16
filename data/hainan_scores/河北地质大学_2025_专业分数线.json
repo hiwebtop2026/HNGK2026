@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 589,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 576,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:会计学、审计学;财会方向)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 574,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "地质类",
     "major_group": "",
     "min_score": 559,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:地质学、古生物学、资源勘查工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 555,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 553,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:通信工程、软件工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 550,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(校企深度合作办学；学费暂定15000元/年，最终以发改委批复为准)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "宝石及材料工艺学",
     "major_group": "",
     "min_score": 543,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "材料类",
     "major_group": "",
     "min_score": 543,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:材料科学与工程、矿物加工工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "水利类",
     "major_group": "",
     "min_score": 541,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:地下水科学与工程、水文与水资源工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 539,
@@ -140,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北地质大学",
     "year": 2025,
+    "school_name": "河北地质大学",
     "major_name": "测绘工程",
     "major_group": "",
     "min_score": 538,
@@ -153,6 +175,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

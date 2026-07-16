@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "河北外国语学院",
+    "major_name": "护理学",
+    "major_group": "专业组（01）",
+    "min_score": 522,
+    "min_rank": 29351,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "河北外国语学院",
+    "major_name": "财务管理",
+    "major_group": "专业组（01）",
+    "min_score": 522,
+    "min_rank": 29351,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

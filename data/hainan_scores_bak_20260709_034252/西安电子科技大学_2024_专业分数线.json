@@ -1,0 +1,86 @@
+[
+  {
+    "year": 2024,
+    "school_name": "西安电子科技大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 730,
+    "min_rank": 831,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "西安电子科技大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 726,
+    "min_rank": 925,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "西安电子科技大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 726,
+    "min_rank": 925,
+    "person_count": 2,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "西安电子科技大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 724,
+    "min_rank": 971,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "西安电子科技大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 723,
+    "min_rank": 994,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "西安电子科技大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 722,
+    "min_rank": 1028,
+    "person_count": 4,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  },
+  {
+    "year": 2024,
+    "school_name": "西安电子科技大学",
+    "major_name": "管理科学与工程类",
+    "major_group": "",
+    "min_score": 700,
+    "min_rank": 1763,
+    "person_count": 3,
+    "batch": "本科批",
+    "subject_requirement": "",
+    "province": "海南"
+  }
+]

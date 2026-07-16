@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "韶关学院",
+    "major_name": "旅游管理",
+    "major_group": "",
+    "min_score": 509,
+    "min_rank": 36219,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(大塘校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "韶关学院",
+    "major_name": "通信工程",
+    "major_group": "",
+    "min_score": 504,
+    "min_rank": 37627,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(大塘校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "福建医科大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 563,
+    "min_rank": 20702,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(五年)",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "福建医科大学",
+    "major_name": "生物信息学",
+    "major_group": "",
+    "min_score": 561,
+    "min_rank": 21198,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "福建医科大学",
+    "major_name": "智能医学工程",
+    "major_group": "",
+    "min_score": 555,
+    "min_rank": 22748,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "福建医科大学",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 523,
+    "min_rank": 31409,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选化学",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

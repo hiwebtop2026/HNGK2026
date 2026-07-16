@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "成都信息工程大学银杏酒店管理学院",
+    "major_name": "旅游管理类",
+    "major_group": "专业组（2）",
+    "min_score": 462,
+    "min_rank": 46848,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "成都信息工程大学银杏酒店管理学院",
+    "major_name": "工商管理类",
+    "major_group": "专业组（2）",
+    "min_score": 461,
+    "min_rank": 47072,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

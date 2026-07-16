@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "四川外国语大学",
+    "major_name": "商务英语",
+    "major_group": "",
+    "min_score": 585,
+    "min_rank": 15458,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(国经双学位)(商务英语+国际经济与贸易双学位专业)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "四川外国语大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 583,
+    "min_rank": 15966,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(财管双学位)(英语+财务管理双学位专业，详情请查看招生章程)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "四川外国语大学",
+    "major_name": "商务英语",
+    "major_group": "",
+    "min_score": 567,
+    "min_rank": 20336,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(与澳大利亚纽卡斯尔大学联合举办高收费双学位专业，详情请查询招生章程)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "四川外国语大学",
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 532,
+    "min_rank": 29927,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(与法国斯特拉斯堡大学合作举办双学位高收费专业，详情请查询招生章程)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

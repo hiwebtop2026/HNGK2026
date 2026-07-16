@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "济宁学院",
+    "major_name": "汉语言文学",
+    "major_group": "专业组（1）",
+    "min_score": 541,
+    "min_rank": 26748,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "史/地/政(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "济宁学院",
+    "major_name": "化学工程与工艺",
+    "major_group": "专业组（3）",
+    "min_score": 508,
+    "min_rank": 35241,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "济宁学院",
+    "major_name": "旅游管理与服务教育",
+    "major_group": "专业组（2）",
+    "min_score": 506,
+    "min_rank": 35739,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

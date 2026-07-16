@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "韶关学院",
+    "major_name": "行政管理",
+    "major_group": "",
+    "min_score": 570,
+    "min_rank": 18478,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "必选地理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "韶关学院",
+    "major_name": "车辆工程",
+    "major_group": "",
+    "min_score": 533,
+    "min_rank": 28111,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "韶关学院",
+    "major_name": "药学",
+    "major_group": "",
+    "min_score": 531,
+    "min_rank": 28663,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "韶关学院",
+    "major_name": "动物科学",
+    "major_group": "",
+    "min_score": 526,
+    "min_rank": 30093,
+    "person_count": 10,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

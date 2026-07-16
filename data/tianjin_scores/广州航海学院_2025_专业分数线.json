@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "广州航海学院",
+    "major_name": "船舶电子电气工程",
+    "major_group": "",
+    "min_score": 528,
+    "min_rank": 30110,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广州航海学院",
+    "major_name": "航海技术",
+    "major_group": "",
+    "min_score": 526,
+    "min_rank": 30614,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广州航海学院",
+    "major_name": "轮机工程",
+    "major_group": "",
+    "min_score": 521,
+    "min_rank": 31862,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

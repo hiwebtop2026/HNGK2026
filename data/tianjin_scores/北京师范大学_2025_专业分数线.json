@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 680,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(北京校区)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 676,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(卓越实验班；北京校区)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "金融学",
     "major_group": "",
     "min_score": 676,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(北京校区)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "数学与应用数学",
     "major_group": "",
     "min_score": 671,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(北京校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "心理学",
     "major_group": "",
     "min_score": 669,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(含心理学、心理学(励耘实验班)，入校后按要求选拔部分学生进入励耘实验班；北京校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "环境科学与工程类",
     "major_group": "",
     "min_score": 668,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(环境工程、环境科学、环境生态工程；其中环境工程为“统计学+环境工程”双学士学位复合型人才培养项目；北京校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "物理学类",
     "major_group": "",
     "min_score": 666,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(物理学、天文学；北京校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "化学",
     "major_group": "",
     "min_score": 665,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "(北京校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "地理科学类",
     "major_group": "",
     "min_score": 665,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(自然地理与资源环境、人文地理与城乡规划、地理信息科学、资源环境科学；北京校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
-    "school_name": "北京师范大学",
     "year": 2025,
+    "school_name": "北京师范大学",
     "major_name": "生物科学类",
     "major_group": "",
     "min_score": 665,
@@ -127,6 +145,8 @@
     "batch": "本科批",
     "major_description": "(生物技术、生态学、生物科学；北京校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   }
 ]

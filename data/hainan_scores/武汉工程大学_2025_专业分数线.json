@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "武汉工程大学",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 642,
+    "min_rank": 6010,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "武汉工程大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 638,
+    "min_rank": 6465,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(深度学习、机器人、智能金融方向)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "武汉工程大学",
+    "major_name": "信息工程",
+    "major_group": "",
+    "min_score": 635,
+    "min_rank": 6820,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(含智能信息处理方向、智能信息系统方向)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "武汉工程大学",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 634,
+    "min_rank": 6934,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

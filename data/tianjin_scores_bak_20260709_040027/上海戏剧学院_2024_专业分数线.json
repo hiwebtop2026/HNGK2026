@@ -1,0 +1,28 @@
+[
+  {
+    "school_name": "上海戏剧学院",
+    "year": 2024,
+    "major_name": "广播电视编导",
+    "major_group": "",
+    "min_score": 635,
+    "min_rank": 5689,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "高考成绩不低于特殊类型资格考生最低录取控制参考线；昌林路校区",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海戏剧学院",
+    "year": 2024,
+    "major_name": "影视摄影与制作",
+    "major_group": "",
+    "min_score": 617,
+    "min_rank": 9165,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "高考成绩不低于特殊类型资格考生最低录取控制参考线；昌林路校区",
+    "subject_requirement": "不限",
+    "province": "天津"
+  }
+]

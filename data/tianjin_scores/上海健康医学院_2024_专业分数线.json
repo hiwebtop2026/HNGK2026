@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "上海健康医学院",
+    "major_name": "医学影像技术",
+    "major_group": "",
+    "min_score": 554,
+    "min_rank": 23861,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(国家级一流本科专业建设点、上海市一流本科建设引领计划)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "上海健康医学院",
+    "major_name": "医学检验技术",
+    "major_group": "",
+    "min_score": 552,
+    "min_rank": 24389,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(上海市一流本科专业建设点)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

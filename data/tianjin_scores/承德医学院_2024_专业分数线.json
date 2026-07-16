@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "承德医学院",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 565,
+    "min_rank": 20845,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(色弱、色盲者不予录取)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "承德医学院",
+    "major_name": "护理学",
+    "major_group": "",
+    "min_score": 558,
+    "min_rank": 22798,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(色弱、色盲者不予录取)(校本部)",
+    "subject_requirement": "必选生物",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "承德医学院",
+    "major_name": "中西医临床医学",
+    "major_group": "",
+    "min_score": 541,
+    "min_rank": 27428,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(色弱、色盲者不予录取)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "承德医学院",
+    "major_name": "生物医学工程",
+    "major_group": "",
+    "min_score": 538,
+    "min_rank": 28280,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(色弱、色盲者不予录取)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

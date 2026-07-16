@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "川北医学院",
+    "major_name": "预防医学",
+    "major_group": "专业组（01）",
+    "min_score": 576,
+    "min_rank": 16084,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "川北医学院",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 568,
+    "min_rank": 17816,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

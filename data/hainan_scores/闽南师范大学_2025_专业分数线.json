@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "闽南师范大学",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 590,
+    "min_rank": 14110,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(一、二年学费5040元/生·学年，三、四年学费13360元/生·学年)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "闽南师范大学",
+    "major_name": "市场营销",
+    "major_group": "",
+    "min_score": 576,
+    "min_rank": 17094,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(大一在圆山校区就读，大二至大四在江滨校区就读)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "闽南师范大学",
+    "major_name": "广播电视编导",
+    "major_group": "",
+    "min_score": 571,
+    "min_rank": 18255,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

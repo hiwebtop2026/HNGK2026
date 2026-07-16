@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 598,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "新能源汽车工程",
     "major_group": "",
     "min_score": 592,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "遥感科学与技术",
     "major_group": "",
     "min_score": 588,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "测绘工程",
     "major_group": "",
     "min_score": 584,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "高分子材料与工程",
     "major_group": "",
     "min_score": 584,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 581,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "医学检验技术",
     "major_group": "",
     "min_score": 580,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "水文与水资源工程",
     "major_group": "",
     "min_score": 578,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 576,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "预防医学",
     "major_group": "",
     "min_score": 576,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽理工大学",
     "year": 2025,
+    "school_name": "安徽理工大学",
     "major_name": "制药工程",
     "major_group": "",
     "min_score": 575,
@@ -140,6 +160,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

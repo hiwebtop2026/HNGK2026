@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 618,
@@ -9,25 +9,14 @@
     "person_count": 3,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "郑州轻工业大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 611,
-    "min_rank": 10262,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 609,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 606,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 604,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 603,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 603,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 600,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 595,
@@ -114,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": 593,
@@ -127,24 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
-    "major_name": "化学",
-    "major_group": "",
-    "min_score": 592,
-    "min_rank": 13725,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "郑州轻工业大学",
-    "year": 2025,
     "major_name": "高分子材料与工程",
     "major_group": "",
     "min_score": 592,
@@ -153,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "建筑电气与智能化",
     "major_group": "",
     "min_score": 591,
@@ -166,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "食品科学与工程",
     "major_group": "",
     "min_score": 591,
@@ -179,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "郑州轻工业大学",
     "year": 2025,
+    "school_name": "郑州轻工业大学",
     "major_name": "数据科学",
     "major_group": "",
     "min_score": 590,
@@ -192,6 +190,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

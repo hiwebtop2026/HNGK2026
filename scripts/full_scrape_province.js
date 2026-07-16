@@ -1141,12 +1141,16 @@ async function saveRecords(records, province, schoolName, year) {
 
 async function main() {
   const args = process.argv.slice(2);
-  // 参数1: 起始索引（数字）；兼容旧用法 "省份名 索引"
   let startIndex = 0;
-  if (args.length > 0) {
-    const n = parseInt(args[0]);
-    if (!isNaN(n)) startIndex = n;
-    else if (args.length > 1) { const n2 = parseInt(args[1]); if (!isNaN(n2)) startIndex = n2; }
+  let useRescrapeList = false;
+
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === '--rescrape' || args[i] === '-r') {
+      useRescrapeList = true;
+    } else {
+      const n = parseInt(args[i]);
+      if (!isNaN(n)) startIndex = n;
+    }
   }
 
   console.log('='.repeat(70));
@@ -1155,23 +1159,36 @@ async function main() {
   console.log('📅 采集年份:', YEARS.join(', '));
   console.log('='.repeat(70));
 
-  // 合并所有省份的院校列表（去重）：同一院校页面只加载一次，依次切换地区采集
-  const schoolSet = new Set();
-  for (const prov of PROVINCES) {
-    const file = path.join(__dirname, '..', 'data', prov.schoolsFile);
-    if (!fs.existsSync(file)) {
-      console.log('⚠ 院校列表文件不存在，跳过:', file);
-      continue;
+  let schools;
+  if (useRescrapeList) {
+    const rescrapeFile = path.join(__dirname, '..', 'data', 'tianjin_rescrape_list.json');
+    if (!fs.existsSync(rescrapeFile)) {
+      console.error('❌ 重采列表文件不存在:', rescrapeFile);
+      process.exit(1);
     }
-    let content = fs.readFileSync(file, 'utf-8');
+    let content = fs.readFileSync(rescrapeFile, 'utf-8');
     if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
-    const list = JSON.parse(content);
-    for (const s of list) schoolSet.add(s);
+    schools = JSON.parse(content);
+    console.log('🔄 使用重采列表模式');
+    console.log('📊 重采院校总数:', schools.length, '所');
+  } else {
+    const schoolSet = new Set();
+    for (const prov of PROVINCES) {
+      const file = path.join(__dirname, '..', 'data', prov.schoolsFile);
+      if (!fs.existsSync(file)) {
+        console.log('⚠ 院校列表文件不存在，跳过:', file);
+        continue;
+      }
+      let content = fs.readFileSync(file, 'utf-8');
+      if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
+      const list = JSON.parse(content);
+      for (const s of list) schoolSet.add(s);
+    }
+    schools = Array.from(schoolSet);
   }
-  const schools = Array.from(schoolSet);
+
   const schoolsToProcess = schools.slice(startIndex);
 
-  console.log('📊 合并院校总数:', schools.length, '(去重后)');
   console.log('📍 起始索引:', startIndex, '(待处理:', schoolsToProcess.length, '所)');
   console.log('='.repeat(70));
 

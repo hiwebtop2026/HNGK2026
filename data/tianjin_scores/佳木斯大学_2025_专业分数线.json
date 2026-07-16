@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "佳木斯大学",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 534,
+    "min_rank": 30332,
+    "person_count": 15,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化+生(3科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "佳木斯大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 507,
+    "min_rank": 38187,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "佳木斯大学",
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 505,
+    "min_rank": 38775,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "佳木斯大学",
+    "major_name": "物业管理",
+    "major_group": "",
+    "min_score": 503,
+    "min_rank": 39379,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

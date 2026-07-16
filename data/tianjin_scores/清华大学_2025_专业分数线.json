@@ -8,8 +8,11 @@
     "min_rank": 10,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(经济、金融与管理；计算机科学与技术与金融学双学位等专业；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 21,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(新雅书院；智能工程与创意设计等各专业；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 25,
     "person_count": 7,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(计算机科学与技术、计算机科学与技术计算机科学实验班；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,8 +53,11 @@
     "min_rank": 30,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(协和；临床医学；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +68,11 @@
     "min_rank": 37,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(无穹书院；人工智能等专业；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +83,11 @@
     "min_rank": 37,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(新雅书院；社会学等全校各专业；清华大学)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +98,11 @@
     "min_rank": 50,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(数理类；数学与应用数学、物理学、数理基础科学、统计学、工程物理、工程物理能源实验班；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,8 +113,11 @@
     "min_rank": 50,
     "person_count": 7,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(电子信息科学与技术；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +128,11 @@
     "min_rank": 50,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(自动化含信息管理信息系统方向；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,8 +143,11 @@
     "min_rank": 58,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(智能制造与装备类；车辆工程、机械工程含实验班；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -128,8 +158,11 @@
     "min_rank": 71,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(水木书院；交叉工程等专业；清华大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,8 +173,11 @@
     "min_rank": 71,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(至善书院；经济学、社会学；清华大学)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,7 +188,10 @@
     "min_rank": 106,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(经济、金融与管理；经济与金融国际班；清华大学)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "985",
+    "nature": "公办"
   }
 ]

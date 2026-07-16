@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 625,
@@ -9,25 +9,14 @@
     "person_count": 3,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "重庆交通大学",
-    "year": 2025,
-    "major_name": "知识产权",
-    "major_group": "",
-    "min_score": 625,
-    "min_rank": 8143,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "交通运输类",
     "major_group": "",
     "min_score": 616,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:交通运输、交通工程、交通设备与控制工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "交通管理",
     "major_group": "",
     "min_score": 614,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 613,
@@ -61,25 +54,14 @@
     "person_count": 3,
     "batch": "本科批",
     "major_description": "(包含专业:工商管理、会计学、市场营销)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "重庆交通大学",
-    "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 612,
-    "min_rank": 10091,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 611,
@@ -88,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 610,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 607,
@@ -113,25 +99,14 @@
     "person_count": 3,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "重庆交通大学",
-    "year": 2025,
-    "major_name": "飞行器动力工程",
-    "major_group": "",
-    "min_score": 607,
-    "min_rank": 10923,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": 600,
@@ -140,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 599,
@@ -153,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(城市更新实验班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 597,
@@ -166,37 +145,13 @@
     "batch": "本科批",
     "major_description": "(隧道与地下工程卓越班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
-    "major_name": "智慧交通",
-    "major_group": "",
-    "min_score": 597,
-    "min_rank": 12734,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "重庆交通大学",
-    "year": 2025,
-    "major_name": "智能建造",
-    "major_group": "",
-    "min_score": 597,
-    "min_rank": 12734,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "重庆交通大学",
-    "year": 2025,
     "major_name": "港口航道与海岸工程",
     "major_group": "",
     "min_score": 596,
@@ -205,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "智能材料与结构",
     "major_group": "",
     "min_score": 595,
@@ -218,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "重庆交通大学",
     "year": 2025,
+    "school_name": "重庆交通大学",
     "major_name": "测绘工程",
     "major_group": "",
     "min_score": 595,
@@ -231,6 +190,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

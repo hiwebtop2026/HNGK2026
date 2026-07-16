@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "河北农业大学",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 566,
+    "min_rank": 21500,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "(保定校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河北农业大学",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 545,
+    "min_rank": 27231,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "(保定校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河北农业大学",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 528,
+    "min_rank": 32064,
+    "person_count": 7,
+    "batch": "本科批",
+    "major_description": "(保定校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

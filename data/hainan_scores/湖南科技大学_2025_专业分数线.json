@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 629,
@@ -9,25 +9,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "湖南科技大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 624,
-    "min_rank": 8280,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 624,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "教育学",
     "major_group": "",
     "min_score": 619,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 614,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 613,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 613,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "教育技术学",
     "major_group": "",
     "min_score": 610,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "数字经济",
     "major_group": "",
     "min_score": 610,
@@ -113,25 +114,14 @@
     "person_count": 3,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "湖南科技大学",
-    "year": 2025,
-    "major_name": "海洋机器人",
-    "major_group": "",
-    "min_score": 608,
-    "min_rank": 10765,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 607,
@@ -140,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "金融工程",
     "major_group": "",
     "min_score": 607,
@@ -153,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "应用心理学",
     "major_group": "",
     "min_score": 606,
@@ -166,11 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 606,
@@ -179,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(卓越工程师班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 603,
@@ -191,25 +189,14 @@
     "person_count": 3,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "湖南科技大学",
-    "year": 2025,
-    "major_name": "新闻学",
-    "major_group": "",
-    "min_score": 602,
-    "min_rank": 11828,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "建筑学",
     "major_group": "",
     "min_score": 601,
@@ -218,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 601,
@@ -231,11 +220,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "信息安全",
     "major_group": "",
     "min_score": 600,
@@ -244,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 599,
@@ -257,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "公共事业管理",
     "major_group": "",
     "min_score": 598,
@@ -270,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 598,
@@ -283,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 598,
@@ -295,25 +294,14 @@
     "person_count": 3,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "湖南科技大学",
-    "year": 2025,
-    "major_name": "人工智能",
-    "major_group": "",
-    "min_score": 597,
-    "min_rank": 12734,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "历史学",
     "major_group": "",
     "min_score": 596,
@@ -322,11 +310,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "物联网工程",
     "major_group": "",
     "min_score": 596,
@@ -335,11 +325,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "电子信息科学与技术",
     "major_group": "",
     "min_score": 596,
@@ -348,11 +340,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 595,
@@ -361,11 +355,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 595,
@@ -373,51 +369,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "(卓越工程师班)",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "湖南科技大学",
-    "year": 2025,
-    "major_name": "城乡规划",
-    "major_group": "",
-    "min_score": 595,
-    "min_rank": 13116,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
-    "major_name": "日语",
-    "major_group": "",
-    "min_score": 595,
-    "min_rank": 13116,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "湖南科技大学",
-    "year": 2025,
-    "major_name": "翻译",
-    "major_group": "",
-    "min_score": 595,
-    "min_rank": 13116,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "湖南科技大学",
-    "year": 2025,
     "major_name": "车辆工程",
     "major_group": "",
     "min_score": 594,
@@ -426,11 +385,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 593,
@@ -439,11 +400,13 @@
     "batch": "本科批",
     "major_description": "(海牛实验班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "智能制造工程",
     "major_group": "",
     "min_score": 591,
@@ -452,11 +415,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 590,
@@ -465,11 +430,13 @@
     "batch": "本科批",
     "major_description": "(智能创新班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "安全工程",
     "major_group": "",
     "min_score": 589,
@@ -478,24 +445,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
-    "major_name": "集成电路设计与集成系统",
-    "major_group": "",
-    "min_score": 586,
-    "min_rank": 14931,
-    "person_count": 6,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "湖南科技大学",
-    "year": 2025,
     "major_name": "应急技术与管理",
     "major_group": "",
     "min_score": 584,
@@ -504,11 +460,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "材料成型及控制工程",
     "major_group": "",
     "min_score": 580,
@@ -517,11 +475,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "生物工程",
     "major_group": "",
     "min_score": 580,
@@ -530,24 +490,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
-    "major_name": "应用统计学",
-    "major_group": "",
-    "min_score": 579,
-    "min_rank": 16448,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "湖南科技大学",
-    "year": 2025,
     "major_name": "物理学",
     "major_group": "",
     "min_score": 578,
@@ -556,11 +505,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "智能材料与结构",
     "major_group": "",
     "min_score": 576,
@@ -569,24 +520,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 575,
-    "min_rank": 17339,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "湖南科技大学",
-    "year": 2025,
     "major_name": "材料科学与工程",
     "major_group": "",
     "min_score": 575,
@@ -595,11 +535,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "制药工程",
     "major_group": "",
     "min_score": 574,
@@ -608,11 +550,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "勘查技术与工程",
     "major_group": "",
     "min_score": 574,
@@ -621,24 +565,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
-    "major_name": "化学",
-    "major_group": "",
-    "min_score": 574,
-    "min_rank": 17584,
-    "person_count": 5,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "湖南科技大学",
-    "year": 2025,
     "major_name": "化学工程与工艺",
     "major_group": "",
     "min_score": 574,
@@ -647,11 +580,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "工程力学",
     "major_group": "",
     "min_score": 574,
@@ -660,24 +595,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
-    "major_name": "应用化学",
-    "major_group": "",
-    "min_score": 574,
-    "min_rank": 17584,
-    "person_count": 5,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "湖南科技大学",
-    "year": 2025,
     "major_name": "遥感科学与技术",
     "major_group": "",
     "min_score": 574,
@@ -686,11 +610,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 573,
@@ -699,11 +625,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 572,
@@ -712,11 +640,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "建筑环境与能源应用工程",
     "major_group": "",
     "min_score": 572,
@@ -725,11 +655,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "湖南科技大学",
     "year": 2025,
+    "school_name": "湖南科技大学",
     "major_name": "生物科学",
     "major_group": "",
     "min_score": 572,
@@ -738,19 +670,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "湖南科技大学",
-    "year": 2025,
-    "major_name": "智能建造",
-    "major_group": "",
-    "min_score": 571,
-    "min_rank": 18255,
-    "person_count": 5,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

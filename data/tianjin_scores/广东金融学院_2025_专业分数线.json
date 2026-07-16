@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "广东金融学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 582,
+    "min_rank": 17292,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(第一、二学年在肇庆校区就读，第三、四学年在广州校本部就读)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东金融学院",
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 572,
+    "min_rank": 19855,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(第一、二学年在清远校区就读，第三、四学年在广州校本部就读)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广东金融学院",
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 560,
+    "min_rank": 23083,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(“2+2”国际班，与澳大利亚蒙纳士大学、英国贝尔法斯特女王大学等联合培养项目，在国内学习期间除学费外须另缴纳33800元/学年培养费；具体培养模式和学习费用请查看学校网站；专业课均使用英语教材双语授课，请非英语语种的考生慎重报考；广州校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

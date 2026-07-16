@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "北京印刷学院",
+    "major_name": "传播学",
+    "major_group": "",
+    "min_score": 624,
+    "min_rank": 8280,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(实验班)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京印刷学院",
+    "major_name": "包装工程",
+    "major_group": "",
+    "min_score": 560,
+    "min_rank": 20915,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(智能包装)(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京印刷学院",
+    "major_name": "印刷工程",
+    "major_group": "",
+    "min_score": 557,
+    "min_rank": 21656,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(不招色盲、色弱)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

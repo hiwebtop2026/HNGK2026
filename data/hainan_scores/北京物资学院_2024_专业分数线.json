@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "北京物资学院",
     "year": 2024,
+    "school_name": "北京物资学院",
     "major_name": "物流管理",
     "major_group": "",
     "min_score": 625,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "北京物资学院",
     "year": 2024,
+    "school_name": "北京物资学院",
     "major_name": "财务管理",
     "major_group": "",
     "min_score": 616,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "北京物资学院",
     "year": 2024,
+    "school_name": "北京物资学院",
     "major_name": "供应链管理",
     "major_group": "",
     "min_score": 608,
@@ -36,24 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "北京物资学院",
     "year": 2024,
-    "major_name": "劳动与社会保障",
-    "major_group": "",
-    "min_score": 606,
-    "min_rank": 10952,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "北京物资学院",
-    "year": 2024,
     "major_name": "物流工程",
     "major_group": "",
     "min_score": 594,
@@ -62,84 +55,23 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "北京物资学院",
     "year": 2024,
-    "major_name": "物流工程",
-    "major_group": "",
-    "min_score": 604,
-    "min_rank": 11462,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
     "school_name": "北京物资学院",
-    "year": 2024,
-    "major_name": "物流管理",
-    "major_group": "",
-    "min_score": 604,
-    "min_rank": 11462,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "北京物资学院",
-    "year": 2024,
     "major_name": "信息管理与信息系统",
     "major_group": "",
-    "min_score": 603,
-    "min_rank": 11640,
+    "min_score": 592,
+    "min_rank": 13501,
     "person_count": 1,
     "batch": "本科批",
     "major_description": "(数智化管理实验班)",
     "subject_requirement": "必选物理",
-    "province": "海南"
-  },
-  {
-    "school_name": "北京物资学院",
-    "year": 2024,
-    "major_name": "劳动与社会保障",
-    "major_group": "",
-    "min_score": 602,
-    "min_rank": 11828,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "北京物资学院",
-    "year": 2024,
-    "major_name": "财务管理",
-    "major_group": "",
-    "min_score": 601,
-    "min_rank": 12010,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "北京物资学院",
-    "year": 2024,
-    "major_name": "供应链管理",
-    "major_group": "",
-    "min_score": 596,
-    "min_rank": 12911,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

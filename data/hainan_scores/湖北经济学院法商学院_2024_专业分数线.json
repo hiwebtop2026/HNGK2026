@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "湖北经济学院法商学院",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 535,
+    "min_rank": 27215,
+    "person_count": 11,
+    "batch": "本科批",
+    "major_description": "(注册会计师)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "湖北经济学院法商学院",
+    "major_name": "跨境电子商务",
+    "major_group": "",
+    "min_score": 533,
+    "min_rank": 27726,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

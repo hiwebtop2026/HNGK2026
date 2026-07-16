@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "云南农业大学",
+    "major_name": "咖啡科学与工程",
+    "major_group": "",
+    "min_score": 527,
+    "min_rank": 32342,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(普洱校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "云南农业大学",
+    "major_name": "动物医学",
+    "major_group": "",
+    "min_score": 516,
+    "min_rank": 35525,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "云南农业大学",
+    "major_name": "生物技术",
+    "major_group": "",
+    "min_score": 510,
+    "min_rank": 37310,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

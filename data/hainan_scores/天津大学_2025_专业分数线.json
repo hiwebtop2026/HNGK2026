@@ -8,8 +8,11 @@
     "min_rank": 538,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(未来技术学院)(含未来智能机器与系统平台、国家储能平台(储能科学与工程)(首批国家级未来技术学院，重点面向人工智能、新型储能、智能制造、具身智能等新工科领域，超常规培养、项目式、小班化、导师制、国际化教学)；或选择王守融班、吴咏诗英才班、电气卓越创新计划、师昌绪班等各学院大师班；或全校其他专业)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 575,
     "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智能制造与建造)(包含专业:工程力学、工业设计、机械设计制造及其自动化、能源与动力工程、智能制造工程、港口航道与海岸工程、水利水电工程、土木工程、建筑环境与能源应用工程、材料成型及控制工程、智慧建筑与建造)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,8 +38,11 @@
     "min_rank": 689,
     "person_count": 8,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智能与计算类)(包含专业:计算机科学与技术、人工智能、软件工程、网络空间安全;大类中软件工程专业后两年收费为14000元/年)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -44,7 +53,10 @@
     "min_rank": 1763,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:城乡规划、风景园林、建筑学(5年制)；不招色盲、色弱)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "985",
+    "nature": "公办"
   }
 ]

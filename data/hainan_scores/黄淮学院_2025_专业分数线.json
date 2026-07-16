@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "黄淮学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 572,
+    "min_rank": 18018,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选历史",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "黄淮学院",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 566,
+    "min_rank": 19444,
+    "person_count": 15,
+    "batch": "本科批",
+    "major_description": "(注册会计师方向)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "黄淮学院",
+    "major_name": "商务经济学",
+    "major_group": "",
+    "min_score": 564,
+    "min_rank": 19954,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "黄淮学院",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 519,
+    "min_rank": 32070,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(与印度迈索尔大学合作办学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

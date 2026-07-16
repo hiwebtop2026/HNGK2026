@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海戏剧学院",
+    "major_name": "戏剧影视文学",
+    "major_group": "",
+    "min_score": 595,
+    "min_rank": 13015,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海戏剧学院",
+    "major_name": "艺术管理",
+    "major_group": "",
+    "min_score": 590,
+    "min_rank": 14102,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海戏剧学院",
+    "major_name": "戏剧教育",
+    "major_group": "",
+    "min_score": 584,
+    "min_rank": 15547,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

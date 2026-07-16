@@ -1,50 +1,62 @@
 [
   {
-    "school_name": "宁夏大学",
     "year": 2024,
-    "major_name": "智能科学与技术",
+    "school_name": "宁夏大学",
+    "major_name": "计算机科学与技术",
     "major_group": "",
-    "min_score": 610,
-    "min_rank": 10681,
+    "min_score": 609,
+    "min_rank": 9715,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "宁夏大学",
     "year": 2024,
+    "school_name": "宁夏大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 608,
-    "min_rank": 11105,
+    "min_rank": 9938,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "宁夏大学",
     "year": 2024,
+    "school_name": "宁夏大学",
     "major_name": "经济学",
     "major_group": "",
-    "min_score": 605,
-    "min_rank": 11793,
+    "min_score": 607,
+    "min_rank": 10160,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "宁夏大学",
     "year": 2024,
+    "school_name": "宁夏大学",
     "major_name": "机械工程",
     "major_group": "",
-    "min_score": 599,
-    "min_rank": 13198,
+    "min_score": 592,
+    "min_rank": 13724,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(中外合作办学)(马来西亚彭亨大学合作办学)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   }
 ]

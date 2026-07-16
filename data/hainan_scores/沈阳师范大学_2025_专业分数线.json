@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "沈阳师范大学",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 573,
+    "min_rank": 17772,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(前两年学费4800元/年，后两年学费13500元/年;外语课程用英语教学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "沈阳师范大学",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 569,
+    "min_rank": 18735,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(前两年学费4800元/年，后两年学费13500元/年;外语课程用英语教学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

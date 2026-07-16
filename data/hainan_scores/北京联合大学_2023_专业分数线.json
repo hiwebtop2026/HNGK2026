@@ -1,54 +1,32 @@
 [
   {
-    "school_name": "北京联合大学",
     "year": 2023,
+    "school_name": "北京联合大学",
     "major_name": "旅游管理",
     "major_group": "专业组（01）",
     "min_score": 573,
     "min_rank": 16667,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "专业组（01） - 不限",
+    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "北京联合大学",
     "year": 2023,
+    "school_name": "北京联合大学",
     "major_name": "酒店管理",
     "major_group": "专业组（01）",
     "min_score": 573,
     "min_rank": 16667,
     "person_count": 3,
     "batch": "本科批",
-    "major_description": "专业组（01） - 不限",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "北京联合大学",
-    "year": 2023,
-    "major_name": "会展经济与管理",
-    "major_group": "专业组（01）",
-    "min_score": 599,
-    "min_rank": 12365,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "北京联合大学",
-    "year": 2023,
-    "major_name": "旅游管理",
-    "major_group": "专业组（01）",
-    "min_score": 592,
-    "min_rank": 13725,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

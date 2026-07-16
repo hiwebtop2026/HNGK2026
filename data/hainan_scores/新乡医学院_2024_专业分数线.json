@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "新乡医学院",
+    "major_name": "医学影像学",
+    "major_group": "",
+    "min_score": 564,
+    "min_rank": 19597,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "新乡医学院",
+    "major_name": "临床医学",
+    "major_group": "",
+    "min_score": 543,
+    "min_rank": 24997,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "新乡医学院",
+    "major_name": "法医学",
+    "major_group": "",
+    "min_score": 538,
+    "min_rank": 26380,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

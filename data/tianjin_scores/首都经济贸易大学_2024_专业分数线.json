@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "首都经济贸易大学",
+    "major_name": "公共管理类",
+    "major_group": "",
+    "min_score": 615,
+    "min_rank": 8391,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(行政管理、土地资源管理、城市管理、城市管理(区域经济管理))(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "首都经济贸易大学",
+    "major_name": "经济统计学",
+    "major_group": "",
+    "min_score": 610,
+    "min_rank": 9504,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "首都经济贸易大学",
+    "major_name": "工业工程",
+    "major_group": "",
+    "min_score": 605,
+    "min_rank": 10633,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "首都经济贸易大学",
+    "major_name": "数字经济",
+    "major_group": "",
+    "min_score": 605,
+    "min_rank": 10633,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(中外合作办学)(只录取有该专业志愿的考生，外语单科成绩不低于105分)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "攀枝花学院",
+    "major_name": "商务英语",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 20885,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "攀枝花学院",
+    "major_name": "生物工程",
+    "major_group": "",
+    "min_score": 512,
+    "min_rank": 33659,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

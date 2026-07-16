@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "武汉工程大学",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 594,
+    "min_rank": 13205,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "武汉工程大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 593,
+    "min_rank": 13469,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(计算机科学与技术、智能科学与技术、物联网工程、数字媒体技术、网络空间安全、软件工程)(校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "武汉工程大学",
+    "major_name": "工商管理",
+    "major_group": "",
+    "min_score": 563,
+    "min_rank": 21441,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(数智化人才管理方向)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "武汉工程大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 562,
+    "min_rank": 21703,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(含文化传播、英语教育、商务、涉外法务方向)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

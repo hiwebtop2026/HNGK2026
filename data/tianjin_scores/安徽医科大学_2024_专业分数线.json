@@ -1,26 +1,32 @@
 [
   {
-    "school_name": "安徽医科大学",
     "year": 2024,
+    "school_name": "安徽医科大学",
     "major_name": "口腔医学",
     "major_group": "",
-    "min_score": 626,
-    "min_rank": 7354,
+    "min_score": 623,
+    "min_rank": 6808,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(不招色盲、色弱考生)(新医科中心)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "安徽医科大学",
     "year": 2024,
+    "school_name": "安徽医科大学",
     "major_name": "临床医学",
     "major_group": "",
-    "min_score": 623,
-    "min_rank": 7919,
+    "min_score": 621,
+    "min_rank": 7197,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "天津"
+    "major_description": "(不招色盲、色弱考生)(新医科中心)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

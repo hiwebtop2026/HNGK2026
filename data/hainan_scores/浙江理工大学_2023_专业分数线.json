@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "浙江理工大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 663,
+    "min_rank": 3746,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "浙江理工大学",
+    "major_name": "工商管理类",
+    "major_group": "专业组（01）",
+    "min_score": 630,
+    "min_rank": 6990,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "浙江理工大学",
+    "major_name": "材料类",
+    "major_group": "",
+    "min_score": 628,
+    "min_rank": 7228,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（03） - 必选化学",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "浙江理工大学",
+    "major_name": "生物科学类",
+    "major_group": "专业组（04）",
+    "min_score": 628,
+    "min_rank": 7228,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "化/生(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

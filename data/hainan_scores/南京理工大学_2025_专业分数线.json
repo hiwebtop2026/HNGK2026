@@ -8,8 +8,11 @@
     "min_rank": 1454,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:计算机科学与技术、软件工程、智能科学与技术;第一学年在江阴校区学习，第二、三、四学年在南京校区学习)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -20,8 +23,11 @@
     "min_rank": 1528,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:电子科学与技术、电子信息工程、光电信息科学与工程、通信工程；第一学年在江阴校区学习，第二、三、四学年在南京校区学习)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,20 +38,11 @@
     "min_rank": 1562,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "南京理工大学",
-    "major_name": "能源动力类",
-    "major_group": "",
-    "min_score": 704,
-    "min_rank": 1610,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:储能科学与工程、能源与动力工程；第一学年在江阴校区学习，第二、三、四学年在南京校区学习)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,8 +53,11 @@
     "min_rank": 1720,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:弹药工程与爆炸技术、武器系统与工程；第一学年在江阴校区学习，第二、三、四学年在南京校区学习)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -68,8 +68,11 @@
     "min_rank": 1853,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:材料化学、高分子材料与工程、化学工程与工艺、应用化学、制药工程；第一学年在江阴校区学习，第二、三、四学年在南京校区学习)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,20 +83,11 @@
     "min_rank": 1889,
     "person_count": 8,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "南京理工大学",
-    "major_name": "语言学",
-    "major_group": "",
-    "min_score": 682,
-    "min_rank": 2657,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(语言信息智能处理)(第一学年在江阴校区学习，第二、三、四学年在南京校区学习)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -104,8 +98,11 @@
     "min_rank": 3221,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:国际经济与贸易、金融学;第一学年在江阴校区学习，第二、三、四学年在南京校区学习)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -116,7 +113,10 @@
     "min_rank": 3448,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:会计学、人力资源管理;第一学年在江阴校区学习，第二、三、四学年在南京校区学习)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

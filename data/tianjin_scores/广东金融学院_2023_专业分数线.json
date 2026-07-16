@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "广东金融学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 573,
+    "min_rank": 18699,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "（金融计算机应用）",
+    "subject_requirement": "专业组（4） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广东金融学院",
+    "major_name": "金融学",
+    "major_group": "专业组（1）",
+    "min_score": 573,
+    "min_rank": 18699,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/政(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "广东金融学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "专业组（3）",
+    "min_score": 572,
+    "min_rank": 18938,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

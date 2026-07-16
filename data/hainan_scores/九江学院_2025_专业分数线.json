@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "九江学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 565,
+    "min_rank": 19738,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "九江学院",
+    "major_name": "工程造价",
+    "major_group": "",
+    "min_score": 555,
+    "min_rank": 22214,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "九江学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 551,
+    "min_rank": 23195,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "九江学院",
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": 549,
+    "min_rank": 23760,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "华南农业大学珠江学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 491,
+    "min_rank": 40093,
+    "person_count": 16,
+    "batch": "本科批",
+    "major_description": "(第一学年肇庆校区，第二至四学年广州校区)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "华南农业大学珠江学院",
+    "major_name": "金融工程",
+    "major_group": "",
+    "min_score": 481,
+    "min_rank": 42847,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(第一学年肇庆校区，第二至四学年广州校区)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

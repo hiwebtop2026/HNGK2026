@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "南京森林警察学院",
+    "major_name": "刑事科学技术",
+    "major_group": "专业组（01）",
+    "min_score": 590,
+    "min_rank": 10872,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "（视听技术）（面向地方公安机关就业）",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京森林警察学院",
+    "major_name": "刑事科学技术",
+    "major_group": "专业组（02）",
+    "min_score": 565,
+    "min_rank": 15240,
+    "person_count": 15,
+    "batch": "本科批",
+    "major_description": "（面向地方公安机关就业）",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "南京森林警察学院",
+    "major_name": "公安管理学",
+    "major_group": "",
+    "min_score": 470,
+    "min_rank": 35226,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "（面向地方公安机关就业）",
+    "subject_requirement": "专业组（02） - 必选政治",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

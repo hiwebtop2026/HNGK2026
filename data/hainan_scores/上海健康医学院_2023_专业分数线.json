@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "上海健康医学院",
+    "major_name": "医学影像技术",
+    "major_group": "专业组（02）",
+    "min_score": 582,
+    "min_rank": 14796,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海健康医学院",
+    "major_name": "护理学",
+    "major_group": "专业组（02）",
+    "min_score": 582,
+    "min_rank": 14796,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海健康医学院",
+    "major_name": "食品卫生与营养学",
+    "major_group": "专业组（02）",
+    "min_score": 575,
+    "min_rank": 16253,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "武昌理工学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 544,
+    "min_rank": 24716,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "武昌理工学院",
+    "major_name": "工程造价",
+    "major_group": "",
+    "min_score": 525,
+    "min_rank": 29966,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "武昌理工学院",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 506,
+    "min_rank": 35366,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(科大讯飞精英班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "武昌理工学院",
+    "major_name": "智能科学与技术",
+    "major_group": "",
+    "min_score": 483,
+    "min_rank": 41779,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(科大讯飞精英班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

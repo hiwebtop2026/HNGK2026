@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "哈尔滨华德学院",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 33499,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(英才班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "哈尔滨华德学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 501,
+    "min_rank": 37236,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "哈尔滨华德学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "",
+    "min_score": 500,
+    "min_rank": 37504,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "哈尔滨华德学院",
+    "major_name": "大数据管理与应用",
+    "major_group": "",
+    "min_score": 493,
+    "min_rank": 39505,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(英才班)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

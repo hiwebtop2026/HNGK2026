@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "安徽财经大学",
+    "major_name": "会计学",
+    "major_group": "",
+    "min_score": 591,
+    "min_rank": 13987,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(龙湖东校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "安徽财经大学",
+    "major_name": "经济学类",
+    "major_group": "",
+    "min_score": 587,
+    "min_rank": 14985,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(经济学、国民经济管理)(龙湖东校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "安徽财经大学",
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 583,
+    "min_rank": 15966,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(龙湖东校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "安徽财经大学",
+    "major_name": "经济与贸易类",
+    "major_group": "",
+    "min_score": 582,
+    "min_rank": 16244,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(国际经济与贸易、贸易经济)(龙湖东校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

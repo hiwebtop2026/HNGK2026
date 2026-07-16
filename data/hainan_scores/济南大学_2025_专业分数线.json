@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "应急管理",
     "major_group": "",
     "min_score": 605,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "特殊教育",
     "major_group": "",
     "min_score": 592,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(师范)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "公共管理类",
     "major_group": "",
     "min_score": 589,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:行政管理、劳动与社会保障)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "文化产业管理",
     "major_group": "",
     "min_score": 588,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 579,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "旅游管理",
     "major_group": "",
     "min_score": 575,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "新能源科学与工程",
     "major_group": "",
     "min_score": 568,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "机械工程",
     "major_group": "",
     "min_score": 568,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "智能制造工程",
     "major_group": "",
     "min_score": 567,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 565,
@@ -127,24 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
-    "major_name": "工业设计",
-    "major_group": "",
-    "min_score": 564,
-    "min_rank": 19954,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "济南大学",
-    "year": 2025,
     "major_name": "水利类",
     "major_group": "",
     "min_score": 561,
@@ -153,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:水文与水资源工程、水利水电工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "材料类",
     "major_group": "",
     "min_score": 558,
@@ -166,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:材料物理、材料科学与工程、复合材料与工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "化工与制药类",
     "major_group": "",
     "min_score": 557,
@@ -179,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:高分子材料与工程、化学工程与工艺)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "济南大学",
     "year": 2025,
+    "school_name": "济南大学",
     "major_name": "化学类",
     "major_group": "",
     "min_score": 556,
@@ -192,6 +205,8 @@
     "batch": "本科批",
     "major_description": "(包含专业:化学(师范类)、应用化学)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

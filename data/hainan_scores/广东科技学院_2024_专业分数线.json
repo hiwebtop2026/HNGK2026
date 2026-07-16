@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "广东科技学院",
+    "major_name": "电子商务",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 33109,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广东科技学院",
+    "major_name": "物联网工程",
+    "major_group": "",
+    "min_score": 491,
+    "min_rank": 39563,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广东科技学院",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 489,
+    "min_rank": 40101,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

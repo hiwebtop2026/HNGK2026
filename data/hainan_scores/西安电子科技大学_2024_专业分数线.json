@@ -2,38 +2,32 @@
   {
     "year": 2024,
     "school_name": "西安电子科技大学",
-    "major_name": "电子信息类",
-    "major_group": "",
-    "min_score": 730,
-    "min_rank": 831,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2024,
-    "school_name": "西安电子科技大学",
-    "major_name": "电子信息类",
-    "major_group": "",
-    "min_score": 726,
-    "min_rank": 925,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2024,
-    "school_name": "西安电子科技大学",
     "major_name": "计算机类",
     "major_group": "",
-    "min_score": 726,
-    "min_rank": 925,
-    "person_count": 2,
+    "min_score": 742,
+    "min_rank": 599,
+    "person_count": 1,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(新工科一流人才计划创新实验班)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "西安电子科技大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 735,
+    "min_rank": 725,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(通信)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2024,
@@ -41,11 +35,29 @@
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 724,
-    "min_rank": 971,
+    "min_rank": 957,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(集成电路)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "西安电子科技大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 723,
+    "min_rank": 985,
     "person_count": 3,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(电子工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2024,
@@ -53,11 +65,14 @@
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 723,
-    "min_rank": 994,
-    "person_count": 3,
+    "min_rank": 985,
+    "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2024,
@@ -65,22 +80,13 @@
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 722,
-    "min_rank": 1028,
-    "person_count": 4,
+    "min_rank": 1011,
+    "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2024,
-    "school_name": "西安电子科技大学",
-    "major_name": "管理科学与工程类",
-    "major_group": "",
-    "min_score": 700,
-    "min_rank": 1763,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(智能)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

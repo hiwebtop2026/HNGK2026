@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "中南民族大学",
+    "major_name": "法学",
+    "major_group": "专业组（1）",
+    "min_score": 601,
+    "min_rank": 12429,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "中南民族大学",
+    "major_name": "工商管理类",
+    "major_group": "专业组（1）",
+    "min_score": 593,
+    "min_rank": 14084,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "江西师范大学",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 577,
+    "min_rank": 18537,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(非师范；江西省南昌市江西师范大学)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "江西师范大学",
+    "major_name": "心理学类",
+    "major_group": "",
+    "min_score": 573,
+    "min_rank": 19601,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(心理学(师范)、应用心理学；江西省南昌市江西师范大学)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "江西师范大学",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 560,
+    "min_rank": 23083,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(法英双语；江西省南昌市江西师范大学)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

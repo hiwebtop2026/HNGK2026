@@ -1,20 +1,7 @@
 [
   {
-    "school_name": "大连外国语大学",
     "year": 2025,
-    "major_name": "国际事务与国际关系",
-    "major_group": "",
-    "min_score": 603,
-    "min_rank": 11640,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "必选政治",
-    "province": "海南"
-  },
-  {
     "school_name": "大连外国语大学",
-    "year": 2025,
     "major_name": "英语",
     "major_group": "",
     "min_score": 602,
@@ -23,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "大连外国语大学",
     "year": 2025,
+    "school_name": "大连外国语大学",
     "major_name": "西班牙语",
     "major_group": "",
     "min_score": 596,
@@ -36,24 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "大连外国语大学",
     "year": 2025,
-    "major_name": "意大利语",
-    "major_group": "",
-    "min_score": 594,
-    "min_rank": 13340,
-    "person_count": 1,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "大连外国语大学",
-    "year": 2025,
     "major_name": "日语",
     "major_group": "",
     "min_score": 594,
@@ -62,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "大连外国语大学",
     "year": 2025,
+    "school_name": "大连外国语大学",
     "major_name": "法语",
     "major_group": "",
     "min_score": 591,
@@ -75,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "大连外国语大学",
     "year": 2025,
+    "school_name": "大连外国语大学",
     "major_name": "汉语国际教育",
     "major_group": "",
     "min_score": 590,
@@ -88,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "大连外国语大学",
     "year": 2025,
+    "school_name": "大连外国语大学",
     "major_name": "朝鲜语",
     "major_group": "",
     "min_score": 587,
@@ -101,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "大连外国语大学",
     "year": 2025,
+    "school_name": "大连外国语大学",
     "major_name": "葡萄牙语",
     "major_group": "",
     "min_score": 587,
@@ -114,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "大连外国语大学",
     "year": 2025,
+    "school_name": "大连外国语大学",
     "major_name": "德语",
     "major_group": "",
     "min_score": 585,
@@ -127,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "大连外国语大学",
     "year": 2025,
+    "school_name": "大连外国语大学",
     "major_name": "俄语",
     "major_group": "",
     "min_score": 584,
@@ -140,6 +130,8 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

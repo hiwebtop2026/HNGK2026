@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "新疆工程学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 527,
+    "min_rank": 29380,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "新疆工程学院",
+    "major_name": "安全工程",
+    "major_group": "",
+    "min_score": 516,
+    "min_rank": 32517,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "新疆工程学院",
+    "major_name": "物联网工程",
+    "major_group": "",
+    "min_score": 505,
+    "min_rank": 35622,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "新疆工程学院",
+    "major_name": "测控技术与仪器",
+    "major_group": "",
+    "min_score": 497,
+    "min_rank": 37924,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

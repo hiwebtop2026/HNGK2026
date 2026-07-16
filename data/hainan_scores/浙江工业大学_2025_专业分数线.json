@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "浙江工业大学",
+    "major_name": "化工与制药类",
+    "major_group": "",
+    "min_score": 656,
+    "min_rank": 4584,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(化学工程类)(包含专业:化学工程与工艺、能源化学工程、应用化学;第一学年在朝晖校区就读，第二学年起在莫干山校区就读)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "浙江工业大学",
+    "major_name": "电子信息类",
+    "major_group": "",
+    "min_score": 656,
+    "min_rank": 4584,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(包含专业:智能科学与技术、通信工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "浙江工业大学",
+    "major_name": "土木类",
+    "major_group": "",
+    "min_score": 649,
+    "min_rank": 5269,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(包含专业:土木工程、给排水科学与工程)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "浙江工业大学",
+    "major_name": "管理科学与工程类",
+    "major_group": "",
+    "min_score": 637,
+    "min_rank": 6580,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "(包含专业:信息管理与信息系统、工程管理)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

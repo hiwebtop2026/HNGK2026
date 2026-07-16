@@ -8,20 +8,11 @@
     "min_rank": 1292,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "上海外国语大学",
-    "major_name": "西班牙语",
-    "major_group": "",
-    "min_score": 707,
-    "min_rank": 1489,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(卓越国际新闻传播人才计划)(包含专业:新闻学(国际新闻)、广播电视学、广告学、网络与新媒体、国际新闻与传播)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,19 +23,10 @@
     "min_rank": 1763,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "上海外国语大学",
-    "major_name": "德语",
-    "major_group": "",
-    "min_score": 699,
-    "min_rank": 1809,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(多元方向)(含德语、德语(中外合作办学)(经济学)、德语(工商管理双学位))",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

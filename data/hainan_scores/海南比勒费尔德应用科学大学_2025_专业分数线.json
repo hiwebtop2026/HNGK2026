@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "海南比勒费尔德应用科学大学",
+    "major_name": "经济工程",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 21189,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(办学地点在海南洋浦经济开发区;全英文授课)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "海南比勒费尔德应用科学大学",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 532,
+    "min_rank": 28387,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(办学地点在海南洋浦经济开发区;全英文授课；不招红、黄、绿、蓝、紫单色识别不清者)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "海南比勒费尔德应用科学大学",
+    "major_name": "电子信息科学与技术",
+    "major_group": "",
+    "min_score": 504,
+    "min_rank": 36373,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(办学地点在海南洋浦经济开发区;全英文授课)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "海南比勒费尔德应用科学大学",
+    "major_name": "物流工程",
+    "major_group": "",
+    "min_score": 502,
+    "min_rank": 36949,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(办学地点在海南洋浦经济开发区;全英文授课)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

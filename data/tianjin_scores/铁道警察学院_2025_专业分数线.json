@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "铁道警察学院",
+    "major_name": "刑事科学技术",
+    "major_group": "",
+    "min_score": 573,
+    "min_rank": 19874,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（3） - 物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "铁道警察学院",
+    "major_name": "网络安全与执法",
+    "major_group": "",
+    "min_score": 571,
+    "min_rank": 20308,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（2） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "铁道警察学院",
+    "major_name": "公安管理学",
+    "major_group": "专业组（1）",
+    "min_score": 539,
+    "min_rank": 27430,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选政治",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

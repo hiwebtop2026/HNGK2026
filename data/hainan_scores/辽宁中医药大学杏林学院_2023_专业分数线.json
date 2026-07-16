@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2023,
+    "school_name": "辽宁中医药大学杏林学院",
+    "major_name": "中医学",
+    "major_group": "专业组（01）",
+    "min_score": 517,
+    "min_rank": 30696,
+    "person_count": 12,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "辽宁中医药大学杏林学院",
+    "major_name": "中西医临床医学",
+    "major_group": "专业组（01）",
+    "min_score": 517,
+    "min_rank": 30696,
+    "person_count": 14,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2023,
+    "school_name": "辽宁中医药大学杏林学院",
+    "major_name": "针灸推拿学",
+    "major_group": "专业组（01）",
+    "min_score": 517,
+    "min_rank": 30696,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

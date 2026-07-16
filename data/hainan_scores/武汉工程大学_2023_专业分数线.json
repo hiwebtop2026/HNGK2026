@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "武汉工程大学",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 640,
+    "min_rank": 5826,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "武汉工程大学",
+    "major_name": "软件工程",
+    "major_group": "",
+    "min_score": 638,
+    "min_rank": 6066,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "武汉工程大学",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 636,
+    "min_rank": 6281,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "武汉工程大学",
+    "major_name": "电气工程及其自动化",
+    "major_group": "专业组（01）",
+    "min_score": 636,
+    "min_rank": 6281,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（01） - 必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

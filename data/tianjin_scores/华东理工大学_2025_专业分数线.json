@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 644,
@@ -10,11 +10,13 @@
     "batch": "本科批",
     "major_description": "(计算机科学与技术和金融学双学士学位项目；不招不能准确在显示器上识别红、黄、绿、蓝、紫各颜色中任何一种颜色的数码、字母者；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 643,
@@ -23,11 +25,13 @@
     "batch": "本科批",
     "major_description": "(智能与机器人；人工智能、机器人工程；不招色盲者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 643,
@@ -36,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(自动化、电气工程及其自动化、信息工程；不招色盲者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "计算机类",
     "major_group": "",
     "min_score": 643,
@@ -49,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(计算机科学与技术、软件工程；不招不能准确在显示器上识别红、黄、绿、蓝、紫各颜色中任何一种颜色的数码、字母者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "物理学类",
     "major_group": "",
     "min_score": 641,
@@ -62,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(应用物理学、光电信息科学与工程；不招色盲者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "化学类",
     "major_group": "",
     "min_score": 640,
@@ -75,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(新工科化学实验班；应用化学、精细化工(光电信息材料方向)；不招色弱、色盲、嗅觉迟钝者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "机械类",
     "major_group": "",
     "min_score": 640,
@@ -88,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(机械智能化实验班；机械设计制造及其自动化、过程装备与控制工程、智能制造工程；不招色盲者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "材料类",
     "major_group": "",
     "min_score": 639,
@@ -101,11 +115,13 @@
     "batch": "本科批",
     "major_description": "(新材料实验班；电子信息材料、高分子材料与工程、无机非金属材料工程、复合材料与工程、新能源材料与器件；不招色弱、色盲、嗅觉迟钝者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "工科试验班",
     "major_group": "",
     "min_score": 637,
@@ -114,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(智慧化工；化学工程与工艺、油气储运工程、资源循环科学与工程、轻化工程；不招色弱、色盲、嗅觉迟钝者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "生物工程类",
     "major_group": "",
     "min_score": 637,
@@ -127,11 +145,13 @@
     "batch": "本科批",
     "major_description": "(生物工程、生物科学、生物技术、食品科学与工程、食品质量与安全；不招色弱、色盲、嗅觉迟钝者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "管理科学与工程类",
     "major_group": "",
     "min_score": 637,
@@ -140,11 +160,13 @@
     "batch": "本科批",
     "major_description": "(物流管理(供应链方向)、信息管理与信息系统(数据智能与智慧管理)；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "药学",
     "major_group": "",
     "min_score": 637,
@@ -153,11 +175,13 @@
     "batch": "本科批",
     "major_description": "(创新实验班；不招色弱、色盲、嗅觉迟钝者；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "经济学类",
     "major_group": "",
     "min_score": 633,
@@ -166,11 +190,13 @@
     "batch": "本科批",
     "major_description": "(经济学、金融学；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "工商管理类",
     "major_group": "",
     "min_score": 630,
@@ -179,11 +205,13 @@
     "batch": "本科批",
     "major_description": "(工商管理(商务分析)、市场营销(大数据营销)、会计学(大数据会计)、财务管理(智能财务)；优秀学生可申请拔尖创新人才培养计划(3+1+X)；奉贤校区和徐汇校区)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "外国语言文学类",
     "major_group": "",
     "min_score": 628,
@@ -192,11 +220,13 @@
     "batch": "本科批",
     "major_description": "(英语、德语、日语；招收英语、日语、德语语种考生；不招口吃、听力障碍(两耳听力均在3米以内，或一耳听力在5米另一耳全聋)者；奉贤校区和徐汇校区)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "华东理工大学",
     "year": 2025,
+    "school_name": "华东理工大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 628,
@@ -205,6 +235,8 @@
     "batch": "本科批",
     "major_description": "(奉贤校区和徐汇校区)",
     "subject_requirement": "不限",
-    "province": "天津"
+    "province": "天津",
+    "level": "211",
+    "nature": "公办"
   }
 ]

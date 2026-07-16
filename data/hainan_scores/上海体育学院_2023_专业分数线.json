@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "上海体育学院",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 619,
+    "min_rank": 8456,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（05） - 必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海体育学院",
+    "major_name": "医学技术类",
+    "major_group": "专业组（06）",
+    "min_score": 611,
+    "min_rank": 9624,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "北京电子科技学院",
+    "major_name": "信息安全",
+    "major_group": "",
+    "min_score": 656,
+    "min_rank": 3931,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "北京电子科技学院",
+    "major_name": "电子信息工程",
+    "major_group": "",
+    "min_score": 654,
+    "min_rank": 4204,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

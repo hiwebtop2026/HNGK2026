@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "合肥学院",
+    "major_name": "国际经济与贸易",
+    "major_group": "专业组（01）",
+    "min_score": 572,
+    "min_rank": 16897,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "合肥学院",
+    "major_name": "旅游管理",
+    "major_group": "专业组（01）",
+    "min_score": 564,
+    "min_rank": 18712,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "合肥学院",
+    "major_name": "应用心理学",
+    "major_group": "专业组（01）",
+    "min_score": 562,
+    "min_rank": 19166,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "合肥学院",
+    "major_name": "酒店管理",
+    "major_group": "专业组（01）",
+    "min_score": 559,
+    "min_rank": 19852,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

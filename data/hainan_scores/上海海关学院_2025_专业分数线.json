@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "上海海关学院",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 643,
+    "min_rank": 5904,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海海关学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 635,
+    "min_rank": 6820,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海海关学院",
+    "major_name": "经济统计学",
+    "major_group": "",
+    "min_score": 632,
+    "min_rank": 7178,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "上海海关学院",
+    "major_name": "数据科学与大数据技术",
+    "major_group": "",
+    "min_score": 627,
+    "min_rank": 7840,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

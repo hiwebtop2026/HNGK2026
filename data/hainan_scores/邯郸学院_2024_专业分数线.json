@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "邯郸学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 572,
+    "min_rank": 17764,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "邯郸学院",
+    "major_name": "应用心理学",
+    "major_group": "",
+    "min_score": 570,
+    "min_rank": 18200,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "邯郸学院",
+    "major_name": "材料化学",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 33109,
+    "person_count": 5,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

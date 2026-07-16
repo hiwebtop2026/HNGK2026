@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "北京工业大学耿丹学院",
+    "major_name": "市场营销",
+    "major_group": "",
+    "min_score": 493,
+    "min_rank": 39015,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(品牌管理与策划)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京工业大学耿丹学院",
+    "major_name": "应用心理学",
+    "major_group": "",
+    "min_score": 493,
+    "min_rank": 39015,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京工业大学耿丹学院",
+    "major_name": "财务管理",
+    "major_group": "",
+    "min_score": 492,
+    "min_rank": 39297,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "北京工业大学耿丹学院",
+    "major_name": "金融工程",
+    "major_group": "",
+    "min_score": 483,
+    "min_rank": 41779,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

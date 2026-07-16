@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "中国人民警察大学",
+    "major_name": "消防工程",
+    "major_group": "",
+    "min_score": 581,
+    "min_rank": 16028,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(非公安专业，毕业后自主就业;具体标准详见院校招生章程;不建议女生报考)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "中国人民警察大学",
+    "major_name": "抢险救援指挥与技术",
+    "major_group": "",
+    "min_score": 559,
+    "min_rank": 21189,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(非公安专业，毕业后自主就业;具体标准详见院校招生章程;不建议女生报考)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

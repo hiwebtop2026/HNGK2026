@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "河南中医药大学",
+    "major_name": "针灸推拿学",
+    "major_group": "",
+    "min_score": 622,
+    "min_rank": 8546,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河南中医药大学",
+    "major_name": "中西医临床医学",
+    "major_group": "",
+    "min_score": 602,
+    "min_rank": 11828,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河南中医药大学",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 601,
+    "min_rank": 12010,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "河南中医药大学",
+    "major_name": "公共管理类",
+    "major_group": "",
+    "min_score": 597,
+    "min_rank": 12734,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(包含专业:公共事业管理(卫生事业管理方向)、健康服务与管理、应用心理学)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

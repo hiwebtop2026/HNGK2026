@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2023,
+    "school_name": "海口经济学院",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 467,
+    "min_rank": 45619,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（1） - 必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "海口经济学院",
+    "major_name": "英语",
+    "major_group": "专业组（3）",
+    "min_score": 456,
+    "min_rank": 48305,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "海口经济学院",
+    "major_name": "经济学类",
+    "major_group": "专业组（3）",
+    "min_score": 454,
+    "min_rank": 48793,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "海口经济学院",
+    "major_name": "建筑类",
+    "major_group": "专业组（2）",
+    "min_score": 453,
+    "min_rank": 49028,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "史/地(2选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

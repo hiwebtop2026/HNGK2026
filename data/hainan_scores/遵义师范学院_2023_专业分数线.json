@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "遵义师范学院",
+    "major_name": "思想政治教育",
+    "major_group": "",
+    "min_score": 600,
+    "min_rank": 11421,
+    "person_count": null,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（02） - 必选政治",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "遵义师范学院",
+    "major_name": "学前教育",
+    "major_group": "专业组（01）",
+    "min_score": 579,
+    "min_rank": 15427,
+    "person_count": 96,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

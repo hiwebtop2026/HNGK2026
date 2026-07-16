@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2024,
+    "school_name": "华南农业大学珠江学院",
+    "major_name": "汉语言文学",
+    "major_group": "",
+    "min_score": 518,
+    "min_rank": 31962,
+    "person_count": 8,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "华南农业大学珠江学院",
+    "major_name": "金融工程",
+    "major_group": "",
+    "min_score": 502,
+    "min_rank": 36510,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "华南农业大学珠江学院",
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 500,
+    "min_rank": 37077,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "华南农业大学珠江学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 498,
+    "min_rank": 37632,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

@@ -1,7 +1,7 @@
 [
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "汉语言文学",
     "major_group": "",
     "min_score": 679,
@@ -10,37 +10,28 @@
     "batch": "本科批",
     "major_description": "(师范类;含国家人才培养基地;语文单科成绩不低于105分(150分制))",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 665,
     "min_rank": 3824,
     "person_count": 3,
     "batch": "本科批",
-    "major_description": "(英语单科成绩不低于115分(150分制))",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "福建师范大学",
-    "year": 2025,
-    "major_name": "数学与应用数学",
-    "major_group": "",
-    "min_score": 654,
-    "min_rank": 4768,
-    "person_count": 4,
-    "batch": "本科批",
     "major_description": "(师范类)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "计算机科学与技术",
     "major_group": "",
     "min_score": 631,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 604,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "网络空间安全",
     "major_group": "",
     "min_score": 602,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(含国家网络安全人才与创新(福州)基地实验班)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "电子信息类",
     "major_group": "",
     "min_score": 599,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(包含专业:电子信息工程、通信工程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "光电信息科学与工程",
     "major_group": "",
     "min_score": 596,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "新能源科学与工程",
     "major_group": "",
     "min_score": 595,
@@ -114,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "储能科学与工程",
     "major_group": "",
     "min_score": 593,
@@ -127,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 592,
@@ -140,11 +145,13 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "福建师范大学",
     "year": 2025,
+    "school_name": "福建师范大学",
     "major_name": "资源循环科学与工程",
     "major_group": "",
     "min_score": 592,
@@ -153,6 +160,8 @@
     "batch": "本科批",
     "major_description": "(不招色盲、色弱)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

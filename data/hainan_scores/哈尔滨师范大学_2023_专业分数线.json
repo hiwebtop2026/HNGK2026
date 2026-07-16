@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "哈尔滨师范大学",
+    "major_name": "历史学",
+    "major_group": "专业组（04）",
+    "min_score": 610,
+    "min_rank": 9784,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "史/地(2选1)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "哈尔滨师范大学",
+    "major_name": "材料化学",
+    "major_group": "专业组（02）",
+    "min_score": 551,
+    "min_rank": 21824,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "专业组（03） - 必选化学",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

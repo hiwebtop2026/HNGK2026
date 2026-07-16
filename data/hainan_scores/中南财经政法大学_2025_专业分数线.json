@@ -2,26 +2,17 @@
   {
     "year": 2025,
     "school_name": "中南财经政法大学",
-    "major_name": "国际法",
-    "major_group": "",
-    "min_score": 725,
-    "min_rank": 948,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中南财经政法大学",
     "major_name": "法学类",
     "major_group": "",
     "min_score": 713,
     "min_rank": 1292,
     "person_count": 9,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:法学、法学(民商法方向)、法学(涉外法治方向)、法学(政府法治方向)、法学(社会治理方向)、国际法、知识产权、国际经贸规则、法学(刑事司法方向)、纪检监察;本专业类内专业任选)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -32,20 +23,11 @@
     "min_rank": 1351,
     "person_count": 2,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中南财经政法大学",
-    "major_name": "财政学",
-    "major_group": "",
-    "min_score": 710,
-    "min_rank": 1386,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(数字财税卓越人才实验班)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -56,20 +38,11 @@
     "min_rank": 1809,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中南财经政法大学",
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 698,
-    "min_rank": 1853,
-    "person_count": 11,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(会计学、会计学注册会计师、财管)(包含会计学、会计学(注册会计师方向)、会计学(ACCA卓越人才实验班)、财务管理)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -80,8 +53,11 @@
     "min_rank": 2274,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -92,32 +68,11 @@
     "min_rank": 2336,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中南财经政法大学",
-    "major_name": "社会学",
-    "major_group": "",
-    "min_score": 687,
-    "min_rank": 2379,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中南财经政法大学",
-    "major_name": "投资学",
-    "major_group": "",
-    "min_score": 685,
-    "min_rank": 2483,
-    "person_count": 2,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(投资决策数智化卓越人才实验班)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -128,8 +83,11 @@
     "min_rank": 2713,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:英语、英语(翻译方向)、商务英语；本专业类内专业任选)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -140,8 +98,11 @@
     "min_rank": 2713,
     "person_count": 10,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:工商管理、工商管理(商务分析方向)、市场营销、人力资源管理、物流管理、旅游管理、劳动关系；本专业类内专业任选)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -152,8 +113,11 @@
     "min_rank": 2774,
     "person_count": 7,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:行政管理、劳动与社会保障、城市管理；本专业类内专业任选)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -164,8 +128,11 @@
     "min_rank": 2774,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:国际经济与贸易、贸易经济(数字贸易方向)；本专业类内专业任选)",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -176,20 +143,11 @@
     "min_rank": 2774,
     "person_count": 6,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
-  },
-  {
-    "year": 2025,
-    "school_name": "中南财经政法大学",
-    "major_name": "精算学",
-    "major_group": "",
-    "min_score": 676,
-    "min_rank": 3029,
-    "person_count": 3,
-    "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(包含专业:金融学、投资学;本专业类内专业任选)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -200,8 +158,11 @@
     "min_rank": 3092,
     "person_count": 4,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "(大数据方向)(包含专业:信息管理与信息系统、大数据管理与应用(金工双学位);本专业类内专业任选)",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
     "year": 2025,
@@ -212,7 +173,10 @@
     "min_rank": 3448,
     "person_count": 5,
     "batch": "本科批",
-    "subject_requirement": "",
-    "province": "海南"
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

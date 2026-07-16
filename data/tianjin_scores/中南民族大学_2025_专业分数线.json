@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "中南民族大学",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 599,
+    "min_rank": 13198,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "中南民族大学",
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 595,
+    "min_rank": 14133,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(财务管理(数智财务方向)、会计学(大数据管理会计决策与智能会计方向)、工商管理(含企业管理数智创新方向)、工商管理(数智人才管理方向)、会计学(新商科国际实验班)、会计学(注册会计师卓越文科人才实验班)；校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "中南民族大学",
+    "major_name": "生物科学类",
+    "major_group": "",
+    "min_score": 581,
+    "min_rank": 17539,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(生物技术、生物工程、生物制药、食品质量与安全；校本部)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2023,
+    "school_name": "上海健康医学院",
+    "major_name": "医学检验技术",
+    "major_group": "专业组（1）",
+    "min_score": 560,
+    "min_rank": 21862,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2023,
+    "school_name": "上海健康医学院",
+    "major_name": "医学影像技术",
+    "major_group": "专业组（1）",
+    "min_score": 557,
+    "min_rank": 22645,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物/化/生(3选1)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

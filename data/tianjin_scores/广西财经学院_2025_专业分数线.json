@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "广西财经学院",
+    "major_name": "经济学",
+    "major_group": "",
+    "min_score": 523,
+    "min_rank": 33509,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(第一学年在武鸣校区，第二至第四学年在明秀或相思湖校区；专业体检受限要求详见我校招生章程)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广西财经学院",
+    "major_name": "工商管理",
+    "major_group": "",
+    "min_score": 520,
+    "min_rank": 34394,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(第一学年在武鸣校区，第二至第四学年在明秀或相思湖校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广西财经学院",
+    "major_name": "金融学",
+    "major_group": "",
+    "min_score": 520,
+    "min_rank": 34394,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(第一学年在武鸣校区，第二至第四学年在明秀或相思湖校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "广西财经学院",
+    "major_name": "计算机科学与技术",
+    "major_group": "",
+    "min_score": 514,
+    "min_rank": 36107,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(中外高水平大学学生交流计划；与澳大利亚麦考瑞大学联合培养，采用“2+2”模式，毕业可获中澳双学士学位；第一年在武鸣校区办学，第二年返回相思湖或明秀校区办学，第三、四年须赴麦考瑞大学学习，出国费用另计，考生一般应具有较好的英语基础；请考生报考前详细了解该项目收费情况和入学标准)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

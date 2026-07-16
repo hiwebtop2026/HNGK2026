@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "广东财经大学",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 648,
+    "min_rank": 5279,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广东财经大学",
+    "major_name": "数字经济",
+    "major_group": "",
+    "min_score": 642,
+    "min_rank": 5905,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "广东财经大学",
+    "major_name": "商务英语",
+    "major_group": "",
+    "min_score": 634,
+    "min_rank": 6830,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

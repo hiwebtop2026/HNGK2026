@@ -1,33 +1,22 @@
 [
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "法学",
     "major_group": "",
     "min_score": 608,
     "min_rank": 10765,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "河北工程大学",
-    "year": 2025,
-    "major_name": "会计学",
-    "major_group": "",
-    "min_score": 604,
-    "min_rank": 11462,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "电气工程及其自动化",
     "major_group": "",
     "min_score": 599,
@@ -36,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "大数据管理与应用",
     "major_group": "",
     "min_score": 598,
@@ -49,11 +40,13 @@
     "batch": "本科批",
     "major_description": "(不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "经济学",
     "major_group": "",
     "min_score": 597,
@@ -62,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "工商管理",
     "major_group": "",
     "min_score": 594,
@@ -75,11 +70,13 @@
     "batch": "本科批",
     "major_description": "(不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "国际经济与贸易",
     "major_group": "",
     "min_score": 593,
@@ -88,11 +85,13 @@
     "batch": "本科批",
     "major_description": "(不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "工程管理",
     "major_group": "",
     "min_score": 590,
@@ -101,11 +100,13 @@
     "batch": "本科批",
     "major_description": "(不能准确识别红、黄、绿、蓝、紫各种颜色中任何一种颜色的导线、按键、信号灯、几何图形者不予录取)",
     "subject_requirement": "必选物理",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 564,
@@ -114,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "信息与计算科学",
     "major_group": "",
     "min_score": 557,
@@ -127,11 +130,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "机械设计制造及其自动化",
     "major_group": "",
     "min_score": 549,
@@ -140,11 +145,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "复合材料与工程",
     "major_group": "",
     "min_score": 548,
@@ -153,24 +160,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
-    "major_name": "能源与动力工程",
-    "major_group": "",
-    "min_score": 548,
-    "min_rank": 23980,
-    "person_count": 3,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
     "school_name": "河北工程大学",
-    "year": 2025,
     "major_name": "地理信息科学",
     "major_group": "",
     "min_score": 547,
@@ -179,11 +175,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 547,
@@ -192,11 +190,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "测控技术与仪器",
     "major_group": "",
     "min_score": 545,
@@ -205,11 +205,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "环境工程",
     "major_group": "",
     "min_score": 544,
@@ -218,11 +220,13 @@
     "batch": "本科批",
     "major_description": "(轻度色觉异常(俗称色弱)及以上者不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "安全工程",
     "major_group": "",
     "min_score": 543,
@@ -231,11 +235,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "建筑环境与能源应用工程",
     "major_group": "",
     "min_score": 541,
@@ -244,11 +250,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "给排水科学与工程",
     "major_group": "",
     "min_score": 541,
@@ -257,11 +265,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "土木工程",
     "major_group": "",
     "min_score": 540,
@@ -270,11 +280,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "软件工程",
     "major_group": "",
     "min_score": 540,
@@ -283,32 +295,23 @@
     "batch": "本科批",
     "major_description": "(校企合作，高收费专业，详见院校招生章程)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   },
   {
-    "school_name": "河北工程大学",
     "year": 2025,
+    "school_name": "河北工程大学",
     "major_name": "交通工程",
     "major_group": "",
     "min_score": 537,
     "min_rank": 26985,
     "person_count": 2,
     "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "河北工程大学",
-    "year": 2025,
-    "major_name": "园艺",
-    "major_group": "",
-    "min_score": 533,
-    "min_rank": 28111,
-    "person_count": 2,
-    "batch": "本科批",
     "major_description": "(轻度色觉异常(俗称色弱)及以上者不予录取)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "公办"
   }
 ]

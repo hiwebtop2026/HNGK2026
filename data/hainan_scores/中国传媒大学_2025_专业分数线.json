@@ -1,46 +1,7 @@
 [
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
-    "major_name": "网络与新媒体",
-    "major_group": "",
-    "min_score": 704,
-    "min_rank": 1610,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
     "school_name": "中国传媒大学",
-    "year": 2025,
-    "major_name": "广告学",
-    "major_group": "",
-    "min_score": 696,
-    "min_rank": 1935,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "(品牌学方向)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "中国传媒大学",
-    "year": 2025,
-    "major_name": "新闻学",
-    "major_group": "",
-    "min_score": 696,
-    "min_rank": 1935,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "(新闻舆论学方向)",
-    "subject_requirement": "不限",
-    "province": "海南"
-  },
-  {
-    "school_name": "中国传媒大学",
-    "year": 2025,
     "major_name": "数字媒体技术",
     "major_group": "",
     "min_score": 694,
@@ -49,11 +10,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
+    "school_name": "中国传媒大学",
     "major_name": "智能视听工程",
     "major_group": "",
     "min_score": 693,
@@ -62,11 +25,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
+    "school_name": "中国传媒大学",
     "major_name": "通信工程",
     "major_group": "",
     "min_score": 692,
@@ -74,25 +39,14 @@
     "person_count": 2,
     "batch": "本科批",
     "major_description": "",
-    "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
-  },
-  {
-    "school_name": "中国传媒大学",
-    "year": 2025,
-    "major_name": "传播学",
-    "major_group": "",
-    "min_score": 691,
-    "min_rank": 2186,
-    "person_count": 2,
-    "batch": "本科批",
-    "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
+    "school_name": "中国传媒大学",
     "major_name": "英语",
     "major_group": "",
     "min_score": 691,
@@ -101,11 +55,13 @@
     "batch": "本科批",
     "major_description": "(区域国别卓越人才实验班)",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
+    "school_name": "中国传媒大学",
     "major_name": "数据科学与大数据技术",
     "major_group": "",
     "min_score": 690,
@@ -114,11 +70,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
+    "school_name": "中国传媒大学",
     "major_name": "跨境电子商务",
     "major_group": "",
     "min_score": 686,
@@ -127,11 +85,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "不限",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
+    "school_name": "中国传媒大学",
     "major_name": "电子信息工程",
     "major_group": "",
     "min_score": 682,
@@ -140,11 +100,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
+    "school_name": "中国传媒大学",
     "major_name": "网络空间安全",
     "major_group": "",
     "min_score": 680,
@@ -153,11 +115,13 @@
     "batch": "本科批",
     "major_description": "",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
+    "school_name": "中国传媒大学",
     "major_name": "智能科学与技术",
     "major_group": "",
     "min_score": 587,
@@ -166,11 +130,13 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(办学地点在海南陵水黎安国际教育创新试验区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   },
   {
-    "school_name": "中国传媒大学",
     "year": 2025,
+    "school_name": "中国传媒大学",
     "major_name": "数字媒体技术",
     "major_group": "",
     "min_score": 586,
@@ -179,6 +145,8 @@
     "batch": "本科批",
     "major_description": "(中外合作办学)(办学地点在海南陵水黎安国际教育创新试验区)",
     "subject_requirement": "物+化(2科必选)",
-    "province": "海南"
+    "province": "海南",
+    "level": "211",
+    "nature": "公办"
   }
 ]

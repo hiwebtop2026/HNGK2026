@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2025,
+    "school_name": "贵州理工学院",
+    "major_name": "人文地理与城乡规划",
+    "major_group": "",
+    "min_score": 572,
+    "min_rank": 18018,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+地(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "贵州理工学院",
+    "major_name": "英语",
+    "major_group": "",
+    "min_score": 563,
+    "min_rank": 20161,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "贵州理工学院",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 535,
+    "min_rank": 27538,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "贵州理工学院",
+    "major_name": "道路桥梁与渡河工程",
+    "major_group": "",
+    "min_score": 534,
+    "min_rank": 27812,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

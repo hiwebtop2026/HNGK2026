@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2024,
+    "school_name": "中南民族大学",
+    "major_name": "法学",
+    "major_group": "",
+    "min_score": 600,
+    "min_rank": 11786,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "(含涉外法学方向、数字法学方向)(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "中南民族大学",
+    "major_name": "工商管理类",
+    "major_group": "",
+    "min_score": 596,
+    "min_rank": 12729,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(财务管理(数智财务方向)、会计学(大数据管理会计决策与智能会计方向)、会计学(注册会计师CPA卓越文科人才实验班)、工商管理(含企业管理数智创新方向)、工商管理(数智人才管理方向))(校本部)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

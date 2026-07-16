@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2025,
+    "school_name": "长春科技学院",
+    "major_name": "中医学",
+    "major_group": "",
+    "min_score": 488,
+    "min_rank": 43748,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "(东华大街校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "长春科技学院",
+    "major_name": "计算机类",
+    "major_group": "",
+    "min_score": 480,
+    "min_rank": 46035,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(计算机科学与技术、网络工程、数据科学与大数据技术；东华大街校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2025,
+    "school_name": "长春科技学院",
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 472,
+    "min_rank": 48256,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(东华大街校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]

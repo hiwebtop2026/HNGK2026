@@ -1,0 +1,93 @@
+[
+  {
+    "school_name": "上海理工大学",
+    "year": 2024,
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 619,
+    "min_rank": 8745,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "电子与信息类；测控技术与仪器、电气工程及其自动化、电子信息工程、电子科学与技术、通信工程、光电信息科学与工程、医学信息工程、人工智能、自动化、计算机科学与技术、智能科学与技术、数据科学与大数据技术、新媒体技术、医学影像技术、智能医学工程；校本部 2科必选",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海理工大学",
+    "year": 2024,
+    "major_name": "理科试验班",
+    "major_group": "",
+    "min_score": 616,
+    "min_rank": 9379,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "数学与应用数学、应用物理学、系统科学与工程；校本部 2科必选",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海理工大学",
+    "year": 2024,
+    "major_name": "工科试验班",
+    "major_group": "",
+    "min_score": 615,
+    "min_rank": 9591,
+    "person_count": 12,
+    "batch": "本科批",
+    "major_description": "智能化制造类；大类招生，具体包含专业详见招生章程；校本部 2科必选",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海理工大学",
+    "year": 2024,
+    "major_name": "机械设计制造及其自动化",
+    "major_group": "",
+    "min_score": 614,
+    "min_rank": 9791,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "中外合作办学 中德合作专业学费拟调整至不超过每生每学年40000元(以批复为准 2科必选 校本部",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海理工大学",
+    "year": 2024,
+    "major_name": "电气工程及其自动化",
+    "major_group": "",
+    "min_score": 611,
+    "min_rank": 10462,
+    "person_count": 2,
+    "batch": "本科批",
+    "major_description": "中外合作办学 中德合作专业学费拟调整至不超过每生每学年40000元(以批复为准 2科必选 校本部",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海理工大学",
+    "year": 2024,
+    "major_name": "新闻传播学类",
+    "major_group": "",
+    "min_score": 609,
+    "min_rank": 10891,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "广告学、传播学、编辑出版学；校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  },
+  {
+    "school_name": "上海理工大学",
+    "year": 2024,
+    "major_name": "经济管理试验班",
+    "major_group": "",
+    "min_score": 604,
+    "min_rank": 12046,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "税收学、金融学、国际经济与贸易、工商管理、会计学、公共事业管理；校本部",
+    "subject_requirement": "不限",
+    "province": "天津"
+  }
+]

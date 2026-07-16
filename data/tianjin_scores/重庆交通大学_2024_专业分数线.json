@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "重庆交通大学",
+    "major_name": "管理科学与工程类",
+    "major_group": "",
+    "min_score": 580,
+    "min_rank": 16781,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(工程管理、工程造价)(大一大二科学城校区、后续学年南岸校区)",
+    "subject_requirement": "必选物理",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "重庆交通大学",
+    "major_name": "水利类",
+    "major_group": "",
+    "min_score": 575,
+    "min_rank": 18157,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "(水利水电工程、港口航道与海岸工程、智慧水利)(大一大二科学城校区、后续学年南岸校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2024,
+    "school_name": "重庆交通大学",
+    "major_name": "土木工程",
+    "major_group": "",
+    "min_score": 545,
+    "min_rank": 26331,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(大一大二科学城校区、后续学年南岸校区)",
+    "subject_requirement": "物+化(2科必选)",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

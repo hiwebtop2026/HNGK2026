@@ -1,0 +1,32 @@
+[
+  {
+    "year": 2025,
+    "school_name": "渤海大学",
+    "major_name": "物流管理",
+    "major_group": "",
+    "min_score": 529,
+    "min_rank": 31779,
+    "person_count": 1,
+    "batch": "本科批",
+    "major_description": "(滨海校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  },
+  {
+    "year": 2025,
+    "school_name": "渤海大学",
+    "major_name": "日语",
+    "major_group": "",
+    "min_score": 521,
+    "min_rank": 34074,
+    "person_count": 4,
+    "batch": "本科批",
+    "major_description": "(松山校区)",
+    "subject_requirement": "不限",
+    "province": "天津",
+    "level": "普通本科",
+    "nature": "公办"
+  }
+]

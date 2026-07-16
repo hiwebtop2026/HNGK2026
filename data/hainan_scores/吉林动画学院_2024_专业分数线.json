@@ -1,0 +1,47 @@
+[
+  {
+    "year": 2024,
+    "school_name": "吉林动画学院",
+    "major_name": "戏剧影视文学",
+    "major_group": "",
+    "min_score": 499,
+    "min_rank": 37370,
+    "person_count": 6,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "吉林动画学院",
+    "major_name": "互联网金融",
+    "major_group": "",
+    "min_score": 490,
+    "min_rank": 39844,
+    "person_count": 11,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  },
+  {
+    "year": 2024,
+    "school_name": "吉林动画学院",
+    "major_name": "广播电视编导",
+    "major_group": "",
+    "min_score": 488,
+    "min_rank": 40419,
+    "person_count": 3,
+    "batch": "本科批",
+    "major_description": "",
+    "subject_requirement": "不限",
+    "province": "海南",
+    "level": "普通本科",
+    "nature": "民办"
+  }
+]
