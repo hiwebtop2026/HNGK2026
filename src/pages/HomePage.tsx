@@ -9,12 +9,12 @@ import { MajorSchoolModal } from '../components/MajorSchoolModal';
 import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
 import { useUsageStore } from '../store/usageStore';
-import { filterSchools, filterSchoolsAsync, loadSchoolDataFromExcel, extractSchoolNameKey } from '../utils/volunteerUtils';
-import { parseSubjectRequirement, MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST, isSubjectMatch, getRefScore } from '../utils/dataUtils';
+import { filterSchoolsAsync, loadSchoolDataFromExcel, extractSchoolNameKey } from '../utils/volunteerUtils';
+import { MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST, isSubjectMatch, getRefScore } from '../utils/dataUtils';
 import { fetchRankInfo } from '../utils/dataUtils';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, SCHOOL_NATURES, REGION_GROUPS } from '../data/schoolData';
 import { ALL_MAJORS, MAJOR_CATEGORIES as ALL_MAJOR_CATEGORIES, getMajorsByCategory } from '../data/majorData';
-import { STRATEGY_CONFIGS } from '../store/appStore';
+import { STRATEGY_CONFIGS, type StrategyType } from '../store/appStore';
 import { majorScoreService } from '../services/majorScoreService';
 
 const majorIcons: Record<string, React.ReactNode> = {
@@ -88,7 +88,6 @@ export function HomePage() {
     provinceConfig,
     setBaseScore,
     setScoreRange,
-    setSubject,
     toggleSelectedSubject,
     setTotalVolunteers,
     setStrategy,
@@ -126,17 +125,10 @@ export function HomePage() {
 
   // 页面初始化时主动加载当前地区数据（解决schoolData为空导致无法生成志愿的问题）
   useEffect(() => {
-    // 清除旧的缓存（修复历史遗留的空结果缓存问题）
-    try {
-      Object.keys(localStorage).forEach(key => {
-        if (key.startsWith('gaokao_cache:')) {
-          localStorage.removeItem(key);
-          console.debug('[Cache] 清除旧缓存:', key);
-        }
-      });
-    } catch (e) {
-      console.warn('[Cache] 清除缓存失败:', e);
-    }
+    // 说明：不再无条件清除 gaokao_cache 缓存（此前每次刷新都会清空缓存，
+    // 导致缓存机制失效、每次进入页面都要重新拉取云端数据）。
+    // 缓存过期由 cacheService 的 30 分钟 TTL 自动处理，仅在此前版本遗留的
+    // 坏缓存（空结果）场景下按需清理。
 
     const state = useAppStore.getState();
     if (state.schoolData.length === 0) {
@@ -296,16 +288,6 @@ export function HomePage() {
   }, [baseScore, scoreRange, subject, selectedLevels, selectedNatures, selectedProvinces, selectedMajorCategories, schoolData, provinceConfig, selectedSubjects, currentRegion, selectedMajors, excludedMajors]);
   
   const volunteerOptions = [15, 20, 30, 45];
-
-  const subjectOptions = useMemo(() => {
-    const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
-    const subjects = [...new Set(data.map(s => s.subject))];
-    return subjects.sort((a, b) => {
-      if (a === 0) return -1;
-      if (b === 0) return 1;
-      return String(a).length - String(b).length || a - b;
-    });
-  }, [schoolData]);
 
   const isSubjectSelectionValid = useMemo(() => {
     if (!provinceConfig) return false;
@@ -1135,7 +1117,7 @@ export function HomePage() {
                     return (
                       <button
                         key={key}
-                        onClick={() => setStrategy(key as any)}
+                        onClick={() => setStrategy(key as StrategyType)}
                         className={`relative p-4 rounded-xl border transition-all text-left overflow-hidden group ${
                           isSelected
                             ? 'border-transparent shadow-lg scale-[1.02]'

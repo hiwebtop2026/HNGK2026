@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import type { SchoolScore } from './dataUtils';
 import {
   calculateScoreTrend,
@@ -8,6 +8,24 @@ import {
   getSmartTier,
 } from './volunteerUtils';
 import { calculateAdmissionProbability } from './trendAnalyzer';
+
+// Mock 网络服务，使单元测试脱离真实 Supabase 网络请求：
+// filterSchools 内部会调用 majorScoreService.getByProvince 与
+// scoreDistributionService.getRankByScore，未 mock 时在受限网络
+// 环境下会挂起直到测试超时。
+vi.mock('../services/majorScoreService', () => ({
+  majorScoreService: {
+    getByProvince: vi.fn(async () => []),
+    getBySchoolAndProvince: vi.fn(async () => []),
+  },
+}));
+
+vi.mock('../services/scoreDistributionService', () => ({
+  scoreDistributionService: {
+    getRankByScore: vi.fn(async () => null),
+    getStats: vi.fn(async () => null),
+  },
+}));
 
 describe('calculateAdmissionProbability', () => {
   it('should return 99% when diff >= 30', () => {
@@ -206,9 +224,11 @@ describe('filterSchools', () => {
     expect(results.every(r => r.province === '北京')).toBe(true);
   });
 
-  it('should return empty when no schools match', async () => {
+  it('should include schools well below candidate score as safe (保) choices', async () => {
+    // 高分考生（800分）远高于所有学校投档线时，这些学校应作为保底志愿入选
     const results = await filterSchools(mockSchools, 800, 5, 54, 10);
-    expect(results.length).toBe(0);
+    expect(results.length).toBe(3);
+    expect(results.every(r => r.tier === '保')).toBe(true);
   });
 
   it('should return results with admissionProbability and scoreTrend', async () => {

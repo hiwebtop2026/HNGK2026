@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 const REMEMBER_EMAIL_KEY = 'hngk_remember_email';
-const OTP_EXPIRE_MINUTES = 10;
+// 验证码有效期由服务端（Supabase Auth / Edge Function）控制，前端无需重复维护本地常量
 
 interface User {
   id: string;
@@ -112,7 +112,9 @@ function saveRememberEmail(email: string | null) {
     } else {
       localStorage.removeItem(REMEMBER_EMAIL_KEY);
     }
-  } catch {}
+  } catch {
+    // localStorage 不可用（隐私模式/存储已满）时静默降级，不阻塞登录流程
+  }
 }
 
 export const useAuthStore = create<AuthState>((set, get) => {
@@ -202,7 +204,9 @@ export const useAuthStore = create<AuthState>((set, get) => {
             details: { source: 'web' },
             user_agent: navigator.userAgent,
           });
-        } catch {}
+        } catch {
+          // 注册日志写入失败不影响注册主流程
+        }
 
         if (data.session) {
           set({ isLoading: false, isAuthenticated: true, user, error: null, successMessage: '注册成功！' });
@@ -221,7 +225,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
 
       set({ isLoading: false, error: '注册失败，请稍后重试' });
       return false;
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (import.meta.env.DEV) {
         console.error('注册失败:', err);
       }
@@ -265,7 +269,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
         error: null,
       });
       return true;
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (import.meta.env.DEV) {
         console.error('发送验证码失败:', err);
       }
@@ -349,7 +353,9 @@ export const useAuthStore = create<AuthState>((set, get) => {
             details: { source: 'web', otp: true },
             user_agent: navigator.userAgent,
           });
-        } catch {}
+        } catch {
+          // 日志写入失败不影响主流程（验证码登录）
+        }
 
         const rememberEmail = get().rememberEmail;
         if (rememberEmail !== email) {
@@ -363,7 +369,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
 
       set({ isLoading: false, error: '验证失败，请稍后重试' });
       return false;
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (import.meta.env.DEV) {
         console.error('OTP注册失败:', err);
       }
@@ -429,7 +435,9 @@ export const useAuthStore = create<AuthState>((set, get) => {
             details: { source: 'web' },
             user_agent: navigator.userAgent,
           });
-        } catch {}
+        } catch {
+          // 日志写入失败不影响主流程（验证码登录）
+        }
 
         const rememberEmail = get().rememberEmail;
         if (rememberEmail !== email) {
@@ -443,7 +451,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
 
       set({ isLoading: false, error: '登录失败，请稍后重试' });
       return false;
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (import.meta.env.DEV) {
         console.error('登录失败:', err);
       }
@@ -465,17 +473,19 @@ export const useAuthStore = create<AuthState>((set, get) => {
               details: { source: 'web' },
               user_agent: navigator.userAgent,
             });
-          } catch {}
+          } catch {
+            // 登出日志写入失败不影响登出主流程
+          }
         }
         await supabase.auth.signOut();
       }
       set({ isAuthenticated: false, user: null, error: null });
       return true;
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (import.meta.env.DEV) {
         console.error('退出失败:', err);
       }
-      set({ error: err.message || '退出失败' });
+      set({ error: err instanceof Error ? err.message : '退出失败' });
       return false;
     }
   },

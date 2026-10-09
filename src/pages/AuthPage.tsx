@@ -92,7 +92,9 @@ export function AuthPage() {
           setShowGuide(true);
           sessionStorage.setItem('hngk_guide_shown', '1');
         }
-      } catch {}
+      } catch {
+        // sessionStorage 不可用时静默降级，引导弹窗不展示不影响注册流程
+      }
     }
   }, [checkAuth, mode]);
 

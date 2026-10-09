@@ -238,7 +238,7 @@ export async function generateMajorRecommendations(
       const scoreDetails = buildScoreDetails(scores);
       
       let heat: 'top' | 'hot' | 'warm' | 'cool' = 'warm';
-      let level: 'A+' | 'A' | 'B+' | 'B' | 'C' = 'B';
+      const level: 'A+' | 'A' | 'B+' | 'B' | 'C' = 'B';
       
       const hotKeywords = ['计算机', '软件', '电子信息', '人工智能', '数据', '金融', '经济', '临床医学', '口腔', '法学', '会计'];
       const warmKeywords = ['机械', '土木', '化工', '材料', '环境', '生物', '数学', '物理', '化学', '英语', '汉语言'];

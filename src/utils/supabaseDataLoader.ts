@@ -32,7 +32,9 @@ function normalizeSchoolName(schoolName: string): string {
 export async function loadSchoolDataFromSupabase(province: string = '海南'): Promise<SchoolScore[]> {
   if (import.meta.env.DEV) console.log(`[DEBUG] ==================== 开始加载${province}数据 ====================`);
   
-  cacheService.clearAll();
+  // 仅清除项目缓存前缀（gaokao_cache:*），保留用户偏好、主题、登录等业务数据
+  // 修复：此前调用 clearAll() 会清空整个 localStorage，导致用户偏好/登录状态被误删
+  cacheService.clear();
   if (import.meta.env.DEV) console.log(`[DEBUG] 缓存已清除`);
   
   const result: Map<string, SchoolScore> = new Map();

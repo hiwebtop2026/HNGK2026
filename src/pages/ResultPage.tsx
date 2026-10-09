@@ -39,7 +39,7 @@ function ThemeToggle() {
 
 export function ResultPage() {
   const navigate = useNavigate();
-  const { results, baseScore, scoreRange, subject, totalVolunteers, reset, isDark } = useAppStore();
+  const { results, baseScore, scoreRange, subject, totalVolunteers, clearResults, isDark } = useAppStore();
   const { isAuthenticated } = useAuthStore();
   const { logAction } = useUsageStore();
   const [activeTier, setActiveTier] = useState<string>('all');
@@ -71,7 +71,8 @@ export function ResultPage() {
   };
   
   const handleBack = () => {
-    reset();
+    // 仅清空结果，保留分数/选科/策略等输入参数，避免用户返回后重复填写
+    clearResults();
     navigate('/');
   };
   

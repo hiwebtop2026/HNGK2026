@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { X, GraduationCap, TrendingUp, Award, RefreshCw } from 'lucide-react';
-import { majorScoreService, type MajorScore } from '../services/majorScoreService';
+import { majorScoreService } from '../services/majorScoreService';
 
 interface SchoolMajorData {
   school_name: string;
@@ -192,7 +192,6 @@ export function MajorSchoolModal({ majorName, isOpen, onClose, province }: Major
 
               {schools.map((school, index) => {
                 const levelColors = LEVEL_COLORS[school.level || '普通本科'] || LEVEL_COLORS['普通本科'];
-                const hasScoreData = years.some(year => school.scores[year] !== null);
 
                 return (
                   <div

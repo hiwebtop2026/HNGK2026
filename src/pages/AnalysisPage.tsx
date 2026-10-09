@@ -2,13 +2,21 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, TrendingUp, TrendingDown, Minus, BarChart3, PieChart,
-  LineChart, Target, AlertCircle, CheckCircle, Info
+  LineChart, Target, AlertCircle, Info
 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { useAuthStore } from '../store/authStore';
 import { SCHOOL_DATA } from '../data/schoolData';
+import type { SchoolScore } from '../utils/dataUtils';
 import { getRefScore } from '../utils/dataUtils';
 import { calculateTrendAnalysis, calculateAdmissionProbability } from '../utils/trendAnalyzer';
+
+interface SchoolAnalysis extends SchoolScore {
+  refScore: number;
+  refRank?: number | null;
+  trendAnalysis: { trend: 'up' | 'down' | 'stable'; trendValue: number; volatility: number };
+  probFactors: { baseProbability: number; trendCoefficient: number; volatilityCoefficient: number; finalProbability: number };
+}
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useAppStore();
@@ -41,11 +49,10 @@ export default function AnalysisPage() {
   const textPrimary = isDark ? 'text-white' : 'text-gray-900';
   const textSecondary = isDark ? 'text-gray-300' : 'text-gray-600';
   const textMuted = isDark ? 'text-gray-500' : 'text-gray-400';
-  const glass = isDark ? 'bg-white/5 backdrop-blur-md border border-white/10' : 'bg-white/70 backdrop-blur-md border border-white/50';
 
-  const [schools, setSchools] = useState<any[]>([]);
+  const [schools, setSchools] = useState<SchoolAnalysis[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedSchool, setSelectedSchool] = useState<any>(null);
+  const [selectedSchool, setSelectedSchool] = useState<SchoolAnalysis | null>(null);
 
   useEffect(() => {
     const loadData = () => {
@@ -317,7 +324,7 @@ export default function AnalysisPage() {
               <tbody>
                 {schools.slice(0, 20).map((school) => (
                   <tr 
-                    key={school.id} 
+                    key={school.code || school.name} 
                     className={`border-b ${isDark ? 'border-white/5' : 'border-gray-100'} cursor-pointer hover:${isDark ? 'bg-white/5' : 'bg-gray-50'} transition-colors`}
                     onClick={() => setSelectedSchool(school)}
                   >

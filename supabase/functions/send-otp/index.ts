@@ -43,10 +43,13 @@ export default async function handler(req: Request): Promise<Response> {
     }
 
     if (!SENDGRID_API_KEY) {
-      return new Response(JSON.stringify({ 
-        success: true, 
-        code: code 
+      // 安全说明：邮件服务未配置时不得将验证码明文返回给客户端，
+      // 否则验证码机制形同虚设，任何请求方都能直接获取验证码
+      return new Response(JSON.stringify({
+        success: false,
+        error: '邮件服务未配置，请联系管理员',
       }), {
+        status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
     }

@@ -1,5 +1,5 @@
 interface CacheEntry {
-  data: any;
+  data: unknown;
   timestamp: number;
 }
 
@@ -7,19 +7,19 @@ const CACHE_DURATION = 30 * 60 * 1000;
 
 const cache = new Map<string, CacheEntry>();
 
-function getCacheKey(prefix: string, ...args: any[]): string {
+function getCacheKey(prefix: string, ...args: unknown[]): string {
   return `${prefix}:${JSON.stringify(args)}`;
 }
 
-function getFromCache(key: string): any | null {
+function getFromCache<T>(key: string): T | null {
   const entry = cache.get(key);
   if (!entry) {
     try {
       const stored = localStorage.getItem(key);
       if (stored) {
-        const parsed = JSON.parse(stored);
+        const parsed = JSON.parse(stored) as CacheEntry;
         cache.set(key, parsed);
-        return parsed.data;
+        return parsed.data as T;
       }
     } catch {
       return null;
@@ -33,10 +33,10 @@ function getFromCache(key: string): any | null {
     return null;
   }
   
-  return entry.data;
+  return entry.data as T;
 }
 
-function setCache(key: string, data: any): void {
+function setCache(key: string, data: unknown): void {
   const entry: CacheEntry = {
     data,
     timestamp: Date.now(),
@@ -94,9 +94,9 @@ function clearCacheByPrefix(prefix: string): void {
 }
 
 export const cacheService = {
-  async get<T>(prefix: string, fetcher: () => Promise<T>, ...args: any[]): Promise<T> {
+  async get<T>(prefix: string, fetcher: () => Promise<T>, ...args: unknown[]): Promise<T> {
     const key = `gaokao_cache:${getCacheKey(prefix, ...args)}`;
-    const cached = getFromCache(key);
+    const cached = getFromCache<T>(key);
     
     if (cached !== null) {
       return cached;
@@ -107,7 +107,7 @@ export const cacheService = {
     return data;
   },
   
-  invalidate(prefix: string, ...args: any[]): void {
+  invalidate(prefix: string, ...args: unknown[]): void {
     const key = `gaokao_cache:${getCacheKey(prefix, ...args)}`;
     cache.delete(key);
     localStorage.removeItem(key);

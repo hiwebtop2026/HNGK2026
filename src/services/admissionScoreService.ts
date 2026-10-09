@@ -1,5 +1,5 @@
 import { supabase, TABLES } from '../lib/supabase';
-import { buildSafeLikePattern, sanitizeSearchInput } from '../utils/inputSanitizer';
+import { buildSafeLikePattern } from '../utils/inputSanitizer';
 
 export interface AdmissionScore {
   id: string;
@@ -54,19 +54,41 @@ export const admissionScoreService = {
   async getByYear(year: number): Promise<AdmissionScore[]> {
     if (!supabase) return [];
     
-    const { data, error } = await supabase
-      .from(TABLES.ADMISSION_SCORES)
-      .select('*')
-      .eq('year', year)
-      .order('score', { ascending: false })
-      .limit(10000);
+    // 分页拉取，避免 limit(10000) 在数据量更大时截断
+    const allData: AdmissionScore[] = [];
+    let page = 0;
+    const pageSize = 500;
     
-    if (error) {
-      if (import.meta.env.DEV) console.error('获取投档分数线失败:', error);
-      return [];
+    while (true) {
+      const start = page * pageSize;
+      const end = (page + 1) * pageSize - 1;
+      
+      const { data, error } = await supabase
+        .from(TABLES.ADMISSION_SCORES)
+        .select('*')
+        .eq('year', year)
+        .order('score', { ascending: false })
+        .range(start, end);
+      
+      if (error) {
+        if (import.meta.env.DEV) console.error('获取投档分数线失败:', error);
+        break;
+      }
+      
+      if (!data || data.length === 0) {
+        break;
+      }
+      
+      allData.push(...data);
+      
+      if (data.length < pageSize) {
+        break;
+      }
+      
+      page++;
     }
     
-    return data || [];
+    return allData;
   },
 
   async getByProvince(province: string): Promise<AdmissionScore[]> {
@@ -174,25 +196,47 @@ export const admissionScoreService = {
   async getByScoreRange(minScore: number, maxScore: number, year?: number): Promise<AdmissionScore[]> {
     if (!supabase) return [];
     
-    let query = supabase
-      .from(TABLES.ADMISSION_SCORES)
-      .select('*')
-      .gte('score', minScore)
-      .lte('score', maxScore)
-      .limit(10000);  // 设置更大的limit
+    // 分页拉取，避免 limit(10000) 在数据量更大时截断
+    const allData: AdmissionScore[] = [];
+    let page = 0;
+    const pageSize = 500;
     
-    if (year) {
-      query = query.eq('year', year);
+    while (true) {
+      const start = page * pageSize;
+      const end = (page + 1) * pageSize - 1;
+      
+      let query = supabase
+        .from(TABLES.ADMISSION_SCORES)
+        .select('*')
+        .gte('score', minScore)
+        .lte('score', maxScore)
+        .range(start, end);
+      
+      if (year) {
+        query = query.eq('year', year);
+      }
+      
+      const { data, error } = await query.order('score', { ascending: false });
+      
+      if (error) {
+        if (import.meta.env.DEV) console.error('获取分数段投档线失败:', error);
+        break;
+      }
+      
+      if (!data || data.length === 0) {
+        break;
+      }
+      
+      allData.push(...data);
+      
+      if (data.length < pageSize) {
+        break;
+      }
+      
+      page++;
     }
     
-    const { data, error } = await query.order('score', { ascending: false });
-    
-    if (error) {
-      if (import.meta.env.DEV) console.error('获取分数段投档线失败:', error);
-      return [];
-    }
-    
-    return data || [];
+    return allData;
   },
 
   async getSchoolStats(schoolName?: string): Promise<SchoolScoreStats[]> {

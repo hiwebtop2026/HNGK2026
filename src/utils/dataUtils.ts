@@ -165,7 +165,7 @@ function parseSubjectRequirementFromString(requirement: string): { codes: string
     }
   } else if (reqStr.includes('+') || reqStr.includes('均须') || reqStr.includes('均需') || reqStr.includes('2科必选') || reqStr.includes('3科必选')) {
     type = 'all';
-    const parts = reqStr.split(/[+\/、，,]/);
+    const parts = reqStr.split(/[+/、，,]/);
     for (const part of parts) {
       for (const name of Object.keys(SUBJECT_NAME_TO_CODE)) {
         if (part.trim().startsWith(name)) {
@@ -179,7 +179,7 @@ function parseSubjectRequirementFromString(requirement: string): { codes: string
     }
   } else if (reqStr.includes('/') || reqStr.includes('选') || reqStr.includes('或')) {
     type = 'any';
-    const parts = reqStr.split(/[\/、，,]/);
+    const parts = reqStr.split(/[/、，,]/);
     for (const part of parts) {
       for (const name of Object.keys(SUBJECT_NAME_TO_CODE)) {
         if (part.trim().startsWith(name)) {

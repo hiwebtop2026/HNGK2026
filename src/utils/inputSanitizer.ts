@@ -31,7 +31,8 @@ export function sanitizeSearchInput(input: string, maxLength: number = MAX_SEARC
   if (!input) return '';
   // 去除首尾空白
   let cleaned = input.trim();
-  // 移除控制字符（ASCII 0-31 和 127）
+  // 移除控制字符（ASCII 0-31 和 127）——有意的安全过滤，保留 \x00-\x1F 范围
+  // eslint-disable-next-line no-control-regex
   cleaned = cleaned.replace(/[\x00-\x1F\x7F]/g, '');
   // 限制长度
   if (cleaned.length > maxLength) {

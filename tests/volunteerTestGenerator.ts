@@ -73,15 +73,6 @@ const PROVINCE_BATCH_LINES: Record<string, Record<number, { physics: number; his
   '天津': { 2025: { physics: 547, history: 547 }, 2024: { physics: 547, history: 547 }, 2023: { physics: 532, history: 532 } },
 };
 
-const LEVEL_HIERARCHY: Record<string, number> = {
-  '985': 5,
-  '211': 4,
-  '双一流': 5,
-  '普通本科': 3,
-  '民办': 2,
-  '专科': 1,
-};
-
 const LEVEL_CATEGORIES: Record<number, string[]> = {
   5: ['985', '双一流'],
   4: ['211', '985', '双一流'],
@@ -92,8 +83,6 @@ const LEVEL_CATEGORIES: Record<number, string[]> = {
 
 function getInstitutionLevelRange(candidateScore: number, province: string, strategy: string): string[] {
   const batchLine = PROVINCE_BATCH_LINES[province]?.[2025]?.physics || 500;
-  const scoreRange = province === '海南' ? 900 : 750;
-  const scorePercentile = candidateScore / scoreRange;
   const scoreToBatchLine = candidateScore - batchLine;
 
   let baseLevel: number;
@@ -141,7 +130,7 @@ function calculateHeatScore(score2025: number | null, score2024: number | null, 
     ? (score2025 - score2024) / (score2024 || 1) * 100 
     : 0;
 
-  let volatilityScore = Math.min(100, stdDev * 2);
+  const volatilityScore = Math.min(100, stdDev * 2);
   let trendScore = 50;
   
   if (recentTrend > 5) trendScore = 80;
@@ -318,22 +307,6 @@ function calculateTrendAnalysis(score2025: number | null, score2024: number | nu
     : 0;
 
   return { trend, trendValue: Math.round(diff * 100) / 100, volatility: Math.round(volatility * 100) / 100 };
-}
-
-function transferOverflow(
-  overflow: number,
-  priorities: Array<'chong' | 'wen' | 'bao'>,
-  current: { chong: number; wen: number; bao: number },
-  pools: { chong: number; wen: number; bao: number }
-): void {
-  let remaining = overflow;
-  for (const tier of priorities) {
-    if (remaining <= 0) break;
-    const room = pools[tier] - current[tier];
-    const add = Math.min(remaining, Math.max(0, room));
-    current[tier] += add;
-    remaining -= add;
-  }
 }
 
 interface VolunteerResult {

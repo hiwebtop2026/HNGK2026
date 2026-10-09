@@ -177,7 +177,6 @@ export function calculateRiskAssessment(
   }
 
   const chongRatio = Math.round((chongCount / totalCount) * 100);
-  const wenRatio = Math.round((wenCount / totalCount) * 100);
   const baoRatio = Math.round((baoCount / totalCount) * 100);
 
   if (chongRatio > 40) {

@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import type { VolunteerResult } from '../utils/volunteerUtils';
 
 export type UsageAction =
   | 'login'
@@ -17,7 +16,7 @@ interface UsageLog {
   user_id?: string;
   email?: string;
   action: UsageAction;
-  details?: Record<string, any>;
+  details?: Record<string, unknown>;
   ip_address?: string;
   user_agent?: string;
   created_at?: string;
@@ -26,13 +25,13 @@ interface UsageLog {
 interface UsageState {
   isLogging: boolean;
   
-  logAction: (action: UsageAction, details?: Record<string, any>) => Promise<boolean>;
+  logAction: (action: UsageAction, details?: Record<string, unknown>) => Promise<boolean>;
   logGeneratePlan: (
     baseScore: number,
     subject: number,
     totalVolunteers: number,
     resultsCount: number,
-    extra?: Record<string, any>
+    extra?: Record<string, unknown>
   ) => Promise<boolean>;
   getCurrentUserStats: () => Promise<Record<string, number> | null>;
 }
@@ -66,7 +65,9 @@ export const useUsageStore = create<UsageState>((set, get) => ({
         };
         logs.push(log);
         saveLocalLogs(logs);
-      } catch {}
+      } catch {
+        // localStorage 不可用时静默降级，日志记录失败不影响业务
+      }
       return true;
     }
     

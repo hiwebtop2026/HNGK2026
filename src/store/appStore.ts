@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { SchoolScore, VolunteerResult } from '../utils/volunteerUtils';
 import { loadSchoolDataFromSupabase } from '../utils/supabaseDataLoader';
-import { SCHOOL_DATA, AVAILABLE_REGIONS } from '../data/schoolData';
+import { AVAILABLE_REGIONS } from '../data/schoolData';
 import { getProvinceConfig, type ProvinceConfig } from '../data/provinceConfigs';
 import { STRATEGY_CONFIGS, type StrategyType } from '../config/strategyConfig';
 
@@ -126,6 +126,7 @@ interface AppState {
   setRankInfo: (info: Partial<AppState['rankInfo']>) => void;
   setCurrentRegion: (region: string) => Promise<void>;
   reset: () => void;
+  clearResults: () => void;
   loadFromSupabase: (province?: string) => Promise<void>;
   savePreferences: () => void;
 }
@@ -433,6 +434,11 @@ export const useAppStore = create<AppState>((set, get) => {
         error: null,
       });
       get().savePreferences();
+    },
+    // 仅清空生成结果，保留用户输入的分数/选科/策略等参数，
+    // 用于从结果页返回首页时避免用户重复填写
+    clearResults: () => {
+      set({ results: [], error: null });
     },
   };
 });

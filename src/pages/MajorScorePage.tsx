@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowLeft, Search, Filter, Download, BookOpen,
-  TrendingUp, TrendingDown, Minus, BarChart3, Calendar,
+  BarChart3, Calendar,
   ChevronDown, X, CheckCircle
 } from 'lucide-react';
 import { useAppStore } from '../store/appStore';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { buildSafeLikePattern, sanitizeSearchInput } from '../utils/inputSanitizer';
+import { buildSafeLikePattern } from '../utils/inputSanitizer';
 
 interface MajorScore {
   id?: string;
@@ -52,7 +52,7 @@ export function MajorScorePage() {
   const [selectedProvince, setSelectedProvince] = useState('');
   const [data, setData] = useState<MajorScore[]>([]);
   const [loading, setLoading] = useState(false);
-  const [showAll, setShowAll] = useState(false);
+  const [, setShowAll] = useState(false);
 
   const years = [2023, 2024, 2025];
   const batches = ['', '本科批', '本科提前批'];
@@ -71,34 +71,57 @@ export function MajorScorePage() {
     setShowAll(false);
     
     try {
-      let query = supabase.from('major_scores').select('*');
+      // 分页拉取全部匹配记录，避免 Supabase 默认 1000 行上限导致数据截断
+      const allData: MajorScore[] = [];
+      let page = 0;
+      const pageSize = 500;
       
-      if (schoolName) {
-        query = query.ilike('school_name', buildSafeLikePattern(schoolName));
-      }
-      if (selectedYear) {
-        query = query.eq('year', selectedYear);
-      }
-      if (selectedBatch) {
-        query = query.eq('batch', selectedBatch);
-      }
-      if (selectedSubject) {
-        query = query.ilike('subject_requirement', buildSafeLikePattern(selectedSubject));
-      }
-      if (selectedProvince) {
-        query = query.eq('province', selectedProvince);
+      while (true) {
+        const start = page * pageSize;
+        const end = (page + 1) * pageSize - 1;
+        
+        let query = supabase.from('major_scores').select('*').range(start, end);
+        
+        if (schoolName) {
+          query = query.ilike('school_name', buildSafeLikePattern(schoolName));
+        }
+        if (selectedYear) {
+          query = query.eq('year', selectedYear);
+        }
+        if (selectedBatch) {
+          query = query.eq('batch', selectedBatch);
+        }
+        if (selectedSubject) {
+          query = query.ilike('subject_requirement', buildSafeLikePattern(selectedSubject));
+        }
+        if (selectedProvince) {
+          query = query.eq('province', selectedProvince);
+        }
+        
+        query = query.order('min_score', { ascending: false });
+        
+        const { data: result, error } = await query;
+        
+        if (error) {
+          console.error('查询失败:', error);
+          setData([]);
+          return;
+        }
+        
+        if (!result || result.length === 0) {
+          break;
+        }
+        
+        allData.push(...result);
+        
+        if (result.length < pageSize) {
+          break;
+        }
+        
+        page++;
       }
       
-      query = query.order('min_score', { ascending: false });
-      
-      const { data: result, error } = await query;
-      
-      if (error) {
-        console.error('查询失败:', error);
-        setData([]);
-      } else {
-        setData(result || []);
-      }
+      setData(allData);
     } catch (error) {
       console.error('查询失败:', error);
       setData([]);
@@ -112,19 +135,43 @@ export function MajorScorePage() {
     setShowAll(true);
     
     try {
-      const { data: result, error } = await supabase
-        .from('major_scores')
-        .select('*')
-        .order('school_name')
-        .order('year', { ascending: false })
-        .order('min_score', { ascending: false });
+      // 分页拉取全部记录，避免 Supabase 默认 1000 行上限导致数据截断
+      const allData: MajorScore[] = [];
+      let page = 0;
+      const pageSize = 500;
       
-      if (error) {
-        console.error('查询失败:', error);
-        setData([]);
-      } else {
-        setData(result || []);
+      while (true) {
+        const start = page * pageSize;
+        const end = (page + 1) * pageSize - 1;
+        
+        const { data: result, error } = await supabase
+          .from('major_scores')
+          .select('*')
+          .order('school_name')
+          .order('year', { ascending: false })
+          .order('min_score', { ascending: false })
+          .range(start, end);
+        
+        if (error) {
+          console.error('查询失败:', error);
+          setData([]);
+          return;
+        }
+        
+        if (!result || result.length === 0) {
+          break;
+        }
+        
+        allData.push(...result);
+        
+        if (result.length < pageSize) {
+          break;
+        }
+        
+        page++;
       }
+      
+      setData(allData);
     } catch (error) {
       console.error('查询失败:', error);
       setData([]);
@@ -133,20 +180,16 @@ export function MajorScorePage() {
     }
   }
 
+  /* eslint-disable react-hooks/exhaustive-deps -- fetchData 为组件内查询函数，依赖数组已覆盖全部筛选状态，重新渲染时无需重建 */
   useEffect(() => {
     if (isSupabaseConfigured) {
       fetchData();
     }
   }, [selectedYear, selectedBatch, selectedSubject, selectedProvince]);
+  /* eslint-enable react-hooks/exhaustive-deps */
   
   const handleBack = () => {
     navigate('/');
-  };
-  
-  const getScoreTrend = (item: MajorScore) => {
-    if (!item.min_rank) return 'stable';
-    if (item.year === 2025) return 'stable';
-    return 'stable';
   };
   
   return (
@@ -344,7 +387,6 @@ export function MajorScorePage() {
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {data.map((item, idx) => {
-                    const trend = getScoreTrend(item);
                     return (
                       <tr
                         key={item.id || idx}

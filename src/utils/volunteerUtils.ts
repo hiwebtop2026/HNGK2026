@@ -1,10 +1,10 @@
-import * as XLSX from 'xlsx';
-import ExcelJS from 'exceljs';
-import { getRefScore, getTier, getRecommendationReason, matchMajorCategories, isSubjectMatch, parseSubjectRequirement, SUBJECT_NAMES, SUBJECT_LIST } from './dataUtils';
+// xlsx / exceljs 为重型依赖，仅在导入/导出场景按需动态加载，
+// 避免打进主包导致首屏 JS 体积过大
+import { getRefScore, getRecommendationReason, matchMajorCategories, isSubjectMatch, parseSubjectRequirement } from './dataUtils';
 import type { SchoolScore, MajorRecommendation } from './dataUtils';
 import { generateMajorRecommendations, formatMajorSuggestion } from './majorRecommender';
 import { majorScoreService, type MajorScore } from '../services/majorScoreService';
-import { calculateAdmissionProbability, calculateTrendAnalysis, calculateRiskAssessment, getSmartConfig } from './trendAnalyzer';
+import { calculateTrendAnalysis } from './trendAnalyzer';
 import { STRATEGY_CONFIGS, type StrategyType } from '../config/strategyConfig';
 import { scoreDistributionService } from '../services/scoreDistributionService';
 import { getUniversityWebsite } from '../data/universityWebsites';
@@ -88,22 +88,14 @@ function getTotalCandidates(province: string): number {
   return PROVINCE_TOTAL_CANDIDATES[province] || 70000;
 }
 
-function getScoreToRankFactor(province: string): number {
-  return isHighScoreSystem(province) ? 2 : 1;
-}
-
 function getBatchLine(province: string, year: number, subject: number): number | null {
   const lines = PROVINCE_BATCH_LINES[province];
   if (!lines || !lines[year]) return null;
   
   const subjectStr = String(subject);
-  
-  const physicsCodes = ['1', '2', '3', '4', '5', '6'];
-  const historyCodes = ['4', '5', '6', '7', '8', '9'];
-  
+
   const hasPhysicsNew = ['1', '2', '3'].some(code => subjectStr.includes(code));
-  const hasHistoryNew = ['4', '5', '6'].some(code => subjectStr.includes(code));
-  
+
   const hasPhysicsOld = ['4', '5', '6'].some(code => subjectStr.includes(code));
   const hasHistoryOld = ['7', '8', '9'].some(code => subjectStr.includes(code));
   
@@ -335,6 +327,7 @@ export function getSmartTier(
 
 export async function loadSchoolDataFromExcel(file: File): Promise<SchoolScore[]> {
   const arrayBuffer = await file.arrayBuffer();
+  const XLSX = await import('xlsx');
   const workbook = XLSX.read(arrayBuffer);
   
   const result: SchoolScore[] = [];
@@ -713,58 +706,77 @@ export async function filterSchoolsWithMajors(
   
   const result: VolunteerResult[] = [];
   let index = 1;
-  
+
   const processedSchoolGroups = new Set<string>();
-  
-  for (const s of chong.slice(0, chongCount)) {
-    const groupKey = `${s.code}_${s.name}`;
-    if (processedSchoolGroups.has(groupKey)) {
-      continue;
+
+  // 按 冲→稳→保 顺序收集待处理院校（与原实现序号顺序保持一致）
+  const tierGroups: Array<{ tier: string; schools: typeof withRankAnalysis; count: number }> = [
+    { tier: '冲', schools: chong, count: chongCount },
+    { tier: '稳', schools: wen, count: wenCount },
+    { tier: '保', schools: bao, count: baoCount },
+  ];
+
+  const pendingSchools: typeof withRankAnalysis = [];
+  for (const group of tierGroups) {
+    for (const s of group.schools.slice(0, group.count)) {
+      const groupKey = `${s.code}_${s.name}`;
+      if (processedSchoolGroups.has(groupKey)) {
+        continue;
+      }
+      processedSchoolGroups.add(groupKey);
+      pendingSchools.push(s);
     }
-    processedSchoolGroups.add(groupKey);
-    
+  }
+
+  // 并行完成所有志愿的异步计算（专业推荐、趋势、批次线、录取概率），
+  // 相比原实现逐个 await 显著缩短生成方案的等待时间
+  const prepared = await Promise.all(pendingSchools.map(async (s) => {
     const schoolNameKey = extractSchoolNameKey(s.name);
     const majorRecs = await generateMajorRecommendations(s.name, baseScore, s.refScore, s.level, selectedSubjects, province);
     const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
     const batchLine = getBatchLine(province, 2025, s.subject);
     const scoreAboveBatch = batchLine !== null ? s.refScore - batchLine : null;
-    
     const probResult = calculateComprehensiveAdmissionProbability(
       baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis, batchLine
     );
-    
-    const warnings = schoolWarnings.get(s.code) || [];
-    
+    // 拷贝 warnings 副本，避免同一 code 多次出现时共享数组互相污染
+    const warnings = [...(schoolWarnings.get(s.code) || [])];
+    return { s, schoolNameKey, majorRecs, trendAnalysis, batchLine, scoreAboveBatch, probResult, warnings };
+  }));
+
+  for (const p of prepared) {
+    const { s, schoolNameKey, majorRecs, trendAnalysis, batchLine, scoreAboveBatch, probResult, warnings } = p;
+
     if (scoreAboveBatch !== null && scoreAboveBatch < 0) {
       warnings.push(`低于批次线${Math.abs(scoreAboveBatch)}分`);
     }
-    
+
     if (baseScore < (batchLine || 0)) {
       warnings.push(`考生分数低于批次线${Math.abs(baseScore - (batchLine || 0))}分，录取风险极高`);
     }
-    
+
     const riskFactors: string[] = [];
     if (s.tier === '冲') riskFactors.push('冲刺志愿');
     if (trendAnalysis.trend === 'up') riskFactors.push('分数上涨趋势');
     if (trendAnalysis.volatility > 10) riskFactors.push('分数波动较大');
     if (probResult.probability < 30) riskFactors.push('录取概率低');
     if (s.score2025 === null || s.score2024 === null) riskFactors.push('数据不完整');
-    
+
     let riskLevel: 'low' | 'medium' | 'high' = 'low';
     if (riskFactors.length >= 3 || probResult.probability < 20 || baseScore < (batchLine || 0)) {
       riskLevel = 'high';
     } else if (riskFactors.length >= 2 || probResult.probability < 40) {
       riskLevel = 'medium';
     }
-    
-    const majorSpread = majorRecs.length >= 2 
+
+    const majorSpread = majorRecs.length >= 2
       ? Math.max(...majorRecs.map(m => m.estimatedScore)) - Math.min(...majorRecs.map(m => m.estimatedScore))
       : null;
-    
-    const admissionGap = s.score2025 !== null && s.score2024 !== null 
+
+    const admissionGap = s.score2025 !== null && s.score2024 !== null
       ? s.score2025 - s.score2024
       : null;
-    
+
     result.push({
       index,
       tier: s.tier,
@@ -803,183 +815,7 @@ export async function filterSchoolsWithMajors(
     });
     index++;
   }
-  
-  for (const s of wen.slice(0, wenCount)) {
-    const groupKey = `${s.code}_${s.name}`;
-    if (processedSchoolGroups.has(groupKey)) {
-      continue;
-    }
-    processedSchoolGroups.add(groupKey);
-    
-    const schoolNameKey = extractSchoolNameKey(s.name);
-    const majorRecs = await generateMajorRecommendations(s.name, baseScore, s.refScore, s.level, selectedSubjects, province);
-    const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
-    const batchLine = getBatchLine(province, 2025, s.subject);
-    const scoreAboveBatch = batchLine !== null ? s.refScore - batchLine : null;
-    
-    const probResult = calculateComprehensiveAdmissionProbability(
-      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis, batchLine
-    );
-    
-    const warnings = schoolWarnings.get(s.code) || [];
-    
-    if (scoreAboveBatch !== null && scoreAboveBatch < 0) {
-      warnings.push(`低于批次线${Math.abs(scoreAboveBatch)}分`);
-    }
-    
-    if (baseScore < (batchLine || 0)) {
-      warnings.push(`考生分数低于批次线${Math.abs(baseScore - (batchLine || 0))}分，录取风险极高`);
-    }
-    
-    const riskFactors: string[] = [];
-    if (s.tier === '冲') riskFactors.push('冲刺志愿');
-    if (trendAnalysis.trend === 'up') riskFactors.push('分数上涨趋势');
-    if (trendAnalysis.volatility > 10) riskFactors.push('分数波动较大');
-    if (probResult.probability < 30) riskFactors.push('录取概率低');
-    if (s.score2025 === null || s.score2024 === null) riskFactors.push('数据不完整');
-    
-    let riskLevel: 'low' | 'medium' | 'high' = 'low';
-    if (riskFactors.length >= 3 || probResult.probability < 20 || baseScore < (batchLine || 0)) {
-      riskLevel = 'high';
-    } else if (riskFactors.length >= 2 || probResult.probability < 40) {
-      riskLevel = 'medium';
-    }
-    
-    const majorSpread = majorRecs.length >= 2 
-      ? Math.max(...majorRecs.map(m => m.estimatedScore)) - Math.min(...majorRecs.map(m => m.estimatedScore))
-      : null;
-    
-    const admissionGap = s.score2025 !== null && s.score2024 !== null 
-      ? s.score2025 - s.score2024
-      : null;
-    
-    result.push({
-      index,
-      tier: s.tier,
-      code: s.code,
-      name: s.name,
-      schoolName: schoolNameKey,
-      website: getUniversityWebsite(s.name),
-      subject: s.subject,
-      subjectText: parseSubjectRequirement(s.subject),
-      province: s.province,
-      level: s.level,
-      nature: s.nature,
-      score2025: s.score2025,
-      score2024: s.score2024,
-      score2023: s.score2023,
-      refScore: s.refScore,
-      majorSuggestion: formatMajorSuggestion(majorRecs),
-      majorRecommendations: majorRecs,
-      reason: getRecommendationReason(s.refScore, baseScore, province),
-      admissionProbability: probResult.probability,
-      scoreTrend: trendAnalysis.trend,
-      trendValue: trendAnalysis.trendValue,
-      volatility: trendAnalysis.volatility,
-      matchedMajors: [],
-      rankDiff: s.rankAnalysis?.rankDiff ?? null,
-      rankPercentage: s.rankAnalysis?.rankPercentage ?? null,
-      candidateRank: s.rankAnalysis?.candidateRank ?? null,
-      schoolRank: s.rankAnalysis?.schoolRank ?? null,
-      batchLine,
-      scoreAboveBatch,
-      warnings,
-      riskLevel,
-      riskFactors,
-      majorSpread,
-      admissionGap,
-    });
-    index++;
-  }
-  
-  for (const s of bao.slice(0, baoCount)) {
-    const groupKey = `${s.code}_${s.name}`;
-    if (processedSchoolGroups.has(groupKey)) {
-      continue;
-    }
-    processedSchoolGroups.add(groupKey);
-    
-    const schoolNameKey = extractSchoolNameKey(s.name);
-    const majorRecs = await generateMajorRecommendations(s.name, baseScore, s.refScore, s.level, selectedSubjects, province);
-    const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
-    const batchLine = getBatchLine(province, 2025, s.subject);
-    const scoreAboveBatch = batchLine !== null ? s.refScore - batchLine : null;
-    
-    const probResult = calculateComprehensiveAdmissionProbability(
-      baseScore, s.refScore, s.score2025, s.score2024, s.score2023, province, s.rankAnalysis, batchLine
-    );
-    
-    const warnings = schoolWarnings.get(s.code) || [];
-    
-    if (scoreAboveBatch !== null && scoreAboveBatch < 0) {
-      warnings.push(`低于批次线${Math.abs(scoreAboveBatch)}分`);
-    }
-    
-    if (baseScore < (batchLine || 0)) {
-      warnings.push(`考生分数低于批次线${Math.abs(baseScore - (batchLine || 0))}分，录取风险极高`);
-    }
-    
-    const riskFactors: string[] = [];
-    if (s.tier === '冲') riskFactors.push('冲刺志愿');
-    if (trendAnalysis.trend === 'up') riskFactors.push('分数上涨趋势');
-    if (trendAnalysis.volatility > 10) riskFactors.push('分数波动较大');
-    if (probResult.probability < 30) riskFactors.push('录取概率低');
-    if (s.score2025 === null || s.score2024 === null) riskFactors.push('数据不完整');
-    
-    let riskLevel: 'low' | 'medium' | 'high' = 'low';
-    if (riskFactors.length >= 3 || probResult.probability < 20 || baseScore < (batchLine || 0)) {
-      riskLevel = 'high';
-    } else if (riskFactors.length >= 2 || probResult.probability < 40) {
-      riskLevel = 'medium';
-    }
-    
-    const majorSpread = majorRecs.length >= 2 
-      ? Math.max(...majorRecs.map(m => m.estimatedScore)) - Math.min(...majorRecs.map(m => m.estimatedScore))
-      : null;
-    
-    const admissionGap = s.score2025 !== null && s.score2024 !== null 
-      ? s.score2025 - s.score2024
-      : null;
-    
-    result.push({
-      index,
-      tier: s.tier,
-      code: s.code,
-      name: s.name,
-      schoolName: schoolNameKey,
-      website: getUniversityWebsite(s.name),
-      subject: s.subject,
-      subjectText: parseSubjectRequirement(s.subject),
-      province: s.province,
-      level: s.level,
-      nature: s.nature,
-      score2025: s.score2025,
-      score2024: s.score2024,
-      score2023: s.score2023,
-      refScore: s.refScore,
-      majorSuggestion: formatMajorSuggestion(majorRecs),
-      majorRecommendations: majorRecs,
-      reason: getRecommendationReason(s.refScore, baseScore, province),
-      admissionProbability: probResult.probability,
-      scoreTrend: trendAnalysis.trend,
-      trendValue: trendAnalysis.trendValue,
-      volatility: trendAnalysis.volatility,
-      matchedMajors: [],
-      rankDiff: s.rankAnalysis?.rankDiff ?? null,
-      rankPercentage: s.rankAnalysis?.rankPercentage ?? null,
-      candidateRank: s.rankAnalysis?.candidateRank ?? null,
-      schoolRank: s.rankAnalysis?.schoolRank ?? null,
-      batchLine,
-      scoreAboveBatch,
-      warnings,
-      riskLevel,
-      riskFactors,
-      majorSpread,
-      admissionGap,
-    });
-    index++;
-  }
-  
+
   return result;
 }
 
@@ -1092,10 +928,10 @@ export async function filterSchoolsAsync(
   const isHighScoreSystem = ['海南'].includes(province);
   const effectiveRange = isHighScoreSystem ? scoreRange * 2 : scoreRange;
   
-  for (const result of results) {
+  // 并行处理所有院校的专业匹配，避免逐校串行网络请求拖慢整体耗时
+  await Promise.all(results.map(async (result) => {
     try {
       const schoolName = extractSchoolName(result.name);
-      const schoolRefScore = result.refScore || 0;
       const allMajors = await majorScoreService.getBySchoolAndProvince(schoolName, province);
       
       const filteredMajors = allMajors.filter(major => {
@@ -1134,23 +970,6 @@ export async function filterSchoolsAsync(
         major.admission_probability = getMajorAdmissionProbability(score, baseScore, province);
         major.tier = getMajorTierByScore(score, baseScore, chongDiff, wenDiff, province, scoreRange);
       });
-      
-      const getMajorHeatScore = (majorName: string): number => {
-        const hotKeywords = ['计算机', '软件', '电子信息', '人工智能', '数据', '金融', '经济', '临床医学', '口腔', '法学', '会计'];
-        const warmKeywords = ['机械', '土木', '化工', '材料', '环境', '生物', '数学', '物理', '化学', '英语', '汉语言'];
-        const coolKeywords = ['历史', '哲学', '考古', '地质', '矿业', '林业', '农学', '水利', '测绘', '海洋'];
-        
-        for (const keyword of hotKeywords) {
-          if (majorName.includes(keyword)) return 100;
-        }
-        for (const keyword of warmKeywords) {
-          if (majorName.includes(keyword)) return 70;
-        }
-        for (const keyword of coolKeywords) {
-          if (majorName.includes(keyword)) return 40;
-        }
-        return 60;
-      };
       
       let strategyMatched: MajorScore[] = [];
       const chongMajors = matched.filter(m => m.tier === '冲');
@@ -1204,7 +1023,7 @@ export async function filterSchoolsAsync(
     } catch (error) {
       console.error(`获取${result.name}专业数据失败:`, error);
     }
-  }
+  }));
   
   return results;
 }
@@ -1273,6 +1092,7 @@ function getLevelStyle(level: string) {
 }
 
 async function exportToExcelModern(volunteers: VolunteerResult[], filename: string, baseScore: number): Promise<void> {
+  const ExcelJS = (await import('exceljs')).default;
   const workbook = new ExcelJS.Workbook();
   workbook.creator = '智能志愿推荐系统';
   workbook.lastModifiedBy = '智能志愿推荐系统';
@@ -1328,7 +1148,7 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
   ];
   
   const headerRow = mainSheet.addRow(headers);
-  headerRow.eachCell((cell, colNumber) => {
+  headerRow.eachCell((cell) => {
     Object.assign(cell, headerStyle);
   });
   
@@ -1468,7 +1288,7 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
     })),
   ];
   
-  summaryData.forEach((data, idx) => {
+  summaryData.forEach((data) => {
     const row = summarySheet.addRow([data.label, data.value, data.percentage, '', '', '', '']);
     
     row.eachCell((cell) => {
@@ -1507,9 +1327,10 @@ async function exportToExcelModern(volunteers: VolunteerResult[], filename: stri
 export function exportToExcel(volunteers: VolunteerResult[], filename: string): void {
   const baseScore = volunteers[0]?.refScore || 0;
   
-  exportToExcelModern(volunteers, filename, baseScore).catch(error => {
+  exportToExcelModern(volunteers, filename, baseScore).catch(async error => {
     console.error('Excel导出失败:', error);
     
+    const XLSX = await import('xlsx');
     const workbook = XLSX.utils.book_new();
     
     const data = [
