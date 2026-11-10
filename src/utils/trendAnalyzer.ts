@@ -1,3 +1,5 @@
+import { HISTORY_YEARS } from '../config/examYearConfig';
+
 export interface TrendData {
   year: number;
   score: number | null;
@@ -21,14 +23,15 @@ export interface ProbabilityFactors {
 }
 
 export function calculateTrendAnalysis(
-  score2025: number | null,
-  score2024: number | null,
-  score2023: number | null
+  latest: number | null,
+  previous: number | null,
+  oldest: number | null,
+  years: readonly [number, number, number] = HISTORY_YEARS
 ): TrendAnalysisResult {
   const yearlyData: TrendData[] = [
-    { year: 2025, score: score2025, rank: null },
-    { year: 2024, score: score2024, rank: null },
-    { year: 2023, score: score2023, rank: null },
+    { year: years[0], score: latest, rank: null },
+    { year: years[1], score: previous, rank: null },
+    { year: years[2], score: oldest, rank: null },
   ];
 
   const validScores = yearlyData.filter(d => d.score !== null).map(d => d.score!) as number[];
@@ -64,9 +67,11 @@ export function calculateTrendAnalysis(
   else if (trendValue > 5) trend = 'up';
   else trend = 'stable';
 
-  let trendCoefficient = 1.0;
-  if (trend === 'down') trendCoefficient = 1.05;
-  else if (trend === 'up') trendCoefficient = 0.95;
+  // 趋势影响按幅度线性化：原实现只有 0.95/1.0/1.05 三档，
+  // 10 分和 40 分的上涨被同等处理。现在 ±5% 以内与旧档基本一致，
+  // 幅度越大调整越强，±15% 封顶（0.85 / 1.15）。
+  const clampedTrend = Math.max(-15, Math.min(15, trendValue));
+  const trendCoefficient = 1 - (clampedTrend / 15) * 0.15;
 
   let volatilityCoefficient = 1.0;
   if (volatility <= 3) volatilityCoefficient = 1.00;
@@ -87,11 +92,11 @@ export function calculateTrendAnalysis(
 export function calculateAdmissionProbability(
   refScore: number,
   baseScore: number,
-  score2025: number | null,
-  score2024: number | null,
-  score2023: number | null
+  latest: number | null,
+  previous: number | null,
+  oldest: number | null
 ): ProbabilityFactors {
-  const trendAnalysis = calculateTrendAnalysis(score2025, score2024, score2023);
+  const trendAnalysis = calculateTrendAnalysis(latest, previous, oldest);
   
   const diff = baseScore - refScore;
   
@@ -138,7 +143,8 @@ export interface RiskAssessmentResult {
 export function calculateRiskAssessment(
   chongCount: number,
   wenCount: number,
-  baoCount: number
+  baoCount: number,
+  tierProbabilities?: { chong: number[]; wen: number[]; bao: number[] }
 ): RiskAssessmentResult {
   const totalCount = chongCount + wenCount + baoCount;
   if (totalCount === 0) {
@@ -154,7 +160,23 @@ export function calculateRiskAssessment(
     };
   }
 
-  const riskIndex = (chongCount * 1.0 + wenCount * 0.5 + baoCount * 0.2) / totalCount;
+  // 结构风险：只按冲/稳/保数量加权（原有口径，作为兜底与对照）
+  const countRisk = (chongCount * 1.0 + wenCount * 0.5 + baoCount * 0.2) / totalCount;
+
+  // 概率风险：同样 8 个冲，平均 30% 与平均 15% 的真实风险完全不同。
+  // 概率已经过回测校准，可直接当历史命中率使用；整体平均落榜率作为风险的质量维度。
+  let riskIndex = countRisk;
+  let avgChongProbability: number | null = null;
+  if (tierProbabilities) {
+    const all = [...tierProbabilities.chong, ...tierProbabilities.wen, ...tierProbabilities.bao];
+    if (all.length > 0) {
+      const failRate = all.reduce((sum, p) => sum + (100 - p) / 100, 0) / all.length;
+      riskIndex = 0.5 * countRisk + 0.5 * failRate;
+    }
+    if (tierProbabilities.chong.length > 0) {
+      avgChongProbability = tierProbabilities.chong.reduce((a, b) => a + b, 0) / tierProbabilities.chong.length;
+    }
+  }
 
   let riskLevel: 'low' | 'medium' | 'high';
   let riskDescription: string;
@@ -176,6 +198,12 @@ export function calculateRiskAssessment(
     suggestions.push('确保至少有3-5个稳妥的保底志愿');
   }
 
+  // 保底池为空通常意味着考生分数已接近或低于本科批线，
+  // 此时只提示“增加保底”没有可操作性，需要给出可行的备选路径。
+  if (baoCount === 0) {
+    suggestions.push('当前分数区间内没有可用的保底院校，建议适当放宽分数范围，并同步准备专科批或征集志愿');
+  }
+
   const chongRatio = Math.round((chongCount / totalCount) * 100);
   const baoRatio = Math.round((baoCount / totalCount) * 100);
 
@@ -184,6 +212,10 @@ export function calculateRiskAssessment(
   }
   if (baoRatio < 20) {
     suggestions.push(`保底志愿占比${baoRatio}%，建议不低于25%`);
+  }
+
+  if (avgChongProbability !== null && avgChongProbability < 20) {
+    suggestions.push(`冲刺志愿平均命中率仅${Math.round(avgChongProbability)}%，接近“彩票组”，建议替换部分为命中率更高的院校`);
   }
 
   return {

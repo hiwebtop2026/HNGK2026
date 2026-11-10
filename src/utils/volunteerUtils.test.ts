@@ -5,8 +5,10 @@ import {
   filterSchools,
   analyzeRank,
   calculateComprehensiveAdmissionProbability,
+  convertScoreToEquivalent,
   getSmartTier,
 } from './volunteerUtils';
+import type { ScoreDistribution } from '../services/scoreDistributionService';
 import { calculateAdmissionProbability } from './trendAnalyzer';
 
 // Mock 网络服务，使单元测试脱离真实 Supabase 网络请求：
@@ -150,6 +152,44 @@ describe('getSmartTier', () => {
   });
 });
 
+describe('convertScoreToEquivalent', () => {
+  const makeRows = (year: number, entries: Array<[number, number]>): ScoreDistribution[] =>
+    entries.map(([score, cumulative], index) => ({
+      id: `${year}-${score}`,
+      province: '海南',
+      year,
+      score,
+      count: cumulative - (entries[index + 1]?.[1] ?? 0),
+      cumulative_count: cumulative,
+      min_rank: (entries[index + 1]?.[1] ?? 0) + 1,
+      max_rank: cumulative,
+      rank: (entries[index + 1]?.[1] ?? 0) + 1,
+      category: '普通类',
+      created_at: '',
+    }));
+
+  // 源年整体偏松、目标年更卷：同样分数在目标年应折算出更高分
+  const distributions = {
+    2024: makeRows(2024, [[700, 100], [650, 3000], [600, 12000], [550, 23000], [500, 37000]]),
+    2026: makeRows(2026, [[710, 90], [660, 3000], [610, 12000], [560, 24000], [510, 38000]]),
+  };
+
+  it('should convert a source score to the target-year equivalent score', () => {
+    expect(convertScoreToEquivalent(650, 2024, distributions, 2026)).toBe(660);
+    expect(convertScoreToEquivalent(600, 2024, distributions, 2026)).toBe(610);
+    expect(convertScoreToEquivalent(550, 2024, distributions, 2026)).toBe(560);
+  });
+
+  it('should keep the score unchanged when source and target years match', () => {
+    expect(convertScoreToEquivalent(600, 2026, distributions, 2026)).toBe(600);
+  });
+
+  it('should fall back to the original score when distributions are missing', () => {
+    expect(convertScoreToEquivalent(600, 2023, distributions, 2026)).toBe(600);
+    expect(convertScoreToEquivalent(null, 2024, distributions, 2026)).toBeNull();
+  });
+});
+
 describe('filterSchools', () => {
   const mockSchools: SchoolScore[] = [
     {
@@ -249,5 +289,34 @@ describe('filterSchools', () => {
       expect(r.candidateRank).toBeDefined();
       expect(r.schoolRank).toBeDefined();
     });
+  });
+
+  it('should cap the number of groups selected from the same university', async () => {
+    // 同一所院校的 4 个专业组 + 另一所院校的 4 个专业组，共 8 个候选，
+    // 30 个志愿中同一院校最多保留 2 个组，避免方案被少数学校占满。
+    const sameSchoolGroups: SchoolScore[] = [
+      '测试大学(01)', '测试大学(02)', '测试大学(03)', '测试大学(04)',
+      '另一大学(01)', '另一大学(02)', '另一大学(03)', '另一大学(04)',
+    ].map((name, i) => ({
+      code: `test-${i}`,
+      name,
+      subject: 54,
+      subject_requirement: '物+化(2科必选)',
+      province: '北京',
+      level: '普通本科',
+      nature: '公办',
+      region: '海南',
+      score2025: 590 - i,
+      score2024: 585 - i,
+      score2023: 580 - i,
+    }));
+
+    const results = await filterSchools(sameSchoolGroups, 800, 5, 54, 4);
+    expect(results.length).toBe(4);
+    const perSchool = results.reduce<Record<string, number>>((acc, r) => {
+      acc[r.schoolName] = (acc[r.schoolName] || 0) + 1;
+      return acc;
+    }, {});
+    Object.values(perSchool).forEach(count => expect(count).toBeLessThanOrEqual(2));
   });
 });

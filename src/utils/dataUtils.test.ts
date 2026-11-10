@@ -35,12 +35,12 @@ describe('parseSubjectRequirement', () => {
 });
 
 describe('getRefScore', () => {
-  it('should return 2025 score when available', () => {
-    expect(getRefScore(600, 580, 560)).toBe(600);
+  it('should use weighted average of three years (2025:0.5 / 2024:0.3 / 2023:0.2)', () => {
+    expect(getRefScore(600, 580, 560)).toBe(586);
   });
 
-  it('should return 2024 score when 2025 is null', () => {
-    expect(getRefScore(null, 580, 560)).toBe(580);
+  it('should renormalize weights when 2025 is missing', () => {
+    expect(getRefScore(null, 580, 560)).toBe(572);
   });
 
   it('should return 2023 score when 2025 and 2024 are null', () => {

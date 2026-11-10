@@ -10,6 +10,7 @@ export interface SchoolScore {
   level: string;
   nature: '公办' | '民办' | '中外合作办学';
   region: string;
+  score2026?: number | null;
   score2025: number | null;
   score2024: number | null;
   score2023: number | null;

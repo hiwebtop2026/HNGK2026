@@ -12,6 +12,7 @@ import { useUsageStore } from '../store/usageStore';
 import { filterSchoolsAsync, loadSchoolDataFromExcel, extractSchoolNameKey } from '../utils/volunteerUtils';
 import { MAJOR_CATEGORIES, matchMajorCategories, SUBJECT_LIST, isSubjectMatch, getRefScore } from '../utils/dataUtils';
 import { fetchRankInfo } from '../utils/dataUtils';
+import { TARGET_YEAR } from '../config/examYearConfig';
 import { SCHOOL_DATA, PROVINCES, SCHOOL_LEVELS, SCHOOL_NATURES, REGION_GROUPS } from '../data/schoolData';
 import { ALL_MAJORS, MAJOR_CATEGORIES as ALL_MAJOR_CATEGORIES, getMajorsByCategory } from '../data/majorData';
 import { STRATEGY_CONFIGS, type StrategyType } from '../store/appStore';
@@ -82,6 +83,7 @@ export function HomePage() {
     schoolData,
     rankInfo,
     isDark,
+    isLoading,
     error,
     currentRegion,
     availableRegions,
@@ -202,6 +204,8 @@ export function HomePage() {
       
       const isHighScoreSystem = ['海南'].includes(currentRegion);
       const adjustedScoreRange = isHighScoreSystem ? scoreRange * 2 : scoreRange;
+      // 单省数据源中 province 表示招生省份，不能作为院校所在地筛选依据
+      const hasLocationData = new Set(data.map(s => s.province)).size > 1;
       
       let filtered = data.filter(s => {
         if (s.province !== currentRegion && s.region !== currentRegion) return false;
@@ -216,13 +220,13 @@ export function HomePage() {
         
         if (selectedLevels.length > 0 && !selectedLevels.includes(s.level)) return false;
         if (selectedNatures.length > 0 && !selectedNatures.includes(s.nature)) return false;
-        if (selectedProvinces.length > 0 && !selectedProvinces.includes(s.province)) return false;
+        if (selectedProvinces.length > 0 && hasLocationData && !selectedProvinces.includes(s.province)) return false;
         if (selectedMajorCategories.length > 0) {
           const cats = matchMajorCategories(s.name);
           if (!selectedMajorCategories.some(c => cats.includes(c))) return false;
         }
         if (baseScore !== null) {
-          const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
+          const refScore = getRefScore(s.score2026 ?? null, s.score2025, s.score2024);
           return refScore <= baseScore + adjustedScoreRange;
         }
         return true;
@@ -289,6 +293,13 @@ export function HomePage() {
   
   const volunteerOptions = [15, 20, 30, 45];
 
+  // 当前数据源若只包含一个省份，province 字段表示招生省份而非院校所在地，
+  // 地域筛选无法生效，界面上应明确禁用而不是让用户以为筛选失败。
+  const provinceFilterEnabled = useMemo(() => {
+    const data = schoolData.length > 0 ? schoolData : SCHOOL_DATA;
+    return new Set(data.map(s => s.province)).size > 1;
+  }, [schoolData]);
+
   const isSubjectSelectionValid = useMemo(() => {
     if (!provinceConfig) return false;
     
@@ -311,7 +322,8 @@ export function HomePage() {
     }
     
     if (provinceConfig.examMode === '3+3') {
-      return current === 0 || current === required;
+      // 3+3 地区必须选满 3 门选考科目，未选择或无数据时不能生成方案
+      return required > 0 && current === required;
     }
     
     return current === required;
@@ -358,7 +370,7 @@ export function HomePage() {
     
     if (provinceConfig.examMode === '3+3') {
       if (current === 0) {
-        return '';
+        return `请选择${required}门选考科目（当前未选择，无法生成方案）`;
       }
       if (current < required) {
         return `还需要选择${required - current}门科目，请继续选择`;
@@ -822,7 +834,7 @@ export function HomePage() {
                   </div>
                   <div className="text-left">
                     <p className={`font-medium ${textPrimary}`}>{currentRegion}数据已加载</p>
-                    <p className={`text-sm ${textSecondary}`}>2023-2025年{currentRegion}投档分数线（{schoolData.length} 所院校）</p>
+                    <p className={`text-sm ${textSecondary}`}>2024-2026年{currentRegion}投档分数线（{schoolData.length} 个在招专业组）</p>
                   </div>
                 </div>
               ) : (
@@ -920,7 +932,7 @@ export function HomePage() {
                         )}
                       </div>
                       <p className={`text-sm font-medium ${isDark ? 'text-purple-300' : 'text-purple-700'}`}>
-                        {rankInfo.isQuerying ? `正在从${currentRegion}省考试局获取位次信息...` : `${currentRegion}省2026年高考位次参考`}
+                        {rankInfo.isQuerying ? `正在从${currentRegion}省考试局获取位次信息...` : `${currentRegion}省${TARGET_YEAR}年高考位次参考`}
                       </p>
                     </div>
                     
@@ -929,7 +941,7 @@ export function HomePage() {
                         <div className={`w-full h-2 ${isDark ? 'bg-white/10' : 'bg-gray-200'} rounded-full overflow-hidden`}>
                           <div className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full animate-pulse" style={{ width: '70%' }} />
                         </div>
-                        <p className={`text-xs ${textSecondary}`}>正在查询{currentRegion}2026年一分一段表数据...</p>
+                        <p className={`text-xs ${textSecondary}`}>正在查询{currentRegion}{TARGET_YEAR}年一分一段表数据...</p>
                       </div>
                     ) : rankInfo.rank !== null ? (
                       <div>
@@ -1539,7 +1551,7 @@ export function HomePage() {
               </div>
               
               {/* 地域选择 */}
-              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'}`} style={{ animationDelay: '0.25s' }}>
+              <div className={`glass rounded-2xl p-6 animate-slide-up card-hover ${isDark ? '' : 'shadow-md'} ${provinceFilterEnabled ? '' : 'opacity-60'}`} style={{ animationDelay: '0.25s' }}>
                 <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center shadow-md">
@@ -1572,7 +1584,10 @@ export function HomePage() {
                       <button
                         key={region.name}
                         onClick={() => toggleRegion(region.provinces)}
+                        disabled={!provinceFilterEnabled}
                         className={`w-full px-3 py-2.5 rounded-lg border text-sm font-medium transition-all flex items-center justify-between ${
+                          !provinceFilterEnabled ? 'cursor-not-allowed' : ''
+                        } ${
                           allSelected
                             ? isDark
                             ? 'bg-green-500/20 border-green-500/30 text-green-400'
@@ -1600,7 +1615,10 @@ export function HomePage() {
                       <button
                         key={province}
                         onClick={() => toggleProvince(province)}
+                        disabled={!provinceFilterEnabled}
                         className={`w-full px-3 py-2 rounded-lg text-sm transition-all text-left ${
+                          !provinceFilterEnabled ? 'cursor-not-allowed' : ''
+                        } ${
                           isSelected
                             ? isDark
                             ? 'bg-green-500/20 text-green-400'
@@ -1616,7 +1634,9 @@ export function HomePage() {
                   })}
                 </div>
                 <p className={`mt-3 text-xs ${textMuted}`}>
-                  已选 {selectedProvinces.length} 个地区 {selectedProvinces.length === 0 && '（默认全部）'}
+                  {provinceFilterEnabled
+                    ? `已选 ${selectedProvinces.length} 个地区 ${selectedProvinces.length === 0 ? '（默认全部）' : ''}`
+                    : '当前数据未包含院校所在地信息，地域筛选暂不可用'}
                 </p>
               </div>
               
@@ -1644,23 +1664,30 @@ export function HomePage() {
                 <div className="text-center">
                   <p className={`text-sm ${textSecondary} mb-1`}>符合条件</p>
                   <p className="text-3xl font-bold text-gradient">{availableCount}</p>
-                  <p className={`text-xs ${textMuted}`}>条院校记录</p>
+                  <p className={`text-xs ${textMuted}`}>个院校专业组</p>
                 </div>
                 <div className={`w-px h-16 ${isDark ? 'bg-white/10' : 'bg-gray-200'}`} />
                 <div className={`text-sm ${textSecondary} space-y-1`}>
-                  <p>分数范围：<span className={`${textPrimary} font-medium`}>{baseScore !== null ? `${baseScore - scoreRange} - ${baseScore + scoreRange} 分` : '待输入'}</span></p>
+                  <p>分数上限：<span className={`${textPrimary} font-medium`}>{baseScore !== null ? `${baseScore + (['海南'].includes(currentRegion) ? scoreRange * 2 : scoreRange)} 分` : '待输入'}</span></p>
                   <p>选科组合：<span className={`${textPrimary} font-medium`}>{selectedSubjects.length === 0 ? '未选择' : selectedSubjects.map(c => SUBJECT_LIST.find(s => s.code === c)?.name).join('、')}</span></p>
                 </div>
               </div>
               
-              <button
-                onClick={handleGenerate}
-                disabled={useAppStore.getState().isLoading || availableCount === 0 || baseScore === null || (provinceConfig && !provinceConfig.dataAvailable)}
-                className="w-full md:w-auto px-10 py-4 bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500 text-white rounded-xl font-semibold text-lg shadow-xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
-              >
-                <span>一键生成志愿方案</span>
-                <ChevronRight className="w-5 h-5" />
-              </button>
+              <div className="w-full md:w-auto flex flex-col items-stretch md:items-end gap-2">
+                {!isSubjectSelectionValid && (
+                  <p className={`text-xs ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>
+                    {subjectValidationMessage || '请先选择完整的选考科目组合'}
+                  </p>
+                )}
+                <button
+                  onClick={handleGenerate}
+                  disabled={isLoading || availableCount === 0 || baseScore === null || !isSubjectSelectionValid || (provinceConfig && !provinceConfig.dataAvailable)}
+                  className="w-full md:w-auto px-10 py-4 bg-gradient-to-r from-primary-600 via-primary-500 to-accent-500 text-white rounded-xl font-semibold text-lg shadow-xl shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-[1.02] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                >
+                  <span>一键生成志愿方案</span>
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
 
               <button
                 onClick={() => navigate('/analysis')}

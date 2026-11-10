@@ -58,9 +58,9 @@ export default function AnalysisPage() {
     const loadData = () => {
       try {
         const processed = SCHOOL_DATA.map(s => {
-          const refScore = getRefScore(s.score2025, s.score2024, s.score2023);
-          const trendAnalysis = calculateTrendAnalysis(s.score2025, s.score2024, s.score2023);
-          const probFactors = calculateAdmissionProbability(refScore, baseScore, s.score2025, s.score2024, s.score2023);
+          const refScore = getRefScore(s.score2026 ?? null, s.score2025, s.score2024);
+          const trendAnalysis = calculateTrendAnalysis(s.score2026 ?? null, s.score2025, s.score2024);
+          const probFactors = calculateAdmissionProbability(refScore, baseScore, s.score2026 ?? null, s.score2025, s.score2024);
           return { ...s, refScore, trendAnalysis, probFactors };
         }).sort((a, b) => a.probFactors.finalProbability - b.probFactors.finalProbability);
         setSchools(processed);
@@ -416,16 +416,16 @@ export default function AnalysisPage() {
 
               <div className="mt-6 grid grid-cols-2 gap-4">
                 <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
+                  <span className={`text-xs ${textMuted}`}>2026年分数线</span>
+                  <div className={`text-xl font-bold mt-1 ${textPrimary}`}>{selectedSchool.score2026 || '-'}</div>
+                </div>
+                <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
                   <span className={`text-xs ${textMuted}`}>2025年分数线</span>
                   <div className={`text-xl font-bold mt-1 ${textPrimary}`}>{selectedSchool.score2025 || '-'}</div>
                 </div>
                 <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
                   <span className={`text-xs ${textMuted}`}>2024年分数线</span>
                   <div className={`text-xl font-bold mt-1 ${textPrimary}`}>{selectedSchool.score2024 || '-'}</div>
-                </div>
-                <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
-                  <span className={`text-xs ${textMuted}`}>2023年分数线</span>
-                  <div className={`text-xl font-bold mt-1 ${textPrimary}`}>{selectedSchool.score2023 || '-'}</div>
                 </div>
                 <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-gray-50'}`}>
                   <span className={`text-xs ${textMuted}`}>参考位次</span>

@@ -1,6 +1,8 @@
 // 海南省2023-2025年投档分数线数据
 // 数据来源：海南省考试局官网
 
+import { TARGET_YEAR } from '../config/examYearConfig';
+
 export interface SchoolScore {
   code: string;           // 院校专业组代码
   name: string;           // 院校专业组名称
@@ -10,9 +12,12 @@ export interface SchoolScore {
   level: string;          // 院校层次 (985/211/双一流/普通本科)
   nature: '公办' | '民办' | '中外合作办学'; // 院校性质
   region: string;         // 地区（省份）
+  score2026?: number | null;
   score2025: number | null;
   score2024: number | null;
   score2023: number | null;
+  groupNumber?: string | null;   // 院校专业组序号，如 (02)
+  planCount?: number | null;     // 最近一年招生计划数
 }
 
 // 专业推荐信息
@@ -97,6 +102,7 @@ const SUBJECT_NAME_TO_CODE: Record<string, string> = {
   '生': '3',
   '史': '5',
   '地': '6',
+  '政': '4',
 };
 
 const SUBJECT_NAME_TO_CODE_ALT: Record<string, string> = {
@@ -127,20 +133,15 @@ function parseSubjectRequirementFromString(requirement: string): { codes: string
       return { codes: [], type: 'any' };
     }
     
-    const hasLowDigits = digits.some(d => ['1', '2', '3', '4', '5', '6'].includes(d));
-    const hasHighDigits = digits.some(d => ['4', '5', '6', '7', '8', '9'].includes(d));
-    
-    let normalizedDigits: string[];
-    if (hasLowDigits && !hasHighDigits) {
-      normalizedDigits = digits;
-    } else if (hasHighDigits && !hasLowDigits) {
-      normalizedDigits = digits.map(d => {
-        const mapping: Record<string, string> = { '4': '1', '5': '2', '6': '3', '7': '4', '8': '5', '9': '6' };
-        return mapping[d] || d;
-      });
-    } else {
-      normalizedDigits = digits;
-    }
+    // 海南招生计划中的选科要求采用 4-9 编码：
+    // 4物理 5化学 6生物 7思想政治 8历史 9地理。
+    // 注意 4/5/6 同时落在两套编码区间内，不能按“是否含 4-9”来判断，
+    // 否则 54（物理+化学）会被误解为历史+政治，导致大量院校被错误过滤。
+    // 这里统一转换为界面使用的 1-6 编码后再比较。
+    const ALT_TO_UI: Record<string, string> = {
+      '4': '1', '5': '2', '6': '3', '7': '4', '8': '5', '9': '6',
+    };
+    const normalizedDigits = digits.map(d => ALT_TO_UI[d] || d);
     
     const isAscending = normalizedDigits.length > 1 && normalizedDigits.every((d, i) => i === 0 || parseInt(normalizedDigits[i - 1]) < parseInt(normalizedDigits[i]));
     return { codes: normalizedDigits, type: isAscending ? 'any' : 'all' };
@@ -305,11 +306,29 @@ export const SUBJECT_REQUIREMENTS: Record<number, string> = {
   654: '物理+化学+生物(均须选考)',
 };
 
-// 计算参考分（优先2025年）
-export function getRefScore(score2025: number | null, score2024: number | null, score2023: number | null): number {
-  if (score2025 !== null) return score2025;
-  if (score2024 !== null) return score2024;
-  return score2023 ?? 0;
+// 计算参考分：最近三个招生年加权平均（最新年 0.5 / 次年 0.3 / 再次年 0.2）。
+// 只用最近一年会把偶发的高/低分直接当成常态，导致冲稳保误判；
+// 缺失年份按现有权重归一化，保证一年数据时仍等于该年分数。
+// 参数按“由近到远”排列，换届时只需改调用方传入的年份，函数本身不用动。
+export function getRefScore(latest: number | null, previous: number | null, oldest: number | null): number {
+  const yearlyEntries: Array<[number, number | null]> = [
+    [0.5, latest],
+    [0.3, previous],
+    [0.2, oldest],
+  ];
+
+  let weightedSum = 0;
+  let weightSum = 0;
+
+  for (const [weight, score] of yearlyEntries) {
+    if (score !== null && score > 0) {
+      weightedSum += weight * score;
+      weightSum += weight;
+    }
+  }
+
+  if (weightSum === 0) return 0;
+  return Math.round(weightedSum / weightSum);
 }
 
 // 判断志愿档次
@@ -340,36 +359,36 @@ export function getRecommendationReason(refScore: number, baseScore: number, pro
   
   if (isHighScoreSystem) {
     if (diff > 20) {
-      return `投档线${refScore}分，高于考生分数${diff}分，冲刺院校，机会有限`;
+      return `${TARGET_YEAR}等效参考线${refScore}分，高于考生分数${diff}分，冲刺院校，机会有限`;
     } else if (diff > 10) {
-      return `投档线${refScore}分，高于考生分数${diff}分，合理冲刺，机会中等`;
+      return `${TARGET_YEAR}等效参考线${refScore}分，高于考生分数${diff}分，合理冲刺，机会中等`;
     } else if (diff > 0) {
-      return `投档线${refScore}分，略高于考生分数，冲刺院校`;
+      return `${TARGET_YEAR}等效参考线${refScore}分，略高于考生分数，冲刺院校`;
     } else if (diff === 0) {
-      return `投档线${refScore}分，分数相当，录取把握较大，理想的稳投选择`;
+      return `${TARGET_YEAR}等效参考线${refScore}分，分数相当，录取把握较大，理想的稳投选择`;
     } else if (diff >= -10) {
-      return `投档线${refScore}分，接近分数，录取把握较大`;
+      return `${TARGET_YEAR}等效参考线${refScore}分，接近分数，录取把握较大`;
     } else if (diff >= -20) {
-      return `投档线${refScore}分，低于考生分数${Math.abs(diff)}分，稳妥保底院校，录取概率很高`;
+      return `${TARGET_YEAR}等效参考线${refScore}分，低于考生分数${Math.abs(diff)}分，稳妥保底院校，录取概率很高`;
     } else {
-      return `投档线${refScore}分，低于考生分数${Math.abs(diff)}分，保底选择，录取概率很高`;
+      return `${TARGET_YEAR}等效参考线${refScore}分，低于考生分数${Math.abs(diff)}分，保底选择，录取概率很高`;
     }
   }
   
   if (diff > 10) {
-    return `投档线${refScore}分，高于考生分数${diff}分，冲刺院校，机会有限`;
+    return `${TARGET_YEAR}等效参考线${refScore}分，高于考生分数${diff}分，冲刺院校，机会有限`;
   } else if (diff > 5) {
-    return `投档线${refScore}分，高于考生分数${diff}分，合理冲刺，机会中等`;
+    return `${TARGET_YEAR}等效参考线${refScore}分，高于考生分数${diff}分，合理冲刺，机会中等`;
   } else if (diff > 0) {
-    return `投档线${refScore}分，略高于考生分数，冲刺院校`;
+    return `${TARGET_YEAR}等效参考线${refScore}分，略高于考生分数，冲刺院校`;
   } else if (diff === 0) {
-    return `投档线${refScore}分，分数相当，录取把握较大，理想的稳投选择`;
+    return `${TARGET_YEAR}等效参考线${refScore}分，分数相当，录取把握较大，理想的稳投选择`;
   } else if (diff >= -5) {
-    return `投档线${refScore}分，接近分数，录取把握较大`;
+    return `${TARGET_YEAR}等效参考线${refScore}分，接近分数，录取把握较大`;
   } else if (diff >= -10) {
-    return `投档线${refScore}分，低于考生分数${Math.abs(diff)}分，稳妥保底院校，录取概率很高`;
+    return `${TARGET_YEAR}等效参考线${refScore}分，低于考生分数${Math.abs(diff)}分，稳妥保底院校，录取概率很高`;
   } else {
-    return `投档线${refScore}分，低于考生分数${Math.abs(diff)}分，保底选择，录取概率很高`;
+    return `${TARGET_YEAR}等效参考线${refScore}分，低于考生分数${Math.abs(diff)}分，保底选择，录取概率很高`;
   }
 }
 
@@ -489,19 +508,21 @@ export interface RankInfo {
 }
 
 // 海南省历年本科分数线
-// 数据来源：海南省考试局官方公布、掌上高考大数据
+// 数据来源：海南省考试局官方公布
+// 说明：海南普通类只有一个本科批分数线，此前把“特殊类型招生控制线”误标为 batch、
+// 把本科批线误标为 special，并拆分物理类/历史类，导致“低于批次线”预警大面积误报。
 const HAINAN_SCORE_LINES = {
   物理类: {
-    2026: { batch: 567, special: 482 },  // 2026年预估
-    2025: { batch: 567, special: 482 },
-    2024: { batch: 568, special: 483 },
-    2023: { batch: 539, special: 466 },
+    2026: { batch: 470, special: 568 },  // 2026年预估（沿用2025年）
+    2025: { batch: 470, special: 568 },
+    2024: { batch: 483, special: 568 },
+    2023: { batch: 483, special: 569 },
   },
   历史类: {
-    2026: { batch: 606, special: 530 },  // 2026年预估
-    2025: { batch: 606, special: 530 },
-    2024: { batch: 607, special: 530 },
-    2023: { batch: 587, special: 518 },
+    2026: { batch: 470, special: 568 },  // 海南普通类不分物理/历史
+    2025: { batch: 470, special: 568 },
+    2024: { batch: 483, special: 568 },
+    2023: { batch: 483, special: 569 },
   },
 };
 

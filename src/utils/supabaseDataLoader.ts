@@ -1,9 +1,9 @@
 import { admissionScoreService, type AdmissionScore } from '../services/admissionScoreService';
-import { majorScoreService, type MajorScore } from '../services/majorScoreService';
 import { cacheService } from '../services/cacheService';
 import { extractSubjectCodes } from './dataUtils';
 import type { SchoolScore } from './dataUtils';
 import { getUniversityLevel, getUniversityNature } from '../data/universityLevels';
+import { ADMISSION_YEARS } from '../config/examYearConfig';
 
 function extractSchoolNameKey(schoolName: string): string {
   const cleaned = schoolName.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '').trim();
@@ -16,123 +16,28 @@ function getSchoolLevel(schoolName: string): string {
   return getUniversityLevel(schoolName);
 }
 
-function normalizeSchoolName(schoolName: string): string {
-  const name = schoolName.replace(/\(\d+\)/g, '').replace(/（\d+）/g, '').trim();
-  const universitySuffixes = ['大学', '学院', '职业技术学院', '高等专科学校', '师范学院', '理工大学', '科技大学', '工业大学', '农业大学', '医科大学', '中医药大学', '财经大学', '政法大学', '外国语大学', '邮电大学', '交通大学', '航空航天大学', '矿业大学', '石油大学', '地质大学', '林业大学', '海洋大学', '海事大学', '体育学院', '艺术学院', '音乐学院', '美术学院', '戏剧学院', '电影学院', '传媒大学'];
-  
-  for (const suffix of universitySuffixes) {
-    if (name.endsWith(suffix)) {
-      return name;
-    }
-  }
-  
-  return name;
-}
-
 export async function loadSchoolDataFromSupabase(province: string = '海南'): Promise<SchoolScore[]> {
   if (import.meta.env.DEV) console.log(`[DEBUG] ==================== 开始加载${province}数据 ====================`);
   
   // 仅清除项目缓存前缀（gaokao_cache:*），保留用户偏好、主题、登录等业务数据
-  // 修复：此前调用 clearAll() 会清空整个 localStorage，导致用户偏好/登录状态被误删
   cacheService.clear();
   if (import.meta.env.DEV) console.log(`[DEBUG] 缓存已清除`);
   
   const result: Map<string, SchoolScore> = new Map();
   
+  // 投档表按“院校专业组”加载：每个专业组有独立的投档线，
+  // 若按学校合并取最低分，会把同一所学校最容易进的专业组当作整所学校的分数线，
+  // 从而把大量实际需要冲的院校误判为“保”。
   const admissionData = await loadFromAdmissionScores(province);
-  if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores表加载了 ${admissionData.length} 所学校`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores表加载了 ${admissionData.length} 个院校专业组`);
   
   for (const item of admissionData) {
-    if (item.province !== province) {
-      if (import.meta.env.DEV) console.warn(`[DEBUG] 跳过province不匹配的admission数据: ${item.name}, province=${item.province}`);
-      continue;
-    }
-    
-    const key = extractSchoolNameKey(item.name);
-    const existing = result.get(key);
-    if (existing) {
-      if (item.score2025 !== null && existing.score2025 === null) existing.score2025 = item.score2025;
-      if (item.score2024 !== null && existing.score2024 === null) existing.score2024 = item.score2024;
-      if (item.score2023 !== null && existing.score2023 === null) existing.score2023 = item.score2023;
-      
-      if (item.subject !== 0 && existing.subject === 0) {
-        existing.subject = item.subject;
-      }
-      if (item.subject_requirement && existing.subject_requirement) {
-        const existingReqs = existing.subject_requirement.split('|');
-        const newReq = item.subject_requirement;
-        if (!existingReqs.includes(newReq)) {
-          existing.subject_requirement += `|${newReq}`;
-        }
-      } else if (item.subject_requirement) {
-        existing.subject_requirement = item.subject_requirement;
-      }
-    } else {
-      result.set(key, { ...item });
-    }
+    // 用“学校名+专业组序号”作为唯一键，避免不同专业组共用同一 group_code 时被覆盖
+    const key = `${extractSchoolNameKey(item.name)}#${item.groupNumber || item.code}`;
+    result.set(key, item);
   }
   
-  if (import.meta.env.DEV) console.log(`[DEBUG] 合并admission_scores后共有 ${result.size} 所学校`);
-  
-  const majorData = await loadFromMajorScores(province);
-  if (import.meta.env.DEV) console.log(`[DEBUG] major_scores表加载了 ${majorData.length} 所学校`);
-  
-  for (const item of majorData) {
-    if (item.province !== province) {
-      if (import.meta.env.DEV) console.warn(`[DEBUG] 跳过province不匹配的major数据: ${item.name}, province=${item.province}`);
-      continue;
-    }
-    
-    const key = extractSchoolNameKey(item.name);
-    const existing = result.get(key);
-    
-    if (!existing) {
-      const normalizedName = normalizeSchoolName(item.name);
-      const normalizedKey = extractSchoolNameKey(normalizedName);
-      const matched = result.get(normalizedKey);
-      if (matched) {
-        if (item.score2025 !== null && matched.score2025 === null) matched.score2025 = item.score2025;
-        if (item.score2024 !== null && matched.score2024 === null) matched.score2024 = item.score2024;
-        if (item.score2023 !== null && matched.score2023 === null) matched.score2023 = item.score2023;
-        if (item.subject !== 0 && matched.subject === 0) {
-          matched.subject = item.subject;
-        }
-        if (item.subject_requirement && matched.subject_requirement) {
-          const existingReqs = matched.subject_requirement.split('|');
-          const newReq = item.subject_requirement;
-          if (!existingReqs.includes(newReq)) {
-            matched.subject_requirement += `|${newReq}`;
-          }
-        } else if (item.subject_requirement) {
-          matched.subject_requirement = item.subject_requirement;
-        }
-        continue;
-      }
-    }
-    
-    if (existing) {
-      if (item.score2025 !== null && existing.score2025 === null) existing.score2025 = item.score2025;
-      if (item.score2024 !== null && existing.score2024 === null) existing.score2024 = item.score2024;
-      if (item.score2023 !== null && existing.score2023 === null) existing.score2023 = item.score2023;
-      if (item.subject !== 0 && existing.subject === 0) {
-        existing.subject = item.subject;
-      }
-      if (item.subject_requirement && existing.subject_requirement) {
-        const existingReqs = existing.subject_requirement.split('|');
-        const newReq = item.subject_requirement;
-        if (!existingReqs.includes(newReq)) {
-          existing.subject_requirement += `|${newReq}`;
-        }
-      } else if (item.subject_requirement) {
-        existing.subject_requirement = item.subject_requirement;
-      }
-    } else {
-      result.set(key, item);
-    }
-  }
-  
-  if (import.meta.env.DEV) console.log(`[DEBUG] 合并major_scores后共有 ${result.size} 所学校`);
-  if (import.meta.env.DEV) console.log(`[DEBUG] 返回学校列表前5所: ${Array.from(result.values()).slice(0, 5).map(s => `${s.name}(${s.province})`).join(', ')}`);
+  if (import.meta.env.DEV) console.log(`[DEBUG] 合并后共有 ${result.size} 个院校专业组`);
   if (import.meta.env.DEV) console.log(`[DEBUG] ==================== 加载${province}数据完成 ====================`);
   
   return Array.from(result.values());
@@ -140,8 +45,12 @@ export async function loadSchoolDataFromSupabase(province: string = '海南'): P
 
 async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]> {
   const result: Map<string, SchoolScore> = new Map();
-  
-  for (const year of [2023, 2024, 2025]) {
+  const latestYearMap: Map<string, number> = new Map();
+  // 记录每年实际取到的记录数，用来判断“最近招生年”：
+  // 2026 投档线尚未入库时自动回退到 2025，避免把在招专业组全部剔除。
+  const yearRecordCount: Map<number, number> = new Map();
+
+  for (const year of ADMISSION_YEARS) {
     let scores: AdmissionScore[] = [];
     
     try {
@@ -151,149 +60,92 @@ async function loadFromAdmissionScores(province: string): Promise<SchoolScore[]>
       continue;
     }
     
+    yearRecordCount.set(year, scores.length);
     if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores ${year}年原始记录数: ${scores.length}`);
     
     for (const score of scores) {
-      if (!score.school_name) continue;
+      if (!score.school_name || !score.score) continue;
       
-      if (score.province !== province) {
-        if (import.meta.env.DEV) console.warn(`[DEBUG] admission_scores数据province不匹配: ${score.school_name}, db_province=${score.province}, target=${province}`);
-        continue;
-      }
+      if (score.province !== province) continue;
       
-      const key = extractSchoolNameKey(score.school_name);
-      const existing = result.get(key);
+      // 只取本科普通批，提前批/专项批的投档线与普通志愿不可直接比较
+      if (score.batch_type !== '本科普通批') continue;
       
-      if (existing) {
-        if (year === 2025) {
-          if (existing.score2025 === null || score.score < existing.score2025) {
-            existing.score2025 = score.score;
-          }
-        } else if (year === 2024) {
-          if (existing.score2024 === null || score.score < existing.score2024) {
-            existing.score2024 = score.score;
-          }
-        } else if (year === 2023) {
-          if (existing.score2023 === null || score.score < existing.score2023) {
-            existing.score2023 = score.score;
-          }
-        }
-        
-        const subjectCode = parseSubjectRequirementToCode(score.subject_requirement);
-        if (subjectCode > 0 && existing.subject === 0) {
-          existing.subject = subjectCode;
-        }
-        if (score.subject_requirement && !existing.subject_requirement) {
-          existing.subject_requirement = score.subject_requirement;
-        }
-      } else {
-        const subjectCode = parseSubjectRequirementToCode(score.subject_requirement);
-        
-        result.set(key, {
-          code: key,
-          name: normalizeSchoolName(score.school_name),
-          subject: subjectCode,
-          subject_requirement: score.subject_requirement ?? null,
-          province: province,
+      const schoolKey = extractSchoolNameKey(score.school_name);
+      const groupNumber = score.group_number
+        || (score.group_name?.match(/\(\d+\)/) || [])[0]
+        || '';
+      const key = `${schoolKey}#${groupNumber}`;
+      
+      let item = result.get(key);
+      if (!item) {
+        item = {
+          code: score.group_code || key,
+          name: score.group_name || score.school_name,
+          subject: 0,
+          subject_requirement: null,
+          province,
           level: getSchoolLevel(score.school_name),
           nature: getUniversityNature(score.school_name),
           region: province,
-          score2025: year === 2025 ? score.score : null,
-          score2024: year === 2024 ? score.score : null,
-          score2023: year === 2023 ? score.score : null,
-        });
+          score2026: null,
+          score2025: null,
+          score2024: null,
+          score2023: null,
+          groupNumber,
+          planCount: null,
+        };
+        result.set(key, item);
+      }
+      
+      if (year === 2026) item.score2026 = score.score;
+      else if (year === 2025) item.score2025 = score.score;
+      else if (year === 2024) item.score2024 = score.score;
+      else item.score2023 = score.score;
+      
+      // 以最近一年的专业组代码、名称、选科要求为准
+      const prevYear = latestYearMap.get(key) || 0;
+      if (year > prevYear) {
+        latestYearMap.set(key, year);
+        item.code = score.group_code || item.code;
+        item.name = score.group_name || score.school_name;
+        item.subject_requirement = score.subject_requirement ?? null;
+        item.subject = parseSubjectRequirementToCode(score.subject_requirement);
+        item.planCount = score.plan_count ?? item.planCount ?? null;
       }
     }
   }
   
-  if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores聚合后学校数: ${result.size}`);
-  return Array.from(result.values());
-}
+  if (import.meta.env.DEV) console.log(`[DEBUG] admission_scores聚合后专业组数: ${result.size}`);
 
-async function loadFromMajorScores(province: string): Promise<SchoolScore[]> {
-  const result: Map<string, SchoolScore> = new Map();
-  let skipped = 0;
-  
-  try {
-    if (import.meta.env.DEV) console.log(`[DEBUG] 开始调用 majorScoreService.getByProvince('${province}')`);
-    const scores: MajorScore[] = await majorScoreService.getByProvince(province);
-    if (import.meta.env.DEV) console.log(`[DEBUG] major_scores原始记录数: ${scores.length}`);
-    
-    if (scores.length > 0) {
-      const firstItem = scores[0];
-      if (import.meta.env.DEV) console.log(`[DEBUG] 第一条记录: province=${firstItem.province}, school_name=${firstItem.school_name}, year=${firstItem.year}, min_score=${firstItem.min_score}`);
-    }
-    
-    const provinceValues = [...new Set(scores.map(s => s.province))];
-    if (import.meta.env.DEV) console.log(`[DEBUG] province字段值分布: ${provinceValues.join(', ')}`);
-    
-    const schoolNames = [...new Set(scores.map(s => s.school_name))];
-    if (import.meta.env.DEV) console.log(`[DEBUG] 原始学校数: ${schoolNames.length}`);
-    if (import.meta.env.DEV) console.log(`[DEBUG] 前10所学校: ${schoolNames.slice(0, 10).join(', ')}`);
-    
-    for (const score of scores) {
-      if (!score.school_name || score.min_score === null) {
-        skipped++;
-        continue;
-      }
-      
-      if (score.province !== province) {
-        if (import.meta.env.DEV) console.warn(`[DEBUG] major_scores数据province不匹配: ${score.school_name}, db_province=${score.province}, target=${province}`);
-        skipped++;
-        continue;
-      }
-      
-      const key = extractSchoolNameKey(score.school_name);
-      const existing = result.get(key);
-      
-      if (existing) {
-        if (score.year === 2025) {
-          if (existing.score2025 === null || score.min_score < existing.score2025) {
-            existing.score2025 = score.min_score;
-          }
-        } else if (score.year === 2024) {
-          if (existing.score2024 === null || score.min_score < existing.score2024) {
-            existing.score2024 = score.min_score;
-          }
-        } else if (score.year === 2023) {
-          if (existing.score2023 === null || score.min_score < existing.score2023) {
-            existing.score2023 = score.min_score;
-          }
-        }
-        
-        const subjectCode = parseSubjectRequirementToCode(score.subject_requirement);
-        if (subjectCode > 0 && existing.subject === 0) {
-          existing.subject = subjectCode;
-        }
-        if (score.subject_requirement && !existing.subject_requirement) {
-          existing.subject_requirement = score.subject_requirement;
-        }
-      } else {
-          const subjectCode = parseSubjectRequirementToCode(score.subject_requirement);
-          
-          result.set(key, {
-            code: key,
-            name: normalizeSchoolName(score.school_name),
-            subject: subjectCode,
-            subject_requirement: score.subject_requirement,
-            province: province,
-            level: getSchoolLevel(score.school_name),
-            nature: getUniversityNature(score.school_name),
-            region: province,
-            score2025: score.year === 2025 ? score.min_score : null,
-            score2024: score.year === 2024 ? score.min_score : null,
-            score2023: score.year === 2023 ? score.min_score : null,
-          });
-        }
-    }
-  } catch (error) {
-    if (import.meta.env.DEV) console.warn(`从major_scores表加载数据失败:`, error);
+  // 只保留最近一个有投档数据的年份仍在招生的专业组：
+  // 早年出现过、最近未再招生的专业组，多数是合并、拆分或撤销，
+  // 其组号在当年已不存在，继续推荐会给出无法填报的方案。
+  // 2026 投档线入库后自动以 2026 为准，未入库时回退到 2025。
+  const latestAdmissionYear = [...yearRecordCount.entries()]
+    .filter(([, count]) => count > 0)
+    .map(([year]) => year)
+    .sort((a, b) => b - a)[0] ?? 2025;
+
+  const getScoreForYear = (item: SchoolScore, year: number): number | null => {
+    if (year === 2026) return item.score2026 ?? null;
+    if (year === 2025) return item.score2025;
+    if (year === 2024) return item.score2024;
+    return item.score2023;
+  };
+
+  const groups = Array.from(result.values());
+  const activeGroups = groups.filter(item => getScoreForYear(item, latestAdmissionYear) !== null);
+  if (import.meta.env.DEV) {
+    const dropped = groups.length - activeGroups.length;
+    console.log(`[DEBUG] 剔除${latestAdmissionYear}年未招生专业组: ${dropped} 个，保留在招专业组: ${activeGroups.length} 个`);
+    const recentYears = ADMISSION_YEARS.filter(year => year <= latestAdmissionYear).slice(-3);
+    const fullHistory = activeGroups.filter(
+      item => recentYears.every(year => getScoreForYear(item, year) !== null)
+    ).length;
+    console.log(`[DEBUG] ${recentYears.join('/')} 数据齐全的在招专业组: ${fullHistory} 个`);
   }
-  
-  if (import.meta.env.DEV) console.log(`[DEBUG] major_scores跳过的记录数: ${skipped}`);
-  if (import.meta.env.DEV) console.log(`[DEBUG] major_scores聚合后学校数: ${result.size}`);
-  
-  return Array.from(result.values());
+  return activeGroups;
 }
 
 function parseSubjectRequirementToCode(requirement: string | null): number {
@@ -313,7 +165,8 @@ export async function loadSchoolDataFromSupabaseByScoreRange(
 ): Promise<SchoolScore[]> {
   const allData = await loadSchoolDataFromSupabase(province);
   return allData.filter(s => {
-    const scores = [s.score2025, s.score2024, s.score2023].filter((s): s is number => s !== null);
+    const scores = [s.score2026, s.score2025, s.score2024, s.score2023]
+      .filter((score): score is number => score !== null && score !== undefined);
     if (scores.length === 0) return false;
     const avgScore = scores.reduce((a, b) => a + b, 0) / scores.length;
     return avgScore >= minScore && avgScore <= maxScore;

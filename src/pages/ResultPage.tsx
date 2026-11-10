@@ -10,6 +10,7 @@ import { useUsageStore } from '../store/usageStore';
 import { exportToExcel } from '../utils/volunteerUtils';
 import { parseSubjectRequirement, matchMajorCategories, MAJOR_CATEGORIES } from '../utils/dataUtils';
 import { calculateRiskAssessment } from '../utils/trendAnalyzer';
+import { TARGET_YEAR, REFERENCE_YEAR } from '../config/examYearConfig';
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useAppStore();
@@ -39,7 +40,7 @@ function ThemeToggle() {
 
 export function ResultPage() {
   const navigate = useNavigate();
-  const { results, baseScore, scoreRange, subject, totalVolunteers, clearResults, isDark } = useAppStore();
+  const { results, baseScore, scoreRange, subject, totalVolunteers, clearResults, isDark, currentRegion } = useAppStore();
   const { isAuthenticated } = useAuthStore();
   const { logAction } = useUsageStore();
   const [activeTier, setActiveTier] = useState<string>('all');
@@ -47,15 +48,19 @@ export function ResultPage() {
   const chongCount = results.filter(r => r.tier === '冲').length;
   const wenCount = results.filter(r => r.tier === '稳').length;
   const baoCount = results.filter(r => r.tier === '保').length;
-  const riskAssessment = calculateRiskAssessment(chongCount, wenCount, baoCount);
+  const riskAssessment = calculateRiskAssessment(chongCount, wenCount, baoCount, {
+    chong: results.filter(r => r.tier === '冲').map(r => r.admissionProbability),
+    wen: results.filter(r => r.tier === '稳').map(r => r.admissionProbability),
+    bao: results.filter(r => r.tier === '保').map(r => r.admissionProbability),
+  });
   
   const filteredResults = activeTier === 'all' 
     ? results 
     : results.filter(r => r.tier === activeTier);
   
   const handleExport = () => {
-    const filename = `2026志愿方案_${baseScore}分_${results.length}志愿.xlsx`;
-    exportToExcel(results, filename);
+    const filename = `${TARGET_YEAR}志愿方案_${baseScore}分_${results.length}志愿.xlsx`;
+    exportToExcel(results, filename, baseScore);
     
     // 记录导出行为
     if (isAuthenticated) {
@@ -206,8 +211,8 @@ export function ResultPage() {
               </div>
               <div className={`w-px h-8 ${isDark ? 'bg-white/10' : 'bg-gray-200'}`} />
               <div className="flex items-center gap-2">
-                <span className={textSecondary}>分数范围</span>
-                <span className={`${textPrimary} font-medium`}>±{scoreRange} ({baseScore - scoreRange} - {baseScore + scoreRange})</span>
+                <span className={textSecondary}>筛选上限</span>
+                <span className={`${textPrimary} font-medium`}>{['海南'].includes(currentRegion) ? baseScore + scoreRange * 2 : baseScore + scoreRange} 分（冲稳保按概率动态判定）</span>
               </div>
               <div className={`w-px h-8 ${isDark ? 'bg-white/10' : 'bg-gray-200'}`} />
               <div className="flex items-center gap-2">
@@ -392,7 +397,7 @@ export function ResultPage() {
                               <h3 className={`text-lg font-semibold ${textPrimary} truncate`}>{volunteer.name}</h3>
                             )}
                           </div>
-                          <p className={`text-sm ${textMuted}`}>院校代码：{volunteer.code}</p>
+                          <p className={`text-sm ${textMuted}`}>院校专业组代码：{volunteer.code}</p>
                         </div>
                         
                         {/* 录取概率 - 重点展示 */}
@@ -496,16 +501,16 @@ export function ResultPage() {
                           </div>
                           <div className="flex gap-6 flex-1">
                             <div className="text-center">
+                              <p className={`text-xs ${textMuted} mb-1`}>2026</p>
+                              <p className={`text-sm font-bold ${textPrimary}`}>{volunteer.score2026 ?? '-'}</p>
+                            </div>
+                            <div className="text-center">
                               <p className={`text-xs ${textMuted} mb-1`}>2025</p>
-                              <p className={`text-sm font-bold ${textPrimary}`}>{volunteer.score2025 ?? '-'}</p>
+                              <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{volunteer.score2025 ?? '-'}</p>
                             </div>
                             <div className="text-center">
                               <p className={`text-xs ${textMuted} mb-1`}>2024</p>
                               <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{volunteer.score2024 ?? '-'}</p>
-                            </div>
-                            <div className="text-center">
-                              <p className={`text-xs ${textMuted} mb-1`}>2023</p>
-                              <p className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{volunteer.score2023 ?? '-'}</p>
                             </div>
                           </div>
                           <div className={`text-right ${scoreDiff.color}`}>
@@ -513,7 +518,7 @@ export function ResultPage() {
                               {scoreDiff.icon}
                               <span className="font-bold">{scoreDiff.text}分</span>
                             </div>
-                            <p className={`text-xs ${textMuted}`}>与参考分差</p>
+                            <p className={`text-xs ${textMuted}`}>近三年加权线（已折算{REFERENCE_YEAR}）</p>
                           </div>
                         </div>
                         
@@ -624,9 +629,15 @@ export function ResultPage() {
                             ) : (
                               <div className={`text-center py-8 ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
                                 <GraduationCap className="w-14 h-14 mx-auto mb-3 opacity-40" />
-                                <p className="text-sm font-medium">暂无匹配的专业数据</p>
-                                <p className="text-xs mt-1">该院校在数据库中暂无专业录取分数线记录</p>
-                                <p className="text-xs mt-2">建议参考院校投档线进行志愿填报</p>
+                                <p className="text-sm font-medium">该院校暂无分专业录取数据</p>
+                                <p className="text-xs mt-1">
+                                  已按院校专业组投档线评估：{TARGET_YEAR}等效参考线 {volunteer.refScore} 分
+                                </p>
+                                <p className="text-xs mt-2">
+                                  {volunteer.website
+                                    ? '建议前往院校官网查询该专业组招生计划与选科要求'
+                                    : '建议查阅省考试局招生计划，确认该专业组开设的专业'}
+                                </p>
                               </div>
                             )}
                           </div>
